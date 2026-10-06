@@ -18,6 +18,7 @@ def main() -> None:
     p0.add_argument("--device", default=None, help="mps | cuda | cpu (default: auto)")
     p0.add_argument("--dtype", default=None, help="float16 | bfloat16 | float32")
     p0.add_argument("--langs", nargs="*", default=None, choices=["de", "es"])
+    p0.add_argument("--min-margin", type=float, default=1.0, help="nats; below this = unsure")
 
     pc = sub.add_parser("phase0-compare", help="Tabulate all Phase 0 results")
     pc.add_argument("--out", default="results/phase0")
@@ -64,7 +65,7 @@ def main() -> None:
     if a.cmd == "phase0":
         for m in a.models:
             try:
-                phase0.run(m, a.stimuli, a.out, a.device, a.dtype, a.langs)
+                phase0.run(m, a.stimuli, a.out, a.device, a.dtype, a.langs, a.min_margin)
             except Exception as e:  # noqa: BLE001 - keep going through the model list
                 print(f"!! {m} failed: {type(e).__name__}: {e}")
             finally:

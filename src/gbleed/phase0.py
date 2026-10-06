@@ -1,23 +1,35 @@
 """Phase 0: does the model know the genders?
 
-Two independent behavioural measures per noun, plus a tokenization log.
+Per noun, three behavioural measures plus a tokenization log.
 
-1. Metalinguistic (next-token): a few-shot "noun: article" list, so the next
-   token after "{noun}:" is the article. Compare log P(der) vs log P(die)
-   (or el vs la). Run with two shot orderings (one ending on a masculine
-   example, one on a feminine example) and average, to cancel recency bias.
-   P(das) and total probability mass on the candidates are logged as
-   diagnostics: low mass means the model isn't following the format.
+Primary: sentence scoring in two frames. The same sentence with the masculine
+vs the feminine article; compare total log-probability (margin, in nats).
+Frames are chosen so the wrong article is never a valid reading:
+  frame 1, dative singular
+    de: "Das hat etwas mit dem/der X zu tun."  the plural would be "den X-n",
+        so "der" can't be read as plural
+    es: "Esto tiene que ver con el/la X."  "con el" doesn't contract
+        (unlike "a el" -> "al", "de el" -> "del")
+  frame 2, nominative subject + singular verb, after a short lead-in
+    de: "Ich weiß, dass der/die X hier ist."  singular "ist" rules out plural "die"
+    es: "Mira, el/la X está aquí."  "está" doesn't agree in gender, so gives nothing away
+  Don't put the article first: with no preceding context (Qwen adds no BOS
+  token) a sentence-initial "Der/Die X ist hier." scored only ~75% on
+  Qwen3-0.6B vs ~93-95% for these. Avoid frames where the other article has
+  another reading ("Sé que la X ..." : la = "her") or where later words agree
+  in gender ("... es nuevo").
 
-2. Contextual (sentence scoring): the same sentence with the masculine vs
-   feminine article, compare total log-probability. Frames are chosen so the
-   wrong article is never a valid reading:
-     de: "Das hat etwas mit dem/der X zu tun."  dative singular; the plural
-         would be "den X-n", so "der" can't be read as plural.
-     es: "Esto tiene que ver con el/la X."  "con el" doesn't contract
-         (unlike "a el" -> "al", "de el" -> "del").
+Each frame is "right" / "wrong" when its margin points the right / wrong way
+by at least `min_margin` nats, else "unsure". A noun's status:
+  known     both frames right         -> usable downstream (`passed`)
+  wrong     a frame is confidently wrong and the other isn't right
+  conflict  one frame right, the other confidently wrong
+  unsure    otherwise (near-ties): dropped, not counted as wrong
 
-A noun "passes" when both measures are correct.
+Diagnostic only: the metalinguistic quiz (few-shot "noun: article" list, next
+token P(der) vs P(die), averaged over two shot orderings). In small models it
+is format-sensitive (answers flip with shot order), so it doesn't gate
+anything; it's kept to see whether a model can *report* gender as well as use it.
 """
 
 from __future__ import annotations
@@ -34,6 +46,10 @@ from .models import load_model, model_slug, pick_device, pick_dtype, run_metadat
 from .scoring import candidate_logprobs, sentence_logprob, tokens_of
 from .stimuli import flipped_pairs, load_stimuli
 
+# A frame counts only if the two sentences differ by >= this many nats
+# (e^1 ~ 2.7x more likely). Well above fp16 rounding noise (~0.05).
+DEFAULT_MIN_MARGIN = 1.0
+
 LANG_CONFIG = {
     "de": {
         "header": "Bestimmter Artikel:\n",
@@ -41,16 +57,20 @@ LANG_CONFIG = {
         "shots": [("Teppich", "der"), ("Tasche", "die"), ("Garten", "der"), ("Kerze", "die")],
         "meta": {"m": " der", "f": " die"},
         "meta_other": [" das"],
-        "ctx_frame": "Das hat etwas mit {art} {noun} zu tun.",
-        "ctx_art": {"m": "dem", "f": "der"},
+        "frames": [
+            ("Das hat etwas mit {art} {noun} zu tun.", {"m": "dem", "f": "der"}),
+            ("Ich weiß, dass {art} {noun} hier ist.", {"m": "der", "f": "die"}),
+        ],
     },
     "es": {
         "header": "Artículo definido:\n",
         "shots": [("cuaderno", "el"), ("ventana", "la"), ("zapato", "el"), ("camisa", "la")],
         "meta": {"m": " el", "f": " la"},
         "meta_other": [],
-        "ctx_frame": "Esto tiene que ver con {art} {noun}.",
-        "ctx_art": {"m": "el", "f": "la"},
+        "frames": [
+            ("Esto tiene que ver con {art} {noun}.", {"m": "el", "f": "la"}),
+            ("Mira, {art} {noun} está aquí.", {"m": "el", "f": "la"}),
+        ],
     },
 }
 
@@ -86,12 +106,15 @@ def score_noun(model, tok, lang: str, noun: str) -> dict:
     )
     mass = sum(math.exp(_logsumexp(o)) for o in per_order) / len(per_order)
 
-    ctx = {
-        g: sentence_logprob(model, tok, cfg["ctx_frame"].format(art=art, noun=noun))
-        for g, art in cfg["ctx_art"].items()
-    }
+    frames = {}
+    for i, (frame, arts) in enumerate(cfg["frames"], start=1):
+        lp = {
+            g: sentence_logprob(model, tok, frame.format(art=a, noun=noun)) for g, a in arts.items()
+        }
+        frames[f"ctx{i}_margin"] = lp["m"] - lp["f"]
     toks = tokens_of(tok, " " + noun)
     return {
+        **frames,
         "meta_lp_m": lp_m,
         "meta_lp_f": lp_f,
         "meta_lp_other": lp_other,
@@ -99,9 +122,6 @@ def score_noun(model, tok, lang: str, noun: str) -> dict:
         "meta_margin": lp_m - lp_f,
         "meta_order_agree": (per_order[0][0] > per_order[0][1])
         == (per_order[1][0] > per_order[1][1]),
-        "ctx_lp_m": ctx["m"],
-        "ctx_lp_f": ctx["f"],
-        "ctx_margin": ctx["m"] - ctx["f"],
         "n_tokens": len(toks),
         "tokens": "|".join(toks),
     }
@@ -120,28 +140,74 @@ def _balanced_acc(sub: pd.DataFrame, col: str) -> float:
     return float(sum(accs) / len(accs)) if accs else float("nan")
 
 
-def summarize(items: pd.DataFrame) -> dict:
-    out = {}
+def frame_verdict(margin: float, gender: str, min_margin: float) -> str:
+    if abs(margin) < min_margin:
+        return "unsure"
+    return "right" if (margin > 0) == (gender == "m") else "wrong"
+
+
+def classify(items: pd.DataFrame, min_margin: float) -> pd.DataFrame:
+    items = items.copy()
+    frame_cols = sorted(c for c in items if c.startswith("ctx") and c.endswith("_margin"))
+    verdicts = []
+    for c in frame_cols:
+        v = c.replace("_margin", "_verdict")
+        items[v] = [
+            frame_verdict(m, g, min_margin) for m, g in zip(items[c], items.gender, strict=True)
+        ]
+        verdicts.append(v)
+
+    def status(row) -> str:
+        vs = [row[v] for v in verdicts]
+        if all(x == "right" for x in vs):
+            return "known"
+        if "right" in vs and "wrong" in vs:
+            return "conflict"
+        if "wrong" in vs:
+            return "wrong"
+        return "unsure"
+
+    items["status"] = items.apply(status, axis=1)
+    items["passed"] = items.status == "known"
+    items["ctx_margin"] = items[frame_cols].mean(axis=1)
+    items["ctx_pred"] = (items.ctx_margin > 0).map({True: "m", False: "f"})
+    items["ctx_correct"] = items.ctx_pred == items.gender  # sign only, no threshold
+    items["frames_agree"] = (items[frame_cols].gt(0)).nunique(axis=1).eq(1)
+    items["meta_pred"] = (items.meta_margin > 0).map({True: "m", False: "f"})
+    items["meta_correct"] = items.meta_pred == items.gender
+    return items
+
+
+def _rates(sub: pd.DataFrame) -> dict:
+    return {
+        "n": len(sub),
+        "known_bal": _balanced_acc(sub, "passed"),
+        "ctx_bal_acc": _balanced_acc(sub, "ctx_correct"),
+        "meta_bal_acc": _balanced_acc(sub, "meta_correct"),
+    }
+
+
+def summarize(items: pd.DataFrame, min_margin: float) -> dict:
+    out = {"min_margin": min_margin}
     for lang, sub in items.groupby("lang"):
+        st = sub.status.value_counts(normalize=True)
         out[lang] = {
-            "n": len(sub),
+            **_rates(sub),
             "n_m": int((sub.gender == "m").sum()),
             "n_f": int((sub.gender == "f").sum()),
-            "meta_acc": float(sub.meta_correct.mean()),
-            "meta_bal_acc": _balanced_acc(sub, "meta_correct"),
-            "ctx_acc": float(sub.ctx_correct.mean()),
-            "ctx_bal_acc": _balanced_acc(sub, "ctx_correct"),
-            "both_acc": float(sub.both_correct.mean()),
-            "both_bal_acc": _balanced_acc(sub, "both_correct"),
-            "acc_m": float(sub[sub.gender == "m"].both_correct.mean()),
-            "acc_f": float(sub[sub.gender == "f"].both_correct.mean()),
-            "measures_agree": float((sub.meta_pred == sub.ctx_pred).mean()),
+            "known_m": float(sub[sub.gender == "m"].passed.mean()),
+            "known_f": float(sub[sub.gender == "f"].passed.mean()),
+            **{
+                f"rate_{k}": float(st.get(k, 0.0)) for k in ("known", "wrong", "conflict", "unsure")
+            },
+            "frames_agree": float(sub.frames_agree.mean()),
+            "quiz_agrees_with_ctx": float((sub.meta_pred == sub.ctx_pred).mean()),
             "meta_order_agree": float(sub.meta_order_agree.mean()),
             "mean_meta_mass": float(sub.meta_mass.mean()),
             "frac_multitoken": float((sub.n_tokens > 1).mean()),
         }
-    # Flipped pairs usable downstream = both halves pass.
-    passed = items[items.both_correct]
+    # Flipped pairs usable downstream = both halves known.
+    passed = items[items.passed]
     pairs = flipped_pairs(items)
     ok = sum(
         ((passed.lang == "de") & (passed.lemma == r.de_lemma)).any()
@@ -159,12 +225,7 @@ def summarize(items: pd.DataFrame) -> dict:
 def _breakdown(items: pd.DataFrame, col: str) -> dict:
     res = {}
     for (lang, key), sub in items.groupby(["lang", items[col].astype(str)]):
-        res.setdefault(lang, {})[key] = {
-            "n": len(sub),
-            "both_bal_acc": _balanced_acc(sub, "both_correct"),
-            "ctx_bal_acc": _balanced_acc(sub, "ctx_correct"),
-            "meta_bal_acc": _balanced_acc(sub, "meta_correct"),
-        }
+        res.setdefault(lang, {})[key] = _rates(sub)
     return res
 
 
@@ -175,6 +236,7 @@ def run(
     device: str | None = None,
     dtype: str | None = None,
     langs: list[str] | None = None,
+    min_margin: float = DEFAULT_MIN_MARGIN,
 ) -> Path:
     df = load_stimuli(stimuli_path)
     check_shots_disjoint(df)
@@ -192,17 +254,12 @@ def run(
     rows = []
     for r in tqdm(df.itertuples(), total=len(df), desc=model_id):
         rows.append({**r._asdict(), **score_noun(model, tok, r.lang, r.lemma)})
-    items = pd.DataFrame(rows).drop(columns="Index")
-    items["meta_pred"] = (items.meta_margin > 0).map({True: "m", False: "f"})
-    items["ctx_pred"] = (items.ctx_margin > 0).map({True: "m", False: "f"})
-    items["meta_correct"] = items.meta_pred == items.gender
-    items["ctx_correct"] = items.ctx_pred == items.gender
-    items["both_correct"] = items.meta_correct & items.ctx_correct
+    items = classify(pd.DataFrame(rows).drop(columns="Index"), min_margin)
 
     out = Path(out_root) / model_slug(model_id)
     out.mkdir(parents=True, exist_ok=True)
     items.to_csv(out / "items.csv", index=False)
-    summary = {"meta": meta, "results": summarize(items)}
+    summary = {"meta": meta, "results": summarize(items, min_margin)}
     (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
     print(json.dumps(summary["results"], indent=2))
     print(f"Wrote {out}/")
@@ -226,20 +283,21 @@ def compare(out_root: str = "results/phase0", by: str | None = None) -> pd.DataF
                     "dtype": s["meta"]["dtype"],
                     "lang": lang,
                     "n": r["n"],
-                    "both_bal_acc": round(r["both_bal_acc"], 3),
-                    "meta_bal_acc": round(r["meta_bal_acc"], 3),
-                    "ctx_bal_acc": round(r["ctx_bal_acc"], 3),
-                    "acc_m": round(r["acc_m"], 3),
-                    "acc_f": round(r["acc_f"], 3),
-                    "agree": round(r["measures_agree"], 3),
-                    "mass": round(r["mean_meta_mass"], 3),
+                    "known_bal": _r(r.get("known_bal")),
+                    "known_m": _r(r.get("known_m")),
+                    "known_f": _r(r.get("known_f")),
+                    "wrong": _r(r.get("rate_wrong")),
+                    "unsure": _r(r.get("rate_unsure")),
+                    "conflict": _r(r.get("rate_conflict")),
+                    "ctx_bal_acc": _r(r.get("ctx_bal_acc")),
+                    "quiz_bal_acc": _r(r.get("meta_bal_acc")),
                     "flipped_ok": f"{s['results']['flipped_pairs']['both_pass']}"
                     f"/{s['results']['flipped_pairs']['n']}",
                 }
             )
     table = pd.DataFrame(rows)
     if len(table):
-        table = table.sort_values(["lang", "both_bal_acc"], ascending=[True, False])
+        table = table.sort_values(["lang", "known_bal"], ascending=[True, False])
         table.to_csv(Path(out_root) / "comparison.csv", index=False)
     return table
 
@@ -251,13 +309,17 @@ def _compare_by(out_root: str, by: str) -> pd.DataFrame:
         for lang, groups in s["results"].get(f"by_{by}", {}).items():
             for key, r in groups.items():
                 rows.append({"model": s["meta"]["model_id"], "lang": lang, by: key,
-                             "n": r["n"], "both_bal_acc": round(r["both_bal_acc"], 3)})  # fmt: skip
+                             "n": r["n"], "known_bal": _r(r.get("known_bal"))})  # fmt: skip
     if not rows:
         return pd.DataFrame()
     t = (
         pd.DataFrame(rows)
-        .pivot_table(index=["lang", "model"], columns=by, values="both_bal_acc")
+        .pivot_table(index=["lang", "model"], columns=by, values="known_bal")
         .reset_index()
     )
     t.to_csv(Path(out_root) / f"comparison_by_{by}.csv", index=False)
     return t
+
+
+def _r(x):
+    return None if x is None else round(x, 3)

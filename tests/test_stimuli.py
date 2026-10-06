@@ -34,3 +34,21 @@ def test_meta_prompt_ends_before_article():
     cfg = LANG_CONFIG["de"]
     p = meta_prompt(cfg, cfg["shots"], "Brücke")
     assert p.endswith("\nBrücke:")
+
+
+def test_classify_statuses():
+    import pandas as pd
+
+    from gbleed.phase0 import classify
+
+    df = pd.DataFrame(
+        {
+            "gender": ["m", "m", "f", "f", "m"],
+            "ctx1_margin": [3.0, 3.0, -0.2, 2.0, -4.0],
+            "ctx2_margin": [2.0, -3.0, -5.0, 2.0, -0.5],
+            "meta_margin": [0.1] * 5,
+        }
+    )
+    out = classify(df, min_margin=1.0)
+    assert out.status.tolist() == ["known", "conflict", "unsure", "wrong", "wrong"]
+    assert out.passed.tolist() == [True, False, False, False, False]
