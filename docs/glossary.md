@@ -62,8 +62,9 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   two when Phase 1 needs hooks.
 - **Attention sink.** The first position of a sequence, where models park attention they don't
   need; its activations are huge (Qwen3-0.6B, layer 10: vector length ~6,700 vs ~37 elsewhere)
-  and unrepresentative. So words are never placed at position 0: Phase 1+ inputs start with
-  Qwen's document-separator token `<|endoftext|>`.
+  and unrepresentative. The first token after a document separator can be one too (for some
+  single-token words, one dimension jumps to ~2,500). So Phase 1+ inputs are `<|endoftext|>`, a
+  newline as a buffer, then the word.
 - **`hidden_states`** *(transformers)*. What a Hugging Face model returns with
   `output_hidden_states=True`: one array per layer boundary. For Qwen3: index 0 = token
   embeddings, 1…L−1 = layer outputs, L = last layer *after* the final normalisation (different

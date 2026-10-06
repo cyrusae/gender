@@ -104,7 +104,7 @@ def extract(model_id: str, device=None, dtype=None) -> None:
     model, tok = load_model(model_id, dev, dt)
     meta = run_metadata(model, model_id, dev, dt)
     meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
-    meta["input_format"] = "[<|endoftext|>] + tokens(' ' + text); last token"
+    meta["input_format"] = acts.INPUT_FORMAT
     for name, ws in texts.items():
         stage(f"{model_id}: extracting {name} ({len(ws)} texts)")
         X, toks = acts.last_token_states(model, tok, ws, desc=name)
