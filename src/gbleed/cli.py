@@ -33,6 +33,12 @@ def main() -> None:
     sub.add_parser("classics", help="Look up genders for data/stimuli/classics_spec.csv")
     pm = sub.add_parser("multi-check", help="Do models accept both genders for See/mar-type items?")
     pm.add_argument("models", nargs="+")
+    sub.add_parser("phase2-finalize", help="Keep nouns known by all models; freeze splits")
+    p2 = sub.add_parser("phase2", help="Extract activations and run the Phase 2 analysis")
+    p2.add_argument("models", nargs="+")
+    p2.add_argument("--device", default=None)
+    p2.add_argument("--dtype", default=None)
+    p2.add_argument("--skip-extract", action="store_true")
     sub.add_parser("phase2-stimuli", help="Build Phase 2 pools (data/stimuli/phase2_pool_v1.csv)")
     sub.add_parser("phase1-stimuli", help="Build Phase 1 verb / nonce / noun lists (v1)")
     p1 = sub.add_parser("phase1", help="Extract activations and fit/validate the spelling eraser")
@@ -66,6 +72,20 @@ def main() -> None:
             print(df[["lang", "lemma", "type", "ctx1_margin", "ctx2_margin", "both_accepted",
                       "prefers"]].round(2).to_string(index=False))  # fmt: skip
             _free_memory()
+        return
+    if a.cmd == "phase2-finalize":
+        from .phase2 import finalize
+
+        finalize()
+        return
+    if a.cmd == "phase2":
+        from . import phase2
+
+        for m in a.models:
+            if not a.skip_extract:
+                phase2.extract(m, a.device, a.dtype)
+                _free_memory()
+            phase2.analyze(m)
         return
     if a.cmd == "phase2-stimuli":
         from .phase2_stimuli import build
