@@ -18,6 +18,12 @@ Research project: does an LLM's representation of grammatical gender (learned fr
 - Base (pretrained) models only; no 4-bit/8-bit quantization.
 - Stimulus lists are versioned (`data/stimuli/phase0_vN.csv`). Don't edit a list that has results; sample a new version and rerun.
 - Cross-model comparisons use the **shared set** (items known by every model compared).
+- **Held-out test sets are frozen before training and never trained on.** Every stimulus file for
+  Phases 1–5 carries a `split` column (train/test), assigned once with a fixed seed, by stem.
+  Test sets: Phase 1 nonce stems; Phase 2 exceptions (-ma, clippings, día/mano), homographs,
+  el/la mar; Phase 3 suffix-marked nouns and der/die See; Phases 4–5 flipped pairs + classics.
+  Training code must assert no test item appears in its training data. Candidate extra test:
+  feminine *el agua*-type nouns (currently excluded) for Phase 2.
 
 ## Commands
 
