@@ -63,6 +63,14 @@ def git_state() -> dict:
             return ""
 
     commit = git("rev-parse", "HEAD")
+    if not commit:
+        # Not a git checkout (e.g. a code bundle on a RunPod pod): use the commit recorded
+        # in the bundle. Uncommitted changes can't be detected then, so git_dirty is None.
+        from pathlib import Path
+
+        f = Path("BUNDLE_COMMIT.txt")
+        if f.exists():
+            return {"git_commit": f.read_text().strip(), "git_dirty": None, "git_source": "bundle"}
     # Outputs (results/) don't count: only code, configs and stimulus data.
     dirty = bool(git("status", "--porcelain", "--untracked-files=no", "--", ".", ":!results"))
     if dirty:
@@ -83,7 +91,17 @@ def run_metadata(model, model_id: str, device: str, dtype: torch.dtype) -> dict:
         "torch": torch.__version__,
         "transformers": transformers.__version__,
         "machine": f"{platform.system()} {platform.machine()} {platform.processor()}",
+        **_gpu_info(device),
     }
+
+
+def _gpu_info(device: str) -> dict:
+    """Which accelerator produced a result (so results say which chip they came from)."""
+    if device == "cuda" and torch.cuda.is_available():
+        return {"gpu": torch.cuda.get_device_name(0), "cuda": torch.version.cuda}
+    if device == "mps":
+        return {"gpu": "Apple MPS"}
+    return {"gpu": None}
 
 
 def stage(msg: str) -> None:
