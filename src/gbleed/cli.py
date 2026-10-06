@@ -33,7 +33,7 @@ def main() -> None:
     sub.add_parser("classics", help="Look up genders for data/stimuli/classics_spec.csv")
 
     ps = sub.add_parser("sample-phase0", help="Sample a Phase 0 stimulus list from the lexicons")
-    ps.add_argument("--out", default="data/stimuli/phase0_v2.csv")
+    ps.add_argument("--out", default="data/stimuli/phase0_v3.csv")
     ps.add_argument("--per-cell", type=int, default=20, help="nouns per lang x freq bin x gender")
     ps.add_argument("--max-pairs", type=int, default=60, help="flipped (and control) pairs")
     ps.add_argument("--seed", type=int, default=0)

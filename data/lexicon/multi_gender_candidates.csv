@@ -95,7 +95,6 @@ de,Wende,meaning_split,"Sorb, Wend, Lusatian Slav (a member of the native West S
 de,Reiter,meaning_split,rider (one who rides a horse),winnowing sieve,False,animate,gendered-counterpart;wordnet:noun.person,4.17,
 de,Back,meaning_split,defender; back,forecastle (raised part of the upper deck),False,inanimate,wordnet-first:noun.artifact,4.1,
 de,Flur,meaning_split,"hall, hallway, corridor, stairwell","farmland; field or lea, heath",False,inanimate,wordnet:noun.artifact,4.04,Germany
-de,Heide,meaning_split,"heathen, pagan, Gentile / gentile","heath, heathland",False,animate,gendered-counterpart,4.01,
 de,Marsch,meaning_split,march,"marsh, marshland, fen",False,inanimate,wordnet:noun.time,4.01,
 de,Angel,meaning_split,Angle (member of a historic Germanic tribe),"tackle, fishing rod (angler's tool consisting of hook (Haken), line (Schnur), and rod (Rute))",False,animate,wordnet:noun.person,3.9,
 de,Farm,meaning_split,"barque, small boat",farm (see usage notes),False,inanimate,wordnet:noun.artifact,3.86,
@@ -168,7 +167,6 @@ es,guitarra,free_variation,guitarist,guitar,False,animate,by-personal-gender,4.2
 es,fan,free_variation,fan,fan,False,animate,by-personal-gender,4.23,
 es,lobo,free_variation,wolf (wild Canis lupus),wolf (wild Canis lupus),False,animate,gendered-counterpart;by-personal-gender;wordnet:noun.animal,4.2,
 es,botón,free_variation,"button (clothing, mechanical)",cop,False,animate,by-personal-gender,4.2,
-es,margarita,free_variation,margarita (cocktail),daisy,False,inanimate,wordnet:noun.plant,4.2,
 es,portavoz,free_variation,megaphone,"spokesperson, spokesman, spokeswoman",False,animate,by-personal-gender;wordnet:noun.person,4.12,
 es,colega,free_variation,colleague,colleague,False,animate,by-personal-gender;wordnet:noun.person,4.1,
 es,micro,free_variation,minibus,public bus,False,inanimate,wordnet-first:noun.artifact,4.1,Mexico
@@ -270,7 +268,6 @@ es,ratio,free_variation,ratio,ratio,False,inanimate,wordnet:noun.relation,3.39,
 es,astronauta,free_variation,"astronaut, spaceman","astronaut, spaceman",False,animate,by-personal-gender;wordnet:noun.person,3.38,
 es,coleccionista,free_variation,collector,collector,False,animate,by-personal-gender;wordnet:noun.person,3.36,
 es,canalla,free_variation,"swine, rascal","rabble, riff-raff, canaille",False,animate,by-personal-gender,3.36,
-es,geo,free_variation,a member of the Grupo Especial de Operaciones,a member of the Grupo Especial de Operaciones,False,animate,by-personal-gender;gloss;wordnet:noun.person,3.35,
 es,jedi,free_variation,Jedi,Jedi,False,animate,by-personal-gender,3.35,
 es,estadista,free_variation,"statesman, stateswoman","statesman, stateswoman",False,animate,by-personal-gender;wordnet:noun.person,3.35,
 es,publicista,free_variation,publicist,publicist,False,animate,by-personal-gender;wordnet:noun.person,3.35,
@@ -348,7 +345,6 @@ es,cabecilla,free_variation,"leader, boss","leader, boss",False,animate,by-perso
 es,paria,free_variation,"pariah, outcast","pariah, outcast",False,animate,people-category;by-personal-gender;wordnet:noun.person,3.06,
 es,nutricionista,free_variation,nutritionist,nutritionist,False,animate,people-category;by-personal-gender;wordnet:noun.person,3.05,
 es,medallista,free_variation,medalist,medalist,False,animate,by-personal-gender;wordnet:noun.person,3.05,
-es,jeremías,free_variation,Jeremiah (prophet of doom),Jeremiah (prophet of doom),False,animate,by-personal-gender;wordnet:noun.person,3.05,
 es,combi,free_variation,minivan,minivan,False,inanimate,wordnet-first:noun.artifact,3.05,Latin-America
 es,centrocampista,free_variation,"midfielder, midfield player","midfielder, midfield player",False,animate,by-personal-gender,3.05,
 es,masajista,free_variation,"massagist, masseur, masseuse f","massagist, masseur, masseuse f",False,animate,people-category;by-personal-gender,3.04,
@@ -417,7 +413,6 @@ es,estafeta,free_variation,courier,courier,False,animate,people-category;by-pers
 es,curul,free_variation,seat (membership in a governing body),seat (membership in a governing body),False,animate,by-personal-gender,2.8,Latin-America
 es,contrabandista,free_variation,"smuggler, contrabandist, bootlegger","smuggler, contrabandist, bootlegger",False,animate,by-personal-gender;wordnet:noun.person,2.79,
 es,flautista,free_variation,flautist,flautist,False,animate,by-personal-gender;wordnet:noun.person,2.79,
-es,loli,free_variation,loli (pornographic or suggestive content involving loli characters),a loli (female anime character resembling a child),False,uncertain,not-in-wordnet,2.78,Japanese
 es,superstar,free_variation,superstar,superstar,False,animate,by-personal-gender;wordnet:noun.person,2.78,
 es,postulante,free_variation,candidate,candidate,False,animate,by-personal-gender;wordnet:noun.person,2.78,
 es,médium,free_variation,medium (a person who claims to be able to communicate with the dead),medium (a person who claims to be able to communicate with the dead),False,animate,by-personal-gender,2.78,

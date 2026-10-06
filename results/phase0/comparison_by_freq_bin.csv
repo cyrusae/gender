@@ -1,5 +1,5 @@
 lang,model,high,low,mid
-de,Qwen/Qwen3-0.6B-Base,0.923,0.759,0.919
-de,utter-project/EuroLLM-1.7B,0.962,0.945,0.965
-es,Qwen/Qwen3-0.6B-Base,0.96,0.837,0.892
-es,utter-project/EuroLLM-1.7B,0.96,0.943,0.963
+de,Qwen/Qwen3-0.6B-Base,1.0,0.823,0.93
+de,utter-project/EuroLLM-1.7B,0.979,0.952,1.0
+es,Qwen/Qwen3-0.6B-Base,0.943,0.851,0.915
+es,utter-project/EuroLLM-1.7B,0.963,0.976,1.0

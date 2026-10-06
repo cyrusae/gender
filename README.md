@@ -65,8 +65,8 @@ not from any language model.
 ```sh
 uv run gbleed lexicon                 # downloads ~1 GB per language to data/raw/ (once), then
                                       # writes data/lexicon/{de,es}_nouns.csv + pairs_de_es.csv
-uv run gbleed sample-phase0           # -> data/stimuli/phase0_v2.csv
-uv run gbleed sample-phase0 --per-cell 40 --seed 1 --out data/stimuli/phase0_v3.csv
+uv run gbleed sample-phase0           # -> data/stimuli/phase0_v3.csv
+uv run gbleed sample-phase0 --per-cell 40 --seed 1 --out data/stimuli/phase0_v4.csv
 ```
 
 `data/lexicon/{lang}_nouns.csv` has one row per noun lemma:

@@ -335,6 +335,15 @@ def parse_dump(lang: str, path: Path):
             if r.get("lang_code") != lang:
                 continue
             word, pos = r.get("word", ""), r.get("pos")
+            if pos == "name":
+                # Given names (Charlotte, Isa): name-homograph nouns carry social
+                # gender and a contaminated frequency. Surnames aren't counted
+                # (Stein, Berg are surnames too).
+                if any(
+                    "given name" in g for sn in r.get("senses", []) for g in sn.get("glosses", [])
+                ):
+                    other_pos.add((word.lower(), "given-name"))
+                continue
             if pos != "noun":
                 if pos in OTHER_POS:
                     # Lowercased: wordfreq lowercases too, so "Aber" shares "aber"'s count.
@@ -353,6 +362,14 @@ def parse_dump(lang: str, path: Path):
                 if s.get("glosses") and not (set(s.get("tags", [])) & SKIP_SENSE_TAGS)
             ]  # fmt: skip
             if not core:
+                # An inflected form of a DIFFERENT noun (Plane = plural of Plan).
+                targets = {
+                    fo.get("word")
+                    for sn in r.get("senses", [])
+                    for fo in sn.get("form_of", []) or []
+                }
+                if targets - {word, None}:
+                    other_pos.add((word.lower(), "noun-form"))
                 continue
             genders = {GENDER_TAGS[t] for s in core for t in s.get("tags", []) if t in GENDER_TAGS}
             if not genders:  # fall back to the headword line, e.g. "Brücke f (...)"
@@ -432,6 +449,8 @@ def build_lexicon(lang: str, force_download: bool = False) -> pd.DataFrame:
             "concept_en": concept,
             "gloss": first["gloss"],
             "zipf": zipf_frequency(word, lang),
+            # Loanwords/false friends whose frequency comes from English text (arcade, van).
+            "zipf_en": zipf_frequency(word, "en"),
             "animacy": animacy,
             "animacy_reason": why,
             "wordnet": lexname,
@@ -495,13 +514,19 @@ def load_lexicon(lang: str) -> pd.DataFrame:
 
 
 def eligible(df: pd.DataFrame) -> pd.DataFrame:
-    """Clean, inanimate, single-gender m/f nouns usable as stimuli."""
+    """Clean, inanimate, single-gender m/f nouns usable as stimuli.
+
+    Homograph filters are strict on purpose: excluded nouns stay in the
+    lexicon with their tags (also_form is the Phase 2 noun/verb homograph pool).
+    """
     m = (
         df.gender.isin(["m", "f"])
         & (df.animacy == "inanimate")
         & (df.marked == "")
         & (df.regions == "")
-        & (df.also_pos == "")
+        & (df.also_pos == "")  # another word, incl. a given name (aber, de, Charlotte)
+        & (df.also_form == "")  # an inflected form of another word (Tolle, van, Plane)
+        & (df.zipf_en < df.zipf)  # not more common in English than in the language
     )
     if "initial_a_f" in df:
         m &= ~df.initial_a_f.astype(str).eq("True")
