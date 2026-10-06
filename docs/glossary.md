@@ -60,6 +60,14 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
 - **nnsight** *(tool)*. An alternative to TransformerLens: works on almost any Hugging Face model
   directly, using a `with model.trace(...)` block to read/write activations. We'll pick one of the
   two when Phase 1 needs hooks.
+- **Attention sink.** The first position of a sequence, where models park attention they don't
+  need; its activations are huge (Qwen3-0.6B, layer 10: vector length ~6,700 vs ~37 elsewhere)
+  and unrepresentative. So words are never placed at position 0: Phase 1+ inputs start with
+  Qwen's document-separator token `<|endoftext|>`.
+- **`hidden_states`** *(transformers)*. What a Hugging Face model returns with
+  `output_hidden_states=True`: one array per layer boundary. For Qwen3: index 0 = token
+  embeddings, 1…L−1 = layer outputs, L = last layer *after* the final normalisation (different
+  scale; excluded from "inner layers").
 - **Last-token position.** For a multi-token word, the activation at its *final* token is used,
   since that's where the model has seen the whole word (design doc rule).
 - **Shared / middle layers.** Layers where representations are thought to be most
@@ -75,7 +83,25 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   masculine nouns minus average of feminine nouns.
 - **Train/test split by stem.** Words sharing a stem (*brelda*/*brelpo*) must all be in train or
   all in test, or the probe can memorise the stem instead of learning the concept.
+- **Cross-validation (k-fold).** Split the data into k parts; train on k−1, test on the held-out
+  one; rotate; average. **Grouped** CV (`GroupKFold`) keeps all items of a group (both forms of a
+  verb) in the same part.
+- **In-sample vs out-of-sample.** Evaluated on the data a method was fit on vs on new data.
+  In-sample erasure + cross-validation gives a misleading *below*-chance score (Phase 1 explainer).
+- **Pre-registration.** Writing down how results will be read before running (the design doc's
+  outcome tables; `decisions.md`). Analyses added after seeing results are labelled exploratory.
 - **Concept erasure.** Editing activations so a concept can no longer be read out.
+- **Linear guardedness.** A representation is linearly guarded against a concept if no linear
+  classifier can predict the concept better than always guessing the majority class. Belrose et al.
+  prove this holds exactly when the concept's classes have **equal average activation** (class
+  means), which is what LEACE enforces.
+- **Rank (of an erasure).** How many dimensions an edit changes. LEACE for a k-class concept has
+  rank ≤ k−1: one direction for a binary concept like -o vs -a; two for the rank-2 eraser
+  (verb ending and nonce ending as separate concepts).
+- **Affine.** Linear plus a shift (x ↦ Ax + b). LEACE is affine: it recentres before projecting.
+- **INLP** *(method)*. "Iterative nullspace projection" (Ravfogel et al. 2020): repeatedly train a
+  probe and delete its direction. Used once in Phase 1 as a diagnostic; needs many more directions
+  than LEACE because probe weights aren't the mean-difference direction.
 - **LEACE** *(method; `concept-erasure` package by EleutherAI)*. "LEAst-squares Concept Erasure":
   the smallest linear edit that makes a concept undetectable by *any* linear classifier.
   Phase 1 uses it to erase spelling (-a/-o) so a gender probe can't cheat on word endings.
