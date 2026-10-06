@@ -34,16 +34,9 @@ masculine vs the feminine article, in two frames (details in `src/gbleed/phase0.
 | frame 1 | `Das hat etwas mit dem/der X zu tun.` | `Esto tiene que ver con el/la X.` |
 | frame 2 | `Hier ist ein/eine X.` | `Aquí hay un/una X.` |
 
-A noun is **known** (`passed`) when both frames favour the right article by at least
-`--min-margin` nats (default 1.0). Near-ties are `unsure`, not wrong; one frame right and
-the other confidently wrong is `conflict`. The headline number is `known_bal`, the
-balanced share of known nouns (a model that always says *die* would otherwise score
-~50%). A few-shot `noun: article` quiz is also run, as a diagnostic only.
+A noun is **known** (`passed`) when both frames favour the right article by at least `--min-margin` nats (default 1.0, i.e. the right article makes the noun at least ~2.7× more likely than the wrong one; a *nat* is a natural-log unit, see `docs/glossary.md`). Near-ties are `unsure`, not wrong; one frame right and the other confidently wrong is `conflict`. The headline number is `known_bal`, the balanced share of known nouns (a model that always says *die* would otherwise score ~50%). A few-shot `noun: article` quiz is also run, as a diagnostic only.
 
-Outputs go to `results/phase0/<model>/`: `items.csv` (per-noun margins, verdicts, status,
-tokenization) and `summary.json` (rates, breakdowns by frequency bin / set / suffix /
-exception type, run metadata incl. device/dtype/versions). `phase0-compare` (optionally
-`--by freq_bin` etc.) builds the cross-model tables.
+Outputs go to `results/phase0/<model>/`: `items.csv` (per-noun margins, verdicts, status, tokenization) and `summary.json` (rates, breakdowns by frequency bin / set / suffix / exception type, run metadata incl. device/dtype/versions). `phase0-compare` (optionally `--by freq_bin` etc.) builds the cross-model tables.
 
 ## Layout
 
