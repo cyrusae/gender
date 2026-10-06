@@ -11,7 +11,7 @@ Background literature: `sources/SUMMARIES.md`.
 |---|---|---|---|
 | 0 | Does the model know the genders? | done: Qwen3 0.6B/1.7B/4B (+ EuroLLM-1.7B) | [00](docs/explainers/00-phase0-behavioural-check.md) |
 | 1 | Can a spelling (-a/-o) eraser be built? | done: outcome (b), erasure doesn't generalise to new words | [01](docs/explainers/01-phase1-spelling-eraser.md) |
-| 2 | Spanish gender direction: gender or spelling? | in progress (stimuli built, known-check running) | — |
+| 2 | Spanish gender direction: gender or spelling? | done (1.7B/4B): primary inconclusive; spelling-erased comparison direction tracks gender on masc. exceptions | [02](docs/explainers/02-phase2-spanish-gender-direction.md) |
 | 3 | German gender direction | not started | — |
 | 4 | Shared across languages? | not started | — |
 | 5 | Bleed into social gender? | not started | — |

@@ -45,14 +45,16 @@ uv run gbleed phase0-compare [--by freq_bin|set|de_suffix|es_exception]
 - Phase 0 done: two sentence frames, margin = log P(noun + rest | article), "known" = both frames ≥ 1 nat. Details: `docs/explainers/00-phase0-behavioural-check.md`.
 - Model family: **Qwen3 base**, 0.6B/1.7B/4B (Mac) → 0.6B/1.7B/4B/8B/14B (RunPod). No 32B base; 30B-A3B is MoE (avoid). Repeat the full 0.6B/1.7B/4B sequence on RunPod.
 - Phase 0 on v3 (de/es known): 0.6B 89/89%, 1.7B 90/92%, 4B 94/94%, EuroLLM-1.7B 97/98%. Shared set across the three Qwen sizes: 204 de / 207 es of 257; 0.6B is the bottleneck (open question: keep it once 8B/14B exist?). Optional later: EuroLLM-1.7B as a cross-family replication of Phases 2–3.
-- Phase 1 run on 0.6B/1.7B/4B: outcome (b) at all sizes; linear erasure of -a/-o generalises poorly to new words. Hidden states read via plain `transformers` (no hook library yet). Next: PI decides Phase 2 spelling control (explainer 01, last section).
+- Phase 1 (0.6B/1.7B/4B): outcome (b); linear erasure of -a/-o generalises poorly to new words.
+- Phase 2 (1.7B/4B, fixed inputs): primary (adjusted, ending-matched) inconclusive; rank-2-erased regular-noun direction tracks gender on masculine exceptions (all 4B layers) and homographs (most 4B layers); feminine -o exceptions look masculine. Explainer 02.
+- Inputs: `<|endoftext|>` + newline + word (the first token after the separator can be a sink); extraction warns on outlier norms.
 - Phases 3–5 plan: `docs/design/phases-3-5-plan.md` (agreement-flip gate first; dose-response + KL damage; epicenes; erasure arm). Markedness hypothesis pre-registered in decisions.md.
-- Not yet written: RunPod setup script, multi-gender (*See*, *mar*) hand-picked test set.
+- RunPod: `runpod/` scripts (trial done on A40; see decisions.md). Global volume is GeeseFS object storage: code/venv/model cache on local disk.
 
 ## Gotchas learned
 
 - **Never test an eraser with a probe trained on the eraser's fit data**: chance by construction (LEACE equalises class means → zero optimal weights). Erase-all-then-cross-validate goes *below* chance. Report AUC, not just accuracy.
-- Position 0 is an attention sink (~180× norm): prefix words with `<|endoftext|>`.
+- Position 0 is an attention sink (~180× norm), and so can be the first token after `<|endoftext|>` (single-token words got one dimension ~2,500): prefix words with `<|endoftext|>` + newline.
 
 - Qwen3 adds no BOS token: never put the scored word or article first in a sentence.
 - German *die* is also plural; *ein*/*dem* also serve neuter (so their priors favour masculine). Spanish *a el* → *al*, *de el* → *del*; feminine stressed-a nouns take *el* (*el agua*).
