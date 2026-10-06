@@ -1,0 +1,75 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ---- Environments ----
+.venv/
+venv/
+env/
+.python-version
+.env
+.env.*
+!.env.example
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
+
+# ---- ML artifacts: activations, weights, caches ----
+# Activations are large and tied to the device they came from (see design doc);
+# keep them on disk, not in git. Stimulus lists (csv/tsv/json) ARE tracked.
+activations/
+checkpoints/
+outputs/
+runs/
+wandb/
+mlruns/
+lightning_logs/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.parquet
+*.arrow
+
+# Hugging Face / model caches if pointed inside the repo
+.cache/
+hf_cache/
+models/
+
+# ---- Logs / scratch ----
+*.log
+logs/
+tmp/
+scratch/
+
+# ---- OS / editors ----
+.DS_Store
+.AppleDouble
+._*
+.vscode/
+.idea/
+*.swp
+*~
+
+# ---- Claude Code local settings ----
+.claude/settings.local.json
+
+# ---- Copyrighted source papers (summaries in sources/SUMMARIES.md are tracked) ----
+sources/*.pdf
