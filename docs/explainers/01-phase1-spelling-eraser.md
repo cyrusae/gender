@@ -108,15 +108,15 @@ form" if it stays ≥ 0.60.
 
 | | Qwen3-0.6B | 1.7B | 4B |
 |---|---|---|---|
-| verbs: unseen verbs after verb eraser | 0.68 | SIZE_17_VA | SIZE_4_VA |
-| **nonce, pre-registered (accuracy)**: after verb eraser | **0.99** | SIZE_17_NA | SIZE_4_NA |
-| nonce (CV on unseen stems): verb eraser | 1.00 | SIZE_17_NV | SIZE_4_NV |
-| … pooled (design fallback) | 0.99 | SIZE_17_NP | SIZE_4_NP |
-| … rank-2 | 0.82 | SIZE_17_N2 | SIZE_4_N2 |
-| … nonce-only | 0.82 | SIZE_17_NN | SIZE_4_NN |
-| noun gender: none / after rank-2 | 1.00 / 0.97 | SIZE_17_G | SIZE_4_G |
+| verbs: unseen verbs after verb eraser | 0.68 | 0.72 | 0.81 |
+| **nonce, pre-registered (accuracy)**: after verb eraser | **0.99** | 1.00 | 1.00 |
+| nonce (CV on unseen stems): verb eraser | 1.00 | 1.00 | 1.00 |
+| … pooled (design fallback) | 0.99 | 1.00 | 1.00 |
+| … rank-2 | 0.82 | 0.84 | 0.84 |
+| … nonce-only | 0.82 | 0.84 | 0.83 |
+| noun gender: none / after rank-2 | 1.00 / 0.97 | 1.00 / 0.97 | 0.99 / 0.98 |
 
-**Pre-registered outcome: (b).** The verb eraser leaves nonce endings fully readable at every layer.
+**Pre-registered outcome: (b), at all three sizes.** The verb eraser leaves nonce endings fully readable at every inner layer (0 of 27 / 27 / 35 layers near chance). Erasure transfers to unseen *verbs* slightly *worse* in bigger models (AUC 0.68 → 0.72 → 0.81).
 
 **What the corrected numbers say:**
 - **Linear erasure of -a/-o generalises poorly to new words.** Even an eraser fit *on nonce words*

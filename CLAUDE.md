@@ -45,7 +45,7 @@ uv run gbleed phase0-compare [--by freq_bin|set|de_suffix|es_exception]
 - Phase 0 done: two sentence frames, margin = log P(noun + rest | article), "known" = both frames ≥ 1 nat. Details: `docs/explainers/00-phase0-behavioural-check.md`.
 - Model family: **Qwen3 base**, 0.6B/1.7B/4B (Mac) → 0.6B/1.7B/4B/8B/14B (RunPod). No 32B base; 30B-A3B is MoE (avoid). Repeat the full 0.6B/1.7B/4B sequence on RunPod.
 - Phase 0 on v3 (de/es known): 0.6B 89/89%, 1.7B 90/92%, 4B 94/94%, EuroLLM-1.7B 97/98%. Shared set across the three Qwen sizes: 204 de / 207 es of 257; 0.6B is the bottleneck (open question: keep it once 8B/14B exist?). Optional later: EuroLLM-1.7B as a cross-family replication of Phases 2–3.
-- Phase 1 run (0.6B; 1.7B/4B pending): outcome (b); linear erasure of -a/-o generalises poorly to new words. Hidden states read via plain `transformers` (no hook library yet). Next: PI decides Phase 2 spelling control (explainer 01, last section).
+- Phase 1 run on 0.6B/1.7B/4B: outcome (b) at all sizes; linear erasure of -a/-o generalises poorly to new words. Hidden states read via plain `transformers` (no hook library yet). Next: PI decides Phase 2 spelling control (explainer 01, last section).
 - Not yet written: RunPod setup script, multi-gender (*See*, *mar*) hand-picked test set.
 
 ## Gotchas learned
