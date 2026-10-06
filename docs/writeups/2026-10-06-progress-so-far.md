@@ -1,31 +1,16 @@
 # Does an LLM's "feminine" bridge leak into "feminine" people? Day one of finding out
 
-*A progress write-up for the grammatical-gender bleedthrough project, covering Phases 0–2.
-It assumes you know roughly what an LLM is and what a token is, but not interpretability
-technique. Terms in bold are defined in the [glossary](../glossary.md); the reasoning behind each
-choice is in the [decisions log](../decisions.md).*
+*A progress write-up for the grammatical-gender bleedthrough project, covering Phases 0–2. It assumes you know roughly what an LLM is and what a token is, but not interpretability technique. Terms in bold are defined in the [glossary](../glossary.md); the reasoning behind each choice is in the [decisions log](../decisions.md).*
 
 ---
 
 ## The question
 
-In German, *bridge* is feminine (*die Brücke*); in Spanish it's masculine (*el puente*). For a
-bridge, that's an accident of grammar: nothing about bridges is female or male. In 2003, Lera
-Boroditsky and colleagues reported that this accident leaks into thought: German speakers
-described bridges as *elegant* and *slender*, Spanish speakers as *strong* and *sturdy*. It's one
-of the most-cited findings in linguistic relativity. It's also shaky: the study was never fully
-published, and when Mickan, Schiefke and Stefanowitsch tried to replicate it in 2014, they found
-nothing.
+In German, *bridge* is feminine (*die Brücke*); in Spanish it's masculine (*el puente*). For a bridge, that's an accident of grammar: nothing about bridges is female or male. In 2003, Lera Boroditsky and colleagues reported that this accident leaks into thought: German speakers described bridges as *elegant* and *slender*, Spanish speakers as *strong* and *sturdy*. It's one of the most-cited findings in linguistic relativity. It's also shaky: the study was never fully published, and when Mickan, Schiefke and Stefanowitsch tried to replicate it in 2014, they found nothing.
 
-Language models give a new way to ask the question. A model trained on German and Spanish text
-has to learn grammatical gender: it has to know that *Brücke* takes *die* and *puente* takes *el*.
-The question is whether, *inside the model*, that grammatical "feminine" ends up sharing machinery
-with social "feminine", the one that's about women and men. If you take the direction in the
-model's internal space that separates feminine from masculine *inanimate* nouns and push a
-sentence about a bridge along it, do the adjectives the model expects shift toward *elegant*?
+Language models give a new way to ask the question. A model trained on German and Spanish text has to learn grammatical gender: it has to know that *Brücke* takes *die* and *puente* takes *el*. The question is whether, *inside the model*, that grammatical "feminine" ends up sharing machinery with social "feminine", the one that's about women and men. If you take the direction in the model's internal space that separates feminine from masculine *inanimate* nouns and push a sentence about a bridge along it, do the adjectives the model expects shift toward *elegant*?
 
-The project is planned as six gated phases. Each produces a usable result even if the next never
-runs:
+The project is planned as six gated phases. Each produces a usable result even if the next never runs:
 
 | phase | question |
 |---|---|
@@ -42,78 +27,85 @@ This post covers Phases 0 through 2. Phase 2 is set up and running as I write.
 
 A few principles shaped everything, so they're worth stating first.
 
-- **Gold labels never come from a language model.** I don't read German, and I'm working with an
-  AI assistant, which makes it tempting to ask it "what gender is *Kiefer*?". But that would
-  quietly make the experiment depend on the very kind of system being studied. Every gender label
-  comes from Wiktionary.
-- **Drop rather than check.** Any item that would need a human to verify something (is this noun
-  animate? is this a real translation?) gets filtered out automatically. Small, clean lists beat
-  large ones that need review. When a person does need to look at something, it's shown with
-  English glosses so it can be checked without knowing German.
-- **Decide how to read results before seeing them.** For each test, the criteria were written into
-  the decisions log *before* running ("pre-registration"). Analyses added afterwards are labelled
-  exploratory.
-- **Hold test sets out, and never tune on scores.** Sentence templates and thresholds were chosen
-  on grammatical grounds, then checked on more than one model, not picked by whichever scored best.
+- **Gold labels never come from a language model.** I don't read German, and I'm working with an AI assistant, which makes it tempting to ask it "what gender is *Kiefer*?". But that would quietly make the experiment depend on the very kind of system being studied. Every gender label comes from Wiktionary.
+- **Drop rather than check.** Any item that would need a human to verify something (is this noun animate? is this a real translation?) gets filtered out automatically. Small, clean lists beat large ones that need review. When a person does need to look at something, it's shown with English glosses so it can be checked without knowing German.
+- **Decide how to read results before seeing them.** For each test, the criteria were written into the decisions log *before* running ("pre-registration"). Analyses added afterwards are labelled exploratory.
+- **Hold test sets out, and never tune on scores.** Sentence templates and thresholds were chosen on grammatical grounds, then checked on more than one model, not picked by whichever scored best.
 
 ## Building the word lists
 
-Everything starts with nouns and their genders. Wiktionary publishes machine-readable dumps
-(through a project called kaikki.org), about a gigabyte per language. A builder script turns each
-dump into a table of about 50,000 nouns with their gender, first English gloss and word frequency,
-plus a pile of flags.
+Everything starts with nouns and their genders. Wiktionary publishes machine-readable dumps (through a project called kaikki.org), about a gigabyte per language. A builder script turns each dump into a table of about 50,000 nouns with their gender, first English gloss and word frequency, plus a pile of flags.
 
 Most of the work is in the flags, because most nouns are bad stimuli for one reason or another:
 
-- **People and animals** have to go (the study is about *inanimate* nouns, where gender is
-  arbitrary). There's no "animate" field in Wiktionary, so this is inferred from several signals:
-  topic categories ("Occupations", "Mammals"), whether the word has a male/female counterpart
-  (*director/directora*), and what WordNet says the English gloss means. One early bug: *Buch*
-  ("book") was marked animate because of a rare second sense (a ruminant's stomach) filed under
-  "Animal body parts". The fix was to judge only the first sense.
-- **Homographs** are words spelled like another word. They're excluded because they corrupt word
-  frequencies (Spanish *de* is listed as a noun, the name of the letter d, and is also the
-  commonest preposition) and because they muddy what the model is representing.
-- **English overlap.** *Kindergarten*, *Stagnation*, *Grill*, *Machete* are the same word in
-  English. A model may represent them mostly through English, so they say little about how
-  German or Spanish handles gender. Words more common in English than in the target language are
-  dropped.
-- **Sex-associated objects** (*falda* "skirt", *pintalabios* "lipstick", anatomical terms) carry
-  *social* gender. Train a "grammatical gender" direction on them and the final phase becomes
-  circular, so they're kept out of training sets.
+- **People and animals** have to go (the study is about *inanimate* nouns, where gender is arbitrary). There's no "animate" field in Wiktionary, so this is inferred from several signals: topic categories ("Occupations", "Mammals"), whether the word has a male/female counterpart (*director/directora*), and what WordNet says the English gloss means. One early bug: *Buch* ("book") was marked animate because of a rare second sense (a ruminant's stomach) filed under "Animal body parts". The fix was to judge only the first sense.
+- **Homographs** are words spelled like another word. They're excluded because they corrupt word frequencies (Spanish *de* is listed as a noun, the name of the letter d, and is also the commonest preposition) and because they muddy what the model is representing.
+- **English overlap.** *Kindergarten*, *Stagnation*, *Grill*, *Machete* are the same word in English. A model may represent them mostly through English, so they say little about how German or Spanish handles gender. Words more common in English than in the target language are dropped.
+- **Sex-associated objects** (*falda* "skirt", *pintalabios* "lipstick", anatomical terms) carry *social* gender. Train a "grammatical gender" direction on them and the final phase becomes circular, so they're kept out of training sets.
 
 Several of these rules came from me reading the generated files and spotting problems:
-*Kindergarten* in the translation pairs, *pedestal* and *praxis* in a training list, *libido* and
-*polio* among the test items. Each catch became a rule rather than a one-off deletion, so the
-write-up can state *why* items were excluded.
+*Kindergarten* in the translation pairs, *pedestal* and *praxis* in a training list, *libido* and *polio* among the test items. Each catch became a rule rather than a one-off deletion, so the write-up can state *why* items were excluded.
 
-Two sets were hand-picked: 19 **classic** flipped-gender pairs from the literature (*Brücke/puente*,
-*Mond/luna*, *Schlüssel/llave*…), and a set of words with **one spelling and two genders**
-(*der See* "lake" / *die See* "sea"; *el mar* / *la mar*), which I reviewed against German
-Wiktionary and the Spanish Royal Academy's dictionary. Even hand-picked items get automatic checks:
-for example, the check flagged that *luna* and *estrella* are also women's names, which matters a
-lot for the social-gender phase.
+Two sets were hand-picked: 19 **classic** flipped-gender pairs from the literature (*Brücke/puente*, *Mond/luna*, *Schlüssel/llave*…), and a set of words with **one spelling and two genders** (*der See* "lake" / *die See* "sea"; *el mar* / *la mar*), which I reviewed against German Wiktionary and the Spanish Royal Academy's dictionary. Even hand-picked items get automatic checks: for example, the check flagged that *luna* and *estrella* are also women's names, which matters a lot for the social-gender phase.
 
 ## Phase 0: does the model know the genders?
 
 There's no point looking for a representation of something the model gets wrong.
 
-**How you ask a model.** A language model assigns a probability to every possible next token. Chain
-those together and you get the probability of a whole stretch of text. So, to test whether a model
-knows *Brücke* is feminine, compare how well the noun fits after each article:
+**How you ask a model.** A language model assigns a probability to every possible next token. Chain those together and you get the probability of a whole stretch of text. So, to test whether a model knows *Brücke* is feminine, compare how well the noun fits after each article:
 
 > margin = log P("Brücke zu tun." | "Das hat etwas mit **dem**") − log P("Brücke zu tun." | "Das hat etwas mit **der**")
 
-A negative margin means the noun fits better after the feminine article. The unit is the
-**nat** (natural-log unit): a margin of −3 means about 20× more likely after *der*.
+A negative margin means the noun fits better after the feminine article. The unit is the **nat** (natural-log unit): a margin of −3 means about 20× more likely after *der*.
+
+**How the comparison actually works.** Phase 0 doesn't look inside the model at all; it only
+reads what the model *predicts*. For one noun in one template, the code (`continuation_logprob`
+in `src/gbleed/scoring.py`) does this:
+
+1. **Build both sentences**, split at the article: a *prefix* ending in the article
+   (`Das hat etwas mit dem`) and a *continuation* starting with the noun (` Brücke zu tun.`).
+2. **Tokenize** each part. Qwen splits these into `Das | hat | etwas | mit | dem` and
+   ` Br | ück | e | zu | tun | .`.
+3. **Run the model once on the whole token sequence.** At every position, the model outputs a score
+   for each of the 151,936 tokens in its vocabulary: its guess about *which token comes next*. A
+   softmax turns those scores into probabilities, and we take logs. Because the model only lets each
+   position see earlier tokens, one pass gives an honest next-token prediction at every position at
+   once.
+4. **Read off, at each position, the log-probability the model gave to the token that actually comes
+   next**, but only for the continuation's tokens. The prefix, including the article itself, isn't
+   scored. That's what "the noun *given* the article" means, and it's the fix for the *ein*/*dem* bias
+   below.
+5. **Add those up**, giving log P(continuation | prefix). Do the same with the other article and
+   subtract: that's the margin. Repeat for the second template, then apply the "known" rule.
+
+Here's the real computation for *Brücke* in the first template (Qwen3-0.6B, as in the actual runs):
+
+| next token | log P after *mit dem* | log P after *mit der* | what's happening |
+|---|---|---|---|
+| ` Br` | −6.47 | −6.34 | almost equal: lots of words start with *Br-*, so no gender evidence yet |
+| `ück` | −4.01 | **−1.46** | the word is becoming *Brücke*, which the model expects after *der* |
+| `e` | −3.10 | **−0.20** | *Brücke* completed: 82% likely after *der*, 5% after *dem* |
+| ` zu` | −3.17 | −1.71 | after the ungrammatical *mit dem Brücke* the model is less sure where the sentence goes |
+| ` tun` | −0.02 | −0.03 | *zu tun* is a fixed phrase either way |
+| `.` | −1.65 | −1.69 | no difference |
+| **sum** | **−18.41** | **−11.43** | margin = −18.41 − (−11.43) = **−6.98** |
+
+A margin of −6.98 nats means the model finds this continuation about 1,000 times more likely after
+the feminine article: clearly "known" as feminine in this template. The table also shows why the
+whole continuation is summed rather than only the first token. The gender evidence arrives at the
+tokens where the word becomes recognisable (`ück`, `e`) and at the next word, not at ` Br`.
+
+Two practical notes:
+- On the Mac the model runs in half precision, which rounds these numbers by a few hundredths of a
+  nat. That's why near-ties under 1 nat are called "unsure" rather than wrong.
+- Phase 0 uses only the model's *outputs*. Phases 1 onward read the vectors *inside* the model
+  instead (next section).
 
 **The sentence templates turned out to matter a lot.** Each one is designed so that the wrong
 article can't be read some other legitimate way:
-- German *die* is also the plural article (*die Schlüssel* = "the keys"), so the first template
-  uses the dative (*mit dem/der X*), where the plural would look different.
+- German *die* is also the plural article (*die Schlüssel* = "the keys"), so the first template uses the dative (*mit dem/der X*), where the plural would look different.
 - The second template went through three versions:
-  - Sentence-initial *Der/Die X ist hier* failed: with nothing before the article, the model scored
-    only ~75%.
+  - Sentence-initial *Der/Die X ist hier* failed: with nothing before the article, the model scored only ~75%.
   - *Ich weiß, dass der/die X hier ist* still let the plural reading survive until the last word.
   - The final version uses the indefinite article (*Hier ist ein/eine X*), which has no plural at all.
 - A subtler bug: the first version scored the whole sentence, *including the article itself*.
@@ -123,14 +115,10 @@ article can't be read some other legitimate way:
 
 A noun counts as **known** only if both templates favour the right article by at least 1 nat.
 Anything closer is "unsure", not wrong. An early version also used a fill-in-the-blank quiz
-("*Teppich: der / Tasche: die / Brücke:* ___"). It turned out to measure the format more than the
-knowledge: reordering the four examples flipped up to 44% of answers. It's now a diagnostic only.
+("*Teppich: der / Tasche: die / Brücke:* ___"). It turned out to measure the format more than the knowledge: reordering the four examples flipped up to 44% of answers. It's now a diagnostic only.
 
-**Results.** On a balanced list of 257 nouns per language, Qwen3-4B knows 94% of German and 94% of
-Spanish nouns, with almost no confident errors; its misses are near-ties on rare words.
-EuroLLM-1.7B, a European-focused model, knows 97–98%. I chose the **Qwen3** family anyway: it comes
-in sizes from 0.6B to 14B that share one tokenizer, so I can develop on a laptop and rerun the
-identical experiment on rented GPUs at 8B and 14B, and compare sizes cleanly.
+**Results.** On a balanced list of 257 nouns per language, Qwen3-4B knows 94% of German and 94% of Spanish nouns, with almost no confident errors; its misses are near-ties on rare words.
+EuroLLM-1.7B, a European-focused model, knows 97–98%. I chose the **Qwen3** family anyway: it comes in sizes from 0.6B to 14B that share one tokenizer, so I can develop on a laptop and rerun the identical experiment on rented GPUs at 8B and 14B, and compare sizes cleanly.
 
 ## Looking inside: what an "activation" is
 
