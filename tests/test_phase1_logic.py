@@ -44,3 +44,20 @@ def test_unseen_data_reveals_leftover_signal():
     e = _fit(a, y.astype(np.int64))  # erases axis-0 signal of type A only
     _, auc = _cv(_apply(e, b), y, seed=0)  # type B's axis-1 signal survives
     assert auc > 0.8
+
+
+def test_adjusted_difference_of_means_removes_confound():
+    """Gender on axis 0; concreteness on axis 1, and correlated with gender. Plain difference of
+    means leaks onto axis 1; the adjusted version doesn't."""
+    from gbleed.phase2 import _adom, _dom
+
+    rng = np.random.default_rng(1)
+    n = 400
+    y = np.r_[np.zeros(n), np.ones(n)].astype(int)
+    conc = rng.normal(0, 1, 2 * n) - 0.8 * y  # feminine nouns less concrete
+    X = rng.normal(0, 0.1, (2 * n, 5))
+    X[:, 0] += 1.0 * y
+    X[:, 1] += 1.0 * conc
+    plain, adj = _dom(X, y), _adom(X, y, [conc])
+    assert abs(plain[1]) > 0.5  # confounded
+    assert abs(adj[1]) < 0.1 and abs(adj[0] - 1.0) < 0.1  # recovers the gender effect only

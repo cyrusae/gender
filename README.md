@@ -72,6 +72,9 @@ uv run gbleed phase2 MODEL [MODEL ...] [--skip-extract]
 
 Model runs take minutes to an hour; run them in the background and write to a log.
 
+Phase 2 also uses human concreteness ratings (Brysbaert, Warriner & Kuperman 2014), downloaded on
+first use to `data/raw/norms/` from a mirror and checked against a pinned checksum (`src/gbleed/norms.py`).
+
 ## Noun lexicons (`data/lexicon/`)
 
 Built from English Wiktionary via kaikki.org (dump date and SHA-256 in

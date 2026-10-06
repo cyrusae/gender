@@ -102,28 +102,12 @@ def extract(model_id: str, device=None, dtype=None) -> None:
 
 
 # ---- analysis helpers ---------------------------------------------------------
-def _rake(y, covs: list[np.ndarray], n_iter: int = 100) -> np.ndarray:
-    """Raking (iterative proportional fitting): weights per item, within each gender, so the
-    weighted masculine and feminine groups share the pooled distribution of every covariate."""
-    w = np.ones(len(y), dtype=float)
-    targets = [{lv: np.mean(c == lv) for lv in np.unique(c)} for c in covs]
-    for _ in range(n_iter):
-        for c, tgt in zip(covs, targets, strict=True):
-            for g in (0, 1):
-                gm = y == g
-                tot = w[gm].sum()
-                for lv, share in tgt.items():
-                    k = gm & (c == lv)
-                    if k.any():
-                        w[k] *= share * tot / w[k].sum()
-    return w
-
-
-def _wdom(X, y, w):
-    def wmean(k):
-        return (X[k] * w[k, None]).sum(0) / w[k].sum()
-
-    return wmean(y == 1) - wmean(y == 0)
+def _adom(X, y, covs):
+    """Adjusted difference of means: per activation dimension, least squares
+    x = a + b*female + sum_k c_k*cov_k; returns b (the gender coefficients)."""
+    Z = np.column_stack([np.ones(len(y)), y, *[(c - c.mean()) for c in covs]])
+    B, *_ = np.linalg.lstsq(Z, X, rcond=None)
+    return B[1]
 
 
 def _dom(X, y):
@@ -156,7 +140,7 @@ def _boot_two(neg, pos, rng, n_boot=N_BOOT):
     return float(np.percentile(vals, 2.5)), float(np.percentile(vals, 97.5))
 
 
-CI_KEYS = ["A_f", "A_m", "A_f_noen", "A_m_noen", "exc_auc", "homo_auc_noun", "homo_auc_verb",
+CI_KEYS = ["A_f", "A_m", "A_f_noen", "A_m_noen", "A_f_abs", "A_m_abs", "A_f_con", "A_m_con", "exc_auc", "homo_auc_noun", "homo_auc_verb",
            "homo_auc_diff", "multi_p_diff"]  # fmt: skip
 
 
@@ -172,6 +156,11 @@ def _core(d, idx, Xt, hn, hv, mm, mf, y, homo_y) -> dict:
         xe = s[idx[key]]
         out[f"A_f{tag}"] = _auc(np.r_[np.zeros(len(xe)), np.ones(len(rf))], np.r_[xe, rf])
         out[f"A_m{tag}"] = _auc(np.r_[np.zeros(len(rm)), np.ones(len(xe))], np.r_[rm, xe])
+    for tag in ("abs", "con"):
+        if f"excm_{tag}" in idx:
+            xe, rf2, rm2 = s[idx[f"excm_{tag}"]], s[idx[f"reg_f_{tag}"]], s[idx[f"reg_m_{tag}"]]
+            out[f"A_f_{tag}"] = _auc(np.r_[np.zeros(len(xe)), np.ones(len(rf2))], np.r_[xe, rf2])
+            out[f"A_m_{tag}"] = _auc(np.r_[np.zeros(len(rm2)), np.ones(len(xe))], np.r_[rm2, xe])
     out["exc_auc"] = _auc(y[idx["exc"]], s[idx["exc"]])
     h = idx["homo"]
     out["homo_auc_noun"] = _auc(homo_y[h], hn[h] @ d)
@@ -228,16 +217,18 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
     homo_y = (df[df.set == "homograph"].gender == "f").to_numpy(int)
     endings = df.ending.to_numpy()
     from .lexicon import load_lexicon
+    from .norms import rate
 
-    conc_map = load_lexicon("es").drop_duplicates("lemma").set_index("lemma").concrete
-    concrete = np.array([str(conc_map.get(w, False)) == "True" for w in df.lemma])
+    gl = load_lexicon("es").drop_duplicates("lemma").set_index("lemma").gloss
+    rated = [rate(gl.get(w, c))[0] for w, c in zip(df.lemma, df.concept_en, strict=True)]
+    conc = np.array([np.nan if v is None else v for v in rated], dtype=float)
+    conc_missing = np.isnan(conc)
+    conc[conc_missing] = np.nanmean(conc[matched])  # impute the training-set mean (flagged)
     zipf = pd.to_numeric(df.zipf, errors="coerce").to_numpy()
-    qs = np.nanquantile(zipf[matched], [1 / 3, 2 / 3])
-    ftert = np.digitize(zipf, qs)
-    covs = [endings, concrete.astype(int), ftert]
+    covs = [conc, zipf]
 
-    def fit_wdom(Xt, yy, idx):
-        return _wdom(Xt[idx], yy[idx], _rake(yy[idx], [c[idx] for c in covs]))
+    def fit_adom(Xt, yy, idx):
+        return _adom(Xt[idx], yy[idx], [c[idx] for c in covs])
 
     lean = _leans(model_id, multi.lemma)
     rng = np.random.default_rng(SEED)
@@ -250,6 +241,14 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
         "homo": np.arange(len(homo_y)),
         "multi": np.arange(len(multi)),
     }
+    # Test-side meaning control: split regular test nouns and masc exceptions at the median rating
+    # of the regular test nouns, and compare within each half (sensitivity, not primary).
+    med = np.median(conc[reg_te & ~conc_missing])
+    for tag, half in (("abs", conc < med), ("con", conc >= med)):
+        ok = half & ~conc_missing
+        full_idx[f"reg_f_{tag}"] = np.where(reg_te & (y == 1) & ok)[0]
+        full_idx[f"reg_m_{tag}"] = np.where(reg_te & (y == 0) & ok)[0]
+        full_idx[f"excm_{tag}"] = np.where(excm & ok)[0]
 
     rows = []
     for layer in range(Xb.shape[1]):
@@ -266,20 +265,20 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
         ev = lambda a, e=e_verb: e(torch.from_numpy(a)).numpy()
         e2 = lambda a, e=e_r2: e(torch.from_numpy(a)).numpy()
         # name -> (transform applied to activations, training mask, fitting function)
-        plain = lambda f: lambda Xt, yy, idx: f(Xt[idx], yy[idx])
+        plain = lambda f: lambda A, yy, idx: f(A[idx], yy[idx])
         directions = {
-            "wdom_matched": (ident, matched, fit_wdom),  # PRIMARY (amended before results)
+            "adom_matched": (ident, matched, fit_adom),  # PRIMARY (amended before results)
             "dom_matched": (ident, matched, plain(_dom)),
             "probe_matched": (ident, matched, plain(_probe_dir)),
             "dom_regular": (ident, reg_tr, plain(_dom)),
             "dom_regular_verberase": (ev, reg_tr, plain(_dom)),
             "dom_regular_rank2": (e2, reg_tr, plain(_dom)),
         }
-        # concreteness direction, within gender, on regular training nouns (diagnostic)
-        cdir = np.mean([
-            X[reg_tr & (y == g) & concrete].mean(0) - X[reg_tr & (y == g) & ~concrete].mean(0)
-            for g in (0, 1)
-        ], axis=0)  # fmt: skip
+        # concreteness direction (diagnostic): slope of activations on rated concreteness,
+        # controlling for gender, on regular training nouns
+        k = reg_tr & ~conc_missing
+        Zc = np.column_stack([np.ones(k.sum()), y[k], conc[k] - conc[k].mean()])
+        cdir = np.linalg.lstsq(Zc, X[k], rcond=None)[0][2]
         for name, (T, trmask, fit) in directions.items():
             Xt, hnt, hvt, mmt, mft = T(X), T(hn), T(hv), T(mm), T(mf)
             tr_idx = np.where(trmask)[0]
@@ -314,6 +313,7 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
                     if k.any():
                         r[f"p_{sub.removeprefix('exception_')}_{gl}"] = float(p[k].mean())
             r["n_excm"], r["n_excm_noen"] = int(excm.sum()), int((excm & ~en).sum())
+            r["n_conc_imputed_train"] = int((conc_missing & trmask).sum())
             for w in df.lemma[exc & (y == 1)]:  # the few feminine -o exceptions, item by item
                 r[f"p_item_{w}"] = float(p[(df.lemma == w).to_numpy()][0])
             dp = ((mft @ d) - (mmt @ d)) / (m1 - m0)
@@ -330,8 +330,8 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
                     aucs.append(_auc(y[matched][b], Xt[matched][b] @ dd))
                 r["matched_cv_auc"] = float(np.nanmean(aucs))
             rows.append(r)
-        r0 = next(x for x in rows[-len(directions) :] if x["direction"] == "wdom_matched")
-        print(f"layer {layer:2d} wdom_matched: A_f {r0['A_f']:.2f} [{r0['A_f_lo']:.2f},{r0['A_f_hi']:.2f}] "
+        r0 = next(x for x in rows[-len(directions) :] if x["direction"] == "adom_matched")
+        print(f"layer {layer:2d} adom_matched: A_f {r0['A_f']:.2f} [{r0['A_f_lo']:.2f},{r0['A_f_hi']:.2f}] "
               f"A_m {r0['A_m']:.2f} [{r0['A_m_lo']:.2f},{r0['A_m_hi']:.2f}]  p(-ma m)={r0.get('p_ma_m', float('nan')):.2f}  "
               f"homo diff {r0['homo_auc_diff']:+.2f}  multi {r0['multi_p_diff']:+.2f}  "
               f"regular AUC {r0['regular_test_auc']:.2f}  matched CV {r0['matched_cv_auc']:.2f}")  # fmt: skip
