@@ -1,0 +1,23 @@
+lang,lemma,type,ctx1_margin,ctx2_margin,both_accepted,prefers,tokens
+de,Hut,meaning_split,7.162271499633789,7.39030647277832,False,m, Hut
+de,Kiefer,meaning_split,1.1027965545654297,2.327756881713867,False,m, K|ie|fer
+de,Marsch,meaning_split,2.869598388671875,3.00264835357666,False,m, Mars|ch
+de,See,meaning_split,5.457276344299316,5.39661979675293,False,m, See
+de,Abscheu,same_meaning,0.15961265563964844,-0.051662445068359375,True,, Abs|che|u
+de,Sellerie,same_meaning,-1.6874523162841797,1.3424530029296875,True,, Seller|ie
+de,Zucchini,same_meaning,-2.5111522674560547,-3.193401336669922,False,f, Z|ucchini
+es,coma,meaning_split,-1.8425121307373047,-2.31838321685791,False,f, coma
+es,cometa,meaning_split,-0.09307193756103516,0.7881107330322266,True,, com|eta
+es,corte,meaning_split,1.2307405471801758,2.113231658935547,True,, c|orte
+es,cólera,meaning_split,-0.4453468322753906,-1.7952232360839844,True,, có|ler|a
+es,frente,meaning_split,-0.10869884490966797,0.5310592651367188,True,, frente
+es,orden,meaning_split,2.89884090423584,-0.9084262847900391,False,m, orden
+es,parte,meaning_split,0.2539253234863281,-1.6952943801879883,True,, parte
+es,radio,meaning_split,-0.7594757080078125,1.741830825805664,True,, radio
+es,armazón,same_meaning,2.6722259521484375,2.2324390411376953,False,m, arm|az|ón
+es,arte,same_meaning,4.889841079711914,5.724769592285156,False,m, arte
+es,azúcar,same_meaning,3.0574378967285156,1.720306396484375,False,m, az|ú|car
+es,mar,same_meaning,4.540274620056152,6.058286666870117,False,m, mar
+es,maratón,same_meaning,0.01764202117919922,0.40875244140625,True,, mar|at|ón
+es,margen,same_meaning,1.702143669128418,3.6955509185791016,False,m, marg|en
+es,sartén,same_meaning,-0.6108789443969727,-3.6803789138793945,False,f, s|art|én
