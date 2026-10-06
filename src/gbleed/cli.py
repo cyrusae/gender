@@ -30,8 +30,10 @@ def main() -> None:
     pl.add_argument("--langs", nargs="*", default=["de", "es"], choices=["de", "es"])
     pl.add_argument("--redownload", action="store_true")
 
+    sub.add_parser("classics", help="Look up genders for data/stimuli/classics_spec.csv")
+
     ps = sub.add_parser("sample-phase0", help="Sample a Phase 0 stimulus list from the lexicons")
-    ps.add_argument("--out", default="data/stimuli/phase0_v1.csv")
+    ps.add_argument("--out", default="data/stimuli/phase0_v2.csv")
     ps.add_argument("--per-cell", type=int, default=20, help="nouns per lang x freq bin x gender")
     ps.add_argument("--max-pairs", type=int, default=60, help="flipped (and control) pairs")
     ps.add_argument("--seed", type=int, default=0)
@@ -44,6 +46,12 @@ def main() -> None:
         for lang in a.langs:
             lexicon.build_lexicon(lang, a.redownload)
         lexicon.build_pairs()
+        lexicon.write_multi_candidates()
+        return
+    if a.cmd == "classics":
+        from . import lexicon
+
+        lexicon.build_classics()
         return
     if a.cmd == "sample-phase0":
         from . import lexicon

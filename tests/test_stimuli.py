@@ -5,7 +5,7 @@ import pytest
 from gbleed.phase0 import LANG_CONFIG, check_shots_disjoint, meta_prompt, shot_orderings
 from gbleed.stimuli import flipped_pairs, load_stimuli
 
-STIM = sorted(Path("data/stimuli").glob("*.csv"))
+STIM = sorted(p for p in Path("data/stimuli").glob("*.csv") if not p.stem.endswith("_spec"))
 
 
 @pytest.mark.parametrize("path", STIM, ids=lambda p: p.name)

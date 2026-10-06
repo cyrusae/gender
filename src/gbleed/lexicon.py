@@ -270,6 +270,56 @@ def judge_animacy(
     return "inanimate", f"wordnet:{lexname}"
 
 
+def multi_gender_info(ents: list[dict]) -> dict:
+    """For a noun with more than one gender, is the gender tied to meaning?
+
+    meaning_split     every sense has one gender, and the genders' glosses
+                      differ (der See "lake" / die See "sea")
+    free_variation    some sense allows both genders (el/la mar "sea",
+                      el/la azúcar "sugar")
+    """
+    senses = [sn for e in ents for sn in e["senses"]]
+    by_gender: dict[str, list[str]] = defaultdict(list)
+    shared = False
+    for gs, gloss in senses:
+        if len(gs) > 1:
+            shared = True
+        for g in gs:
+            by_gender[g].append(gloss)
+    single = {g: [gl for gs, gl in senses if gs == {g}] for g in by_gender}
+    concepts = {g: {normalize_gloss(gl) for gl in gls} for g, gls in single.items()}
+    overlap = any(concepts[a] & concepts[b] for a in concepts for b in concepts if a < b)
+    kind = "free_variation" if shared or overlap else "meaning_split"
+    info = {"multi_type": kind}
+    for g in ("m", "f", "n"):
+        gls = single.get(g) or by_gender.get(g) or []
+        info[f"gloss_{g}"] = gls[0] if gls else ""
+    return info
+
+
+def write_multi_candidates(min_zipf: float = 2.5) -> pd.DataFrame:
+    """Same spelling, masculine AND feminine (no neuter), not animate: the
+    pool for hand-picking spelling-constant tests (der/die See, el/la mar)."""
+    out = []
+    for lang in ("de", "es"):
+        df = load_lexicon(lang)
+        # m AND f (a rare neuter use too is allowed, but flagged). Animate ones
+        # are kept and flagged: der Leiter "leader" / die Leiter "ladder" mixes
+        # in social gender, which matters for some uses and not others.
+        g = df.genders.astype(str)
+        m = g.str.contains("m") & g.str.contains("f") & (df.zipf >= min_zipf)
+        m &= (df.marked == "") & (df.also_pos == "")
+        sub = df.loc[m].assign(has_neuter=g[m].str.contains("n"))
+        cols = ["lang", "lemma", "multi_type", "gloss_m", "gloss_f", "has_neuter", "animacy",
+                "animacy_reason", "zipf", "regions"]  # fmt: skip
+        out.append(sub[cols])
+    res = pd.concat(out).sort_values(["lang", "multi_type", "zipf"], ascending=[True, True, False])
+    res.to_csv(LEX_DIR / "multi_gender_candidates.csv", index=False)
+    print(res.groupby(["lang", "multi_type"]).size().to_string())
+    print(f"-> {LEX_DIR}/multi_gender_candidates.csv")
+    return res
+
+
 # ---- step 1: build ----------------------------------------------------------
 def parse_dump(lang: str, path: Path):
     """Yield per-lemma aggregates and the set of words attested as other POS."""
@@ -317,13 +367,28 @@ def parse_dump(lang: str, path: Path):
             entries[word].append(
                 {
                     "genders": genders,
+                    # (genders tagged on this sense, or the entry's if untagged; gloss)
+                    "senses": [
+                        (
+                            frozenset(
+                                GENDER_TAGS[t] for t in sn.get("tags", []) if t in GENDER_TAGS
+                            )
+                            or frozenset(genders),
+                            sn["glosses"][0],
+                        )
+                        for sn in core
+                    ],
                     "gloss": core[0]["glosses"][0],
                     "first_tags": set(core[0].get("tags", [])),
                     "tags": {t for s in core for t in s.get("tags", [])},
                     "cats": cats,
                     "etymology": r.get("etymology_text", ""),
+                    # A *different singular word* of the other gender (director ->
+                    # directora). Not plurals: "mares" is tagged with gender too.
                     "counterpart": any(
                         {"masculine", "feminine"} & set(fm.get("tags", []))
+                        and not {"plural", "diminutive", "augmentative"} & set(fm.get("tags", []))
+                        and fm.get("form") != word
                         for fm in r.get("forms", [])
                     )
                     or any(
@@ -386,6 +451,7 @@ def build_lexicon(lang: str, force_download: bool = False) -> pd.DataFrame:
                 sorted(p for p in other_words.get(word.lower(), ()) if p.endswith("-form"))
             ),
             "n_entries": len(ents),
+            **(multi_gender_info(ents) if len(genders) > 1 else {}),
         }
         if lang == "de":
             row["de_suffix"] = de_suffix(word)
@@ -495,6 +561,75 @@ def build_pairs(min_zipf: float = 2.5) -> pd.DataFrame:
     return pairs
 
 
+# ---- hand-picked classics ---------------------------------------------------
+def build_classics(
+    spec: str = "data/stimuli/classics_spec.csv", out: str = "data/stimuli/classics.csv"
+) -> pd.DataFrame:
+    """Hand-picked flipped pairs, with genders looked up in Wiktionary.
+
+    `check` lists anything that makes an item weaker than it looks: the noun
+    has more than one gender, isn't flipped after all, has an animate sense,
+    or is a homograph. Items are kept either way; the column says why to worry.
+    """
+    sp = pd.read_csv(spec, comment="#", dtype=str)
+    lex = {lang: load_lexicon(lang).set_index("lemma") for lang in ("de", "es")}
+    rows = []
+    for r in sp.itertuples():
+        info, checks = {}, []
+        for lang, lemma in (("de", r.de), ("es", r.es)):
+            if lemma not in lex[lang].index:
+                raise ValueError(f"{lemma!r} not in {lang} lexicon")
+            e = lex[lang].loc[lemma]
+            if isinstance(e, pd.DataFrame):
+                e = e.iloc[0]
+            info[lang] = e
+            if e.gender not in ("m", "f"):
+                checks.append(f"{lang}:genders={e.genders}")
+            if e.animacy != "inanimate":
+                checks.append(f"{lang}:{e.animacy}({e.animacy_reason})")
+            if e.also_pos:
+                checks.append(f"{lang}:also_{e.also_pos}")
+            if e.marked:
+                checks.append(f"{lang}:marked={e.marked}")
+        gd, ge = info["de"].gender, info["es"].gender
+        if gd in ("m", "f") and ge in ("m", "f") and gd == ge:
+            checks.append("not-flipped")
+        for lang, lemma in (("de", r.de), ("es", r.es)):
+            e = info[lang]
+            # A multi-gender noun gets the gender of its sense matching the concept.
+            g = e.gender
+            if g not in ("m", "f"):
+                for cand in ("m", "f"):
+                    if re.search(
+                        rf"\b{re.escape(r.concept_en)}\b",
+                        str(e.get(f"gloss_{cand}", "")),
+                        re.IGNORECASE,
+                    ):
+                        g = cand
+            rows.append(
+                {
+                    "lang": lang,
+                    "lemma": lemma,
+                    "gender": g,
+                    "concept_en": r.concept_en,
+                    "set": "classic",
+                    "source": source_tag(lang),
+                    "zipf": e.zipf,
+                    "gloss": e.gloss,
+                    "cited_in": r.cited_in,
+                    "check": "; ".join(checks),
+                }
+            )
+    df = pd.DataFrame(rows)
+    df["freq_bin"] = df.zipf.map(freq_bin)
+    df.to_csv(out, index=False)
+    bad = df[df.check != ""].drop_duplicates("concept_en")
+    print(f"{len(sp)} classic pairs -> {out}; {len(bad)} with checks:")
+    for b in bad.itertuples():
+        print(f"  {b.concept_en}: {b.check}")
+    return df
+
+
 # ---- step 2: sample a Phase 0 list -------------------------------------------
 FREQ_BINS = [(2.5, 3.5, "low"), (3.5, 4.5, "mid"), (4.5, 99.0, "high")]
 
@@ -513,6 +648,7 @@ def sample_phase0(
     seed: int = 0,
     exclude: set[tuple[str, str]] | None = None,
     concrete_pairs: bool = True,
+    classics: str | None = "data/stimuli/classics.csv",
 ) -> pd.DataFrame:
     """per_cell nouns per (language, frequency bin, gender), plus up to
     max_pairs flipped and max_pairs control translation pairs."""
@@ -522,6 +658,14 @@ def sample_phase0(
     extra = {"de": ["de_suffix"], "es": ["es_ending", "es_regular", "es_exception"]}
     lex = {lang: eligible(load_lexicon(lang)) for lang in ("de", "es")}
     rows, used = [], set(exclude)
+
+    if classics and Path(classics).exists():
+        cl = pd.read_csv(classics, keep_default_na=False)
+        cl = cl[cl.gender.isin(["m", "f"])]
+        for row in cl.to_dict("records"):
+            rows.append({k: row[k] for k in ["lang", "lemma", "gender", "concept_en", "gloss",
+                                            "zipf", "set", "cited_in", "check"]})  # fmt: skip
+            used.add((row["lang"], row["lemma"]))
 
     pairs = build_pairs()
     for flipped, name in ((True, "flipped"), (False, "control")):

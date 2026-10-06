@@ -3,7 +3,7 @@
     "url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
     "dump_mtime": "2026-10-03T11:00:56+00:00",
     "dump_sha256": "d7ae58be5479ebf607bb9f714e74d796f4df3e8b558478d8e9c7710c55510394",
-    "built": "2026-10-06T03:51:51+00:00",
+    "built": "2026-10-06T04:18:13+00:00",
     "n_lemmas": 51957,
     "by_gender": {
       "f": 20923,
@@ -12,16 +12,16 @@
       "multi": 981
     },
     "by_animacy": {
-      "inanimate": 36234,
-      "animate": 10377,
-      "uncertain": 5346
+      "inanimate": 36243,
+      "animate": 10365,
+      "uncertain": 5349
     }
   },
   "es": {
     "url": "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl",
     "dump_mtime": "2026-10-03T10:55:01+00:00",
     "dump_sha256": "7b23a5dc004a47b63edc2e79a34b246bbf59d1a3067a1843a5c554c0e252b97c",
-    "built": "2026-10-06T03:52:13+00:00",
+    "built": "2026-10-06T04:18:32+00:00",
     "n_lemmas": 54508,
     "by_gender": {
       "m": 30181,
@@ -29,9 +29,9 @@
       "multi": 4405
     },
     "by_animacy": {
-      "inanimate": 27301,
-      "animate": 14324,
-      "uncertain": 12883
+      "inanimate": 27366,
+      "animate": 14249,
+      "uncertain": 12893
     }
   }
 }

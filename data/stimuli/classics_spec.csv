@@ -1,0 +1,24 @@
+# Hand-picked classic flipped-gender stimuli. Genders are NOT taken from this file:
+# `gbleed classics` looks them up in the Wiktionary lexicon and flags any problems.
+# cited_in: K = Kann 2019 Table 2 (after Boroditsky & Schmidt 2000); M = Mickan et al. 2014 Exp. 1;
+#           D = project design doc
+concept_en,de,es,cited_in
+apple,Apfel,manzana,K;M
+arrow,Pfeil,flecha,K;M
+boot,Stiefel,bota,K
+broom,Besen,escoba,K
+moon,Mond,luna,K;M;D
+spoon,Löffel,cuchara,K
+star,Stern,estrella,K
+pumpkin,Kürbis,calabaza,K;M
+bench,Bank,banco,K
+brush,Bürste,cepillo,K
+clock,Uhr,reloj,K;M
+disk,Scheibe,disco,K
+drum,Trommel,tambor,K
+fork,Gabel,tenedor,K;M
+sun,Sonne,sol,K;M;D
+toilet,Toilette,inodoro,K
+violin,Geige,violín,K;M
+key,Schlüssel,llave,D
+bridge,Brücke,puente,D

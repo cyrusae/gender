@@ -26,19 +26,24 @@ uv run gbleed phase0 MODEL --stimuli data/stimuli/other.csv --langs de
 uv run gbleed phase0-compare                                    # table of every model run so far
 ```
 
-Each noun is scored two ways (details in `src/gbleed/phase0.py`):
+Each noun is scored by comparing the log-probability of the same sentence with the
+masculine vs the feminine article, in two frames (details in `src/gbleed/phase0.py`):
 
-- **meta**: few-shot `noun: article` list; next-token P(der) vs P(die), P(el) vs P(la),
-  averaged over two shot orderings.
-- **ctx**: sentence log-probability with each article, in frames where the wrong article
-  can't be read as a plural or contraction
-  (`Das hat etwas mit dem/der X zu tun.`, `Esto tiene que ver con el/la X.`).
+| | German | Spanish |
+|---|---|---|
+| frame 1 | `Das hat etwas mit dem/der X zu tun.` | `Esto tiene que ver con el/la X.` |
+| frame 2 | `Ich weiß, dass der/die X hier ist.` | `Mira, el/la X está aquí.` |
 
-Outputs go to `results/phase0/<model>/`: `items.csv` (per-noun scores, prediction,
-tokenization) and `summary.json` (accuracies, balanced accuracies, per-gender accuracy,
-run metadata incl. device/dtype/versions). `results/phase0/comparison.csv` is the
-cross-model table. Use **balanced** accuracy: a model that always says *die* still scores
-~50% raw.
+A noun is **known** (`passed`) when both frames favour the right article by at least
+`--min-margin` nats (default 1.0). Near-ties are `unsure`, not wrong; one frame right and
+the other confidently wrong is `conflict`. The headline number is `known_bal`, the
+balanced share of known nouns (a model that always says *die* would otherwise score
+~50%). A few-shot `noun: article` quiz is also run, as a diagnostic only.
+
+Outputs go to `results/phase0/<model>/`: `items.csv` (per-noun margins, verdicts, status,
+tokenization) and `summary.json` (rates, breakdowns by frequency bin / set / suffix /
+exception type, run metadata incl. device/dtype/versions). `phase0-compare` (optionally
+`--by freq_bin` etc.) builds the cross-model tables.
 
 ## Layout
 
@@ -60,8 +65,8 @@ not from any language model.
 ```sh
 uv run gbleed lexicon                 # downloads ~1 GB per language to data/raw/ (once), then
                                       # writes data/lexicon/{de,es}_nouns.csv + pairs_de_es.csv
-uv run gbleed sample-phase0           # -> data/stimuli/phase0_v1.csv
-uv run gbleed sample-phase0 --per-cell 40 --seed 1 --out data/stimuli/phase0_v2.csv
+uv run gbleed sample-phase0           # -> data/stimuli/phase0_v2.csv
+uv run gbleed sample-phase0 --per-cell 40 --seed 1 --out data/stimuli/phase0_v3.csv
 ```
 
 `data/lexicon/{lang}_nouns.csv` has one row per noun lemma:
@@ -93,6 +98,17 @@ language × frequency bin (low 2.5–3.5, mid 3.5–4.5, high ≥ 4.5) × gender
   (e.g. *Zeit/vez* both gloss as "time"). `pairs_de_es.csv` keeps both glosses: skim
   the flipped pairs before Phase 4–5. Pairs that are near-identical spellings are flagged
   `cognate` and left out of sampling.
+
+**Hand-picked items.**
+- `data/stimuli/classics_spec.csv`: the 19 classic flipped pairs from Kann (2019, after
+  Boroditsky & Schmidt), Mickan et al. (2014) and the design doc. Edit this file to add
+  or remove items; `uv run gbleed classics` looks up their genders in Wiktionary and writes
+  `classics.csv` with a `check` column (e.g. *estrella*'s person sense, *disco*'s second
+  gender). `sample-phase0` always includes them (`set = classic`).
+- `data/lexicon/multi_gender_candidates.csv`: same spelling with both m and f
+  (*der/die See*, *el/la cometa*, *el/la mar*), classified `meaning_split` vs
+  `free_variation`, with the gloss for each gender. A pool for hand-picking
+  spelling-constant tests; the classification is rough, so read the glosses.
 
 `data/stimuli/phase0_seed.csv` is the original hand-written seed list (labels marked
 `claude-unverified`); it's only for testing the pipeline.
