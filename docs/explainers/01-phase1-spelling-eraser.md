@@ -126,6 +126,13 @@ form" if it stays ≥ 0.60.
 - A plausible reason: the ending is usually fused into a stem-specific final token (*it|ra* vs
   *it|ro*, *br|orda* vs *br|ordo*; only 8% of nonce words have the ending as its own token), so
   "ends in -a" is spread across many token-specific directions rather than one shared one.
+- **Direct evidence for that** (0.6B): take each pair's difference vector, (*-a* form) − (*-o* form).
+  If "-a vs -o" were one shared direction, these would all point the same way. They don't: the
+  average cosine between pairs is only 0.19–0.47 across layers, and the *average* difference (the
+  part an eraser can learn from other words) explains only 18–45% of a typical pair's difference.
+  Pairs sharing the same final tokens (*…fa/…fo*, *…pa/…po*: 77 distinct token pairs among 300
+  stems) are noticeably more alike (0.38–0.66), as the tokenization story predicts. Consistency
+  rises in later layers, as the model abstracts away from the specific tokens.
 - The design-doc fallback (pool half the nonce stems in) does essentially nothing: one direction
   can't serve both word types, and the 598 verb items dominate it.
 - Noun gender stays readable after every eraser, but since none of them removes spelling well,
