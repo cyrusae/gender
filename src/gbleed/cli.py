@@ -36,6 +36,7 @@ def main() -> None:
     pl.add_argument("--redownload", action="store_true")
 
     sub.add_parser("classics", help="Look up genders for data/stimuli/classics_spec.csv")
+    sub.add_parser("token-report", help="Add Qwen3 token counts to the lexicons; write the report")
     pm = sub.add_parser("multi-check", help="Do models accept both genders for See/mar-type items?")
     pm.add_argument("models", nargs="+")
     sub.add_parser("phase2-finalize", help="Keep nouns known by all models; freeze splits")
@@ -116,6 +117,11 @@ def main() -> None:
                 _free_memory()
             if not a.extract_only:
                 phase1.analyze(m)
+        return
+    if a.cmd == "token-report":
+        from .tokreport import add_token_counts, write_report
+
+        print(write_report(add_token_counts()))
         return
     if a.cmd == "classics":
         from . import lexicon
