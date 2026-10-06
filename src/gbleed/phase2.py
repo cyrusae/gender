@@ -31,9 +31,9 @@ from . import activations as acts
 from .models import git_state, load_model, model_slug, pick_device, pick_dtype, run_metadata
 from .phase1 import load_stimuli as load_phase1
 
-POOL = "data/stimuli/phase2_pool_v1.csv"
-MULTI = "data/stimuli/phase2_multi_v1.csv"
-FINAL = "data/stimuli/phase2_final_v1.csv"
+POOL = "data/stimuli/phase2_pool_v2.csv"
+MULTI = "data/stimuli/phase2_multi_v2.csv"
+FINAL = "data/stimuli/phase2_final_v2.csv"
 KNOWN_MODELS = ["Qwen/Qwen3-0.6B-Base", "Qwen/Qwen3-1.7B-Base", "Qwen/Qwen3-4B-Base"]
 N_BOOT = 1000
 SEED = 0

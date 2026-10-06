@@ -39,7 +39,7 @@ def main() -> None:
     p2.add_argument("--device", default=None)
     p2.add_argument("--dtype", default=None)
     p2.add_argument("--skip-extract", action="store_true")
-    sub.add_parser("phase2-stimuli", help="Build Phase 2 pools (data/stimuli/phase2_pool_v1.csv)")
+    sub.add_parser("phase2-stimuli", help="Build Phase 2 pools (data/stimuli/phase2_pool_v2.csv)")
     sub.add_parser("phase1-stimuli", help="Build Phase 1 verb / nonce / noun lists (v1)")
     p1 = sub.add_parser("phase1", help="Extract activations and fit/validate the spelling eraser")
     p1.add_argument("models", nargs="+")

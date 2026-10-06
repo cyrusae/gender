@@ -21,12 +21,63 @@ import pandas as pd
 
 from .lexicon import dump_path, eligible, load_lexicon, source_tag
 
-OUT = "data/stimuli/phase2_pool_v1.csv"
+OUT = "data/stimuli/phase2_pool_v2.csv"
 # Endings that predict gender in Spanish, excluded from the matched set (plus -o/-a themselves).
 PREDICTIVE = re.compile(
     r"(?:ción|sión|dad|tad|tud|umbre|ez|eza|itis|sis|or|aje|án|ón|ín|ista|ante|ente|ie|ud|o|a|á|ó)$"
 )
 SEED = 0
+# Sex-associated concepts (sexual anatomy, sex-typed clothing/cosmetics) carry SOCIAL gender; a
+# grammatical-gender direction trained on them would already contain it (circular for Phase 5).
+SEX_GLOSS = re.compile(
+    r"\b(woman|women|female|feminine|male|men's|man's|masculine|ladies|girl|boy|breast|bra|"
+    r"lingerie|menstrua\w*|pregnan\w*|vagin\w*|vulva|penis|phallus|testic\w*|clitor\w*|scrot\w*|"
+    r"pubi\w*|ovar\w*|uter\w*|womb|semen|sperm|beard|moustache|mustache|skirt|dress|tie|lipstick)\b",
+    re.IGNORECASE,
+)
+SEX_ROOTS = ["genitalia.n.01", "reproductive_organ.n.01", "garment.n.01", "undergarment.n.01",
+             "jewelry.n.01", "cosmetic.n.01", "makeup.n.01"]  # fmt: skip
+
+
+def flags(df: pd.DataFrame) -> pd.DataFrame:
+    """en_overlap: ~ the English word, or a common English word. sex_assoc: why, or ''."""
+    import difflib
+
+    from wordfreq import zipf_frequency
+
+    from .lexicon import EN_HOMOGRAPH_ZIPF, EN_SAME, _plain, _wordnet
+
+    wn = _wordnet()
+    roots = {wn.synset(r) for r in SEX_ROOTS}
+
+    def sex(concept: str, gloss: str) -> str:
+        if SEX_GLOSS.search(gloss or "") or SEX_GLOSS.search(concept or ""):
+            return "gloss"
+        head = (concept or "").split(" of ")[0].split()[-1:] or [""]
+        for c in (str(concept).replace(" ", "_"), head[0]):
+            for syn in wn.synsets(c, pos="n")[:1]:
+                hyp = {h for path in syn.hypernym_paths() for h in path}
+                hit = [r.name() for r in roots if r in hyp]
+                if hit:
+                    return "wordnet:" + hit[0]
+        return ""
+
+    df = df.copy()
+    concept = df.concept_en.fillna("").astype(str)
+    df["en_overlap"] = [
+        difflib.SequenceMatcher(None, _plain(w), _plain(c)).ratio() >= EN_SAME
+        or zipf_frequency(w, "en") >= EN_HOMOGRAPH_ZIPF
+        for w, c in zip(df.lemma, concept, strict=True)
+    ]
+    df["sex_assoc"] = [
+        sex(c, g) for c, g in zip(concept, df.gloss.fillna("").astype(str), strict=True)
+    ]
+    return df
+
+
+def _clean(df: pd.DataFrame) -> pd.DataFrame:
+    """Training sets exclude English-overlapping and sex-associated nouns."""
+    return df[~df.en_overlap & (df.sex_assoc == "")]
 
 
 def verb_forms() -> tuple[dict, dict]:
@@ -47,8 +98,8 @@ def verb_forms() -> tuple[dict, dict]:
     return first, third
 
 
-def matched(el: pd.DataFrame, zmin: float = 2.5) -> pd.DataFrame:
-    n = el[(el.zipf >= zmin) & ~el.lemma.str.contains(PREDICTIVE)].copy()
+def matched(el: pd.DataFrame, zmin: float = 2.0) -> pd.DataFrame:
+    n = _clean(flags(el[(el.zipf >= zmin) & ~el.lemma.str.contains(PREDICTIVE)]))
     n["ending"] = n.lemma.str[-2:]
     parts = []
     for _, g in n.groupby("ending"):
@@ -60,7 +111,7 @@ def matched(el: pd.DataFrame, zmin: float = 2.5) -> pd.DataFrame:
 
 
 def regular(el: pd.DataFrame, n_per: int = 150, zmin: float = 3.0) -> pd.DataFrame:
-    r = el[(el.es_regular == "yes") & (el.zipf >= zmin)]
+    r = _clean(flags(el[(el.es_regular == "yes") & (el.zipf >= zmin)]))
     return pd.concat(
         g.sample(min(n_per, len(g)), random_state=SEED) for _, g in r.groupby("gender")
     ).assign(set="regular")
@@ -130,7 +181,11 @@ def multi() -> pd.DataFrame:
 
 
 def build() -> pd.DataFrame:
+    from .phase0 import LANG_CONFIG
+
+    shots = {n for n, _ in LANG_CONFIG["es"]["shots"]}  # Phase 0 quiz examples can't be stimuli
     lex = load_lexicon("es")
+    lex = lex[~lex.lemma.isin(shots)]
     el = eligible(lex)
     ex, dropped = exceptions(lex)
     parts = [matched(el), regular(el), ex, homographs(lex)]
@@ -138,19 +193,9 @@ def build() -> pd.DataFrame:
             "override"]  # fmt: skip
     pool = pd.concat([p.reindex(columns=keep) for p in parts])
     pool = pool.drop_duplicates("lemma", keep="last")  # a test-set membership wins over training
-    # English overlap flag (Phase 2 is monolingual, so flagged, not excluded): the lemma is ~ the
-    # English word (similarity to the English gloss >= 0.9) or a common English word (zipf >= 3).
-    import difflib
-
-    from wordfreq import zipf_frequency
-
-    from .lexicon import EN_HOMOGRAPH_ZIPF, EN_SAME, _plain
-
-    pool["en_overlap"] = [
-        difflib.SequenceMatcher(None, _plain(w), _plain(c)).ratio() >= EN_SAME
-        or zipf_frequency(w, "en") >= EN_HOMOGRAPH_ZIPF
-        for w, c in zip(pool.lemma, pool.concept_en.fillna(""), strict=True)
-    ]
+    # Flags on every set (training sets were already filtered on them; test sets keep flagged
+    # items so each test can be run with and without them).
+    pool = flags(pool)
     pool["lang"] = "es"
     pool["source"] = source_tag("es")
     pool = pool[
@@ -162,11 +207,12 @@ def build() -> pd.DataFrame:
             "set",
             "source",
             "en_overlap",
+            "sex_assoc",
             *[c for c in keep if c not in ("lemma", "gender", "concept_en", "set")],
         ]
     ]
     pool.to_csv(OUT, index=False)
-    multi().to_csv("data/stimuli/phase2_multi_v1.csv", index=False)
+    multi().to_csv("data/stimuli/phase2_multi_v2.csv", index=False)
     print(pool.groupby(["set", "gender"]).size().unstack(fill_value=0).to_string())
     print("exceptions dropped:")
     for w, why in dropped:

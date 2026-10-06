@@ -6,8 +6,13 @@ from gbleed.phase0 import LANG_CONFIG, check_shots_disjoint, meta_prompt, shot_o
 from gbleed.stimuli import flipped_pairs, load_stimuli
 
 # Phase 0-format stimulus lists (lang, lemma, gender, ...); other phases have their own schemas.
-STIM = sorted([*Path("data/stimuli").glob("phase0_*.csv"), Path("data/stimuli/classics.csv"),
-               Path("data/stimuli/phase2_pool_v1.csv")])
+STIM = sorted(
+    [
+        *Path("data/stimuli").glob("phase0_*.csv"),
+        Path("data/stimuli/classics.csv"),
+        Path("data/stimuli/phase2_pool_v2.csv"),
+    ]
+)
 
 
 @pytest.mark.parametrize("path", STIM, ids=lambda p: p.name)
