@@ -102,6 +102,30 @@ def extract(model_id: str, device=None, dtype=None) -> None:
 
 
 # ---- analysis helpers ---------------------------------------------------------
+def _rake(y, covs: list[np.ndarray], n_iter: int = 100) -> np.ndarray:
+    """Raking (iterative proportional fitting): weights per item, within each gender, so the
+    weighted masculine and feminine groups share the pooled distribution of every covariate."""
+    w = np.ones(len(y), dtype=float)
+    targets = [{lv: np.mean(c == lv) for lv in np.unique(c)} for c in covs]
+    for _ in range(n_iter):
+        for c, tgt in zip(covs, targets, strict=True):
+            for g in (0, 1):
+                gm = y == g
+                tot = w[gm].sum()
+                for lv, share in tgt.items():
+                    k = gm & (c == lv)
+                    if k.any():
+                        w[k] *= share * tot / w[k].sum()
+    return w
+
+
+def _wdom(X, y, w):
+    def wmean(k):
+        return (X[k] * w[k, None]).sum(0) / w[k].sum()
+
+    return wmean(y == 1) - wmean(y == 0)
+
+
 def _dom(X, y):
     return X[y == 1].mean(0) - X[y == 0].mean(0)
 
@@ -203,6 +227,18 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
     en = (df.en_overlap.astype(str) == "True").to_numpy()
     homo_y = (df[df.set == "homograph"].gender == "f").to_numpy(int)
     endings = df.ending.to_numpy()
+    from .lexicon import load_lexicon
+
+    conc_map = load_lexicon("es").drop_duplicates("lemma").set_index("lemma").concrete
+    concrete = np.array([str(conc_map.get(w, False)) == "True" for w in df.lemma])
+    zipf = pd.to_numeric(df.zipf, errors="coerce").to_numpy()
+    qs = np.nanquantile(zipf[matched], [1 / 3, 2 / 3])
+    ftert = np.digitize(zipf, qs)
+    covs = [endings, concrete.astype(int), ftert]
+
+    def fit_wdom(Xt, yy, idx):
+        return _wdom(Xt[idx], yy[idx], _rake(yy[idx], [c[idx] for c in covs]))
+
     lean = _leans(model_id, multi.lemma)
     rng = np.random.default_rng(SEED)
     full_idx = {  # test groups, as row indices into their own arrays
@@ -230,28 +266,36 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
         ev = lambda a, e=e_verb: e(torch.from_numpy(a)).numpy()
         e2 = lambda a, e=e_r2: e(torch.from_numpy(a)).numpy()
         # name -> (transform applied to activations, training mask, fitting function)
+        plain = lambda f: lambda Xt, yy, idx: f(Xt[idx], yy[idx])
         directions = {
-            "dom_matched": (ident, matched, _dom),
-            "probe_matched": (ident, matched, _probe_dir),
-            "dom_regular": (ident, reg_tr, _dom),
-            "dom_regular_verberase": (ev, reg_tr, _dom),
-            "dom_regular_rank2": (e2, reg_tr, _dom),
+            "wdom_matched": (ident, matched, fit_wdom),  # PRIMARY (amended before results)
+            "dom_matched": (ident, matched, plain(_dom)),
+            "probe_matched": (ident, matched, plain(_probe_dir)),
+            "dom_regular": (ident, reg_tr, plain(_dom)),
+            "dom_regular_verberase": (ev, reg_tr, plain(_dom)),
+            "dom_regular_rank2": (e2, reg_tr, plain(_dom)),
         }
+        # concreteness direction, within gender, on regular training nouns (diagnostic)
+        cdir = np.mean([
+            X[reg_tr & (y == g) & concrete].mean(0) - X[reg_tr & (y == g) & ~concrete].mean(0)
+            for g in (0, 1)
+        ], axis=0)  # fmt: skip
         for name, (T, trmask, fit) in directions.items():
             Xt, hnt, hvt, mmt, mft = T(X), T(hn), T(hv), T(mm), T(mf)
             tr_idx = np.where(trmask)[0]
-            d = fit(Xt[tr_idx], y[tr_idx])
+            d = fit(Xt, y, tr_idx)
             core = lambda d, idx, Xt=Xt, hnt=hnt, hvt=hvt, mmt=mmt, mft=mft: _core(
                 d, idx, Xt, hnt, hvt, mmt, mft, y, homo_y
             )
             r = {"layer": layer, "direction": name, **core(d, full_idx)}
+            r["cos_concreteness"] = float(d @ cdir / np.linalg.norm(d) / np.linalg.norm(cdir))
             # 95% CIs: resample training nouns (refit the direction) AND test nouns
             boots = []
             for _ in range(N_BOOT):
                 tb = np.concatenate([rng.choice(tr_idx[y[tr_idx] == g], (y[tr_idx] == g).sum())
                                      for g in (0, 1)])  # fmt: skip
                 ib = {k: rng.choice(v, len(v)) for k, v in full_idx.items()}
-                boots.append(core(fit(Xt[tb], y[tb]), ib))
+                boots.append(core(fit(Xt, y, tb), ib))
             for k in CI_KEYS:
                 vals = np.array([b[k] for b in boots], dtype=float)
                 vals = vals[np.isfinite(vals)]
@@ -282,12 +326,12 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
             if trmask is matched:  # in-domain: CV grouped by ending
                 aucs = []
                 for a, b in GroupKFold(n_splits=5).split(Xt[matched], y[matched], endings[matched]):
-                    dd = fit(Xt[matched][a], y[matched][a])
+                    dd = fit(Xt, y, np.where(matched)[0][a])
                     aucs.append(_auc(y[matched][b], Xt[matched][b] @ dd))
                 r["matched_cv_auc"] = float(np.nanmean(aucs))
             rows.append(r)
-        r0 = next(x for x in rows[-len(directions) :] if x["direction"] == "dom_matched")
-        print(f"layer {layer:2d} dom_matched: A_f {r0['A_f']:.2f} [{r0['A_f_lo']:.2f},{r0['A_f_hi']:.2f}] "
+        r0 = next(x for x in rows[-len(directions) :] if x["direction"] == "wdom_matched")
+        print(f"layer {layer:2d} wdom_matched: A_f {r0['A_f']:.2f} [{r0['A_f_lo']:.2f},{r0['A_f_hi']:.2f}] "
               f"A_m {r0['A_m']:.2f} [{r0['A_m_lo']:.2f},{r0['A_m_hi']:.2f}]  p(-ma m)={r0.get('p_ma_m', float('nan')):.2f}  "
               f"homo diff {r0['homo_auc_diff']:+.2f}  multi {r0['multi_p_diff']:+.2f}  "
               f"regular AUC {r0['regular_test_auc']:.2f}  matched CV {r0['matched_cv_auc']:.2f}")  # fmt: skip
