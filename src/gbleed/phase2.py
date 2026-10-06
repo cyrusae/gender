@@ -116,6 +116,27 @@ def _boot(fn, n, rng, n_boot=N_BOOT):
     return float(np.percentile(vals, 2.5)), float(np.percentile(vals, 97.5))
 
 
+def _boot_two(neg, pos, rng, n_boot=N_BOOT):
+    """95% CI of AUC(pos > neg), resampling each group separately."""
+    vals = []
+    for _ in range(n_boot):
+        a, b = rng.choice(neg, len(neg)), rng.choice(pos, len(pos))
+        vals.append(_auc(np.r_[np.zeros(len(a)), np.ones(len(b))], np.r_[a, b]))
+    return float(np.percentile(vals, 2.5)), float(np.percentile(vals, 97.5))
+
+
+def _verdict(f_lo, f_hi, m_lo, m_hi) -> str:
+    """Pre-registered (amended) reading of the masculine-exception test."""
+    gender, spelling = f_lo > 0.5, m_lo > 0.5
+    if gender and not spelling:
+        return "gender"
+    if spelling and not gender:
+        return "spelling"
+    if gender and spelling:
+        return "mixed"
+    return "neither"
+
+
 def _leans(model_id: str, lemmas) -> np.ndarray:
     p = Path("results/multigender") / model_slug(model_id) / "items.csv"
     it = pd.read_csv(p, keep_default_na=False)
@@ -144,6 +165,8 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
     reg_tr = (s_ == "regular") & (df.split == "train").to_numpy()
     reg_te = (s_ == "regular") & (df.split == "test").to_numpy()
     exc = np.char.startswith(s_.astype(str), "exception")
+    excm = exc & (y == 0)  # masculine -a exceptions (el problema, el día)
+    en = (df.en_overlap.astype(str) == "True").to_numpy()
     homo_y = (df[df.set == "homograph"].gender == "f").to_numpy(int)
     endings = df.ending.to_numpy()
     lean = _leans(model_id, multi.lemma)
@@ -188,6 +211,22 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
                     k = (s_ == sub) & (y == g)
                     if k.any():
                         r[f"p_{sub.removeprefix('exception_')}_{gl}"] = float(p[k].mean())
+            # PRIMARY (amended before results): masculine -a exceptions vs regular nouns.
+            #   A_f = P(regular fem -a noun scores above a masc -a exception): same ending,
+            #         different gender -> high if the direction tracks gender, ~0.5 if spelling.
+            #   A_m = P(masc -a exception scores above a regular masc -o noun): same gender,
+            #         different ending -> ~0.5 if gender, high if spelling.
+            for tag, keep_ex in (("", excm), ("_noen", excm & ~en)):
+                rf, rm, xe = s[reg_te & (y == 1)], s[reg_te & (y == 0)], s[keep_ex]
+                lab_f = np.r_[np.zeros(len(xe)), np.ones(len(rf))]
+                lab_m = np.r_[np.zeros(len(rm)), np.ones(len(xe))]
+                r[f"A_f{tag}"] = _auc(lab_f, np.r_[xe, rf])
+                r[f"A_m{tag}"] = _auc(lab_m, np.r_[rm, xe])
+                r[f"A_f{tag}_lo"], r[f"A_f{tag}_hi"] = _boot_two(xe, rf, rng)
+                r[f"A_m{tag}_lo"], r[f"A_m{tag}_hi"] = _boot_two(rm, xe, rng)
+            r["n_excm"], r["n_excm_noen"] = int(excm.sum()), int((excm & ~en).sum())
+            for w in df.lemma[exc & (y == 1)]:  # the few feminine -o exceptions, item by item
+                r[f"p_item_{w}"] = float(p[(df.lemma == w).to_numpy()][0])
             # homographs: same strings as noun vs verb
             sn, sv = T(hn) @ d, T(hv) @ d
             r["homo_auc_noun"], r["homo_auc_verb"] = _auc(homo_y, sn), _auc(homo_y, sv)
@@ -218,8 +257,8 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
                 r["matched_cv_auc"] = float(np.nanmean(aucs))
             rows.append(r)
         r0 = next(x for x in rows[-len(directions) :] if x["direction"] == "dom_matched")
-        print(f"layer {layer:2d} dom_matched: exc AUC {r0['exc_auc']:.2f} [{r0['exc_auc_lo']:.2f},"
-              f"{r0['exc_auc_hi']:.2f}]  p(-ma m)={r0.get('p_ma_m', float('nan')):.2f}  "
+        print(f"layer {layer:2d} dom_matched: A_f {r0['A_f']:.2f} [{r0['A_f_lo']:.2f},{r0['A_f_hi']:.2f}] "
+              f"A_m {r0['A_m']:.2f} [{r0['A_m_lo']:.2f},{r0['A_m_hi']:.2f}]  p(-ma m)={r0.get('p_ma_m', float('nan')):.2f}  "
               f"homo diff {r0['homo_auc_diff']:+.2f}  multi {r0['multi_p_diff']:+.2f}  "
               f"regular AUC {r0['regular_test_auc']:.2f}  matched CV {r0['matched_cv_auc']:.2f}")  # fmt: skip
     res = pd.DataFrame(rows)
@@ -233,6 +272,17 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
         n = len(g)
         outcome[name] = {
             "inner_layers": n,
+            "primary_verdict_layers": g.apply(
+                lambda x: _verdict(x.A_f_lo, x.A_f_hi, x.A_m_lo, x.A_m_hi), axis=1
+            )
+            .value_counts()
+            .to_dict(),
+            "primary_verdict_layers_noen": g.apply(
+                lambda x: _verdict(x.A_f_noen_lo, x.A_f_noen_hi, x.A_m_noen_lo, x.A_m_noen_hi),
+                axis=1,
+            )
+            .value_counts()
+            .to_dict(),
             "exc_follows_gender_layers": int((g.exc_auc_lo > 0.5).sum()),
             "exc_follows_spelling_layers": int((g.exc_auc_hi < 0.5).sum()),
             "homo_gender_beyond_spelling_layers": int((g.homo_diff_lo > 0).sum()),

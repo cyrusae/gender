@@ -2,6 +2,8 @@
 # Hand-picked candidates; `gbleed phase2-stimuli` looks up genders in Wiktionary and drops flagged items
 # (homographs, animate, regional, not single-gender), recording why. override_gender bypasses
 # those checks for a documented reason (the Phase 0 known-check still applies).
+# Removed 2026-10-06: libido (= English word; gender unstable in use, 'el líbido'), polio (common English word;
+# actually a clipping of poliomielitis).
 # subgroup: ma = masculine -ma (mostly Greek); clipping = feminine -o clippings; true = other exceptions
 lemma,subgroup,override_gender,override_reason,override_gloss
 sistema,ma,,,
@@ -44,5 +46,3 @@ mediodía,true,,,
 sofá,true,,,
 pijama,true,,,
 mano,true,f,masculine is regional slang ('bro'); verb manar 'to flow' is rare; every ordinary sense is feminine,hand
-libido,true,,,
-polio,true,,,

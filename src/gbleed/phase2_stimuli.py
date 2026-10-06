@@ -138,6 +138,19 @@ def build() -> pd.DataFrame:
             "override"]  # fmt: skip
     pool = pd.concat([p.reindex(columns=keep) for p in parts])
     pool = pool.drop_duplicates("lemma", keep="last")  # a test-set membership wins over training
+    # English overlap flag (Phase 2 is monolingual, so flagged, not excluded): the lemma is ~ the
+    # English word (similarity to the English gloss >= 0.9) or a common English word (zipf >= 3).
+    import difflib
+
+    from wordfreq import zipf_frequency
+
+    from .lexicon import EN_HOMOGRAPH_ZIPF, EN_SAME, _plain
+
+    pool["en_overlap"] = [
+        difflib.SequenceMatcher(None, _plain(w), _plain(c)).ratio() >= EN_SAME
+        or zipf_frequency(w, "en") >= EN_HOMOGRAPH_ZIPF
+        for w, c in zip(pool.lemma, pool.concept_en.fillna(""), strict=True)
+    ]
     pool["lang"] = "es"
     pool["source"] = source_tag("es")
     pool = pool[
@@ -148,6 +161,7 @@ def build() -> pd.DataFrame:
             "concept_en",
             "set",
             "source",
+            "en_overlap",
             *[c for c in keep if c not in ("lemma", "gender", "concept_en", "set")],
         ]
     ]
