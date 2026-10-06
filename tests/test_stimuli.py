@@ -5,7 +5,8 @@ import pytest
 from gbleed.phase0 import LANG_CONFIG, check_shots_disjoint, meta_prompt, shot_orderings
 from gbleed.stimuli import flipped_pairs, load_stimuli
 
-STIM = sorted(p for p in Path("data/stimuli").glob("*.csv") if not p.stem.endswith("_spec"))
+# Phase 0-format stimulus lists (lang, lemma, gender, ...); other phases have their own schemas.
+STIM = sorted([*Path("data/stimuli").glob("phase0_*.csv"), Path("data/stimuli/classics.csv")])
 
 
 @pytest.mark.parametrize("path", STIM, ids=lambda p: p.name)
@@ -52,3 +53,14 @@ def test_classify_statuses():
     out = classify(df, min_margin=1.0)
     assert out.status.tolist() == ["known", "conflict", "unsure", "wrong", "wrong"]
     assert out.passed.tolist() == [True, False, False, False, False]
+
+
+def test_phase1_stimuli_disjoint_and_clean():
+    import pandas as pd
+
+    n = pd.read_csv("data/stimuli/phase1_nonce_v1.csv")
+    assert set(n.split) == {"train", "test"}
+    assert not set(n[n.split == "train"].stem) & set(n[n.split == "test"].stem)
+    v = pd.read_csv("data/stimuli/phase1_verbs_v1.csv")
+    assert (v.form_o == v.stem + "o").all() and (v.form_a == v.stem + "a").all()
+    assert not set(n.form_a) & set(v.form_a)

@@ -31,6 +31,12 @@ def main() -> None:
     pl.add_argument("--redownload", action="store_true")
 
     sub.add_parser("classics", help="Look up genders for data/stimuli/classics_spec.csv")
+    sub.add_parser("phase1-stimuli", help="Build Phase 1 verb / nonce / noun lists (v1)")
+    p1 = sub.add_parser("phase1", help="Extract activations and fit/validate the spelling eraser")
+    p1.add_argument("models", nargs="+")
+    p1.add_argument("--device", default=None)
+    p1.add_argument("--dtype", default=None)
+    p1.add_argument("--skip-extract", action="store_true", help="reuse saved activations")
 
     ps = sub.add_parser("sample-phase0", help="Sample a Phase 0 stimulus list from the lexicons")
     ps.add_argument("--out", default="data/stimuli/phase0_v3.csv")
@@ -47,6 +53,20 @@ def main() -> None:
             lexicon.build_lexicon(lang, a.redownload)
         lexicon.build_pairs()
         lexicon.write_multi_candidates()
+        return
+    if a.cmd == "phase1-stimuli":
+        from .phase1_stimuli import build_all
+
+        build_all()
+        return
+    if a.cmd == "phase1":
+        from . import phase1
+
+        for m in a.models:
+            if not a.skip_extract:
+                phase1.extract(m, a.device, a.dtype)
+                _free_memory()
+            phase1.analyze(m)
         return
     if a.cmd == "classics":
         from . import lexicon
