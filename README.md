@@ -70,7 +70,14 @@ uv run gbleed phase2-finalize                  # keep nouns known by all three; 
 uv run gbleed phase2 MODEL [MODEL ...] [--skip-extract]
 ```
 
-Model runs take minutes to an hour; run them in the background and write to a log.
+Model runs take minutes to an hour. Every long step prints timestamped stage lines and progress
+bars (elapsed time and an estimate of time remaining), and output is unbuffered, so a log file
+updates live. On a remote machine:
+
+```sh
+nohup uv run gbleed phase2 Qwen/Qwen3-8B-Base > run.log 2>&1 &
+tail -f run.log        # watch progress; Ctrl-C stops watching, not the run
+```
 
 Phase 2 also uses human concreteness ratings (Brysbaert, Warriner & Kuperman 2014), downloaded on
 first use to `data/raw/norms/` from a mirror and checked against a pinned checksum (`src/gbleed/norms.py`).

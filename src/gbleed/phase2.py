@@ -26,9 +26,19 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import GroupKFold
 from sklearn.preprocessing import StandardScaler
+from tqdm import tqdm
 
 from . import activations as acts
-from .models import git_state, load_model, model_slug, pick_device, pick_dtype, run_metadata
+from .models import (
+    git_state,
+    load_model,
+    model_slug,
+    pick_device,
+    pick_dtype,
+    progress,
+    run_metadata,
+    stage,
+)
 from .phase1 import load_stimuli as load_phase1
 
 POOL = "data/stimuli/phase2_pool_v2.csv"
@@ -96,7 +106,8 @@ def extract(model_id: str, device=None, dtype=None) -> None:
     meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
     meta["input_format"] = "[<|endoftext|>] + tokens(' ' + text); last token"
     for name, ws in texts.items():
-        X, toks = acts.last_token_states(model, tok, ws)
+        stage(f"{model_id}: extracting {name} ({len(ws)} texts)")
+        X, toks = acts.last_token_states(model, tok, ws, desc=name)
         acts.save(model_id, name, X, ws, toks, {**meta, "stimuli": FINAL})
         print(f"{name}: {X.shape}")
 
@@ -251,7 +262,10 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
         full_idx[f"excm_{tag}"] = np.where(excm & ok)[0]
 
     rows = []
-    for layer in range(Xb.shape[1]):
+    stage(
+        f"{model_id}: Phase 2 analysis, {Xb.shape[1]} layers x 6 directions x {N_BOOT} bootstrap rounds"
+    )
+    for layer in progress(range(Xb.shape[1]), desc="layers", unit="layer"):
         X = Xb[:, layer].astype(np.float64)
         hn, hv = Xhn[:, layer].astype(np.float64), Xhv[:, layer].astype(np.float64)
         mm, mf = Xmm[:, layer].astype(np.float64), Xmf[:, layer].astype(np.float64)
@@ -290,7 +304,7 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
             r["cos_concreteness"] = float(d @ cdir / np.linalg.norm(d) / np.linalg.norm(cdir))
             # 95% CIs: resample training nouns (refit the direction) AND test nouns
             boots = []
-            for _ in range(N_BOOT):
+            for _ in progress(range(N_BOOT), desc=f"L{layer} {name}", unit="round", leave=False):
                 tb = np.concatenate([rng.choice(tr_idx[y[tr_idx] == g], (y[tr_idx] == g).sum())
                                      for g in (0, 1)])  # fmt: skip
                 ib = {k: rng.choice(v, len(v)) for k, v in full_idx.items()}
@@ -331,7 +345,7 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
                 r["matched_cv_auc"] = float(np.nanmean(aucs))
             rows.append(r)
         r0 = next(x for x in rows[-len(directions) :] if x["direction"] == "adom_matched")
-        print(f"layer {layer:2d} adom_matched: A_f {r0['A_f']:.2f} [{r0['A_f_lo']:.2f},{r0['A_f_hi']:.2f}] "
+        tqdm.write(f"layer {layer:2d} adom_matched: A_f {r0['A_f']:.2f} [{r0['A_f_lo']:.2f},{r0['A_f_hi']:.2f}] "
               f"A_m {r0['A_m']:.2f} [{r0['A_m_lo']:.2f},{r0['A_m_hi']:.2f}]  p(-ma m)={r0.get('p_ma_m', float('nan')):.2f}  "
               f"homo diff {r0['homo_auc_diff']:+.2f}  multi {r0['multi_p_diff']:+.2f}  "
               f"regular AUC {r0['regular_test_auc']:.2f}  matched CV {r0['matched_cv_auc']:.2f}")  # fmt: skip

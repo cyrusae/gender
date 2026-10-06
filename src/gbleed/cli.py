@@ -8,6 +8,10 @@ DEFAULT_STIMULI = "data/stimuli/phase0_seed.csv"
 
 
 def main() -> None:
+    import sys
+
+    # Logs update live even when output goes to a file (e.g. `nohup ... > run.log`).
+    sys.stdout.reconfigure(line_buffering=True)
     p = argparse.ArgumentParser(prog="gbleed")
     sub = p.add_subparsers(dest="cmd", required=True)
 

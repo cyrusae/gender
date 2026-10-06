@@ -63,3 +63,19 @@ def test_lexical_class():
     assert "letter-name" in lexical_class("name of the Latin-script letter D/d", set())
     assert "number" in lexical_class("natural number eight", set())
     assert not lexical_class("bridge", set())
+
+
+@pytest.mark.parametrize(
+    "uk,us,ok",
+    [
+        ("neighbourhood", "neighborhood", True), ("colour", "color", True),
+        ("oesophagus", "esophagus", True), ("centre", "center", True),
+        ("organisation", "organization", True), ("tumour", "tumor", True),
+        ("boeing", "being", False), ("proemium", "premium", False), ("loess", "less", False),
+        ("scourer", "scorer", False), ("compositae", "composite", False), ("haem", "hem", False),
+    ],
+)  # fmt: skip
+def test_uk_us_respelling_only_for_same_word(uk, us, ok):
+    from gbleed.norms import _same_word
+
+    assert _same_word(uk, us) is ok

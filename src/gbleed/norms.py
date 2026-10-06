@@ -5,8 +5,8 @@ The authors' download link is dead; we use a third-party mirror and verify it ag
 (39,954 entries = 37,058 words + 2,896 two-word expressions) and a fixed SHA-256.
 
 Spanish/German nouns are rated via their English gloss: every comma/semicolon-separated
-alternative of the first gloss is looked up (British spellings normalised), and matches are
-averaged. Fallback: the head noun of the first alternative, taking the word after "of" when the
+alternative of the first gloss is looked up (British spellings normalised, but only when WordNet
+confirms the two spellings are the same word), and matches are averaged. Fallback: the head noun of the first alternative, taking the word after "of" when the
 first word is only a classifier ("type of pepper" -> pepper).
 """
 
@@ -44,13 +44,23 @@ def ratings() -> dict[str, float]:
     return dict(zip(df.Word.str.lower(), df["Conc.M"].astype(float), strict=True))
 
 
+def _same_word(a: str, b: str) -> bool:
+    """WordNet lists British spellings as synonyms of the American entry (colour/color share a
+    synset; scourer/scorer and boeing/being don't), so only accept a respelling it confirms."""
+    from .lexicon import _wordnet
+
+    wn = _wordnet()
+    return bool(set(wn.synsets(a.replace(" ", "_"))) & set(wn.synsets(b.replace(" ", "_"))))
+
+
 def _lookup(phrase: str, R: dict) -> float | None:
+    phrase = " ".join(phrase.split())  # normalise whitespace ("indigo  " -> "indigo")
     if phrase in R:
         return R[phrase]
     words = phrase.split()
     for pat, rep in UK_US:  # normalise the last word's spelling (neighbourhood, sepulchre)
         alt = " ".join([*words[:-1], re.sub(pat, rep, words[-1])]) if words else phrase
-        if alt in R:
+        if alt != phrase and alt in R and _same_word(phrase, alt):
             return R[alt]
     return None
 

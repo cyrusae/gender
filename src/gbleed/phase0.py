@@ -48,9 +48,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 import pandas as pd
-from tqdm import tqdm
 
-from .models import load_model, model_slug, pick_device, pick_dtype, run_metadata
+from .models import load_model, model_slug, pick_device, pick_dtype, progress, run_metadata, stage
 from .scoring import candidate_logprobs, continuation_logprob, tokens_of
 from .stimuli import flipped_pairs, load_stimuli
 
@@ -258,14 +257,15 @@ def run(
 
     dev = pick_device(device)
     dt = pick_dtype(dtype, dev)
-    print(f"Loading {model_id} on {dev} ({dt}) ...")
+    stage(f"Loading {model_id} on {dev} ({dt})")
     model, tok = load_model(model_id, dev, dt)
     meta = run_metadata(model, model_id, dev, dt)
     meta["stimuli"] = str(stimuli_path)
     meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
 
     rows = []
-    for r in tqdm(df.itertuples(), total=len(df), desc=model_id):
+    stage(f"{model_id}: scoring {len(df)} nouns")
+    for r in progress(df.itertuples(), total=len(df), desc=model_id, unit="noun"):
         rows.append({**r._asdict(), **score_noun(model, tok, r.lang, r.lemma)})
     items = classify(pd.DataFrame(rows).drop(columns="Index"), min_margin)
 

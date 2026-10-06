@@ -14,7 +14,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from .models import load_model, model_slug, pick_device, pick_dtype, run_metadata
+from .models import load_model, model_slug, pick_device, pick_dtype, progress, run_metadata, stage
 from .phase0 import score_noun
 
 SPEC = "data/stimuli/multi_gender_spec.csv"
@@ -32,7 +32,8 @@ def run(
     meta = run_metadata(model, model_id, dev, dt)
     meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
     rows = []
-    for r in spec.itertuples():
+    stage(f"{model_id}: scoring {len(spec)} two-gender items")
+    for r in progress(spec.itertuples(), total=len(spec), desc=model_id, unit="item"):
         s = score_noun(model, tok, r.lang, r.lemma)
         m1, m2 = s["ctx1_margin"], s["ctx2_margin"]
         both = abs(m1) < ACCEPT and abs(m2) < ACCEPT

@@ -43,9 +43,19 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import GroupKFold, StratifiedKFold
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
+from tqdm import tqdm
 
 from . import activations as acts
-from .models import git_state, load_model, model_slug, pick_device, pick_dtype, run_metadata
+from .models import (
+    git_state,
+    load_model,
+    model_slug,
+    pick_device,
+    pick_dtype,
+    progress,
+    run_metadata,
+    stage,
+)
 
 STIM = {
     "verbs": "data/stimuli/phase1_verbs_v1.csv",
@@ -82,7 +92,8 @@ def extract(model_id: str, device=None, dtype=None) -> None:
     meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
     meta["input_format"] = "[<|endoftext|>] + tokens(' ' + word)"
     for name, s in st.items():
-        X, toks = acts.last_token_states(model, tok, s[0])
+        stage(f"{model_id}: extracting {name} ({len(s[0])} words)")
+        X, toks = acts.last_token_states(model, tok, s[0], desc=name)
         acts.save(model_id, f"phase1_{name}", X, s[0], toks, {**meta, "stimuli": STIM[name]})
         print(f"{name}: {X.shape}, multi-token words {np.mean([len(t) > 1 for t in toks]):.0%}")
 
@@ -143,7 +154,8 @@ def analyze(model_id: str, out_root: str = "results/phase1", seed: int = 0) -> p
     yvi, yni = yv.astype(np.int64), yn.astype(np.int64)
 
     rows = []
-    for layer in range(Xv.shape[1]):
+    stage(f"{model_id}: Phase 1 analysis, {Xv.shape[1]} layers")
+    for layer in progress(range(Xv.shape[1]), desc="layers", unit="layer"):
         xv, xn, xg = (a[:, layer].astype(np.float64) for a in (Xv, Xn, Xg))
         z2 = np.zeros((len(xv) + int(tr.sum()), 2))
         z2[: len(xv), 0] = yv - 0.5
@@ -171,7 +183,7 @@ def analyze(model_id: str, out_root: str = "results/phase1", seed: int = 0) -> p
             )
             r[f"nouns_{name}"], r[f"nouns_{name}_auc"] = _cv(_apply(e, xg), yg, seed=seed)
         rows.append(r)
-        print(f"layer {layer:2d}  verbs {r['verbs_before']:.2f}->{r['verbs_after']:.2f}  "
+        tqdm.write(f"layer {layer:2d}  verbs {r['verbs_before']:.2f}->{r['verbs_after']:.2f}  "
               f"nonce(prereg) {r['nonce_before']:.2f}->{r['nonce_after']:.2f}  nonce-cv AUC: "
               + " ".join(f"{n} {r[f'nonce_cv_{n}_auc']:.2f}" for n in erasers)
               + f"  nouns: {r['nouns_none']:.2f}->{r['nouns_rank2']:.2f} (rank2)")  # fmt: skip

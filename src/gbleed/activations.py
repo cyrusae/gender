@@ -21,9 +21,8 @@ from pathlib import Path
 
 import numpy as np
 import torch
-from tqdm import tqdm
 
-from .models import model_slug
+from .models import model_slug, progress
 
 ACT_DIR = Path("activations")
 
@@ -34,14 +33,14 @@ def prefix_ids(tok) -> list[int]:
 
 
 @torch.no_grad()
-def last_token_states(model, tok, words: list[str], batch_size: int = 64):
+def last_token_states(model, tok, words: list[str], batch_size: int = 64, desc: str = "extract"):
     """Return (X [n, L+1, d] float32, tokens [n lists of str]) for bare words."""
     pre = prefix_ids(tok)
     seqs = [pre + tok(" " + w, add_special_tokens=False)["input_ids"] for w in words]
     pad = tok.pad_token_id if tok.pad_token_id is not None else tok.eos_token_id
     out = []
     toks = [tok.convert_ids_to_tokens(s[len(pre) :]) for s in seqs]
-    for i in tqdm(range(0, len(seqs), batch_size), desc="extract", leave=False):
+    for i in progress(range(0, len(seqs), batch_size), desc=desc, unit="batch"):
         batch = seqs[i : i + batch_size]
         width = max(map(len, batch))
         ids = torch.full((len(batch), width), pad, dtype=torch.long)

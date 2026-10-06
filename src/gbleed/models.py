@@ -84,3 +84,23 @@ def run_metadata(model, model_id: str, device: str, dtype: torch.dtype) -> dict:
         "transformers": transformers.__version__,
         "machine": f"{platform.system()} {platform.machine()} {platform.processor()}",
     }
+
+
+def stage(msg: str) -> None:
+    """Timestamped progress line, e.g. '[14:02:31] Qwen3-4B: extracting activations'."""
+    from datetime import datetime
+
+    print(f"[{datetime.now().astimezone():%H:%M:%S}] {msg}", flush=True)
+
+
+def progress(iterable=None, **kw):
+    """tqdm with settings that also work in log files: persistent bars, slower refresh when
+    stderr isn't a terminal (so `tail -f run.log` stays readable)."""
+    import sys
+
+    from tqdm import tqdm
+
+    if not sys.stderr.isatty():
+        kw.setdefault("mininterval", 10)
+    kw.setdefault("dynamic_ncols", True)
+    return tqdm(iterable, **kw)
