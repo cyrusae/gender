@@ -183,6 +183,6 @@ src/gbleed/       models, scoring, stimuli, lexicon, phase0, multigender, activa
                   phase1(_stimuli), phase2(_stimuli), cli
 results/          small result tables (tracked): phase0/, multigender/, phase1/, phase2_known/, phase2/
 activations/      extracted hidden states (git-ignored; one device and precision per model)
-docs/             glossary, decisions log, per-phase explainers, writeups/, model_candidates.md
+docs/             glossary, decisions log, per-phase explainers, writeups/, design/, reading-list.md
 sources/          papers (PDFs git-ignored) + SUMMARIES.md
 ```

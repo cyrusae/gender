@@ -65,6 +65,16 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   and unrepresentative. The first token after a document separator can be one too (for some
   single-token words, one dimension jumps to ~2,500). So Phase 1+ inputs are `<|endoftext|>`, a
   newline as a buffer, then the word.
+- **Massive activations.** A handful of dimensions with values orders of magnitude larger than the
+  rest, tied to attention-sink positions (Sun et al. 2024, `docs/reading-list.md`). In Qwen3-1.7B,
+  dimension 1793 (4B: dimension 4) jumped to ~2,500 for single-token words placed right after
+  `<|endoftext|>`, which made raw difference-of-means directions track "is this word one token?".
+- **Detokenization.** Models assemble a whole-word representation at the word's *last* token, mainly
+  in early and middle layers (Kaplan et al. 2025). The justification for last-token readout, and
+  the reason early layers may reflect token identity rather than the word.
+- **Readout position.** Which token's vector represents a word: its last token (current), or a
+  fixed token after it (e.g. a following newline: same token type for every word). To be chosen on
+  gender-blind criteria before Phase 3 (`docs/design/phases-3-5-plan.md`).
 - **`hidden_states`** *(transformers)*. What a Hugging Face model returns with
   `output_hidden_states=True`: one array per layer boundary. For Qwen3: index 0 = token
   embeddings, 1…L−1 = layer outputs, L = last layer *after* the final normalisation (different
@@ -142,6 +152,11 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   activations being measured.
 - **MPS / CUDA.** The GPU backends: MPS = Apple Silicon (the Mac), CUDA = NVIDIA (RunPod).
 - **RunPod** *(service)*. Rented NVIDIA GPUs for the larger-model runs.
+- **Global volume** *(RunPod)*. Storage not tied to one pod or data center (beta). Mounts at
+  `/workspace` as GeeseFS, i.e. object storage: fast for large files, slow for many small files, so
+  code, environments and the model cache stay on the pod's local disk.
+- **Batched scoring.** Scoring many sentences per forward pass (padded to equal length, with an
+  attention mask). Same numbers as one at a time, up to rounding; keeps the GPU busy.
 - **Device rule.** For any one model, extract all activations on one device and precision; never
   compare activations across hardware (design doc). Cross-size comparisons all run on RunPod.
 
