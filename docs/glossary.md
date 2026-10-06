@@ -143,7 +143,14 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
 - **Social gender.** Gender as attributed to people (*he/she, king/queen*).
 - **Flipped pair.** A concept whose noun has opposite gender in German and Spanish
   (*Mond* m / *luna* f). **Control pair**: same gender in both.
-- **Lemma.** Dictionary form of a word (*Brücke*, not *Brücken*).
+- **Lemma / lexeme.** A *lexeme* is a word in the abstract sense: *hablar* together with *hablo*,
+  *habla*, *hablaban*… The *lemma* is the conventional **citation form** chosen to stand for it:
+  infinitive for Spanish verbs, singular for nouns, masculine singular for adjectives. Which form
+  counts is a convention that varies by language (Latin verbs are cited by the 1sg, *amo*), and a
+  lemma needn't be the form that occurs in a given text. **Lemmatising** text replaces each word
+  by its lemma, so Italian *le case rosse* becomes roughly *il casa rosso*: agreement disappears,
+  which is why Kann (2019) and Gonen et al. (2019) lemmatised context to strip gender cues. In this
+  project's lexicon, "lemma" means the headword of a Wiktionary noun entry (the singular).
 - **Homograph.** Same spelling, different word (*camino* "path" / *camino* "I walk").
 - **Agreement / concord.** Words changing form to match a noun's gender (*la llave bonita*).
 - **Case (German).** Nominative/accusative/dative/genitive; articles change by case
