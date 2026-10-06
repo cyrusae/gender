@@ -70,3 +70,23 @@ def test_phase1_stimuli_disjoint_and_clean():
     v = pd.read_csv("data/stimuli/phase1_verbs_v1.csv")
     assert (v.form_o == v.stem + "o").all() and (v.form_a == v.stem + "a").all()
     assert not set(n.form_a) & set(v.form_a)
+
+
+def test_batched_request_bookkeeping():
+    """_requests/_assemble must map flat batched results back to the right quantities."""
+    from gbleed.phase0 import _assemble, _requests
+
+    class Tok:
+        def __call__(self, text, add_special_tokens=False):
+            return {"input_ids": [1, 2]}
+
+        def decode(self, ids):
+            return "x"
+
+    for lang in ("de", "es"):
+        reqs, nc = _requests(lang, "Brücke" if lang == "de" else "puente")
+        n_orders = 2
+        assert len(reqs) == n_orders * nc + 4  # quiz candidates per ordering + 2 frames x (m, f)
+        vals = [0.0] * (n_orders * nc) + [-1.0, -3.0, -2.0, -2.5]
+        out = _assemble(lang, "x", vals, nc, Tok())
+        assert out["ctx1_margin"] == 2.0 and out["ctx2_margin"] == 0.5

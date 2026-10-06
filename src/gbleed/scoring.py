@@ -57,3 +57,47 @@ def sentence_logprob(model, tok, text: str) -> float:
 def tokens_of(tok, text: str) -> list[str]:
     ids = _ids(tok, text, special=False)
     return [tok.decode([i]) for i in ids]
+
+
+@torch.no_grad()
+def continuation_logprobs_batch(
+    model, tok, requests: list[tuple[str, str]], batch_size: int = 32, desc: str = "scoring"
+) -> list[float]:
+    """log P(continuation | prompt) for many (prompt, continuation) pairs at once.
+
+    Same quantity as `continuation_logprob`, computed in right-padded batches with an
+    attention mask (padding sits after each sequence, so causal attention never sees it).
+    Requests are sorted by length to minimise padding; results come back in input order.
+    For a single-token continuation this equals the next-token log-probability.
+    """
+    from .models import progress
+
+    seqs, spans = [], []
+    for prompt, cont in requests:
+        p = _ids(tok, prompt, special=True)
+        c = _ids(tok, cont, special=False)
+        seqs.append(p + c)
+        spans.append((len(p), len(p) + len(c)))
+    pad = tok.pad_token_id if tok.pad_token_id is not None else tok.eos_token_id
+    order = sorted(range(len(seqs)), key=lambda i: len(seqs[i]))
+    out = [0.0] * len(seqs)
+    chunks = [order[i : i + batch_size] for i in range(0, len(order), batch_size)]
+    for chunk in progress(chunks, desc=desc, unit="batch"):
+        width = max(len(seqs[i]) for i in chunk)
+        ids = torch.full((len(chunk), width), pad, dtype=torch.long)
+        mask = torch.zeros_like(ids)
+        for row, i in enumerate(chunk):
+            ids[row, : len(seqs[i])] = torch.tensor(seqs[i])
+            mask[row, : len(seqs[i])] = 1
+        logits = model(input_ids=ids.to(model.device), attention_mask=mask.to(model.device)).logits
+        for row, i in enumerate(chunk):
+            s, e = spans[i]
+            lg = logits[row, s - 1 : e - 1].float()  # predictions for tokens s..e-1
+            if not torch.isfinite(lg).all():
+                raise FloatingPointError(
+                    "Non-finite logits (fp16 overflow?). Retry with --dtype float32."
+                )
+            lp = torch.log_softmax(lg, dim=-1)
+            tgt = ids[row, s:e].to(lp.device)
+            out[i] = lp.gather(1, tgt[:, None]).sum().item()
+    return out

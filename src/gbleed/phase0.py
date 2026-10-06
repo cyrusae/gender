@@ -49,7 +49,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from .models import load_model, model_slug, pick_device, pick_dtype, progress, run_metadata, stage
+from .models import load_model, model_slug, pick_device, pick_dtype, run_metadata, stage
 from .scoring import candidate_logprobs, continuation_logprob, tokens_of
 from .stimuli import flipped_pairs, load_stimuli
 
@@ -137,6 +137,61 @@ def score_noun(model, tok, lang: str, noun: str) -> dict:
         "n_tokens": len(toks),
         "tokens": "|".join(toks),
     }
+
+
+def _requests(lang: str, noun: str) -> tuple[list[tuple[str, str]], int]:
+    """All (prompt, continuation) pairs Phase 0 needs for one noun, in a fixed order:
+    quiz candidates for each shot ordering, then (m, f) for each sentence frame."""
+    cfg = LANG_CONFIG[lang]
+    cands = [cfg["meta"]["m"], cfg["meta"]["f"], *cfg["meta_other"]]
+    reqs = [(meta_prompt(cfg, s, noun), c) for s in shot_orderings(cfg["shots"]) for c in cands]
+    for frame, arts in cfg["frames"]:
+        prefix, rest = frame.split("{noun}")
+        reqs += [(prefix.format(art=arts[g]).rstrip(), " " + noun + rest) for g in ("m", "f")]
+    return reqs, len(cands)
+
+
+def _assemble(lang: str, noun: str, vals: list[float], n_cands: int, tok) -> dict:
+    cfg = LANG_CONFIG[lang]
+    k = len(shot_orderings(cfg["shots"]))
+    per_order = [vals[i * n_cands : (i + 1) * n_cands] for i in range(k)]
+    lp_m = sum(o[0] for o in per_order) / k
+    lp_f = sum(o[1] for o in per_order) / k
+    lp_other = sum(_logsumexp(o[2:]) for o in per_order) / k if cfg["meta_other"] else float("nan")
+    mass = sum(math.exp(_logsumexp(o)) for o in per_order) / k
+    rest = vals[k * n_cands :]
+    frames = {
+        f"ctx{i + 1}_margin": rest[2 * i] - rest[2 * i + 1] for i in range(len(cfg["frames"]))
+    }
+    toks = tokens_of(tok, " " + noun)
+    return {
+        **frames,
+        "meta_lp_m": lp_m,
+        "meta_lp_f": lp_f,
+        "meta_lp_other": lp_other,
+        "meta_mass": mass,
+        "meta_margin": lp_m - lp_f,
+        "meta_order_agree": (per_order[0][0] > per_order[0][1])
+        == (per_order[1][0] > per_order[1][1]),
+        "n_tokens": len(toks),
+        "tokens": "|".join(toks),
+    }
+
+
+def score_all(model, tok, df: pd.DataFrame, batch_size: int = 32) -> list[dict]:
+    """Batched equivalent of calling score_noun on every row (same numbers up to rounding)."""
+    from .scoring import continuation_logprobs_batch
+
+    reqs, owners = [], []
+    for j, r in enumerate(df.itertuples()):
+        rq, nc = _requests(r.lang, r.lemma)
+        owners.append((len(reqs), len(rq), nc))
+        reqs += rq
+    vals = continuation_logprobs_batch(model, tok, reqs, batch_size=batch_size, desc="phase0")
+    out = []
+    for r, (start, n, nc) in zip(df.itertuples(), owners, strict=True):
+        out.append(_assemble(r.lang, r.lemma, vals[start : start + n], nc, tok))
+    return out
 
 
 def check_shots_disjoint(df: pd.DataFrame) -> None:
@@ -249,6 +304,7 @@ def run(
     dtype: str | None = None,
     langs: list[str] | None = None,
     min_margin: float = DEFAULT_MIN_MARGIN,
+    batch_size: int = 32,
 ) -> Path:
     df = load_stimuli(stimuli_path)
     check_shots_disjoint(df)
@@ -264,9 +320,9 @@ def run(
     meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
 
     rows = []
-    stage(f"{model_id}: scoring {len(df)} nouns")
-    for r in progress(df.itertuples(), total=len(df), desc=model_id, unit="noun"):
-        rows.append({**r._asdict(), **score_noun(model, tok, r.lang, r.lemma)})
+    stage(f"{model_id}: scoring {len(df)} nouns (batched, batch size {batch_size})")
+    for r, sc in zip(df.itertuples(), score_all(model, tok, df, batch_size), strict=True):
+        rows.append({**r._asdict(), **sc})
     items = classify(pd.DataFrame(rows).drop(columns="Index"), min_margin)
 
     out = Path(out_root) / model_slug(model_id)
