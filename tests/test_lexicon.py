@@ -53,7 +53,9 @@ def test_animacy():
         "inanimate"
     )
     assert judge_animacy(set(), set(), "bridge", "noun.artifact", 0.0)[0] == "inanimate"
-    assert judge_animacy(set(), set(), "army", "noun.group", 0.0)[0] == "uncertain"
+    assert judge_animacy(set(), set(), "director", "noun.artifact", 0.0, counterpart=True)[0] == (
+        "animate"
+    )
     assert judge_animacy(set(), set(), "star", "noun.object", 0.4)[0] == "uncertain"
 
 

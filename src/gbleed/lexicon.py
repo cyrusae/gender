@@ -84,6 +84,12 @@ GLOSS_ANIMATE = re.compile(
     re.IGNORECASE,
 )
 ANIMATE_LEX = {"noun.person", "noun.animal"}
+CONCRETE_LEX = {
+    "noun.artifact", "noun.object", "noun.food", "noun.plant", "noun.substance", "noun.body",
+}  # fmt: skip
+# Wiktionary marks of a person/animal noun: a gendered counterpart form
+# (director -> directora, Hund -> Hündin), or a "female equivalent of" sense.
+COUNTERPART_GLOSS = re.compile(r"\b(female|male|feminine|masculine) equivalent of\b", re.IGNORECASE)
 
 # ---- morphology tags --------------------------------------------------------
 DE_SUFFIXES = [  # reliable gender predictors -> keep as their own test subgroup
@@ -197,6 +203,25 @@ def wordnet_animacy(wn, concept: str) -> tuple[str, float | None]:
     return "", None
 
 
+def wordnet_concrete(wn, concept: str) -> bool:
+    """Is the dominant (usage-weighted) sense a physical thing? 'table' is
+    WordNet's data table first, but the furniture sense is far more frequent."""
+    head = concept.split(" of ")[0].split()[-1] if concept else ""
+    for c in (concept.replace(" ", "_"), head):
+        lemmas = wn.lemmas(c, pos="n") if c else []
+        if not lemmas:
+            continue
+        counts = [lem.count() for lem in lemmas]
+        if sum(counts) == 0:
+            return lemmas[0].synset().lexname() in CONCRETE_LEX
+        conc = sum(
+            n for lem, n in zip(lemmas, counts, strict=True)
+            if lem.synset().lexname() in CONCRETE_LEX
+        )  # fmt: skip
+        return conc / sum(counts) >= 0.5
+    return False
+
+
 LETTER_GLOSS = re.compile(r"(name of the .*letter|letter of the .*alphabet)", re.IGNORECASE)
 NUMBER_GLOSS = re.compile(
     r"^(the )?((natural|cardinal|ordinal) )?(number|numeral|digit)\b", re.IGNORECASE
@@ -215,8 +240,14 @@ def lexical_class(gloss: str, cats: set[str]) -> set[str]:
     return out
 
 
-def judge_animacy(cats: set[str], tags: set[str], gloss: str, lexname: str, share):
+def judge_animacy(
+    cats: set[str], tags: set[str], gloss: str, lexname: str, share, counterpart: bool = False
+):
     reasons = []
+    if counterpart:
+        reasons.append("gendered-counterpart")
+    if "agent" in tags:
+        reasons.append("agent-noun")
     if any(PEOPLE_CAT.search(c) for c in cats):
         reasons.append("people-category")
     if any(ANIMAL_CAT.search(c) and "body parts" not in c.lower() for c in cats):
@@ -231,8 +262,6 @@ def judge_animacy(cats: set[str], tags: set[str], gloss: str, lexname: str, shar
         return "animate", ";".join(reasons)
     if not lexname:
         return "uncertain", "not-in-wordnet"
-    if lexname == "noun.group":
-        return "uncertain", "wordnet:noun.group"
     if share is not None and share >= 0.25:
         return "uncertain", f"wordnet-animate-share:{share:.2f}"
     if share is None:
@@ -259,7 +288,13 @@ def parse_dump(lang: str, path: Path):
             if pos != "noun":
                 if pos in OTHER_POS:
                     # Lowercased: wordfreq lowercases too, so "Aber" shares "aber"'s count.
-                    other_pos.add((word.lower(), pos))
+                    # Inflected forms (sonne < sonnen, mesa < mesar) are tagged
+                    # "form", not excluded: they're the Phase 2 homograph pool.
+                    senses = r.get("senses", [])
+                    is_form = bool(senses) and all(
+                        {"form-of", "alt-of"} & set(sn.get("tags", [])) for sn in senses
+                    )
+                    other_pos.add((word.lower(), f"{pos}-form" if is_form else pos))
                 continue
             if not word_re.match(word):
                 continue
@@ -287,6 +322,15 @@ def parse_dump(lang: str, path: Path):
                     "tags": {t for s in core for t in s.get("tags", [])},
                     "cats": cats,
                     "etymology": r.get("etymology_text", ""),
+                    "counterpart": any(
+                        {"masculine", "feminine"} & set(fm.get("tags", []))
+                        for fm in r.get("forms", [])
+                    )
+                    or any(
+                        COUNTERPART_GLOSS.search(g)
+                        for sn in r.get("senses", [])
+                        for g in sn.get("glosses", [])
+                    ),
                 }
             )
     return entries, other_pos
@@ -312,7 +356,8 @@ def build_lexicon(lang: str, force_download: bool = False) -> pd.DataFrame:
         cats = first["cats"]
         concept = normalize_gloss(first["gloss"])
         lexname, share = wordnet_animacy(wn, concept)
-        animacy, why = judge_animacy(cats, tags, first["gloss"], lexname, share)
+        counterpart = any(e["counterpart"] for e in ents)
+        animacy, why = judge_animacy(cats, tags, first["gloss"], lexname, share, counterpart)
         gender = next(iter(genders)) if len(genders) == 1 else "multi"
         row = {
             "lang": lang,
@@ -325,12 +370,21 @@ def build_lexicon(lang: str, force_download: bool = False) -> pd.DataFrame:
             "animacy": animacy,
             "animacy_reason": why,
             "wordnet": lexname,
+            "concrete": wordnet_concrete(wn, concept),
             "marked": "|".join(
                 sorted((first["first_tags"] & MARKED_TAGS) | lexical_class(first["gloss"], cats))
             ),
             # Region tags are the capitalised ones (Austria, Mexico, Latin-America...).
             "regions": "|".join(sorted(t for t in first["first_tags"] if t[:1].isupper())),
-            "also_pos": "|".join(sorted(other_words.get(word.lower(), ()))),
+            # also_pos: same spelling is another word (aber, de, la): frequency is
+            # contaminated -> excluded. also_form: same spelling is an inflected
+            # form of another word (camino < caminar) -> kept, but tagged.
+            "also_pos": "|".join(
+                sorted(p for p in other_words.get(word.lower(), ()) if not p.endswith("-form"))
+            ),
+            "also_form": "|".join(
+                sorted(p for p in other_words.get(word.lower(), ()) if p.endswith("-form"))
+            ),
             "n_entries": len(ents),
         }
         if lang == "de":
@@ -388,22 +442,31 @@ def eligible(df: pd.DataFrame) -> pd.DataFrame:
     return df[m]
 
 
+DOMINANCE = 1.0  # zipf units: 1.0 = 10x more frequent
+MAX_ZIPF_GAP = 1.0
+
+
 def build_pairs(min_zipf: float = 2.5) -> pd.DataFrame:
     """German-Spanish translation pairs matched on normalised English gloss.
 
     For each concept, the most frequent eligible lemma in each language is
-    taken. This is a heuristic: check the two `gloss` columns before relying
-    on a pair."""
+    taken. `strict` pairs are the ones that need no checking: each lemma is
+    >= 10x more frequent than any other eligible noun with that first gloss
+    in its language (so Zeit/vez "time" is out: tiempo is also "time" and as
+    common), the two are within 10x of each other in frequency (Turmuhr/reloj
+    "clock" is out), and they aren't cognates.
+    `concrete`: the dominant WordNet sense is a physical thing."""
     best = {}
     for lang in ("de", "es"):
         el = eligible(load_lexicon(lang))
-        el = el[el.zipf >= min_zipf]
-        n = el.groupby("concept_en").size().rename("n_candidates")
-        top = el.sort_values("zipf", ascending=False).drop_duplicates("concept_en")
-        top = top.set_index("concept_en").join(n)
-        best[lang] = top[["lemma", "gender", "gloss", "zipf", "n_candidates"]].add_prefix(
-            f"{lang}_"
-        )
+        el = el[el.zipf >= min_zipf].sort_values("zipf", ascending=False)
+        grp = el.groupby("concept_en").zipf
+        top = el.drop_duplicates("concept_en").set_index("concept_en")
+        top["n_candidates"] = grp.size()
+        # Second-highest frequency among nouns sharing this gloss (NaN if none).
+        top["runner_up_zipf"] = grp.apply(lambda z: z.iloc[1] if len(z) > 1 else float("nan"))
+        cols = ["lemma", "gender", "gloss", "zipf", "n_candidates", "runner_up_zipf", "concrete"]
+        best[lang] = top[cols].add_prefix(f"{lang}_")
     pairs = best["de"].join(best["es"], how="inner").reset_index()
     pairs["flipped"] = pairs.de_gender != pairs.es_gender
     # Shared spelling (Apartheid/apartheid): the "translation" is just the same word.
@@ -411,9 +474,24 @@ def build_pairs(min_zipf: float = 2.5) -> pd.DataFrame:
         difflib.SequenceMatcher(None, d.lower(), e.lower()).ratio() >= 0.8
         for d, e in zip(pairs.de_lemma, pairs.es_lemma, strict=True)
     ]
-    pairs = pairs.sort_values(["flipped", "de_zipf"], ascending=False)
+    # Dominant: >= 10x more frequent than any other noun with the same gloss.
+    dominant = [
+        pairs[f"{lang}_runner_up_zipf"].isna()
+        | (pairs[f"{lang}_zipf"] - pairs[f"{lang}_runner_up_zipf"] >= DOMINANCE)
+        for lang in ("de", "es")
+    ]
+    # Translation equivalents have similar frequency; Turmuhr/reloj don't.
+    similar_freq = (pairs.de_zipf - pairs.es_zipf).abs() <= MAX_ZIPF_GAP
+    pairs["strict"] = dominant[0] & dominant[1] & similar_freq & ~pairs.cognate
+    pairs["concrete"] = pairs.de_concrete.astype(bool)  # same English concept on both sides
+    pairs = pairs.drop(columns=["de_concrete", "es_concrete"])
+    pairs = pairs.sort_values(["flipped", "strict", "concrete", "de_zipf"], ascending=False)
     pairs.to_csv(LEX_DIR / "pairs_de_es.csv", index=False)
-    print(f"{len(pairs)} pairs ({int(pairs.flipped.sum())} flipped) -> {LEX_DIR}/pairs_de_es.csv")
+    f = pairs[pairs.flipped]
+    print(
+        f"{len(pairs)} pairs, {len(f)} flipped; strict flipped: {int(f.strict.sum())}, "
+        f"strict+concrete flipped: {int((f.strict & f.concrete).sum())} -> {LEX_DIR}/pairs_de_es.csv"
+    )
     return pairs
 
 
@@ -434,6 +512,7 @@ def sample_phase0(
     max_pairs: int = 60,
     seed: int = 0,
     exclude: set[tuple[str, str]] | None = None,
+    concrete_pairs: bool = True,
 ) -> pd.DataFrame:
     """per_cell nouns per (language, frequency bin, gender), plus up to
     max_pairs flipped and max_pairs control translation pairs."""
@@ -446,7 +525,9 @@ def sample_phase0(
 
     pairs = build_pairs()
     for flipped, name in ((True, "flipped"), (False, "control")):
-        sub = pairs[(pairs.flipped == flipped) & ~pairs.cognate]
+        sub = pairs[(pairs.flipped == flipped) & pairs.strict]
+        if concrete_pairs:
+            sub = sub[sub.concrete]
         idx = rng.sample(range(len(sub)), min(max_pairs, len(sub)))
         for r in sub.iloc[sorted(idx)].itertuples():
             ks = [("de", r.de_lemma), ("es", r.es_lemma)]

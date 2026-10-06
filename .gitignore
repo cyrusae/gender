@@ -75,3 +75,6 @@ sources/*.pdf
 
 # ---- Raw downloads (Wiktionary dumps, NLTK data) ----
 data/raw/
+
+# ---- Full lexicons: rebuilt by `gbleed lexicon` (dump sha256 in data/lexicon/metadata.json) ----
+data/lexicon/*_nouns.csv

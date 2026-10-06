@@ -34,6 +34,7 @@ def main() -> None:
     ps.add_argument("--per-cell", type=int, default=20, help="nouns per lang x freq bin x gender")
     ps.add_argument("--max-pairs", type=int, default=60, help="flipped (and control) pairs")
     ps.add_argument("--seed", type=int, default=0)
+    ps.add_argument("--abstract-pairs", action="store_true", help="allow non-concrete pairs")
 
     a = p.parse_args()
     if a.cmd == "lexicon":
@@ -48,7 +49,14 @@ def main() -> None:
         from .phase0 import LANG_CONFIG
 
         shots = {(lang, n) for lang, c in LANG_CONFIG.items() for n, _ in c["shots"]}
-        lexicon.sample_phase0(a.out, a.per_cell, a.max_pairs, a.seed, exclude=shots)
+        lexicon.sample_phase0(
+            a.out,
+            a.per_cell,
+            a.max_pairs,
+            a.seed,
+            exclude=shots,
+            concrete_pairs=not a.abstract_pairs,
+        )
         return
 
     from . import phase0  # deferred: keeps --help fast (no torch import)
