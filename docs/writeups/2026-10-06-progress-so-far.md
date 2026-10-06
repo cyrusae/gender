@@ -21,7 +21,7 @@ The project is planned as six gated phases. Each produces a usable result even i
 | 4 | Is that direction shared across the two languages? |
 | 5 | Does it overlap with social gender? |
 
-This post covers Phases 0 through 2. Phase 2 is set up and running as I write.
+This post covers Phases 0 through 2.
 
 ## Ground rules, decided early
 
@@ -222,6 +222,50 @@ The final training set is small (25 nouns per gender), so the confidence interva
 training nouns as well as the test nouns. That way, uncertainty about the direction itself shows
 up in the error bars.
 
+One more pre-results fix came from a balance check: the masculine training nouns were more often
+concrete objects. With validated human concreteness ratings (Brysbaert et al. 2014) the gap is modest,
+and the primary direction is now an *adjusted* difference of means: feminine minus masculine at
+equal concreteness and frequency.
+
+## A bug that looked like a finding
+
+The first Phase 2 run said "neither gender nor spelling" at every layer, and the direction couldn't
+even sort its own kind of noun. For nouns the models demonstrably know, that was suspicious. The
+trail went like this:
+
+1. The direction lined up almost perfectly with a concreteness direction, even after adjusting
+   for concreteness.
+2. Directions built from **shuffled, meaningless labels** lined up just as perfectly. So it wasn't
+   about concreteness or gender: *every* difference of averages pointed the same way.
+3. One dimension held 72–93% of all the variance across nouns.
+4. That dimension was about 2,500 for **single-token words** and about 0 for everything else.
+
+The cause is a known quirk. Models park unneeded attention on special positions (**attention
+sinks**), where a few dimensions take enormous values (**massive activations**). We had already
+moved words off position 0, but the first token after the document separator can be a sink too, and
+a one-token word sits exactly there. The "gender direction" was mostly measuring "is this word one
+token?". The fix is a newline between the separator and the word (which absorbs the sink), plus an
+automatic warning on abnormally large vectors. Both phases were rerun with the analyses unchanged.
+
+The lesson I'd keep: numbers that are too clean (exactly 0.500 in Phase 1, cosines of ±1.0 here)
+are usually telling you about the instrument, not the model. A shuffled-label baseline tells you
+what "no information" looks like in *this* space, and here that turned out not to be zero.
+
+## Phase 2 results (Qwen3-1.7B and 4B)
+
+- **The pre-registered primary test is inconclusive.** The spelling-free, ending-matched direction
+  gives "neither" in most layers, with "gender" only in later-middle layers. It barely sorts held-out
+  ending-matched nouns, so with 25 rare nouns per gender it lacks the power to decide.
+- **A pre-registered comparison behaves like grammatical gender.** A direction trained on regular
+  -o/-a nouns is "mixed" (gender *and* spelling) at every layer. But after erasing the Phase 1
+  spelling directions it reads "gender" at every layer of 4B: *el problema* and *el día* sit with the
+  masculine nouns, well away from feminine -a nouns. In 4B it also separates genders better for
+  nouns (*mi camino*) than for the same strings as verbs (*yo camino*). This holds without the
+  English-like exceptions and within both abstract and concrete nouns.
+- **The feminine side doesn't follow.** The three feminine -o exceptions (*la mano*, *la foto*,
+  *la moto*) look masculine on that direction. Three words can't carry a conclusion, but a "masculine
+  as default" reading would fit the pre-registered markedness hypothesis.
+
 ## What I'd say I've learned so far
 
 - **The measurement is most of the work.** More effort went into templates, filters and
@@ -234,7 +278,12 @@ up in the error bars.
 
 ## What's next
 
-Phase 2 results (Qwen3-1.7B and 4B). Then Phase 3 (German, where spelling predicts gender much
-less, and where neuter nouns can serve as a neutral reference point for separate masculine and
-feminine vectors), Phase 4 (cross-language), and Phase 5 (the actual question), on rented GPUs with
-the larger Qwen3 models.
+- German (Phase 3), where spelling predicts gender much less, with token count controlled (in German
+  it differs by gender), and neuter as a reference point for separate masculine and feminine vectors.
+- Choosing the readout position (the word's last token vs a fixed token after it) on criteria that
+  don't involve gender, before Phase 3.
+- The full Qwen3 ladder (0.6B–14B) on a rented GPU. A trial run on an A40 measured costs at well
+  under a dollar per small model and showed bf16 vs full precision changes ~1% of borderline
+  verdicts.
+- Phases 4–5, and afterwards a cross-family replication on Gemma 3 with its sparse autoencoders
+  (Gemma Scope 2).
