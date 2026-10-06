@@ -88,6 +88,14 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   verb) in the same part.
 - **In-sample vs out-of-sample.** Evaluated on the data a method was fit on vs on new data.
   In-sample erasure + cross-validation gives a misleading *below*-chance score (Phase 1 explainer).
+- **Confidence interval (95%).** A range showing how much a result would move with a different but
+  equally valid sample of items; if it excludes the "no effect" value (e.g. AUC 0.5), the result
+  isn't a fluke of which items were picked.
+- **Bootstrap.** Estimating that range by resampling the items you have: draw a same-size sample
+  *with replacement* (some items twice, some not at all), recompute the result, repeat ~1,000 times,
+  and take the middle 95% of the results. In Phase 2 each round resamples the **training** nouns
+  (and refits the gender direction) *and* the **test** nouns, so the interval covers uncertainty in
+  the direction itself as well as in the test. It can't correct a systematically biased item set.
 - **Pre-registration.** Writing down how results will be read before running (the design doc's
   outcome tables; `decisions.md`). Analyses added after seeing results are labelled exploratory.
 - **Concept erasure.** Editing activations so a concept can no longer be read out.
