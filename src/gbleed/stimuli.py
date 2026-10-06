@@ -41,7 +41,15 @@ def load_stimuli(path: str | Path) -> pd.DataFrame:
 
 
 def flipped_pairs(df: pd.DataFrame) -> pd.DataFrame:
-    """Concepts present in both languages with opposite gender."""
+    """Concepts present in both languages with opposite gender.
+
+    Only rows tagged set=flipped/control are paired, so unrelated nouns that
+    happen to share an English gloss aren't counted."""
+    df = df[df["set"].isin(["flipped", "control"])]
+    if df.empty:
+        return pd.DataFrame(
+            columns=["concept_en", "de_lemma", "es_lemma", "de_gender", "es_gender"]
+        )
     wide = df.pivot_table(
         index="concept_en", columns="lang", values=["lemma", "gender"], aggfunc="first"
     ).dropna()

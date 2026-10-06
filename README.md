@@ -52,9 +52,47 @@ notebooks/        exploratory analysis
 sources/          papers (PDFs git-ignored) + SUMMARIES.md
 ```
 
-## Stimulus labels
+## Noun lists from Wiktionary
 
-`data/stimuli/phase0_seed.csv` is a **seed list for testing the pipeline**; its gold
-genders were written from model knowledge and are marked `claude-unverified`. Real lists
-should take gold genders from a dictionary source (e.g. Wiktionary via kaikki.org) and
-record that in the `source` column.
+Gold genders come from Wiktionary (English Wiktionary, via the kaikki.org extracts),
+not from any language model.
+
+```sh
+uv run gbleed lexicon                 # downloads ~1 GB per language to data/raw/ (once), then
+                                      # writes data/lexicon/{de,es}_nouns.csv + pairs_de_es.csv
+uv run gbleed sample-phase0           # -> data/stimuli/phase0_v1.csv
+uv run gbleed sample-phase0 --per-cell 40 --seed 1 --out data/stimuli/phase0_v2.csv
+```
+
+`data/lexicon/{lang}_nouns.csv` has one row per noun lemma:
+
+| column | meaning |
+|---|---|
+| `gender` / `genders` | `m`, `f`, `n`, or `multi` (e.g. *der/die See*, *el/la mar*: useful later as spelling-constant tests) |
+| `gloss`, `concept_en` | first English gloss and its normalised head (used for pairing) |
+| `zipf` | word frequency (wordfreq; 3 ≈ once per million words) |
+| `animacy`, `animacy_reason` | `inanimate` / `animate` / `uncertain`, and why (heuristic: see below) |
+| `marked`, `regions` | register tags (archaic, slang...) and region tags of the first sense; letter/number names |
+| `also_pos` | the same spelling is also a verb/adjective/etc. (frequency is then unreliable; also the Phase 2 homograph pool) |
+| `de_suffix` | German suffix that predicts gender (`-ung`, `-heit`, ...) |
+| `es_ending`, `es_regular`, `es_exception` | Spanish -o/-a regularity; exceptions typed `greek_ma`, `clipping`, `other` |
+| `initial_a_f` | feminine noun starting with a-/ha- (may take *el*, as in *el agua*) |
+
+`eligible` stimuli are single-gender m/f, inanimate, unmarked, non-regional, not
+homographs, and (Spanish) not `initial_a_f`. `sample-phase0` draws `--per-cell` of them per
+language × frequency bin (low 2.5–3.5, mid 3.5–4.5, high ≥ 4.5) × gender, plus up to
+`--max-pairs` flipped and same-gender control translation pairs.
+
+**What is and isn't reliable:**
+- *Gender*: taken directly from Wiktionary's tags. Reliable.
+- *Animacy*: heuristic (Wiktionary categories of the first sense, the
+  "by-personal-gender" tag, English gloss patterns, WordNet's category for the gloss).
+  It errs toward excluding. Each row says why, in English, so it can be spot-checked
+  without knowing German.
+- *Translation pairs*: matched on the first English gloss, so some are loose
+  (e.g. *Zeit/vez* both gloss as "time"). `pairs_de_es.csv` keeps both glosses: skim
+  the flipped pairs before Phase 4–5. Pairs that are near-identical spellings are flagged
+  `cognate` and left out of sampling.
+
+`data/stimuli/phase0_seed.csv` is the original hand-written seed list (labels marked
+`claude-unverified`); it's only for testing the pipeline.

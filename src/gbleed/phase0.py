@@ -149,7 +149,23 @@ def summarize(items: pd.DataFrame) -> dict:
         for r in pairs.itertuples()
     )
     out["flipped_pairs"] = {"n": len(pairs), "both_pass": int(ok)}
+    # Breakdowns: frequency bins separate models better than the overall score.
+    for col in ("freq_bin", "set", "de_suffix", "es_exception"):
+        if col in items and items[col].astype(str).str.len().gt(0).any():
+            out[f"by_{col}"] = _breakdown(items[items[col].astype(str).str.len() > 0], col)
     return out
+
+
+def _breakdown(items: pd.DataFrame, col: str) -> dict:
+    res = {}
+    for (lang, key), sub in items.groupby(["lang", items[col].astype(str)]):
+        res.setdefault(lang, {})[key] = {
+            "n": len(sub),
+            "both_bal_acc": _balanced_acc(sub, "both_correct"),
+            "ctx_bal_acc": _balanced_acc(sub, "ctx_correct"),
+            "meta_bal_acc": _balanced_acc(sub, "meta_correct"),
+        }
+    return res
 
 
 def run(
@@ -193,12 +209,14 @@ def run(
     return out
 
 
-def compare(out_root: str = "results/phase0") -> pd.DataFrame:
+def compare(out_root: str = "results/phase0", by: str | None = None) -> pd.DataFrame:
+    if by:
+        return _compare_by(out_root, by)
     rows = []
     for f in sorted(Path(out_root).glob("*/summary.json")):
         s = json.loads(f.read_text())
         for lang, r in s["results"].items():
-            if lang == "flipped_pairs":
+            if lang not in LANG_CONFIG:
                 continue
             rows.append(
                 {
@@ -224,3 +242,22 @@ def compare(out_root: str = "results/phase0") -> pd.DataFrame:
         table = table.sort_values(["lang", "both_bal_acc"], ascending=[True, False])
         table.to_csv(Path(out_root) / "comparison.csv", index=False)
     return table
+
+
+def _compare_by(out_root: str, by: str) -> pd.DataFrame:
+    rows = []
+    for f in sorted(Path(out_root).glob("*/summary.json")):
+        s = json.loads(f.read_text())
+        for lang, groups in s["results"].get(f"by_{by}", {}).items():
+            for key, r in groups.items():
+                rows.append({"model": s["meta"]["model_id"], "lang": lang, by: key,
+                             "n": r["n"], "both_bal_acc": round(r["both_bal_acc"], 3)})  # fmt: skip
+    if not rows:
+        return pd.DataFrame()
+    t = (
+        pd.DataFrame(rows)
+        .pivot_table(index=["lang", "model"], columns=by, values="both_bal_acc")
+        .reset_index()
+    )
+    t.to_csv(Path(out_root) / f"comparison_by_{by}.csv", index=False)
+    return t

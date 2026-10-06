@@ -72,3 +72,6 @@ scratch/
 
 # ---- Copyrighted source papers (summaries in sources/SUMMARIES.md are tracked) ----
 sources/*.pdf
+
+# ---- Raw downloads (Wiktionary dumps, NLTK data) ----
+data/raw/

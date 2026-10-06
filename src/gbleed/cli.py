@@ -21,8 +21,36 @@ def main() -> None:
 
     pc = sub.add_parser("phase0-compare", help="Tabulate all Phase 0 results")
     pc.add_argument("--out", default="results/phase0")
+    pc.add_argument(
+        "--by", default=None, help="breakdown: freq_bin | set | de_suffix | es_exception"
+    )
+
+    pl = sub.add_parser("lexicon", help="Build noun lexicons from Wiktionary (kaikki.org)")
+    pl.add_argument("--langs", nargs="*", default=["de", "es"], choices=["de", "es"])
+    pl.add_argument("--redownload", action="store_true")
+
+    ps = sub.add_parser("sample-phase0", help="Sample a Phase 0 stimulus list from the lexicons")
+    ps.add_argument("--out", default="data/stimuli/phase0_v1.csv")
+    ps.add_argument("--per-cell", type=int, default=20, help="nouns per lang x freq bin x gender")
+    ps.add_argument("--max-pairs", type=int, default=60, help="flipped (and control) pairs")
+    ps.add_argument("--seed", type=int, default=0)
 
     a = p.parse_args()
+    if a.cmd == "lexicon":
+        from . import lexicon
+
+        for lang in a.langs:
+            lexicon.build_lexicon(lang, a.redownload)
+        lexicon.build_pairs()
+        return
+    if a.cmd == "sample-phase0":
+        from . import lexicon
+        from .phase0 import LANG_CONFIG
+
+        shots = {(lang, n) for lang, c in LANG_CONFIG.items() for n, _ in c["shots"]}
+        lexicon.sample_phase0(a.out, a.per_cell, a.max_pairs, a.seed, exclude=shots)
+        return
+
     from . import phase0  # deferred: keeps --help fast (no torch import)
 
     if a.cmd == "phase0":
@@ -35,7 +63,7 @@ def main() -> None:
                 _free_memory()
         _print_table(phase0.compare(a.out))
     elif a.cmd == "phase0-compare":
-        _print_table(phase0.compare(a.out))
+        _print_table(phase0.compare(a.out, a.by))
 
 
 def _free_memory() -> None:
