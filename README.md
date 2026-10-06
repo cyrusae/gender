@@ -32,7 +32,7 @@ masculine vs the feminine article, in two frames (details in `src/gbleed/phase0.
 | | German | Spanish |
 |---|---|---|
 | frame 1 | `Das hat etwas mit dem/der X zu tun.` | `Esto tiene que ver con el/la X.` |
-| frame 2 | `Ich weiß, dass der/die X hier ist.` | `Mira, el/la X está aquí.` |
+| frame 2 | `Hier ist ein/eine X.` | `Aquí hay un/una X.` |
 
 A noun is **known** (`passed`) when both frames favour the right article by at least
 `--min-margin` nats (default 1.0). Near-ties are `unsure`, not wrong; one frame right and

@@ -3,21 +3,29 @@
 Per noun, three behavioural measures plus a tokenization log.
 
 Primary: sentence scoring in two frames. The same sentence with the masculine
-vs the feminine article; compare total log-probability (margin, in nats).
+vs the feminine article; compare log P(noun + rest of sentence | lead-in +
+article) (margin, in nats). The article's own probability is left out: "ein"
+and "dem" also serve neuter nouns, so they're a priori likelier than "eine"
+and "der", which biased margins toward masculine (on both Qwen3 and EuroLLM).
 Frames are chosen so the wrong article is never a valid reading:
   frame 1, dative singular
     de: "Das hat etwas mit dem/der X zu tun."  the plural would be "den X-n",
         so "der" can't be read as plural
     es: "Esto tiene que ver con el/la X."  "con el" doesn't contract
         (unlike "a el" -> "al", "de el" -> "del")
-  frame 2, nominative subject + singular verb, after a short lead-in
-    de: "Ich weiß, dass der/die X hier ist."  singular "ist" rules out plural "die"
-    es: "Mira, el/la X está aquí."  "está" doesn't agree in gender, so gives nothing away
-  Don't put the article first: with no preceding context (Qwen adds no BOS
-  token) a sentence-initial "Der/Die X ist hier." scored only ~75% on
-  Qwen3-0.6B vs ~93-95% for these. Avoid frames where the other article has
-  another reading ("Sé que la X ..." : la = "her") or where later words agree
-  in gender ("... es nuevo").
+  frame 2, indefinite article after a lead-in
+    de: "Hier ist ein/eine X."  indefinite articles have no plural, so unlike
+        "die X" a masculine noun can't be read as plural (die Schlüssel);
+        neuter "ein" is irrelevant since neuter nouns are excluded
+    es: "Aquí hay un/una X."
+  Frame 2 was fixed on these grammatical grounds and then checked on two
+  model families (Qwen3, EuroLLM), not tuned on scores. Earlier versions:
+  sentence-initial "Der/Die X ist hier." (article with no preceding context:
+  ~75% on Qwen3-0.6B, which adds no BOS token), then "Ich weiß, dass der/die
+  X hier ist." (plural reading of "die X" survives until "ist", weakening
+  margins for nouns like Stiefel, Besen). Also avoid frames where the other
+  article has another reading ("Sé que la X ..." : la = "her"), where later
+  words agree in gender ("... es nuevo"), or where the article contracts.
 
 Each frame is "right" / "wrong" when its margin points the right / wrong way
 by at least `min_margin` nats, else "unsure". A noun's status:
@@ -43,7 +51,7 @@ import pandas as pd
 from tqdm import tqdm
 
 from .models import load_model, model_slug, pick_device, pick_dtype, run_metadata
-from .scoring import candidate_logprobs, sentence_logprob, tokens_of
+from .scoring import candidate_logprobs, continuation_logprob, tokens_of
 from .stimuli import flipped_pairs, load_stimuli
 
 # A frame counts only if the two sentences differ by >= this many nats
@@ -59,7 +67,7 @@ LANG_CONFIG = {
         "meta_other": [" das"],
         "frames": [
             ("Das hat etwas mit {art} {noun} zu tun.", {"m": "dem", "f": "der"}),
-            ("Ich weiß, dass {art} {noun} hier ist.", {"m": "der", "f": "die"}),
+            ("Hier ist {art} {noun}.", {"m": "ein", "f": "eine"}),
         ],
     },
     "es": {
@@ -69,7 +77,7 @@ LANG_CONFIG = {
         "meta_other": [],
         "frames": [
             ("Esto tiene que ver con {art} {noun}.", {"m": "el", "f": "la"}),
-            ("Mira, {art} {noun} está aquí.", {"m": "el", "f": "la"}),
+            ("Aquí hay {art} {noun}.", {"m": "un", "f": "una"}),
         ],
     },
 }
@@ -108,8 +116,13 @@ def score_noun(model, tok, lang: str, noun: str) -> dict:
 
     frames = {}
     for i, (frame, arts) in enumerate(cfg["frames"], start=1):
+        # Score the noun and what follows GIVEN the article, not the article
+        # itself: German "ein"/"dem" also serve neuter nouns, so their prior is
+        # higher than "eine"/"der" and would bias every noun toward masculine.
+        prefix, rest = frame.split("{noun}")
         lp = {
-            g: sentence_logprob(model, tok, frame.format(art=a, noun=noun)) for g, a in arts.items()
+            g: continuation_logprob(model, tok, prefix.format(art=a).rstrip(), " " + noun + rest)
+            for g, a in arts.items()
         }
         frames[f"ctx{i}_margin"] = lp["m"] - lp["f"]
     toks = tokens_of(tok, " " + noun)
