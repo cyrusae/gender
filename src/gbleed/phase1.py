@@ -7,8 +7,8 @@ testing on nonce words it has never seen (brelda/breldo).
 
 Per layer:
   verbs_before / verbs_after   probe for -o/-a on verbs (5-fold, grouped by verb), before
-                               and after the eraser. After should be ~chance in-sample
-                               (that's LEACE's guarantee): a sanity check.
+                               and after an eraser fit on the training folds only: does
+                               erasure generalise to unseen verbs? (sanity check)
   nonce_before / nonce_after   probe trained on train-split nonce stems, tested on
                                test-split stems, before / after the verb eraser. THE test.
   nonce_after_random           same, after erasing a random direction instead (control:
@@ -17,6 +17,9 @@ Per layer:
                                fallback), tested on test stems.
   nouns_before / nouns_after   gender probe on regular -o/-a nouns (5-fold), before/after
                                the verb eraser. Diagnostic for "did it erase gender too?"
+  *_rank2, *_nonceonly         exploratory, added after the pre-registered run: a rank-2
+                               eraser (separate verb-ending and nonce-ending concepts, fit
+                               on verbs + train nonce stems) and a nonce-only eraser.
 
 Probes: standardised features + L2 logistic regression. Balanced classes, so accuracy
 0.5 = chance. "Near chance" is pre-registered (docs/decisions.md) as below CHANCE_UPPER,
@@ -60,6 +63,19 @@ def _cv_acc(X, y, groups=None, k=5, seed=0) -> float:
     else:
         splits = StratifiedKFold(n_splits=k, shuffle=True, random_state=seed).split(X, y)
     accs = [_probe().fit(X[tr], y[tr]).score(X[te], y[te]) for tr, te in splits]
+    return float(np.mean(accs))
+
+
+def _verbs_oos(X, y, groups, k=5) -> float:
+    """Eraser fit on training-fold verbs only, probe tested on unseen verbs. (Fitting the
+    eraser on all verbs and then cross-validating gives systematically BELOW-chance scores:
+    with class means equalised overall, each training fold's mean difference points the
+    opposite way to its held-out fold's.)"""
+    accs = []
+    for a, b in GroupKFold(n_splits=k).split(X, y, groups):
+        e = LeaceEraser.fit(torch.from_numpy(X[a]), torch.from_numpy(y[a]).long())
+        xa, xb = (e(torch.from_numpy(x)).numpy() for x in (X[a], X[b]))
+        accs.append(_probe().fit(xa, y[a]).score(xb, y[b]))
     return float(np.mean(accs))
 
 
@@ -127,6 +143,16 @@ def analyze(model_id: str, out_root: str = "results/phase1", seed: int = 0) -> p
             torch.from_numpy(np.r_[xv, xn[tr]]), torch.from_numpy(np.r_[yv, yn[tr]]).long()
         )
         xn_p = er_plus(torch.from_numpy(xn)).numpy()
+        # Exploratory (added after the pre-registered run, see decisions.md):
+        # rank-2 eraser with SEPARATE columns for the verb ending and the nonce ending,
+        # so the two word types aren't forced onto one direction.
+        z2 = np.zeros((len(xv) + int(tr.sum()), 2))
+        z2[: len(xv), 0] = yv - 0.5
+        z2[len(xv) :, 1] = yn[tr] - 0.5
+        er2 = LeaceEraser.fit(torch.from_numpy(np.r_[xv, xn[tr]]), torch.from_numpy(z2))
+        xn_2, xg_2 = (er2(torch.from_numpy(x)).numpy() for x in (xn, xg))
+        er_n = LeaceEraser.fit(torch.from_numpy(xn[tr]), torch.from_numpy(yn[tr]).long())
+        xn_n, xg_n = (er_n(torch.from_numpy(x)).numpy() for x in (xn, xg))
         rand = [
             _heldout_acc(xr[tr], yn[tr], xr[te], yn[te])
             for xr in (_erase_random(xn, rng, xv) for _ in range(N_RANDOM))
@@ -135,21 +161,28 @@ def analyze(model_id: str, out_root: str = "results/phase1", seed: int = 0) -> p
             {
                 "layer": layer,
                 "verbs_before": _cv_acc(xv, yv, gv),
-                "verbs_after": _cv_acc(xv_e, yv, gv),
+                "verbs_after_insample": _cv_acc(xv_e, yv, gv),
+                "verbs_after": _verbs_oos(xv, yv, gv),
                 "nonce_before": _heldout_acc(xn[tr], yn[tr], xn[te], yn[te]),
                 "nonce_after": _heldout_acc(xn_e[tr], yn[tr], xn_e[te], yn[te]),
                 "nonce_after_random": float(np.mean(rand)),
                 "nonce_after_plus": _heldout_acc(xn_p[tr], yn[tr], xn_p[te], yn[te]),
                 "nouns_before": _cv_acc(xg, yg, seed=seed),
                 "nouns_after": _cv_acc(xg_e, yg, seed=seed),
+                "nonce_after_rank2": _heldout_acc(xn_2[tr], yn[tr], xn_2[te], yn[te]),
+                "nouns_after_rank2": _cv_acc(xg_2, yg, seed=seed),
+                "nonce_after_nonceonly": _heldout_acc(xn_n[tr], yn[tr], xn_n[te], yn[te]),
+                "nouns_after_nonceonly": _cv_acc(xg_n, yg, seed=seed),
             }
         )
         r = rows[-1]
         print(f"layer {layer:2d}  verbs {r['verbs_before']:.2f}->{r['verbs_after']:.2f}  "
               f"nonce {r['nonce_before']:.2f}->{r['nonce_after']:.2f} (rand {r['nonce_after_random']:.2f}, "
-              f"plus {r['nonce_after_plus']:.2f})  nouns {r['nouns_before']:.2f}->{r['nouns_after']:.2f}")  # fmt: skip
+              f"plus {r['nonce_after_plus']:.2f}, rank2 {r['nonce_after_rank2']:.2f})  "
+              f"nouns {r['nouns_before']:.2f}->{r['nouns_after']:.2f} (rank2 {r['nouns_after_rank2']:.2f})")  # fmt: skip
     df = pd.DataFrame(rows)
     df["nonce_after_near_chance"] = df.nonce_after < chance_upper
+    df["nonce_after_rank2_near_chance"] = df.nonce_after_rank2 < chance_upper
 
     toks = mn["tokens"]
     # Design-doc caveat: if the ending is its own token (brel|da, breld|a), pre-erasure
@@ -168,7 +201,10 @@ def analyze(model_id: str, out_root: str = "results/phase1", seed: int = 0) -> p
         "nonce_ending_own_token_frac": float(np.mean(ending_alone)),
         "layers_near_chance_after": int(inner.nonce_after_near_chance.sum()),
         "n_inner_layers": len(inner),
-        "mean_inner": inner.drop(columns=["layer", "nonce_after_near_chance"]).mean().round(3).to_dict(),
+        "layers_near_chance_after_rank2": int(inner.nonce_after_rank2_near_chance.sum()),
+        "mean_inner": inner.drop(
+            columns=["layer", "nonce_after_near_chance", "nonce_after_rank2_near_chance"]
+        ).mean().round(3).to_dict(),
     }  # fmt: skip
     (out / "summary.json").write_text(json.dumps(summary, indent=2))
     print(json.dumps({k: v for k, v in summary.items() if k != "meta"}, indent=2))
