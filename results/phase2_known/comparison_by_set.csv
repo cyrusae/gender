@@ -1,0 +1,4 @@
+lang,model,exception_clipping,exception_ma,exception_true,homograph,matched,regular
+es,Qwen/Qwen3-0.6B-Base,0.5,0.84,0.917,0.913,0.596,0.903
+es,Qwen/Qwen3-1.7B-Base,1.0,0.88,1.0,0.975,0.654,0.93
+es,Qwen/Qwen3-4B-Base,1.0,0.92,1.0,0.975,0.75,0.957

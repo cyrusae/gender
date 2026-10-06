@@ -34,7 +34,7 @@ from .phase1 import load_stimuli as load_phase1
 POOL = "data/stimuli/phase2_pool_v2.csv"
 MULTI = "data/stimuli/phase2_multi_v2.csv"
 FINAL = "data/stimuli/phase2_final_v2.csv"
-KNOWN_MODELS = ["Qwen/Qwen3-0.6B-Base", "Qwen/Qwen3-1.7B-Base", "Qwen/Qwen3-4B-Base"]
+KNOWN_MODELS = ["Qwen/Qwen3-1.7B-Base", "Qwen/Qwen3-4B-Base"]  # 0.6B dropped (decisions.md)
 N_BOOT = 1000
 SEED = 0
 
@@ -50,10 +50,17 @@ def finalize(known_root: str = "results/phase2_known") -> pd.DataFrame:
         known = k if known is None else known & k
     df = pool[pool.lemma.isin(known)].copy()
     rng = np.random.default_rng(SEED)
+    # The known filter breaks the matched set's per-ending m/f balance: restore it.
+    keep = []
+    for _, g in df[df.set == "matched"].groupby("ending"):
+        k = min((g.gender == "m").sum(), (g.gender == "f").sum())
+        for _, gg in g.groupby("gender"):
+            keep += list(gg.sort_values("lemma").index[:k])
+    df = df[(df.set != "matched") | df.index.isin(keep)]
     df["split"] = "test"
     df.loc[df.set == "matched", "split"] = "train"
     for g in ("m", "f"):
-        idx = df.index[(df.set == "regular") & (df.gender == g)].to_numpy()
+        idx = df.index[(df.set == "regular") & (df.gender == g)].to_numpy().copy()
         rng.shuffle(idx)
         df.loc[idx[: round(len(idx) * 2 / 3)], "split"] = "train"
     df.to_csv(FINAL, index=False)
@@ -125,6 +132,33 @@ def _boot_two(neg, pos, rng, n_boot=N_BOOT):
     return float(np.percentile(vals, 2.5)), float(np.percentile(vals, 97.5))
 
 
+CI_KEYS = ["A_f", "A_m", "A_f_noen", "A_m_noen", "exc_auc", "homo_auc_noun", "homo_auc_verb",
+           "homo_auc_diff", "multi_p_diff"]  # fmt: skip
+
+
+def _core(d, idx, Xt, hn, hv, mm, mf, y, homo_y) -> dict:
+    """Metrics that get CIs, for direction d on the test groups selected by idx."""
+    s = Xt @ d
+    rf, rm = s[idx["reg_f"]], s[idx["reg_m"]]
+    out = {}
+    # PRIMARY (amended before results): masculine -a exceptions vs regular nouns.
+    #   A_f = P(regular fem -a noun above a masc -a exception): same ending, different gender
+    #   A_m = P(masc -a exception above a regular masc -o noun): same gender, different ending
+    for tag, key in (("", "excm"), ("_noen", "excm_noen")):
+        xe = s[idx[key]]
+        out[f"A_f{tag}"] = _auc(np.r_[np.zeros(len(xe)), np.ones(len(rf))], np.r_[xe, rf])
+        out[f"A_m{tag}"] = _auc(np.r_[np.zeros(len(rm)), np.ones(len(xe))], np.r_[rm, xe])
+    out["exc_auc"] = _auc(y[idx["exc"]], s[idx["exc"]])
+    h = idx["homo"]
+    out["homo_auc_noun"] = _auc(homo_y[h], hn[h] @ d)
+    out["homo_auc_verb"] = _auc(homo_y[h], hv[h] @ d)
+    out["homo_auc_diff"] = out["homo_auc_noun"] - out["homo_auc_verb"]
+    scale = rf.mean() - rm.mean()
+    mi = idx["multi"]
+    out["multi_p_diff"] = float(((mf[mi] @ d) - (mm[mi] @ d)).mean() / scale)
+    return out
+
+
 def _verdict(f_lo, f_hi, m_lo, m_hi) -> str:
     """Pre-registered (amended) reading of the masculine-exception test."""
     gender, spelling = f_lo > 0.5, m_lo > 0.5
@@ -171,6 +205,15 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
     endings = df.ending.to_numpy()
     lean = _leans(model_id, multi.lemma)
     rng = np.random.default_rng(SEED)
+    full_idx = {  # test groups, as row indices into their own arrays
+        "reg_f": np.where(reg_te & (y == 1))[0],
+        "reg_m": np.where(reg_te & (y == 0))[0],
+        "excm": np.where(excm)[0],
+        "excm_noen": np.where(excm & ~en)[0],
+        "exc": np.where(exc)[0],
+        "homo": np.arange(len(homo_y)),
+        "multi": np.arange(len(multi)),
+    }
 
     rows = []
     for layer in range(Xb.shape[1]):
@@ -186,74 +229,61 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
         ident = lambda a: a
         ev = lambda a, e=e_verb: e(torch.from_numpy(a)).numpy()
         e2 = lambda a, e=e_r2: e(torch.from_numpy(a)).numpy()
+        # name -> (transform applied to activations, training mask, fitting function)
         directions = {
-            "dom_matched": (ident, _dom(X[matched], y[matched])),
-            "probe_matched": (ident, _probe_dir(X[matched], y[matched])),
-            "dom_regular": (ident, _dom(X[reg_tr], y[reg_tr])),
-            "dom_regular_verberase": (ev, _dom(ev(X[reg_tr]), y[reg_tr])),
-            "dom_regular_rank2": (e2, _dom(e2(X[reg_tr]), y[reg_tr])),
+            "dom_matched": (ident, matched, _dom),
+            "probe_matched": (ident, matched, _probe_dir),
+            "dom_regular": (ident, reg_tr, _dom),
+            "dom_regular_verberase": (ev, reg_tr, _dom),
+            "dom_regular_rank2": (e2, reg_tr, _dom),
         }
-        for name, (T, d) in directions.items():
-            s = T(X) @ d
-            m0, m1 = s[reg_te & (y == 0)].mean(), s[reg_te & (y == 1)].mean()
-            pidx = lambda v, m0=m0, m1=m1: (v - m0) / (m1 - m0)
-            p = pidx(s)
-            r = {"layer": layer, "direction": name}
-            r["regular_test_auc"] = _auc(y[reg_te], s[reg_te])
-            # exceptions: do feminine exceptions outrank masculine ones?
-            ye, se = y[exc], s[exc]
-            r["exc_auc"] = _auc(ye, se)
-            r["exc_auc_lo"], r["exc_auc_hi"] = _boot(
-                lambda i, ye=ye, se=se: _auc(ye[i], se[i]), len(ye), rng
+        for name, (T, trmask, fit) in directions.items():
+            Xt, hnt, hvt, mmt, mft = T(X), T(hn), T(hv), T(mm), T(mf)
+            tr_idx = np.where(trmask)[0]
+            d = fit(Xt[tr_idx], y[tr_idx])
+            core = lambda d, idx, Xt=Xt, hnt=hnt, hvt=hvt, mmt=mmt, mft=mft: _core(
+                d, idx, Xt, hnt, hvt, mmt, mft, y, homo_y
             )
+            r = {"layer": layer, "direction": name, **core(d, full_idx)}
+            # 95% CIs: resample training nouns (refit the direction) AND test nouns
+            boots = []
+            for _ in range(N_BOOT):
+                tb = np.concatenate([rng.choice(tr_idx[y[tr_idx] == g], (y[tr_idx] == g).sum())
+                                     for g in (0, 1)])  # fmt: skip
+                ib = {k: rng.choice(v, len(v)) for k, v in full_idx.items()}
+                boots.append(core(fit(Xt[tb], y[tb]), ib))
+            for k in CI_KEYS:
+                vals = np.array([b[k] for b in boots], dtype=float)
+                vals = vals[np.isfinite(vals)]
+                r[f"{k}_lo"], r[f"{k}_hi"] = (
+                    (float(np.percentile(vals, 2.5)), float(np.percentile(vals, 97.5)))
+                    if len(vals)
+                    else (float("nan"), float("nan"))
+                )
+            s = Xt @ d
+            m0, m1 = s[reg_te & (y == 0)].mean(), s[reg_te & (y == 1)].mean()
+            p = (s - m0) / (m1 - m0)
+            r["regular_test_auc"] = _auc(y[reg_te], s[reg_te])
             for sub in ("exception_ma", "exception_clipping", "exception_true"):
                 for g, gl in ((0, "m"), (1, "f")):
                     k = (s_ == sub) & (y == g)
                     if k.any():
                         r[f"p_{sub.removeprefix('exception_')}_{gl}"] = float(p[k].mean())
-            # PRIMARY (amended before results): masculine -a exceptions vs regular nouns.
-            #   A_f = P(regular fem -a noun scores above a masc -a exception): same ending,
-            #         different gender -> high if the direction tracks gender, ~0.5 if spelling.
-            #   A_m = P(masc -a exception scores above a regular masc -o noun): same gender,
-            #         different ending -> ~0.5 if gender, high if spelling.
-            for tag, keep_ex in (("", excm), ("_noen", excm & ~en)):
-                rf, rm, xe = s[reg_te & (y == 1)], s[reg_te & (y == 0)], s[keep_ex]
-                lab_f = np.r_[np.zeros(len(xe)), np.ones(len(rf))]
-                lab_m = np.r_[np.zeros(len(rm)), np.ones(len(xe))]
-                r[f"A_f{tag}"] = _auc(lab_f, np.r_[xe, rf])
-                r[f"A_m{tag}"] = _auc(lab_m, np.r_[rm, xe])
-                r[f"A_f{tag}_lo"], r[f"A_f{tag}_hi"] = _boot_two(xe, rf, rng)
-                r[f"A_m{tag}_lo"], r[f"A_m{tag}_hi"] = _boot_two(rm, xe, rng)
             r["n_excm"], r["n_excm_noen"] = int(excm.sum()), int((excm & ~en).sum())
             for w in df.lemma[exc & (y == 1)]:  # the few feminine -o exceptions, item by item
                 r[f"p_item_{w}"] = float(p[(df.lemma == w).to_numpy()][0])
-            # homographs: same strings as noun vs verb
-            sn, sv = T(hn) @ d, T(hv) @ d
-            r["homo_auc_noun"], r["homo_auc_verb"] = _auc(homo_y, sn), _auc(homo_y, sv)
-            r["homo_auc_diff"] = r["homo_auc_noun"] - r["homo_auc_verb"]
-            r["homo_diff_lo"], r["homo_diff_hi"] = _boot(
-                lambda i, sn=sn, sv=sv: _auc(homo_y[i], sn[i]) - _auc(homo_y[i], sv[i]),
-                len(homo_y),
-                rng,
-            )
-            # mar-type: la X vs el X
-            dp = pidx(T(mf) @ d) - pidx(T(mm) @ d)
-            r["multi_p_diff"] = float(dp.mean())
-            r["multi_p_diff_lo"], r["multi_p_diff_hi"] = _boot(
-                lambda i, dp=dp: dp[i].mean(), len(dp), rng
-            )
+            dp = ((mft @ d) - (mmt @ d)) / (m1 - m0)
             r["multi_p_diff_lean_m"] = (
                 float(dp[lean > 0].mean()) if (lean > 0).any() else float("nan")
             )
             r["multi_p_diff_lean_f"] = (
                 float(dp[lean < 0].mean()) if (lean < 0).any() else float("nan")
             )
-            if name.endswith("_matched"):  # in-domain: CV grouped by ending
+            if trmask is matched:  # in-domain: CV grouped by ending
                 aucs = []
-                for a, b in GroupKFold(n_splits=5).split(X[matched], y[matched], endings[matched]):
-                    fit = _dom if name == "dom_matched" else _probe_dir
-                    dd = fit(X[matched][a], y[matched][a])
-                    aucs.append(_auc(y[matched][b], X[matched][b] @ dd))
+                for a, b in GroupKFold(n_splits=5).split(Xt[matched], y[matched], endings[matched]):
+                    dd = fit(Xt[matched][a], y[matched][a])
+                    aucs.append(_auc(y[matched][b], Xt[matched][b] @ dd))
                 r["matched_cv_auc"] = float(np.nanmean(aucs))
             rows.append(r)
         r0 = next(x for x in rows[-len(directions) :] if x["direction"] == "dom_matched")
@@ -285,7 +315,7 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
             .to_dict(),
             "exc_follows_gender_layers": int((g.exc_auc_lo > 0.5).sum()),
             "exc_follows_spelling_layers": int((g.exc_auc_hi < 0.5).sum()),
-            "homo_gender_beyond_spelling_layers": int((g.homo_diff_lo > 0).sum()),
+            "homo_gender_beyond_spelling_layers": int((g.homo_auc_diff_lo > 0).sum()),
             "multi_reads_article_layers": int((g.multi_p_diff_lo > 0).sum()),
             "mean": g.drop(columns=["layer", "direction"]).mean().round(3).to_dict(),
         }

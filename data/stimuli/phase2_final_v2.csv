@@ -1,0 +1,427 @@
+lang,lemma,gender,concept_en,set,source,en_overlap,sex_assoc,gloss,zipf,verb,verb_frame,ending,override,split
+es,señal,f,sign,matched,wiktionary:kaikki@2026-10-03,False,,sign,4.66,,,al,,train
+es,pedernal,m,flint,matched,wiktionary:kaikki@2026-10-03,False,,flint,2.53,,,al,,train
+es,hecatombe,f,slaughter,matched,wiktionary:kaikki@2026-10-03,False,,slaughter; bloodbath,2.63,,,be,,train
+es,nube,f,cloud,matched,wiktionary:kaikki@2026-10-03,False,,cloud,4.08,,,be,,train
+es,aljibe,m,well,matched,wiktionary:kaikki@2026-10-03,False,,"well (for water), cistern, tank, reservoir",2.63,,,be,,train
+es,jarabe,m,syrup,matched,wiktionary:kaikki@2026-10-03,False,,syrup,3.4,,,be,,train
+es,hélice,f,helix,matched,wiktionary:kaikki@2026-10-03,False,,helix,3.07,,,ce,,train
+es,códice,m,codex,matched,wiktionary:kaikki@2026-10-03,False,,codex,3.28,,,ce,,train
+es,saudade,f,feeling of missing something or someone,matched,wiktionary:kaikki@2026-10-03,False,,the feeling of missing something or someone,2.21,,,de,,train
+es,pirámide,f,pyramid,matched,wiktionary:kaikki@2026-10-03,False,,pyramid,3.76,,,de,,train
+es,celuloide,m,celluloid,matched,wiktionary:kaikki@2026-10-03,False,,celluloid (variety of thermoplastics),2.7,,,de,,train
+es,ábside,m,apse,matched,wiktionary:kaikki@2026-10-03,False,,apse,2.69,,,de,,train
+es,merced,f,mercy,matched,wiktionary:kaikki@2026-10-03,False,,mercy,3.86,,,ed,,train
+es,césped,m,lawn,matched,wiktionary:kaikki@2026-10-03,False,,lawn,3.79,,,ed,,train
+es,piel,f,skin,matched,wiktionary:kaikki@2026-10-03,False,,skin,4.8,,,el,,train
+es,carrusel,m,carousel,matched,wiktionary:kaikki@2026-10-03,False,,"carousel, merry-go-round",3.17,,,el,,train
+es,faringe,f,pharynx,matched,wiktionary:kaikki@2026-10-03,False,,pharynx,2.5,,,ge,,train
+es,auge,m,boom,matched,wiktionary:kaikki@2026-10-03,False,,"boom, rise, growth",3.97,,,ge,,train
+es,profilaxis,f,prophylaxis,matched,wiktionary:kaikki@2026-10-03,False,,prophylaxis,2.72,,,is,,train
+es,bilis,f,bile,matched,wiktionary:kaikki@2026-10-03,False,,bile,3.27,,,is,,train
+es,croquis,m,sketch,matched,wiktionary:kaikki@2026-10-03,False,,a sketch,2.8,,,is,,train
+es,arcoíris,m,rainbow,matched,wiktionary:kaikki@2026-10-03,False,,rainbow,3.04,,,is,,train
+es,nariz,f,nose,matched,wiktionary:kaikki@2026-10-03,False,,"nose (a protuberance on the face housing the nostrils, which are used to breathe or smell)",4.3,,,iz,,train
+es,cicatriz,f,scar,matched,wiktionary:kaikki@2026-10-03,False,,"scar, cicatrix",3.5,,,iz,,train
+es,directriz,f,guideline,matched,wiktionary:kaikki@2026-10-03,False,,"guideline, guidance, direction",2.91,,,iz,,train
+es,matiz,m,hue,matched,wiktionary:kaikki@2026-10-03,False,,hue,3.35,,,iz,,train
+es,tamiz,m,sieve,matched,wiktionary:kaikki@2026-10-03,False,,sieve,2.64,,,iz,,train
+es,tapiz,m,tapestry,matched,wiktionary:kaikki@2026-10-03,False,,tapestry,3.06,,,iz,,train
+es,índole,f,type,matched,wiktionary:kaikki@2026-10-03,False,,"type, kind, sort",3.74,,,le,,train
+es,chicle,m,chewing gum,matched,wiktionary:kaikki@2026-10-03,False,,chewing gum,3.57,,,le,,train
+es,higiene,f,hygiene,matched,wiktionary:kaikki@2026-10-03,False,,hygiene,3.99,,,ne,,train
+es,carne,f,flesh,matched,wiktionary:kaikki@2026-10-03,False,,"flesh, the soft part of a body which covers the bones",4.83,,,ne,,train
+es,empeine,m,instep,matched,wiktionary:kaikki@2026-10-03,False,,instep,2.27,,,ne,,train
+es,cine,m,cinema,matched,wiktionary:kaikki@2026-10-03,False,,"cinema, moviehouse",4.96,,,ne,,train
+es,voz,f,voice,matched,wiktionary:kaikki@2026-10-03,False,,voice,5.2,,,oz,,train
+es,altavoz,m,loudspeaker,matched,wiktionary:kaikki@2026-10-03,False,,"loudspeaker, speaker (an electromechanical transducer that converts an electrical signal into audible sound)",3.35,,,oz,,train
+es,fiebre,f,fever,matched,wiktionary:kaikki@2026-10-03,False,,fever,4.23,,,re,,train
+es,mugre,f,dirt,matched,wiktionary:kaikki@2026-10-03,False,,"dirt, filth, grease, muck",3.38,,,re,,train
+es,urdimbre,f,warp,matched,wiktionary:kaikki@2026-10-03,False,,warp (of the weave),2.35,,,re,,train
+es,noviembre,m,november,matched,wiktionary:kaikki@2026-10-03,False,,November,5.16,,,re,,train
+es,pronombre,m,pronoun,matched,wiktionary:kaikki@2026-10-03,False,,pronoun,3.17,,,re,,train
+es,semestre,m,semester,matched,wiktionary:kaikki@2026-10-03,False,,semester,4.19,,,re,,train
+es,contraparte,f,counterpart,matched,wiktionary:kaikki@2026-10-03,False,,counterpart,3.42,,,te,,train
+es,peste,f,plague,matched,wiktionary:kaikki@2026-10-03,False,,plague,3.75,,,te,,train
+es,muerte,f,death,matched,wiktionary:kaikki@2026-10-03,False,,death (the cessation of life),5.43,,,te,,train
+es,gabinete,m,cabinet,matched,wiktionary:kaikki@2026-10-03,False,,cabinet (all senses),4.34,,,te,,train
+es,brazalete,m,bracelet,matched,wiktionary:kaikki@2026-10-03,False,,bracelet,3.1,,,te,,train
+es,poste,m,post,matched,wiktionary:kaikki@2026-10-03,False,,"post (of wood), pole",3.62,,,te,,train
+es,llave,f,key,matched,wiktionary:kaikki@2026-10-03,False,,key (to open doors),4.26,,,ve,,train
+es,bajorrelieve,m,bas relief,matched,wiktionary:kaikki@2026-10-03,False,,bas relief,2.13,,,ve,,train
+es,ensalada,f,salad,regular,wiktionary:kaikki@2026-10-03,False,,salad,3.91,,,,,train
+es,concurrencia,f,concurrence,regular,wiktionary:kaikki@2026-10-03,False,,concurrence,3.53,,,,,train
+es,cuantía,f,quantity,regular,wiktionary:kaikki@2026-10-03,False,,quantity,3.48,,,,,train
+es,ponencia,f,report,regular,wiktionary:kaikki@2026-10-03,False,,"report, presentation, address, speech",3.49,,,,,train
+es,selva,f,jungle,regular,wiktionary:kaikki@2026-10-03,False,,jungle,4.25,,,,,train
+es,consecuencia,f,consequence,regular,wiktionary:kaikki@2026-10-03,False,,consequence,4.71,,,,,train
+es,historiografía,f,historiography,regular,wiktionary:kaikki@2026-10-03,False,,historiography,3.32,,,,,train
+es,sonrisa,f,smile,regular,wiktionary:kaikki@2026-10-03,False,,smile,4.5,,,,,train
+es,economía,f,economy,regular,wiktionary:kaikki@2026-10-03,False,,economy,5.14,,,,,train
+es,manteca,f,fat,regular,wiktionary:kaikki@2026-10-03,False,,"fat, lard",3.69,,,,,test
+es,trascendencia,f,importance,regular,wiktionary:kaikki@2026-10-03,False,,importance,3.61,,,,,test
+es,metáfora,f,metaphor,regular,wiktionary:kaikki@2026-10-03,False,,metaphor (the use of a word or phrase to refer to something other than its literal meaning),3.71,,,,,test
+es,súplica,f,plea,regular,wiktionary:kaikki@2026-10-03,False,,"plea, supplication (appeal, petition, entreaty)",3.0,,,,,train
+es,osadía,f,boldness,regular,wiktionary:kaikki@2026-10-03,False,,"boldness, nerve, guts",3.21,,,,,train
+es,delincuencia,f,crime,regular,wiktionary:kaikki@2026-10-03,False,,"crime, delinquency",4.05,,,,,test
+es,sugerencia,f,suggestion,regular,wiktionary:kaikki@2026-10-03,False,,suggestion,3.94,,,,,test
+es,pasarela,f,catwalk,regular,wiktionary:kaikki@2026-10-03,False,,catwalk,3.43,,,,,train
+es,docencia,f,teaching,regular,wiktionary:kaikki@2026-10-03,False,,teaching,3.72,,,,,train
+es,venta,f,sale,regular,wiktionary:kaikki@2026-10-03,False,,sale,4.91,,,,,train
+es,dureza,f,hardness,regular,wiktionary:kaikki@2026-10-03,False,,hardness,3.69,,,,,test
+es,fábrica,f,factory,regular,wiktionary:kaikki@2026-10-03,False,,factory,4.47,,,,,train
+es,intendencia,f,management,regular,wiktionary:kaikki@2026-10-03,False,,"management, administration, government",3.65,,,,,train
+es,tarta,f,pie,regular,wiktionary:kaikki@2026-10-03,False,,"pie, tart",3.79,,,,,test
+es,desconfianza,f,mistrust,regular,wiktionary:kaikki@2026-10-03,False,,"mistrust, distrust",3.91,,,,,test
+es,colmena,f,beehive,regular,wiktionary:kaikki@2026-10-03,False,,beehive,3.26,,,,,test
+es,miseria,f,misery,regular,wiktionary:kaikki@2026-10-03,False,,misery,4.23,,,,,train
+es,pascua,f,easter,regular,wiktionary:kaikki@2026-10-03,False,,Easter,3.93,,,,,train
+es,pretemporada,f,preseason,regular,wiktionary:kaikki@2026-10-03,False,,preseason,3.42,,,,,test
+es,psicología,f,psychology,regular,wiktionary:kaikki@2026-10-03,False,,psychology,4.25,,,,,test
+es,tena,f,type of pepper,regular,wiktionary:kaikki@2026-10-03,False,,a type of pepper.,3.14,,,,,train
+es,parrilla,f,grill,regular,wiktionary:kaikki@2026-10-03,False,,grill,3.78,,,,,train
+es,refinería,f,refinery,regular,wiktionary:kaikki@2026-10-03,False,,refinery,3.47,,,,,train
+es,taberna,f,pub,regular,wiktionary:kaikki@2026-10-03,False,,"pub, tavern",3.43,,,,,test
+es,desobediencia,f,disobedience,regular,wiktionary:kaikki@2026-10-03,False,,disobedience,3.5,,,,,train
+es,pastelería,f,pastry shop,regular,wiktionary:kaikki@2026-10-03,False,,"pastry shop, cake shop",3.14,,,,,train
+es,carita,f,smiley,regular,wiktionary:kaikki@2026-10-03,False,,"smiley, emoticon, emoji",3.36,,,,,test
+es,camarilla,f,secret,regular,wiktionary:kaikki@2026-10-03,False,,"a secret, usually sinister, group of conspiring advisors close to the leadership; a cabal",3.12,,,,,train
+es,manzanilla,f,camomile,regular,wiktionary:kaikki@2026-10-03,False,,camomile,3.2,,,,,train
+es,insistencia,f,insistence,regular,wiktionary:kaikki@2026-10-03,False,,insistence,3.61,,,,,train
+es,conveniencia,f,convenience,regular,wiktionary:kaikki@2026-10-03,False,,convenience,3.81,,,,,train
+es,esencia,f,essence,regular,wiktionary:kaikki@2026-10-03,False,,essence,4.26,,,,,train
+es,farmacia,f,drugstore,regular,wiktionary:kaikki@2026-10-03,False,,"drugstore, pharmacy",3.98,,,,,train
+es,milla,f,english or american mile,regular,wiktionary:kaikki@2026-10-03,False,,English or American mile (a unit of distance equivalent to about 1.6 km),3.64,,,,,test
+es,dictadura,f,dictatorship,regular,wiktionary:kaikki@2026-10-03,False,,dictatorship,4.62,,,,,test
+es,comarca,f,district,regular,wiktionary:kaikki@2026-10-03,False,,district,3.95,,,,,test
+es,biotecnología,f,biotechnology,regular,wiktionary:kaikki@2026-10-03,False,,biotechnology,3.29,,,,,train
+es,floresta,f,woodland,regular,wiktionary:kaikki@2026-10-03,False,,"woodland, greenwood, dell, forest (dense collection of trees)",3.08,,,,,train
+es,discrepancia,f,discrepancy,regular,wiktionary:kaikki@2026-10-03,False,,discrepancy,3.39,,,,,test
+es,tijera,f,scissors,regular,wiktionary:kaikki@2026-10-03,False,,scissors,3.29,,,,,train
+es,proa,f,bow,regular,wiktionary:kaikki@2026-10-03,False,,"bow, prow (front of a boat or ship)",3.48,,,,,train
+es,geología,f,geology,regular,wiktionary:kaikki@2026-10-03,False,,geology (the study of earth and land),3.48,,,,,test
+es,mercadotecnia,f,marketing,regular,wiktionary:kaikki@2026-10-03,False,,"marketing (the promotion, distribution and selling of a product or service)",3.23,,,,,test
+es,librería,f,bookshop,regular,wiktionary:kaikki@2026-10-03,False,,"bookshop, bookstore",3.88,,,,,train
+es,pesadilla,f,nightmare,regular,wiktionary:kaikki@2026-10-03,False,,nightmare,3.98,,,,,test
+es,deuda,f,debt,regular,wiktionary:kaikki@2026-10-03,False,,debt (an obligation to perform for another),4.67,,,,,train
+es,capilla,f,chapel,regular,wiktionary:kaikki@2026-10-03,False,,chapel,4.1,,,,,test
+es,cosita,f,diminutive of cosa,regular,wiktionary:kaikki@2026-10-03,False,,diminutive of cosa,3.48,,,,,train
+es,tribuna,f,gallery,regular,wiktionary:kaikki@2026-10-03,False,,"gallery (uppermost seating area of a theatre, church, hall or auditorium)",3.82,,,,,train
+es,sigla,f,initial,regular,wiktionary:kaikki@2026-10-03,False,,initial,3.22,,,,,train
+es,etapa,f,stage,regular,wiktionary:kaikki@2026-10-03,False,,"stage, phase",4.69,,,,,test
+es,manija,f,handle,regular,wiktionary:kaikki@2026-10-03,False,,handle (part of an object that is held),3.39,,,,,train
+es,euforia,f,euphoria,regular,wiktionary:kaikki@2026-10-03,False,,euphoria,3.4,,,,,train
+es,secuela,f,consequence,regular,wiktionary:kaikki@2026-10-03,False,,"consequence, result",3.53,,,,,train
+es,pradera,f,pasture,regular,wiktionary:kaikki@2026-10-03,False,,pasture,3.35,,,,,train
+es,pornografía,f,pornography,regular,wiktionary:kaikki@2026-10-03,False,,pornography,3.72,,,,,train
+es,bandeja,f,tray,regular,wiktionary:kaikki@2026-10-03,False,,"tray, platter (small, typically rectangular or round, flat, and rigid object upon which things are carried)",3.74,,,,,train
+es,joyería,f,jewelry shop / store,regular,wiktionary:kaikki@2026-10-03,False,,jewelry shop / store,3.43,,,,,train
+es,injerencia,f,interference,regular,wiktionary:kaikki@2026-10-03,False,,"interference, meddling",3.42,,,,,test
+es,misoginia,f,misogyny,regular,wiktionary:kaikki@2026-10-03,False,,misogyny,3.08,,,,,train
+es,banqueta,f,footstool,regular,wiktionary:kaikki@2026-10-03,False,,footstool,3.0,,,,,train
+es,zona,f,zone,regular,wiktionary:kaikki@2026-10-03,False,,"zone, district, area",5.28,,,,,train
+es,valija,f,valise,regular,wiktionary:kaikki@2026-10-03,False,,valise,3.18,,,,,train
+es,sacristía,f,sacristy,regular,wiktionary:kaikki@2026-10-03,False,,sacristy (room in a church),3.06,,,,,train
+es,prevalencia,f,prevalence,regular,wiktionary:kaikki@2026-10-03,False,,prevalence,3.37,,,,,train
+es,resiliencia,f,resilience,regular,wiktionary:kaikki@2026-10-03,False,,resilience,3.1,,,,,train
+es,quilla,f,keel,regular,wiktionary:kaikki@2026-10-03,False,,keel,3.04,,,,,train
+es,pulpa,f,soft part of an animal's body,regular,wiktionary:kaikki@2026-10-03,False,,the soft part of an animal's body; flesh,3.35,,,,,train
+es,psicoterapia,f,psychotherapy,regular,wiktionary:kaikki@2026-10-03,False,,psychotherapy,3.05,,,,,test
+es,pertenencia,f,belonging,regular,wiktionary:kaikki@2026-10-03,False,,belonging,3.74,,,,,train
+es,lavadora,f,washing machine,regular,wiktionary:kaikki@2026-10-03,False,,"washing machine, washer, wash",3.36,,,,,train
+es,cama,f,bed,regular,wiktionary:kaikki@2026-10-03,False,,bed,4.89,,,,,test
+es,correa,f,belt,regular,wiktionary:kaikki@2026-10-03,False,,"belt, band",4.26,,,,,test
+es,ineficacia,f,ineffectiveness,regular,wiktionary:kaikki@2026-10-03,False,,ineffectiveness,3.12,,,,,test
+es,lotería,f,lottery,regular,wiktionary:kaikki@2026-10-03,False,,lottery,3.83,,,,,train
+es,pulgada,f,english or american inch,regular,wiktionary:kaikki@2026-10-03,False,,English or American inch (a unit of length equal to 2.54 cm),3.24,,,,,train
+es,etnia,f,ethnic group,regular,wiktionary:kaikki@2026-10-03,False,,"ethnic group, ethnicity",3.67,,,,,train
+es,tecnología,f,technology,regular,wiktionary:kaikki@2026-10-03,False,,technology,4.94,,,,,test
+es,epidemia,f,epidemic,regular,wiktionary:kaikki@2026-10-03,False,,an epidemic,3.82,,,,,test
+es,lengua,f,tongue,regular,wiktionary:kaikki@2026-10-03,False,,tongue (organ),4.92,,,,,test
+es,mueca,f,exaggerated facial expression,regular,wiktionary:kaikki@2026-10-03,False,,an exaggerated facial expression,3.12,,,,,test
+es,decencia,f,decency,regular,wiktionary:kaikki@2026-10-03,False,,decency,3.61,,,,,train
+es,reliquia,f,relic,regular,wiktionary:kaikki@2026-10-03,False,,"relic, heirloom",3.35,,,,,test
+es,maleza,f,underbrush,regular,wiktionary:kaikki@2026-10-03,False,,underbrush,3.12,,,,,train
+es,sociología,f,sociology,regular,wiktionary:kaikki@2026-10-03,False,,sociology,3.87,,,,,train
+es,pedagogía,f,pedagogy,regular,wiktionary:kaikki@2026-10-03,False,,pedagogy,3.74,,,,,train
+es,bombilla,f,light bulb,regular,wiktionary:kaikki@2026-10-03,False,,light bulb,3.32,,,,,test
+es,gaceta,f,gazette,regular,wiktionary:kaikki@2026-10-03,False,,gazette; newspaper,3.6,,,,,test
+es,patología,f,pathology,regular,wiktionary:kaikki@2026-10-03,False,,pathology,3.57,,,,,train
+es,soja,f,soya,regular,wiktionary:kaikki@2026-10-03,False,,"soya, soybean",3.76,,,,,train
+es,demagogia,f,demagogy,regular,wiktionary:kaikki@2026-10-03,False,,demagogy,3.28,,,,,train
+es,tiranía,f,tyranny,regular,wiktionary:kaikki@2026-10-03,False,,tyranny,3.69,,,,,test
+es,ofensa,f,offense,regular,wiktionary:kaikki@2026-10-03,False,,offense,3.65,,,,,train
+es,ermita,f,hermitage,regular,wiktionary:kaikki@2026-10-03,False,,hermitage,3.52,,,,,train
+es,fábula,f,fable,regular,wiktionary:kaikki@2026-10-03,False,,"fable, myth, tale",3.26,,,,,test
+es,creta,f,chalk,regular,wiktionary:kaikki@2026-10-03,False,,chalk (rock),3.07,,,,,train
+es,borrachera,f,drunkenness,regular,wiktionary:kaikki@2026-10-03,False,,drunkenness,3.21,,,,,test
+es,poza,f,puddle,regular,wiktionary:kaikki@2026-10-03,False,,"puddle, pool",3.08,,,,,train
+es,estancia,f,stay,regular,wiktionary:kaikki@2026-10-03,False,,"stay, residence, sojourn",4.2,,,,,train
+es,tubería,f,tubing,regular,wiktionary:kaikki@2026-10-03,False,,"tubing, piping",3.52,,,,,train
+es,cordura,f,sanity,regular,wiktionary:kaikki@2026-10-03,False,,sanity,3.52,,,,,train
+es,pestaña,f,eyelash,regular,wiktionary:kaikki@2026-10-03,False,,eyelash,3.25,,,,,train
+es,infraestructura,f,infrastructure,regular,wiktionary:kaikki@2026-10-03,False,,infrastructure,4.49,,,,,train
+es,toalla,f,towel,regular,wiktionary:kaikki@2026-10-03,False,,towel,3.83,,,,,test
+es,ortografía,f,orthography,regular,wiktionary:kaikki@2026-10-03,False,,orthography,3.88,,,,,train
+es,cortina,f,curtain,regular,wiktionary:kaikki@2026-10-03,False,,curtain,3.84,,,,,train
+es,bombonera,f,sweet jar,regular,wiktionary:kaikki@2026-10-03,False,,sweet jar,3.1,,,,,train
+es,puñalada,f,stab,regular,wiktionary:kaikki@2026-10-03,False,,stab (act of stabbing),3.22,,,,,test
+es,consistencia,f,consistency,regular,wiktionary:kaikki@2026-10-03,False,,consistency,3.63,,,,,train
+es,nicotina,f,nicotine,regular,wiktionary:kaikki@2026-10-03,False,,nicotine (addictive alkaloid derived from tobacco),3.16,,,,,train
+es,dinastía,f,dynasty,regular,wiktionary:kaikki@2026-10-03,False,,dynasty,3.67,,,,,test
+es,cucharada,f,spoonful,regular,wiktionary:kaikki@2026-10-03,False,,"a spoonful, tablespoon: the quantity held in a tablespoon",3.28,,,,,train
+es,papelería,f,stationery shop / store,regular,wiktionary:kaikki@2026-10-03,False,,"stationery shop / store, stationer's",3.03,,,,,test
+es,comparecencia,f,appearance,regular,wiktionary:kaikki@2026-10-03,False,,appearance (in court),3.24,,,,,test
+es,tierra,f,earth,regular,wiktionary:kaikki@2026-10-03,False,,Earth (planet of the Solar System in which all of humanity resides),5.36,,,,,test
+es,cabellera,f,hair,regular,wiktionary:kaikki@2026-10-03,False,,"hair, head of hair",3.19,,,,,train
+es,solana,f,strong sunshine,regular,wiktionary:kaikki@2026-10-03,False,,strong sunshine,3.27,,,,,train
+es,crianza,f,upbringing,regular,wiktionary:kaikki@2026-10-03,False,,upbringing,3.7,,,,,train
+es,semilla,f,seed,regular,wiktionary:kaikki@2026-10-03,False,,seed (of a plant),3.9,,,,,train
+es,moraleja,f,moral,regular,wiktionary:kaikki@2026-10-03,False,,moral,3.31,,,,,train
+es,cornisa,f,cornice,regular,wiktionary:kaikki@2026-10-03,False,,cornice,3.12,,,,,train
+es,terminología,f,terminology,regular,wiktionary:kaikki@2026-10-03,False,,terminology,3.58,,,,,test
+es,vaina,f,scabbard,regular,wiktionary:kaikki@2026-10-03,False,,"scabbard, sheath",3.88,,,,,test
+es,incompetencia,f,incompetence,regular,wiktionary:kaikki@2026-10-03,False,,incompetence,3.56,,,,,train
+es,hoguera,f,campfire,regular,wiktionary:kaikki@2026-10-03,False,,"campfire, bonfire",3.56,,,,,train
+es,consistorio,m,consistory,regular,wiktionary:kaikki@2026-10-03,False,,consistory,3.13,,,,,train
+es,flujo,m,flow,regular,wiktionary:kaikki@2026-10-03,False,,flow,4.33,,,,,train
+es,establecimiento,m,establishment,regular,wiktionary:kaikki@2026-10-03,False,,establishment,4.37,,,,,train
+es,siglo,m,century,regular,wiktionary:kaikki@2026-10-03,False,,century,5.15,,,,,train
+es,palito,m,stick,regular,wiktionary:kaikki@2026-10-03,False,,"stick (of a lollipop, ice pop, popsicle)",3.24,,,,,train
+es,periodismo,m,journalism,regular,wiktionary:kaikki@2026-10-03,False,,journalism,4.42,,,,,train
+es,aislamiento,m,isolation,regular,wiktionary:kaikki@2026-10-03,False,,isolation,4.06,,,,,train
+es,hato,m,bundle of things,regular,wiktionary:kaikki@2026-10-03,False,,"bundle of things, especially one containing clothes",3.08,,,,,test
+es,aguacero,m,downpour,regular,wiktionary:kaikki@2026-10-03,False,,downpour,3.01,,,,,train
+es,podio,m,podium,regular,wiktionary:kaikki@2026-10-03,False,,podium,3.62,,,,,train
+es,género,m,kind,regular,wiktionary:kaikki@2026-10-03,False,,kind,4.93,,,,,train
+es,naranjo,m,orange tree,regular,wiktionary:kaikki@2026-10-03,False,,orange tree,3.44,,,,,train
+es,protagonismo,m,importance,regular,wiktionary:kaikki@2026-10-03,False,,"importance, prominence",3.77,,,,,test
+es,epílogo,m,epilogue,regular,wiktionary:kaikki@2026-10-03,False,,epilogue,3.17,,,,,train
+es,descrédito,m,discredit,regular,wiktionary:kaikki@2026-10-03,False,,discredit (a degree of dishonour or disesteem),3.03,,,,,test
+es,antídoto,m,antidote,regular,wiktionary:kaikki@2026-10-03,False,,antidote,3.21,,,,,train
+es,encubrimiento,m,cover-up,regular,wiktionary:kaikki@2026-10-03,False,,"cover-up, concealment, whitewash",3.3,,,,,train
+es,arbusto,m,bush,regular,wiktionary:kaikki@2026-10-03,False,,"bush, shrub",3.31,,,,,train
+es,nervio,m,nerve,regular,wiktionary:kaikki@2026-10-03,False,,nerve,3.59,,,,,train
+es,autoritarismo,m,authoritarianism,regular,wiktionary:kaikki@2026-10-03,False,,authoritarianism,3.48,,,,,train
+es,labio,m,lip,regular,wiktionary:kaikki@2026-10-03,False,,lip (fleshy protrusion around the opening of the mouth),3.68,,,,,train
+es,eufemismo,m,euphemism,regular,wiktionary:kaikki@2026-10-03,False,,euphemism,3.15,,,,,train
+es,semáforo,m,traffic light,regular,wiktionary:kaikki@2026-10-03,False,,traffic light,3.56,,,,,train
+es,instituto,m,institute,regular,wiktionary:kaikki@2026-10-03,False,,institute,4.96,,,,,train
+es,orificio,m,orifice,regular,wiktionary:kaikki@2026-10-03,False,,orifice,3.23,,,,,train
+es,cayo,m,key,regular,wiktionary:kaikki@2026-10-03,False,,key (island),3.88,,,,,train
+es,silicio,m,silicon,regular,wiktionary:kaikki@2026-10-03,False,,silicon,3.12,,,,,test
+es,orgullo,m,pride,regular,wiktionary:kaikki@2026-10-03,False,,"pride (arrogance, haughtiness)",4.55,,,,,train
+es,fideicomiso,m,trust,regular,wiktionary:kaikki@2026-10-03,False,,"trust, escrow, fideicommissum",3.37,,,,,train
+es,erario,m,treasury,regular,wiktionary:kaikki@2026-10-03,False,,treasury (public finance),3.36,,,,,test
+es,bizcocho,m,sponge cake,regular,wiktionary:kaikki@2026-10-03,False,,sponge cake,3.21,,,,,train
+es,crucifijo,m,crucifix,regular,wiktionary:kaikki@2026-10-03,False,,crucifix,3.13,,,,,test
+es,lienzo,m,canvas,regular,wiktionary:kaikki@2026-10-03,False,,canvas,3.69,,,,,test
+es,comino,m,cumin,regular,wiktionary:kaikki@2026-10-03,False,,"cumin (plant, spice)",3.15,,,,,test
+es,adoctrinamiento,m,indoctrination,regular,wiktionary:kaikki@2026-10-03,False,,indoctrination (act of indoctrinating),3.08,,,,,train
+es,contrapunto,m,counterpoint,regular,wiktionary:kaikki@2026-10-03,False,,counterpoint,3.19,,,,,train
+es,barrio,m,neighbourhood,regular,wiktionary:kaikki@2026-10-03,False,,neighbourhood,4.85,,,,,train
+es,huerto,m,orchard,regular,wiktionary:kaikki@2026-10-03,False,,orchard,3.62,,,,,train
+es,patrocinio,m,sponsorship,regular,wiktionary:kaikki@2026-10-03,False,,sponsorship,3.61,,,,,test
+es,fósforo,m,phosphorus,regular,wiktionary:kaikki@2026-10-03,False,,phosphorus,3.53,,,,,train
+es,perímetro,m,perimeter,regular,wiktionary:kaikki@2026-10-03,False,,perimeter (the length of the outline of an object),3.61,,,,,test
+es,servicio,m,service,regular,wiktionary:kaikki@2026-10-03,False,,service,5.34,,,,,test
+es,consentimiento,m,consent,regular,wiktionary:kaikki@2026-10-03,False,,consent (voluntary agreement or permission),4.2,,,,,train
+es,aplauso,m,applause,regular,wiktionary:kaikki@2026-10-03,False,,applause (act of applauding),3.79,,,,,train
+es,virreinato,m,viceroyalty,regular,wiktionary:kaikki@2026-10-03,False,,viceroyalty,3.41,,,,,train
+es,susto,m,fright,regular,wiktionary:kaikki@2026-10-03,False,,fright,3.84,,,,,test
+es,califato,m,caliphate,regular,wiktionary:kaikki@2026-10-03,False,,caliphate,3.05,,,,,test
+es,pimiento,m,pepper,regular,wiktionary:kaikki@2026-10-03,False,,pepper (fruit of the capsicum),3.25,,,,,train
+es,diccionario,m,dictionary,regular,wiktionary:kaikki@2026-10-03,False,,"dictionary, wordbook",4.22,,,,,test
+es,ateísmo,m,atheism,regular,wiktionary:kaikki@2026-10-03,False,,atheism,3.24,,,,,test
+es,trapo,m,rag,regular,wiktionary:kaikki@2026-10-03,False,,"rag, piece of cloth used for cleaning, washing or drying (tea towel, dish towel, dish cloth, dust cloth, paper towel)",3.62,,,,,train
+es,olfato,m,smell,regular,wiktionary:kaikki@2026-10-03,False,,"smell, olfaction, sense of smell (sense that detects smells)",3.43,,,,,test
+es,ruido,m,noise,regular,wiktionary:kaikki@2026-10-03,False,,"noise, racket, rattle, clatter, sound (various sounds, usually unwanted)",4.57,,,,,train
+es,año,m,year,regular,wiktionary:kaikki@2026-10-03,False,,year,5.88,,,,,train
+es,agotamiento,m,exhaustion,regular,wiktionary:kaikki@2026-10-03,False,,"exhaustion, depletion",3.48,,,,,train
+es,paño,m,cloth,regular,wiktionary:kaikki@2026-10-03,False,,cloth,3.43,,,,,train
+es,bolso,m,purse,regular,wiktionary:kaikki@2026-10-03,False,,purse,4.01,,,,,test
+es,horóscopo,m,horoscope,regular,wiktionary:kaikki@2026-10-03,False,,horoscope (astrological forecast),3.13,,,,,train
+es,apetito,m,appetite,regular,wiktionary:kaikki@2026-10-03,False,,appetite,3.74,,,,,test
+es,llanto,m,crying,regular,wiktionary:kaikki@2026-10-03,False,,crying,3.81,,,,,test
+es,santuario,m,sanctuary,regular,wiktionary:kaikki@2026-10-03,False,,sanctuary,3.95,,,,,train
+es,diámetro,m,diameter,regular,wiktionary:kaikki@2026-10-03,False,,diameter,4.0,,,,,test
+es,algoritmo,m,algorithm,regular,wiktionary:kaikki@2026-10-03,False,,algorithm,3.61,,,,,test
+es,obelisco,m,obelisk,regular,wiktionary:kaikki@2026-10-03,False,,obelisk,3.32,,,,,test
+es,aeródromo,m,airfield,regular,wiktionary:kaikki@2026-10-03,False,,"airfield, aerodrome, airdrome, landing field (place where airplanes can take off and land)",3.06,,,,,train
+es,potasio,m,potassium,regular,wiktionary:kaikki@2026-10-03,False,,potassium,3.54,,,,,train
+es,carbonato,m,carbonate,regular,wiktionary:kaikki@2026-10-03,False,,carbonate,3.07,,,,,train
+es,pepino,m,cucumber,regular,wiktionary:kaikki@2026-10-03,False,,cucumber,3.42,,,,,train
+es,instinto,m,instinct,regular,wiktionary:kaikki@2026-10-03,False,,instinct,3.89,,,,,train
+es,fanatismo,m,fanaticism,regular,wiktionary:kaikki@2026-10-03,False,,fanaticism,3.61,,,,,test
+es,calcio,m,calcium,regular,wiktionary:kaikki@2026-10-03,False,,calcium,3.72,,,,,train
+es,tobillo,m,ankle,regular,wiktionary:kaikki@2026-10-03,False,,ankle,3.6,,,,,train
+es,fango,m,mud,regular,wiktionary:kaikki@2026-10-03,False,,mud (soil and water),3.28,,,,,train
+es,vocablo,m,word,regular,wiktionary:kaikki@2026-10-03,False,,"word, term",3.24,,,,,test
+es,terremoto,m,earthquake,regular,wiktionary:kaikki@2026-10-03,False,,earthquake,4.19,,,,,train
+es,procedimiento,m,procedure,regular,wiktionary:kaikki@2026-10-03,False,,procedure,4.53,,,,,train
+es,enfrentamiento,m,showdown,regular,wiktionary:kaikki@2026-10-03,False,,"showdown, face-off, matchup, match-up, encounter",4.11,,,,,test
+es,beneplácito,m,consent,regular,wiktionary:kaikki@2026-10-03,False,,"consent, approval, permission",3.14,,,,,test
+es,hospicio,m,hospice,regular,wiktionary:kaikki@2026-10-03,False,,hospice,3.2,,,,,test
+es,sótano,m,cellar,regular,wiktionary:kaikki@2026-10-03,False,,cellar,3.66,,,,,test
+es,éxito,m,success,regular,wiktionary:kaikki@2026-10-03,False,,success,5.08,,,,,train
+es,anteproyecto,m,preliminary plan,regular,wiktionary:kaikki@2026-10-03,False,,a preliminary plan,3.42,,,,,train
+es,revestimiento,m,coating,regular,wiktionary:kaikki@2026-10-03,False,,"coating, cladding",3.21,,,,,train
+es,condominio,m,apartment building,regular,wiktionary:kaikki@2026-10-03,False,,"apartment building, condominium, condo",3.21,,,,,train
+es,homicidio,m,homicide,regular,wiktionary:kaikki@2026-10-03,False,,homicide; manslaughter,4.1,,,,,train
+es,lavabo,m,bathroom sink,regular,wiktionary:kaikki@2026-10-03,False,,"bathroom sink, washbasin",3.18,,,,,train
+es,asesinato,m,assassination,regular,wiktionary:kaikki@2026-10-03,False,,assassination,4.71,,,,,test
+es,pino,m,pine,regular,wiktionary:kaikki@2026-10-03,False,,pine,3.93,,,,,train
+es,mercurio,m,mercury,regular,wiktionary:kaikki@2026-10-03,False,,mercury,3.88,,,,,train
+es,atributo,m,attribute,regular,wiktionary:kaikki@2026-10-03,False,,attribute,3.28,,,,,test
+es,icono,m,icon,regular,wiktionary:kaikki@2026-10-03,False,,"icon (a representation, especially as an object of religious devotion)",3.68,,,,,train
+es,término,m,end,regular,wiktionary:kaikki@2026-10-03,False,,"end, terminus (the terminal point of something in space or time)",4.87,,,,,train
+es,yacimiento,m,deposit,regular,wiktionary:kaikki@2026-10-03,False,,deposit; field or formation,3.51,,,,,train
+es,consenso,m,consensus,regular,wiktionary:kaikki@2026-10-03,False,,consensus,4.15,,,,,train
+es,entretenimiento,m,amusement,regular,wiktionary:kaikki@2026-10-03,False,,amusement,4.17,,,,,train
+es,marzo,m,march,regular,wiktionary:kaikki@2026-10-03,False,,March,5.22,,,,,test
+es,ayuntamiento,m,city council,regular,wiktionary:kaikki@2026-10-03,False,,"city council, town council, council (a corporation or body of magistrates in cities and towns, corresponding to mayor and aldermen)",4.63,,,,,test
+es,comunismo,m,communism,regular,wiktionary:kaikki@2026-10-03,False,,communism,4.03,,,,,train
+es,lino,m,linen,regular,wiktionary:kaikki@2026-10-03,False,,linen,3.58,,,,,train
+es,inventario,m,inventory,regular,wiktionary:kaikki@2026-10-03,False,,inventory,3.84,,,,,train
+es,flanco,m,flank,regular,wiktionary:kaikki@2026-10-03,False,,flank,3.41,,,,,train
+es,sodio,m,sodium,regular,wiktionary:kaikki@2026-10-03,False,,sodium,3.69,,,,,train
+es,grupo,m,group,regular,wiktionary:kaikki@2026-10-03,False,,group,5.58,,,,,train
+es,arquetipo,m,archetype,regular,wiktionary:kaikki@2026-10-03,False,,archetype,3.01,,,,,test
+es,transcurso,m,course,regular,wiktionary:kaikki@2026-10-03,False,,"course, passing",3.95,,,,,test
+es,versículo,m,verse,regular,wiktionary:kaikki@2026-10-03,False,,verse (in the Bible),3.1,,,,,train
+es,oporto,m,port wine,regular,wiktionary:kaikki@2026-10-03,False,,port wine,3.49,,,,,train
+es,albedrío,m,will,regular,wiktionary:kaikki@2026-10-03,False,,will (intent),3.27,,,,,train
+es,ombligo,m,navel,regular,wiktionary:kaikki@2026-10-03,False,,"navel, belly button (remnant of umbilical cord)",3.51,,,,,train
+es,hallazgo,m,discovery,regular,wiktionary:kaikki@2026-10-03,False,,discovery,3.82,,,,,test
+es,auditorio,m,audience,regular,wiktionary:kaikki@2026-10-03,False,,audience,3.85,,,,,test
+es,bazo,m,spleen,regular,wiktionary:kaikki@2026-10-03,False,,spleen,3.07,,,,,train
+es,razonamiento,m,reasoning,regular,wiktionary:kaikki@2026-10-03,False,,reasoning,3.83,,,,,test
+es,renacimiento,m,rebirth,regular,wiktionary:kaikki@2026-10-03,False,,rebirth,3.89,,,,,test
+es,bocado,m,mouthful,regular,wiktionary:kaikki@2026-10-03,False,,mouthful,3.33,,,,,train
+es,heno,m,hay,regular,wiktionary:kaikki@2026-10-03,False,,hay,3.09,,,,,train
+es,residuo,m,residue,regular,wiktionary:kaikki@2026-10-03,False,,"residue, remainder",3.29,,,,,test
+es,adiestramiento,m,practice,regular,wiktionary:kaikki@2026-10-03,False,,"practice, training",3.19,,,,,train
+es,morbo,m,disease,regular,wiktionary:kaikki@2026-10-03,False,,disease,3.39,,,,,train
+es,secretariado,m,secretariat,regular,wiktionary:kaikki@2026-10-03,False,,secretariat,3.18,,,,,train
+es,tráfico,m,traffic,regular,wiktionary:kaikki@2026-10-03,False,,traffic,4.6,,,,,test
+es,aeropuerto,m,airport,regular,wiktionary:kaikki@2026-10-03,False,,airport,4.75,,,,,test
+es,yeso,m,plaster,regular,wiktionary:kaikki@2026-10-03,False,,"plaster, gesso",3.62,,,,,test
+es,cántico,m,chant,regular,wiktionary:kaikki@2026-10-03,False,,"chant, canticle",3.01,,,,,train
+es,plazo,m,period,regular,wiktionary:kaikki@2026-10-03,False,,"period, phase",4.87,,,,,train
+es,armisticio,m,armistice,regular,wiktionary:kaikki@2026-10-03,False,,armistice,3.1,,,,,test
+es,propósito,m,purpose,regular,wiktionary:kaikki@2026-10-03,False,,purpose,4.76,,,,,train
+es,ángulo,m,angle,regular,wiktionary:kaikki@2026-10-03,False,,angle,4.09,,,,,test
+es,surgimiento,m,emergence,regular,wiktionary:kaikki@2026-10-03,False,,"emergence, rise",3.71,,,,,train
+es,prólogo,m,prologue,regular,wiktionary:kaikki@2026-10-03,False,,prologue,3.76,,,,,train
+es,prado,m,meadow,regular,wiktionary:kaikki@2026-10-03,False,,meadow,3.98,,,,,train
+es,patrimonio,m,estate,regular,wiktionary:kaikki@2026-10-03,False,,estate; property,4.57,,,,,train
+es,cerebro,m,brain,regular,wiktionary:kaikki@2026-10-03,False,,brain,4.64,,,,,train
+es,kiosco,m,kiosk,regular,wiktionary:kaikki@2026-10-03,False,,kiosk,3.2,,,,,test
+es,municipio,m,municipality,regular,wiktionary:kaikki@2026-10-03,False,,municipality,4.7,,,,,train
+es,hongo,m,fungus,regular,wiktionary:kaikki@2026-10-03,False,,fungus,3.47,,,,,train
+es,sepulcro,m,sepulchre,regular,wiktionary:kaikki@2026-10-03,False,,sepulchre,3.48,,,,,test
+es,sistema,m,system,exception_ma,wiktionary:kaikki@2026-10-03,False,,system,5.56,,,,,test
+es,problema,m,problem,exception_ma,wiktionary:kaikki@2026-10-03,True,,"problem, issue, challenge (a difficulty or obstacle that has to be dealt with)",5.5,,,,,test
+es,idioma,m,language,exception_ma,wiktionary:kaikki@2026-10-03,False,,language,4.74,,,,,test
+es,clima,m,climate,exception_ma,wiktionary:kaikki@2026-10-03,False,,"climate, weather",4.64,,,,,test
+es,poema,m,poem,exception_ma,wiktionary:kaikki@2026-10-03,False,,poem (literary piece written in verse),4.31,,,,,test
+es,esquema,m,outline,exception_ma,wiktionary:kaikki@2026-10-03,False,,"outline (a general description, a summarizing statement)",4.17,,,,,test
+es,lema,m,motto,exception_ma,wiktionary:kaikki@2026-10-03,False,,motto,4.08,,,,,test
+es,dilema,m,dilemma,exception_ma,wiktionary:kaikki@2026-10-03,True,,"dilemma, quandary",3.79,,,,,test
+es,paradigma,m,paradigm,exception_ma,wiktionary:kaikki@2026-10-03,True,,paradigm,3.75,,,,,test
+es,síntoma,m,symptom,exception_ma,wiktionary:kaikki@2026-10-03,False,,symptom (indicators and characteristics of the presence of something else),3.73,,,,,test
+es,telegrama,m,telegram,exception_ma,wiktionary:kaikki@2026-10-03,True,,telegram,3.61,,,,,test
+es,enigma,m,enigma,exception_ma,wiktionary:kaikki@2026-10-03,True,,"enigma, conundrum (something that is puzzling)",3.51,,,,,test
+es,emblema,m,emblem,exception_ma,wiktionary:kaikki@2026-10-03,True,,emblem,3.5,,,,,test
+es,estigma,m,stigma,exception_ma,wiktionary:kaikki@2026-10-03,True,,stigma,3.45,,,,,test
+es,prisma,m,prism,exception_ma,wiktionary:kaikki@2026-10-03,True,,prism (a polyhedron with parallel ends of the same size and shape),3.32,,,,,test
+es,teorema,m,theorem,exception_ma,wiktionary:kaikki@2026-10-03,False,,theorem,3.27,,,,,test
+es,genoma,m,genome,exception_ma,wiktionary:kaikki@2026-10-03,False,,genome (complete genetic information of an organism),3.14,,,,,test
+es,panorama,m,scenery,exception_ma,wiktionary:kaikki@2026-10-03,True,,scenery,4.29,,,,,test
+es,ecosistema,m,ecosystem,exception_ma,wiktionary:kaikki@2026-10-03,False,,ecosystem,3.75,,,,,test
+es,drama,m,drama,exception_ma,wiktionary:kaikki@2026-10-03,True,,"drama (genre in art, film, theatre and literature or a work of said genre)",4.45,,,,,test
+es,foto,f,photo,exception_clipping,wiktionary:kaikki@2026-10-03,False,,"photo, photograph",5.34,,,,,test
+es,moto,f,motorcycle,exception_clipping,wiktionary:kaikki@2026-10-03,True,,motorcycle,4.32,,,,clipping sense is tagged abbreviation so the lexicon skipped it; only other sense is rare masculine 'milestone',test
+es,día,m,day,exception_true,wiktionary:kaikki@2026-10-03,False,,day (any period of 24 hours),5.96,,,,,test
+es,mapa,m,map,exception_true,wiktionary:kaikki@2026-10-03,False,,map (sheet with geographical information on it),4.63,,,,,test
+es,planeta,m,planet,exception_true,wiktionary:kaikki@2026-10-03,True,,planet,4.74,,,,,test
+es,tranvía,m,tram,exception_true,wiktionary:kaikki@2026-10-03,False,,tram,3.49,,,,,test
+es,mediodía,m,noon,exception_true,wiktionary:kaikki@2026-10-03,False,,"noon, midday",4.13,,,,,test
+es,sofá,m,sofa,exception_true,wiktionary:kaikki@2026-10-03,True,,"sofa, couch",3.96,,,,,test
+es,mano,f,hand,exception_true,wiktionary:kaikki@2026-10-03,False,,hand,5.38,,,,masculine is regional slang ('bro'); verb manar 'to flow' is rare; every ordinary sense is feminine,test
+es,lava,f,lava,homograph,wiktionary:kaikki@2026-10-03,True,,lava,3.87,lavar,usted {w},,,test
+es,manda,f,vow,homograph,wiktionary:kaikki@2026-10-03,False,,vow,4.44,mandar,usted {w},,,test
+es,figura,f,figure,homograph,wiktionary:kaikki@2026-10-03,False,,figure,4.77,figurar,usted {w},,,test
+es,obra,f,work,homograph,wiktionary:kaikki@2026-10-03,False,,work (usually literary or artistic),5.27,obrar,usted {w},,,test
+es,pila,f,small battery,homograph,wiktionary:kaikki@2026-10-03,False,,small battery,4.04,pilar,usted {w},,,test
+es,cocina,f,kitchen,homograph,wiktionary:kaikki@2026-10-03,False,,kitchen,4.71,cocinar,usted {w},,,test
+es,captura,f,capture,homograph,wiktionary:kaikki@2026-10-03,False,,capture,4.25,capturar,usted {w},,,test
+es,pesca,f,fishing,homograph,wiktionary:kaikki@2026-10-03,False,,fishing,4.32,pescar,usted {w},,,test
+es,charla,f,talk,homograph,wiktionary:kaikki@2026-10-03,False,,"talk, chat",4.35,charlar,usted {w},,,test
+es,cancela,f,lattice gate,homograph,wiktionary:kaikki@2026-10-03,False,,lattice gate,3.49,cancelar,usted {w},,,test
+es,fotografía,f,photograph,homograph,wiktionary:kaikki@2026-10-03,False,,photograph,4.58,fotografiar,usted {w},,,test
+es,lanza,f,lance,homograph,wiktionary:kaikki@2026-10-03,False,,"lance, spear, glaive",4.34,lanzar,usted {w},,,test
+es,paga,f,payment,homograph,wiktionary:kaikki@2026-10-03,False,,payment,4.55,pagar,usted {w},,,test
+es,mejora,f,improvement,homograph,wiktionary:kaikki@2026-10-03,False,,"improvement, improving, amelioration, betterment, refinement",4.43,mejorar,usted {w},,,test
+es,conciencia,f,awareness,homograph,wiktionary:kaikki@2026-10-03,False,,awareness (state of knowing something),4.76,concienciar,usted {w},,,test
+es,falla,f,flaw,homograph,wiktionary:kaikki@2026-10-03,False,,flaw,4.31,fallar,usted {w},,,test
+es,etiqueta,f,label,homograph,wiktionary:kaikki@2026-10-03,False,,"label, tag",4.18,etiquetar,usted {w},,,test
+es,evidencia,f,evidence,homograph,wiktionary:kaikki@2026-10-03,False,,evidence,4.66,evidenciar,usted {w},,,test
+es,nota,f,note,homograph,wiktionary:kaikki@2026-10-03,False,,"note, memo",5.09,notar,usted {w},,,test
+es,muda,f,change,homograph,wiktionary:kaikki@2026-10-03,False,,"a change (of clothes, especially underpants)",3.71,mudar,usted {w},,,test
+es,renuncia,f,resignation,homograph,wiktionary:kaikki@2026-10-03,False,,resignation,4.39,renunciar,usted {w},,,test
+es,marcha,f,march,homograph,wiktionary:kaikki@2026-10-03,True,,march,4.94,marchar,usted {w},,,test
+es,escuela,f,school,homograph,wiktionary:kaikki@2026-10-03,False,,school (an institution dedicated to teaching and learning),5.26,escolar,usted {w},,,test
+es,cuelga,f,hanging,homograph,wiktionary:kaikki@2026-10-03,False,,hanging (especially of dried fruit),3.63,colgar,usted {w},,,test
+es,toma,f,conquest,homograph,wiktionary:kaikki@2026-10-03,False,,"conquest, capture, taking, takeover",5.01,tomar,usted {w},,,test
+es,firma,f,signature,homograph,wiktionary:kaikki@2026-10-03,False,,signature,4.66,firmar,usted {w},,,test
+es,quema,f,fire,homograph,wiktionary:kaikki@2026-10-03,False,,fire; flame,4.07,quemar,usted {w},,,test
+es,tortura,f,torture,homograph,wiktionary:kaikki@2026-10-03,False,,torture (intentional causing of somebody experiencing agony),4.13,torturar,usted {w},,,test
+es,reforma,f,reform,homograph,wiktionary:kaikki@2026-10-03,True,,"reform (the change of something that is defective, broken, inefficient or otherwise negative)",4.89,reformar,usted {w},,,test
+es,recarga,f,charge,homograph,wiktionary:kaikki@2026-10-03,False,,charge,3.45,recargar,usted {w},,,test
+es,mancha,f,spot,homograph,wiktionary:kaikki@2026-10-03,False,,spot; stain,4.25,manchar,usted {w},,,test
+es,entrevista,f,interview,homograph,wiktionary:kaikki@2026-10-03,False,,interview,4.83,entrevistar,usted {w},,,test
+es,potencia,f,power,homograph,wiktionary:kaikki@2026-10-03,False,,"power, potency",4.48,potenciar,usted {w},,,test
+es,diferencia,f,difference,homograph,wiktionary:kaikki@2026-10-03,False,,difference,5.07,diferenciar,usted {w},,,test
+es,censura,f,censure,homograph,wiktionary:kaikki@2026-10-03,False,,censure,4.27,censurar,usted {w},,,test
+es,gira,f,tour,homograph,wiktionary:kaikki@2026-10-03,False,,tour (a journey through a list of places),4.46,girar,usted {w},,,test
+es,tapa,f,lid,homograph,wiktionary:kaikki@2026-10-03,False,,"lid, cap (the top or cover of a container)",4.13,tapar,usted {w},,,test
+es,relato,m,story,homograph,wiktionary:kaikki@2026-10-03,False,,story,4.38,relatar,yo {w},,,test
+es,envío,m,shipment,homograph,wiktionary:kaikki@2026-10-03,False,,"shipment, sending",4.26,enviar,yo {w},,,test
+es,progreso,m,progress,homograph,wiktionary:kaikki@2026-10-03,False,,"progress, headway, advancement",4.49,progresar,yo {w},,,test
+es,desafío,m,challenge,homograph,wiktionary:kaikki@2026-10-03,False,,challenge,4.24,desafiar,yo {w},,,test
+es,paro,m,stop,homograph,wiktionary:kaikki@2026-10-03,False,,"stop, stagnation (action of stopping)",4.5,parar,yo {w},,,test
+es,secuestro,m,kidnapping,homograph,wiktionary:kaikki@2026-10-03,False,,kidnapping,4.15,secuestrar,yo {w},,,test
+es,estreno,m,premiere,homograph,wiktionary:kaikki@2026-10-03,False,,premiere,4.28,estrenar,yo {w},,,test
+es,arresto,m,arrest,homograph,wiktionary:kaikki@2026-10-03,True,,arrest,4.09,arrestar,yo {w},,,test
+es,aprecio,m,appreciation,homograph,wiktionary:kaikki@2026-10-03,False,,appreciation,3.96,apreciar,yo {w},,,test
+es,corro,m,ring,homograph,wiktionary:kaikki@2026-10-03,False,,"ring, circle (of people, held hand to hand)",3.51,correr,yo {w},,,test
+es,espino,m,hawthorn,homograph,wiktionary:kaikki@2026-10-03,False,,"hawthorn, buckthorn",3.16,espinar,yo {w},,,test
+es,retrato,m,portrait,homograph,wiktionary:kaikki@2026-10-03,False,,portrait,4.17,retratar,yo {w},,,test
+es,pelo,m,hair,homograph,wiktionary:kaikki@2026-10-03,False,,hair (a single hair),4.82,pelar,yo {w},,,test
+es,veto,m,veto,homograph,wiktionary:kaikki@2026-10-03,True,,veto,3.5,vetar,yo {w},,,test
+es,desalojo,m,eviction,homograph,wiktionary:kaikki@2026-10-03,False,,eviction,3.53,desalojar,yo {w},,,test
+es,reparo,m,qualm,homograph,wiktionary:kaikki@2026-10-03,False,,"qualm, objection, cavil, demur, compunction",3.12,reparar,yo {w},,,test
+es,daño,m,damage,homograph,wiktionary:kaikki@2026-10-03,False,,damage,4.88,dañar,yo {w},,,test
+es,saludo,m,greeting,homograph,wiktionary:kaikki@2026-10-03,False,,"greeting, greetings",4.48,saludar,yo {w},,,test
+es,tiro,m,throw,homograph,wiktionary:kaikki@2026-10-03,False,,throw (the act of throwing something),4.62,tirar,yo {w},,,test
+es,fundo,m,country estate,homograph,wiktionary:kaikki@2026-10-03,False,,"country estate, farm",3.21,fundar,yo {w},,,test
+es,repaso,m,review,homograph,wiktionary:kaikki@2026-10-03,False,,"review, revision",3.56,repasar,yo {w},,,test
+es,invento,m,invention,homograph,wiktionary:kaikki@2026-10-03,False,,invention,3.9,inventar,yo {w},,,test
+es,miro,m,portia tree,homograph,wiktionary:kaikki@2026-10-03,False,,portia tree (Thespesia populnea),4.18,mirar,yo {w},,,test
+es,inicio,m,start,homograph,wiktionary:kaikki@2026-10-03,False,,"start, initiation",4.83,iniciar,yo {w},,,test
+es,apuro,m,difficulty,homograph,wiktionary:kaikki@2026-10-03,False,,"difficulty, predicament",3.56,apurar,yo {w},,,test
+es,grito,m,cry,homograph,wiktionary:kaikki@2026-10-03,False,,"a cry, a yell, a scream, a growl",4.28,gritar,yo {w},,,test
+es,desecho,m,waste,homograph,wiktionary:kaikki@2026-10-03,False,,"waste, trash",3.16,desechar,yo {w},,,test
+es,uso,m,use,homograph,wiktionary:kaikki@2026-10-03,False,,use,5.38,usar,yo {w},,,test
+es,retraso,m,delay,homograph,wiktionary:kaikki@2026-10-03,False,,delay,4.09,retrasar,yo {w},,,test
+es,canto,m,singing,homograph,wiktionary:kaikki@2026-10-03,False,,singing,4.36,cantar,yo {w},,,test
+es,descargo,m,unloading,homograph,wiktionary:kaikki@2026-10-03,False,,unloading,3.33,descargar,yo {w},,,test
+es,velo,m,veil,homograph,wiktionary:kaikki@2026-10-03,False,wordnet:garment.n.01,"veil (something hung up or spread out to hide or protect the face, or hide an object from view; usually of a diaphanous material)",3.85,velar,yo {w},,,test
+es,centro,m,center,homograph,wiktionary:kaikki@2026-10-03,True,,center,5.44,centrar,yo {w},,,test
+es,respeto,m,respect,homograph,wiktionary:kaikki@2026-10-03,False,,respect,4.97,respetar,yo {w},,,test
+es,almuerzo,m,lunch,homograph,wiktionary:kaikki@2026-10-03,False,,lunch,4.16,almorzar,yo {w},,,test
+es,camino,m,way,homograph,wiktionary:kaikki@2026-10-03,False,,"way, route",5.28,caminar,yo {w},,,test
+es,mojo,m,type of sauce from the canary islands made from oil and vinegar,homograph,wiktionary:kaikki@2026-10-03,True,,"a type of sauce from the Canary Islands made from oil and vinegar, to which various herbs and spices are added",3.21,mojar,yo {w},,,test
+es,reclamo,m,complaint,homograph,wiktionary:kaikki@2026-10-03,False,,complaint,4.05,reclamar,yo {w},,,test
+es,acierto,m,correct answer,homograph,wiktionary:kaikki@2026-10-03,False,,correct answer,3.69,acertar,yo {w},,,test

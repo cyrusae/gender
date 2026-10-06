@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "git_commit": "9ab517d84dc3777d96f140a109e579ed879290cf",
+    "git_dirty": false,
+    "model_id": "Qwen/Qwen3-0.6B-Base",
+    "model_revision": null,
+    "n_params": 596049920,
+    "n_layers": 28,
+    "device": "mps",
+    "dtype": "float16",
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "machine": "Darwin arm64 arm",
+    "stimuli": "data/stimuli/phase2_pool_v2.csv",
+    "timestamp": "2026-10-06T17:36:36+00:00"
+  },
+  "results": {
+    "min_margin": 1.0,
+    "es": {
+      "n": 518,
+      "known_bal": 0.8358974358974359,
+      "ctx_bal_acc": 0.9598116169544741,
+      "meta_bal_acc": 0.9160648874934589,
+      "n_m": 273,
+      "n_f": 245,
+      "known_m": 0.8717948717948718,
+      "known_f": 0.8,
+      "rate_known": 0.8378378378378378,
+      "rate_wrong": 0.023166023166023165,
+      "rate_conflict": 0.009652509652509652,
+      "rate_unsure": 0.12934362934362933,
+      "frames_agree": 0.9478764478764479,
+      "quiz_agrees_with_ctx": 0.8996138996138996,
+      "meta_order_agree": 0.584942084942085,
+      "mean_meta_mass": 0.9298643742679316,
+      "frac_multitoken": 0.916988416988417
+    },
+    "flipped_pairs": {
+      "n": 0,
+      "both_pass": 0
+    },
+    "by_set": {
+      "es": {
+        "exception_clipping": {
+          "n": 2,
+          "known_bal": 0.5,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.5
+        },
+        "exception_ma": {
+          "n": 25,
+          "known_bal": 0.84,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.76
+        },
+        "exception_true": {
+          "n": 7,
+          "known_bal": 0.9166666666666667,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.8333333333333333
+        },
+        "homograph": {
+          "n": 80,
+          "known_bal": 0.9125000000000001,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9624999999999999
+        },
+        "matched": {
+          "n": 104,
+          "known_bal": 0.5961538461538461,
+          "ctx_bal_acc": 0.8461538461538461,
+          "meta_bal_acc": 0.7692307692307693
+        },
+        "regular": {
+          "n": 300,
+          "known_bal": 0.9033333333333333,
+          "ctx_bal_acc": 0.9866666666666667,
+          "meta_bal_acc": 0.9733333333333334
+        }
+      }
+    }
+  }
+}
