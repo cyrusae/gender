@@ -1,5 +1,9 @@
 lang,model,classic,control,flipped,single
-de,Qwen/Qwen3-0.6B-Base,0.95,0.796,0.736,0.9
-de,utter-project/EuroLLM-1.7B,1.0,0.92,0.934,0.933
-es,Qwen/Qwen3-0.6B-Base,0.894,0.752,0.781,0.942
-es,utter-project/EuroLLM-1.7B,1.0,0.971,0.976,0.908
+de,Qwen/Qwen3-0.6B-Base,0.95,0.768,0.86,0.958
+de,Qwen/Qwen3-1.7B-Base,0.95,0.861,0.838,0.942
+de,Qwen/Qwen3-4B-Base,0.95,0.88,0.914,0.975
+de,utter-project/EuroLLM-1.7B,1.0,0.923,0.973,0.992
+es,Qwen/Qwen3-0.6B-Base,0.95,0.936,0.855,0.875
+es,Qwen/Qwen3-1.7B-Base,1.0,0.886,0.873,0.958
+es,Qwen/Qwen3-4B-Base,1.0,0.915,0.864,0.975
+es,utter-project/EuroLLM-1.7B,1.0,0.965,1.0,0.975

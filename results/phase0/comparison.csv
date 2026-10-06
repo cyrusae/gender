@@ -1,5 +1,9 @@
 model,params_B,device,dtype,lang,n,known_bal,known_m,known_f,wrong,unsure,conflict,ctx_bal_acc,quiz_bal_acc,flipped_ok
 utter-project/EuroLLM-1.7B,1.66,mps,float16,de,257,0.973,0.992,0.954,0.0,0.023,0.004,1.0,0.958,76/78
+Qwen/Qwen3-4B-Base,4.02,mps,float16,de,257,0.938,0.944,0.931,0.004,0.054,0.004,0.996,0.964,65/78
+Qwen/Qwen3-1.7B-Base,1.72,mps,float16,de,257,0.897,0.992,0.802,0.004,0.082,0.019,0.989,0.945,60/78
 Qwen/Qwen3-0.6B-Base,0.6,mps,float16,de,257,0.892,0.929,0.855,0.008,0.101,0.0,0.992,0.821,60/78
 utter-project/EuroLLM-1.7B,1.66,mps,float16,es,257,0.982,0.972,0.991,0.004,0.012,0.004,0.996,0.993,76/78
+Qwen/Qwen3-4B-Base,4.02,mps,float16,es,257,0.939,0.93,0.948,0.0,0.062,0.0,0.992,0.996,65/78
+Qwen/Qwen3-1.7B-Base,1.72,mps,float16,es,257,0.923,0.88,0.965,0.008,0.058,0.016,0.982,0.993,60/78
 Qwen/Qwen3-0.6B-Base,0.6,mps,float16,es,257,0.891,0.894,0.887,0.008,0.101,0.0,0.981,0.953,60/78
