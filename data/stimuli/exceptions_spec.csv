@@ -1,0 +1,48 @@
+# Phase 2 test set 1: nouns whose -o/-a ending points to the WRONG gender. Test only, never trained on.
+# Hand-picked candidates; `gbleed phase2-stimuli` looks up genders in Wiktionary and drops flagged items
+# (homographs, animate, regional, not single-gender), recording why. override_gender bypasses
+# those checks for a documented reason (the Phase 0 known-check still applies).
+# subgroup: ma = masculine -ma (mostly Greek); clipping = feminine -o clippings; true = other exceptions
+lemma,subgroup,override_gender,override_reason,override_gloss
+sistema,ma,,,
+problema,ma,,,
+idioma,ma,,,
+clima,ma,,,
+poema,ma,,,
+esquema,ma,,,
+lema,ma,,,
+dilema,ma,,,
+paradigma,ma,,,
+síntoma,ma,,,
+telegrama,ma,,,
+carisma,ma,,,
+enigma,ma,,,
+emblema,ma,,,
+estigma,ma,,,
+dogma,ma,,,
+prisma,ma,,,
+teorema,ma,,,
+genoma,ma,,,
+cromosoma,ma,,,
+panorama,ma,,,
+crucigrama,ma,,,
+hematoma,ma,,,
+ecosistema,ma,,,
+programa,ma,,,
+tema,ma,,,
+drama,ma,,,
+trauma,ma,,,
+diploma,ma,,,
+aroma,ma,,,
+foto,clipping,,,
+moto,clipping,f,clipping sense is tagged abbreviation so the lexicon skipped it; only other sense is rare masculine 'milestone',motorcycle
+día,true,,,
+mapa,true,,,
+planeta,true,,,
+tranvía,true,,,
+mediodía,true,,,
+sofá,true,,,
+pijama,true,,,
+mano,true,f,masculine is regional slang ('bro'); verb manar 'to flow' is rare; every ordinary sense is feminine,hand
+libido,true,,,
+polio,true,,,
