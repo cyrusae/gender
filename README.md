@@ -52,7 +52,7 @@ data/stimuli/     stimulus lists (long-format CSV, see src/gbleed/stimuli.py)
 src/gbleed/       package: models.py, scoring.py, stimuli.py, phase0.py, cli.py
 results/          small result tables (tracked)
 activations/      extracted activations (git-ignored; one device per model)
-docs/             notes, e.g. model_candidates.md
+docs/             glossary.md, decisions.md, explainers/ (one per phase), model_candidates.md
 notebooks/        exploratory analysis
 sources/          papers (PDFs git-ignored) + SUMMARIES.md
 ```

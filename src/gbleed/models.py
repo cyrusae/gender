@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import platform
 import re
+import subprocess
 
 import torch
 import transformers
@@ -49,9 +50,30 @@ def model_slug(model_id: str) -> str:
     return re.sub(r"[^A-Za-z0-9._-]+", "__", model_id)
 
 
+def git_state() -> dict:
+    """Commit of the code that produced a result, and whether it had uncommitted
+    changes (a dirty run can't be reproduced exactly from the commit alone)."""
+
+    def git(*args: str) -> str:
+        try:
+            return subprocess.run(
+                ["git", *args], capture_output=True, text=True, check=True, timeout=10
+            ).stdout.strip()
+        except (OSError, subprocess.SubprocessError):
+            return ""
+
+    commit = git("rev-parse", "HEAD")
+    # Outputs (results/) don't count: only code, configs and stimulus data.
+    dirty = bool(git("status", "--porcelain", "--untracked-files=no", "--", ".", ":!results"))
+    if dirty:
+        print("!! Uncommitted changes: results will record git_dirty=true")
+    return {"git_commit": commit or None, "git_dirty": dirty if commit else None}
+
+
 def run_metadata(model, model_id: str, device: str, dtype: torch.dtype) -> dict:
     """Everything needed to tell whether two runs are comparable."""
     return {
+        **git_state(),
         "model_id": model_id,
         "model_revision": getattr(model.config, "_commit_hash", None),
         "n_params": sum(p.numel() for p in model.parameters()),
