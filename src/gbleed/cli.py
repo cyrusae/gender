@@ -31,6 +31,8 @@ def main() -> None:
     pl.add_argument("--redownload", action="store_true")
 
     sub.add_parser("classics", help="Look up genders for data/stimuli/classics_spec.csv")
+    pm = sub.add_parser("multi-check", help="Do models accept both genders for See/mar-type items?")
+    pm.add_argument("models", nargs="+")
     sub.add_parser("phase1-stimuli", help="Build Phase 1 verb / nonce / noun lists (v1)")
     p1 = sub.add_parser("phase1", help="Extract activations and fit/validate the spelling eraser")
     p1.add_argument("models", nargs="+")
@@ -53,6 +55,16 @@ def main() -> None:
             lexicon.build_lexicon(lang, a.redownload)
         lexicon.build_pairs()
         lexicon.write_multi_candidates()
+        return
+    if a.cmd == "multi-check":
+        from . import multigender
+
+        for m in a.models:
+            df = multigender.run(m)
+            print(f"== {m}")
+            print(df[["lang", "lemma", "type", "ctx1_margin", "ctx2_margin", "both_accepted",
+                      "prefers"]].round(2).to_string(index=False))  # fmt: skip
+            _free_memory()
         return
     if a.cmd == "phase1-stimuli":
         from .phase1_stimuli import build_all
