@@ -1,8 +1,8 @@
 lang,lemma,multi_type,gloss_m,gloss_f,has_neuter,zipf,keep,notes
 de,Band,meaning_split,"volume, a single book, chiefly when part of a larger set",modern music band,True,5.06,n,Commonly neuter
-de,Post,meaning_split,post (individual message in an Internet forum),"mail, post (sent and received letters etc.)",False,4.89,y,Some concerns about frequency here
-de,See,meaning_split,lake,"sea, ocean",False,4.8,y,
-de,Gang,meaning_split,"motion, movement, progress, way, going","gang (group of criminals, particularly in a North American context)",False,4.6,n,Concerned about frequency
+de,Post,meaning_split,post (individual message in an Internet forum),"mail, post (sent and received letters etc.)",False,4.89,n,English dominance
+de,See,meaning_split,lake,"sea, ocean",False,4.8,y,English dominance is a concern but is a different word type
+de,Gang,meaning_split,"motion, movement, progress, way, going","gang (group of criminals, particularly in a North American context)",False,4.6,n,Concerned about frequency; English dominance also a concern
 de,Gründung,meaning_split,green manure (fertilizer of plant origin),foundation (act of founding),False,4.43,y,
 de,Hut,meaning_split,hat,"protection, supervision, guard, ward, keeping, care",False,4.39,y,Tentative yes
 de,Mangel,meaning_split,"lack, shortage (the condition of having an insufficient amount of a resource, or none at a",mangle,False,4.26,n,Feminine very uncommon
@@ -11,13 +11,13 @@ de,Flur,meaning_split,"hall, hallway, corridor, stairwell","farmland; field or l
 de,Marsch,meaning_split,march,"marsh, marshland, fen",False,4.01,y,
 de,Farm,meaning_split,"barque, small boat",farm (see usage notes),False,3.86,n,Listed as "obsolete"
 de,Disco,meaning_split,disco,"discotheque, nightclub",False,3.79,n,Related meanings
-de,Diamant,meaning_split,diamond (allotrope of carbon),"A small size of type, standardized as 4 point.",False,3.54,n,Frequency
+de,Diamant,meaning_split,diamond (allotrope of carbon),"A small size of type, standardized as 4 point.",False,3.54,n,Type form is "Dated"
 de,Havanna,meaning_split,Havana tobacco,Havana cigar,False,3.35,n,Loanword with related meanings
 de,Guerilla,meaning_split,guerrilla,guerrilla warfare,False,3.2,n,Related meanings
 de,Laube,meaning_split,bleak (kind of fish),garden house,False,3.17,n,Frequency
-de,Otter,meaning_split,otter,"viper, adder",False,3.06,n,
+de,Otter,meaning_split,otter,"viper, adder",False,3.06,n,Animate
 de,Sulz,meaning_split,"wet, mushy snow",tripe,False,3.04,n,Appears to have regional usage
-de,Euro,free_variation,euro (currency),Euro (UEFA European Football Championship),False,5.42,n,
+de,Euro,free_variation,euro (currency),Euro (UEFA European Football Championship),False,5.42,n,Functionally a proper noun
 de,Schöne,free_variation,nominalization of schön,"beauty, the quality of being beautiful",True,5.02,n, "Obsolete"
 de,Single,free_variation,single; singleton (someone who is not involved in a stable romantic relationship),single (45rpm vinyl record),True,4.56,n,Additional tennis meaning; concerns about English inheritance
 de,Salat,free_variation,"salad (mixed, usually cold dish)","obligatory prayer, salat",True,4.1,n,Frequency concerns; Islamic usage m or n
@@ -41,26 +41,26 @@ de,Chili,same_meaning,chili (fruit),chili (fruit),True,3.68,n,More usually m or 
 de,Paprika,same_meaning,paprika (spice),paprika (spice),False,3.61,n,Historical variation says presently female
 de,Spargel,same_meaning,asparagus,asparagus,False,3.56,n,Only feminine in Switzerland
 de,Stage,same_meaning,"internship, job that a trainee is doing in a workplace until a fixed date","internship, job that a trainee is doing in a workplace until a fixed date",False,3.56,n,Only used in Switzerland
-de,Jade,same_meaning,jade (gem),jade (gem),False,3.44,y,
-de,Tsunami,same_meaning,"tsunami (large, destructive wave generally caused by a tremendous disturbance in the ocean","tsunami (large, destructive wave generally caused by a tremendous disturbance in the ocean",False,3.32,y,
-de,Zucchini,same_meaning,"courgette, zucchini","courgette, zucchini",False,3.31,y,Confirmed uncontroversially bigender
-de,Dress,same_meaning,dress (apparel suited for a particular purpose),dress (apparel suited for a particular purpose),False,3.31,y,
+de,Jade,same_meaning,jade (gem),jade (gem),False,3.44,y,Appears to be genuinely bigender
+de,Tsunami,same_meaning,"tsunami (large, destructive wave generally caused by a tremendous disturbance in the ocean","tsunami (large, destructive wave generally caused by a tremendous disturbance in the ocean",False,3.32,n,Loanword concerns--but appears to be genuinely bigender
+de,Zucchini,same_meaning,"courgette, zucchini","courgette, zucchini",False,3.31,y,Confirmed uncontroversially bigender. English overlap concerns?
+de,Dress,same_meaning,dress (apparel suited for a particular purpose),dress (apparel suited for a particular purpose),False,3.31,y,English overlap concerns?
 de,Hentai,same_meaning,"hentai (anime, manga)","hentai (anime, manga)",True,3.21,n,Loanword
-de,Jus,same_meaning,jus (juices given off as meat is cooked),jus (juices given off as meat is cooked),True,3.17,n,Loanword
+de,Jus,same_meaning,jus (juices given off as meat is cooked),jus (juices given off as meat is cooked),True,3.17,n,Loanword--but listed as genuinely common bigender
 de,Wallet,same_meaning,wallet (for cryptocurrencies),wallet (for cryptocurrencies),True,3.1,n,Loanword
-de,Abscheu,same_meaning,"abhorrence, abomination","abhorrence, abomination",False,3.06,y,
-de,Präses,same_meaning,praeses,praeses,False,3.04,n,If I don't know what the word means it's probably not a good fit
-de,Sellerie,same_meaning,celery (herb),celery (herb),False,3.01,y,
+de,Abscheu,same_meaning,"abhorrence, abomination","abhorrence, abomination",False,3.06,y,Confirmed genuinely bigender
+de,Präses,same_meaning,praeses,praeses,False,3.04,n,Rare but does appear to be ambiguous? Might be too rare to care?
+de,Sellerie,same_meaning,celery (herb),celery (herb),False,3.01,y,Gender variation is regional and based on pronounced stress; Keep?
 es,parte,meaning_split,message; report; dispatch,part; section; portion; share; piece; bit; cut; proportion,False,6.0,y,
 es,frente,meaning_split,front,"forehead, brow",False,5.41,y,
 es,cabeza,meaning_split,"guy, dude, man",head,False,5.34,n,Vernacular
-es,defensa,meaning_split,back,defense,False,5.06,n,
-es,busca,meaning_split,pager (a wireless telecommunications device that receives text or voice messages),search (an attempt to find something),False,5.05,n,
+es,defensa,meaning_split,back,defense,False,5.06,n,Vernacular; sports
+es,busca,meaning_split,pager (a wireless telecommunications device that receives text or voice messages),search (an attempt to find something),False,5.05,n,Frequency
 es,corte,meaning_split,cut (the act of cutting),"court (the hall, chamber, or place, where justice is administered)",False,5.04,y,
 es,disco,meaning_split,"disc, disk","club, discotheque",False,4.69,n,
-es,escucha,meaning_split,scout,listening,False,4.58,y,
+es,escucha,meaning_split,scout,listening,False,4.58,n,Scout usage is outdated and was also feminine per RAE
 es,haz,meaning_split,bundle,face,False,4.56,n,Confound with hacer
-es,margen,meaning_split,"margin, edge",river bank,False,4.47,y,
+es,margen,same_meaning,"margin, edge",river bank,False,4.47,y,Corrected per RAE: river bank meaning is a subset of margin; not meaning split
 es,corona,meaning_split,"coronavirus, corona, rona",crown,False,4.47,n,Vernacular
 es,cura,meaning_split,priest; curate,cure (something that restores good health),False,4.46,y,
 es,rueda,meaning_split,a Rueda wine,"wheel (a circular device capable of rotating on its axis, facilitating movement or transpo",False,4.37,n,Specificity
@@ -76,22 +76,22 @@ es,cometa,meaning_split,comet,kite (flying toy),False,3.72,y,
 es,lama,meaning_split,lama (master of Tibetan Buddhism),"slime, mud",False,3.55,n,
 es,bata,meaning_split,child,"dressing gown, robe",False,3.51,n,Filip only
 es,tala,meaning_split,"tala (Celtis tala, a South American tree)","felling, cutting down",False,3.45,n,Too specific
-es,tri,meaning_split,the Mexican national football team,the Ecuador national football team,False,3.43,n,Colloquial
+es,tri,meaning_split,the Mexican national football team,the Ecuador national football team,False,3.43,n,Maybe reconsider? Interesting that both are the same kind of colloquial but at a certain point you're just measuring that there are probably more Mexican Spanish samples
 es,cava,meaning_split,sparkling wine,dig,False,3.38,n,Insufficiently common
 es,calavera,meaning_split,"libertine, playboy, party animal",skull,False,3.35,n,Colloquial
 es,caché,meaning_split,"cachet, elegance, pompousness",cache (a fast temporary storage where recently or frequently used information is stored to,False,3.33,n,Too much bilingual influence
-es,chisme,meaning_split,gossip,bedbug,False,3.32,y,
+es,chisme,meaning_split,gossip,bedbug,False,3.32,n,RAE doesn't list bedbug
 es,tanga,meaning_split,"G-string, thong",southern lapwing,False,3.24,n,Too specific
-es,cascabel,meaning_split,"jingle bell, sleigh bell",rattlesnake,False,3.15,y,
-es,tau,meaning_split,taw (22nd and last letter of the Hebrew alphabet),"tau; the Greek letter Τ, τ",False,3.04,n,
-es,orden,free_variation,"order (arrangement, sequence, organization)",order (command),False,5.3,y,
+es,cascabel,meaning_split,"jingle bell, sleigh bell",rattlesnake,False,3.15,n,Animacy
+es,tau,meaning_split,taw (22nd and last letter of the Hebrew alphabet),"tau; the Greek letter Τ, τ",False,3.04,y,Tentative keep
+es,orden,free_variation,"order (arrangement, sequence, organization)",order (command),False,5.3,y,Solid yes
 es,color,free_variation,rouge (cosmetics),"color / colour, hue",False,5.06,f,Unsure where this as free variation is coming from
-es,radio,free_variation,radius,"radio (industry, signal)",False,5.03,y,
+es,radio,free_variation,radius,"radio (industry, signal)",False,5.03,y,Tentative keep
 es,micro,free_variation,minibus,public bus,False,4.1,n,
 es,internet,same_meaning,internet,internet,False,5.18,n,Loanword
-es,arte,same_meaning,art,art,False,5.13,y,
-es,mar,same_meaning,sea,sea,False,5.11,y,
-es,azúcar,same_meaning,sugar,sugar,False,4.46,y,
+es,arte,same_meaning,art,art,False,5.13,y,Solid yes
+es,mar,same_meaning,sea,sea,False,5.11,y,Solid yes
+es,azúcar,same_meaning,sugar,sugar,False,4.46,y,Solid yes
 es,app,same_meaning,app,app,False,4.35,n,Loanword
 es,wifi,same_meaning,Wi-Fi,Wi-Fi,False,4.07,n,Loanword
 es,maratón,same_meaning,marathon,marathon,False,3.96,n,Loanword
@@ -99,19 +99,19 @@ es,tablet,same_meaning,tablet,tablet,False,3.69,n,Loanword
 es,wiki,same_meaning,wiki,wiki,False,3.66,n,Loanword
 es,cannabis,same_meaning,cannabis,cannabis,False,3.62,n,Loanwordish
 es,vodka,same_meaning,vodka,vodka,False,3.62,n,Loanword
-es,performance,same_meaning,performance art,performance art,False,3.61,n,
-es,lente,same_meaning,lens,lens,False,3.61,y,
+es,performance,same_meaning,performance art,performance art,False,3.61,n,Loanword; not recognized with this meaning by RAE
+es,lente,same_meaning,lens,lens,False,3.61,y,Tentative: u. m. en f. 
 es,laptop,same_meaning,laptop,laptop,False,3.56,n,
 es,sartén,same_meaning,frying pan,frying pan,False,3.43,y,RAE confirms ambiguous
-es,ratio,same_meaning,ratio,ratio,False,3.39,y,
+es,ratio,same_meaning,ratio,ratio,False,3.39,y,RAE u. t. c. m. viable
 es,molotov,same_meaning,synonym of cóctel molotov,synonym of cóctel molotov,False,3.34,n,Loanword
 es,remake,same_meaning,remake,remake,False,3.33,n,Loanword
 es,bermudas,same_meaning,Bermudas (shorts),Bermudas (shorts),False,3.32,n,Loanword
-es,tilde,same_meaning,diacritic,diacritic,False,3.26,,
-es,esperma,same_meaning,sperm (cell),sperm (cell),False,3.23,n,RAE says usado menos como f
+es,tilde,same_meaning,diacritic,diacritic,False,3.26,n,RAE says masculine usage is outdated
+es,esperma,same_meaning,sperm (cell),sperm (cell),False,3.23,y,Tentative; RAE says sperm as in cell u. menos c. f. but sperm as in whale also bigender
 es,enzima,same_meaning,enzyme,enzyme,False,3.2,f,RAE says usado menos como m
-es,pus,same_meaning,pus,pus,False,3.19,n,Too localized
+es,pus,same_meaning,pus,pus,False,3.19,n,Too localized of usage
 es,viagra,same_meaning,Viagra,Viagra,False,3.12,n,Loanword
 es,armazón,same_meaning,"frame, framework","frame, framework",False,3.08,y,
-es,combi,same_meaning,minivan,minivan,False,3.05,n,
-es,scooter,same_meaning,scooter (vehicle),scooter (vehicle),False,3.02,n,
+es,combi,same_meaning,minivan,minivan,False,3.05,n,Vernacular
+es,scooter,same_meaning,scooter (vehicle),scooter (vehicle),False,3.02,n,Loanword

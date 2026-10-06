@@ -1,0 +1,33 @@
+lang,lemma,type,gloss_m,gloss_f,decision,pi_keep,pi_notes,change
+de,Hut,meaning_split,hat,"protection, supervision, guard, ward, keeping, care",keep,y,Tentative yes,
+de,Kiefer,meaning_split,jaw,pine (tree of genus Pinus),keep,n,Jaw can be neuter in Austria. May reconsider?,re-added: Austrian neuter irrelevant (only m/f used)
+de,Marsch,meaning_split,march,"marsh, marshland, fen",keep,y,,
+de,See,meaning_split,lake,"sea, ocean",keep,y,English dominance is a concern but is a different word type,
+de,Abscheu,same_meaning,"abhorrence, abomination","abhorrence, abomination",keep,y,Confirmed genuinely bigender,
+de,Sellerie,same_meaning,celery (herb),celery (herb),keep,y,Gender variation is regional and based on pronounced stress; Keep?,
+de,Zucchini,same_meaning,"courgette, zucchini","courgette, zucchini",keep,y,Confirmed uncontroversially bigender. English overlap concerns?,
+es,coma,meaning_split,coma (deep sleep),comma (punctuation mark),keep,y,,
+es,cometa,meaning_split,comet,kite (flying toy),keep,y,,
+es,corte,meaning_split,cut (the act of cutting),"court (the hall, chamber, or place, where justice is administered)",keep,y,,
+es,cólera,meaning_split,cholera,anger,keep,y,,
+es,frente,meaning_split,front,"forehead, brow",keep,y,,
+es,orden,meaning_split,"order (arrangement, sequence, organization)",order (command),keep,y,Solid yes,type corrected: el orden 'arrangement' / la orden 'command'
+es,parte,meaning_split,message; report; dispatch,part; section; portion; share; piece; bit; cut; proportion,keep,y,,
+es,radio,meaning_split,radius,"radio (industry, signal)",keep,y,Tentative keep,type corrected: el radio 'radius' / la radio 'radio'
+es,armazón,same_meaning,"frame, framework","frame, framework",keep,y,,
+es,arte,same_meaning,art,art,keep,y,Solid yes,
+es,azúcar,same_meaning,sugar,sugar,keep,y,Solid yes,
+es,mar,same_meaning,sea,sea,keep,y,Solid yes,
+es,maratón,same_meaning,marathon,marathon,keep,n,Loanword,re-added: passes English-dominance rule; RAE m/f
+es,margen,same_meaning,"margin, edge",river bank,keep,y,Corrected per RAE: river bank meaning is a subset of margin; not meaning split,
+es,sartén,same_meaning,frying pan,frying pan,keep,y,RAE confirms ambiguous,
+de,Kiwi,free_variation,kiwi (bird),"kiwi, kiwifruit",drop,y,,"English-dominant, same meaning"
+de,Gründung,meaning_split,green manure (fertilizer of plant origin),foundation (act of founding),drop,y,,masculine sense (green manure) very rare
+de,Dress,same_meaning,dress (apparel suited for a particular purpose),dress (apparel suited for a particular purpose),drop,y,English overlap concerns?,"English-dominant, same meaning"
+de,Jade,same_meaning,jade (gem),jade (gem),drop,y,Appears to be genuinely bigender,"English-dominant, same meaning"
+es,color,free_variation,rouge (cosmetics),"color / colour, hue",drop,f,Unsure where this as free variation is coming from,la color archaic/rural
+es,cura,meaning_split,priest; curate,cure (something that restores good health),drop,y,,masculine = priest (animate)
+es,tau,meaning_split,taw (22nd and last letter of the Hebrew alphabet),"tau; the Greek letter Τ, τ",drop,y,Tentative keep,letter name; English-dominant
+es,enzima,same_meaning,enzyme,enzyme,drop,f,RAE says usado menos como m,minority gender (m) thinly attested (RAE)
+es,esperma,same_meaning,sperm (cell),sperm (cell),drop,y,Tentative; RAE says sperm as in cell u. menos c. f. but sperm as in whale also bigender,minority gender (f) thinly attested (RAE); same rule as enzima
+es,lente,same_meaning,lens,lens,drop,y,Tentative: u. m. en f. ,minority gender (m) thinly attested (RAE)
