@@ -534,10 +534,25 @@ def eligible(df: pd.DataFrame) -> pd.DataFrame:
 
 
 DOMINANCE = 1.0  # zipf units: 1.0 = 10x more frequent
+EN_SAME = 0.9  # string similarity to the English gloss (accent-insensitive)
+EN_COGNATE = 0.7
+EN_HOMOGRAPH_ZIPF = 3.0
+
+
+def _plain(w: str) -> str:
+    import unicodedata
+
+    return "".join(
+        c for c in unicodedata.normalize("NFD", str(w).lower()) if unicodedata.category(c) != "Mn"
+    )
+
+
 MAX_ZIPF_GAP = 1.0
 
 
 def build_pairs(min_zipf: float = 2.5) -> pd.DataFrame:
+    from wordfreq import zipf_frequency
+
     """German-Spanish translation pairs matched on normalised English gloss.
 
     For each concept, the most frequent eligible lemma in each language is
@@ -573,7 +588,29 @@ def build_pairs(min_zipf: float = 2.5) -> pd.DataFrame:
     ]
     # Translation equivalents have similar frequency; Turmuhr/reloj don't.
     similar_freq = (pairs.de_zipf - pairs.es_zipf).abs() <= MAX_ZIPF_GAP
-    pairs["strict"] = dominant[0] & dominant[1] & similar_freq & ~pairs.cognate
+    # English overlap (Phases 4-5 are cross-lingual and prompt in English):
+    #   en_same       a lemma IS the English word (Stagnation, Grill, melón~melon): dropped
+    #   en_homograph  a lemma is a common English word (zipf >= 3; Devise, Stein): dropped
+    #   en_cognate    similar to the English word (montaña~mountain-ish, Lunge~lung): kept,
+    #                 flagged, so Phase 4 can compare cognate vs non-cognate pairs
+    for lang in ("de", "es"):
+        pairs[f"{lang}_en_sim"] = [
+            difflib.SequenceMatcher(None, _plain(w), _plain(c)).ratio()
+            for w, c in zip(pairs[f"{lang}_lemma"], pairs.concept_en, strict=True)
+        ]
+        pairs[f"{lang}_zipf_en"] = [zipf_frequency(w, "en") for w in pairs[f"{lang}_lemma"]]
+    sim = pairs[["de_en_sim", "es_en_sim"]].max(axis=1)
+    pairs["en_same"] = sim >= EN_SAME
+    pairs["en_homograph"] = pairs[["de_zipf_en", "es_zipf_en"]].max(axis=1) >= EN_HOMOGRAPH_ZIPF
+    pairs["en_cognate"] = (sim >= EN_COGNATE) & ~pairs.en_same
+    pairs["strict"] = (
+        dominant[0]
+        & dominant[1]
+        & similar_freq
+        & ~pairs.cognate
+        & ~pairs.en_same
+        & ~pairs.en_homograph
+    )
     pairs["concrete"] = pairs.de_concrete.astype(bool)  # same English concept on both sides
     pairs = pairs.drop(columns=["de_concrete", "es_concrete"])
     pairs = pairs.sort_values(["flipped", "strict", "concrete", "de_zipf"], ascending=False)
@@ -616,6 +653,15 @@ def build_classics(
                 checks.append(f"{lang}:also_{e.also_pos}")
             if e.marked:
                 checks.append(f"{lang}:marked={e.marked}")
+            from wordfreq import zipf_frequency
+
+            sim = difflib.SequenceMatcher(None, _plain(lemma), _plain(r.concept_en)).ratio()
+            if sim >= EN_SAME:
+                checks.append(f"{lang}:same-as-English")
+            elif sim >= EN_COGNATE:
+                checks.append(f"{lang}:English-cognate")
+            if zipf_frequency(lemma, "en") >= EN_HOMOGRAPH_ZIPF:
+                checks.append(f"{lang}:English-homograph(zipf {zipf_frequency(lemma, 'en'):.1f})")
         gd, ge = info["de"].gender, info["es"].gender
         if gd in ("m", "f") and ge in ("m", "f") and gd == ge:
             checks.append("not-flipped")
