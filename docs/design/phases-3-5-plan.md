@@ -25,6 +25,30 @@ agreement, nothing else measured with that direction is interpretable.
   same probe on random but fixed per-noun labels; report real minus control. The main
   difference-of-means direction has no capacity to overfit, so this mainly guards the secondary probe.
 
+## Before Phase 3: choose the readout position on gender-blind criteria
+
+Phases 1–2 read each word at its **last token**. That's the standard choice (Kaplan et al. 2025:
+models assemble whole words there), but the last token's identity varies (*problema* is one token,
+*nube* ends in the fragment `ube`, German *Zeitung* likely in `ung`, a feminine suffix), and its
+position varies with length. The alternative is a **fixed token after the word** (a following
+newline): it has seen the whole word and is the same token type for every word. Because the model
+reads left to right, appending it doesn't change the word's own vectors, so one forward pass records
+both positions.
+
+To avoid tuning on results, choose the primary readout **before looking at any gender result**,
+using only:
+
+| criterion | measure | better = |
+|---|---|---|
+| word identity preserved | can a probe tell words apart among words sharing a final token? | higher |
+| independence from tokenisation | how well do token count and final-token identity predict the vector? | lower |
+| clean position | sink guard; norm vs ordinary tokens | no warnings |
+
+Then report Phase 2 at both positions as a robustness check, and use the chosen one as primary from
+Phase 3 on. If the two positions disagree on gender, that's a finding to report, not to resolve by
+picking one. (Mean-pooling over a word's tokens is a possible third comparison, not a primary: in a
+left-to-right model the earlier tokens haven't seen the rest of the word.)
+
 ## Phase 3: German, and separate masculine/feminine vectors
 
 - Training: masculine and feminine inanimate nouns, bare; suffix-marked nouns (*-ung*, *-heit*…)
@@ -38,6 +62,10 @@ agreement, nothing else measured with that direction is interpretable.
   literature.
 - Readouts: cosine(masc, fem) (−1 = one axis; ~0 = two features), and the **lengths** of the two
   vectors.
+- **Token count is entangled with gender in German** (`docs/reports/tokenization-qwen3.md`: feminine
+  nouns split into more tokens even within frequency bins, e.g. mid-frequency 3.01 vs 2.60), so the
+  German training set is matched on, or adjusted for, token count, as Phase 2 adjusted for
+  concreteness. Not needed for Spanish (no relationship).
 - **(new) Pre-registered markedness hypothesis** (see `decisions.md`): masculine is the unmarked
   default in German and Spanish (generic masculine: *los niños*, *die Lehrer* for mixed groups),
   i.e. a *privative* opposition in Trubetzkoy's sense. Prediction: the masculine vector is shorter
@@ -148,12 +176,49 @@ one. Stretch goal: the reverse direction (erase social gender, test article agre
 
 ---
 
+## After the Qwen RunPod session: Gemma 3 + Gemma Scope 2 (planned)
+
+A cross-family replication with a sparse-autoencoder extension. Gemma Scope 2 has SAEs on every
+layer of every Gemma 3 size (270M–27B, base and instruction-tuned); 270M and 1B are English-only, so
+the German/Spanish work uses **4B, 12B and, budget allowing, 27B**.
+
+**G0. Preconditions** (on the GPU; Gemma breaks in fp16, so not on the Mac):
+- accept the Gemma licence on Hugging Face; pass the token as a pod-only secret (`HF_TOKEN`), not on
+  the shared volume
+- confirm the loading class for the multimodal 4B+ checkpoints gives the text model cleanly
+- re-verify the input format: Gemma adds a start-of-text token; check the newline buffer keeps
+  measured words off sink positions (sink guard quiet)
+- map Gemma Scope 2's "residual stream after layer L" onto our `hidden_states` indexing, with a unit
+  test (classic off-by-one)
+- bf16 only
+
+**G1. Frozen pipeline** on Gemma 3 4B/12B(/27B): Phase 0 known-check → Gemma shared set →
+Phases 1–5 with the same pre-registered analyses. Compare *conclusions* with Qwen, never vectors.
+
+**G2. SAE analyses** (own pre-registration, written before looking):
+1. discovery on training nouns only: which SAE features separate fem/masc ending-matched nouns, per
+   layer (selection out of tens of thousands of features happens on training data only)
+2. the same held-out tests (exceptions, homographs, *mar*-type)
+3. separate vs single features: does the SAE learn a "feminine" *and* a "masculine" feature? (the
+   markedness hypothesis predicts a strong feminine feature with masculine nearer the default)
+4. Phase 5 overlap: do those features fire on social-gender contexts (epicenes, *he/she*)?
+5. causal: steer with a feature direction, agreement-flip gate first
+
+Caveats to state: SAEs leave unexplained residual information; features split differently at
+different widths; multilingual models may keep per-language features; Neuronpedia labels are hints.
+
+**Compute.** SAE encoding of saved vectors is a small matrix multiply: run it on the Mac from saved
+activations (download only the SAE weights for the layers used). The GPU is for running models
+(extraction, steering). One chip for all sizes within a family: if 27B is included (needs 80 GB:
+A100/H100), run all Gemma sizes on it; cross-family comparisons are conclusion-level, so Qwen on an
+A40 and Gemma on an A100 is fine. RunPod stock on 2026-10-06 (CUDA ≥ 13.0): A40 Secure $0.49/h in
+CA-MTL-1 / EU-SE-1; A100 SXM 80 GB $1.59 Secure / $1.39 community in EUR-IS-1 / US-KS-2 / US-MD-1
+(no data center had both, which is why the global volume matters).
+
 ## Later / optional
 
 - **Activation patching** (swap a vector from one run into another) to locate *where* an effect
   lives. Secondary for the main question.
-- **Sparse autoencoders** to find gender features without imposing a scheme. Ready-made SAEs
-  (Gemma Scope, browsable on Neuronpedia) exist for Gemma, not Qwen, so this would mean adding a
-  Gemma model then or training SAEs. Noted as a future direction, not a plan.
+- **Sparse autoencoders**: now planned via Gemma 3 + Gemma Scope 2 (section above).
 - **Contextual vs bare comparison** (from the conversation): Phase 2 uses bare nouns; repeating
   with gender-invariant determiner frames (*mis X*) and comparing the two is itself a finding.
