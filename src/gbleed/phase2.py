@@ -90,7 +90,12 @@ def _final():
 
 
 # ---- extraction --------------------------------------------------------------
-def extract(model_id: str, device=None, dtype=None) -> None:
+def _suffix(position: str) -> str:
+    """Activation-name suffix per readout position (LAST is primary; see readout.py)."""
+    return {"last": "", "after": "_after"}[position]
+
+
+def extract(model_id: str, device=None, dtype=None, position: str = "last") -> None:
     df, multi = _final(), pd.read_csv(MULTI, keep_default_na=False)
     homo = df[df.set == "homograph"]
     texts = {
@@ -102,16 +107,27 @@ def extract(model_id: str, device=None, dtype=None) -> None:
         "phase2_multi_m": [f"el {w}" for w in multi.lemma],
         "phase2_multi_f": [f"la {w}" for w in multi.lemma],
     }
+    if position == "after":  # the Phase 1 erasers must be fit at the same position
+        from .phase1 import load_stimuli
+
+        texts |= {
+            f"phase1_{k}": list(v[0]) for k, v in load_stimuli().items() if k in ("verbs", "nonce")
+        }
     dev = pick_device(device)
     dt = pick_dtype(dtype, dev)
     model, tok = load_model(model_id, dev, dt)
     meta = run_metadata(model, model_id, dev, dt)
     meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
-    meta["input_format"] = acts.INPUT_FORMAT
+    meta["input_format"] = acts.INPUT_FORMAT + (
+        " (+ newline, read there)" if position == "after" else ""
+    )
+    meta["position"] = position
+    after = acts.AFTER if position == "after" else None
     for name, ws in texts.items():
-        stage(f"{model_id}: extracting {name} ({len(ws)} texts)")
-        X, toks = acts.last_token_states(model, tok, ws, desc=name)
-        acts.save(model_id, name, X, ws, toks, {**meta, "stimuli": FINAL})
+        stage(f"{model_id}: extracting {name} ({len(ws)} texts) at {position.upper()}")
+        X_last, X_after, toks = acts.states_at(model, tok, ws, after, desc=name)
+        X = X_after if position == "after" else X_last
+        acts.save(model_id, name + _suffix(position), X, ws, toks, {**meta, "stimuli": FINAL})
         print(f"{name}: {X.shape}")
 
 
@@ -206,15 +222,17 @@ def _leans(model_id: str, lemmas) -> np.ndarray:
     return np.array([lean.get(w, 0.0) for w in lemmas])
 
 
-def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
+def analyze(model_id: str, out_root: str | None = None, position: str = "last") -> pd.DataFrame:
     df, multi = _final(), pd.read_csv(MULTI, keep_default_na=False)
-    Xb, mb = acts.load(model_id, "phase2_bare")
-    Xhn, _ = acts.load(model_id, "phase2_homo_noun")
-    Xhv, _ = acts.load(model_id, "phase2_homo_verb")
-    Xmm, _ = acts.load(model_id, "phase2_multi_m")
-    Xmf, _ = acts.load(model_id, "phase2_multi_f")
-    Xv1, _ = acts.load(model_id, "phase1_verbs")
-    Xn1, _ = acts.load(model_id, "phase1_nonce")
+    sx = _suffix(position)
+    out_root = out_root or f"results/phase2{sx}"
+    Xb, mb = acts.load(model_id, "phase2_bare" + sx)
+    Xhn, _ = acts.load(model_id, "phase2_homo_noun" + sx)
+    Xhv, _ = acts.load(model_id, "phase2_homo_verb" + sx)
+    Xmm, _ = acts.load(model_id, "phase2_multi_m" + sx)
+    Xmf, _ = acts.load(model_id, "phase2_multi_f" + sx)
+    Xv1, _ = acts.load(model_id, "phase1_verbs" + sx)
+    Xn1, _ = acts.load(model_id, "phase1_nonce" + sx)
     p1 = load_phase1()
     _, yv1, _ = p1["verbs"]
     _, yn1, _, split1 = p1["nonce"]
@@ -386,6 +404,7 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
         "analysis_git": git_state(),
         "n_items": counts,
         "n_multi": len(multi),
+        "position": position,
         "primary_direction": PRIMARY,
         "outcome": outcome,
     }

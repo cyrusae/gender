@@ -50,6 +50,8 @@ def main() -> None:
     p2.add_argument("--skip-extract", action="store_true")
     p2.add_argument("--extract-only", action="store_true",
                     help="GPU sessions: save activations, skip the CPU analysis")  # fmt: skip
+    p2.add_argument("--position", choices=["last", "after"], default="last",
+                    help="readout position; 'after' is the pre-registered robustness check")  # fmt: skip
     sub.add_parser("phase2-stimuli", help="Build Phase 2 pools (data/stimuli/phase2_pool_v2.csv)")
     sub.add_parser("phase1-stimuli", help="Build Phase 1 verb / nonce / noun lists (v1)")
     p1 = sub.add_parser("phase1", help="Extract activations and fit/validate the spelling eraser")
@@ -96,10 +98,10 @@ def main() -> None:
 
         for m in a.models:
             if not a.skip_extract:
-                phase2.extract(m, a.device, a.dtype)
+                phase2.extract(m, a.device, a.dtype, a.position)
                 _free_memory()
             if not a.extract_only:
-                phase2.analyze(m)
+                phase2.analyze(m, position=a.position)
         return
     if a.cmd == "phase2-stimuli":
         from .phase2_stimuli import build
