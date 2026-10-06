@@ -44,8 +44,11 @@ def run(
     out = Path(out_root) / model_slug(model_id)
     out.mkdir(parents=True, exist_ok=True)
     df.to_csv(out / "items.csv", index=False)
-    summary = {"meta": meta, "threshold_nats": ACCEPT,
-               "both_accepted": df.groupby(["lang", "type"]).both_accepted.mean().round(3)
-               .rename(lambda k: "/".join(k) if isinstance(k, tuple) else k).to_dict()}  # fmt: skip
+    acc = df.groupby(["lang", "type"]).both_accepted.mean()
+    summary = {
+        "meta": meta,
+        "threshold_nats": ACCEPT,
+        "both_accepted": {f"{lang}/{t}": round(float(v), 3) for (lang, t), v in acc.items()},
+    }
     (out / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False))
     return df
