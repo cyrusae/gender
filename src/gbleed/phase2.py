@@ -46,6 +46,9 @@ MULTI = "data/stimuli/phase2_multi_v2.csv"
 FINAL = "data/stimuli/phase2_final_v2.csv"
 KNOWN_MODELS = ["Qwen/Qwen3-1.7B-Base", "Qwen/Qwen3-4B-Base"]  # 0.6B dropped (decisions.md)
 N_BOOT = 1000
+# Primary direction for confirmatory runs (decisions.md, 2026-10-06: single estimator for all
+# sizes, chosen by the pre-registered training-only CV rule). Earlier dev runs used adom_matched.
+PRIMARY = "probe_matched"
 SEED = 0
 
 
@@ -344,7 +347,7 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
                     aucs.append(_auc(y[matched][b], Xt[matched][b] @ dd))
                 r["matched_cv_auc"] = float(np.nanmean(aucs))
             rows.append(r)
-        r0 = next(x for x in rows[-len(directions) :] if x["direction"] == "adom_matched")
+        r0 = next(x for x in rows[-len(directions) :] if x["direction"] == PRIMARY)
         tqdm.write(f"layer {layer:2d} adom_matched: A_f {r0['A_f']:.2f} [{r0['A_f_lo']:.2f},{r0['A_f_hi']:.2f}] "
               f"A_m {r0['A_m']:.2f} [{r0['A_m_lo']:.2f},{r0['A_m_hi']:.2f}]  p(-ma m)={r0.get('p_ma_m', float('nan')):.2f}  "
               f"homo diff {r0['homo_auc_diff']:+.2f}  multi {r0['multi_p_diff']:+.2f}  "
@@ -383,6 +386,7 @@ def analyze(model_id: str, out_root: str = "results/phase2") -> pd.DataFrame:
         "analysis_git": git_state(),
         "n_items": counts,
         "n_multi": len(multi),
+        "primary_direction": PRIMARY,
         "outcome": outcome,
     }
     (out / "summary.json").write_text(json.dumps(summary, indent=2))

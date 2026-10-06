@@ -48,32 +48,55 @@ def check_no_sink(X, words, ratio: float = 10.0) -> None:
               f"(attention-sink position?): {bad[:10]}")  # fmt: skip
 
 
+AFTER = "\n"  # readout token appended after the word for the AFTER position
+
+
 @torch.no_grad()
-def last_token_states(model, tok, words: list[str], batch_size: int = 64, desc: str = "extract"):
-    """Return (X [n, L+1, d] float32, tokens [n lists of str]) for bare words."""
+def states_at(model, tok, words: list[str], after: str | None = None, batch_size: int = 64,
+              desc: str = "extract"):  # fmt: skip
+    """Residual stream at every layer for each text (`prefix + " " + text`).
+
+    Returns (X_last, X_after, tokens): X_last at the text's last token; X_after at the last token
+    of `after` appended behind it (None if after is None). The model reads left to right, so
+    appending `after` doesn't change X_last; one pass records both readout positions.
+    """
     pre = prefix_ids(tok)
-    seqs = [pre + tok(" " + w, add_special_tokens=False)["input_ids"] for w in words]
+    suf = tok(after, add_special_tokens=False)["input_ids"] if after else []
+    body = [tok(" " + w, add_special_tokens=False)["input_ids"] for w in words]
+    seqs = [pre + b + suf for b in body]
     pad = tok.pad_token_id if tok.pad_token_id is not None else tok.eos_token_id
-    out = []
-    toks = [tok.convert_ids_to_tokens(s[len(pre) :]) for s in seqs]
+    out_last, out_after = [], []
+    toks = [tok.convert_ids_to_tokens(b) for b in body]
     for i in progress(range(0, len(seqs), batch_size), desc=desc, unit="batch"):
-        batch = seqs[i : i + batch_size]
+        batch, bodies = seqs[i : i + batch_size], body[i : i + batch_size]
         width = max(map(len, batch))
         ids = torch.full((len(batch), width), pad, dtype=torch.long)
         mask = torch.zeros_like(ids)
-        for j, s in enumerate(batch):  # right-padding; causal attention ignores the pad tail
-            ids[j, : len(s)] = torch.tensor(s)
-            mask[j, : len(s)] = 1
+        for j, sq in enumerate(batch):  # right-padding; causal attention ignores the pad tail
+            ids[j, : len(sq)] = torch.tensor(sq)
+            mask[j, : len(sq)] = 1
         hs = model(
             input_ids=ids.to(model.device), attention_mask=mask.to(model.device),
             output_hidden_states=True,
         ).hidden_states  # fmt: skip
-        last = torch.tensor([len(s) - 1 for s in batch], device=model.device)
         stacked = torch.stack(hs, dim=1)  # [b, L+1, t, d]
-        sel = stacked[torch.arange(len(batch)), :, last]  # [b, L+1, d]
-        out.append(sel.float().cpu().numpy())
-    X = np.concatenate(out)
-    check_no_sink(X, words)
+        rows = torch.arange(len(batch))
+        last = torch.tensor([len(pre) + len(b) - 1 for b in bodies])
+        out_last.append(stacked[rows, :, last].float().cpu().numpy())
+        if suf:
+            end = torch.tensor([len(sq) - 1 for sq in batch])
+            out_after.append(stacked[rows, :, end].float().cpu().numpy())
+    X_last = np.concatenate(out_last)
+    check_no_sink(X_last, words)
+    X_after = np.concatenate(out_after) if suf else None
+    if X_after is not None:
+        check_no_sink(X_after, [f"{w}+after" for w in words])
+    return X_last, X_after, toks
+
+
+def last_token_states(model, tok, words: list[str], batch_size: int = 64, desc: str = "extract"):
+    """Return (X [n, L+1, d] float32, tokens [n lists of str]) at each text's last token."""
+    X, _, toks = states_at(model, tok, words, None, batch_size, desc)
     return X, toks
 
 

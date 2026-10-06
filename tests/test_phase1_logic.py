@@ -61,3 +61,15 @@ def test_adjusted_difference_of_means_removes_confound():
     plain, adj = _dom(X, y), _adom(X, y, [conc])
     assert abs(plain[1]) > 0.5  # confounded
     assert abs(adj[1]) < 0.1 and abs(adj[0] - 1.0) < 0.1  # recovers the gender effect only
+
+
+def test_readout_identity_retrieval():
+    """Same word in two contexts = same vector plus noise -> retrieval succeeds; shuffled -> chance."""
+    from gbleed.readout import _identity
+
+    rng = np.random.default_rng(0)
+    A = rng.standard_normal((30, 16))
+    B = A + 0.05 * rng.standard_normal((30, 16))
+    groups = [np.arange(0, 10), np.arange(10, 20), np.arange(20, 30)]
+    assert _identity(A, B, groups) == 1.0
+    assert _identity(A, rng.standard_normal((30, 16)), groups) < 0.4

@@ -36,6 +36,9 @@ def main() -> None:
     pl.add_argument("--redownload", action="store_true")
 
     sub.add_parser("classics", help="Look up genders for data/stimuli/classics_spec.csv")
+    pr = sub.add_parser("readout", help="Gender-blind readout-position check (LAST vs AFTER)")
+    pr.add_argument("models", nargs="+")
+    pr.add_argument("--skip-extract", action="store_true")
     sub.add_parser("token-report", help="Add Qwen3 token counts to the lexicons; write the report")
     pm = sub.add_parser("multi-check", help="Do models accept both genders for See/mar-type items?")
     pm.add_argument("models", nargs="+")
@@ -117,6 +120,16 @@ def main() -> None:
                 _free_memory()
             if not a.extract_only:
                 phase1.analyze(m)
+        return
+    if a.cmd == "readout":
+        from . import readout
+
+        for m in a.models:
+            if not a.skip_extract:
+                readout.extract(m)
+                _free_memory()
+            readout.analyze(m)
+        print(readout.decide(a.models))
         return
     if a.cmd == "token-report":
         from .tokreport import add_token_counts, write_report
