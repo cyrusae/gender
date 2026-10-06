@@ -92,9 +92,17 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
 ## Hardware and precision
 
 - **fp16 / bf16 / fp32.** Number formats. fp32 = full precision (4 bytes/parameter); fp16 and bf16
-  = half precision (2 bytes). bf16 has fp32's range but less precision; fp16 has more precision
-  but overflows sooner (some models, e.g. Gemma, break in fp16). Apple M1 lacks native bf16, so
-  the Mac uses fp16; RunPod (CUDA) uses bf16.
+  = half precision (2 bytes). bf16 has fp32's range but fewer significant digits (~3) than fp16
+  (~3.3); fp16 overflows sooner (some models, e.g. Gemma, break in fp16). Apple M1 lacks native
+  bf16, so the Mac uses fp16; RunPod (CUDA) uses bf16.
+  - Qwen3 is *published and trained* in bf16, so fp32 adds no information to the weights; it only
+    reduces rounding during computation, at 2× memory and much lower speed.
+  - Rounding noise in Phase 0 margins: ~0.05 nat in fp16, up to a few tenths of a nat in bf16
+    (bf16 steps are ~0.1 nat per token at typical logit sizes). Small next to the 1-nat
+    threshold, but can flip borderline nouns. Plan: verify once by running Qwen3-4B in bf16 and
+    fp32 on RunPod and comparing statuses (see `decisions.md`).
+  - For probes/LEACE/cosine, activations are converted to fp32 for analysis; bf16 storage loses
+    nothing beyond what the bf16 forward pass already had.
 - **Quantization (4-bit, 8-bit).** Compressing weights further. Avoided: it distorts the
   activations being measured.
 - **MPS / CUDA.** The GPU backends: MPS = Apple Silicon (the Mac), CUDA = NVIDIA (RunPod).

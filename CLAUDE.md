@@ -46,5 +46,5 @@ uv run gbleed phase0-compare [--by freq_bin|set|de_suffix|es_exception]
 - Qwen3 adds no BOS token: never put the scored word or article first in a sentence.
 - German *die* is also plural; *ein*/*dem* also serve neuter (so their priors favour masculine). Spanish *a el* → *al*, *de el* → *del*; feminine stressed-a nouns take *el* (*el agua*).
 - `wordfreq` lowercases, so *Aber* gets *aber*'s frequency. Homographs corrupt frequencies.
-- fp16 on MPS: log-prob differences below ~0.05 nat are rounding noise. Gemma breaks in fp16.
+- fp16 on MPS: log-prob differences below ~0.05 nat are rounding noise; in bf16 (RunPod) noise is larger, a few tenths of a nat. Gemma breaks in fp16.
 - English-gloss matching of German–Spanish pairs is ~10% wrong even under strict rules (*Platte/apartamento* "flat"). Review final Phase 4–5 pairs in English before use.
