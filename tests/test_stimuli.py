@@ -99,3 +99,20 @@ def test_homograph_verb_frame_same_for_both_genders():
     h = df[df.set == "homograph"]
     assert h.verb_frame.nunique() == 1
     assert set(h.gender) == {"m", "f"}
+
+
+def test_phase3_known_frames_separate_all_three_genders():
+    from gbleed.phase3_known import FRAMES
+
+    for _, arts in FRAMES:
+        assert len(set(arts.values())) == 3
+
+
+def test_phase3_pool_excludes_held_out_and_morphological_neuters():
+    from gbleed.phase3_stimuli import POOL, held_out_phase45
+
+    p = pd.read_csv(POOL, keep_default_na=False)
+    w = p[p.set != "multi"].lemma
+    assert not set(w) & held_out_phase45()
+    assert not w.str.contains(r"(?:chen|lein)$").any()
+    assert not w.str.startswith("Ge").any()

@@ -56,6 +56,11 @@ def main() -> None:
     fc.add_argument("models", nargs="+")
     fc.add_argument("--device", default=None)
     fc.add_argument("--dtype", default=None)
+    sub.add_parser("phase3-stimuli", help="Build the Phase 3 German pool (m/f/n)")
+    p3k = sub.add_parser("phase3-known", help="Three-way article known check for Phase 3")
+    p3k.add_argument("models", nargs="+")
+    p3k.add_argument("--device", default=None)
+    p3k.add_argument("--dtype", default=None)
     sub.add_parser("phase2-stimuli", help="Build Phase 2 pools (data/stimuli/phase2_pool_v3.csv)")
     sub.add_parser("phase1-stimuli", help="Build Phase 1 verb / nonce / noun lists (v1)")
     p1 = sub.add_parser("phase1", help="Extract activations and fit/validate the spelling eraser")
@@ -111,6 +116,19 @@ def main() -> None:
         from .framecheck import run
 
         run(a.models, device=a.device, dtype=a.dtype)
+        return
+    if a.cmd == "phase3-stimuli":
+        from .phase3_stimuli import build
+
+        build()
+        return
+    if a.cmd == "phase3-known":
+        from . import phase3_known
+
+        for m in a.models:
+            phase3_known.score(m, a.device, a.dtype)
+            _free_memory()
+        print("frame check:", phase3_known.frame_check(a.models))
         return
     if a.cmd == "phase2-stimuli":
         from .phase2_stimuli import build
