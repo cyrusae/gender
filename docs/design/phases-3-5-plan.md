@@ -74,6 +74,89 @@ left-to-right model the earlier tokens haven't seen the rest of the word.)
   version needs an improvised reference (candidates: English translations, gender-invariant
   adjectives, *lo* + adjective), each anchor-dependent.
 
+## Phase 2 (v4) and Phase 3 analysis: pre-registration (TENTATIVE, awaiting PI sign-off)
+
+Applies to the confirmatory runs (Qwen3 8B/14B, RunPod, bf16). 1.7B/4B runs are exploratory
+development and are reported as such. Readout: LAST primary, AFTER pre-registered secondary
+(a result is "position-robust" only if it holds at both). Inner layers only (1 … L−2); a
+model-level reading is the verdict in a majority of inner layers.
+
+### Shared estimator (both languages)
+
+Per layer, activations are first **residualised** on the nuisance terms by least squares
+(Frisch–Waugh): cell fixed effects (one indicator per stratification cell: ending, or a shared
+suffix; × loan status in German) plus frequency (Zipf), token count and concreteness (Brysbaert,
+where rated; missing = cell mean + an indicator); Spanish also loan status (covariate only).
+After that, anything shared within a cell is gone, so gender information can only come from
+within-cell differences.
+
+- **Directions for the tests**: logistic probe (standardised, L2, C = 1; the single estimator
+  adopted 2026-10-06) on the residualised training activations. Spanish: m vs f on `strat`
+  (primary) and `matched` (secondary). German: m vs f on `strat3`'s m/f nouns (the single axis),
+  plus a three-class (multinomial) probe on `strat3` for compound tests that include neuter.
+- **Vectors for the geometry (German markedness)**: stratified adjusted difference of means:
+  masc = β_m, fem = β_f, the gender coefficients (neuter = reference) of the same residualised
+  regression.
+
+### Bias-free geometry (PI-adopted fixes, side-agent catch)
+
+Plain lengths and cosines of mean differences are biased by noise: squared length gains
+≈ tr(Σ)(1/n_g + 1/n_n), larger for the smaller feminine group (towards the markedness
+prediction), and masc and fem share the neuter mean's noise (pushing their cosine up, away from
+−1, also towards the prediction). So:
+
+- **Split-half (cross-fitted) estimates**: split every cell's nouns of every gender at random
+  into halves A and B; compute masc and fem in each half. Unbiased squared length:
+  ‖masc‖² ≈ masc_A · masc_B (independent noise has zero expected cross-product). Cosine:
+  (masc_A · fem_B + masc_B · fem_A) / 2, divided by √(‖masc‖² ‖fem‖²) from the split-half
+  lengths. Averaged over 200 random splits.
+- **Within-cell shuffle null**: shuffle gender labels within cells (keeping every cell's counts),
+  recompute the split-half statistics, 1,000 times. This reproduces any bias from the unequal
+  group sizes that the split-half step misses.
+- **Equal-count check**: the same statistics on `matched3` (equal counts per cell, so equal bias).
+
+### Spanish (Phase 2, v4)
+
+Unchanged from the pre-registered Phase 2 reading except the training set and estimator above:
+primary test = masculine -a exceptions, verdict per layer from 95% bootstrap intervals of A_f and
+A_m (gender / spelling / mixed / neither); comparisons as before (regular raw / rank-2 erased,
+homographs noun vs verb, *mar*-type). Bootstrap resamples training nouns **within cells** (refit)
+and test nouns. Homograph and regular results are also reported on the v3 ∩ v4 items (v4 is a
+subset of v3), so v3/v4 differences can be attributed.
+
+### German (Phase 3)
+
+1. **Single axis** (m vs f probe): AUC on held-out `strat3` nouns (grouped CV by cell), suffix
+   nouns (gender index of feminine-suffix nouns; the masculine suffix group has 3 nouns and is
+   descriptive only), compound_test.
+2. **Compounds follow the head** (primary German test): on compound_test **conflict** items
+   (first part's gender ≠ head's), AUC against the head's gender vs AUC against the first part's
+   gender. "Follows the head" if AUC_head's 95% lower bound > 0.5 and AUC_head − AUC_first's lower
+   bound > 0. "Follows the first part" if the reverse. Three-class version (multinomial probe,
+   balanced accuracy) reported alongside. Suffix-headed compounds (*Herzkrankheit*) reported with
+   and without.
+3. **Markedness** (pre-registered 2026-10-06), with the fixes above:
+   (1) ‖masc‖ < ‖fem‖: split-half ‖fem‖² − ‖masc‖² > 0 with bootstrap 95% CI above 0 **and**
+   above the 95th percentile of the shuffle null; majority of inner layers. Reported with the
+   precision asymmetry (m 64 vs f 27 nouns).
+   Prediction (2) of the 2026-10-06 entry ("cosine reliably above −1") is **replaced** (PI
+   decision): it was near-guaranteed (−1 needs neuter exactly midway between masculine and
+   feminine) and becomes unstable exactly when (1) holds (a short masculine vector has a noisy
+   direction). The markedness test rests on (1) alone.
+   **Cosine (descriptive, not a test)**: split-half cosine of masc and fem with bootstrap CI,
+   read against two anchors fixed now: **−1 = one axis** (neuter between masculine and
+   feminine) and **+0.5 = three unrelated categories** (equally spaced class means; values above
+   +0.5 = masculine and feminine share something neuter lacks), and against **what pure noise
+   produces** (side-agent suggestion): the split-half cosine under the within-cell label shuffle
+   (1,000 shuffles; no real class differences), whose central 95% is the noise range. Interpreted
+   only if (i) masculine's and feminine's own directions are reproducible (split-half reliability
+   cos(masc_A, masc_B), cos(fem_A, fem_B), CIs above 0) and (ii) the observed cosine's CI lies
+   outside the noise range; otherwise "not interpretable". It informs the Phase 5 choice between separate vectors
+   and a single axis; it doesn't confirm or disconfirm markedness.
+4. **Compound training set** (secondary, n = 9 neuter): directions and AUCs reported
+   descriptively only.
+5. **der/die See-type items**: each model's lean, descriptive.
+
 ## Phase 4: shared across languages?
 
 As in the design doc (Spanish-only, German-only and pooled vectors, tested on held-out nouns
