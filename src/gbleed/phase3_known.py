@@ -113,16 +113,26 @@ def _match(df: pd.DataFrame, genders, keys, name: str, nested: dict | None = Non
     return pd.concat(out).assign(set=name) if out else df.iloc[:0].assign(set=name)
 
 
+def _strata(df: pd.DataFrame, genders, keys, name: str) -> pd.DataFrame:
+    """Every noun in the cells of `keys` that contain all `genders` (stratified comparison:
+    gender is compared only within cells; cells missing a gender carry no information)."""
+    ok = df.groupby(keys).gender.transform(lambda g: set(genders) <= set(g))
+    return df[ok].assign(set=name)
+
+
 def finalize(known_root: str = "results/phase3_known") -> pd.DataFrame:
     """Keep nouns known by every KNOWN_MODELS model; sample the training sets; freeze splits.
 
-    matched3      per ending x loan status: equal m, f, n (primary)
+    strat3        primary: every noun in ending x loan cells that contain all of m, f and n;
+                  analysed with the cells as fixed effects (within-cell comparison only)
+    matched3      per ending x loan status: equal m, f, n (strict secondary; a subset of strat3)
     matched3_end  per ending only: equal m, f, n (secondary; loan status as a covariate)
     matched2      per ending x loan status: equal m, f; the same seeded shuffle as matched3, so it
                   contains matched3's m/f nouns
     compound_train  compounds (heads disjoint from compound_test), no gender-predicting suffix,
-                  matched per head ending x loan status: equal m, f, n
+                  stratified like strat3 (by head ending x loan status)
     Test sets: suffix, multi, compound_test (known nouns only; multi has no single gender).
+    No compound (train or test) has a head that is a simplex training noun.
     """
     pool = pd.read_csv(POOL, keep_default_na=False)
     pool["en_overlap"] = pool.en_overlap.astype(str).eq("True")
@@ -133,14 +143,21 @@ def finalize(known_root: str = "results/phase3_known") -> pd.DataFrame:
         known = k if known is None else known & k
     ok = pool.lemma.isin(known)
     simplex = _clean(pool[(pool.set == "simplex") & ok])
-    comp = _clean(pool[(pool.set == "compound_train") & ok & (pool.de_suffix == "")])
     train = [
+        _strata(simplex, GENDERS, ["ending", "loan"], "strat3"),
         _match(simplex, GENDERS, ["ending", "loan"], "matched3"),
         _match(simplex, GENDERS, ["ending"], "matched3_end"),
         _match(simplex, ("m", "f"), ["ending", "loan"], "matched2"),
-        _match(comp, GENDERS, ["ending", "loan"], "compound_train"),
     ]
-    test = pool[pool.set.isin(["suffix", "compound_test"]) & ok]
+    # A compound is read at its last token, which is roughly its head: a compound whose head is a
+    # simplex training noun would partly re-measure that noun (test) or double-count it (train).
+    trained = {w.lower() for t in train for w in t.lemma}
+    head_ok = ~pool["head"].str.lower().isin(trained)
+    n_drop = ((pool.set.str.startswith("compound")) & ok & ~head_ok).groupby(pool.set).sum()
+    print("compounds dropped (head is a simplex training noun):", n_drop[n_drop > 0].to_dict())
+    comp = _clean(pool[(pool.set == "compound_train") & ok & head_ok & (pool.de_suffix == "")])
+    train.append(_strata(comp, GENDERS, ["ending", "loan"], "compound_train"))
+    test = pool[(pool.set == "suffix") & ok | (pool.set == "compound_test") & ok & head_ok]
     test = pd.concat([test, pool[pool.set == "multi"]])
     df = pd.concat([*train, test], ignore_index=True)
     df["split"] = np.where(df.set.isin(["suffix", "compound_test", "multi"]), "test", "train")
@@ -149,6 +166,10 @@ def finalize(known_root: str = "results/phase3_known") -> pd.DataFrame:
     heads_tr = set(df[df.set == "compound_train"]["head"])
     heads_te = set(df[df.set == "compound_test"]["head"])
     assert not heads_tr & heads_te
+    simplex_tr = {
+        w.lower() for w in df[df.set.isin(["strat3", "matched3", "matched3_end", "matched2"])].lemma
+    }
+    assert not {h.lower() for h in heads_tr | heads_te} & simplex_tr
     df.to_csv(FINAL, index=False)
     print(df.groupby(["set", "gender"]).size().unstack(fill_value=0).to_string())
     return df
