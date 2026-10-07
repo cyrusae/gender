@@ -34,7 +34,7 @@ FRAMES = [
 ]
 GENDERS = ("m", "f", "n")
 KNOWN_MODELS = ["Qwen/Qwen3-1.7B-Base", "Qwen/Qwen3-4B-Base"]
-FINAL = "data/stimuli/phase3_final_v2.csv"
+FINAL = "data/stimuli/phase3_final_v3.csv"
 
 
 def _items() -> pd.DataFrame:

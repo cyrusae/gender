@@ -1,0 +1,1140 @@
+lang,lemma,gender,concept_en,gloss,set,de_suffix,ending,loan,zipf,n_tokens_qwen3,en_overlap,sex_assoc,head,first,first_gender,conflict,type,gloss_m,gloss_f,source,split
+de,Artikel,m,article,article,strat3,,el,native,5.24,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wahl,f,choice,"choice, selection",strat3,,hl,native,5.19,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Sommer,m,summer,summer,strat3,,er,native,5.08,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Saison,f,season,season (a part of a year when something particular happens),strat3,,on,loan,5.05,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Luft,f,air,"air, atmosphere",strat3,,ft,native,5.02,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Körper,m,body,"body (of a person, animal, etc.)",strat3,,er,native,5.0,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Bier,n,beer,beer (alcoholic beverage fermented from starch material; a serving of this beverage),strat3,,er,native,4.82,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Meer,n,sea,sea,strat3,,er,native,4.72,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Staffel,f,season,season,strat3,,el,native,4.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kapitel,n,chapter,chapter (section of a text),strat3,,el,native,4.44,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Turnier,n,tournament,tournament,strat3,,er,native,4.43,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Abenteuer,n,adventure,adventure,strat3,,er,native,4.42,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Heft,n,notebook,"notebook, writing booklet, cahier, composition book (book in which notes or memoranda are written)",strat3,,ft,native,4.33,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Bibel,f,bible,"Bible, bible",strat3,,el,native,4.32,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Schrift,f,writing,"writing, script",strat3,,ft,native,4.32,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Oper,f,opera,"opera (theatrical work, combining drama, music, song and sometimes dance)",strat3,,er,loan,4.24,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Ufer,n,shore,"shore, shoreline",strat3,,er,native,4.22,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Auskunft,f,enquiry,enquiry,strat3,,ft,native,4.21,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Koffer,m,case,a case; a suitcase or briefcase,strat3,,er,native,4.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Balkon,m,balcony,"balcony (an accessible structure extending from a building, especially outside a window or overlooking a stage)",strat3,,on,loan,4.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Winkel,m,angle,"angle, nook; corner (seen from the inside)",strat3,,el,native,4.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kammer,f,chamber,chamber; room,strat3,,er,native,4.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kalender,m,calendar,"calendar (means for determining dates, including documents containing date and other time information)",strat3,,er,loan,4.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Vernunft,f,reason,"reason, good sense",strat3,,ft,native,4.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Leder,n,leather,leather,strat3,,er,native,4.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Möbel,n,piece of furniture,piece of furniture,strat3,,el,loan,4.07,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Hügel,m,hill,hill,strat3,,el,native,4.07,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Saft,m,juice,juice,strat3,,ft,native,4.02,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Beton,m,concrete,concrete,strat3,,on,loan,3.94,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Duft,m,aroma,"aroma, fragrance",strat3,,ft,native,3.88,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Mehl,n,flour,flour; meal (ground cereal),strat3,,hl,native,3.83,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Hebel,m,operating lever,"operating lever, hand gear",strat3,,el,native,3.82,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pulver,n,powder,powder (in most of its senses),strat3,,er,native,3.81,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Atelier,n,studio,studio (artist's or photographer's workshop),strat3,,er,loan,3.81,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Visier,n,visor,visor,strat3,,er,loan,3.79,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Massaker,n,massacre,massacre,strat3,,er,loan,3.78,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kummer,m,grief,"grief, sorrow",strat3,,er,native,3.78,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Gitter,n,lattice,"lattice, grid, mesh (of metal), grating, bars",strat3,,er,native,3.77,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Nadel,f,needle,"needle; hook (implement for sewing, knitting, or crocheting)",strat3,,el,native,3.77,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Revier,n,defined area of land,"defined area of land, principally used for hunting or foraging",strat3,,er,native,3.77,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Inschrift,f,inscription,inscription,strat3,,ft,native,3.75,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kartoffel,f,potato,potato,strat3,,el,loan,3.74,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Mikrofon,n,microphone,microphone,strat3,,on,loan,3.72,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Ärmel,m,sleeve,sleeve,strat3,,el,native,3.64,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kaliber,n,calibre,calibre,strat3,,er,loan,3.62,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Manöver,n,maneuver,maneuver,strat3,,er,loan,3.61,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kuppel,f,dome,dome (structural element resembling the hollow upper half of a sphere),strat3,,el,loan,3.6,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Speer,m,spear,spear; javelin (a long stick thrown as a weapon or for sport),strat3,,er,native,3.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Gletscher,m,glacier,glacier,strat3,,er,loan,3.58,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Metapher,f,metaphor,metaphor,strat3,,er,loan,3.57,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Sockel,m,base,base,strat3,,el,loan,3.56,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Stiel,m,stalk,stalk (thin stem),strat3,,el,native,3.54,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Strahl,m,beam,"beam, ray (e.g. of light)",strat3,,hl,native,3.54,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Zwiebel,f,onion,"onion (typically Allium cepa, the plant or its bulb)",strat3,,el,native,3.53,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Eifer,m,zeal,"zeal, eagerness, alacrity",strat3,,er,native,3.5,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Plädoyer,n,closing argument,closing argument,strat3,,er,loan,3.49,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pfeiler,m,pillar,pillar,strat3,,er,native,3.48,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kegel,m,skittle,"skittle, ninepin, bowling pin; pin",strat3,,el,native,3.46,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Knöchel,m,ankle,ankle,strat3,,el,native,3.44,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Zirkel,m,pair of compasses,"pair of compasses, compass (device to draw circles)",strat3,,el,native,3.4,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pickel,m,pickaxe,"pickaxe, icepick",strat3,,el,native,3.4,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kluft,f,cleft,"cleft, fissure, joint",strat3,,ft,native,3.38,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Eichel,f,acorn,acorn (fruit of an oak tree),strat3,,el,native,3.37,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Vierer,m,something with a number,"something with a number, value or size of four",strat3,,er,native,3.37,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Benziner,m,car with a gasoline engine,a car with a gasoline engine (petrol engine),strat3,,er,native,3.35,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kittel,m,overall,"overall, smock; white coat",strat3,,el,native,3.34,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pegel,m,level,level (measurement of how high something is filled),strat3,,el,loan,3.33,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Fackel,f,torch,torch,strat3,,el,native,3.33,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Debakel,n,debacle,debacle,strat3,,el,loan,3.32,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Gruft,f,vault,"a vault, tomb, masoned grave; any kind, but especially one that is underground",strat3,,ft,native,3.31,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Saat,f,seed,seed,strat3,,at,native,3.31,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Böller,m,firecracker,firecracker,strat3,,er,native,3.3,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Grat,m,ridge,ridge,strat3,,at,native,3.3,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Ader,f,blood vessel,blood vessel,strat3,,er,native,3.29,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kürzel,n,abbreviation,abbreviation,strat3,,el,native,3.27,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Knüppel,m,cudgel,cudgel,strat3,,el,loan,3.23,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Trichter,m,funnel,funnel,strat3,,er,native,3.22,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Feuerlöscher,m,fire extinguisher,fire extinguisher,strat3,,er,native,3.21,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Zehner,m,ten,"ten (the number, or something having a value of ten)",strat3,,er,native,3.17,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Waggon,m,railway wagon,"railway wagon, railroad car",strat3,,on,loan,3.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Stachel,m,spike,"spike, sting, barb, prick",strat3,,el,native,3.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pfahl,m,stake,"stake, picket, pale",strat3,,hl,native,3.14,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Paradoxon,n,paradox,paradox,strat3,,on,loan,3.14,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Vehikel,n,vehicle,vehicle (medium for expression of talent or views),strat3,,el,loan,3.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Sichel,f,sickle,sickle,strat3,,el,native,3.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Speichel,m,saliva,saliva,strat3,,el,native,3.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Äther,m,ether,ether (all senses),strat3,,er,loan,3.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Scheitel,m,parting,parting,strat3,,el,native,3.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Gondel,f,gondola,gondola,strat3,,el,loan,3.08,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Fünfer,m,fiver,"fiver, banknote with the value of five (e.g. five euro)",strat3,,er,native,3.04,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Plattenspieler,m,record player,record player,strat3,,er,native,3.03,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Medaillon,n,medallion,"medallion, locket (a metallic pendant to store a small item)",strat3,,on,loan,3.02,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Fabel,f,fable,fable,strat3,,el,native,3.02,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wasserkocher,m,electric kettle,electric kettle,strat3,,er,native,3.01,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Sechser,m,something with a number,"something with a number, value or size of six",strat3,,er,native,2.97,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Höcker,m,hump,hump (especially on a camel etc.),strat3,,er,native,2.96,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wimper,f,eyelash,eyelash,strat3,,er,native,2.95,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Katheter,m,catheter,catheter (small tube inserted into a body cavity),strat3,,er,loan,2.93,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Knorpel,m,cartilage,cartilage,strat3,,el,native,2.92,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Tümpel,m,shallow pond,"shallow pond, pool",strat3,,el,native,2.88,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Vaterunser,n,lord's prayer,Lord's Prayer; Our Father; paternoster (prayer that Jesus taught his disciples),strat3,,er,native,2.84,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Zahnstocher,m,toothpick,toothpick,strat3,,er,native,2.82,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wandler,m,transducer,transducer (device that converts energy from one form to another),strat3,,er,native,2.8,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Gatter,n,gate,gate,strat3,,er,native,2.78,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Akkuschrauber,m,cordless drill,cordless drill,strat3,,er,native,2.72,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Hobel,m,anything that abrades a surface,"anything that abrades a surface, such as – particularly – a plane, a grater or slicer, a spokeshave, a safety razor",strat3,,el,native,2.7,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Klinker,m,clinker,clinker (very hard brick),strat3,,er,loan,2.68,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wiederkunft,f,second coming,second coming,strat3,,ft,native,2.6,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Meiler,m,earth mound kiln,"an earth mound kiln, a clamp (an improvised structure built by covering stacked materials with a layer of earth in order to control the combustion intensity).",strat3,,er,native,2.55,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Elixier,n,potion,potion (liquid which is medicinal and/or magical),strat3,,er,loan,2.54,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Rohrkrepierer,m,barrel burst,barrel burst (detonation of munitions while still in the barrel of the weapon),strat3,,er,native,2.49,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Analogon,n,analogue,"analogue (something that is analogous, bears an analogy)",strat3,,on,loan,2.49,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Stößel,m,pestle,pestle,strat3,,el,native,2.47,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Senkel,m,lace,lace,strat3,,el,native,2.45,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Schemel,m,footstool,footstool,strat3,,el,native,2.42,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Dirigat,n,direction of an orchestra or choir,the direction of an orchestra or choir,strat3,,at,native,2.36,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wipfel,m,treetop,treetop,strat3,,el,native,2.27,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Epithel,n,epithelium,epithelium,strat3,,el,loan,2.25,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Stichel,m,burin,burin (prehistoric chisel),strat3,,el,native,2.21,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wasserspeier,m,gargoyle,"gargoyle, waterspout",strat3,,er,native,2.2,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Treber,m,residue mass from making beer or brandy,"residue mass from making beer or brandy, draff, marc, pomace",strat3,,er,native,2.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pfannenwender,m,spatula,spatula (kitchen utensil),strat3,,er,native,2.02,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Grat,m,ridge,ridge,matched3,,at,native,3.3,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Saat,f,seed,seed,matched3,,at,native,3.31,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Dirigat,n,direction of an orchestra or choir,the direction of an orchestra or choir,matched3,,at,native,2.36,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Knüppel,m,cudgel,cudgel,matched3,,el,loan,3.23,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pegel,m,level,level (measurement of how high something is filled),matched3,,el,loan,3.33,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Sockel,m,base,base,matched3,,el,loan,3.56,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Gondel,f,gondola,gondola,matched3,,el,loan,3.08,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kuppel,f,dome,dome (structural element resembling the hollow upper half of a sphere),matched3,,el,loan,3.6,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kartoffel,f,potato,potato,matched3,,el,loan,3.74,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Vehikel,n,vehicle,vehicle (medium for expression of talent or views),matched3,,el,loan,3.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Epithel,n,epithelium,epithelium,matched3,,el,loan,2.25,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Debakel,n,debacle,debacle,matched3,,el,loan,3.32,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wipfel,m,treetop,treetop,matched3,,el,native,2.27,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kittel,m,overall,"overall, smock; white coat",matched3,,el,native,3.34,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Sichel,f,sickle,sickle,matched3,,el,native,3.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Nadel,f,needle,"needle; hook (implement for sewing, knitting, or crocheting)",matched3,,el,native,3.77,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kürzel,n,abbreviation,abbreviation,matched3,,el,native,3.27,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kapitel,n,chapter,chapter (section of a text),matched3,,el,native,4.44,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Äther,m,ether,ether (all senses),matched3,,er,loan,3.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kalender,m,calendar,"calendar (means for determining dates, including documents containing date and other time information)",matched3,,er,loan,4.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Metapher,f,metaphor,metaphor,matched3,,er,loan,3.57,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Oper,f,opera,"opera (theatrical work, combining drama, music, song and sometimes dance)",matched3,,er,loan,4.24,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Elixier,n,potion,potion (liquid which is medicinal and/or magical),matched3,,er,loan,2.54,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Massaker,n,massacre,massacre,matched3,,er,loan,3.78,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Koffer,m,case,a case; a suitcase or briefcase,matched3,,er,native,4.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Akkuschrauber,m,cordless drill,cordless drill,matched3,,er,native,2.72,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Plattenspieler,m,record player,record player,matched3,,er,native,3.03,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wimper,f,eyelash,eyelash,matched3,,er,native,2.95,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Ader,f,blood vessel,blood vessel,matched3,,er,native,3.29,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kammer,f,chamber,chamber; room,matched3,,er,native,4.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Ufer,n,shore,"shore, shoreline",matched3,,er,native,4.22,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Vaterunser,n,lord's prayer,Lord's Prayer; Our Father; paternoster (prayer that Jesus taught his disciples),matched3,,er,native,2.84,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Turnier,n,tournament,tournament,matched3,,er,native,4.43,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Duft,m,aroma,"aroma, fragrance",matched3,,ft,native,3.88,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Gruft,f,vault,"a vault, tomb, masoned grave; any kind, but especially one that is underground",matched3,,ft,native,3.31,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Heft,n,notebook,"notebook, writing booklet, cahier, composition book (book in which notes or memoranda are written)",matched3,,ft,native,4.33,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pfahl,m,stake,"stake, picket, pale",matched3,,hl,native,3.14,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wahl,f,choice,"choice, selection",matched3,,hl,native,5.19,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Mehl,n,flour,flour; meal (ground cereal),matched3,,hl,native,3.83,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Waggon,m,railway wagon,"railway wagon, railroad car",matched3,,on,loan,3.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Saison,f,season,season (a part of a year when something particular happens),matched3,,on,loan,5.05,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Medaillon,n,medallion,"medallion, locket (a metallic pendant to store a small item)",matched3,,on,loan,3.02,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kreisel,m,top,"top, spinning top (toy)",matched3_end,,-sel,native,3.24,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Klausel,f,term,"term (limitation, restriction or regulation)",matched3_end,,-sel,loan,3.54,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Mitbringsel,n,small present brought by a guest or someone returning from a journey,a small present brought by a guest or someone returning from a journey,matched3_end,,-sel,native,2.86,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Skandal,m,scandal,scandal,matched3_end,,al,loan,4.23,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Qual,f,agony,"agony, anguish, torment, torture (that one suffers)",matched3_end,,al,native,3.77,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Areal,n,area,"area, plot (pocket of land)",matched3_end,,al,loan,3.88,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Grat,m,ridge,ridge,matched3_end,,at,native,3.3,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Saat,f,seed,seed,matched3_end,,at,native,3.31,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Dirigat,n,direction of an orchestra or choir,the direction of an orchestra or choir,matched3_end,,at,native,2.36,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Hügel,m,hill,hill,matched3_end,,el,native,4.07,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Schemel,m,footstool,footstool,matched3_end,,el,native,2.42,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Knüppel,m,cudgel,cudgel,matched3_end,,el,loan,3.23,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Scheitel,m,parting,parting,matched3_end,,el,native,3.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Ärmel,m,sleeve,sleeve,matched3_end,,el,native,3.64,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pickel,m,pickaxe,"pickaxe, icepick",matched3_end,,el,native,3.4,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Eichel,f,acorn,acorn (fruit of an oak tree),matched3_end,,el,native,3.37,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Parabel,f,parable,parable,matched3_end,,el,unknown,3.01,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kuppel,f,dome,dome (structural element resembling the hollow upper half of a sphere),matched3_end,,el,loan,3.6,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Fabel,f,fable,fable,matched3_end,,el,native,3.02,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Nadel,f,needle,"needle; hook (implement for sewing, knitting, or crocheting)",matched3_end,,el,native,3.77,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Sichel,f,sickle,sickle,matched3_end,,el,native,3.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Epithel,n,epithelium,epithelium,matched3_end,,el,loan,2.25,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Debakel,n,debacle,debacle,matched3_end,,el,loan,3.32,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Möbel,n,piece of furniture,piece of furniture,matched3_end,,el,loan,4.07,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kürzel,n,abbreviation,abbreviation,matched3_end,,el,native,3.27,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kapitel,n,chapter,chapter (section of a text),matched3_end,,el,native,4.44,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Vehikel,n,vehicle,vehicle (medium for expression of talent or views),matched3_end,,el,loan,3.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Katheter,m,catheter,catheter (small tube inserted into a body cavity),matched3_end,,er,loan,2.93,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Youngtimer,m,more recent vintage car,more recent vintage car,matched3_end,,er,unknown,2.39,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Konverter,m,converter,converter,matched3_end,,er,unknown,2.7,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kalender,m,calendar,"calendar (means for determining dates, including documents containing date and other time information)",matched3_end,,er,loan,4.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pfeiler,m,pillar,pillar,matched3_end,,er,native,3.48,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Metapher,f,metaphor,metaphor,matched3_end,,er,loan,3.57,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Oper,f,opera,"opera (theatrical work, combining drama, music, song and sometimes dance)",matched3_end,,er,loan,4.24,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kammer,f,chamber,chamber; room,matched3_end,,er,native,4.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Ader,f,blood vessel,blood vessel,matched3_end,,er,native,3.29,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wimper,f,eyelash,eyelash,matched3_end,,er,native,2.95,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Gitter,n,lattice,"lattice, grid, mesh (of metal), grating, bars",matched3_end,,er,native,3.77,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Meer,n,sea,sea,matched3_end,,er,native,4.72,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Visier,n,visor,visor,matched3_end,,er,loan,3.79,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Furnier,n,veneer,veneer,matched3_end,,er,unknown,2.15,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Plädoyer,n,closing argument,closing argument,matched3_end,,er,loan,3.49,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Duft,m,aroma,"aroma, fragrance",matched3_end,,ft,native,3.88,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Vernunft,f,reason,"reason, good sense",matched3_end,,ft,native,4.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Heft,n,notebook,"notebook, writing booklet, cahier, composition book (book in which notes or memoranda are written)",matched3_end,,ft,native,4.33,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pfahl,m,stake,"stake, picket, pale",matched3_end,,hl,native,3.14,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wahl,f,choice,"choice, selection",matched3_end,,hl,native,5.19,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Mehl,n,flour,flour; meal (ground cereal),matched3_end,,hl,native,3.83,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Waggon,m,railway wagon,"railway wagon, railroad car",matched3_end,,on,loan,3.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Saison,f,season,season (a part of a year when something particular happens),matched3_end,,on,loan,5.05,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Analogon,n,analogue,"analogue (something that is analogous, bears an analogy)",matched3_end,,on,loan,2.49,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Saal,m,hall or large room,hall or large room (chiefly for gatherings or performances by large groups of people),matched2,,al,native,4.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Qual,f,agony,"agony, anguish, torment, torture (that one suffers)",matched2,,al,native,3.77,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Grat,m,ridge,ridge,matched2,,at,native,3.3,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Saat,f,seed,seed,matched2,,at,native,3.31,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Knüppel,m,cudgel,cudgel,matched2,,el,loan,3.23,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pegel,m,level,level (measurement of how high something is filled),matched2,,el,loan,3.33,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Sockel,m,base,base,matched2,,el,loan,3.56,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Gondel,f,gondola,gondola,matched2,,el,loan,3.08,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kuppel,f,dome,dome (structural element resembling the hollow upper half of a sphere),matched2,,el,loan,3.6,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kartoffel,f,potato,potato,matched2,,el,loan,3.74,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wipfel,m,treetop,treetop,matched2,,el,native,2.27,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kittel,m,overall,"overall, smock; white coat",matched2,,el,native,3.34,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Knorpel,m,cartilage,cartilage,matched2,,el,native,2.92,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Scheitel,m,parting,parting,matched2,,el,native,3.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Winkel,m,angle,"angle, nook; corner (seen from the inside)",matched2,,el,native,4.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Stichel,m,burin,burin (prehistoric chisel),matched2,,el,native,2.21,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Stachel,m,spike,"spike, sting, barb, prick",matched2,,el,native,3.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Schemel,m,footstool,footstool,matched2,,el,native,2.42,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Sichel,f,sickle,sickle,matched2,,el,native,3.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Nadel,f,needle,"needle; hook (implement for sewing, knitting, or crocheting)",matched2,,el,native,3.77,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Bibel,f,bible,"Bible, bible",matched2,,el,native,4.32,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Fabel,f,fable,fable,matched2,,el,native,3.02,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Zwiebel,f,onion,"onion (typically Allium cepa, the plant or its bulb)",matched2,,el,native,3.53,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Staffel,f,season,season,matched2,,el,native,4.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Fackel,f,torch,torch,matched2,,el,native,3.33,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Eichel,f,acorn,acorn (fruit of an oak tree),matched2,,el,native,3.37,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Krempel,m,junk,"junk, stuff",matched2,,el,unknown,2.91,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Muskel,m,muscle,muscle,matched2,,el,unknown,3.66,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Hyperbel,f,hyperbole,hyperbole,matched2,,el,unknown,2.66,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Parabel,f,parable,parable,matched2,,el,unknown,3.01,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Äther,m,ether,ether (all senses),matched2,,er,loan,3.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kalender,m,calendar,"calendar (means for determining dates, including documents containing date and other time information)",matched2,,er,loan,4.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Metapher,f,metaphor,metaphor,matched2,,er,loan,3.57,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Oper,f,opera,"opera (theatrical work, combining drama, music, song and sometimes dance)",matched2,,er,loan,4.24,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Koffer,m,case,a case; a suitcase or briefcase,matched2,,er,native,4.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Akkuschrauber,m,cordless drill,cordless drill,matched2,,er,native,2.72,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Plattenspieler,m,record player,record player,matched2,,er,native,3.03,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wimper,f,eyelash,eyelash,matched2,,er,native,2.95,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Ader,f,blood vessel,blood vessel,matched2,,er,native,3.29,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kammer,f,chamber,chamber; room,matched2,,er,native,4.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Duft,m,aroma,"aroma, fragrance",matched2,,ft,native,3.88,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Saft,m,juice,juice,matched2,,ft,native,4.02,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Gruft,f,vault,"a vault, tomb, masoned grave; any kind, but especially one that is underground",matched2,,ft,native,3.31,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Auskunft,f,enquiry,enquiry,matched2,,ft,native,4.21,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pfahl,m,stake,"stake, picket, pale",matched2,,hl,native,3.14,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Wahl,f,choice,"choice, selection",matched2,,hl,native,5.19,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Draht,m,wire,wire (thread of metal; conductor),matched2,,ht,native,3.79,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Verzicht,m,abstention,abstention,matched2,,ht,native,3.99,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Fracht,f,freight,"freight, cargo",matched2,,ht,native,3.52,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Pflicht,f,duty,duty,matched2,,ht,native,4.56,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Funke,m,spark,spark,matched2,,ke,native,3.57,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Krücke,f,crutch,crutch,matched2,,ke,native,2.82,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Waggon,m,railway wagon,"railway wagon, railroad car",matched2,,on,loan,3.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Saison,f,season,season (a part of a year when something particular happens),matched2,,on,loan,5.05,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Durst,m,thirst,thirst,matched2,,st,native,3.75,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Dunst,m,haze,"haze, mist",matched2,,st,native,3.17,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Trost,m,consolation,consolation,matched2,,st,native,3.92,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Gunst,f,favor,favor,matched2,,st,native,3.62,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Frist,f,term,"term, deadline, period (time limit)",matched2,,st,native,4.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Kunst,f,art,art,matched2,,st,native,5.07,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train
+de,Klimawandel,m,climate change,"climate change (any large-scale, long-term climate change)",compound_train,,el,native,4.03,4.0,False,,Wandel,Klima,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Haftbefehl,m,arrest warrant,arrest warrant,compound_train,,hl,native,3.81,5.0,False,,Befehl,Haft,f,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Arzneimittel,n,medicine,medicine; drug (healing substance),compound_train,,el,native,3.7,5.0,False,,Mittel,Arznei,f,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Wortlaut,m,wording,wording,compound_train,,ut,native,3.67,3.0,False,,Laut,Wort,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Lebensdauer,f,life expectancy,"life expectancy, lifetime (working life)",compound_train,,er,native,3.64,3.0,False,,Dauer,Leben,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Radiosender,m,radio station,radio station,compound_train,,er,native,3.54,3.0,False,,Sender,Radio,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Mehrwertsteuer,f,value added tax,value added tax (tax levied on added value of an exchange),compound_train,,er,native,3.51,4.0,False,,Wertsteuer,Mehr,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Fußballspiel,n,football,"football, soccer",compound_train,,el,native,3.48,2.0,False,,Ballspiel,Fuß,m,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Flüchtlingslager,n,refugee camp,refugee camp,compound_train,,er,native,3.37,7.0,False,,Lager,Flüchtling,m,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Wahlzettel,m,ballot paper,"ballot paper, ballot",compound_train,,el,native,3.2,3.0,False,,Zettel,Wahl,f,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Glücksbringer,m,lucky charm,"lucky charm, talisman, amulet",compound_train,,er,native,2.99,5.0,False,,Bringer,Glück,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Luftballon,m,balloon,balloon,compound_train,,on,native,2.99,3.0,False,,Ballon,Luft,f,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Nachthimmel,m,night sky,night sky,compound_train,,el,native,2.98,3.0,False,,Himmel,Nacht,f,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Sturmflut,f,storm surge,"storm surge, storm tide",compound_train,,ut,native,2.92,4.0,False,,Flut,Sturm,m,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Grundregel,f,ground rule,"ground rule, basic rule",compound_train,,el,native,2.84,3.0,False,,Regel,Grund,m,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Weißglut,f,incandescence,incandescence (white heat),compound_train,,ut,native,2.73,4.0,False,,Glut,Weiß,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Teilchenbeschleuniger,m,particle accelerator,"particle accelerator, atom smasher",compound_train,,er,native,2.68,6.0,False,,Beschleuniger,Teilchen,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Kleiderbügel,m,coat hanger,coat hanger,compound_train,,el,native,2.62,4.0,False,,Bügel,Kleid,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Schraubendreher,m,screwdriver,screwdriver (tool),compound_train,,er,native,2.61,6.0,False,,Dreher,Schraube,f,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Tennisschläger,m,tennis racket,tennis racket,compound_train,,er,native,2.54,5.0,False,,Schläger,Tennis,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Holzhammer,m,wooden mallet,wooden mallet,compound_train,,er,native,2.46,3.0,False,,Hammer,Holz,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Sekundenkleber,m,instant adhesive,instant adhesive; superglue,compound_train,,er,native,2.42,4.0,False,,Kleber,Sekunde,f,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Versuchsperson,f,subject,"subject (of an experiment, test)",compound_train,,on,native,2.42,4.0,False,,Person,Versuch,m,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Darmschleimhaut,f,intestinal mucosa,intestinal mucosa,compound_train,,ut,native,2.4,7.0,False,,Schleimhaut,Darm,m,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Tafelsilber,n,silverware,"silverware (silver cutlery, etc.)",compound_train,,er,native,2.38,5.0,False,,Silber,Tafel,f,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Strandhotel,n,beach hotel,beach hotel,compound_train,,el,native,2.34,2.0,False,,Hotel,Strand,m,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Lendenwirbel,m,lumbar vertebra,lumbar vertebra,compound_train,,el,native,2.32,5.0,False,,Wirbel,Lende,f,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Grußformel,f,valediction,"valediction, complimentary close (standard formula to end a letter)",compound_train,,el,native,2.3,5.0,False,,Formel,Gruß,m,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Kaffeetafel,f,coffee table,coffee table (table laid out with various accoutrements for afternoon coffee),compound_train,,el,native,2.25,4.0,False,,Tafel,Kaffee,m,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Papierflieger,m,paper airplane,"paper airplane (US), paper aeroplane (British), paper plane",compound_train,,er,native,2.23,5.0,False,,Flieger,Papier,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Kunstblut,n,fake blood,fake blood (as used in e.g. a film or a theater play),compound_train,,ut,native,2.2,3.0,False,,Blut,Kunst,f,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Steinschleuder,f,slingshot,slingshot,compound_train,,er,native,2.14,5.0,False,,Schleuder,Stein,m,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Ledergürtel,m,leather belt,leather belt,compound_train,,el,native,2.1,5.0,False,,Gürtel,Leder,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Holzlöffel,m,wooden spoon,wooden spoon,compound_train,,el,native,2.09,4.0,False,,Löffel,Holz,n,True,,,,wiktionary:kaikki@2026-10-03,train
+de,Lautsprecher,m,loudspeaker,loudspeaker,compound_train,,er,native,3.91,5.0,False,,Sprecher,Laut,m,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Mobiltelefon,n,mobile phone,mobile phone (a portable telephone),compound_train,,on,native,3.43,3.0,False,,Telefon,Mobil,n,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Endspurt,m,final sprint,final sprint,compound_train,,rt,native,3.31,3.0,False,,Spurt,end,,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Postleitzahl,f,postal code,postal code,compound_train,,hl,native,3.14,4.0,False,,Leitzahl,post,,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Schlüsselanhänger,m,key fob,key fob,compound_train,,er,native,3.05,5.0,False,,Anhänger,Schlüssel,m,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Drehort,m,location,location (The place where a film or a scene is shot.),compound_train,,rt,native,3.01,3.0,False,,Hort,dre,,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Rettungshubschrauber,m,emergency rescue helicopter,emergency rescue helicopter,compound_train,,er,native,2.98,8.0,False,,Hubschrauber,rettungs,,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Kindeswohl,n,children’s well-being of a child),children’s well-being (preservation of the physical and mental integrity and sufficient support (for the development) of a child),compound_train,,hl,native,2.9,4.0,False,,Wohl,Kind,n,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Mähdrescher,m,combine,combine (combine harvester),compound_train,,er,native,2.86,5.0,False,,Drescher,mäh,,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Müllcontainer,m,dumpster,"dumpster, skip",compound_train,,er,native,2.72,3.0,False,,Container,Müll,m,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Jugendwort,n,slang word used by young people,slang word used by young people,compound_train,,rt,native,2.7,2.0,False,,Endwort,jug,,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Apfelstrudel,m,apple strudel,apple strudel,compound_train,,el,native,2.67,5.0,False,,Strudel,Apfel,m,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Laserdrucker,m,laser printer,laser printer (computer printer),compound_train,,er,native,2.59,3.0,False,,Drucker,Laser,m,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Sattelschlepper,m,rig,"rig, juggernaut, semi-trailer truck/lorry, tractor unit",compound_train,,er,native,2.57,6.0,False,,Schlepper,Sattel,m,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Winkelschleifer,m,angle grinder,"angle grinder, disc grinder, side grinder",compound_train,,er,native,2.54,6.0,False,,Schleifer,Winkel,m,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Binnenschifffahrt,f,inland water transportation,"inland water transportation, inland water transport",compound_train,,rt,native,2.51,7.0,False,,Schifffahrt,binnen,,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Türklingel,f,doorbell,doorbell,compound_train,,el,native,2.47,3.0,False,,Klingel,Tür,f,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Giftköder,m,poisonous bait,poisonous bait,compound_train,,er,native,2.37,3.0,False,,Köder,gift,,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Öltanker,m,oil tanker,"an oil tanker, a ship designed to transport crude oil",compound_train,,er,native,2.32,3.0,False,,Anker,ölt,,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Gottesacker,m,graveyard,"graveyard, God's acre",compound_train,,er,native,2.31,3.0,False,,Acker,Gott,m,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Rechenschieber,m,slide rule,slide rule,compound_train,,er,native,2.31,5.0,False,,Schieber,Rechen,m,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Themenauswahl,f,selection of topics,selection of topics,compound_train,,hl,native,2.21,4.0,False,,Auswahl,themen,,False,,,,wiktionary:kaikki@2026-10-03,train
+de,Allianz,f,alliance,alliance,suffix,-anz,nz,unknown,4.15,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Resonanz,f,resonance,resonance,suffix,-anz,nz,loan,3.75,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Ambulanz,f,ambulance,ambulance,suffix,-anz,nz,loan,3.18,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Toleranz,f,tolerance,tolerance,suffix,-anz,nz,native,4.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Varianz,f,variance,variance,suffix,-anz,nz,unknown,3.07,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Kranz,m,wreath,"wreath, garland",suffix,-anz,nz,native,3.53,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Dominanz,f,dominance,dominance,suffix,-anz,nz,native,3.74,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Brisanz,f,brisance,brisance,suffix,-anz,nz,loan,3.06,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Intoleranz,f,intolerance,intolerance,suffix,-anz,nz,unknown,3.41,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Glanz,m,gleam,"gleam, sparkle, glitter",suffix,-anz,nz,native,4.0,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Bilanz,f,balance sheet,"balance sheet, balance",suffix,-anz,nz,loan,4.17,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Relevanz,f,relevance,relevance,suffix,-anz,nz,unknown,3.87,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Eleganz,f,elegance,elegance,suffix,-anz,nz,unknown,3.4,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Fischerei,f,fishery,"a fishery, a commercial fishing operation or company",suffix,-ei,ei,native,3.44,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Schweinerei,f,mess,"mess, nastiness, smutty business",suffix,-ei,ei,native,3.11,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Schauspielerei,f,acting profession,acting profession,suffix,-ei,ei,native,3.18,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Gießerei,f,foundry,foundry,suffix,-ei,ei,native,3.0,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Sauerei,f,synonym of schweinerei,synonym of Schweinerei,suffix,-ei,ei,native,3.36,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Schießerei,f,shootout,"shootout, gunfight",suffix,-ei,ei,native,3.51,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Bücherei,f,library,library,suffix,-ei,ei,loan,3.64,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Bäckerei,f,bakery,"bakery, baker’s, bakehouse, bakeshop",suffix,-ei,ei,native,3.79,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Schlägerei,f,fight,fight; brawl,suffix,-ei,ei,native,3.58,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Druckerei,f,printing house,"printing house, printery",suffix,-ei,ei,native,3.55,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Sklaverei,f,slavery,slavery,suffix,-ei,ei,unknown,3.73,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Insolvenz,f,insolvency,insolvency,suffix,-enz,nz,unknown,3.81,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Dekadenz,f,decadence,decadence,suffix,-enz,nz,loan,3.06,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Tendenz,f,tendency,tendency,suffix,-enz,nz,loan,4.23,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Referenz,f,reference,reference (measurement one can compare to),suffix,-enz,nz,loan,3.59,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Präferenz,f,preference,preference,suffix,-enz,nz,loan,3.05,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Potenz,f,potency,potency,suffix,-enz,nz,loan,3.4,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Frequenz,f,frequency,frequency (the rate of occurrence of anything),suffix,-enz,nz,loan,3.85,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Präsenz,f,presence,"presence, attendance (being present at a specific location or function)",suffix,-enz,nz,loan,3.98,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Transparenz,f,transparency,transparency,suffix,-enz,nz,unknown,4.09,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Intelligenz,f,intelligence,intelligence (capacity of mind),suffix,-enz,nz,loan,4.23,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Lizenz,f,license,license,suffix,-enz,nz,unknown,4.07,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Inkompetenz,f,incompetence,incompetence,suffix,-enz,nz,unknown,3.28,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Differenz,f,difference,difference,suffix,-enz,nz,unknown,3.84,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Effizienz,f,efficiency,efficiency,suffix,-enz,nz,unknown,3.86,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Evidenz,f,unambiguity,"unambiguity, unambiguousness, clarity",suffix,-enz,nz,loan,3.26,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Kompetenz,f,competence,"competence, power, authority",suffix,-enz,nz,loan,4.16,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Entschlossenheit,f,determination,"determination, resolution",suffix,-heit,it,unknown,3.44,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Mehrheit,f,majority,majority; bulk,suffix,-heit,it,loan,4.73,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Frechheit,f,insolence,"insolence, impudence, cheek",suffix,-heit,it,native,3.72,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Weisheit,f,wisdom,wisdom,suffix,-heit,it,native,4.01,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Blindheit,f,blindness,blindness (condition of being blind),suffix,-heit,it,native,3.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Vergessenheit,f,oblivion,oblivion,suffix,-heit,it,native,3.61,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Trockenheit,f,dryness,"dryness, lack of moisture",suffix,-heit,it,native,3.45,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Korrektheit,f,correctness,correctness,suffix,-heit,it,native,3.35,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Freiheit,f,freedom,freedom,suffix,-heit,it,native,4.88,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Reinheit,f,purity,purity,suffix,-heit,it,native,3.46,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Einfachheit,f,simplicity,simplicity,suffix,-heit,it,native,3.47,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Diagnostik,f,diagnostics,diagnostics,suffix,-ik,ik,unknown,3.7,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Statistik,f,statistics,statistics,suffix,-ik,ik,loan,4.49,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Fabrik,f,plant,plant (factory or industrial facility),suffix,-ik,ik,loan,4.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Methodik,f,methodology,methodology,suffix,-ik,ik,loan,3.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Mechanik,f,mechanics,mechanics (field of study),suffix,-ik,ik,loan,3.67,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Akustik,f,acoustic,"acoustic, acoustics",suffix,-ik,ik,unknown,3.46,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Didaktik,f,didactics,didactics,suffix,-ik,ik,unknown,3.34,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Kritik,f,criticism,criticism (negative judgement),suffix,-ik,ik,loan,5.01,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Robotik,f,robotics,robotics,suffix,-ik,ik,unknown,3.01,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Rhetorik,f,rhetoric,rhetoric,suffix,-ik,ik,native,3.8,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Tätigkeit,f,activity,activity,suffix,-keit,it,native,4.63,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Aggressivität,f,aggressiveness,aggressiveness,suffix,-tät,ät,unknown,3.26,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Elektrizität,f,electricity,electricity,suffix,-tät,ät,loan,3.53,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Spiritualität,f,spirituality,spirituality,suffix,-tät,ät,loan,3.42,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Objektivität,f,objectivity,"objectivity, impartiality",suffix,-tät,ät,unknown,3.47,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Sexualität,f,sexuality,sexuality,suffix,-tät,ät,loan,3.9,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Quantität,f,quantity,quantity,suffix,-tät,ät,loan,3.49,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Aktualität,f,relevance to the current time,"relevance to the current time, up-to-dateness, currentness",suffix,-tät,ät,native,3.43,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Originalität,f,originality,originality,suffix,-tät,ät,native,3.09,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Automatisierung,f,automation,automation,suffix,-ung,ng,native,3.53,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Statur,f,build,"build; physique; figure (of the body, particularly the bones and muscles)",suffix,-ur,ur,loan,3.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Architektur,f,architecture,architecture,suffix,-ur,ur,loan,4.33,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Kandidatur,f,candidacy,"candidacy, candidature",suffix,-ur,ur,unknown,3.7,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Konjunktur,f,current economic situation,"current economic situation, current trend in the business or trade cycle",suffix,-ur,ur,loan,3.53,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Schwur,m,oath,oath,suffix,-ur,ur,native,3.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Literatur,f,literature,"literature (written works collectively, often about a certain topic, in a certain language etc.)",suffix,-ur,ur,loan,4.78,2.0,True,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Skulptur,f,sculpture,sculpture (work of art),suffix,-ur,ur,unknown,3.71,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Rezeptur,f,recipe,recipe,suffix,-ur,ur,loan,3.04,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Reparatur,f,repair,"repair, mending",suffix,-ur,ur,loan,3.85,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Struktur,f,structure,structure,suffix,-ur,ur,loan,4.44,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,test
+de,Wochenende,n,weekend,"weekend (break in the working week, usually Saturday and Sunday)",compound_test,,de,unknown,4.96,2.0,False,,Ende,Woche,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zeitpunkt,m,moment,"moment (instant of time), point in time, a timepoint",compound_test,,kt,native,4.86,2.0,False,,Punkt,Zeit,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hochzeit,f,wedding,"wedding, marriage (a ceremony in which people are married and/or a celebration thereof)",compound_test,,it,native,4.48,2.0,False,,Zeit,Hoch,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Landwirtschaft,f,agriculture,agriculture,compound_test,-schaft,ft,native,4.45,3.0,False,,Wirtschaft,Land,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schlafzimmer,n,bedroom,"bedroom (bed-room), bedchamber (bed-chamber)",compound_test,,er,native,4.19,3.0,False,,Zimmer,Schlaf,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Supermarkt,m,supermarket,supermarket,compound_test,,kt,native,4.17,2.0,True,,Markt,Super,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Königreich,n,kingdom,kingdom,compound_test,,ch,native,4.09,2.0,False,,Reich,König,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kapelle,f,chapel,chapel,compound_test,,le,native,4.07,2.0,False,,Elle,Kap,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Handball,m,handball,handball (Olympic team sport),compound_test,,ll,native,4.06,2.0,True,,Ball,Hand,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Passwort,n,password,password,compound_test,,rt,loan,4.04,2.0,False,,Wort,Pass,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zielgruppe,f,target group,"target group, target audience",compound_test,,pe,native,4.03,3.0,False,,Gruppe,Ziel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Internetseite,f,website,website,compound_test,,te,native,3.98,2.0,False,,Seite,Internet,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Körperverletzung,f,bodily injury,"bodily injury, bodily harm, battery (crime)",compound_test,-ung,ng,native,3.93,4.0,False,,Verletzung,Körper,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Einzelhandel,m,retail,retail (sale of goods directly to the consumer),compound_test,,el,native,3.92,4.0,False,,Handel,Einzel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schauspiel,n,play,"play (theatrical performance), drama",compound_test,,el,native,3.92,3.0,False,,Spiel,Schau,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lebensqualität,f,quality of life,quality of life,compound_test,-tät,ät,native,3.91,3.0,False,,Qualität,Leben,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Dialekt,m,dialect,dialect,compound_test,,kt,loan,3.89,3.0,False,,Lekt,Dia,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wahlrecht,n,right to vote,"right to vote, suffrage",compound_test,,ht,native,3.87,2.0,False,,Recht,Wahl,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Diskurs,m,discourse,discourse (verbal exchange or conversation),compound_test,,rs,unknown,3.86,2.0,False,,Kurs,Dis,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Spielplatz,m,playground,playground,compound_test,,tz,native,3.86,2.0,False,,Platz,Spiel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kunstwerk,n,artwork,"artwork, work of art, piece of art",compound_test,,rk,native,3.84,2.0,False,,Werk,Kunst,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lebensweise,f,lifestyle,"lifestyle, way of life",compound_test,,se,native,3.83,2.0,False,,Weise,Leben,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Festnahme,f,arrest,arrest,compound_test,,me,unknown,3.8,2.0,False,,Nahme,Fest,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Tagesschau,f,edition of either of the above programs,"an edition of either of the above programs, especially the main evening news",compound_test,,au,native,3.8,4.0,False,,Schau,Tag,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kunststoff,m,plastic,plastic (a stiff but usually slightly flexible synthetic material),compound_test,,ff,unknown,3.79,2.0,False,,Stoff,Kunst,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Festplatte,f,hard disk,"hard disk, harddisk",compound_test,,te,native,3.79,3.0,False,,Platte,Fest,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Klimaanlage,f,air conditioner,air conditioner,compound_test,,ge,native,3.77,4.0,False,,Anlage,Klima,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Blutdruck,m,blood pressure,blood pressure,compound_test,,ck,native,3.77,4.0,False,,Druck,Blut,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fachbereich,m,faculty,faculty (of a university etc.),compound_test,,ch,native,3.76,3.0,False,,Bereich,Fach,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Gasthaus,n,restaurant,"restaurant, inn, guesthouse",compound_test,,us,native,3.72,2.0,False,,Haus,Gast,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Tageslicht,n,daylight,daylight (light from the sun),compound_test,,ht,native,3.7,3.0,False,,Licht,Tag,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Sonnenaufgang,m,sunrise,sunrise,compound_test,,ng,native,3.69,5.0,False,,Aufgang,Sonne,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Rechtschreibung,f,orthography,orthography,compound_test,-ung,ng,loan,3.69,4.0,False,,Schreibung,Recht,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Flüchtlingspolitik,f,politics of refugee policies,politics of refugee policies,compound_test,-ik,ik,native,3.69,7.0,False,,Politik,Flüchtling,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Klassenerhalt,m,avoidance of relegation,"avoidance of relegation, staying up (in the same league or class)",compound_test,,lt,unknown,3.68,4.0,False,,Erhalt,Klasse,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lebensstil,m,lifestyle,lifestyle,compound_test,,il,native,3.67,3.0,False,,Stil,Leben,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Musikvideo,n,music video,music video,compound_test,,eo,loan,3.66,2.0,False,,Video,Musik,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fachhochschule,f,university of applied sciences,university of applied sciences,compound_test,,le,native,3.65,5.0,False,,Hochschule,Fach,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hausarbeit,f,housework,"housework, chore",compound_test,,it,native,3.65,2.0,False,,Arbeit,Haus,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bahnsteig,m,train platform,train platform,compound_test,,ig,unknown,3.64,4.0,False,,Steig,Bahn,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wasserversorgung,f,water supply,water supply,compound_test,-ung,ng,native,3.64,4.0,False,,Versorgung,Wasser,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Autounfall,m,car accident,"car accident, car crash",compound_test,,ll,native,3.62,3.0,False,,Unfall,Auto,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Selbstverständlichkeit,f,naturalness,"naturalness, obviousness; matter of course",compound_test,-keit,it,native,3.61,3.0,False,,Verständlichkeit,Selbst,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fitnessstudio,n,fitness centre,"fitness centre; health club; gym (large, usually commercial, sporting facility for lifting weights and exercise)",compound_test,,io,native,3.6,2.0,False,,Studio,Fitness,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wortschatz,m,vocabulary,vocabulary,compound_test,,tz,native,3.6,4.0,False,,Schatz,Wort,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Raumschiff,n,spaceship,"spaceship, spacecraft",compound_test,,ff,native,3.59,4.0,False,,Schiff,Raum,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Abtreibung,f,abortion,"abortion (of a human embryo, fetus, or baby)",compound_test,-ung,ng,native,3.59,4.0,False,,Reibung,Abt,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Vorratsdatenspeicherung,f,telecommunications data retention,telecommunications data retention,compound_test,-ung,ng,unknown,3.58,8.0,False,,Datenspeicherung,Vorrat,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Raumfahrt,f,space flight,a space flight,compound_test,,rt,native,3.58,4.0,False,,Fahrt,Raum,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Buchhaltung,f,accounting,"accounting, bookkeeping",compound_test,-ung,ng,native,3.58,3.0,False,,Haltung,Buch,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schlussfolgerung,f,conclusion,conclusion,compound_test,-ung,ng,native,3.56,5.0,False,,Folgerung,Schluss,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lebenserwartung,f,life expectancy,"life expectancy, lifespan (of organism)",compound_test,-ung,ng,native,3.56,4.0,False,,Erwartung,Leben,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Disposition,f,disposal,disposal,compound_test,-ion,on,loan,3.55,2.0,True,,Position,Dis,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Turnhalle,f,gym,gym; sports hall (large room for indoor sports),compound_test,,le,native,3.52,3.0,False,,Halle,Turn,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hauptgrund,m,main / chief reason,main / chief reason,compound_test,,nd,native,3.51,2.0,False,,Grund,Haupt,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Automobilindustrie,f,automotive industry,"automotive industry, automobile industry",compound_test,,ie,unknown,3.5,5.0,False,,Industrie,Automobil,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schlachtfeld,n,battlefield,battlefield,compound_test,,ld,native,3.49,4.0,False,,Feld,Schlacht,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Rangliste,f,ranking list,"ranking list, leaderboard, league table",compound_test,,te,unknown,3.49,3.0,False,,Liste,Rang,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Goldmedaille,f,gold medal,gold medal,compound_test,,le,native,3.47,3.0,False,,Medaille,Gold,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lebensversicherung,f,life insurance,"life insurance, life assurance",compound_test,-ung,ng,native,3.46,4.0,False,,Versicherung,Leben,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Körpergröße,f,body size,body size,compound_test,,ße,unknown,3.46,2.0,False,,Größe,Körper,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Windkraft,f,wind power,wind power (power harnessed from the wind),compound_test,,ft,native,3.46,3.0,False,,Kraft,Wind,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bahnhofstraße,f,street leading to a current or former railway station,street leading to a current or former railway station.,compound_test,,ße,native,3.46,4.0,False,,Straße,Bahnhof,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Transaktion,f,transaction,transaction,compound_test,-ion,on,unknown,3.46,2.0,True,,Aktion,Tran,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kulturgeschichte,f,cultural history,cultural history,compound_test,,te,native,3.45,4.0,False,,Urgeschichte,Kult,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Straßenrand,m,curbside,"curbside, roadside",compound_test,,nd,native,3.44,2.0,False,,Rand,Straße,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Korrelation,f,correlation,correlation,compound_test,-ion,on,unknown,3.44,2.0,True,,Relation,Kor,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Radsport,m,cycling,cycling,compound_test,,rt,native,3.44,3.0,False,,Sport,Rad,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Podiumsdiskussion,f,panel discussion,panel discussion,compound_test,-ion,on,native,3.43,5.0,False,,Diskussion,Podium,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zahnbürste,f,toothbrush,toothbrush,compound_test,,te,native,3.43,4.0,False,,Bürste,Zahn,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Reisepass,m,passport,passport,compound_test,,ss,unknown,3.43,4.0,False,,Pass,Reise,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Stromnetz,n,electrical/power grid,electrical/power grid,compound_test,,tz,native,3.42,3.0,False,,Netz,Strom,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Justizministerium,n,justice ministry,justice ministry,compound_test,,um,native,3.42,5.0,False,,Ministerium,Justiz,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Tabellenführer,m,top of the table,"top of the table, league leader",compound_test,,er,unknown,3.4,3.0,False,,Führer,Tabelle,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Herzschlag,m,heartbeat,heartbeat,compound_test,,ag,native,3.39,3.0,False,,Schlag,Herz,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wertschöpfung,f,added value,"added value, value added",compound_test,-ung,ng,unknown,3.38,6.0,False,,Schöpfung,Wert,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Landeskirche,f,regional church,regional church,compound_test,,he,native,3.38,4.0,False,,Kirche,Land,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Raumstation,f,space station,space station,compound_test,-ion,on,native,3.37,2.0,False,,Station,Raum,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Stromerzeugung,f,power generation,power generation,compound_test,-ung,ng,native,3.36,4.0,False,,Erzeugung,Strom,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Grabstein,m,gravestone,"gravestone, tombstone",compound_test,,in,unknown,3.36,2.0,False,,Stein,Grab,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Denkmalpflege,f,historic preservation,"historic preservation (endeavor that seeks to preserve, conserve and protect buildings, objects, landscapes or other artifacts of historical significance)",compound_test,,ge,native,3.36,5.0,False,,Pflege,Denkmal,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Spiegelbild,n,mirror image,mirror image,compound_test,,ld,native,3.35,3.0,False,,Bild,Spiegel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hakenkreuz,n,swastika,"swastika, fylfot",compound_test,,uz,native,3.35,4.0,False,,Kreuz,Haken,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Reiseziel,n,destination,"destination (the place set for the end of a journey, or to which something is sent)",compound_test,,el,native,3.35,3.0,False,,Ziel,Reise,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Energieverbrauch,m,energy consumption / expenditure,energy consumption / expenditure,compound_test,,ch,native,3.34,5.0,False,,Verbrauch,Energie,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zeitaufwand,m,expenditure of time,expenditure of time,compound_test,,nd,native,3.34,4.0,False,,Aufwand,Zeit,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Meeresspiegel,m,sea level,sea level (the nominal height of the surface of the oceans above which heights of geographical features and aircraft flight levels are measured),compound_test,,el,native,3.33,4.0,False,,Spiegel,Meer,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Brustkrebs,m,breast cancer,breast cancer,compound_test,,bs,unknown,3.33,4.0,False,gloss,Krebs,Brust,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Eigenverantwortung,f,direct responsibility,"direct responsibility, one's own responsibility, one's own authority",compound_test,-ung,ng,native,3.33,4.0,False,,Verantwortung,Eigen,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Mülltonne,f,wheelie bin,"wheelie bin; garbage can (large container for wet rubbish, usually outdoors and now usually on wheels)",compound_test,,ne,unknown,3.32,4.0,False,,Tonne,Müll,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hauptaufgabe,f,main task,main task,compound_test,,be,native,3.32,3.0,False,,Aufgabe,Haupt,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Siegerehrung,f,ceremony honouring a winner at a sports competition,"a ceremony honouring a winner at a sports competition, victory ceremony",compound_test,-ung,ng,unknown,3.32,4.0,False,,Ehrung,Sieg,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Mittelfinger,m,middle finger,middle finger,compound_test,,er,native,3.31,3.0,False,,Finger,Mittel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wahlsieg,m,election victory,"election victory, election win",compound_test,,eg,native,3.31,3.0,False,,Sieg,Wahl,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Heimreise,f,homeward journey,"homeward journey, journey home, trip home",compound_test,,se,unknown,3.31,4.0,False,,Reise,Heim,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kindertagesstätte,f,day care center,day care center; nursery school; kindergarten (for preschool children),compound_test,,te,native,3.3,6.0,False,,Tagesstätte,Kind,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Internetpräsenz,f,internet presence,Internet presence,compound_test,-enz,nz,native,3.29,5.0,False,,Präsenz,Internet,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Sternwarte,f,astronomical ground-based observatory,astronomical ground-based observatory,compound_test,,te,unknown,3.29,3.0,False,,Warte,Stern,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Rechtswissenschaft,f,jurisprudence,jurisprudence,compound_test,-schaft,ft,native,3.29,4.0,False,,Wissenschaft,Recht,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Rechtschreibfehler,m,misspelling,misspelling,compound_test,,er,native,3.28,7.0,False,,Schreibfehler,Recht,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Jahresabschluss,m,annual financial statement,annual financial statement,compound_test,,ss,native,3.27,3.0,False,,Abschluss,Jahr,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bademantel,m,bathrobe,"bathrobe (US), dressing gown (UK)",compound_test,,el,native,3.24,4.0,False,wordnet:garment.n.01,Mantel,Bad,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kulturkreis,m,cultural sphere or zone,A cultural sphere or zone.,compound_test,,is,native,3.22,4.0,False,,Kreis,Kultur,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Anfangsphase,f,initial phase,initial phase,compound_test,,se,unknown,3.21,4.0,False,,Phase,Anfang,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kunsthandwerk,n,handicraft,handicraft,compound_test,,rk,native,3.21,3.0,False,,Handwerk,Kunst,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wasserdampf,m,steam,steam,compound_test,,pf,native,3.2,4.0,False,,Dampf,Wasser,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Toilettenpapier,n,toilet paper,toilet paper (paper on a roll),compound_test,,er,native,3.19,5.0,False,,Papier,Toilette,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Internetverbindung,f,internet connection,Internet connection,compound_test,-ung,ng,native,3.19,3.0,False,,Verbindung,Internet,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Pilotprojekt,n,pilot project or experiment,pilot project or experiment,compound_test,,kt,native,3.18,3.0,False,,Projekt,Pilot,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Blumenstrauß,m,bouquet,bouquet (bunch of flowers),compound_test,,uß,native,3.18,5.0,False,,Strauß,Blume,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Briefmarke,f,postage stamp,postage stamp,compound_test,,ke,native,3.17,3.0,False,,Marke,Brief,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Mordkommission,f,homicide division,"homicide division, homicide squad",compound_test,-ion,on,native,3.16,4.0,False,,Kommission,Mord,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Körpertemperatur,f,body temperature,body temperature,compound_test,-ur,ur,native,3.16,6.0,False,,Temperatur,Körper,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Weltfrieden,m,world peace,"world peace, universal peace",compound_test,,en,native,3.15,3.0,False,,Frieden,Welt,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Partnersuche,f,dating,"dating, searching for a partner",compound_test,,he,native,3.15,2.0,False,,Suche,Partner,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Drogenkonsum,m,drug consumption,drug consumption,compound_test,,um,native,3.15,4.0,False,,Konsum,Droge,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kokosnuss,f,coconut,coconut,compound_test,,ss,native,3.14,4.0,False,,Nuss,Kokos,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Flugzeugträger,m,aircraft carrier,aircraft carrier,compound_test,,er,native,3.14,5.0,False,,Träger,Flugzeug,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Ausgangssperre,f,curfew,curfew,compound_test,,re,native,3.13,5.0,False,,Sperre,Ausgang,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wolkenkratzer,m,skyscraper,skyscraper (tall building),compound_test,,er,native,3.12,5.0,False,,Kratzer,Wolke,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Personalabteilung,f,department of human resources,department of human resources,compound_test,-ung,ng,unknown,3.12,4.0,False,,Abteilung,Personal,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Todesangst,f,fear of death,fear of death,compound_test,,st,native,3.12,4.0,False,,Angst,Tod,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Asylantrag,m,asylum application,asylum application,compound_test,,ag,native,3.11,3.0,False,,Antrag,Asyl,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hauswand,f,house wall,A house wall; the wall of a house.,compound_test,,nd,native,3.1,2.0,False,,Wand,Haus,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Haarausfall,m,alopecia,"alopecia, hair loss",compound_test,,ll,native,3.1,4.0,False,,Ausfall,Haar,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bahnübergang,m,level crossing,level crossing,compound_test,,ng,native,3.09,5.0,False,,Übergang,Bahn,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Selbstjustiz,f,vigilantism,vigilantism,compound_test,,iz,native,3.09,3.0,False,,Justiz,Selbst,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wasserburg,f,water castle,"water castle, moated castle",compound_test,,rg,native,3.09,2.0,False,,Burg,Wasser,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Abschlussfeier,f,closing ceremony,closing ceremony (of an event or some kind of educational training; specifically a graduation ceremony or a graduation party),compound_test,,er,unknown,3.08,4.0,False,,Feier,Abschluss,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fußnote,f,footnote,footnote,compound_test,,te,native,3.08,2.0,False,,Note,Fuß,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Christkind,n,representation of the christkind,A representation of the Christkind (as above),compound_test,,nd,native,3.08,2.0,False,,Kind,Christ,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Feuerwache,f,fire station,fire station,compound_test,,he,unknown,3.07,4.0,False,,Wache,Feuer,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Atomausstieg,m,nuclear power phase-out,nuclear power phase-out,compound_test,,eg,native,3.07,5.0,False,,Ausstieg,Atom,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Eiswürfel,m,ice cube,ice cube (small piece of ice used for cooling drinks),compound_test,,el,native,3.06,4.0,False,,Würfel,Eis,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Baumaterial,n,building / construction material,building / construction material,compound_test,,al,native,3.06,2.0,False,,Material,Bau,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Rechtsruck,m,shift to the right,"shift to the right, swing to the right",compound_test,,ck,native,3.05,4.0,False,,Ruck,Recht,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Herzfrequenz,f,heart rate,heart rate,compound_test,-enz,nz,native,3.05,4.0,False,,Frequenz,Herz,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Polarisierung,f,polarization / polarisation,polarization / polarisation,compound_test,-ung,ng,unknown,3.04,3.0,False,,Arisierung,Pol,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lichtquelle,f,source of light,A source of light.,compound_test,,le,unknown,3.04,2.0,False,,Quelle,Licht,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Nachtclub,m,nightclub,nightclub,compound_test,,ub,native,3.03,2.0,False,,Club,Nacht,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hexenjagd,f,witch-hunt,witch-hunt,compound_test,,gd,native,3.02,5.0,False,,Jagd,Hexen,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lebensabend,m,sunset years,sunset years; eventide of one’s life (lifespan beyond circa 60 years of age),compound_test,,nd,native,3.02,3.0,False,,Abend,Leben,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zahnmedizin,f,dentistry,dentistry,compound_test,,in,native,3.01,4.0,False,,Medizin,Zahn,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hochrechnung,f,projection,"projection, forecast",compound_test,-ung,ng,native,3.0,4.0,False,,Rechnung,Hoch,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lebensabschnitt,m,phase,"phase, stage of life; chapter in one's life",compound_test,,tt,native,3.0,3.0,False,,Abschnitt,Leben,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Jahresumsatz,m,annual sales,"annual sales, yearly turnover",compound_test,,tz,native,2.99,3.0,False,,Umsatz,Jahr,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Internetanschluss,m,internet connection,Internet connection,compound_test,,ss,native,2.98,3.0,False,,Anschluss,Internet,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Energiebedarf,m,energy requirement,energy requirement(s),compound_test,,rf,native,2.98,4.0,False,,Bedarf,Energie,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kirchenchor,m,church choir,church choir,compound_test,,or,native,2.97,3.0,False,,Chor,Kirche,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bierflasche,f,beer bottle,beer bottle,compound_test,,he,native,2.96,5.0,False,,Flasche,Bier,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kraftfahrzeug,n,motor vehicle,motor vehicle (any land vehicle),compound_test,,ug,native,2.96,4.0,False,,Fahrzeug,Kraft,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Stellenangebot,n,job offer,"job offer, offer of employment",compound_test,,ot,native,2.96,4.0,False,,Angebot,Stelle,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Seitenhieb,m,sideswipe,sideswipe,compound_test,,eb,native,2.95,4.0,False,,Hieb,Seite,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Mobilmachung,f,mobilization,mobilization,compound_test,-ung,ng,native,2.95,4.0,False,,Machung,Mobil,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schraubenzieher,m,screwdriver,screwdriver,compound_test,,er,native,2.95,5.0,False,,Zieher,Schraube,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Sitzverteilung,f,distribution of seats,"distribution of seats, seat allocation (the allocation of parliamentary seats among various parties based on election results)",compound_test,-ung,ng,native,2.95,5.0,False,,Verteilung,Sitz,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Amtseinführung,f,inauguration,inauguration,compound_test,-ung,ng,unknown,2.95,5.0,False,,Einführung,Amt,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Todesfolge,f,fact that a crime results in the unintended death of the victim,"the fact that a crime results in the unintended death of the victim, by negligence or (certain forms of) recklessness",compound_test,,ge,unknown,2.94,4.0,False,,Folge,Tod,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Marktmacht,f,market power,market power (the ability of a firm to raise and maintain price above the level that would prevail under competition),compound_test,,ht,native,2.94,3.0,False,,Macht,Markt,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Übergangsregierung,f,provisional government,"provisional government, caretaker government",compound_test,-ung,ng,native,2.94,5.0,False,,Regierung,Übergang,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Handgriff,m,handgrip,handgrip,compound_test,,ff,native,2.94,3.0,False,,Griff,Hand,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Verfahrenstechnik,f,process engineering,process engineering,compound_test,-ik,ik,unknown,2.94,5.0,False,,Technik,Verfahren,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schutzkleidung,f,protective clothing,protective clothing,compound_test,-ung,ng,native,2.93,5.0,False,,Kleidung,Schutz,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Selbstbeherrschung,f,self-control,"self-control, composure",compound_test,-ung,ng,native,2.93,5.0,False,,Beherrschung,Selbst,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fußfessel,f,foot shackle,foot shackle,compound_test,,-sel,native,2.93,3.0,False,,Fessel,Fuß,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fachbegriff,m,technical term,technical term,compound_test,,ff,native,2.93,4.0,False,,Begriff,Fach,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Muskelmasse,f,muscle mass,"muscle mass, muscular mass",compound_test,,se,native,2.92,4.0,False,,Masse,Muskel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Aufenthaltserlaubnis,f,residence permit,residence permit,compound_test,,-nis,native,2.92,7.0,False,,Erlaubnis,Aufenthalt,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Parkbank,f,park bench,park bench,compound_test,,nk,native,2.91,2.0,False,,Bank,Park,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Selbstzerstörung,f,self-destruction,self-destruction,compound_test,-ung,ng,native,2.91,5.0,False,,Zerstörung,Selbst,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Glashütte,f,factory that produces glass,A factory that produces glass; glassworks,compound_test,,te,native,2.9,4.0,False,,Hütte,Glas,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Herzinsuffizienz,f,heart failure,heart failure,compound_test,-enz,nz,native,2.9,6.0,False,,Insuffizienz,Herz,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zuckerrohr,n,sugar cane,sugar cane,compound_test,,hr,native,2.89,3.0,False,,Rohr,Zucker,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Grundausstattung,f,basic equipment,basic equipment,compound_test,-ung,ng,unknown,2.88,4.0,False,,Ausstattung,Grund,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Tiefschlaf,m,deep sleep,deep sleep,compound_test,,af,native,2.88,4.0,False,,Schlaf,Tief,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Blutspende,f,blood donation,blood donation,compound_test,,de,unknown,2.86,4.0,False,,Spende,Blut,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Oberlippe,f,upper lip,upper lip,compound_test,,pe,native,2.86,3.0,False,,Lippe,Ober,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schadensbegrenzung,f,damage control,damage control (the limiting of damage resulting from an action when damage cannot be avoided),compound_test,-ung,ng,native,2.86,6.0,False,,Begrenzung,Schaden,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Glaskugel,f,marble,marble (small glass ball),compound_test,,el,native,2.86,4.0,False,,Kugel,Glas,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Marktkapitalisierung,f,market capitalization,market capitalization; market cap,compound_test,-ung,ng,native,2.86,6.0,False,,Kapitalisierung,Markt,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Abendkasse,f,ticket office,ticket office (“office where tickets may be purchased immediately before the performance”),compound_test,,se,native,2.86,4.0,False,,Kasse,Abend,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lieblingslied,n,favorite song,favorite song,compound_test,,ed,native,2.86,4.0,False,,Lied,Liebling,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schutzhülle,f,protective cover,protective cover,compound_test,,le,native,2.85,5.0,False,,Hülle,Schutz,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Seelenheil,n,salvation,salvation (of one's soul),compound_test,,il,native,2.85,4.0,False,,Heil,Seele,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Erfolgsrezept,n,recipe for success,"recipe for success, secret sauce",compound_test,,pt,native,2.85,5.0,False,,Rezept,Erfolg,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fahrradtour,f,bike tour,bike tour,compound_test,-ur,ur,native,2.85,4.0,False,,Tour,Fahrrad,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Türöffner,m,door opener,door opener,compound_test,,er,native,2.85,3.0,False,,Öffner,Tür,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Müllhalde,f,garbage dump,garbage dump,compound_test,,de,native,2.85,4.0,False,,Halde,Müll,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Tatverdacht,m,suspicion,suspicion,compound_test,,ht,native,2.85,4.0,False,,Verdacht,Tat,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Quantenmechanik,f,quantum mechanics,quantum mechanics,compound_test,-ik,ik,native,2.85,5.0,False,,Mechanik,Quanten,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Quantenphysik,f,quantum physics,"quantum physics, quantum mechanics",compound_test,-ik,ik,native,2.85,4.0,False,,Physik,Quanten,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Luftstrom,m,airflow,"airflow, airstream",compound_test,,om,unknown,2.85,2.0,False,,Strom,Luft,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Handschuhfach,n,glove compartment,"glove compartment, glove box",compound_test,,ch,native,2.84,5.0,False,,Fach,Handschuh,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Selbstdisziplin,f,self-discipline,self-discipline,compound_test,,in,unknown,2.84,7.0,False,,Disziplin,Selbst,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zivilprozess,m,civil litigation,"civil litigation, civil case",compound_test,,ss,native,2.84,5.0,False,,Prozess,Zivil,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Sitzheizung,f,seat heating,seat heating,compound_test,-ung,ng,native,2.84,5.0,False,,Heizung,Sitz,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Frühjahrsputz,m,spring cleaning,spring cleaning,compound_test,,tz,native,2.84,6.0,False,,Putz,Frühjahr,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lampenfieber,n,stage fright,stage fright,compound_test,,er,native,2.83,4.0,False,,Fieber,Lampe,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Papierfabrik,f,paper mill,paper mill,compound_test,-ik,ik,native,2.83,4.0,False,,Fabrik,Papier,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zwangsvollstreckung,f,foreclosure,foreclosure,compound_test,-ung,ng,native,2.83,7.0,False,,Vollstreckung,Zwang,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Nabelschnur,f,umbilical cord,umbilical cord,compound_test,-ur,ur,unknown,2.83,5.0,False,,Schnur,Nabel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Blutkreislauf,m,bloodstream,bloodstream,compound_test,,uf,native,2.83,5.0,False,,Kreislauf,Blut,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Handwörterbuch,n,“small” dictionary,"“small” dictionary, concise dictionary",compound_test,,ch,native,2.83,5.0,False,,Wörterbuch,Hand,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Spielwiese,f,playground,"playground, playing field",compound_test,,se,unknown,2.82,3.0,False,,Wiese,Spiel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hochaltar,m,high altar,high altar,compound_test,,ar,native,2.82,2.0,False,,Altar,Hoch,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Minutentakt,m,minute interval,minute interval,compound_test,,kt,native,2.82,4.0,False,,Takt,Minute,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Scheinheiligkeit,f,sanctimony,"sanctimony, hypocrisy",compound_test,-keit,it,native,2.8,5.0,False,,Heiligkeit,Schein,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Berufsunfähigkeit,f,occupational disability,occupational disability,compound_test,-keit,it,native,2.79,5.0,False,,Unfähigkeit,Beruf,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Verfallsdatum,n,expiration date,expiration date,compound_test,,-tum,native,2.79,3.0,False,,Datum,Verfall,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Vorjahreszeitraum,m,same period last year,same period last year,compound_test,,um,native,2.79,6.0,False,,Zeitraum,Vorjahr,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Banküberfall,m,bank raid,"bank raid, bank robbery, bank heist",compound_test,,ll,native,2.79,3.0,False,,Überfall,Bank,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Meerenge,f,strait,strait (narrow channel of water),compound_test,,ge,native,2.79,2.0,False,,Enge,Meer,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hauptsatz,m,main clause,main clause (a clause that can stand alone syntactically),compound_test,,tz,native,2.78,4.0,False,,Satz,Haupt,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kernschmelze,f,nuclear meltdown,nuclear meltdown,compound_test,,ze,unknown,2.78,4.0,False,,Schmelze,Kern,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wahlausgang,m,election result,election result,compound_test,,ng,unknown,2.77,3.0,False,,Ausgang,Wahl,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Druckwelle,f,shock wave,shock wave,compound_test,,le,native,2.77,4.0,False,,Welle,Druck,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kalenderwoche,f,date term mainly used in german business that specifies the week of a year by its number,"A date term mainly used in German business that specifies the week of a year by its number, each week beginning on a Monday.",compound_test,,he,native,2.77,4.0,False,,Woche,Kalender,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wissensvermittlung,f,knowledge transfer,knowledge transfer,compound_test,-ung,ng,unknown,2.76,6.0,False,,Vermittlung,Wissen,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Doppelspitze,f,dual leadership,dual leadership,compound_test,,ze,native,2.76,5.0,False,,Spitze,Doppel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wachstumsrate,f,growth rate or rate of growth,growth rate or rate of growth,compound_test,,te,native,2.75,5.0,False,,Rate,Wachstum,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hirntumor,m,brain tumor,brain tumor,compound_test,,or,unknown,2.75,3.0,False,,Tumor,Hirn,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kontoauszug,m,bank statement,bank statement,compound_test,,ug,native,2.75,4.0,False,,Auszug,Konto,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Windeseile,f,short while,short while,compound_test,,le,native,2.75,3.0,False,,Eile,Wind,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Talsohle,f,bottom,bottom,compound_test,,le,native,2.74,4.0,False,,Sohle,Tal,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Boxenstopp,m,pit stop,pit stop,compound_test,,pp,native,2.74,4.0,False,,Stopp,Boxen,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Drogenmissbrauch,m,drug abuse,drug abuse,compound_test,,ch,native,2.74,5.0,False,,Missbrauch,Droge,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Standardabweichung,f,standard deviation,standard deviation (statistical measure),compound_test,-ung,ng,native,2.74,4.0,False,,Abweichung,Standard,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Flaschenhals,m,bottleneck,bottleneck,compound_test,,ls,native,2.74,5.0,False,,Hals,Flasche,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Weltwunder,n,world wonder,world wonder (i.e. Wonders of the World),compound_test,,er,native,2.73,3.0,False,,Wunder,Welt,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Mutterkonzern,m,parent company,parent company,compound_test,,rn,native,2.73,5.0,False,,Konzern,Mutter,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Waffenbesitz,m,possession of a weapon,possession of a weapon,compound_test,,tz,native,2.73,4.0,False,,Besitz,Waffe,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Herzschrittmacher,m,pacemaker,pacemaker (medical device implanted to regulate heart rhythm); colloquial usage includes implantable cardioverter-defibrillators (ICD) and cardiac resynchronization therapy (CRT).,compound_test,,er,unknown,2.73,5.0,False,,Schrittmacher,Herz,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bratpfanne,f,frying pan,"frying pan, skillet",compound_test,,ne,native,2.73,4.0,False,,Pfanne,Brat,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Gotteslästerung,f,blasphemy,blasphemy,compound_test,-ung,ng,native,2.73,5.0,False,,Lästerung,Gott,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Spielspaß,m,fun of playing a game,the fun of playing a game,compound_test,,aß,native,2.72,4.0,False,,Spaß,Spiel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Grundrente,f,ground rent,ground rent,compound_test,,te,native,2.72,2.0,False,,Rente,Grund,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lebensplanung,f,planning for life,planning for life,compound_test,-ung,ng,unknown,2.72,3.0,False,,Planung,Leben,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Preissenkung,f,price cut,price cut,compound_test,-ung,ng,unknown,2.7,4.0,False,,Senkung,Preis,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zahnarztpraxis,f,dentist's practice,dentist's practice,compound_test,,is,unknown,2.7,6.0,False,,Arztpraxis,Zahn,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Brückenkopf,m,bridgehead,bridgehead (fortification near a bridge),compound_test,,pf,unknown,2.7,5.0,False,,Kopf,Brücke,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Tourismusbranche,f,tourism industry,tourism industry,compound_test,,he,native,2.7,4.0,False,,Branche,Tourismus,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Landzunge,f,headland,headland,compound_test,,ge,native,2.69,3.0,False,,Zunge,Land,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Mondfinsternis,f,lunar eclipse,lunar eclipse,compound_test,,-nis,native,2.69,5.0,False,,Finsternis,Mond,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Todsünde,f,deadly sin,deadly sin,compound_test,,de,native,2.69,3.0,False,,Sünde,Tod,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Grillparty,f,barbecue,barbecue (social gathering at which food is grilled and consumed),compound_test,,ty,unknown,2.68,2.0,False,,Party,Grill,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bodenhaftung,f,traction,"traction: the traction of a vehicle with the road surface when other physical forces are occurring, such as while turning.",compound_test,-ung,ng,native,2.68,4.0,False,,Haftung,Boden,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Rückenlehne,f,backrest,backrest,compound_test,,ne,native,2.68,4.0,False,,Lehne,Rücken,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Herzschmerz,m,heart pain,heart pain,compound_test,,rz,native,2.67,4.0,False,,Schmerz,Herz,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kreissäge,f,circular saw,circular saw,compound_test,,ge,native,2.66,3.0,False,,Säge,Kreis,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fahrtwind,m,airstream created by a fast-moving vehicle,"The airstream created by a fast-moving vehicle, experienced by those on that vehicle as a headwind.",compound_test,,nd,native,2.66,3.0,False,,Wind,Fahrt,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Goldrausch,m,gold rush,gold rush,compound_test,,ch,native,2.66,3.0,False,,Rausch,Gold,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schnapsidee,f,idea that seems clever or brilliant at first but turns out to be stupid on second thought,An idea that seems clever or brilliant at first but turns out to be stupid on second thought.,compound_test,,ee,native,2.65,4.0,False,,Idee,Schnaps,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Tiefkühltruhe,f,chest freezer,chest freezer,compound_test,,he,unknown,2.65,6.0,False,,Kühltruhe,Tief,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Benzinmotor,m,gasoline engine,"gasoline engine (US), petrol engine (UK)",compound_test,,or,native,2.65,3.0,False,,Motor,Benzin,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Textverarbeitung,f,word processing,word processing,compound_test,-ung,ng,unknown,2.65,4.0,False,,Verarbeitung,Text,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Klimakatastrophe,f,climate catastrophe,climate catastrophe,compound_test,,he,native,2.65,6.0,False,,Katastrophe,Klima,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Vertragspartei,f,contracting party,contracting party,compound_test,-ei,ei,native,2.64,5.0,False,,Partei,Vertrag,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Notizblock,m,notepad,notepad,compound_test,,ck,native,2.64,3.0,False,,Block,Notiz,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Weinglas,n,wine glass,wine glass,compound_test,,as,native,2.64,3.0,False,,Glas,Wein,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Karsamstag,m,holy saturday,Holy Saturday,compound_test,,ag,unknown,2.63,4.0,False,,Samstag,Kar,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Mülldeponie,f,landfill,"landfill, dumpsite",compound_test,,ie,unknown,2.63,5.0,False,,Deponie,Müll,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Blutvergiftung,f,blood poisoning,"blood poisoning, septicemia, sepsis (a disease caused by pathogenic organisms in the bloodstream, characterised by chills and fever)",compound_test,-ung,ng,native,2.63,5.0,False,,Vergiftung,Blut,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Sommerhitze,f,summer heat,summer heat,compound_test,,ze,native,2.62,3.0,False,,Hitze,Sommer,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Triebfeder,f,mainspring,"mainspring, driving force",compound_test,,er,unknown,2.62,4.0,False,,Feder,Trieb,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wasserkühlung,f,water cooling,water cooling,compound_test,-ung,ng,native,2.62,4.0,False,,Kühlung,Wasser,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Aufbruchstimmung,f,atmosphere of departure or change,"atmosphere of departure or change, optimistic mood",compound_test,-ung,ng,native,2.61,6.0,False,,Stimmung,Aufbruch,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lauffeuer,n,wildfire,"wildfire, rapidly-spreading fire",compound_test,,er,native,2.61,4.0,False,,Feuer,Lauf,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wutausbruch,m,outburst of rage,"outburst of rage, tantrum",compound_test,,ch,unknown,2.61,5.0,False,,Ausbruch,Wut,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Spieltheorie,f,game theory,game theory,compound_test,,ie,unknown,2.61,3.0,False,,Theorie,Spiel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bergakademie,f,mining academy,mining academy,compound_test,,ie,unknown,2.6,4.0,False,,Akademie,Berg,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kernspaltung,f,nuclear fission,nuclear fission,compound_test,-ung,ng,native,2.6,3.0,False,,Spaltung,Kern,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Platzwunde,f,laceration,laceration (irregular open wound),compound_test,,de,native,2.59,3.0,False,,Wunde,Platz,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zwangsräumung,f,forced eviction,forced eviction,compound_test,-ung,ng,native,2.59,6.0,False,,Räumung,Zwang,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Rauchwolke,f,cloud of smoke,cloud of smoke,compound_test,,ke,native,2.58,5.0,False,,Wolke,Rauch,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Volkstrauertag,m,"""people's day of mourning""","""People's Day of Mourning""; day of commemoration for the victims of war and oppression. (observed on the second sunday before Advent)",compound_test,,ag,native,2.58,5.0,False,,Trauertag,Volk,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Stofftier,n,stuffed animal,"stuffed animal, soft toy",compound_test,,er,native,2.58,3.0,False,,Tier,Stoff,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Boulevardpresse,f,yellow press,yellow press,compound_test,,se,native,2.58,3.0,False,,Presse,Boulevard,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lohnniveau,n,wage level,"wage level, level of wages (the average or general scale of salaries and wages within a specific economy or sector)",compound_test,,au,native,2.58,4.0,False,,Niveau,Lohn,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zigarettenrauch,m,cigarette smoke,cigarette smoke,compound_test,,ch,native,2.57,5.0,False,,Rauch,Zigarette,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Passkontrolle,f,passport control,passport control,compound_test,,le,native,2.56,4.0,False,,Kontrolle,Pass,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Gasmaske,f,gas mask,gas mask (headgear),compound_test,,ke,native,2.56,3.0,False,,Maske,Gas,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Machtvakuum,n,power vacuum,power vacuum,compound_test,,um,native,2.56,4.0,False,,Vakuum,Macht,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Handelsvolumen,n,trading volume,trading volume (the total amount of a specific security or the total value of all securities traded within a market during a given period),compound_test,,en,native,2.56,5.0,False,,Volumen,Handel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Feuersbrunst,f,conflagration,"conflagration (large, ferocious, and destructive fire)",compound_test,,st,unknown,2.56,5.0,False,,Brunst,Feuer,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Heimstatt,f,homeland,homeland,compound_test,,tt,native,2.56,3.0,False,,Statt,Heim,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Autofokus,m,autofocus,autofocus,compound_test,,us,native,2.55,2.0,False,,Fokus,Auto,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Mülltrennung,f,waste sorting,waste sorting,compound_test,-ung,ng,unknown,2.55,5.0,False,,Trennung,Müll,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Volkstanz,m,folk dance,folk dance,compound_test,-anz,nz,native,2.55,3.0,False,,Tanz,Volk,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lückenfüller,m,stopgap,stopgap,compound_test,,er,native,2.55,4.0,False,,Füller,Lücke,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Laufkundschaft,f,passing trade,"passing trade, casual/walk-in customers",compound_test,-schaft,ft,native,2.55,5.0,False,,Kundschaft,Lauf,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hautausschlag,m,pathological alteration of the skin,"pathological alteration of the skin: rash, eczema etc.",compound_test,,ag,native,2.55,4.0,False,,Ausschlag,Haut,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Heimtücke,f,treachery,"treachery, malice, malevolence, insidiousness",compound_test,,ke,unknown,2.55,5.0,False,,Tücke,Heim,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wertminderung,f,impairment,"impairment, depreciation, diminution in value (a reduction in the book value of an asset because its fair value has fallen below its carrying amount)",compound_test,-ung,ng,native,2.55,4.0,False,,Minderung,Wert,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hochtechnologie,f,high technology,high technology,compound_test,,ie,native,2.54,3.0,False,,Technologie,Hoch,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wasserschlauch,m,water hose,water hose,compound_test,,ch,unknown,2.54,5.0,False,,Schlauch,Wasser,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kürbissuppe,f,pumpkin soup,pumpkin soup,compound_test,,pe,native,2.54,5.0,False,,Suppe,Kürbis,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wärmetauscher,m,heat exchanger,heat exchanger,compound_test,,er,native,2.53,5.0,False,,Tauscher,Wärme,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Feldversuch,m,field trial,"field trial, test run",compound_test,,ch,native,2.53,3.0,False,,Versuch,Feld,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kinderliteratur,f,children's literature,children's literature,compound_test,-ur,ur,native,2.52,3.0,False,,Literatur,Kind,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Mittelachse,f,central axis,central axis; midline,compound_test,,se,native,2.52,4.0,False,,Achse,Mittel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Unternehmensstrategie,f,corporate strategy,"corporate strategy, business strategy (the overall direction and scope of an organization and how its various business operations work together to achieve particular goals)",compound_test,,ie,native,2.52,6.0,False,,Strategie,Unternehmen,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wasserstoffperoxid,n,hydrogen peroxide,hydrogen peroxide,compound_test,,id,native,2.52,4.0,False,,Peroxid,Wasserstoff,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kaiserkrone,f,imperial crown,Imperial crown,compound_test,,ne,native,2.51,3.0,False,,Krone,Kaiser,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fehlinterpretation,f,misinterpretation,misinterpretation,compound_test,-ion,on,unknown,2.51,5.0,False,,Interpretation,Fehl,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kirchenaustritt,m,seceding from the church,seceding from the Church,compound_test,,tt,unknown,2.51,5.0,False,,Austritt,Kirche,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hauptanteil,m,majority,"majority, lion's share",compound_test,,il,native,2.5,3.0,False,,Anteil,Haupt,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schwebebalken,m,balance beam,balance beam,compound_test,,en,native,2.5,4.0,False,,Balken,Schwebe,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lebensbeschreibung,f,biography,biography,compound_test,-ung,ng,unknown,2.5,3.0,False,,Beschreibung,Leben,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Grammatikfehler,m,grammar mistake,grammar mistake,compound_test,,er,native,2.5,6.0,False,,Fehler,Grammatik,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schrecksekunde,f,moment of shock,moment of shock,compound_test,,de,unknown,2.49,4.0,False,,Sekunde,Schreck,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kartoffelpuffer,m,potato pancake,potato pancake,compound_test,,er,native,2.49,4.0,False,,Puffer,Kartoffel,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Raumfähre,f,space shuttle,space shuttle,compound_test,,re,unknown,2.49,3.0,False,,Fähre,Raum,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Mistgabel,f,pitchfork,pitchfork (farm tool with tines),compound_test,,el,native,2.49,3.0,False,,Gabel,Mist,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wintersonnenwende,f,winter solstice,winter solstice,compound_test,,de,native,2.48,6.0,False,,Sonnenwende,Winter,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wasseraufbereitung,f,water treatment,water treatment,compound_test,-ung,ng,native,2.48,5.0,False,,Aufbereitung,Wasser,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bahnhofsmission,f,facility of this organization at a given train station,a facility of this organization at a given train station,compound_test,-ion,on,unknown,2.48,4.0,False,,Mission,Bahnhof,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Künstlerkolonie,f,artists' colony,artists' colony,compound_test,,ie,native,2.48,6.0,False,,Kolonie,Künstler,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Luxusproblem,n,first world problem,"first world problem, champagne problem",compound_test,,em,unknown,2.48,3.0,False,,Problem,Luxus,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Glassplitter,m,glass shard,"glass shard, broken glass",compound_test,,er,native,2.48,3.0,False,,Splitter,Glas,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Jahresüberschuss,m,annual surplus or net profit,annual surplus or net profit,compound_test,,ss,native,2.47,5.0,False,,Überschuss,Jahr,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Feuersturm,m,firestorm,firestorm,compound_test,,rm,native,2.47,4.0,False,,Sturm,Feuer,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lichtverschmutzung,f,light pollution,light pollution,compound_test,-ung,ng,native,2.46,5.0,False,,Verschmutzung,Licht,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Redebeitrag,m,speech,speech (to an audience),compound_test,,ag,unknown,2.46,3.0,False,,Beitrag,Rede,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fankurve,f,section of a stadium designated for the ultras of one team to keep them separate from the ultras of the other team,the section of a stadium designated for the ultras (especially devoted fans) of one team to keep them separate from the ultras of the other team,compound_test,,ve,native,2.46,3.0,False,,Kurve,Fan,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Dachrinne,f,gutter,gutter; eavestrough (channel on the edge of a roof),compound_test,,ne,unknown,2.46,4.0,False,,Rinne,Dach,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Meerbusen,m,bay,"bay, gulf, inlet",compound_test,,en,unknown,2.46,3.0,False,,Busen,Meer,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schirmmütze,f,peaked cap,peaked cap,compound_test,,ze,native,2.46,5.0,False,,Mütze,Schirm,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Rockkonzert,n,rock concert,rock concert,compound_test,,rt,native,2.46,4.0,False,,Konzert,Rock,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Büroklammer,f,paper clip,paper clip,compound_test,,er,native,2.45,3.0,False,,Klammer,Büro,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Handelsware,f,commodity,commodity; a good for trading,compound_test,,re,native,2.45,3.0,False,,Ware,Handel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Skipiste,f,piste,"piste, ski slope",compound_test,,te,native,2.44,2.0,False,,Piste,Ski,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Feuerbestattung,f,cremation,cremation,compound_test,-ung,ng,native,2.44,5.0,False,,Bestattung,Feuer,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Briefkastenfirma,f,shell company,"shell company, front company",compound_test,,ma,native,2.44,6.0,False,,Firma,Briefkasten,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Psychopathologie,f,psychopathology,psychopathology,compound_test,,ie,native,2.44,3.0,True,,Pathologie,Psycho,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schafzucht,f,sheep farming,"sheep farming, sheep husbandry (the raising and breeding of domestic sheep)",compound_test,,ht,native,2.43,4.0,False,,Zucht,Schaf,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Nebelhorn,n,foghorn,foghorn,compound_test,,rn,native,2.43,3.0,False,,Horn,Nebel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Sichtkontakt,m,visual contact,"visual contact, intervisibility",compound_test,,kt,native,2.43,4.0,False,,Kontakt,Sicht,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Blutlache,f,pool of blood,pool of blood,compound_test,,he,native,2.43,4.0,False,,Lache,Blut,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Magensäure,f,gastric acid,gastric acid (stomach acid),compound_test,,re,native,2.43,4.0,False,,Säure,Magen,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Brieftaube,f,homing pigeon is a breed or variety of domestic pigeon with a strong homing instinct that is used as a message courier or in the sport of pigeon racing,"a homing pigeon (racing pigeon, homer) is a breed or variety of domestic pigeon with a strong homing instinct that is used as a message courier or in the sport of pigeon racing",compound_test,,be,native,2.43,5.0,False,,Taube,Brief,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Ohrmuschel,f,pinna,"pinna, auricle",compound_test,,el,unknown,2.43,5.0,False,,Muschel,Ohr,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Handelsplattform,f,trading platform,"trading platform (a software system used to trade financial products, such as stocks, bonds, or currencies, via a network)",compound_test,,rm,native,2.42,5.0,False,,Plattform,Handel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Jahresproduktion,f,annual output / production,annual output / production,compound_test,-ion,on,native,2.42,3.0,False,,Produktion,Jahr,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fettleber,f,fatty liver,fatty liver,compound_test,,er,native,2.42,3.0,False,,Leber,Fett,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Tonerde,f,alumina,alumina,compound_test,,de,unknown,2.41,3.0,False,,Erde,Ton,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kirschblüte,f,cherry blossom,cherry blossom (plant part),compound_test,,te,native,2.41,5.0,False,,Blüte,Kirsch,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schutzschicht,f,protective layer / coating,protective layer / coating,compound_test,,ht,native,2.4,4.0,False,,Schicht,Schutz,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Reizüberflutung,f,sensory overload,sensory overload,compound_test,-ung,ng,native,2.4,6.0,False,,Überflutung,Reiz,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Brombeere,f,blackberry,"blackberry, bramble",compound_test,,re,native,2.39,3.0,False,,Beere,Brom,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bootsverleih,m,boat rental,boat rental,compound_test,,ih,native,2.39,4.0,False,,Verleih,Boot,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fingerfertigkeit,f,dexterity,"dexterity, skill with one's fingers, nimble fingers",compound_test,-keit,it,native,2.38,4.0,False,,Fertigkeit,Finger,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hormonhaushalt,m,hormonal balance,hormonal balance,compound_test,,lt,native,2.38,5.0,False,,Haushalt,Hormon,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Sauerstoffzufuhr,f,oxygen supply,oxygen supply,compound_test,,hr,native,2.38,7.0,False,,Zufuhr,Sauerstoff,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Knoblauchzehe,f,clove of garlic,clove of garlic,compound_test,,he,native,2.38,6.0,False,,Zehe,Knoblauch,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kommandozeile,f,command line,command line,compound_test,,le,native,2.38,4.0,False,,Zeile,Kommando,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Alkoholabhängigkeit,f,alcohol dependence,alcohol dependence,compound_test,-keit,it,native,2.37,6.0,False,,Abhängigkeit,Alkohol,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Mustererkennung,f,pattern recognition,pattern recognition,compound_test,-ung,ng,native,2.37,5.0,False,,Erkennung,Muster,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Vorstrafenregister,n,criminal record,criminal record,compound_test,,er,native,2.37,4.0,False,,Register,Vorstrafe,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lidstrich,m,eyeliner,eyeliner,compound_test,,ch,native,2.37,3.0,False,wordnet:makeup.n.01,Strich,Lid,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Klimaveränderung,f,climate change,climate change,compound_test,-ung,ng,native,2.37,5.0,False,,Veränderung,Klima,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zwangsstörung,f,obsessive-compulsive disorder,obsessive-compulsive disorder,compound_test,-ung,ng,native,2.36,5.0,False,,Störung,Zwang,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Begriffsklärung,f,disambiguation,disambiguation (language),compound_test,-ung,ng,unknown,2.35,7.0,False,,Klärung,Begriff,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Keksdose,f,cookie jar,cookie jar (US); biscuit tin (UK),compound_test,,se,native,2.35,4.0,False,,Dose,Kek,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Muskelschwäche,f,myasthenia,myasthenia (muscle weakness),compound_test,,he,native,2.35,4.0,False,,Schwäche,Muskel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lügendetektor,m,lie detector,lie detector,compound_test,,or,unknown,2.34,6.0,False,,Detektor,Lügen,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Ausfallrisiko,n,default risk,"default risk, credit risk (the risk that a borrower or counterparty will fail to meet their obligations in accordance with agreed terms)",compound_test,,ko,native,2.34,4.0,False,,Risiko,Ausfall,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lebensmitteleinzelhandel,m,food retailing,food retailing,compound_test,,el,native,2.33,7.0,False,,Einzelhandel,Lebensmittel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Handelsmarine,f,merchant navy,merchant navy (civilian naval fleet),compound_test,,ne,native,2.33,3.0,False,,Marine,Handel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Dauerauftrag,m,standing order,standing order (regular transfer of fixed sum between bank accounts),compound_test,,ag,native,2.33,5.0,False,,Auftrag,Dauer,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Blumenmuster,n,floral pattern,floral pattern,compound_test,,er,native,2.32,4.0,False,,Muster,Blume,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Konzertflügel,m,concert grand,"concert grand, grand",compound_test,,el,native,2.32,6.0,False,,Flügel,Konzert,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Prügelstrafe,f,corporal punishment,A corporal punishment,compound_test,,fe,native,2.31,5.0,False,,Strafe,Prügel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Richterskala,f,richter scale,Richter scale,compound_test,,la,unknown,2.3,4.0,False,,Skala,Richter,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Heuernte,f,hay harvest,"hay harvest, haymaking",compound_test,,te,native,2.3,3.0,False,,Ernte,Heu,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schutzbehauptung,f,false assertion,"false assertion, defensive lie, lie to cover oneself, self-serving declaration, attempt to justify one's behavior (an incorrect claim that someone makes to hide guilt in order to avoid negative consequences)",compound_test,-ung,ng,native,2.3,5.0,False,,Behauptung,Schutz,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hafeneinfahrt,f,entrance to a harbor,entrance to a harbor,compound_test,,rt,native,2.29,6.0,False,,Einfahrt,Hafen,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wärmeverlust,m,heat loss,heat loss,compound_test,,st,native,2.29,5.0,False,,Verlust,Wärme,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Feldspat,m,feldspar,feldspar,compound_test,,at,native,2.29,3.0,False,,Spat,Feld,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bauelement,n,device,device,compound_test,,-ment,unknown,2.29,3.0,False,,Element,Bau,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Praxishandbuch,n,practice handbook,practice handbook,compound_test,,ch,native,2.29,5.0,False,,Handbuch,Praxis,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Müllverbrennung,f,waste incineration,waste incineration,compound_test,-ung,ng,native,2.28,5.0,False,,Verbrennung,Müll,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kinofassung,f,theatrical version,theatrical version,compound_test,-ung,ng,native,2.28,4.0,False,,Fassung,Kino,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Weltpokal,m,intercontinental cup,intercontinental cup (world championship for clubs),compound_test,,al,unknown,2.28,4.0,False,,Pokal,Welt,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schamhaar,n,pubic hair,pubic hair (collectively),compound_test,,ar,native,2.28,3.0,False,gloss,Haar,Scham,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lohnabrechnung,f,payslip,payslip,compound_test,-ung,ng,unknown,2.27,6.0,False,,Abrechnung,Lohn,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Salzlösung,f,saline solution,saline solution,compound_test,-ung,ng,native,2.27,4.0,False,,Lösung,Salz,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Studentenfutter,n,mixture of nuts and dried fruits,a mixture of nuts and dried fruits (often raisins); trail mix,compound_test,,er,native,2.26,4.0,False,,Futter,Student,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Selbstverleugnung,f,self-denial,"self-denial, self-abnegation",compound_test,-ung,ng,native,2.26,5.0,False,,Verleugnung,Selbst,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Börsencrash,m,stock market crash,stock market crash (a sudden and severe fall in stock prices across a substantial part of a stock market),compound_test,,sh,native,2.26,6.0,False,,Crash,Börse,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Randbemerkung,f,gloss,gloss,compound_test,-ung,ng,native,2.26,5.0,False,,Bemerkung,Rand,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Windrose,f,compass rose,compass rose,compound_test,,se,native,2.25,2.0,False,,Rose,Wind,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lautstärkeregler,m,loudness control,"loudness control, volume control button",compound_test,,er,native,2.25,6.0,False,,Regler,Lautstärke,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Energiefluss,m,energy flow,energy flow,compound_test,,ss,native,2.25,4.0,False,,Fluss,Energie,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Telefonjoker,m,"""phone-a-friend"" lifeline","""Phone-a-Friend"" lifeline (lifeline used by the contestant to get help by calling a friend or relative on telephone)",compound_test,,er,unknown,2.25,3.0,False,,Joker,Telefon,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Gastfreundlichkeit,f,hospitality,hospitality (act or service),compound_test,-keit,it,native,2.25,4.0,False,,Freundlichkeit,Gast,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Luftsauerstoff,m,atmospheric oxygen,atmospheric oxygen,compound_test,,ff,native,2.25,4.0,False,,Sauerstoff,Luft,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kniebeuge,f,squat,squat (exercise repeatedly lowering the hips and bending the knees while standing up),compound_test,,ge,native,2.24,4.0,False,,Beuge,Knie,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schlaftablette,f,sleeping pill,sleeping pill (a pill having a soporific effect),compound_test,,te,native,2.24,5.0,False,,Tablette,Schlaf,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Meeresbiologie,f,marine biology,marine biology,compound_test,,ie,native,2.24,4.0,False,,Biologie,Meer,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Dreispitz,m,tricorn,tricorn,compound_test,,tz,native,2.23,3.0,False,,Spitz,Drei,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zielvereinbarung,f,target agreement,"target agreement, management by objectives (a contract or agreement between an employer and employee on specific goals to be achieved within a certain period)",compound_test,-ung,ng,native,2.23,5.0,False,,Vereinbarung,Ziel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kohlenstoffatom,n,carbon atom,carbon atom,compound_test,,om,native,2.22,4.0,False,,Atom,Kohlenstoff,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Silberschmuck,m,silver jewellery / ornament,silver jewellery / ornament,compound_test,,ck,native,2.22,5.0,False,,Schmuck,Silber,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fehlernährung,f,malnutrition,"malnutrition, malnourishment",compound_test,-ung,ng,native,2.22,6.0,False,,Ernährung,Fehl,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Knochendichte,f,bone density,bone density,compound_test,,te,native,2.22,4.0,False,,Dichte,Knochen,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Befehlsverweigerung,f,insubordination,insubordination,compound_test,-ung,ng,unknown,2.22,8.0,False,,Verweigerung,Befehl,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Staatstrauer,f,national mourning,national mourning,compound_test,,er,native,2.21,4.0,False,,Trauer,Staat,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Christmette,f,midnight mass,midnight mass,compound_test,,te,native,2.21,3.0,False,,Mette,Christ,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Röhrenfernseher,m,crt television,CRT television,compound_test,,er,native,2.21,6.0,False,,Fernseher,Röhre,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zehntscheune,f,tithe barn,tithe barn,compound_test,,ne,native,2.2,5.0,False,,Scheune,Zehnt,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Straßenpflaster,n,pavement,pavement,compound_test,,er,native,2.2,4.0,False,,Pflaster,Straße,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zahnwurzel,f,root of a tooth,root of a tooth,compound_test,,el,native,2.2,5.0,False,,Wurzel,Zahn,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lebensmittelchemie,f,food chemistry,food chemistry,compound_test,,ie,native,2.2,4.0,False,,Chemie,Lebensmittel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schutzgelderpressung,f,protection racket,protection racket,compound_test,-ung,ng,native,2.2,6.0,False,,Erpressung,Schutzgeld,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Handelsspanne,f,trade margin,"trade margin, markup (the difference between the purchasing price and the selling price of a product, often expressed as a percentage of the selling price)",compound_test,,ne,native,2.2,5.0,False,,Spanne,Handel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kriegsbeil,n,tomahawk,tomahawk,compound_test,,il,unknown,2.2,5.0,False,,Beil,Krieg,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schwalbenschwanz,m,swallowtail,swallowtail (tail of a swallow),compound_test,-anz,nz,native,2.2,6.0,False,wordnet:garment.n.01,Schwanz,Schwalbe,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Selbstauslöser,m,self timer,self timer,compound_test,,er,unknown,2.19,4.0,False,,Auslöser,Selbst,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Amtsanmaßung,f,unauthorised assumption of authority,"unauthorised assumption of authority, usurpation of authority",compound_test,-ung,ng,native,2.19,6.0,False,,Anmaßung,Amt,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Streichholzschachtel,f,matchbox,matchbox,compound_test,,el,native,2.19,7.0,False,,Schachtel,Streichholz,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schaukelpferd,n,rocking horse,rocking horse,compound_test,,rd,native,2.18,6.0,False,,Pferd,Schaukel,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Gasbeleuchtung,f,gas lighting,gas lighting,compound_test,-ung,ng,native,2.17,5.0,False,,Beleuchtung,Gas,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Blutsverwandtschaft,f,consanguinity,consanguinity,compound_test,-schaft,ft,native,2.17,6.0,False,,Verwandtschaft,Blut,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Abendausgabe,f,evening edition,evening edition,compound_test,,be,unknown,2.16,4.0,False,,Ausgabe,Abend,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Massenmedium,n,mass medium,mass medium,compound_test,,um,native,2.16,3.0,False,,Medium,Masse,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Selbstmordattentat,n,suicide attack,suicide attack,compound_test,,at,unknown,2.15,6.0,False,,Attentat,Selbstmord,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Samenschale,f,seed coat,"seed coat, episperm",compound_test,,le,native,2.15,3.0,False,wordnet:garment.n.01,Schale,Samen,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Selbstbeobachtung,f,introspection,introspection,compound_test,-ung,ng,unknown,2.15,5.0,False,,Beobachtung,Selbst,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Treppenabsatz,m,landing,landing (in a staircase),compound_test,,tz,native,2.15,5.0,False,,Absatz,Treppe,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Dreivierteljahr,n,nine-month period,nine-month period,compound_test,,hr,native,2.14,6.0,False,,Vierteljahr,Drei,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Ritterrüstung,f,suit of armor,suit of armor,compound_test,-ung,ng,native,2.14,5.0,False,wordnet:garment.n.01,Rüstung,Ritter,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Schreibtischschublade,f,desk drawer,desk drawer,compound_test,,de,native,2.14,8.0,False,,Schublade,Schreibtisch,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Lückenbüßer,m,stopgap,stopgap,compound_test,,er,unknown,2.14,4.0,False,,Büßer,Lücke,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Holzklotz,m,wooden block,"wooden block, wooden log",compound_test,,tz,native,2.14,4.0,False,,Klotz,Holz,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Holocaustleugnung,f,holocaust denial,Holocaust denial,compound_test,-ung,ng,unknown,2.14,4.0,False,,Leugnung,Holocaust,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Reifezeugnis,n,matriculation examination,matriculation examination,compound_test,,-nis,native,2.14,4.0,False,,Zeugnis,Reife,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Holzwolle,f,wood wool,"wood wool, excelsior",compound_test,,le,native,2.14,3.0,False,,Wolle,Holz,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wachsfigurenkabinett,n,wax museum,wax museum,compound_test,,tt,native,2.14,6.0,False,,Kabinett,Wachsfigur,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Diskontinuität,f,discontinuity,discontinuity,compound_test,-tät,ät,unknown,2.13,5.0,False,,Kontinuität,Dis,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Textnachricht,f,text message,text message,compound_test,,ht,native,2.13,4.0,False,,Nachricht,Text,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Leseverständnis,n,reading comprehension,reading comprehension,compound_test,,-nis,unknown,2.13,4.0,False,,Verständnis,Lese,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Herzrhythmus,m,cardiac rhythm,cardiac rhythm,compound_test,,us,native,2.13,4.0,False,,Rhythmus,Herz,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fleischbrühe,f,broth,"broth, meat broth",compound_test,,he,native,2.13,5.0,False,,Brühe,Fleisch,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Klosterbrauerei,f,monastery brewery,monastery brewery,compound_test,-ei,ei,native,2.13,6.0,False,,Brauerei,Kloster,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Hauptreihe,f,main sequence,main sequence,compound_test,,he,native,2.12,3.0,False,,Reihe,Haupt,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Raubkopie,f,copy of content the former of which has been obtained under violation of intellectual property rights,a copy of content the former of which has been obtained under violation of intellectual property rights,compound_test,,ie,native,2.11,4.0,False,,Kopie,Raub,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Eisenbahnstation,f,railway depot,"railway depot, railroad station, railway station, train station",compound_test,-ion,on,native,2.11,4.0,False,,Bahnstation,Eisen,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Nagelschere,f,nail scissors,nail scissors,compound_test,,re,native,2.1,4.0,False,,Schere,Nagel,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Notbehelf,m,makeshift,"makeshift, make-do",compound_test,,lf,native,2.09,3.0,False,,Behelf,Not,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Holznagel,m,wooden nail,a wooden nail,compound_test,,el,native,2.09,4.0,False,,Nagel,Holz,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Leibesvisitation,f,body cavity search,body cavity search,compound_test,-ion,on,native,2.09,5.0,False,,Visitation,Leib,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kriegsbegeisterung,f,war fever,"war fever, enthusiasm for (the) war",compound_test,-ung,ng,native,2.09,7.0,False,,Begeisterung,Krieg,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Pachtzins,m,payment for the rent of a business,payment for the rent of a business,compound_test,,ns,native,2.08,4.0,False,,Zins,Pacht,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Proteinsynthese,f,protein synthesis,protein synthesis,compound_test,,se,native,2.06,4.0,False,,Synthese,Protein,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Zollabfertigung,f,customs clearance which may or may not include the payment of vat and duty fees,customs clearance which may or may not include the payment of VAT and duty fees,compound_test,-ung,ng,unknown,2.06,6.0,False,,Abfertigung,Zoll,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Reformstau,m,reform tie-up,reform tie-up,compound_test,,au,native,2.06,3.0,False,gloss,Stau,Reform,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Fleischersatz,m,meat substitute,meat substitute,compound_test,,tz,native,2.06,4.0,False,,Ersatz,Fleisch,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Bassstimme,f,bass,bass (pitch),compound_test,,me,native,2.04,3.0,False,,Stimme,Bass,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Höllenlärm,m,very loud noise,very loud noise,compound_test,,rm,native,2.04,4.0,False,,Lärm,Hölle,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kinderpunsch,m,nonalcoholic punch,nonalcoholic punch (beverage),compound_test,,ch,unknown,2.02,3.0,False,,Punsch,Kind,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Computerlinguistik,f,computational linguistics,computational linguistics (an interdisciplinary field dealing with the statistical and/or rule-based modeling of natural language),compound_test,-ik,ik,native,2.02,4.0,False,,Linguistik,Computer,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Aluminiumfolie,f,aluminium foil,aluminium foil,compound_test,,ie,native,2.02,3.0,False,,Folie,Aluminium,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Prädestination,f,predestination,predestination,compound_test,-ion,on,unknown,2.02,2.0,True,,Destination,Prä,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Benutzerschnittstelle,f,user interface,user interface,compound_test,,le,native,2.02,6.0,False,,Schnittstelle,Benutzer,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Krisengipfel,m,crisis summit,crisis summit,compound_test,,el,native,2.02,4.0,False,,Gipfel,Krise,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Doppelmonarchie,f,dual monarchy,dual monarchy,compound_test,,ie,unknown,2.02,5.0,False,,Monarchie,Doppel,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kürbiskernöl,n,pumpkin seed oil,pumpkin seed oil,compound_test,,öl,native,2.01,6.0,False,,Kernöl,Kürbis,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Auftragsbestätigung,f,order confirmation,order confirmation,compound_test,-ung,ng,native,2.01,6.0,False,,Bestätigung,Auftrag,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Kaffeebohne,f,coffee bean,coffee bean,compound_test,,ne,native,2.01,6.0,False,,Bohne,Kaffee,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Wasserabfluss,m,water outflow,water outflow,compound_test,,ss,native,2.0,4.0,False,,Abfluss,Wasser,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Handfeger,m,hand broom,"hand broom, duster",compound_test,,er,native,2.0,3.0,False,,Feger,Hand,f,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Berufslehre,f,apprenticeship,apprenticeship,compound_test,,re,unknown,2.0,4.0,False,,Lehre,Beruf,m,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Maultrommel,f,jew's harp,"Jew's harp, mouth harp",compound_test,,el,unknown,2.0,4.0,False,,Trommel,Maul,n,True,,,,wiktionary:kaikki@2026-10-03,test
+de,Programm,n,program,program (set of structured ideas or activities; a list thereof),compound_test,,mm,loan,4.98,1.0,True,,Gramm,pro,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Verfügung,f,disposal,"disposal, disposition (control over something)",compound_test,-ung,ng,native,4.95,1.0,False,,Fügung,ver,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Verantwortung,f,responsibility,responsibility,compound_test,-ung,ng,native,4.74,3.0,False,,Ortung,verantw,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Anspruch,m,entitlement,"entitlement, demand, expectation of what should come from someone or something",compound_test,,ch,unknown,4.74,3.0,False,,Ruch,ansp,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Anwendung,f,application,"application, usage, utilization",compound_test,-ung,ng,unknown,4.62,2.0,False,,Endung,anw,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Integration,f,integration,integration,compound_test,-ion,on,unknown,4.54,1.0,True,,Ration,integ,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Anfrage,f,inquiry,inquiry,compound_test,,ge,unknown,4.43,2.0,False,,Rage,anf,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Atmosphäre,f,atmosphere,atmosphere,compound_test,,re,loan,4.4,3.0,True,,Sphäre,atmo,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Herausforderung,f,challenge,"challenge, that which encourages someone to dare more; (loosely) any task or condition that to bear one has to stretch one's boundaries",compound_test,-ung,ng,native,4.34,4.0,False,,Forderung,heraus,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Vereinigung,f,unification,"unification (act of unifying), joining",compound_test,-ung,ng,unknown,4.32,3.0,False,,Einigung,ver,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Halbfinale,n,semifinal,semifinal,compound_test,,le,native,4.31,4.0,False,,Finale,halb,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schlacht,f,battle,battle,compound_test,,ht,native,4.29,2.0,False,,Acht,schl,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Konsequenz,f,consequence,consequence (that which follows something on which it depends; that which is produced by a cause),compound_test,-enz,nz,unknown,4.09,3.0,False,,Sequenz,kon,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Weltmeisterschaft,f,world cup,"World Cup, world championship",compound_test,-schaft,ft,native,4.06,4.0,False,,Meisterschaft,Welt,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Apotheke,f,pharmacy,pharmacy,compound_test,,ke,loan,4.05,4.0,False,,Theke,apo,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Versand,m,shipping,"shipping, shipment, dispatch",compound_test,,nd,unknown,4.0,2.0,False,,Sand,ver,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Antisemitismus,m,anti-semitism,anti-Semitism (hostility or prejudice against Jews),compound_test,-ismus,us,native,4.0,5.0,False,,Semitismus,anti,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Entschädigung,f,compensation,"compensation, indemnification",compound_test,-ung,ng,native,3.94,4.0,False,,Schädigung,ent,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Terrasse,f,terrace,"terrace (raised, flat-topped bank of earth with sloping sides)",compound_test,,se,loan,3.91,2.0,False,,Rasse,ter,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Migrationshintergrund,m,migration background,migration background (i.e. being a migrant or having one or more parents or grandparents be migrants),compound_test,,nd,native,3.88,5.0,False,,Hintergrund,migrations,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Heimatstadt,f,hometown,hometown,compound_test,,dt,unknown,3.86,3.0,False,,Stadt,Heimat,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Kollektion,f,collection,"collection, product line (set of items presented or marketed together, often in a similar style)",compound_test,-ion,on,loan,3.83,3.0,False,,Lektion,kol,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Südwesten,m,southwest,southwest,compound_test,,en,unknown,3.83,3.0,False,,Westen,Süd,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Darlehen,n,loan,loan,compound_test,,en,unknown,3.81,3.0,False,,Lehen,dar,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Bundesverfassungsgericht,n,federal constitutional court,federal constitutional court,compound_test,,ht,native,3.79,7.0,False,,Verfassungsgericht,bundes,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Unschuld,f,innocence,innocence,compound_test,,ld,native,3.76,3.0,False,,Huld,unsc,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Legislaturperiode,f,legislative session,legislative session,compound_test,,de,unknown,3.73,4.0,False,,Periode,legislatur,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Konsole,f,console,console,compound_test,,le,loan,3.73,2.0,False,,Sole,kon,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Zylinder,m,cylinder,cylinder,compound_test,,er,loan,3.73,2.0,False,,Inder,zyl,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Nordosten,m,northeast,northeast,compound_test,,en,unknown,3.69,2.0,False,,Osten,Nord,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Teilhabe,f,participation,participation,compound_test,,be,unknown,3.68,3.0,False,,Habe,teil,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Lenkrad,n,steering wheel,steering wheel,compound_test,,ad,native,3.57,3.0,False,,Krad,len,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Verhinderung,f,prevention,"prevention, hindrance",compound_test,-ung,ng,native,3.56,4.0,False,,Hinderung,ver,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Fernbedienung,f,remote control,"remote control (device used to operate an appliance, such as a TV)",compound_test,-ung,ng,native,3.55,4.0,False,,Bedienung,fern,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Abweichung,f,aberration,"aberration, deviation",compound_test,-ung,ng,native,3.55,4.0,False,,Eichung,abw,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Fürsorge,f,care,"care, solicitude",compound_test,,ge,native,3.48,3.0,False,,Sorge,für,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Entfaltung,f,unfolding,"unfolding, development",compound_test,-ung,ng,native,3.46,3.0,False,,Faltung,ent,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Startschuss,m,shot fired from a starting gun,"shot fired from a starting gun, starting a race; starting signal",compound_test,,ss,native,3.46,3.0,False,,Schuss,Start,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Menschenverstand,m,human reason,human reason,compound_test,,nd,native,3.44,3.0,False,,Verstand,menschen,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Nationalhymne,f,national anthem,national anthem,compound_test,,ne,unknown,3.43,4.0,False,,Hymne,national,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Ultraschall,m,ultrasound,ultrasound,compound_test,,ll,unknown,3.34,4.0,False,,Schall,ultra,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Werbespot,m,spot,"spot, ad, commercial",compound_test,,ot,native,3.34,3.0,False,,Spot,werbe,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Verkündigung,f,annunciation,annunciation,compound_test,-ung,ng,unknown,3.33,4.0,False,,Kündigung,ver,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schleim,m,mucus,"mucus, slime (viscous bodily secretion)",compound_test,,im,native,3.31,3.0,False,,Leim,sch,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Unterstellung,f,subordination,subordination,compound_test,-ung,ng,native,3.31,2.0,False,,Erstellung,unt,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Umverteilung,f,redistribution,redistribution,compound_test,-ung,ng,native,3.29,4.0,False,,Erteilung,umv,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Vermischung,f,mixing,mixing,compound_test,-ung,ng,native,3.28,3.0,False,,Mischung,ver,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Massentierhaltung,f,intensive animal farming,"intensive animal farming, factory farming",compound_test,-ung,ng,unknown,3.25,5.0,False,,Tierhaltung,Masse,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Aschermittwoch,m,ash wednesday,Ash Wednesday,compound_test,,ch,unknown,3.24,6.0,False,,Mittwoch,Ascher,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Steuerreform,f,tax reform,tax reform,compound_test,,rm,native,3.22,4.0,False,,Reform,steuer,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Bundeskanzleramt,n,chancellery,"chancellery, especially:",compound_test,,mt,native,3.21,5.0,False,,Kanzleramt,bundes,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Gleichbehandlung,f,equal treatment,equal treatment,compound_test,-ung,ng,native,3.21,5.0,False,,Behandlung,gleich,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Machtübernahme,f,takeover of power,takeover of power,compound_test,,me,native,3.21,4.0,False,,Übernahme,Macht,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Andrang,m,rush,rush,compound_test,,ng,unknown,3.2,2.0,False,,Rang,and,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Neoliberalismus,m,neoliberalism,neoliberalism,compound_test,-ismus,us,native,3.19,4.0,True,,Liberalismus,neo,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Wirtschaftsinformatik,f,business informatics,business informatics,compound_test,-ik,ik,unknown,3.19,5.0,False,,Informatik,wirtschafts,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Betroffenheit,f,consternation,"consternation, dismay, shock",compound_test,-heit,it,native,3.17,4.0,False,,Offenheit,betr,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Verdichtung,f,compression,"compression, compaction, consolidation, packing",compound_test,-ung,ng,native,3.17,3.0,False,,Dichtung,ver,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Hängematte,f,hammock,hammock,compound_test,,te,loan,3.16,4.0,False,,Matte,hänge,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Suchmaschinenoptimierung,f,search engine optimization,search engine optimization,compound_test,-ung,ng,native,3.15,6.0,False,,Optimierung,Suchmaschine,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Zeitumstellung,f,clock change at the beginning or end of daylight savings time,clock change at the beginning or end of daylight savings time,compound_test,-ung,ng,native,3.15,3.0,False,,Umstellung,Zeit,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Inneneinrichtung,f,interior design,"interior design, interior decoration, interior furnishing",compound_test,-ung,ng,native,3.13,5.0,False,,Einrichtung,innen,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Riesenslalom,m,giant slalom,giant slalom,compound_test,,om,unknown,3.13,5.0,False,,Slalom,riesen,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Krawall,m,riot,riot,compound_test,,ll,loan,3.13,3.0,False,,Wall,kra,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Friedensnobelpreis,m,nobel peace prize,Nobel Peace Prize,compound_test,,is,native,3.12,6.0,False,,Nobelpreis,Frieden,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Anschuldigung,f,accusation,accusation,compound_test,-ung,ng,native,3.11,4.0,False,,Huldigung,ansc,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Internationalisierung,f,internationalisation,"internationalisation, i18n",compound_test,-ung,ng,native,3.1,3.0,False,,Nationalisierung,inter,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Privateigentum,n,private property,private property,compound_test,,-tum,native,3.09,4.0,False,,Eigentum,privat,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Freilichtmuseum,n,outdoor / open-air museum,outdoor / open-air museum,compound_test,,um,native,3.06,5.0,False,,Museum,freilicht,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Verkehrsverbund,m,public transit network,public transit network,compound_test,,nd,native,3.06,5.0,False,,Verbund,verkehrs,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Allgemeinbildung,f,general education,"general education, all-round education; general knowledge",compound_test,-ung,ng,native,3.06,4.0,False,,Einbildung,allgem,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Weltwirtschaftskrise,f,global economic crisis,global economic crisis,compound_test,,se,native,3.05,5.0,False,,Wirtschaftskrise,Welt,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Spätherbst,m,late autumn,"late autumn, late fall",compound_test,,st,native,3.04,4.0,False,,Herbst,spät,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Hochschulreife,f,status of a person formally qualified to study at a university due to leaving school with a successfully passed matriculation exam and/or other training,The status of a person formally qualified to study at a university due to leaving school with a successfully passed matriculation exam and/or other training.,compound_test,,fe,native,3.03,5.0,False,,Reife,hochschul,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Kronleuchter,m,chandelier,chandelier,compound_test,,er,native,3.03,4.0,False,,Leuchter,kron,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Nervenzusammenbruch,m,nervous breakdown,nervous breakdown,compound_test,,ch,native,3.02,7.0,False,,Zusammenbruch,Nerv,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Sonneneinstrahlung,f,sunlight,sunlight (solar radiation),compound_test,-ung,ng,native,3.01,6.0,False,,Einstrahlung,Sonne,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Neuorientierung,f,career change,career change,compound_test,-ung,ng,native,3.0,3.0,False,,Orientierung,neu,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Regenschauer,m,downpour,downpour,compound_test,,er,native,2.99,3.0,False,,Hauer,regensc,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Völkerwanderung,f,migration period,Migration Period,compound_test,-ung,ng,native,2.98,6.0,False,,Wanderung,völker,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Kettenreaktion,f,chain reaction,chain reaction,compound_test,-ion,on,native,2.98,4.0,False,,Reaktion,Kette,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Morgendämmerung,f,dawn,"dawn, daybreak",compound_test,-ung,ng,native,2.98,5.0,False,,Dämmerung,morgen,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schlund,m,throat,"throat, pharynx (interior of the front of the neck)",compound_test,,nd,native,2.97,2.0,False,,Lund,sch,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Hemmschwelle,f,inhibition,"inhibition, psychological hurdle (for example due to fear of embarrassment, breaking social norms, etc.)",compound_test,,le,native,2.97,4.0,False,,Schwelle,hemm,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Fernstudium,n,distance learning,distance learning,compound_test,,um,native,2.97,3.0,False,,Studium,fern,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Völkerverständigung,f,international understanding,international understanding,compound_test,-ung,ng,native,2.96,6.0,False,,Verständigung,völker,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schweigeminute,f,moment of silence,moment of silence,compound_test,,te,native,2.96,4.0,False,,Minute,schweige,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Augenbraue,f,eyebrow,eyebrow,compound_test,,ue,native,2.95,4.0,False,,Braue,augen,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Handgranate,f,hand grenade,hand grenade,compound_test,,te,native,2.95,3.0,False,,Granate,Hand,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Kreuzworträtsel,n,crossword puzzle,crossword puzzle,compound_test,,-sel,native,2.95,6.0,False,,Rätsel,kreuzwort,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Hervorhebung,f,highlighting,"highlighting, accentuation",compound_test,-ung,ng,native,2.92,5.0,False,,Hebung,hervor,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schluckauf,m,hiccup,hiccup,compound_test,,uf,native,2.9,3.0,False,,Kauf,schluc,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Entladung,f,discharge,"discharge, unloading, venting",compound_test,-ung,ng,unknown,2.9,3.0,False,,Ladung,ent,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Blinddarm,m,caecum,caecum,compound_test,,rm,native,2.9,3.0,False,,Darm,blind,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Freiheitsberaubung,f,false imprisonment,false imprisonment (the crime of confining a person in a place without being legally authorised to do so),compound_test,-ung,ng,native,2.89,6.0,False,,Beraubung,freiheits,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Erdatmosphäre,f,earth's atmosphere,Earth's atmosphere,compound_test,,re,unknown,2.89,5.0,False,,Atmosphäre,erd,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Bundesinnenministerium,n,federal ministry of the interior,"federal ministry of the interior, Home Office",compound_test,,um,unknown,2.88,5.0,False,,Innenministerium,bundes,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Zentralkomitee,n,central committee,central committee,compound_test,,ee,native,2.88,5.0,False,,Komitee,zentral,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Fotoapparat,m,camera,camera (device for making still pictures),compound_test,,at,native,2.87,3.0,False,,Apparat,foto,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Risikofaktor,m,risk factor,"risk factor, hazard factor",compound_test,,or,native,2.87,5.0,False,,Kofaktor,risi,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Stellenausschreibung,f,job posting,"job posting, job advertisement, advertisement of an available job",compound_test,-ung,ng,native,2.85,6.0,False,,Ausschreibung,Stelle,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Brechreiz,m,nausea,nausea (strong urge to vomit),compound_test,,iz,native,2.85,4.0,False,,Reiz,brech,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Hoffnungsschimmer,m,glimmer of hope,glimmer of hope,compound_test,,er,native,2.84,5.0,False,,Schimmer,hoffnungs,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Illegalität,f,illegality,illegality,compound_test,-tät,ät,native,2.83,2.0,False,,Egalität,ill,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Feinkost,f,delicatessen,delicatessen (top-quality food),compound_test,,st,unknown,2.82,3.0,False,,Kost,fein,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schleichwerbung,f,surreptitious advertising,surreptitious advertising,compound_test,-ung,ng,native,2.82,4.0,False,,Werbung,schleich,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Maßeinheit,f,unit of measure,unit of measure,compound_test,-heit,it,native,2.81,4.0,False,,Einheit,maß,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Tordifferenz,f,goal difference,goal difference,compound_test,-enz,nz,unknown,2.81,4.0,False,,Differenz,tor,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Reißleine,f,ripcord,ripcord,compound_test,,ne,native,2.81,3.0,False,,Leine,reiß,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Nationalökonomie,f,study of the economics of nations,the study of the economics of nations,compound_test,,ie,native,2.8,4.0,False,,Ökonomie,national,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Panikattacke,f,panic attack,panic attack,compound_test,,ke,native,2.79,4.0,False,,Attacke,Panik,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Mandoline,f,mandolin,mandolin (stringed instrument),compound_test,,ne,loan,2.79,2.0,True,,Doline,man,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Eigeninteresse,n,self-interest,self-interest,compound_test,,se,native,2.79,3.0,False,,Interesse,Eigen,n,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Bombendrohung,f,bomb threat,"bomb threat, bomb scare",compound_test,-ung,ng,native,2.79,4.0,False,,Drohung,Bombe,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Gleichwertigkeit,f,equivalence,equivalence,compound_test,-keit,it,unknown,2.78,4.0,False,,Wertigkeit,gleich,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Luftfeuchte,f,humidity,humidity,compound_test,,te,unknown,2.77,4.0,False,,Feuchte,Luft,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Steilvorlage,f,through ball,"through ball, through pass (forward pass played between opposition defenders)",compound_test,,ge,native,2.77,4.0,False,,Vorlage,steil,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Grenzübertritt,m,act of crossing a border between two countries,the act of crossing a border between two countries,compound_test,,tt,native,2.77,5.0,False,,Übertritt,grenz,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Mundpropaganda,f,word of mouth,word of mouth,compound_test,,da,native,2.75,4.0,False,,Propaganda,mund,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Verformung,f,deformation,"deformation, distortion",compound_test,-ung,ng,unknown,2.74,3.0,False,,Formung,ver,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Zerstreuung,f,dispersal,"dispersal, scattering",compound_test,-ung,ng,unknown,2.74,5.0,False,,Streuung,zer,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Vergangenheitsbewältigung,f,coping with the past,coping with the past (especially with a problematic part of a nation's history),compound_test,-ung,ng,native,2.73,6.0,False,,Bewältigung,vergangenheits,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Bundesdurchschnitt,m,national average,national average,compound_test,,tt,native,2.73,5.0,False,,Durchschnitt,bundes,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Ahornsirup,m,maple syrup,maple syrup,compound_test,,up,unknown,2.71,4.0,False,,Sirup,Ahorn,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Arzttermin,m,doctor's appointment,"doctor's appointment, medical appointment",compound_test,,in,unknown,2.71,3.0,False,,Termin,Arzt,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Rückkopplung,f,feedback,feedback,compound_test,-ung,ng,native,2.71,4.0,False,,Kopplung,rück,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Nichtbeachtung,f,nonobservance,"nonobservance; disregard; intentional failure to follow a suggestion, rule, leader, etc",compound_test,-ung,ng,native,2.7,4.0,False,,Beachtung,nicht,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Brustvergrößerung,f,breast enlargement,breast enlargement,compound_test,-ung,ng,native,2.69,7.0,False,gloss,Vergrößerung,Brust,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Barhocker,m,bar stool,"bar stool (a tall stool-like seat usually having a foot rest, commonly placed in bars)",compound_test,,er,native,2.69,3.0,False,,Hocker,bar,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Kochsalzlösung,f,salt solution,"salt solution, saline solution",compound_test,-ung,ng,native,2.68,5.0,False,,Salzlösung,koch,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Konjunktion,f,conjunction,conjunction,compound_test,-ion,on,loan,2.68,4.0,False,,Junktion,kon,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Steuerbefreiung,f,tax exemption,tax exemption,compound_test,-ung,ng,unknown,2.68,5.0,False,,Befreiung,steuer,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Wohnsiedlung,f,small settlement,small settlement,compound_test,-ung,ng,native,2.68,4.0,False,,Siedlung,wohn,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Frontalzusammenstoß,m,head-on collision,head-on collision,compound_test,,oß,unknown,2.67,7.0,False,,Zusammenstoß,frontal,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Heißluftballon,m,hot-air balloon,hot-air balloon,compound_test,,on,native,2.67,6.0,False,,Luftballon,heiß,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Bergkristall,m,rock crystal,rock crystal,compound_test,,ll,native,2.66,4.0,False,,Kristall,Berg,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Warnhinweis,m,warning,"warning, warning message, warning sign",compound_test,,is,native,2.64,3.0,False,,Hinweis,warn,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Spracherwerb,m,language acquisition,language acquisition,compound_test,,rb,native,2.64,4.0,False,,Erwerb,sprach,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Neurochirurgie,f,neurosurgery,neurosurgery,compound_test,,ie,native,2.64,5.0,False,,Chirurgie,neuro,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Sicherheitsgurt,m,seat belt,"seat belt, safety belt",compound_test,,rt,native,2.63,4.0,False,,Gurt,sicherheits,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schlenker,m,swerve,"swerve (abrupt movement, especially of a vehicle)",compound_test,,er,unknown,2.61,3.0,False,,Lenker,sch,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Wahlmöglichkeit,f,option,"option, choice",compound_test,-keit,it,native,2.61,3.0,False,,Möglichkeit,Wahl,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Eingreiftruppe,f,intervention force,"intervention force, response force, deployment force, task force, emergency team",compound_test,,pe,unknown,2.6,6.0,False,,Truppe,eingreif,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Arbeitszeitverkürzung,f,reduction in working hours,reduction in working hours,compound_test,-ung,ng,native,2.58,5.0,False,,Verkürzung,Arbeitszeit,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schuldentilgung,f,settlement of debts,settlement of debts,compound_test,-ung,ng,unknown,2.58,6.0,False,,Tilgung,Schuld,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Traumland,n,dreamland,dreamland,compound_test,,nd,native,2.56,3.0,False,,Umland,tra,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Zapfenstreich,m,curfew,curfew,compound_test,,ch,native,2.56,4.0,False,,Streich,Zapfen,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Arbeitspensum,n,workload,workload,compound_test,,um,native,2.56,4.0,False,,Pensum,arbeits,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Erdwärme,f,geothermal heat,geothermal heat,compound_test,,me,native,2.55,4.0,False,,Wärme,erd,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Sonderpädagogik,f,special education,special education,compound_test,-ik,ik,native,2.54,6.0,False,,Pädagogik,sonder,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Mausefalle,f,mousetrap,mousetrap,compound_test,,le,native,2.54,4.0,False,,Falle,mause,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Luftabwehr,f,air defense,"air defense, air defence",compound_test,,hr,unknown,2.52,3.0,False,,Abwehr,Luft,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Leertaste,f,space bar,space bar,compound_test,,te,native,2.52,3.0,False,,Taste,leer,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Achillesferse,f,achilles heel,Achilles heel,compound_test,,se,native,2.52,3.0,False,,Ferse,achilles,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Zeiterfassung,f,time tracking,time tracking,compound_test,-ung,ng,native,2.52,5.0,False,,Erfassung,Zeit,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Forschungslabor,n,research laboratory,research laboratory,compound_test,,or,native,2.52,5.0,False,,Labor,forschungs,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Sparpaket,n,austerity package,austerity package (package of spending cuts),compound_test,,et,unknown,2.51,3.0,False,,Paket,spar,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Militäroperation,f,military operation,military operation,compound_test,-ion,on,native,2.5,4.0,True,,Operation,militär,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Blutplasma,n,blood plasma,blood plasma,compound_test,,ma,native,2.49,4.0,False,,Plasma,Blut,n,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Bundesfreiwilligendienst,m,german federal volunteers service,the German Federal Volunteers Service,compound_test,,st,native,2.49,7.0,False,,Freiwilligendienst,bundes,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Ehrenmitgliedschaft,f,honorary membership,honorary membership,compound_test,-schaft,ft,native,2.49,6.0,False,,Mitgliedschaft,Ehre,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Bolzenschneider,m,bolt cutter,bolt cutter,compound_test,,er,native,2.48,4.0,False,,Schneider,Bolzen,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Großrechner,m,mainframe,mainframe,compound_test,,er,native,2.48,3.0,False,,Rechner,groß,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Todeszeitpunkt,m,time of death,time of death,compound_test,,kt,native,2.48,4.0,False,,Zeitpunkt,Tod,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Produktionskapazität,f,production / manufacturing capacity,production / manufacturing capacity,compound_test,-tät,ät,native,2.48,5.0,False,,Kapazität,produktions,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Laktoseintoleranz,f,lactose intolerance,lactose intolerance,compound_test,-anz,nz,native,2.47,6.0,False,,Intoleranz,Laktose,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schramme,f,graze,graze; scratch,compound_test,,me,native,2.46,3.0,False,,Ramme,sch,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Zeitverzögerung,f,time lag,"time lag, delay",compound_test,-ung,ng,native,2.45,6.0,False,,Verzögerung,Zeit,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Fristverlängerung,f,extension,extension (time),compound_test,-ung,ng,native,2.45,6.0,False,,Verlängerung,Frist,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Perestroika,f,perestroika,perestroika (reform policy in the Soviet Union),compound_test,,ka,loan,2.44,3.0,True,,Troika,peres,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Handlungsstrang,m,plot line,"plot line, strand (of the plot)",compound_test,,ng,unknown,2.44,5.0,False,,Strang,handlungs,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schlafrock,m,any robe-like garment worn before dressing,"any robe-like garment worn before dressing, especially a dressing gown/bathrobe",compound_test,,ck,native,2.43,3.0,False,,Rock,Schlaf,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Zwischenablage,f,clipboard,clipboard,compound_test,,ge,native,2.43,4.0,False,,Ablage,zwischen,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Kurtaxe,f,tourist tax,tourist tax (tax imposed on overnight stays at certain vacation resorts),compound_test,,xe,unknown,2.43,2.0,False,,Taxe,Kur,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Sprachkompetenz,f,linguistic competence,linguistic competence,compound_test,-enz,nz,native,2.42,5.0,False,,Kompetenz,sprach,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Traumdeutung,f,interpretation of dreams,interpretation of dreams,compound_test,-ung,ng,native,2.42,5.0,False,,Umdeutung,tra,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Wirtschaftsforum,n,economic forum,economic forum,compound_test,,um,native,2.42,4.0,False,,Forum,wirtschafts,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Marschroute,f,route of marching,route of marching,compound_test,,te,unknown,2.42,3.0,False,,Route,marsch,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Autokino,n,drive-in theater,drive-in theater,compound_test,,no,native,2.4,2.0,False,,Kino,Auto,n,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Putzlappen,m,cloth,"cloth, floorcloth",compound_test,,en,native,2.39,3.0,False,,Lappen,Putz,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Nahrungsergänzung,f,nutritional supplementation,nutritional supplementation,compound_test,-ung,ng,native,2.38,6.0,False,,Ergänzung,nahrungs,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Gastkommentar,m,guest comment,guest comment,compound_test,,ar,native,2.37,4.0,False,,Kommentar,Gast,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Mindestanzahl,f,minimum amount,minimum amount,compound_test,,hl,unknown,2.37,4.0,False,,Anzahl,mindest,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schichtdicke,f,thickness,thickness (of a slice or layer),compound_test,,ke,native,2.36,4.0,False,,Dicke,Schicht,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Fischkutter,m,fishing boat,fishing boat,compound_test,,er,native,2.36,4.0,False,,Kutter,Fisch,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Regenguss,m,heavy shower,"heavy shower, downpour",compound_test,,ss,unknown,2.36,3.0,False,,Guss,Regen,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Suchanfrage,f,query,"query, search request",compound_test,,ge,unknown,2.36,3.0,False,,Anfrage,such,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Prüfungsvorbereitung,f,exam preparation,exam preparation,compound_test,-ung,ng,native,2.36,7.0,False,,Vorbereitung,prüfungs,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Verfestigung,f,stabilization,stabilization,compound_test,-ung,ng,native,2.35,3.0,False,,Festigung,ver,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Antimaterie,f,antimatter,antimatter,compound_test,,ie,unknown,2.34,4.0,False,,Materie,anti,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Weltraumforschung,f,space exploration,space exploration,compound_test,-ung,ng,unknown,2.34,6.0,False,,Raumforschung,Welt,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Datensparsamkeit,f,data economy,data economy,compound_test,-keit,it,native,2.31,5.0,False,,Sparsamkeit,daten,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Großrazzia,f,large police raid,a large police raid,compound_test,,ia,native,2.3,3.0,False,,Razzia,groß,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Dauerlösung,f,permanent solution,"permanent solution, durable solution",compound_test,-ung,ng,native,2.3,3.0,False,,Erlösung,dau,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Steuerparadies,n,tax haven,tax haven,compound_test,,es,unknown,2.3,4.0,False,,Paradies,steuer,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Vorjahresquartal,n,same quarter of the previous year,same quarter of the previous year,compound_test,,al,native,2.29,6.0,False,,Quartal,Vorjahr,n,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schnellkochtopf,m,pressure cooker,pressure cooker,compound_test,,pf,native,2.29,6.0,False,,Kochtopf,schnell,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Wasserrahmenrichtlinie,f,water framework directive,water framework directive,compound_test,,ie,unknown,2.28,7.0,False,,Richtlinie,wasserrahmen,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Altersdiskriminierung,f,ageism,ageism (the treating of a person or people differently from others based on assumptions or stereotypes relating to their age),compound_test,-ung,ng,native,2.28,6.0,False,,Diskriminierung,alters,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Böswilligkeit,f,malevolence,"malevolence, malice",compound_test,-keit,it,native,2.28,5.0,False,,Willigkeit,bös,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Namenszusatz,m,suffix,suffix (in a personal name),compound_test,,tz,native,2.28,5.0,False,,Zusatz,Name,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Rotlichtmilieu,n,social environment of prostitution and related persons,"Social environment of prostitution and related persons, such as prostitutes and pimps.",compound_test,,eu,native,2.24,4.0,False,,Milieu,Rotlicht,n,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Kirchturmuhr,f,church tower clock,church tower clock,compound_test,,hr,native,2.23,5.0,False,,Turmuhr,kirch,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Leistungsbeurteilung,f,performance appraisal,"performance appraisal, performance review, performance evaluation (a systematic and periodic process that assesses an individual employee's job performance and productivity)",compound_test,-ung,ng,native,2.23,7.0,False,,Beurteilung,leistungs,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Teleobjektiv,n,telephoto lens,telephoto lens,compound_test,,iv,native,2.22,4.0,False,,Objektiv,tele,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Neuauszählung,f,recount,recount (especially of votes),compound_test,-ung,ng,native,2.22,5.0,False,,Auszählung,neu,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Intimrasur,f,intimate shaving,intimate shaving,compound_test,-ur,ur,unknown,2.21,4.0,False,,Rasur,intim,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Realsozialismus,m,real socialism,real socialism,compound_test,-ismus,us,native,2.21,5.0,False,,Sozialismus,Real,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Handpuppe,f,hand puppet,hand puppet,compound_test,,pe,native,2.2,3.0,True,,Puppe,Hand,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Nießbrauch,m,usufruct,usufruct,compound_test,,ch,unknown,2.2,4.0,False,,Brauch,nieß,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Verkalkung,f,calcification,calcification,compound_test,-ung,ng,unknown,2.19,4.0,False,,Kalkung,ver,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Stabmixer,m,synonym of pürierstab,synonym of Pürierstab,compound_test,,er,native,2.19,4.0,False,,Mixer,Stab,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Exoskelett,n,exoskeleton,exoskeleton (hard outer structure),compound_test,,tt,native,2.19,4.0,False,,Skelett,exo,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Ökotourismus,m,ecotourism,ecotourism,compound_test,-ismus,us,native,2.19,6.0,False,,Tourismus,öko,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Entwaldung,f,deforestation,deforestation,compound_test,-ung,ng,native,2.17,3.0,False,,Waldung,ent,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Spürnase,f,nose,nose,compound_test,,se,native,2.17,3.0,False,,Nase,spür,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Freischwinger,m,cantilever chair,cantilever chair,compound_test,,er,native,2.16,4.0,False,,Schwinger,frei,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Arbeitseinstellung,f,walkout,walkout,compound_test,-ung,ng,native,2.16,4.0,False,,Einstellung,arbeits,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Notlüge,f,harmless or trivial lie,"a harmless or trivial lie, especially one told to avoid hurting someone's feelings; white lie",compound_test,,ge,unknown,2.14,3.0,False,,Lüge,Not,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Rockzipfel,m,apron string,apron string,compound_test,,el,native,2.14,3.0,False,,Zipfel,Rock,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Lachkrampf,m,laughing fit,laughing fit,compound_test,,pf,native,2.13,5.0,False,,Krampf,lach,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Toilettenspülung,f,toilet bowl,"toilet bowl, flush toilet, flushing toilet, water closet (receptacle designed to receive the dejections of humans)",compound_test,-ung,ng,native,2.13,7.0,False,,Spülung,Toilette,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Korrosionsbeständigkeit,f,corrosion resistance,corrosion resistance,compound_test,-keit,it,native,2.12,6.0,False,,Beständigkeit,korrosions,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Zurechtweisung,f,rebuke,"rebuke, reprimand",compound_test,-ung,ng,native,2.11,5.0,False,,Weisung,zurecht,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Zwischennutzung,f,meanwhile use,"meanwhile use; temporary, interim usage",compound_test,-ung,ng,native,2.09,5.0,False,,Nutzung,zwischen,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Apfelessig,m,cider vinegar,cider vinegar,compound_test,,ig,native,2.09,4.0,False,,Essig,Apfel,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Drehimpuls,m,angular momentum,angular momentum,compound_test,,ls,native,2.09,4.0,False,,Impuls,Dreh,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Wissenschaftsmagazin,n,science magazine,science magazine,compound_test,,in,native,2.09,6.0,False,,Magazin,wissenschafts,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Saisonbestleistung,f,season best,season best (personal best result for a certain season),compound_test,-ung,ng,unknown,2.09,5.0,False,,Bestleistung,Saison,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Militärflugplatz,m,military airfield,military airfield,compound_test,,tz,native,2.08,5.0,False,,Flugplatz,militär,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Regieanweisung,f,stage direction,stage direction (instruction given to an actor that tells the actor what should be done and in what manner to do it),compound_test,-ung,ng,native,2.08,5.0,False,,Anweisung,Regie,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Milchschokolade,f,milk chocolate,milk chocolate,compound_test,,de,native,2.08,6.0,False,,Schokolade,Milch,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Todeswunsch,m,death wish,"death wish, deathwish",compound_test,,ch,native,2.08,4.0,False,,Wunsch,Tod,m,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Verzögerungstaktik,f,delaying tactic,delaying tactic,compound_test,-ik,ik,native,2.07,8.0,False,,Taktik,verzögerungs,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Waffengattung,f,service branch,service branch,compound_test,-ung,ng,native,2.07,5.0,False,,Gattung,Waffe,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Lernbehinderung,f,learning disability,learning disability,compound_test,-ung,ng,unknown,2.06,5.0,False,,Behinderung,lern,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Planierraupe,f,bulldozer,bulldozer (tractor),compound_test,,pe,native,2.06,5.0,False,,Raupe,planier,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Nachttischlampe,f,bedside light,bedside light,compound_test,,pe,unknown,2.05,5.0,False,,Schlampe,nachtti,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Arbeitslosenunterstützung,f,dole,"dole, unemployment benefit",compound_test,-ung,ng,unknown,2.05,6.0,False,,Unterstützung,arbeitslosen,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Entschädigungssumme,f,compensation sum,compensation sum,compound_test,,me,native,2.04,7.0,False,,Summe,entschädigungs,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Schilddrüsenunterfunktion,f,hypothyroidism,hypothyroidism,compound_test,-ion,on,native,2.04,9.0,False,,Unterfunktion,Schilddrüse,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Sperrminorität,f,blocking minority,"blocking minority (a minority position, typically 25% plus one share, that is sufficient to prevent certain decisions from being made despite not having a majority)",compound_test,-tät,ät,native,2.04,4.0,False,,Minorität,sperr,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Grenzschließung,f,border closure,border closure,compound_test,-ung,ng,native,2.02,5.0,False,,Schließung,grenz,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Subspezies,f,subspecies,subspecies,compound_test,,es,native,2.01,4.0,True,,Spezies,sub,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Nebenhoden,m,epididymis,epididymis,compound_test,,en,native,2.01,3.0,False,,Hoden,neben,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Weltuntergangsstimmung,f,end-of-the-world mood,end-of-the-world mood,compound_test,-ung,ng,native,2.01,6.0,False,,Untergangsstimmung,Welt,f,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Hämodialyse,f,haemodialysis,haemodialysis,compound_test,,se,unknown,2.0,5.0,False,,Dialyse,hämo,,False,,,,wiktionary:kaikki@2026-10-03,test
+de,Hut,multi,,,multi,,,,,,False,,,,,,meaning_split,hat,"protection, supervision, guard, ward, keeping, care",wiktionary:kaikki@2026-10-03,test
+de,Kiefer,multi,,,multi,,,,,,False,,,,,,meaning_split,jaw,pine (tree of genus Pinus),wiktionary:kaikki@2026-10-03,test
+de,Marsch,multi,,,multi,,,,,,False,,,,,,meaning_split,march,"marsh, marshland, fen",wiktionary:kaikki@2026-10-03,test
+de,See,multi,,,multi,,,,,,False,,,,,,meaning_split,lake,"sea, ocean",wiktionary:kaikki@2026-10-03,test
+de,Abscheu,multi,,,multi,,,,,,False,,,,,,same_meaning,"abhorrence, abomination","abhorrence, abomination",wiktionary:kaikki@2026-10-03,test
+de,Sellerie,multi,,,multi,,,,,,False,,,,,,same_meaning,celery (herb),celery (herb),wiktionary:kaikki@2026-10-03,test
+de,Zucchini,multi,,,multi,,,,,,False,,,,,,same_meaning,"courgette, zucchini","courgette, zucchini",wiktionary:kaikki@2026-10-03,test

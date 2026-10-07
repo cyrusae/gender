@@ -29,7 +29,11 @@ inflected-form homograph, not more frequent in English):
   - no nominalised infinitives: das Essen is already out (also a verb); compounds ending in an
     infinitive (das Auswendiglernen, das Nichtstun) are caught by matching the end of the noun
     against every German verb in Wiktionary.
-  - a second animacy check by WordNet (person/organism), for person nouns the lexicon misses.
+  - a second animacy check by WordNet (person/animal, not plants; first two senses, since the
+    first can be the meat or fur: quail, sable) and by gloss ("person who", species names, "pack of"), and
+    a group check on the first sense (social/animal/military groups: das Heer).
+  - no -er agent/instrument nouns (Bohrer <- bohren): masculine by derivation and often
+    person-or-tool ambiguous.
   - particle + noun formations (Abwasser, Zuspiel, Unverständnis) count as compounds, and are then
     dropped as derivations (their gender comes from the embedded noun).
   - extra sex-typed garments (bodice, corset...) beyond the Phase 2 filter.
@@ -60,7 +64,7 @@ from .lexicon import _wordnet, dump_path, load_lexicon, source_tag
 from .phase0 import LANG_CONFIG
 from .phase2_stimuli import _clean, flags
 
-POOL = "data/stimuli/phase3_pool_v3.csv"
+POOL = "data/stimuli/phase3_pool_v4.csv"
 SEED = 0
 ZMIN = 2.0
 N_SUFFIX = 20
@@ -89,7 +93,19 @@ SEX_EXTRA = re.compile(
 )
 CHEM_ROOTS = ["chemical_element.n.01", "compound.n.02", "alloy.n.01"]
 # Second animacy check: the lexicon tag misses some person nouns (Individuum, Bajazzo).
-ANIMATE_ROOTS = ["person.n.01", "organism.n.01", "people.n.01"]
+# People and animals, not plants (organism.n.01 caught Kartoffel "potato", Zwiebel "onion").
+ANIMATE_ROOTS = ["person.n.01", "animal.n.01", "people.n.01"]
+# Groups of people or animals (das Heer "army", das Rudel "pack"): not inanimate for our purposes.
+GROUP_ROOTS = ["social_group.n.01", "animal_group.n.01", "military_unit.n.01"]
+# Gloss evidence of an animate or group referent (first WordNet senses can be the meat or fur:
+# "quail", "sable"; and compounds with an unlisted person head: Widerstandskämpfer).
+ANIMATE_GLOSS = re.compile(
+    r"\b(person who|someone who|one who|agent noun|species|genus|bird|mammal|insect|fish|"
+    r"pack of|pack \(of|herd|flock|swarm|troop|army|crowd)\b|\([A-Z][a-z]+ [a-z]+\)",
+)
+# PI review 2026-10-07: every one of these must be excluded by the rules above (asserted).
+PI_FLAGGED = {"Heer", "Rudel", "Wachtel", "Zobel", "Bohrer", "Kehrer", "Rasierer",
+              "Widerstandskämpfer"}  # fmt: skip
 # Linking elements, each allowed only after first parts of the genders that take it
 # (Sonne-n-schein: f in -e; Arbeit-s-platz / Hund-e-hütte / Kind-er-garten: m/n).
 LINKERS = {
@@ -161,8 +177,8 @@ def cell_ending(w: str) -> str:
     return w[-2:]
 
 
-def _under(concept: str, wn, roots) -> bool:
-    for syn in wn.synsets(str(concept).replace(" ", "_"), pos="n")[:1]:
+def _under(concept: str, wn, roots, senses: int = 1) -> bool:
+    for syn in wn.synsets(str(concept).replace(" ", "_"), pos="n")[:senses]:
         if roots & {h for path in syn.hypernym_paths() for h in path}:
             return True
     return False
@@ -217,6 +233,14 @@ def exclusions(df: pd.DataFrame, nouns: set[str], verbs: set[str]) -> pd.Series:
     wn = _wordnet()
     chem = {wn.synset(r) for r in CHEM_ROOTS}
     animate = {wn.synset(r) for r in ANIMATE_ROOTS}
+    group = {wn.synset(r) for r in GROUP_ROOTS}
+
+    def agent(w: str) -> bool:
+        # -er agent/instrument nouns (Bohrer <- bohren, Rasierer <- rasieren): masculine by
+        # derivation (a spelling cue inside the -er cell) and often person-or-tool ambiguous.
+        # Only stem + -en is tested, so nouns that verbs were made from (Leder -> ledern) stay.
+        w = w.lower()
+        return w.endswith("er") and w[:-2] + "en" in verbs
 
     def nominalised(w: str) -> bool:
         w = w.lower()
@@ -238,7 +262,9 @@ def exclusions(df: pd.DataFrame, nouns: set[str], verbs: set[str]) -> pd.Series:
                 ("compound", compound(w)), ("proper name", bool(PROPER.search(g))),
                 ("diminutive", bool(DIMINUTIVE.search(w))), ("Ge-", w.startswith("Ge")),
                 ("chemical", bool(CHEMICAL.search(g)) or _under(concept, wn, chem)),
-                ("animate (wordnet)", _under(concept, wn, animate)),
+                ("animate (wordnet)", _under(concept, wn, animate, senses=2)),
+                ("group (wordnet)", _under(concept, wn, group)),
+                ("animate (gloss)", bool(ANIMATE_GLOSS.search(g))), ("agent noun", agent(w)),
                 ("nominalised verb", nominalised(w)), ("phase 4-5 held out", w in held),
                 ("phase 0 shot", w in shots), ("sex-typed garment", bool(SEX_EXTRA.search(g))),
             ] if cond
@@ -302,6 +328,7 @@ def build() -> pd.DataFrame:
             "zipf", "n_tokens_qwen3", "en_overlap", "sex_assoc", "head", "first", "first_gender",
             "conflict", "type", "gloss_m", "gloss_f", "source"]  # fmt: skip
     pool = pool.reindex(columns=cols)
+    assert not set(pool.lemma) & PI_FLAGGED, set(pool.lemma) & PI_FLAGGED
     pool.to_csv(POOL, index=False)
     print(pool.groupby(["set", "gender"]).size().unstack(fill_value=0).to_string())
     s = _clean(pool[pool.set == "simplex"])
