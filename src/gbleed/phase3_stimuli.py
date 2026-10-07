@@ -126,6 +126,10 @@ BORROWED = {"bor", "bor+", "lbor", "obor", "slbor", "ubor"}
 INHERITED = {"inh", "inh+"}
 FORMATION = {"compound", "af", "affix", "suffix", "prefix", "confix"}
 GERMANIC = {"gmh", "goh", "gem-pro", "gmw-pro", "gml", "odt", "osx", "gem", "ine-pro", "de"}
+# Spanish: inherited/derived from Latin or Old Spanish counts as native (learned Latin borrowings
+# are tagged "bor" and count as loans).
+ROMANCE = {"osp", "roa-ops", "la-vul", "la", "la-lat", "la-med", "itc-pro", "ine-pro", "es"}
+NATIVE_SOURCES = {"de": GERMANIC, "es": ROMANCE}
 
 
 def german_verbs() -> set[str]:
@@ -139,14 +143,15 @@ def german_verbs() -> set[str]:
     return out
 
 
-def etymology(words: set[str]) -> dict[str, str]:
+def etymology(words: set[str], lang: str = "de") -> dict[str, str]:
     """lemma -> loan / native / unknown, from the first decisive etymology template."""
     out: dict[str, str] = {}
-    with open(dump_path("de"), encoding="utf-8") as f:
+    native = NATIVE_SOURCES[lang]
+    with open(dump_path(lang), encoding="utf-8") as f:
         for line in f:
             r = json.loads(line)
             w = r.get("word", "")
-            if r.get("lang_code") != "de" or r.get("pos") != "noun" or w not in words:
+            if r.get("lang_code") != lang or r.get("pos") != "noun" or w not in words:
                 continue
             if out.get(w, "unknown") != "unknown":
                 continue
@@ -160,7 +165,7 @@ def etymology(words: set[str]) -> dict[str, str]:
                     lab = "native"
                     break
                 if n in ("der", "der+") and lab == "unknown":
-                    lab = "native" if src in GERMANIC else "loan"
+                    lab = "native" if src in native else "loan"
                 if n in FORMATION and lab == "unknown":
                     lab = "native"
             out[w] = lab

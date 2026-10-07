@@ -41,9 +41,9 @@ from .models import (
 )
 from .phase1 import load_stimuli as load_phase1
 
-POOL = "data/stimuli/phase2_pool_v3.csv"
+POOL = "data/stimuli/phase2_pool_v4.csv"
 MULTI = "data/stimuli/phase2_multi_v2.csv"
-FINAL = "data/stimuli/phase2_final_v3.csv"
+FINAL = "data/stimuli/phase2_final_v4.csv"
 KNOWN_MODELS = ["Qwen/Qwen3-1.7B-Base", "Qwen/Qwen3-4B-Base"]  # 0.6B dropped (decisions.md)
 N_BOOT = 1000
 # Primary direction for confirmatory runs (decisions.md, 2026-10-06: single estimator for all
@@ -54,7 +54,8 @@ SEED = 0
 
 # ---- stimuli -------------------------------------------------------------------
 def finalize(known_root: str = "results/phase2_known") -> pd.DataFrame:
-    """Keep nouns known by every model in KNOWN_MODELS; freeze the regular train/test split."""
+    """Keep nouns known by every model in KNOWN_MODELS; draw the stratified and nested
+    equal-count training sets; freeze the regular train/test split."""
     pool = pd.read_csv(POOL, keep_default_na=False)
     known = None
     for m in KNOWN_MODELS:
@@ -63,15 +64,21 @@ def finalize(known_root: str = "results/phase2_known") -> pd.DataFrame:
         known = k if known is None else known & k
     df = pool[pool.lemma.isin(known)].copy()
     rng = np.random.default_rng(SEED)
-    # The known filter breaks the matched set's per-ending m/f balance: restore it.
-    keep = []
-    for _, g in df[df.set == "matched"].groupby("ending"):
-        k = min((g.gender == "m").sum(), (g.gender == "f").sum())
-        for _, gg in g.groupby("gender"):
-            keep += list(gg.sort_values("lemma").index[:k])
-    df = df[(df.set != "matched") | df.index.isin(keep)]
+    # Spelling-controlled training sets (v4): cells (cell_ending) with both genders. Every known
+    # noun in them is in the stratified set; a seeded shuffle picks equal m and f per cell for the
+    # nested equal-count set. set = "matched" (in both) or "strat" (stratified only).
+    st = df[df.set == "stratum"]
+    mixed = st.groupby("ending").gender.transform(lambda g: {"m", "f"} <= set(g))
+    keep_matched = []
+    for _, g in st[mixed].groupby("ending"):
+        by = {x: g[g.gender == x].sample(frac=1, random_state=SEED) for x in ("m", "f")}
+        k = min(len(v) for v in by.values())
+        keep_matched += [i for v in by.values() for i in v.index[:k]]
+    df = df[(df.set != "stratum") | df.index.isin(st[mixed].index)]
+    df.loc[df.set == "stratum", "set"] = "strat"
+    df.loc[keep_matched, "set"] = "matched"
     df["split"] = "test"
-    df.loc[df.set == "matched", "split"] = "train"
+    df.loc[df.set.isin(["matched", "strat"]), "split"] = "train"
     for g in ("m", "f"):
         idx = df.index[(df.set == "regular") & (df.gender == g)].to_numpy().copy()
         rng.shuffle(idx)

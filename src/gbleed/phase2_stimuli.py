@@ -1,9 +1,11 @@
 """Phase 2 stimulus pools (Spanish). Every noun here goes through the Phase 0 "known" check
 (all three Qwen sizes) before final sampling; see sample_phase2().
 
-  matched      TRAIN (main): nouns whose ending carries no gender information by construction:
-               no -o/-a/-á/-ó, no gender-predicting suffix, and equal numbers of m and f for each
-               final two letters (la llave / el puente, la luz / el lápiz, la crisis / el análisis).
+  stratum      TRAIN candidates (v4): every clean noun with no -o/-a/-á/-ó and no gender-predicting
+               suffix; cells = final two letters, or -ete/-ote/-men (cell_ending). phase2.finalize
+               draws the stratified primary set ("strat": every known noun in cells with both
+               genders, compared within cells) and the nested equal-count set ("matched": equal m
+               and f per cell, la llave / el puente) after the known filter.
   regular      TRAIN (comparison) and TEST: regular -o masculine / -a feminine nouns.
   exception    TEST ONLY: ending points to the wrong gender (el problema, la foto, el día, la mano).
   homograph    TEST ONLY: noun that is also a verb form, read in a noun frame ("mi camino") and a
@@ -22,7 +24,7 @@ import pandas as pd
 
 from .lexicon import dump_path, eligible, load_lexicon, source_tag
 
-OUT = "data/stimuli/phase2_pool_v3.csv"
+OUT = "data/stimuli/phase2_pool_v4.csv"
 # Pro-drop adverb frame, identical for 1sg and 3sg: licenses a finite verb, not a bare noun, and
 # isn't an English word (unlike "no").
 VERB_FRAME = "siempre {w}"
@@ -102,20 +104,57 @@ def verb_forms() -> tuple[dict, dict]:
     return first, third
 
 
+# Masculine-by-rule derivational suffixes hiding inside two-letter cells (billete, camarote,
+# examen): each gets its own cell, as German -nis/-sel do (phase3_stimuli.MIXED_SUFFIXES).
+ES_SUFFIX_CELLS = ["ete", "ote", "men"]
+
+
+def cell_ending(w: str) -> str:
+    for suf in ES_SUFFIX_CELLS:
+        if w.endswith(suf) and len(w) >= len(suf) + 2:
+            return "-" + suf
+    return w[-2:]
+
+
+def semantic_exclusions(df: pd.DataFrame) -> pd.Series:
+    """The Phase 3 (German) semantic filters, for automatically built sets: second animacy check
+    (WordNet person/animal, two senses; gloss evidence), groups, chemicals (all masculine in
+    Spanish: el sodio), place-name glosses, sex-typed garments. '' = kept."""
+    from . import phase3_stimuli as p3
+    from .lexicon import _wordnet
+
+    wn = _wordnet()
+    roots = {k: {wn.synset(r) for r in v} for k, v in
+             (("animate", p3.ANIMATE_ROOTS), ("group", p3.GROUP_ROOTS), ("chem", p3.CHEM_ROOTS))}  # fmt: skip
+    gloss = df.gloss.astype(str) + " " + df.concept_en.astype(str)
+    out = []
+    for g, c in zip(gloss, df.concept_en, strict=True):
+        why = [r for r, cond in [
+            ("animate (wordnet)", p3._under(c, wn, roots["animate"], senses=2)),
+            ("group (wordnet)", p3._under(c, wn, roots["group"])),
+            ("animate (gloss)", bool(p3.ANIMATE_GLOSS.search(g))),
+            ("chemical", bool(p3.CHEMICAL.search(g)) or p3._under(c, wn, roots["chem"])),
+            ("proper name", bool(p3.PROPER.search(g))),
+            ("sex-typed garment", bool(p3.SEX_EXTRA.search(g))),
+        ] if cond]  # fmt: skip
+        out.append("; ".join(why))
+    return pd.Series(out, index=df.index)
+
+
+def _semantic(df: pd.DataFrame) -> pd.DataFrame:
+    return df[semantic_exclusions(df) == ""]
+
+
 def matched(el: pd.DataFrame, zmin: float = 2.0) -> pd.DataFrame:
-    n = _clean(flags(el[(el.zipf >= zmin) & ~el.lemma.str.contains(PREDICTIVE)]))
-    n["ending"] = n.lemma.str[-2:]
-    parts = []
-    for _, g in n.groupby("ending"):
-        k = min((g.gender == "m").sum(), (g.gender == "f").sum())
-        if k:
-            for _, gg in g.groupby("gender"):
-                parts.append(gg.sample(k, random_state=SEED))
-    return pd.concat(parts).assign(set="matched")
+    """All candidates for the spelling-controlled training sets (no sampling here): the final
+    stratified and equal-count sets are drawn in phase2.finalize after the known filter."""
+    n = _semantic(_clean(flags(el[(el.zipf >= zmin) & ~el.lemma.str.contains(PREDICTIVE)])))
+    n["ending"] = n.lemma.map(cell_ending)
+    return n.assign(set="stratum")
 
 
 def regular(el: pd.DataFrame, n_per: int = 150, zmin: float = 3.0) -> pd.DataFrame:
-    r = _clean(flags(el[(el.es_regular == "yes") & (el.zipf >= zmin)]))
+    r = _semantic(_clean(flags(el[(el.es_regular == "yes") & (el.zipf >= zmin)])))
     return pd.concat(
         g.sample(min(n_per, len(g)), random_state=SEED) for _, g in r.groupby("gender")
     ).assign(set="regular")
@@ -173,6 +212,7 @@ def homographs(lex: pd.DataFrame, n_per: int = 40, zmin: float = 3.0) -> pd.Data
     f = f.assign(verb=f.lemma.map(third), verb_frame=VERB_FRAME)
     both = pd.concat([m, f])
     both = both[[zipf_frequency(v, "es") >= 3.0 for v in both.verb]]  # verb reading must be common
+    both = _semantic(both)
     return pd.concat(
         g.sample(min(n_per, len(g)), random_state=SEED) for _, g in both.groupby("gender")
     ).assign(set="homograph")
@@ -194,8 +234,12 @@ def build() -> pd.DataFrame:
     ex, dropped = exceptions(lex)
     parts = [matched(el), regular(el), ex, homographs(lex)]
     keep = ["lemma", "gender", "concept_en", "gloss", "zipf", "set", "verb", "verb_frame", "ending",
-            "override"]  # fmt: skip
+            "loan", "override"]  # fmt: skip
+    from .phase3_stimuli import etymology
+
     pool = pd.concat([p.reindex(columns=keep) for p in parts])
+    ety = etymology(set(pool.lemma), "es")
+    pool["loan"] = pool.lemma.map(ety).fillna("unknown")
     pool = pool.drop_duplicates("lemma", keep="last")  # a test-set membership wins over training
     # Flags on every set (training sets were already filtered on them; test sets keep flagged
     # items so each test can be run with and without them).
