@@ -162,6 +162,15 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
 
 ## Linguistics and data
 
+- **Gold labels / gold standard** (standard NLP/ML term). The reference answers everything is
+  scored against; here, genders from Wiktionary. Contrast **predicted** labels (a system's output)
+  and **silver** labels (produced automatically or semi-automatically, trusted less). Labels from an
+  LLM are silver at best, so they never count as gold in this project. For a general audience:
+  "reference labels".
+- **Pro-drop.** Languages (Spanish, not German or English) that can leave out the subject pronoun:
+  *siempre camino* "(I) always walk". Used for the Phase 2 verb frame, so masculine and feminine
+  homographs get identical context.
+
 - **Grammatical gender.** Noun classes marked by agreement (articles, adjectives). Arbitrary for
   inanimate nouns: *die Brücke* (f) / *el puente* (m).
 - **Social gender.** Gender as attributed to people (*he/she, king/queen*).

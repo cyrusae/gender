@@ -35,7 +35,7 @@ sex-associated nouns are excluded from training.
 | test | items | a gender direction… | a spelling detector… |
 |---|---|---|---|
 | **primary: masculine -a exceptions** | *el problema*, *el sistema*, *el día*, *el mapa*… (26) | separates them from regular *feminine -a* nouns (**A_f** high) but not from regular masculine -o nouns (**A_m** ≈ 0.5) | the reverse (A_m high, A_f ≈ 0.5) |
-| homographs | the same string as noun (*mi camino*) vs verb (*yo camino*, *usted cuenta*) | sorts m/f homographs in the noun frame better than in the verb frame | sorts both frames equally |
+| homographs | the same string as noun (*mi camino*) vs verb (*siempre camino*, *siempre cuenta*; v2 used *yo*/*usted*, see below) | sorts m/f homographs in the noun frame better than in the verb frame | sorts both frames equally |
 | *mar*-type | *el mar* vs *la mar* (article present) | scores *la mar* as more feminine | nothing |
 | feminine -o exceptions | *la mano*, *la foto*, *la moto* (only 3) | feminine-like | masculine-like |
 
@@ -75,8 +75,8 @@ is underpowered.
   of 1.7B.** Masculine -a exceptions score clearly below regular feminine -a nouns (A_f ≈ 0.95), and
   are not reliably separable from regular masculine -o nouns (A_m ≈ 0.55).
 - On **homographs**, that erased direction sorts m/f nouns better in the noun frame than in the verb
-  frame in **26 of 35 layers of 4B** (noun AUC 0.88 vs verb 0.71): gender beyond spelling. In 1.7B,
-  only 2 of 27 layers.
+  frame in **25 of 35 layers of 4B** (noun AUC 0.88 vs verb 0.71): gender beyond spelling. In 1.7B,
+  13 of 27 layers. (Numbers from the corrected v3 verb frame; the v2 frame gave 26 and 2.)
 - Both hold when English-overlapping exceptions are dropped, and within the more-abstract and
   more-concrete halves (concreteness is not the explanation).
 - ***mar*-type**: the direction reads the article (*la mar* above *el mar*) in roughly half to all
@@ -110,7 +110,7 @@ refit there too (`results/phase2_after/`).
 | probe, ending-matched (primary) | 16N 11G → 27N | 20N 13G 2S → 35N |
 | regular, raw | 27M → 23N 3G 1S | 35M → 27N 5G 3S |
 | regular, rank-2 erased | 23G 4M → **22G** 5N | 35G → **6G** 29N |
-| homographs: gender beyond spelling | 2 → 0 layers | 26 → 0 layers |
+| homographs: gender beyond spelling (v3 frame) | 13 → 0 layers | 25 → 2 layers |
 
 - **Spelling is much weaker at AFTER**: the raw regular direction stops separating masculine -a
   exceptions from -o nouns (A_m 0.98 → 0.55 in 1.7B, 0.91 → 0.51 in 4B). That fits the readout
@@ -123,8 +123,16 @@ refit there too (`results/phase2_after/`).
 ending: every masculine (-o) homograph gets *yo* (*yo camino*), every feminine (-a) one gets
 *usted* (*usted cuenta*). So the verb-frame score can sort by gender just by reading the pronoun.
 At LAST this makes the noun > verb test conservative (harder to pass); at AFTER, which reads the
-whole phrase, it probably explains why the verb frame sorts *better* than the noun frame. A
-pronoun-free verb frame should be chosen before the 8B/14B runs.
+whole phrase, it probably explains why the verb frame sorts *better* than the noun frame.
+
+**Fixed (stimuli v3).** Every homograph now uses the same verb frame, *siempre* ___ ("always ___";
+Spanish drops subject pronouns, so the context is identical for *camino* "I walk" and *cuenta* "it
+counts"). A pre-registered behavioural check confirmed the frame selects the verb reading on two
+model families: after *siempre* (vs after *mi* "my"), homographs gain 1.4–2.9 nats more than regular
+nouns with no verb reading, in Qwen3-1.7B, Qwen3-4B and EuroLLM-1.7B, for both -o (1sg) and -a
+(3sg) words (all six 95% intervals above zero). Rerun at both positions: every other number
+reproduced exactly; at AFTER the verb frame no longer beats the noun frame (so the pronoun was the
+cause), and at LAST the homograph result holds (4B 25 of 35 layers, 1.7B up from 2 to 13).
 
 **For a write-up**: "the erased-direction result is robust to readout position in 1.7B, not in
 4B; spelling information is concentrated at the word's own last token."
@@ -143,5 +151,4 @@ pronoun-free verb frame should be chosen before the 8B/14B runs.
 - **More ending-matched training data**, so the primary instrument has power. (German, Phase 3,
   should help: spelling predicts gender much less there.)
 - **More feminine -o exceptions**, if any exist, or a different test of the feminine side.
-- **Pronoun-free verb frames** for homographs (see the robustness section).
 - The larger Qwen3 sizes on RunPod.
