@@ -1,6 +1,6 @@
 {
   "meta": {
-    "git_commit": "6b328868733bd5a7c7a8477389df66dc66437b21",
+    "git_commit": "6d92ec6f4c1e93afcd4611da49d7c092e0637af9",
     "git_dirty": false,
     "model_id": "Qwen/Qwen3-4B-Base",
     "model_revision": null,
@@ -11,29 +11,30 @@
     "torch": "2.14.1",
     "transformers": "5.18.0",
     "machine": "Darwin arm64 arm",
-    "stimuli": "data/stimuli/phase2_pool_v2.csv",
-    "timestamp": "2026-10-06T17:48:04+00:00"
+    "gpu": "Apple MPS",
+    "stimuli": "data/stimuli/phase2_pool_v4.csv",
+    "timestamp": "2026-10-07T23:11:26+00:00"
   },
   "results": {
     "min_margin": 1.0,
     "es": {
-      "n": 518,
-      "known_bal": 0.9164311878597593,
-      "ctx_bal_acc": 0.9781789638932497,
-      "meta_bal_acc": 0.9657247514390372,
-      "n_m": 273,
-      "n_f": 245,
-      "known_m": 0.9267399267399268,
-      "known_f": 0.9061224489795918,
-      "rate_known": 0.916988416988417,
-      "rate_wrong": 0.015444015444015444,
-      "rate_conflict": 0.003861003861003861,
-      "rate_unsure": 0.0637065637065637,
-      "frames_agree": 0.972972972972973,
-      "quiz_agrees_with_ctx": 0.9575289575289575,
-      "meta_order_agree": 0.9652509652509652,
-      "mean_meta_mass": 0.9606735889642977,
-      "frac_multitoken": 0.916988416988417
+      "n": 1013,
+      "known_bal": 0.8758250916155239,
+      "ctx_bal_acc": 0.9672226146849751,
+      "meta_bal_acc": 0.9606301602719767,
+      "n_m": 781,
+      "n_f": 232,
+      "known_m": 0.8335467349551856,
+      "known_f": 0.9181034482758621,
+      "rate_known": 0.8529121421520237,
+      "rate_wrong": 0.023692003948667325,
+      "rate_conflict": 0.012833168805528134,
+      "rate_unsure": 0.11056268509378085,
+      "frames_agree": 0.9496544916090819,
+      "quiz_agrees_with_ctx": 0.945705824284304,
+      "meta_order_agree": 0.9634748272458046,
+      "mean_meta_mass": 0.9572391766095133,
+      "frac_multitoken": 0.9338598223099703
     },
     "flipped_pairs": {
       "n": 0,
@@ -60,22 +61,22 @@
           "meta_bal_acc": 1.0
         },
         "homograph": {
-          "n": 80,
-          "known_bal": 0.975,
+          "n": 76,
+          "known_bal": 0.9736842105263157,
           "ctx_bal_acc": 1.0,
-          "meta_bal_acc": 0.9375
-        },
-        "matched": {
-          "n": 104,
-          "known_bal": 0.75,
-          "ctx_bal_acc": 0.9230769230769231,
-          "meta_bal_acc": 0.9134615384615385
+          "meta_bal_acc": 0.9342105263157895
         },
         "regular": {
-          "n": 300,
-          "known_bal": 0.9566666666666667,
-          "ctx_bal_acc": 0.99,
-          "meta_bal_acc": 0.99
+          "n": 271,
+          "known_bal": 0.9669826740764955,
+          "ctx_bal_acc": 0.9963768115942029,
+          "meta_bal_acc": 0.9891304347826086
+        },
+        "stratum": {
+          "n": 632,
+          "known_bal": 0.7882816827972757,
+          "ctx_bal_acc": 0.9260598950695734,
+          "meta_bal_acc": 0.9244631277088018
         }
       }
     }

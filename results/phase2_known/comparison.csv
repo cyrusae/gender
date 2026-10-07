@@ -1,4 +1,4 @@
 model,params_B,device,dtype,lang,n,known_bal,known_m,known_f,wrong,unsure,conflict,ctx_bal_acc,quiz_bal_acc,flipped_ok
-Qwen/Qwen3-4B-Base,4.02,mps,float16,es,518,0.916,0.927,0.906,0.015,0.064,0.004,0.978,0.966,0/0
-Qwen/Qwen3-1.7B-Base,1.72,mps,float16,es,518,0.88,0.883,0.878,0.021,0.087,0.012,0.975,0.966,0/0
+Qwen/Qwen3-4B-Base,4.02,mps,float16,es,1013,0.876,0.834,0.918,0.024,0.111,0.013,0.967,0.961,0/0
 Qwen/Qwen3-0.6B-Base,0.6,mps,float16,es,518,0.836,0.872,0.8,0.023,0.129,0.01,0.96,0.916,0/0
+Qwen/Qwen3-1.7B-Base,1.72,mps,float16,es,1013,0.82,0.757,0.884,0.028,0.166,0.021,0.957,0.962,0/0
