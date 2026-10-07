@@ -44,6 +44,7 @@ from .phase1 import load_stimuli as load_phase1
 POOL = "data/stimuli/phase2_pool_v4.csv"
 MULTI = "data/stimuli/phase2_multi_v2.csv"
 FINAL = "data/stimuli/phase2_final_v4.csv"
+PREV_FINAL = "data/stimuli/phase2_final_v3.csv"  # regular split carried over from here
 KNOWN_MODELS = ["Qwen/Qwen3-1.7B-Base", "Qwen/Qwen3-4B-Base"]  # 0.6B dropped (decisions.md)
 N_BOOT = 1000
 # Primary direction for confirmatory runs (decisions.md, 2026-10-06: single estimator for all
@@ -79,10 +80,20 @@ def finalize(known_root: str = "results/phase2_known") -> pd.DataFrame:
     df.loc[keep_matched, "set"] = "matched"
     df["split"] = "test"
     df.loc[df.set.isin(["matched", "strat"]), "split"] = "train"
-    for g in ("m", "f"):
-        idx = df.index[(df.set == "regular") & (df.gender == g)].to_numpy().copy()
-        rng.shuffle(idx)
-        df.loc[idx[: round(len(idx) * 2 / 3)], "split"] = "train"
+    # Regular nouns keep their v3 train/test split (carried over, never redrawn); a fresh split
+    # is drawn only if no previous final list exists.
+    prev = Path(PREV_FINAL)
+    if prev.exists():
+        old = pd.read_csv(prev, keep_default_na=False)
+        old = old[old.set == "regular"].set_index("lemma").split
+        reg = df.set == "regular"
+        df.loc[reg, "split"] = df.loc[reg, "lemma"].map(old)
+        assert df.loc[reg, "split"].notna().all(), "regular noun without a previous split"
+    else:
+        for g in ("m", "f"):
+            idx = df.index[(df.set == "regular") & (df.gender == g)].to_numpy().copy()
+            rng.shuffle(idx)
+            df.loc[idx[: round(len(idx) * 2 / 3)], "split"] = "train"
     df.to_csv(FINAL, index=False)
     print(df.groupby(["set", "split", "gender"]).size().unstack(fill_value=0).to_string())
     print(f"dropped as not known by all models: {len(pool) - len(df)} of {len(pool)}")

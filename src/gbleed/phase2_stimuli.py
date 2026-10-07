@@ -25,6 +25,7 @@ import pandas as pd
 from .lexicon import dump_path, eligible, load_lexicon, source_tag
 
 OUT = "data/stimuli/phase2_pool_v4.csv"
+PREV = "data/stimuli/phase2_pool_v3.csv"  # regular + homograph sets carried over from here
 # Pro-drop adverb frame, identical for 1sg and 3sg: licenses a finite verb, not a bare noun, and
 # isn't an English word (unlike "no").
 VERB_FRAME = "siempre {w}"
@@ -232,7 +233,18 @@ def build() -> pd.DataFrame:
     lex = lex[~lex.lemma.isin(shots)]
     el = eligible(lex)
     ex, dropped = exceptions(lex)
-    parts = [matched(el), regular(el), ex, homographs(lex)]
+    # Test and comparison sets are carried over from the previous version minus whatever the new
+    # filters flag, never redrawn, so old and new results differ only by known removals and can be
+    # compared on shared items (v3 -> v4: side-agent catch).
+    prev = pd.read_csv(PREV, keep_default_na=False)
+    lx = el.set_index("lemma")
+    carried = []
+    for name in ("regular", "homograph"):
+        old = prev[prev.set == name]
+        cur = old.drop(columns=[c for c in ("en_overlap", "sex_assoc") if c in old]).copy()
+        cur["concept_en"] = cur.concept_en.where(cur.concept_en != "", cur.lemma.map(lx.concept_en))
+        carried.append(_semantic(cur))
+    parts = [matched(el), *carried, ex]
     keep = ["lemma", "gender", "concept_en", "gloss", "zipf", "set", "verb", "verb_frame", "ending",
             "loan", "override"]  # fmt: skip
     from .phase3_stimuli import etymology
