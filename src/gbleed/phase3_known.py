@@ -38,7 +38,9 @@ FINAL = "data/stimuli/phase3_final_v1.csv"
 
 def _items() -> pd.DataFrame:
     p = pd.read_csv(POOL, keep_default_na=False)
-    return p[p.gender.isin(GENDERS)].reset_index(drop=True)
+    p = p[p.gender.isin(GENDERS)].reset_index(drop=True)
+    p["zipf"] = pd.to_numeric(p.zipf)  # the multi rows (dropped here) leave the column as text
+    return p
 
 
 def score(model_id: str, device=None, dtype=None, out_root: str = "results/phase3_known"):
