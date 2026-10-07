@@ -24,7 +24,8 @@ import pandas as pd
 
 from .models import load_model, model_slug, pick_device, pick_dtype, run_metadata, stage
 from .phase0 import DEFAULT_MIN_MARGIN
-from .phase3_stimuli import POOL
+from .phase2_stimuli import _clean
+from .phase3_stimuli import POOL, SEED
 from .scoring import continuation_logprobs_batch
 
 FRAMES = [
@@ -99,3 +100,55 @@ def frame_check(model_ids: list[str], out_root: str = "results/phase3_known") ->
         cells += [(m, g, v) for g, v in s["known_by_gender_zipf4"].items()]
     bad = [c for c in cells if c[2] < 0.7]
     return "PASS" if not bad else "FAIL: " + ", ".join(f"{m} {g} {v:.2f}" for m, g, v in bad)
+
+
+def _match(df: pd.DataFrame, genders, keys, name: str, nested: dict | None = None) -> pd.DataFrame:
+    """Per cell of `keys`, the same number of nouns of each gender (seeded shuffle, so a smaller
+    set built from the same shuffle is a prefix of a larger one)."""
+    out = []
+    for _, g in df.groupby(keys):
+        by = {x: g[g.gender == x].sample(frac=1, random_state=SEED) for x in genders}
+        k = min(len(v) for v in by.values())
+        out += [v.iloc[:k] for v in by.values()]
+    return pd.concat(out).assign(set=name) if out else df.iloc[:0].assign(set=name)
+
+
+def finalize(known_root: str = "results/phase3_known") -> pd.DataFrame:
+    """Keep nouns known by every KNOWN_MODELS model; sample the training sets; freeze splits.
+
+    matched3      per ending x loan status: equal m, f, n (primary)
+    matched3_end  per ending only: equal m, f, n (secondary; loan status as a covariate)
+    matched2      per ending x loan status: equal m, f; the same seeded shuffle as matched3, so it
+                  contains matched3's m/f nouns
+    compound_train  compounds (heads disjoint from compound_test), no gender-predicting suffix,
+                  matched per head ending x loan status: equal m, f, n
+    Test sets: suffix, multi, compound_test (known nouns only; multi has no single gender).
+    """
+    pool = pd.read_csv(POOL, keep_default_na=False)
+    pool["en_overlap"] = pool.en_overlap.astype(str).eq("True")
+    known = None
+    for m in KNOWN_MODELS:
+        s = pd.read_csv(Path(known_root) / model_slug(m) / "scores.csv", keep_default_na=False)
+        k = set(s[s.status == "known"].lemma)
+        known = k if known is None else known & k
+    ok = pool.lemma.isin(known)
+    simplex = _clean(pool[(pool.set == "simplex") & ok])
+    comp = _clean(pool[(pool.set == "compound_train") & ok & (pool.de_suffix == "")])
+    train = [
+        _match(simplex, GENDERS, ["ending", "loan"], "matched3"),
+        _match(simplex, GENDERS, ["ending"], "matched3_end"),
+        _match(simplex, ("m", "f"), ["ending", "loan"], "matched2"),
+        _match(comp, GENDERS, ["ending", "loan"], "compound_train"),
+    ]
+    test = pool[pool.set.isin(["suffix", "compound_test"]) & ok]
+    test = pd.concat([test, pool[pool.set == "multi"]])
+    df = pd.concat([*train, test], ignore_index=True)
+    df["split"] = np.where(df.set.isin(["suffix", "compound_test", "multi"]), "test", "train")
+    tr, te = set(df[df.split == "train"].lemma), set(df[df.split == "test"].lemma)
+    assert not tr & te, tr & te
+    heads_tr = set(df[df.set == "compound_train"]["head"])
+    heads_te = set(df[df.set == "compound_test"]["head"])
+    assert not heads_tr & heads_te
+    df.to_csv(FINAL, index=False)
+    print(df.groupby(["set", "gender"]).size().unstack(fill_value=0).to_string())
+    return df

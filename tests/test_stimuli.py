@@ -116,3 +116,15 @@ def test_phase3_pool_excludes_held_out_and_morphological_neuters():
     assert not set(w) & held_out_phase45()
     assert not w.str.contains(r"(?:chen|lein)$").any()
     assert not w.str.startswith("Ge").any()
+
+
+def test_split_compound_head_first_part_and_linkers():
+    from gbleed.phase3_stimuli import split_compound
+
+    g = {w.lower(): (w, x) for w, x in [("Haus", "n"), ("Herr", "m"), ("Bett", "n"), ("Lei", "f"),
+         ("Weisung", "f"), ("Sonne", "f"), ("Schein", "m"), ("Date", "n"), ("Schutz", "m")]}  # fmt: skip
+    assert split_compound("Herrenhaus", g) == ("Haus", "n", "Herr", "m")  # -en- after m: ok
+    assert split_compound("Sonnenschein", g) == ("Schein", "m", "Sonne", "f")  # -n- after f in -e
+    assert split_compound("Bettelei", g) is None  # heads need >= 4 letters
+    assert split_compound("Ausweisung", g) is None  # particle prefix: a derivation
+    assert split_compound("Datenschutz", g)[3] == ""  # -n- after neuter: first part unresolved

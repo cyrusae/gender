@@ -61,6 +61,7 @@ def main() -> None:
     p3k.add_argument("models", nargs="+")
     p3k.add_argument("--device", default=None)
     p3k.add_argument("--dtype", default=None)
+    sub.add_parser("phase3-finalize", help="Keep Phase 3 nouns known by 1.7B and 4B; freeze splits")
     sub.add_parser("phase2-stimuli", help="Build Phase 2 pools (data/stimuli/phase2_pool_v3.csv)")
     sub.add_parser("phase1-stimuli", help="Build Phase 1 verb / nonce / noun lists (v1)")
     p1 = sub.add_parser("phase1", help="Extract activations and fit/validate the spelling eraser")
@@ -129,6 +130,11 @@ def main() -> None:
             phase3_known.score(m, a.device, a.dtype)
             _free_memory()
         print("frame check:", phase3_known.frame_check(a.models))
+        return
+    if a.cmd == "phase3-finalize":
+        from .phase3_known import finalize
+
+        finalize()
         return
     if a.cmd == "phase2-stimuli":
         from .phase2_stimuli import build
