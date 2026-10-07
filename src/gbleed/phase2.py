@@ -41,9 +41,9 @@ from .models import (
 )
 from .phase1 import load_stimuli as load_phase1
 
-POOL = "data/stimuli/phase2_pool_v2.csv"
+POOL = "data/stimuli/phase2_pool_v3.csv"
 MULTI = "data/stimuli/phase2_multi_v2.csv"
-FINAL = "data/stimuli/phase2_final_v2.csv"
+FINAL = "data/stimuli/phase2_final_v3.csv"
 KNOWN_MODELS = ["Qwen/Qwen3-1.7B-Base", "Qwen/Qwen3-4B-Base"]  # 0.6B dropped (decisions.md)
 N_BOOT = 1000
 # Primary direction for confirmatory runs (decisions.md, 2026-10-06: single estimator for all

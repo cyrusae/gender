@@ -52,7 +52,7 @@ def main() -> None:
                     help="GPU sessions: save activations, skip the CPU analysis")  # fmt: skip
     p2.add_argument("--position", choices=["last", "after"], default="last",
                     help="readout position; 'after' is the pre-registered robustness check")  # fmt: skip
-    sub.add_parser("phase2-stimuli", help="Build Phase 2 pools (data/stimuli/phase2_pool_v2.csv)")
+    sub.add_parser("phase2-stimuli", help="Build Phase 2 pools (data/stimuli/phase2_pool_v3.csv)")
     sub.add_parser("phase1-stimuli", help="Build Phase 1 verb / nonce / noun lists (v1)")
     p1 = sub.add_parser("phase1", help="Extract activations and fit/validate the spelling eraser")
     p1.add_argument("models", nargs="+")

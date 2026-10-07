@@ -7,8 +7,9 @@
   regular      TRAIN (comparison) and TEST: regular -o masculine / -a feminine nouns.
   exception    TEST ONLY: ending points to the wrong gender (el problema, la foto, el día, la mano).
   homograph    TEST ONLY: noun that is also a verb form, read in a noun frame ("mi camino") and a
-               verb frame ("yo camino" for 1sg -o, "usted cuenta" for 3sg -a; usted, not él, so the
-               subject carries no gender).
+               verb frame ("siempre camino" 1sg, "siempre cuenta" 3sg): the same pronoun-free frame for
+               every item (v2 used yo/usted, which the verb ending forced, so the pronoun gave away
+               the gender; see decisions.md).
   multi        TEST ONLY: Spanish same-spelling two-gender items (multi_gender_spec.csv).
 """
 
@@ -21,7 +22,10 @@ import pandas as pd
 
 from .lexicon import dump_path, eligible, load_lexicon, source_tag
 
-OUT = "data/stimuli/phase2_pool_v2.csv"
+OUT = "data/stimuli/phase2_pool_v3.csv"
+# Pro-drop adverb frame, identical for 1sg and 3sg: licenses a finite verb, not a bare noun, and
+# isn't an English word (unlike "no").
+VERB_FRAME = "siempre {w}"
 # Endings that predict gender in Spanish, excluded from the matched set (plus -o/-a themselves).
 PREDICTIVE = re.compile(
     r"(?:ción|sión|dad|tad|tud|umbre|ez|eza|itis|sis|or|aje|án|ón|ín|ista|ante|ente|ie|ud|o|a|á|ó)$"
@@ -165,8 +169,8 @@ def homographs(lex: pd.DataFrame, n_per: int = 40, zmin: float = 3.0) -> pd.Data
     ]  # fmt: skip
     m = base[(base.gender == "m") & base.lemma.str.endswith("o") & base.lemma.isin(first)]
     f = base[(base.gender == "f") & base.lemma.str.endswith("a") & base.lemma.isin(third)]
-    m = m.assign(verb=m.lemma.map(first), verb_frame="yo {w}")
-    f = f.assign(verb=f.lemma.map(third), verb_frame="usted {w}")
+    m = m.assign(verb=m.lemma.map(first), verb_frame=VERB_FRAME)
+    f = f.assign(verb=f.lemma.map(third), verb_frame=VERB_FRAME)
     both = pd.concat([m, f])
     both = both[[zipf_frequency(v, "es") >= 3.0 for v in both.verb]]  # verb reading must be common
     return pd.concat(

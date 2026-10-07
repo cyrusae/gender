@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import pandas as pd
 import pytest
 
 from gbleed.phase0 import LANG_CONFIG, check_shots_disjoint, meta_prompt, shot_orderings
@@ -90,3 +91,11 @@ def test_batched_request_bookkeeping():
         vals = [0.0] * (n_orders * nc) + [-1.0, -3.0, -2.0, -2.5]
         out = _assemble(lang, "x", vals, nc, Tok())
         assert out["ctx1_margin"] == 2.0 and out["ctx2_margin"] == 0.5
+
+
+def test_homograph_verb_frame_same_for_both_genders():
+    """The verb-frame context must not differ by gender (v2's yo/usted gave it away)."""
+    df = pd.read_csv("data/stimuli/phase2_final_v3.csv", keep_default_na=False)
+    h = df[df.set == "homograph"]
+    assert h.verb_frame.nunique() == 1
+    assert set(h.gender) == {"m", "f"}
