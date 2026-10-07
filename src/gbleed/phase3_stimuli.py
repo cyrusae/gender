@@ -30,6 +30,11 @@ inflected-form homograph, not more frequent in English):
     infinitive (das Auswendiglernen, das Nichtstun) are caught by matching the end of the noun
     against every German verb in Wiktionary.
   - a second animacy check by WordNet (person/organism), for person nouns the lexicon misses.
+  - particle + noun formations (Abwasser, Zuspiel, Unverständnis) count as compounds, and are then
+    dropped as derivations (their gender comes from the embedded noun).
+  - extra sex-typed garments (bodice, corset...) beyond the Phase 2 filter.
+  - stratification cells: a shared two-gender suffix (-nis, -sal, -tum, -ment) where present, else
+    the last two letters (cell_ending).
   - not in Phase 4-5 held-out sets: German nouns of flipped pairs and the classics.
   - training sets also drop English-overlapping and sex-associated nouns (as in Phase 2).
 Compound detection: the head is the longest ending (>= 4 letters, after >= 3 letters) that is a
@@ -55,7 +60,7 @@ from .lexicon import _wordnet, dump_path, load_lexicon, source_tag
 from .phase0 import LANG_CONFIG
 from .phase2_stimuli import _clean, flags
 
-POOL = "data/stimuli/phase3_pool_v2.csv"
+POOL = "data/stimuli/phase3_pool_v3.csv"
 SEED = 0
 ZMIN = 2.0
 N_SUFFIX = 20
@@ -71,6 +76,17 @@ CHEMICAL = re.compile(
     re.IGNORECASE,
 )
 DIMINUTIVE = re.compile(r"(?:chen|lein)$")
+# Suffixes shared by two genders (die Erlaubnis / das Ergebnis; das Schicksal / die Trübsal; der
+# Irrtum / das Eigentum; das Dokument / der Moment): a noun ending in one is put in that suffix's
+# cell rather than its last-two-letter cell, so e.g. -nis neuters aren't compared with -eis
+# masculines (der Kreis) as if spelling were matched.
+# -sel (das Anhängsel, das Überbleibsel) is a neuter derivational suffix inside the -el cell
+# (der Mantel, die Gabel), so it also gets its own cell.
+MIXED_SUFFIXES = ["nis", "sal", "tum", "ment", "sel"]
+# Sex-typed garments WordNet doesn't place under the Phase 2 roots (Mieder "bodice").
+SEX_EXTRA = re.compile(
+    r"\b(bodice|corset|girdle|petticoat|blouse|negligee|garter)\b", re.IGNORECASE
+)
 CHEM_ROOTS = ["chemical_element.n.01", "compound.n.02", "alloy.n.01"]
 # Second animacy check: the lexicon tag misses some person nouns (Individuum, Bajazzo).
 ANIMATE_ROOTS = ["person.n.01", "organism.n.01", "people.n.01"]
@@ -133,6 +149,16 @@ def etymology(words: set[str]) -> dict[str, str]:
                     lab = "native"
             out[w] = lab
     return out
+
+
+def cell_ending(w: str) -> str:
+    """Stratification cell key: a shared two-gender suffix if the noun has one, else the last two
+    letters."""
+    w = w.lower()
+    for suf in MIXED_SUFFIXES:
+        if w.endswith(suf) and len(w) >= len(suf) + 2:
+            return "-" + suf
+    return w[-2:]
 
 
 def _under(concept: str, wn, roots) -> bool:
@@ -198,6 +224,8 @@ def exclusions(df: pd.DataFrame, nouns: set[str], verbs: set[str]) -> pd.Series:
 
     def compound(w: str) -> bool:
         w = w.lower()
+        if any(w.startswith(p) and w[len(p) :] in nouns for p in PARTICLES if len(w) - len(p) >= 3):
+            return True  # particle + noun (Abwasser, Zuspiel, Unverständnis): gender from the noun
         return any(w[i:] in nouns for i in range(3, len(w) - 2))
 
     held = held_out_phase45()
@@ -212,7 +240,7 @@ def exclusions(df: pd.DataFrame, nouns: set[str], verbs: set[str]) -> pd.Series:
                 ("chemical", bool(CHEMICAL.search(g)) or _under(concept, wn, chem)),
                 ("animate (wordnet)", _under(concept, wn, animate)),
                 ("nominalised verb", nominalised(w)), ("phase 4-5 held out", w in held),
-                ("phase 0 shot", w in shots),
+                ("phase 0 shot", w in shots), ("sex-typed garment", bool(SEX_EXTRA.search(g))),
             ] if cond
         ]  # fmt: skip
         out.append("; ".join(why))
@@ -243,7 +271,7 @@ def compounds(base: pd.DataFrame, lex: pd.DataFrame) -> pd.DataFrame:
     rng = np.random.default_rng(SEED)
     test_heads = set(rng.choice(heads, len(heads) // 2, replace=False))
     c["set"] = ["compound_test" if h in test_heads else "compound_train" for h in c["head"]]
-    c["ending"] = c["head"].str.lower().str[-2:]
+    c["ending"] = c["head"].map(cell_ending)
     return c
 
 
@@ -263,7 +291,7 @@ def build() -> pd.DataFrame:
         g.sample(min(N_SUFFIX, len(g)), random_state=SEED) for _, g in suf.groupby("de_suffix")
     )
     base = pd.concat([base[base.set == "simplex"], suf])
-    base["ending"] = base.lemma.str[-2:]
+    base["ending"] = base.lemma.map(cell_ending)
     pool = flags(pd.concat([base, comp], ignore_index=True))
     ety = etymology(set(pool.lemma))
     pool["loan"] = pool.lemma.map(ety).fillna("unknown")
