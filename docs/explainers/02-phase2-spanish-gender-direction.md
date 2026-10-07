@@ -96,6 +96,39 @@ yet for feminine ones. One possibility worth testing later, not a conclusion: th
 encode "prototypically feminine" with everything else falling to the masculine default, which is
 what the pre-registered markedness hypothesis would predict.
 
+## Robustness: reading at the position *after* the word
+
+The results above read each noun at its **last token** (LAST). A pre-registered check compared
+that with a newline token appended *after* the word (AFTER), using criteria that don't look at
+gender (word identity, tokenisation leakage, sinks). AFTER leaks less about the word's final token
+but also blurs which word it is, so the rule kept LAST as primary (1 of 4 model × language cells
+favoured AFTER; `results/readout/`). Phase 2 was then rerun at AFTER, with the Phase 1 erasers
+refit there too (`results/phase2_after/`).
+
+| direction (inner-layer verdicts) | 1.7B LAST → AFTER | 4B LAST → AFTER |
+|---|---|---|
+| probe, ending-matched (primary) | 16N 11G → 27N | 20N 13G 2S → 35N |
+| regular, raw | 27M → 23N 3G 1S | 35M → 27N 5G 3S |
+| regular, rank-2 erased | 23G 4M → **22G** 5N | 35G → **6G** 29N |
+| homographs: gender beyond spelling | 2 → 0 layers | 26 → 0 layers |
+
+- **Spelling is much weaker at AFTER**: the raw regular direction stops separating masculine -a
+  exceptions from -o nouns (A_m 0.98 → 0.55 in 1.7B, 0.91 → 0.51 in 4B). That fits the readout
+  check (the final token, where -o/-a lives, is mostly lost at AFTER).
+- **Gender is weaker too** (A_f of the erased direction ≈ 0.95 → 0.75).
+- The erased-direction "gender" result **holds at AFTER in 1.7B but not in 4B**. So the 4B result
+  in the table above is **position-dependent** and should be reported that way.
+
+**A design flaw this exposed.** In the homograph verb frames the pronoun is forced by the verb
+ending: every masculine (-o) homograph gets *yo* (*yo camino*), every feminine (-a) one gets
+*usted* (*usted cuenta*). So the verb-frame score can sort by gender just by reading the pronoun.
+At LAST this makes the noun > verb test conservative (harder to pass); at AFTER, which reads the
+whole phrase, it probably explains why the verb frame sorts *better* than the noun frame. A
+pronoun-free verb frame should be chosen before the 8B/14B runs.
+
+**For a write-up**: "the erased-direction result is robust to readout position in 1.7B, not in
+4B; spelling information is concentrated at the word's own last token."
+
 ## How to read this in a write-up
 
 - The pre-registered primary test is inconclusive: the spelling-free instrument is too weak at this
@@ -110,5 +143,5 @@ what the pre-registered markedness hypothesis would predict.
 - **More ending-matched training data**, so the primary instrument has power. (German, Phase 3,
   should help: spelling predicts gender much less there.)
 - **More feminine -o exceptions**, if any exist, or a different test of the feminine side.
-- **Readout position** (the after-word position) as a pre-registered robustness check.
+- **Pronoun-free verb frames** for homographs (see the robustness section).
 - The larger Qwen3 sizes on RunPod.
