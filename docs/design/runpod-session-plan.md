@@ -1,4 +1,11 @@
-# RunPod confirmatory session: plan (adopted 2026-10-08, PI decisions)
+# RunPod sessions: plans and outcomes
+
+*Session 1 (confirmatory Phases 0–3): **done** 2026-10-08, outcome below the plan. Session 2
+(Phases 4–5 + suffix follow-up): **plan** at the end of this file.*
+
+---
+
+# Session 1: plan (adopted 2026-10-08, PI decisions)
 
 *Script: `runpod/session.sh`. Background: `runpod/README.md` (trial lessons), `docs/decisions.md`.*
 
@@ -82,3 +89,113 @@ Then all behavioural results go to the volume as one archive.
 - Qwen's official residual-stream SAEs exist for Qwen3-1.7B-Base, 8B-Base and 30B-A3B-Base
   (`Qwen/SAE-Res-Qwen3-*`, found 2026-10-08): an SAE follow-up within the same family is possible
   (previously assumed to need Gemma Scope). Later decision.
+
+---
+
+# Session 1: outcome (2026-10-08)
+
+**Cost: $1.80 billed** ($1.78 GPU + $0.02 disk; pod uptime 4,007 s = 1.11 h at $1.59/h), against
+the plan's estimate of $4–5.50. Remaining credit ≈ $7.20 of the $9.
+
+**What ran:** all six models (0.6B, 1.7B, 4B, 8B, 14B, 30B-A3B), every step, no failures. Dense
+ladder (0.6B–14B) ~22 min of steps in total. All archives downloaded and verified (size +
+listing) before the pod was terminated; later re-verified file by file (SHA-256) after unpacking,
+and the archives deleted (manifest: `~/GitHere/runpod-2026-10-08/`).
+
+**What went differently from the plan:**
+- **30B-A3B load took ~25 min** (CPU-bound conversion of the mixture-of-experts weights in
+  transformers 5), and `session.sh` reloaded the model for every step. Fixed mid-session with
+  `runpod/one_process.py` (one load, all steps in one process).
+- **Disk filled** because the Hugging Face cache now stores weights in a shared `blobs/` folder,
+  so deleting a model's folder freed nothing. Fixed by deleting through `huggingface_hub`'s
+  cache API (`scan_cache_dir().delete_revisions`).
+- **bf16 vs fp32 precision check: 98.6% same status**, below the pre-registered 99% bar (7
+  near-threshold flips, no bias). Pre-registered fallback for session 2: fp32 output layer for
+  behavioural checks.
+- **The Mac analysis was the real bottleneck**, not the pod: the first estimate was ~60 h of CPU.
+  Speedups (row-space probe fits, exact rank AUC, batched split-half geometry) brought it to
+  roughly a day; two bugs were found on the way (AFTER-layer-0 zero-variance crash; bootstrap
+  copies split across halves), both fixed and logged.
+
+**Results (confirmatory, LAST):** Spanish stratified primary reads gender in 28/35 (8B) and
+26/39 (14B) layers; German compounds follow their head in 35/35 and 39/39; markedness not
+supported. At AFTER the Spanish result vanishes (8B: 3/35). Details: `docs/decisions.md`.
+
+**Lessons for session 2:**
+1. Run each model's steps in **one process** (`one_process.py` pattern) from the start.
+2. Delete weights through the cache API, never by folder.
+3. Budget the **Mac analysis time** as carefully as the pod time; measure throughput first.
+4. Pod time was cheap relative to the plan; the estimate was conservative (A100 + extraction-only
+   is fast).
+
+---
+
+# Session 2: plan (draft 2026-10-08; not yet adopted)
+
+## What it's for
+
+Confirmatory runs for everything designed and adopted on 2026-10-08, on **Qwen3-8B and 14B**:
+- **Phase 4** (`docs/design/phase4-design.md`): activations for the 389 flipped pairs (both
+  languages), fresh held-out German/Spanish draws, and the Russian *-ь* list (174 nouns), plus
+  the Russian known check on 8B/14B.
+- **Phase 5** (`docs/design/phase5-design.md`, P1–P17): the agreement gate, baseline, dose-response
+  with damage, specificity, social-gender steering, the English-only readouts, the nonce sets
+  (R-NONCE 600 words, English-style 100), noun-only and every-position steering.
+- **Suffix follow-up** (`docs/design/suffix-followup-prereg.md`): `suffix_ctrl` known check +
+  extraction (83 nouns), for the confirmatory S1.
+- **Behavioural checks** in the pre-registered fallback precision (fp32 output layer).
+
+30B-A3B is skipped (P7): its 25-minute load isn't worth it for steering.
+
+## Before renting (prerequisites)
+
+1. **Mac exploratory run first** (1.7B/4B, P8 with EuroLLM for the gate and baseline): it debugs
+   the steering code and **measures throughput** per condition, so the pod estimate below becomes
+   a real number. Nothing is rented until this runs end to end.
+2. Code built and committed: Phase 4 builders (held-out draws, which go to the PI with counts
+   first; exclusion of every Phase 2/3 training noun, asserted), Phase 4 analysis, Phase 5
+   steering/readout/damage code, a `one_process`-style session driver.
+3. Phase 5 frames' behavioural checks done on the Mac (the gate frames, R1/R2 frame checks).
+4. The PI reloads credits once the measured estimate is known.
+
+## Hardware: A100 or H100 (decided on the day)
+
+- **Default: A100 80 GB Secure** (~$1.59/h on 2026-10-08), the same chip as session 1.
+- **H100** if cheaper *per run*: published bf16 compute ~3× and memory bandwidth 1.7× an A100's;
+  real speedups typically 1.5–3×. **Benchmark one fixed batch** (~5 min) at the start and switch
+  if the speedup doesn't beat the price ratio. Check live prices that day.
+- **Same-chip rule:** whichever chip is used, every comparison within a phase happens on it. The
+  session re-extracts the Phase 2/3 training activations and refits the directions on that chip
+  (minutes per model), so Phases 4–5 are single-chip; session 1's confirmatory results stay on the
+  A100. Bonus check: cosine between session-1 and session-2 directions per model (expected ≈ 1).
+
+## Cost estimate (napkin, before measuring)
+
+| part | A100 time |
+|---|---|
+| Phase 5, 8B (~500 steered items × ~600 conditions × readouts, single-token adjectives, P16) | ~3–4 h |
+| Phase 5, 14B | ~5–7 h |
+| Phase 4 + suffix_ctrl extraction, re-extraction of Phase 2/3 training sets, known checks | ~0.5 h |
+| setup, downloads, transfer | ~0.5 h |
+| **total** | **~9–12 h ≈ $14–19 at $1.59/h** |
+
+Trims if needed: every-position steering at the working dose only (~−25%); one layer instead of
+two. The Mac exploratory run replaces these guesses with measured throughput.
+
+## Mechanics (from session 1's lessons)
+
+- Claude creates the pod via the API, bundles the code at a committed analysis commit, runs a
+  one-process-per-model driver, downloads each model's outputs as soon as they're complete, and
+  **terminates the pod as soon as downloads are verified**.
+- Outputs stay on the pod's disk (no volume), downloaded per model, so a stop loses at most the
+  model in progress.
+- Budget guard as in session 1: no new model starts past a set hour limit; the PI sets the hard
+  stop (credit balance; no pre-paying).
+- Behavioural results and activations are small this time (steering outputs are scores, not
+  activations), except the Phase 2/3 re-extraction (~6–9 GB per model, as session 1).
+
+## Not in session 2
+
+- 30B-A3B (P7); the erasure arm, epicene social-gender directions and the genderless-language
+  control (Phase 5 later rounds); the German suffix nonces (decision after the confirmatory S1);
+  Gemma (planned separately); SAE analyses (run on the Mac from saved activations).
