@@ -357,6 +357,22 @@ renting. Trims if needed: every-position steering at the working dose only (~−
 - **P14. Adopted (PI, 2026-10-08), amended the same day (PI):** every-position steering as a
   *secondary test of vector-level overlap* (not descriptive only), with the etymology covariate,
   Spanish/German sign agreement and, if Phase 4 supports it, the pooled vector.
+- **P17. Adopted (PI, 2026-10-08): R-NONCE build parameters + an English-style nonce set.**
+  R-NONCE: Wuggy (`orthographic_spanish`) pseudowords from templates = common inanimate 2–3
+  syllable Spanish nouns ending in *-a*/*-o* (equal numbers; templates only give shape, and none
+  is in any test set); stem = pseudoword minus its final vowel (deduplicated; stems ending in
+  *c*/*g*/*z*/*q* dropped, since a following *e*/*i* changes their pronunciation); four forms per
+  stem: ***-a*** (Spanish strong f; English vowel-final names → female), ***-o*** (strong m),
+  ***-e*** (Spanish *-e* nouns are only 16% feminine: a weak masculine cue, not neutral), ***-iz***
+  (38% feminine, *la nariz* / *el lápiz*: the most even consonant ending that isn't an
+  inflection; the rule's literal pick, *-s* at 45%, is also the plural marker in Spanish and
+  English, so it was excluded on that ground; English consonant-final names → male, so the
+  Spanish and English cues conflict here). All four forms absent from the Spanish Wiktionary and
+  zero frequency in six languages; tokenisation logged; 150 stems = 600 words, test-only.
+  **English-style set** (steered only; ~100 words): Wuggy `orthographic_english` from common
+  English concrete nouns; zero frequency in six languages, not a WordNet lemma; final-letter
+  class recorded (English name phonology), which cancels in steered-minus-unsteered shifts.
+  German suffix nonces: candidate only, after the suffix follow-up's S1.
 - **P16. Adopted (PI, 2026-10-08), conditional on the count below:** R1/R1-EN score only
   adjectives that are a **single token** in the model's vocabulary (one forward pass gives all
   their probabilities; full-word scoring of multi-token adjectives made R1 ~40× more expensive
