@@ -101,6 +101,9 @@ def fit_logistic(Z: np.ndarray, y: np.ndarray) -> LogisticRegression:
         return LogisticRegression(C=1.0, max_iter=5000).fit(Z, y)
     w, U = np.linalg.eigh(Z @ Z.T)
     keep = w > w.max() * 1e-10
+    if not keep.any():  # no variance at all (AFTER position, layer 0: the same newline embedding
+        # for every word): the direct fit, which returns zero weights, as the original code did
+        return LogisticRegression(C=1.0, max_iter=5000).fit(Z, y)
     s, U = np.sqrt(w[keep]), U[:, keep]
     classes = np.unique(y)
     sol = _newton_logistic(U * s, (y == classes[-1]).astype(float)) if len(classes) == 2 else None

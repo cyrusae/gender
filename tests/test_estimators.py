@@ -172,3 +172,10 @@ def test_newton_matches_sklearn_tight_and_separable():
     b = LogisticRegression(C=1.0, max_iter=100000, tol=1e-12).fit(Z, y)
     cos = (a.coef_ @ b.coef_.T).item() / np.linalg.norm(a.coef_) / np.linalg.norm(b.coef_)
     assert cos > 0.99999 and abs(a.intercept_[0] - b.intercept_[0]) < 1e-3
+
+
+def test_fit_logistic_degenerate_all_zero_features():
+    from gbleed.estimators import fit_logistic
+
+    lr = fit_logistic(np.zeros((20, 300)), np.r_[np.zeros(10), np.ones(10)].astype(int))
+    assert lr.coef_.shape == (1, 300) and np.all(lr.coef_ == 0)
