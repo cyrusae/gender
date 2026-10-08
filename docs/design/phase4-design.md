@@ -1,6 +1,6 @@
-# Phase 4 design: is grammatical gender shared across languages? (DRAFT, not adopted)
+# Phase 4 design: is grammatical gender shared across languages? (adopted 2026-10-08, PI)
 
-*Status: draft 2026-10-08, for PI decisions (Q1–Q6, all adopted 2026-10-08). It builds on the design doc's Phase 4
+*Status: adopted 2026-10-08; PI decisions (Q1–Q6, all adopted 2026-10-08). It builds on the design doc's Phase 4
 (Spanish-only, German-only and pooled vectors; flipped pairs) and the additions in
 `phases-3-5-plan.md`. Nothing here has been run. Exploratory on the Mac (1.7B/4B); confirmatory
 8B/14B with the Phase 5 A100 round.*

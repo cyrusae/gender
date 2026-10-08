@@ -1,6 +1,6 @@
-# Phase 5 design: steering and social gender (DRAFT, not adopted)
+# Phase 5 design: steering and social gender (adopted 2026-10-08, PI)
 
-*Status: draft 2026-10-08, for PI decisions (P1–P15, all adopted 2026-10-08). It turns the Phase 5 outline in
+*Status: adopted 2026-10-08; PI decisions (P1–P15, all adopted 2026-10-08). It turns the Phase 5 outline in
 `phases-3-5-plan.md` (§5.0–5.6) into concrete stimuli, metrics and a compute plan. Nothing here
 has been run. Exploratory development on the Mac (1.7B/4B); confirmatory runs on the next A100
 round (8B/14B). Phase 4 (cross-language) is analysis plus one extraction, so it rides along with
