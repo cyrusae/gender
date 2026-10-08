@@ -160,14 +160,25 @@ def _pinv_rows(Mh: np.ndarray, k: int) -> np.ndarray:
     return np.linalg.pinv(MtM, hermitian=True)[:, :k] @ Mh.transpose(0, 2, 1)
 
 
-def _halves_items(items: np.ndarray, strata: list[np.ndarray], rng) -> np.ndarray:
+def _item_groups(items: np.ndarray, strata: list[np.ndarray]) -> list:
+    """Per stratum: (row indices, number of distinct items, each row's distinct-item index)."""
+    out = []
+    for idx in strata:
+        u, inv = np.unique(items[idx], return_inverse=True)
+        out.append((idx, len(u), inv))
+    return out
+
+
+def _halves_items(n_rows: int, groups: list, rng) -> np.ndarray:
     """As `_halves`, but splitting distinct items: all copies of an item (a bootstrap resample
     repeats rows) go to the same half, so the halves never share an item's noise."""
-    a = np.zeros(len(items), dtype=bool)
-    for idx in strata:
-        u = rng.permutation(np.unique(items[idx]))
-        n = len(u) // 2 + (rng.random() < 0.5 if len(u) % 2 else 0)
-        a[idx[np.isin(items[idx], u[:n])]] = True
+    a = np.zeros(n_rows, dtype=bool)
+    for idx, nu, inv in groups:
+        perm = rng.permutation(nu)
+        n = nu // 2 + (rng.random() < 0.5 if nu % 2 else 0)
+        sel = np.zeros(nu, dtype=bool)
+        sel[perm[:n]] = True
+        a[idx] = sel[inv]
     return a
 
 
@@ -205,7 +216,8 @@ def split_half_geometry(
     if items is None:
         A = np.stack([_halves(cells, labels, rng, strata) for _ in range(n_splits)])  # (S, n)
     else:
-        A = np.stack([_halves_items(np.asarray(items), strata, rng) for _ in range(n_splits)])
+        groups = _item_groups(np.asarray(items), strata)
+        A = np.stack([_halves_items(len(labels), groups, rng) for _ in range(n_splits)])
     # All splits at once: zeroing the other half's rows leaves the singular values unchanged and
     # gives pinv(M[half]) in the half's columns and zeros elsewhere (the per-split P_h).
     # pinv(Mh) = pinv(Mh^T Mh) Mh^T: the same matrix, from p x p instead of n x p decompositions.
