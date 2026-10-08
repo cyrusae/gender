@@ -164,8 +164,29 @@ from both languages and the flipped pairs). Additions:
 - Compare **cognate vs non-cognate** pairs (`en_cognate` flag in `pairs_de_es.csv`): cognates may
   share representations more.
 - Skim the final flipped pairs in English before use (~10% of auto-matched pairs are loose).
+- Design notes (2026-10-08): **cross-language transfer** (train on Spanish, test on German, and
+  the reverse) is the strict test; pooling is the easy one. Centre within language before
+  pooling (as within-cell stratification) so the direction can't use language identity. Pooled
+  vectors are m/f only (no Spanish neuter). Flipped pairs are the key test: a shared grammatical
+  direction follows each language's gender (*la luna* f / *der Mond* m), a meaning direction
+  scores them the same.
+- **Candidate (2026-10-08, PI): a third grammatical-gender language** for generalisation, chosen
+  far from both: **Russian** (m/f/n; Cyrillic; neuter mostly spelling-marked: *-о*, *-е*, *-мя*,
+  so a weaker reference than German's neuter; masculine/feminine *-ь* nouns, *день* m / *ночь* f,
+  are a ready-made spelling-matched cell; grammatical animacy as an extra check) or **Hindi**
+  (m/f, Devanagari). French/Italian would be the easy, close-to-Spanish option. Any language with
+  a kaikki.org dump fits the pipeline; review stays English-gloss based.
+- Related work: Brinkmann et al. (2025, NAACL) find cross-language shared SAE features for
+  grammatical number, gender and tense in Llama-3-8B and Aya-23-8B (`docs/reading-list.md`). Check
+  how they control spelling and articles before comparing.
 
 ## Phase 5: does grammatical gender bleed into social gender?
+
+- **Candidate (2026-10-08, PI): a genderless-language control.** Measure social gender in a
+  language with no grammatical gender (Turkish, Finnish, Hungarian, Chinese: social gender only in
+  meaning, *man/woman* words). If a Spanish/German grammatical-gender direction lines up with
+  social gender measured there, that bleed can't come from agreement or articles. Also the base
+  for a language-agnostic social-gender vector tested on a third/fourth/fifth language.
 
 ### 5.0 (new) Baseline behaviour, no intervention
 

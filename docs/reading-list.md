@@ -27,6 +27,12 @@ pointers, not summaries.*
 | Brysbaert, M., Warriner, A. B., & Kuperman, V. (2014). *Concreteness ratings for 40 thousand generally known English word lemmas.* Behavior Research Methods, 46, 904–911 | **Used in the pipeline**: concreteness covariate for the Phase 2 adjusted direction (37,058 words + 2,896 two-word expressions). Data from a third-party mirror (ArtsEngine on GitHub), verified against the paper's counts, checksum in `src/gbleed/norms.py` | Phase 2 concreteness confound |
 | Scott, G. G., Keitel, A., Becirspahic, M., Yao, B., & Sereno, S. C. (2019). *The Glasgow Norms: Ratings of 5,500 words on nine scales.* Behavior Research Methods, 51(3), 1258–1270 | Ratings for 5,553 English words on nine scales, including **gender association**. Planned graded predictor for Phase 5 (does an adjective's shift scale with how gendered people rate it?) | methods conversation; Phases 3–5 plan |
 
+## Cross-language representations
+
+| reference | why it matters here | came up |
+|---|---|---|
+| Brinkmann, J., Wendler, C., Bartelt, C., & Mueller, A. (2025). *Large Language Models Share Representations of Latent Grammatical Concepts Across Typologically Diverse Languages.* Proceedings of NAACL 2025 (Long Papers), 6131–6150. arXiv:2501.06346 | Sparse autoencoders on Llama-3-8B and Aya-23-8B: grammatical number, gender and tense are often encoded in feature directions shared across many languages; ablating only the multilingual features drops classifiers to near chance across languages. Closest published result to the Phase 4 question, and the SAE route of the Gemma follow-up. Still to check: how spelling and articles were controlled (where this project is strictest) | Phase 4 discussion, 2026-10-08 (verified on arXiv and the ACL Anthology) |
+
 ## Theory and later tools (not checked here)
 
 | reference | why it matters here | came up |

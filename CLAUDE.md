@@ -48,10 +48,14 @@ uv run gbleed phase0-compare [--by freq_bin|set|de_suffix|es_exception]
 - Phase 1 (0.6B/1.7B/4B): outcome (b); linear erasure of -a/-o generalises poorly to new words.
 - Phase 2 (1.7B/4B, fixed inputs): primary (adjusted, ending-matched) inconclusive; rank-2-erased regular-noun direction tracks gender on masculine exceptions (all 4B layers) and homographs (most 4B layers); feminine -o exceptions look masculine. Explainer 02. Readout position: LAST stays primary (gender-blind check); at AFTER spelling mostly vanishes and the 4B erased-direction result does not hold (1.7B does). Confirmatory runs: LAST primary, AFTER pre-registered secondary; a gender result is "position-robust" only if it holds at both (adopted, decisions.md). Phase 2 stimuli are v3 (homograph verb frame `siempre {w}`, behaviourally checked on Qwen3 + EuroLLM-1.7B; EuroLLM-1.7B is back on disk).
 - Inputs: `<|endoftext|>` + newline + word (the first token after the separator can be a sink); extraction warns on outlier norms.
+- Phase 2 v4 + Phase 3 (exploratory, 1.7B/4B): Spanish stratified primary reads gender (22/27, 31/35 layers at LAST; not at AFTER); German compounds follow the head (all layers at LAST); markedness not supported (the plain length estimator would have falsely confirmed it). Explainers 02 (v4 section) and 03. Shared estimators: `estimators.py`. Next: RunPod confirmatory 8B/14B.
 - Phases 3–5 plan: `docs/design/phases-3-5-plan.md` (agreement-flip gate first; dose-response + KL damage; epicenes; erasure arm). Markedness hypothesis pre-registered in decisions.md.
 - RunPod: `runpod/` scripts (trial done on A40; see decisions.md). Global volume is GeeseFS object storage: code/venv/model cache on local disk.
 
 ## Gotchas learned
+
+- **Lengths and cosines of mean differences are noise-biased** (smaller group looks longer; shared reference pushes cosines up): use split-half estimates + a within-cell shuffle null (`estimators.py`).
+- **Two models on the Mac's GPU at once slow down ~30×**: run GPU steps one at a time; CPU analyses can run in parallel (set `OMP_NUM_THREADS=1` etc.).
 
 - **Never test an eraser with a probe trained on the eraser's fit data**: chance by construction (LEACE equalises class means → zero optimal weights). Erase-all-then-cross-validate goes *below* chance. Report AUC, not just accuracy.
 - Position 0 is an attention sink (~180× norm), and so can be the first token after `<|endoftext|>` (single-token words got one dimension ~2,500): prefix words with `<|endoftext|>` + newline.

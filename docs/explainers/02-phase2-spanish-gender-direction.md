@@ -137,6 +137,33 @@ cause), and at LAST the homograph result holds (4B 25 of 35 layers, 1.7B up from
 **For a write-up**: "the erased-direction result is robust to readout position in 1.7B, not in
 4B; spelling information is concentrated at the word's own last token."
 
+## v4: a stronger primary (stratified), exploratory results
+
+The primary direction above was underpowered (25 nouns per gender). For the confirmatory runs it
+was replaced, before any 8B/14B data, by a **stratified** version (see the
+[Phase 3 explainer](03-phase3-german-three-genders.md) for the method): every known noun in
+ending cells containing both genders (33 feminine, 132 masculine), compared only within cells,
+after residualising on cells, frequency, token count, concreteness and loan status. The German
+semantic filters were applied too (chemicals, institutions, extra animacy checks), and
+masculine-by-rule suffixes (*-ete*, *-ote*, *-men*) got their own cells. Test sets were carried
+over from v3 minus flagged items, never redrawn.
+
+| inner-layer verdicts (LAST) | 1.7B | 4B |
+|---|---|---|
+| **stratified primary (v4)** | **22 G / 3 N / 2 S of 27** | **31 G / 4 N of 35** |
+| old primary on v4 stimuli (cross-check) | 16 N / 10 G / 1 S | 19 N / 11 G / 5 S |
+| old primary on v3 stimuli (earlier run) | 16 N / 11 G | 20 N / 13 G / 2 S |
+| rank-2-erased regular: homographs beyond spelling | 12 layers (v3: 13) | 26 layers (v3: 25) |
+
+- With the stratified primary, masculine -a exceptions sort with masculine, not with -a:
+  A_f ≈ 0.83, A_m ≈ 0.50 (the "gender" pattern), in most layers of both models.
+- The cross-check rows isolate the cause: changing the stimuli barely moved the old estimator,
+  so the gain comes from the estimator (more nouns, within-cell comparison).
+- The homograph result reproduces on the v4 items.
+- At AFTER, the stratified primary reads gender in only 7 (1.7B) and 2 (4B) layers:
+  **position-dependent**, as the adopted amendment requires saying.
+- Still exploratory: the confirmatory test is the same analysis on 8B/14B.
+
 ## How to read this in a write-up
 
 - The pre-registered primary test is inconclusive: the spelling-free instrument is too weak at this

@@ -98,6 +98,25 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   one; rotate; average. **Grouped** CV (`GroupKFold`) keeps all items of a group (both forms of a
   verb) in the same part.
 - **In-sample vs out-of-sample.** Evaluated on the data a method was fit on vs on new data.
+- **Stratification / fixed effects / cells** (standard statistics; "fixed effects" in economics,
+  "stratification" in survey statistics). Sort items into cells (here: same ending × loan status)
+  and compare classes only *within* cells; in a regression, one indicator per cell. Like
+  matching, but without discarding surplus items. *(project: `estimators.py`)*
+- **Residualising (Frisch–Waugh).** Subtracting from each activation its least-squares fit on
+  nuisance terms (cell indicators, frequency, token count, concreteness) before fitting a
+  direction, so only what those terms can't explain is left.
+- **Split-half (cross-fitted) estimate** (standard; in neuroimaging "cross-validated distances",
+  e.g. *crossnobis*). Estimate a vector in two disjoint halves of the data and use their dot
+  product as its squared length: independent noise has zero expected cross-product, so unlike the
+  plain length it isn't inflated by noise (which grows as groups shrink). Unbiased but noisy in
+  high dimensions, so it needs bootstrap intervals. *(project: `estimators.py`)*
+- **Shuffle (permutation) null.** Recompute a statistic many times with labels shuffled (here
+  within cells, keeping counts): the range it takes when there is no real effect.
+- **Gram matrix.** The table of dot products between all pairs of items (n × n). Used as an exact
+  shortcut when everything needed is dot products: ~120 × 120 instead of 2,560-dimensional
+  vectors.
+- **Reliability (split-half).** Cosine between a vector estimated in two halves: does its
+  direction reproduce?
   In-sample erasure + cross-validation gives a misleading *below*-chance score (Phase 1 explainer).
 - **Confidence interval (95%).** A range showing how much a result would move with a different but
   equally valid sample of items; if it excludes the "no effect" value (e.g. AUC 0.5), the result
@@ -167,6 +186,13 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   and **silver** labels (produced automatically or semi-automatically, trusted less). Labels from an
   LLM are silver at best, so they never count as gold in this project. For a general audience:
   "reference labels".
+- **Agent noun.** A noun for "one who / that which does X", made from a verb: German *bohren* →
+  *der Bohrer* ("drill", "driller"). German *-er* agent nouns are masculine by derivation.
+- **Compound / head** (linguistics). In German compounds the last element (the **head**) sets the
+  gender: *das Herrenhaus* ("manor house") from *das Haus*, despite *der Herr*. A **conflict
+  compound** has a first part of a different gender from its head.
+- **Loanword status.** Whether Wiktionary's etymology marks a noun as borrowed (*Büro* from
+  French) or inherited/native; used as a matching cell in German, a covariate in Spanish.
 - **Pro-drop.** Languages (Spanish, not German or English) that can leave out the subject pronoun:
   *siempre camino* "(I) always walk". Used for the Phase 2 verb frame, so masculine and feminine
   homographs get identical context.
