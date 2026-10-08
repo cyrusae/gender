@@ -125,28 +125,14 @@ ending: every masculine (-o) homograph gets *yo* (*yo camino*), every feminine (
 At LAST this makes the noun > verb test conservative (harder to pass); at AFTER, which reads the
 whole phrase, it probably explains why the verb frame sorts *better* than the noun frame.
 
-**Fixed (stimuli v3).** Every homograph now uses the same verb frame, *siempre* ___ ("always ___";
-Spanish drops subject pronouns, so the context is identical for *camino* "I walk" and *cuenta* "it
-counts"). A pre-registered behavioural check confirmed the frame selects the verb reading on two
-model families: after *siempre* (vs after *mi* "my"), homographs gain 1.4–2.9 nats more than regular
-nouns with no verb reading, in Qwen3-1.7B, Qwen3-4B and EuroLLM-1.7B, for both -o (1sg) and -a
-(3sg) words (all six 95% intervals above zero). Rerun at both positions: every other number
-reproduced exactly; at AFTER the verb frame no longer beats the noun frame (so the pronoun was the
-cause), and at LAST the homograph result holds (4B 25 of 35 layers, 1.7B up from 2 to 13).
+**Fixed (stimuli v3).** Every homograph now uses the same verb frame, *siempre* `___` ("always `___`"; Spanish drops subject pronouns, so the context is identical for *camino* "I walk" and *cuenta* "it counts"). A pre-registered behavioural check confirmed the frame selects the verb reading on two model families: after *siempre* (vs after *mi* "my"), homographs gain 1.4–2.9 nats more than regular nouns with no verb reading, in Qwen3-1.7B, Qwen3-4B and EuroLLM-1.7B, for both -o (1sg) and -a (3sg) words (all six 95% intervals above zero). Rerun at both positions: every other number reproduced exactly; at AFTER the verb frame no longer beats the noun frame (so the pronoun was the cause), and at LAST the homograph result holds (4B 25 of 35 layers, 1.7B up from 2 to 13).
 
 **For a write-up**: "the erased-direction result is robust to readout position in 1.7B, not in
 4B; spelling information is concentrated at the word's own last token."
 
 ## v4: a stronger primary (stratified), exploratory results
 
-The primary direction above was underpowered (25 nouns per gender). For the confirmatory runs it
-was replaced, before any 8B/14B data, by a **stratified** version (see the
-[Phase 3 explainer](03-phase3-german-three-genders.md) for the method): every known noun in
-ending cells containing both genders (33 feminine, 132 masculine), compared only within cells,
-after residualising on cells, frequency, token count, concreteness and loan status. The German
-semantic filters were applied too (chemicals, institutions, extra animacy checks), and
-masculine-by-rule suffixes (*-ete*, *-ote*, *-men*) got their own cells. Test sets were carried
-over from v3 minus flagged items, never redrawn.
+The primary direction above was underpowered (25 nouns per gender). For the confirmatory runs it was replaced, before any 8B/14B data, by a **stratified** version (see the [Phase 3 explainer](03-phase3-german-three-genders.md) for the method): every known noun in ending cells containing both genders (33 feminine, 132 masculine), compared only within cells, after residualising on cells, frequency, token count, concreteness and loan status. The German semantic filters were applied too (chemicals, institutions, extra animacy checks), and masculine-by-rule suffixes (*-ete*, *-ote*, *-men*) got their own cells. Test sets were carried over from v3 minus flagged items, never redrawn.
 
 | inner-layer verdicts (LAST) | 1.7B | 4B |
 |---|---|---|
@@ -155,27 +141,21 @@ over from v3 minus flagged items, never redrawn.
 | old primary on v3 stimuli (earlier run) | 16 N / 11 G | 20 N / 13 G / 2 S |
 | rank-2-erased regular: homographs beyond spelling | 12 layers (v3: 13) | 26 layers (v3: 25) |
 
-- With the stratified primary, masculine -a exceptions sort with masculine, not with -a:
-  A_f ≈ 0.83, A_m ≈ 0.50 (the "gender" pattern), in most layers of both models.
-- The cross-check rows isolate the cause: changing the stimuli barely moved the old estimator,
-  so the gain comes from the estimator (more nouns, within-cell comparison).
+- With the stratified primary, masculine -a exceptions sort with masculine, not with -a: A_f ≈ 0.83, A_m ≈ 0.50 (the "gender" pattern), in most layers of both models.
+- The cross-check rows isolate the cause: changing the stimuli barely moved the old estimator,  so the gain comes from the estimator (more nouns, within-cell comparison).
 - The homograph result reproduces on the v4 items.
-- At AFTER, the stratified primary reads gender in only 7 (1.7B) and 2 (4B) layers:
-  **position-dependent**, as the adopted amendment requires saying.
+- At AFTER, the stratified primary reads gender in only 7 (1.7B) and 2 (4B) layers: **position-dependent**, as the adopted amendment requires saying.
 - Still exploratory: the confirmatory test is the same analysis on 8B/14B.
 
 ## How to read this in a write-up
 
-- The pre-registered primary test is inconclusive: the spelling-free instrument is too weak at this
-  sample size to show gender or spelling.
-- A pre-registered comparison (regular nouns + spelling erasure) shows gender-like behaviour on the
-  masculine exceptions in every 4B layer, and on homographs in most 4B layers.
+- The pre-registered primary test is inconclusive: the spelling-free instrument is too weak at this sample size to show gender or spelling.
+- A pre-registered comparison (regular nouns + spelling erasure) shows gender-like behaviour on the masculine exceptions in every 4B layer, and on homographs in most 4B layers.
 - The feminine exceptions don't follow, and are too few to say why.
 - Everything is bare nouns, linear directions, two model sizes.
 
 ## Next steps the results point to
 
-- **More ending-matched training data**, so the primary instrument has power. (German, Phase 3,
-  should help: spelling predicts gender much less there.)
+- **More ending-matched training data**, so the primary instrument has power. (German, Phase 3, should help: spelling predicts gender much less there.)
 - **More feminine -o exceptions**, if any exist, or a different test of the feminine side.
 - The larger Qwen3 sizes on RunPod.

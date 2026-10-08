@@ -12,8 +12,7 @@ confirmatory runs are 8B/14B on RunPod.*
    particular **compounds**, whose gender comes from their last element (*das Herrenhaus*,
    "manor house", from *das Haus*), even when the first part has another gender (*der Herr*)?
 2. **Markedness** (pre-registered): masculine is the grammatical default in German (generic
-   masculine), so with neuter as the reference point, is the masculine vector *shorter* than the
-   feminine one?
+   masculine), so with neuter as the reference point, is the masculine vector *shorter* than the feminine one?
 
 ## Why German needed its own word lists
 
@@ -36,29 +35,13 @@ Automatic animacy tagging needed three layers plus a human read: a limitation wo
 
 ## How it's measured
 
-**Cells and stratification.** Nouns are sorted into **cells**: same ending (or shared suffix) and
-same loan status. Gender is only ever compared *within* a cell, so spelling and loan status can't
-drive the result. The primary set (`strat3`) uses every known noun in cells containing all three
-genders: 64 masculine, 27 feminine, 31 neuter. Before any direction is fitted, activations are
-**residualised** on the cells plus frequency, token count and concreteness.
+**Cells and stratification.** Nouns are sorted into **cells**: same ending (or shared suffix) and same loan status. Gender is only ever compared *within* a cell, so spelling and loan status can't drive the result. The primary set (`strat3`) uses every known noun in cells containing all three genders: 64 masculine, 27 feminine, 31 neuter. Before any direction is fitted, activations are **residualised** on the cells plus frequency, token count and concreteness.
 
-**The compound test.** A masculine/feminine probe is trained on single-root nouns, then scores
-*conflict compounds* (first part and head of opposite gender). If the score sorts them by the
-head's gender (AUC above 0.5), the direction follows grammatical gender; if by the first part's,
-it follows the first word. No compound's head is a training noun (that would re-measure it).
+**The compound test.** A masculine/feminine probe is trained on single-root nouns, then scores *conflict compounds* (first part and head of opposite gender). If the score sorts them by the head's gender (AUC above 0.5), the direction follows grammatical gender; if by the first part's, it follows the first word. No compound's head is a training noun (that would re-measure it).
 
-**The markedness test, and why the obvious version is wrong.** The masculine vector is
-mean(masculine) − mean(neuter), the feminine vector mean(feminine) − mean(neuter). Their plain
-lengths are inflated by noise, and more so for smaller groups, so feminine (27 nouns) would look
-longer than masculine (64) even if they were equal: exactly the predicted result. The analysis
-therefore uses **split-half** lengths (vectors from two disjoint halves, dot product), which
-noise doesn't inflate, plus a **shuffle null** (gender shuffled within cells: what noise alone
-produces). Markedness passes in a layer only if feminine minus masculine is above zero (95%
-bootstrap interval) *and* above the null's 95th percentile.
+**The markedness test, and why the obvious version is wrong.** The masculine vector is mean(masculine) − mean(neuter), the feminine vector mean(feminine) − mean(neuter). Their plain lengths are inflated by noise, and more so for smaller groups, so feminine (27 nouns) would look longer than masculine (64) even if they were equal: exactly the predicted result. The analysis therefore uses **split-half** lengths (vectors from two disjoint halves, dot product), which noise doesn't inflate, plus a **shuffle null** (gender shuffled within cells: what noise alone produces). Markedness passes in a layer only if feminine minus masculine is above zero (95% bootstrap interval) *and* above the null's 95th percentile.
 
-**The cosine** between the two vectors is descriptive, not a test: −1 would mean one axis with
-neuter in the middle, +0.5 three unrelated categories. It is reported only if both vectors'
-directions reproduce across halves and the cosine is clearly outside the noise range.
+**The cosine** between the two vectors is descriptive, not a test: −1 would mean one axis with neuter in the middle, +0.5 three unrelated categories. It is reported only if both vectors' directions reproduce across halves and the cosine is clearly outside the noise range.
 
 ## Results (exploratory; Qwen3-1.7B / 4B)
 
@@ -73,32 +56,19 @@ directions reproduce across halves and the cosine is clearly outside the noise r
 | cosine interpretable | 0 layers | 0 layers |
 | compounds at AFTER | 1 / 27 | 1 / 35 |
 
-- **Compounds follow their head**, strongly, in every layer, for compounds whose heads the
-  direction never saw. Three-class version: the head's gender is predicted well above chance,
-  the first part's below chance.
-- **Markedness is not supported.** The split-half point estimates even have masculine slightly
-  longer, though not reliably in any layer.
-- **The plain estimator would have confirmed markedness in almost every layer.** This is the
-  bias the split-half design was built to remove, observed in real data: the clearest
-  methodological result of the phase.
-- **Feminine-suffix nouns don't score feminine**: the direction learned on single-root nouns
-  doesn't carry over to *-ung*/*-heit* words, which sit about a third of the way from masculine
-  to feminine. (They never appear in training, by design.)
-- **At the AFTER position nothing holds**, as in Spanish: the gender information is at the
-  word's own last token.
+- **Compounds follow their head**, strongly, in every layer, for compounds whose heads the direction never saw. Three-class version: the head's gender is predicted well above chance, the first part's below chance.
+- **Markedness is not supported.** The split-half point estimates even have masculine slightly longer, though not reliably in any layer.
+- **The plain estimator would have confirmed markedness in almost every layer.** This is the bias the split-half design was built to remove, observed in real data: the clearest methodological result of the phase.
+- **Feminine-suffix nouns don't score feminine**: the direction learned on single-root nouns doesn't carry over to *-ung*/*-heit* words, which sit about a third of the way from masculine to feminine. (They never appear in training, by design.)
+- **At the AFTER position nothing holds**, as in Spanish: the gender information is at the word's own last token.
 
 ## How to read this in a write-up
 
-- "A German gender direction trained on single-root nouns predicts the gender of unseen compounds
-  from their head, including when the first part has the other gender."
-- "We find no support for masculine as the unmarked (shorter) vector; a naive length comparison
-  would have shown it, because of a noise bias favouring the smaller class."
-- Limits: two small models, bare nouns, linear directions, 27–64 training nouns per gender; the
-  compound result is read at the head's own token, so it shows the direction recognises the
-  head's gender inside a compound, not how the model composes the compound.
+- "A German gender direction trained on single-root nouns predicts the gender of unseen compounds from their head, including when the first part has the other gender."
+- "We find no support for masculine as the unmarked (shorter) vector; a naive length comparison would have shown it, because of a noise bias favouring the smaller class."
+- Limits: two small models, bare nouns, linear directions, 27–64 training nouns per gender; the compound result is read at the head's own token, so it shows the direction recognises the head's gender inside a compound, not how the model composes the compound.
 
 ## Next
 
 The same analysis on Qwen3-8B/14B (confirmatory), then Phase 4: does a direction trained on one
-language predict the other, and do flipped pairs (*la luna* / *der Mond*) follow each language's
-gender?
+language predict the other, and do flipped pairs (*la luna* / *der Mond*) follow each language's gender?

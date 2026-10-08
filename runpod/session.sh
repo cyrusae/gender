@@ -7,7 +7,10 @@
 set -euo pipefail
 export HF_HOME=${HF_HOME:-/root/hf}   # local disk (the global volume is object storage)
 export PATH="$HOME/.local/bin:$PATH"
-MODELS=${MODELS:-"Qwen/Qwen3-0.6B-Base Qwen/Qwen3-1.7B-Base Qwen/Qwen3-4B-Base Qwen/Qwen3-8B-Base Qwen/Qwen3-14B-Base"}
+# Confirmatory 8B/14B before the exploratory MoE (30B-A3B), so a time stop only costs exploratory data.
+MODELS=${MODELS:-"Qwen/Qwen3-0.6B-Base Qwen/Qwen3-1.7B-Base Qwen/Qwen3-4B-Base Qwen/Qwen3-8B-Base Qwen/Qwen3-14B-Base Qwen/Qwen3-30B-A3B-Base"}
+MAX_HOURS=${MAX_HOURS:-4.5}  # don't start a new model after this much elapsed time (budget guard)
+START=$(date +%s)
 OUT=${OUT:-/workspace/gender-session}
 mkdir -p logs "$OUT"
 step() {  # step NAME CMD...: timed, logged, stops the session on failure
@@ -20,6 +23,9 @@ step() {  # step NAME CMD...: timed, logged, stops the session on failure
 {
   echo "=== $(date) session start on $(uv run python -c 'import torch; print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else "no CUDA")'), commit $(cat BUNDLE_COMMIT.txt)"
   for M in $MODELS; do
+    if [ "$(( $(date +%s) - START ))" -gt "$(python3 -c "print(int($MAX_HOURS*3600))")" ]; then
+      echo "=== $(date +%T) MAX_HOURS ($MAX_HOURS h) reached: not starting $M"; break
+    fi
     S=$(echo "$M" | tr '/' '_' | sed 's/_/__/')
     step "$M download" uv run python -c "from huggingface_hub import snapshot_download; snapshot_download('$M')"
     # behavioural checks (frozen lists; nothing is re-selected)
