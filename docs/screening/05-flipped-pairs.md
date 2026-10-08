@@ -30,17 +30,17 @@ languages; Phase 5 uses them for the baseline behaviour test.
 Gloss matching is ~10% wrong even under strict rules (CLAUDE.md), because English glosses are
 ambiguous: *flat* = apartment (*apartamento*) or ice floe (*Scholle*). Hence the review.
 
-## From 519 to 326 (2026-10-08)
+## From 519 to 389 (2026-10-08)
 
 | dropped for | pairs | why |
 |---|---|---|
 | **PI review** | 51 | glosses name different things or senses (temple building vs temple of the head; capital, volume, spring, drill, scooter…) |
 | **training leak** | 37 | the Spanish noun is in Phase 2 *training* (doc 03); a direction would score it from memory. Also the classic *llave* |
-| **English overlap** | 101 | a word is the English word or a common English word. The builder flagged these, and its own comment said Phases 4–5 drop them, but nothing applied the drop until 2026-10-08 |
+| **English overlap** | 20 | both words *are* the English word (4: *Machete/machete*; ambiguous as bare nouns), or a word is also an unrelated English word (16: *Brief* "letter" / English "brief", *Welt*, *Angst*). The builder flagged these but never applied a drop. **English cognates** (63: *restaurante*, *púlpito*, *Veranda*) are **kept** in the primary analysis, with a pre-registered sensitivity analysis without them (PI, after a devil's-advocate review: dropping them cost power and balance, and their effect, likely a weaker gender signal, can be measured) |
 | **animacy / groups** (rule v2) | 22 | army, troop, guild, synod, faction, entourage; *Betrügerin* "female fraudster" (a person, caught by the PI); some organisations (railway, theocracy) |
 | **sex-associated** | 7 | diaper, miniskirt, underpants, clitoris, breast, pin (jewellery); same rule as training sets |
-| **distinct total** | **193** | a pair dropped for several reasons is counted once |
-| **remaining** | **326** | 212 German-f / Spanish-m, 114 German-m / Spanish-f; before per-model known checks |
+| **distinct total** | **130** | a pair dropped for several reasons is counted once |
+| **remaining** | **389** | 239 German-f / Spanish-m, 150 German-m / Spanish-f (63 English cognates among them); before per-model known checks |
 
 ### Animacy rule v2 (for unused lists, 2026-10-08)
 

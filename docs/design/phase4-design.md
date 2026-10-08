@@ -93,6 +93,12 @@ This also decides how Phase 5's English-only readout (R1-EN) can be read: a null
      and never added back to Phase 2; v4 carried v3's sets over. **Fix:** the Phase 4–5 test
      builders exclude (and assert against) every noun used in any Phase 2/3 training set, instead
      of relying on each phase's own filter. Phase 2's frozen lists are unchanged.
+  3. **English overlap (PI, 2026-10-08):** pairs whose words *are* the English word (4) or are
+     also unrelated English words (16) are dropped; the 63 **English-cognate** pairs are kept
+     in the primary analysis with a **pre-registered sensitivity analysis without them** (and
+     the with/without difference reported). Sex-associated pairs (6) dropped. Result: **389
+     pairs** (239 German-f/Spanish-m, 150 German-m/Spanish-f) before known checks; every drop
+     and reason in `docs/reports/flipped-pairs-flags.csv`.
   3. Known by every model compared (shared set), both nouns.
   4. Only 4 flipped pairs are cognates, so the planned cognate vs non-cognate comparison is
      dropped as underpowered.

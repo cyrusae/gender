@@ -43,7 +43,7 @@ modes. Foreign examples carry English glosses.*
 | register marks | archaic, slang, regional… | tagged | ✓ | ✓ | ✓ | ✓ |
 | other part of speech | *aber* "but", given names | tagged | ✓ | ✓ | ✓ | ✓ |
 | inflected form of another word | *Plane* = plural of *Plan* | tagged | ✓ (pool for homographs) | ✓ | ✓ | — |
-| English overlap | *Grill*, *machete*, *Stein* | — | ✓ training | ✓ training | ✓ (added 10-08) | — |
+| English overlap | *Grill*, *machete*, *Stein* | — | ✓ training | ✓ training | identical + homographs (cognates kept) | — |
 | sex-associated concept | garments, anatomy, cosmetics | — | ✓ training | ✓ training | ✓ (added 10-08) | garments |
 | proper names | place names, "The FIFA World Cup" | — | ✓ | ✓ | — | ✓ |
 | chemicals | *el sodio* (all masculine in Spanish) | — | ✓ | ✓ | — | ✓ |
