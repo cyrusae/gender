@@ -23,7 +23,9 @@ all analysis runs afterwards on the Mac.
 - **Template**: Runpod PyTorch 2.8.0, host CUDA ≥ 13.0. **Container disk 150 GB** (one model at
   a time: 30B-A3B weights ~61 GB + activations ~4 GB + environment ~8 GB; each model's weights
   and activations are deleted from local disk once saved to the volume).
-- **Volume**: global volume `whispering_crimson_ermine` at `/workspace` (outputs only).
+- **No volume** (the global volume isn't visible to the API, and Claude creates the pod): outputs
+  stay on the pod's disk and the Mac downloads each model's archive as soon as it's complete, so a
+  stop when credits run out loses at most the model in progress.
 - **Estimated ~2.5–3.5 h → ~$4–5.50.** Dense ladder ~1.5–2 h (A100 memory bandwidth ~2.5× the
   A40's), 30B-A3B ~0.75–1.25 h (61 GB download; the MoE layers are slow in Hugging Face code),
   ~15 min setup and transfer.
@@ -69,11 +71,10 @@ Then all behavioural results go to the volume as one archive.
 
 ## Who does what
 
-- PI: create the pod in the console (the global volume isn't visible to the API), with the SSH
-  key already registered; pass `HF_TOKEN` as a pod secret if needed (Qwen isn't gated); terminate
-  the pod at the end.
-- Claude: bundle the committed code, copy it, run setup and the session, watch progress, save to
-  the volume, download, and run the analyses.
+- Claude (PI decision 2026-10-08): create the pod via the API, bundle and copy the code, run
+  setup and the session, download archives as they complete, **terminate the pod as soon as the
+  downloads are verified**, then run the analyses. Spend stops at the $9 credit balance (no
+  auto-reload); a little over is acceptable, but no pre-paying.
 
 ## Not in this session
 

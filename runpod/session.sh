@@ -11,7 +11,7 @@ export PATH="$HOME/.local/bin:$PATH"
 MODELS=${MODELS:-"Qwen/Qwen3-0.6B-Base Qwen/Qwen3-1.7B-Base Qwen/Qwen3-4B-Base Qwen/Qwen3-8B-Base Qwen/Qwen3-14B-Base Qwen/Qwen3-30B-A3B-Base"}
 MAX_HOURS=${MAX_HOURS:-4.5}  # don't start a new model after this much elapsed time (budget guard)
 START=$(date +%s)
-OUT=${OUT:-/workspace/gender-session}
+OUT=${OUT:-/root/out}  # pod-local; the Mac downloads each model archive as soon as it appears
 mkdir -p logs "$OUT"
 step() {  # step NAME CMD...: timed, logged, stops the session on failure
   local name=$1; shift
@@ -43,11 +43,14 @@ step() {  # step NAME CMD...: timed, logged, stops the session on failure
     if [ "$M" = "Qwen/Qwen3-4B-Base" ]; then  # pre-registered precision check
       step "$M phase0 v3 fp32" uv run gbleed phase0 "$M" --dtype float32 --stimuli data/stimuli/phase0_v3.csv --out results/phase0_fp32
     fi
-    step "$M save to volume" tar czf "$OUT/$S.tgz" activations/"$S" logs BUNDLE_COMMIT.txt
+    # uncompressed: float activations barely compress, and gzip cost ~150 s even for 0.6B
+    step "$M save archive" tar cf "$OUT/$S.tar.part" activations/"$S" BUNDLE_COMMIT.txt
+    mv "$OUT/$S.tar.part" "$OUT/$S.tar"  # complete archives only appear under their final name
     if [ -z "${KEEP_MODELS:-}" ]; then  # free local disk (KEEP_MODELS=1 for local smoke tests)
       rm -rf activations/"$S" "$HF_HOME"/hub/models--"$(echo "$M" | tr '/' '-' | sed 's/-/--/')"
     fi
   done
-  step "results to volume" tar czf "$OUT/results.tgz" results logs BUNDLE_COMMIT.txt
+  step "results archive" tar czf "$OUT/results.tgz.part" results logs BUNDLE_COMMIT.txt
+  mv "$OUT/results.tgz.part" "$OUT/results.tgz"
   echo "=== $(date) session done"
 } 2>&1 | tee -a logs/session.log
