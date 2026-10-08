@@ -24,6 +24,7 @@ ru,шаль,f,shawl,"shawl (a square piece of cloth worn as a covering for the h
 ru,вуаль,f,veil,"veil, voile",2.99,loan,ль|loan,,,inan,inanimate,strat_ru,
 ru,шинель,f,uniform overcoat,uniform overcoat; greatcoat,2.99,loan,ль|loan,,,inan,inanimate,strat_ru,
 ru,эмаль,f,enamel,enamel,2.97,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,ваниль,f,vanilla,vanilla (Vanilla planifolia),2.87,loan,ль|loan,,,inan,inanimate,strat_ru,
 ru,бутыль,f,large bottle,"a large bottle; carboy, demijohn, flask",2.85,loan,ль|loan,,,inan,inanimate,strat_ru,
 ru,карамель,f,caramel,caramel,2.83,loan,ль|loan,,,inan,inanimate,strat_ru,
 ru,бандероль,f,periodical wrapper,"periodical wrapper, post package, small parcel",2.47,loan,ль|loan,,,inan,inanimate,strat_ru,
@@ -106,8 +107,10 @@ ru,кремль,m,kremlin,kremlin (a central fortress in medieval Russian cities
 ru,уголь,m,coal,"coal (a black rock formed from prehistoric plant remains, composed largely of carbon and burned as a fuel)",4.08,native,ль|native,,,inan,inanimate,strat_ru,
 ru,кашель,m,cough,cough,3.54,native,ль|native,,,inan,inanimate,strat_ru,
 ru,стебель,m,stem,"stem, stalk (botany: above-ground stalk of a vascular plant)",3.36,native,ль|native,,,inan,inanimate,strat_ru,
+ru,тополь,m,poplar,"poplar, cottonwood (any of various deciduous trees of the genus Populus)",3.32,native,ль|native,,,inan,inanimate,strat_ru,
 ru,миндаль,m,almond,almond (nut),3.06,native,ль|native,,,inan,inanimate,strat_ru,
 ru,фитиль,m,wick,wick,3.05,native,ль|native,,,inan,inanimate,strat_ru,
+ru,чернобыль,m,wormwood,"wormwood, mugwort (Artemisia vulgaris)",3.05,native,ль|native,,,inan,inanimate,strat_ru,
 ru,вопль,m,cry,"cry, wail, howl, yell, scream (prolonged cry of distress or anguish)",2.93,native,ль|native,,,inan,inanimate,strat_ru,
 ru,хмель,m,hop,hop (plant),2.93,native,ль|native,,,inan,inanimate,strat_ru,
 ru,щавель,m,sorrel,"sorrel, dock (plant)",2.76,native,ль|native,,,inan,inanimate,strat_ru,
@@ -177,6 +180,7 @@ ru,камень,m,stone,"stone, rock",4.61,native,нь|native,,,inan,inanimate,s
 ru,корень,m,root,root,3.91,native,нь|native,,,inan,inanimate,strat_ru,
 ru,ремень,m,strap,"strap, thong, sling",3.69,native,нь|native,,,inan,inanimate,strat_ru,
 ru,стержень,m,shank,"shank, rod, pivot, spindle (straight round stick, shaft, or bar)",3.54,native,нь|native,,,inan,inanimate,strat_ru,
+ru,ячмень,m,barley,barley (annual temperate grasses of the species Hordeum vulgare or its grain used in making food and beverages),3.26,native,нь|native,,,inan,inanimate,strat_ru,
 ru,перстень,m,ring,ring,3.2,native,нь|native,,,inan,inanimate,strat_ru,
 ru,ясень,m,ash,ash (tree or wood),3.12,native,нь|native,,,inan,inanimate,strat_ru,
 ru,щебень,m,crushed stone,"crushed stone, road metal",3.07,native,нь|native,,,inan,inanimate,strat_ru,
@@ -217,6 +221,7 @@ ru,янтарь,m,amber,amber (fossil resin),3.2,native,рь|native,,,inan,inani
 ru,пластырь,m,plaster,"plaster, band-aid",3.12,native,рь|native,,,inan,inanimate,strat_ru,
 ru,часть,f,part,part,5.55,native,ть|native,,,inan,inanimate,strat_ru,
 ru,память,f,memory,memory,4.96,native,ть|native,,,inan,inanimate,strat_ru,
+ru,сеть,f,net,"net (used for catching fish), mesh",4.79,native,ть|native,,,inan,inanimate,strat_ru,
 ru,суть,f,essence,"essence, core, gist, main point",4.63,native,ть|native,,,inan,inanimate,strat_ru,
 ru,печать,f,printing,"printing, print",4.18,native,ть|native,,,inan,inanimate,strat_ru,
 ru,ненависть,f,hatred,"hatred, hate",4.16,native,ть|native,,,inan,inanimate,strat_ru,
@@ -300,7 +305,7 @@ ru,взаимосвязь,f,interconnection,interconnection,3.36,native,зь|nat
 ru,мазь,f,ointment,"ointment, salve, liniment",3.23,native,зь|native,,,inan,inanimate,,
 ru,слизь,f,mucus,mucus,3.13,native,зь|native,,,inan,inanimate,,
 ru,радиосвязь,f,radio communication/contact,radio communication/contact,2.97,native,зь|native,,радио,inan,uncertain,,animate (lexicon); formed from радио
-ru,вязь,f,vyaz,vyaz (Cyrillic calligraphy),2.52,native,зь|native,,,inan,uncertain,,animate (lexicon); animate (gloss)
+ru,вязь,f,vyaz,vyaz (Cyrillic calligraphy),2.52,native,зь|native,,,inan,uncertain,,animate (lexicon)
 ru,перевязь,f,sash,sash,2.39,native,зь|native,,,inan,inanimate,,
 ru,резь,f,sharp pain,"sharp pain, colic",2.02,native,зь|native,,,inan,inanimate,,
 ru,князь,m,prince,prince; duke,4.52,native,зь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
@@ -321,7 +326,6 @@ ru,цитадель,f,citadel,citadel (a strong fortress that sits high above a 
 ru,форель,f,trout,trout,3.29,loan,ль|loan,,,anim,inanimate,,grammatically animate; animate (wordnet)
 ru,артель,f,artel,an artel: a worker or peasant cooperative.,3.26,loan,ль|loan,-тель,,inan,uncertain,,animate (lexicon); suffix -тель
 ru,акварель,f,watercolour/watercolor,"watercolour/watercolor (a painting technique, paint or painting)",3.24,loan,ль|loan,,,inan,uncertain,,animate (lexicon)
-ru,ваниль,f,vanilla,vanilla (Vanilla planifolia),2.87,loan,ль|loan,,,inan,inanimate,,animate (gloss)
 ru,канитель,f,thin metallic gold or silver thread,"thin metallic gold or silver thread, used for embroidery or decoration",2.54,loan,ль|loan,-тель,,inan,inanimate,,suffix -тель
 ru,кефаль,f,mullet,mullet,2.38,loan,ль|loan,,,anim,inanimate,,grammatically animate; animate (wordnet)
 ru,макрель,f,mackerel,mackerel,2.28,loan,ль|loan,,,anim,inanimate,,grammatically animate; animate (wordnet)
@@ -427,7 +431,6 @@ ru,предводитель,m,leader,"leader, ringleader",3.34,native,ль|nativ
 ru,коваль,m,smith,"smith, blacksmith",3.34,native,ль|native,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
 ru,покровитель,m,patron,"patron, protector, sponsor",3.33,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
 ru,спасатель,m,rescue worker,"rescue worker, rescuer",3.32,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
-ru,тополь,m,poplar,"poplar, cottonwood (any of various deciduous trees of the genus Populus)",3.32,native,ль|native,,,inan,inanimate,,animate (gloss)
 ru,смотритель,m,supervisor,"supervisor, inspector, keeper, custodian",3.31,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
 ru,соболь,m,sable,sable (a small carnivorous mammal),3.29,native,ль|native,,,anim|inan,inanimate,,grammatically animate; animate (gloss)
 ru,учредитель,m,founder,founder,3.28,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
@@ -450,7 +453,6 @@ ru,мечтатель,m,dreamer,"dreamer, daydreamer",3.08,native,ль|native,-�
 ru,разрушитель,m,destroyer,"destroyer, depredator",3.07,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
 ru,держатель,m,holder,holder,3.06,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
 ru,накопитель,m,accumulator,"accumulator, stockpiler (someone who accumulates money, property, etc.)",3.05,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
-ru,чернобыль,m,wormwood,"wormwood, mugwort (Artemisia vulgaris)",3.05,native,ль|native,,,inan,inanimate,,animate (gloss)
 ru,предохранитель,m,safety device,"safety device, preventer, protector, safeguard",3.03,native,ль|native,-тель,,inan,inanimate,,suffix -тель
 ru,служитель,m,attendant,attendant,3.02,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
 ru,соучредитель,m,cofounder,cofounder,3.01,native,ль|native,-тель,учредитель,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); formed from учредитель
@@ -503,7 +505,7 @@ ru,первооткрыватель,m,discoverer,"discoverer, pioneer",2.6,nativ
 ru,сожитель,m,roommate,roommate,2.59,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
 ru,автолюбитель,m,motorist,"motorist, motor-car enthusiast, motoring fan",2.58,native,ль|native,-тель,любитель,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; formed from любитель
 ru,делитель,m,divisor,divisor (a number that another is to be divided by),2.57,native,ль|native,-тель,,inan,inanimate,,suffix -тель
-ru,ковыль,m,feathergrass,feathergrass (Any of various perennial hermaphroditic grasses of the genus Stipa),2.57,native,ль|native,,,inan,uncertain,,animate (lexicon); animate (gloss)
+ru,ковыль,m,feathergrass,feathergrass (Any of various perennial hermaphroditic grasses of the genus Stipa),2.57,native,ль|native,,,inan,uncertain,,animate (lexicon)
 ru,долгожитель,m,very-long-lived person,"very-long-lived person, centenarian (approximately; normally refers to someone 90 years and older)",2.56,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
 ru,самоучитель,m,self-teaching book,self-teaching book,2.55,native,ль|native,-тель,учитель,inan,inanimate,,suffix -тель; formed from учитель
 ru,креститель,m,baptizer,"baptizer, baptist",2.52,native,ль|native,-тель,,anim,uncertain,,grammatically animate; animate (lexicon); suffix -тель
@@ -641,7 +643,6 @@ ru,полдень,m,noon,"noon, midday",3.83,native,нь|native,,день,inan,i
 ru,олень,m,deer,deer,3.69,native,нь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
 ru,пень,m,stump,"stump, stub",3.34,native,нь|native,,,anim|inan,inanimate,,grammatically animate
 ru,гребень,m,comb,comb,3.28,native,нь|native,,,inan,uncertain,,animate (lexicon)
-ru,ячмень,m,barley,barley (annual temperate grasses of the species Hordeum vulgare or its grain used in making food and beverages),3.26,native,нь|native,,,inan,inanimate,,animate (gloss)
 ru,окунь,m,perch,perch,3.18,native,нь|native,,,anim,animate,,grammatically animate; animate (lexicon)
 ru,кремень,m,flint,flint,3.14,native,нь|native,,,anim|inan,inanimate,,grammatically animate; chemical
 ru,линь,m,tench,tench,3.11,native,нь|native,,,anim|inan,animate,,grammatically animate; animate (lexicon); animate (wordnet)
@@ -807,7 +808,6 @@ ru,знать,f,nobility,"nobility, noble people",5.07,native,ть|native,,,inan
 ru,деятельность,f,activity,activity,5.06,native,ть|native,-ость,,inan,inanimate,,suffix -ость
 ru,власть,f,authority,"authority, authorities, power",5.01,native,ть|native,,,inan,uncertain,,animate (lexicon); animate (wordnet)
 ru,смерть,f,death,death,4.95,native,ть|native,,,anim|inan,inanimate,,grammatically animate; other part of speech
-ru,сеть,f,net,"net (used for catching fish), mesh",4.79,native,ть|native,,,inan,inanimate,,animate (gloss)
 ru,скорость,f,speed,speed,4.78,native,ть|native,-ость,,inan,inanimate,,suffix -ость
 ru,должность,f,office,"office, post, appointment, position",4.74,native,ть|native,-ость,,inan,inanimate,,suffix -ость
 ru,ответственность,f,responsibility,responsibility,4.68,native,ть|native,-ость,,inan,inanimate,,suffix -ость
@@ -906,7 +906,7 @@ ru,себестоимость,f,prime cost,"prime cost, cost price, net cost",3.
 ru,участь,f,fate,"fate, destiny, lot",3.65,native,ть|native,,,inan,uncertain,,animate (lexicon)
 ru,ревность,f,jealousy,jealousy,3.65,native,ть|native,-ость,,inan,inanimate,,suffix -ость
 ru,бедность,f,poverty,"poverty, poorness",3.65,native,ть|native,-ость,бедный,inan,inanimate,,suffix -ость; formed from бедный
-ru,пасть,f,mouth,"mouth, maw, jaws (of an animal, reptile or fish)",3.65,native,ть|native,,,inan,inanimate,,other part of speech; animate (gloss)
+ru,пасть,f,mouth,"mouth, maw, jaws (of an animal, reptile or fish)",3.65,native,ть|native,,,inan,inanimate,,other part of speech
 ru,гадость,f,abomination,abomination (something abominable),3.64,native,ть|native,-ость,,inan,animate,,animate (lexicon); suffix -ость; animate (wordnet)
 ru,законность,f,legality,"legality, lawfulness, legitimacy",3.64,native,ть|native,-ость,,inan,inanimate,,suffix -ость
 ru,весть,f,news,"news, piece of news, message; tidings",3.64,native,ть|native,-ость,,inan,inanimate,,other part of speech; suffix -ость
@@ -1046,7 +1046,7 @@ ru,негодность,f,unfitness,"unfitness, lack of fitness",3.09,native,т�
 ru,самоотверженность,f,selflessness,"selflessness, dedication, disregard of self",3.09,native,ть|native,-ость,,inan,inanimate,,suffix -ость
 ru,формальность,f,formality,formality,3.08,native,ть|native,-ость,,inan,inanimate,,suffix -ость
 ru,лесть,f,flattery,"flattery, adulation, cajolery",3.07,native,ть|native,-ость,,inan,inanimate,,suffix -ость
-ru,рать,f,army,"army, host, array",3.07,native,ть|native,,,inan,inanimate,,group (wordnet); animate (gloss)
+ru,рать,f,army,"army, host, array",3.07,native,ть|native,,,inan,inanimate,,group (wordnet)
 ru,конфиденциальность,f,confidentiality,confidentiality,3.07,native,ть|native,-ость,,inan,inanimate,,suffix -ость
 ru,периодичность,f,periodicity,periodicity,3.07,native,ть|native,-ость,,inan,inanimate,,suffix -ость
 ru,порядочность,f,decency,"decency, honesty, integrity",3.05,native,ть|native,-ость,,inan,inanimate,,suffix -ость

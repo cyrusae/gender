@@ -127,7 +127,10 @@ def build() -> pd.DataFrame:
                 ("chemical", bool(CHEMICAL.search(g)) or _under(r.concept_en, wn, chem)),
                 ("animate (wordnet)", _under(r.concept_en, wn, animate, senses=2)),
                 ("group (wordnet)", _under(r.concept_en, wn, group)),
-                ("animate (gloss)", bool(ANIMATE_GLOSS.search(g))),
+                # English-gloss evidence alone (Latin plant names, "fish" in "net for fishing")
+                # is overridden when Russian grammar marks the noun inanimate (PI review
+                # 2026-10-08: plants and objects were dropped; Russian animacy is grammatical).
+                ("animate (gloss)", bool(ANIMATE_GLOSS.search(g)) and r.ru_animacy != "inan"),
                 ("sex-typed garment", bool(SEX_EXTRA.search(g))),
                 (f"formed from {r.base_noun}", r.base_noun != ""),
             ] if cond
