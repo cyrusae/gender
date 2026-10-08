@@ -127,13 +127,26 @@ def build_spanish(n_stems: int = 150, ncand: int = 10) -> pd.DataFrame:
     return df
 
 
+# English inflection look-alikes: -s (plural), -ing/-ed (verb forms) would add number or
+# part-of-speech cues, as Spanish -s would (same principle).
+INFLECTED_EN = re.compile(r"(?:s|ing|ed)$")
+
+
+def final_sound(w: str) -> str:
+    """Vowel- or consonant-final by sound, roughly: a final silent -e after a consonant
+    (caggle, phove) is consonant-final; English name studies are about sound."""
+    if re.search(r"[^aeiou]e$", w):
+        return "consonant"
+    return "vowel" if w[-1] in "aeiouy" else "consonant"
+
+
 def english_templates(n: int = 200) -> list[str]:
     from wordfreq import top_n_list
 
     wn = _wordnet()
     out = []
     for w in top_n_list("en", 20000):
-        if not re.fullmatch(r"[a-z]{4,8}", w) or _syllables(w) != 2:
+        if not re.fullmatch(r"[a-z]{4,8}", w) or _syllables(w) != 2 or INFLECTED_EN.search(w):
             continue
         ss = wn.synsets(w)
         concrete = {"noun.artifact", "noun.object", "noun.food", "noun.plant", "noun.substance"}
@@ -154,7 +167,7 @@ def build_english(n: int = 100, ncand: int = 5) -> pd.DataFrame:
     seen, rows = set(), []
     for r in res:
         pw = r["pseudoword"]
-        if not pw or pw in seen or not re.fullmatch(r"[a-z]+", pw):
+        if not pw or pw in seen or not re.fullmatch(r"[a-z]+", pw) or INFLECTED_EN.search(pw):
             continue
         seen.add(pw)
         if wn.synsets(pw) or not _zero_freq(pw):
@@ -163,7 +176,7 @@ def build_english(n: int = 100, ncand: int = 5) -> pd.DataFrame:
             {
                 "word": pw,
                 "template": r["word"],
-                "final": "vowel" if pw[-1] in "aeiouy" else "consonant",
+                "final": final_sound(pw),
             }
         )
     rng = random.Random(SEED)
