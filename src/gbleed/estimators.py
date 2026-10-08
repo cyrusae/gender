@@ -118,8 +118,28 @@ def _pinv_rows(Mh: np.ndarray, k: int) -> np.ndarray:
     return np.linalg.pinv(MtM, hermitian=True)[:, :k] @ Mh.transpose(0, 2, 1)
 
 
+def _halves_items(items: np.ndarray, strata: list[np.ndarray], rng) -> np.ndarray:
+    """As `_halves`, but splitting distinct items: all copies of an item (a bootstrap resample
+    repeats rows) go to the same half, so the halves never share an item's noise."""
+    a = np.zeros(len(items), dtype=bool)
+    for idx in strata:
+        u = rng.permutation(np.unique(items[idx]))
+        n = len(u) // 2 + (rng.random() < 0.5 if len(u) % 2 else 0)
+        a[idx[np.isin(items[idx], u[:n])]] = True
+    return a
+
+
 def split_half_geometry(
-    X, labels, cells, covs, classes, ref, rng, n_splits: int = 200, gram: np.ndarray | None = None
+    X,
+    labels,
+    cells,
+    covs,
+    classes,
+    ref,
+    rng,
+    n_splits: int = 200,
+    gram: np.ndarray | None = None,
+    items: np.ndarray | None = None,
 ) -> dict:
     """Cross-fitted geometry of class vectors v_c = mean(c) - mean(ref) at equal cell/covariates.
 
@@ -131,6 +151,8 @@ def split_half_geometry(
     squares pseudo-inverse), so all dot products are P_A K P_B^T with the Gram matrix K = X X^T
     (n x n) instead of d-dimensional vectors. Covariates need no re-centring per half because
     the cell indicators of a half always sum to an intercept.
+    `items` (bootstrap resamples: the original row index of each row) keeps every copy of an item
+    in one half; without it, copies split across halves share noise and inflate the estimates.
     """
     labels = np.asarray(labels)
     G = np.column_stack([(labels == c).astype(float) for c in classes])
@@ -138,7 +160,10 @@ def split_half_geometry(
     K = X @ X.T if gram is None else gram
     k = len(classes)
     strata = _strata(cells, labels)
-    A = np.stack([_halves(cells, labels, rng, strata) for _ in range(n_splits)])  # (S, n)
+    if items is None:
+        A = np.stack([_halves(cells, labels, rng, strata) for _ in range(n_splits)])  # (S, n)
+    else:
+        A = np.stack([_halves_items(np.asarray(items), strata, rng) for _ in range(n_splits)])
     # All splits at once: zeroing the other half's rows leaves the singular values unchanged and
     # gives pinv(M[half]) in the half's columns and zeros elsewhere (the per-split P_h).
     # pinv(Mh) = pinv(Mh^T Mh) Mh^T: the same matrix, from p x p instead of n x p decompositions.

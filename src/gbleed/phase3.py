@@ -237,7 +237,8 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None) 
                 bi = boot_within(kk, gg, rng)
                 cb = [c[bi] for c in cc]
                 bg.append(split_half_geometry(Xg[bi], gg[bi], kk[bi], cb, ["m", "f"], "n", rng,
-                                              N_SPLITS, gram=Kg[np.ix_(bi, bi)]))  # fmt: skip
+                                              N_SPLITS, gram=Kg[np.ix_(bi, bi)],
+                                              items=bi))  # fmt: skip
             for k in ("len2_m", "len2_f", "cos", "rel_m", "rel_f"):
                 o[f"{k}{tag}_lo"], o[f"{k}{tag}_hi"] = _ci([b[k] for b in bg])
             o[f"diff{tag}_lo"], o[f"diff{tag}_hi"] = _ci([b["len2_f"] - b["len2_m"] for b in bg])
