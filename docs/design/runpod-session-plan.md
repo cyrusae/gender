@@ -162,16 +162,32 @@ Confirmatory runs for everything designed and adopted on 2026-10-08, on **Qwen3-
 3. Phase 5 frames' behavioural checks done on the Mac (the gate frames, R1/R2 frame checks).
 4. The PI reloads credits once the measured estimate is known.
 
-## Hardware: A100 or H100 (decided on the day)
+## Hardware (decided on the day, by benchmark)
 
-- **Default: A100 80 GB Secure** (~$1.59/h on 2026-10-08), the same chip as session 1.
-- **H100** if cheaper *per run*: published bf16 compute ~3× and memory bandwidth 1.7× an A100's;
-  real speedups typically 1.5–3×. **Benchmark one fixed batch** (~5 min) at the start and switch
-  if the speedup doesn't beat the price ratio. Check live prices that day.
-- **Same-chip rule:** whichever chip is used, every comparison within a phase happens on it. The
-  session re-extracts the Phase 2/3 training activations and refits the directions on that chip
-  (minutes per model), so Phases 4–5 are single-chip; session 1's confirmatory results stay on the
-  A100. Bonus check: cosine between session-1 and session-2 directions per model (expected ≈ 1).
+Session 2 runs 8B/14B only, so **any 48 GB card fits** (14B bf16 ≈ 30 GB + working space). Live
+Secure prices 2026-10-08 (pods, CUDA ≥ 12.8; speed and cost-per-run vs A100 are spec-based
+estimates for our short-prompt, large-batch Hugging Face workload, ±30%):
+
+| GPU | memory | $/h | availability | speed vs A100 | cost per run vs A100 |
+|---|---|---|---|---|---|
+| A100 SXM (session 1) | 80 GB | 1.79 (was 1.59 in the morning) | low | 1.0 | 1.0 |
+| H100 SXM | 80 GB | 3.99 | medium | ~1.5–3 | ~0.7–1.3 |
+| H100 NVL | 94 GB | 3.19 | low | ~1.4–2.5 | ~0.7–1.3 |
+| RTX PRO 6000 Blackwell | 96 GB | 2.49 | high | ~1.2–2 | ~0.7–1.2 |
+| L40S | 48 GB | 1.09 | low | ~0.7–1.0 | ~0.6–0.9 |
+| RTX 6000 Ada | 48 GB | 0.99 | low | ~0.7–1.0 | ~0.55–0.8 |
+| A40 | 48 GB | 0.59 | medium | ~0.4–0.5 | ~0.7–0.85 |
+
+The H100 is not a clear win at $3.99 (it pays only if > 2.2× faster); the 48 GB workstation cards
+look cheapest per run; the RTX PRO 6000 is the fast, available middle option. **Plan:** after the
+Mac exploratory run profiles the workload, benchmark 2–3 candidates (e.g. RTX 6000 Ada, L40S,
+RTX PRO 6000) on one fixed batch, ~5 min each (< $1 total), and pick the cheapest per run;
+re-check live prices that day.
+
+**Same-chip rule:** whichever chip is used, every comparison within a phase happens on it. The
+session re-extracts the Phase 2/3 training activations and refits the directions on that chip
+(minutes per model), so Phases 4–5 are single-chip; session 1's confirmatory results stay on the
+A100. Bonus check: cosine between session-1 and session-2 directions per model (expected ≈ 1).
 
 ## Cost estimate (napkin, before measuring)
 
@@ -181,7 +197,7 @@ Confirmatory runs for everything designed and adopted on 2026-10-08, on **Qwen3-
 | Phase 5, 14B | ~5–7 h |
 | Phase 4 + suffix_ctrl extraction, re-extraction of Phase 2/3 training sets, known checks | ~0.5 h |
 | setup, downloads, transfer | ~0.5 h |
-| **total** | **~9–12 h ≈ $14–19 at $1.59/h** |
+| **total** | **~9–12 A100-hours ≈ $16–21 at today's $1.79/h**; likely less on a 48 GB card |
 
 Trims if needed: every-position steering at the working dose only (~−25%); one layer instead of
 two. The Mac exploratory run replaces these guesses with measured throughput.
