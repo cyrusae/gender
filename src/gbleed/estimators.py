@@ -22,6 +22,7 @@ Pre-registration: docs/design/phases-3-5-plan.md ("Phase 2 (v4) and Phase 3 anal
 from __future__ import annotations
 
 import numpy as np
+from scipy.stats import rankdata
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 
@@ -39,9 +40,45 @@ def residualise(X: np.ndarray, Z: np.ndarray) -> np.ndarray:
     return X - Z @ B
 
 
+def auc(y, s) -> float:
+    """ROC AUC of scores s for binary labels y (nan unless both classes are present).
+
+    Exact Mann-Whitney form, P(positive scores above negative), ties counting half: the same
+    value as sklearn's roc_auc_score, ~50x faster (it runs inside every bootstrap round)."""
+    y = np.asarray(y).astype(bool)
+    n1 = int(y.sum())
+    n0 = len(y) - n1
+    if n1 == 0 or n0 == 0:
+        return float("nan")
+    r = rankdata(s)
+    return float((r[y].sum() - n1 * (n1 + 1) / 2) / (n1 * n0))
+
+
+def fit_logistic(Z: np.ndarray, y: np.ndarray) -> LogisticRegression:
+    """L2 logistic regression (C = 1) on Z, fitted in Z's row space when n < d.
+
+    Same optimum as fitting on Z directly: the penalty sets any weight component outside the row
+    space to zero, so the problem is solved on the n coordinates U*s (Z = U s V^T, from the n x n
+    Gram matrix) and the weights mapped back with V. Several times faster for d in the thousands
+    (bootstrap refits at 8B/14B); checked against the direct fit at tight tolerance (cosine 1.0)."""
+    n, d = Z.shape
+    if n >= d:
+        return LogisticRegression(C=1.0, max_iter=5000).fit(Z, y)
+    w, U = np.linalg.eigh(Z @ Z.T)
+    keep = w > w.max() * 1e-10
+    if not keep.any():  # no variance at all (AFTER position, layer 0: the same newline embedding
+        # for every word): the direct fit, which returns zero weights, as the original code did
+        return LogisticRegression(C=1.0, max_iter=5000).fit(Z, y)
+    s, U = np.sqrt(w[keep]), U[:, keep]
+    lr = LogisticRegression(C=1.0, max_iter=5000).fit(U * s, y)
+    lr.coef_ = lr.coef_ @ ((U / s).T @ Z)
+    lr.n_features_in_ = d
+    return lr
+
+
 def probe_dir(X: np.ndarray, y: np.ndarray) -> np.ndarray:
     sc = StandardScaler().fit(X)
-    lr = LogisticRegression(C=1.0, max_iter=5000).fit(sc.transform(X), y)
+    lr = fit_logistic(sc.transform(X), y)
     return lr.coef_[0] / sc.scale_
 
 
@@ -58,20 +95,62 @@ def class_betas(X: np.ndarray, G: np.ndarray, Z: np.ndarray) -> np.ndarray:
     return (np.linalg.pinv(M) @ X)[: G.shape[1]]
 
 
-def _halves(cells, labels, rng) -> np.ndarray:
-    """Boolean mask of half A: within every cell x label stratum, half the items (odd counts:
-    the extra item goes to a random half)."""
-    a = np.zeros(len(cells), dtype=bool)
+def _strata(cells, labels) -> list[np.ndarray]:
+    """Row indices of every cell x label stratum, in sorted key order."""
     keys = np.char.add(np.asarray(cells).astype(str), "|" + np.asarray(labels).astype(str))
-    for k in np.unique(keys):
-        idx = rng.permutation(np.where(keys == k)[0])
+    return [np.where(keys == k)[0] for k in np.unique(keys)]
+
+
+def _halves(cells, labels, rng, strata: list[np.ndarray] | None = None) -> np.ndarray:
+    """Boolean mask of half A: within every cell x label stratum, half the items (odd counts:
+    the extra item goes to a random half). `strata` (from `_strata`) skips recomputing them."""
+    a = np.zeros(len(cells), dtype=bool)
+    for idx in _strata(cells, labels) if strata is None else strata:
+        idx = rng.permutation(idx)
         n = len(idx) // 2 + (rng.random() < 0.5 if len(idx) % 2 else 0)
         a[idx[:n]] = True
     return a
 
 
+def _pinv_rows(Mh: np.ndarray, k: int) -> np.ndarray:
+    """First k rows of pinv(Mh) for a stack of (n x p) matrices, via the p x p normal matrix."""
+    MtM = Mh.transpose(0, 2, 1) @ Mh
+    return np.linalg.pinv(MtM, hermitian=True)[:, :k] @ Mh.transpose(0, 2, 1)
+
+
+def _item_groups(items: np.ndarray, strata: list[np.ndarray]) -> list:
+    """Per stratum: (row indices, number of distinct items, each row's distinct-item index)."""
+    out = []
+    for idx in strata:
+        u, inv = np.unique(items[idx], return_inverse=True)
+        out.append((idx, len(u), inv))
+    return out
+
+
+def _halves_items(n_rows: int, groups: list, rng) -> np.ndarray:
+    """As `_halves`, but splitting distinct items: all copies of an item (a bootstrap resample
+    repeats rows) go to the same half, so the halves never share an item's noise."""
+    a = np.zeros(n_rows, dtype=bool)
+    for idx, nu, inv in groups:
+        perm = rng.permutation(nu)
+        n = nu // 2 + (rng.random() < 0.5 if nu % 2 else 0)
+        sel = np.zeros(nu, dtype=bool)
+        sel[perm[:n]] = True
+        a[idx] = sel[inv]
+    return a
+
+
 def split_half_geometry(
-    X, labels, cells, covs, classes, ref, rng, n_splits: int = 200, gram: np.ndarray | None = None
+    X,
+    labels,
+    cells,
+    covs,
+    classes,
+    ref,
+    rng,
+    n_splits: int = 200,
+    gram: np.ndarray | None = None,
+    items: np.ndarray | None = None,
 ) -> dict:
     """Cross-fitted geometry of class vectors v_c = mean(c) - mean(ref) at equal cell/covariates.
 
@@ -83,35 +162,36 @@ def split_half_geometry(
     squares pseudo-inverse), so all dot products are P_A K P_B^T with the Gram matrix K = X X^T
     (n x n) instead of d-dimensional vectors. Covariates need no re-centring per half because
     the cell indicators of a half always sum to an intercept.
+    `items` (bootstrap resamples: the original row index of each row) keeps every copy of an item
+    in one half; without it, copies split across halves share noise and inflate the estimates.
     """
     labels = np.asarray(labels)
     G = np.column_stack([(labels == c).astype(float) for c in classes])
     M = np.column_stack([G, nuisance(cells, covs)])
     K = X @ X.T if gram is None else gram
     k = len(classes)
-    dots = {c: [] for c in classes}
-    rel = {c: [] for c in classes}
-    cross = []
-    for _ in range(n_splits):
-        a = _halves(cells, labels, rng)
-        P = []
-        for half in (a, ~a):
-            Ph = np.zeros((k, len(labels)))
-            Ph[:, half] = np.linalg.pinv(M[half])[:k]
-            P.append(Ph)
-        AB = P[0] @ K @ P[1].T  # (k x k): v_i^A . v_j^B
-        AA = np.einsum("ij,jk,ik->i", P[0], K, P[0])
-        BB = np.einsum("ij,jk,ik->i", P[1], K, P[1])
-        for i, c in enumerate(classes):
-            dots[c].append(AB[i, i])
-            rel[c].append(AB[i, i] / (np.sqrt(max(AA[i], 0) * max(BB[i], 0)) + 1e-12))
-        if k == 2:
-            cross.append((AB[0, 1] + AB[1, 0]) / 2)
-    out = {f"len2_{c}": float(np.mean(dots[c])) for c in classes}
-    out |= {f"rel_{c}": float(np.mean(rel[c])) for c in classes}
+    strata = _strata(cells, labels)
+    if items is None:
+        A = np.stack([_halves(cells, labels, rng, strata) for _ in range(n_splits)])  # (S, n)
+    else:
+        groups = _item_groups(np.asarray(items), strata)
+        A = np.stack([_halves_items(len(labels), groups, rng) for _ in range(n_splits)])
+    # All splits at once: zeroing the other half's rows leaves the singular values unchanged and
+    # gives pinv(M[half]) in the half's columns and zeros elsewhere (the per-split P_h).
+    # pinv(Mh) = pinv(Mh^T Mh) Mh^T: the same matrix, from p x p instead of n x p decompositions.
+    PA, PB = (_pinv_rows(M[None] * h[..., None], k) for h in (A, ~A))  # (S, k, n) each
+    KA, KB = PA @ K, PB @ K
+    AB = KA @ PB.transpose(0, 2, 1)  # (S, k, k): v_i^A . v_j^B
+    AA = (KA * PA).sum(-1)  # (S, k): v_i^A . v_i^A
+    BB = (KB * PB).sum(-1)
+    diag = np.diagonal(AB, axis1=1, axis2=2)  # (S, k)
+    rel = diag / (np.sqrt(np.maximum(AA, 0) * np.maximum(BB, 0)) + 1e-12)
+    out = {f"len2_{c}": float(diag[:, i].mean()) for i, c in enumerate(classes)}
+    out |= {f"rel_{c}": float(rel[:, i].mean()) for i, c in enumerate(classes)}
     if k == 2:
+        cross = (AB[:, 0, 1] + AB[:, 1, 0]) / 2
         l1, l2 = out[f"len2_{classes[0]}"], out[f"len2_{classes[1]}"]
-        out["cos"] = float(np.mean(cross) / np.sqrt(l1 * l2)) if l1 > 0 and l2 > 0 else float("nan")
+        out["cos"] = float(cross.mean() / np.sqrt(l1 * l2)) if l1 > 0 and l2 > 0 else float("nan")
     return out
 
 

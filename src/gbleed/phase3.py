@@ -30,14 +30,15 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import balanced_accuracy_score, roc_auc_score
+from sklearn.metrics import balanced_accuracy_score
 from sklearn.model_selection import GroupKFold
 from sklearn.preprocessing import StandardScaler
 
 from . import activations as acts
 from .estimators import (
+    auc,
     boot_within,
+    fit_logistic,
     nuisance,
     plain_geometry,
     probe_strat,
@@ -92,13 +93,13 @@ def extract(model_id: str, device=None, dtype=None) -> None:
 
 
 def _auc(y, s) -> float:
-    return float(roc_auc_score(y, s)) if len(set(y)) == 2 else float("nan")
+    return auc(y, s)
 
 
 def _probe3(X, y, Z):
     R = residualise(X, Z)
     sc = StandardScaler().fit(R)
-    lr = LogisticRegression(C=1.0, max_iter=5000).fit(sc.transform(R), y)
+    lr = fit_logistic(sc.transform(R), y)
     return sc, lr
 
 
@@ -220,13 +221,14 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None) 
 
         # geometry (strat3 primary, matched3 equal-count check)
         for tag, Xg, gg, kk, cc in (("", Xs, g3, k3, c3), ("_eq", Xm, gm, km, cm)):
-            obs = split_half_geometry(Xg, gg, kk, cc, ["m", "f"], "n", rng, N_SPLITS)
+            Kg = Xg @ Xg.T  # Gram matrix, shared by the null and (indexed) the bootstrap
+            obs = split_half_geometry(Xg, gg, kk, cc, ["m", "f"], "n", rng, N_SPLITS, gram=Kg)
             o |= {f"{k}{tag}": v for k, v in obs.items()}
             o[f"diff{tag}"] = obs["len2_f"] - obs["len2_m"]
             pl = plain_geometry(Xg, gg, kk, cc, ["m", "f"])
             o |= {f"plain_{k}{tag}": v for k, v in pl.items()}
             null = [split_half_geometry(Xg, shuffle_within(gg, kk, rng), kk, cc, ["m", "f"], "n",
-                                        rng, N_SPLITS) for _ in range(N_NULL)]  # fmt: skip
+                                        rng, N_SPLITS, gram=Kg) for _ in range(N_NULL)]  # fmt: skip
             nd = [n["len2_f"] - n["len2_m"] for n in null]
             o[f"diff_null95{tag}"] = float(np.percentile(nd, 95))
             o[f"cos_null_lo{tag}"], o[f"cos_null_hi{tag}"] = _ci([n["cos"] for n in null])
@@ -235,7 +237,8 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None) 
                 bi = boot_within(kk, gg, rng)
                 cb = [c[bi] for c in cc]
                 bg.append(split_half_geometry(Xg[bi], gg[bi], kk[bi], cb, ["m", "f"], "n", rng,
-                                              N_SPLITS))  # fmt: skip
+                                              N_SPLITS, gram=Kg[np.ix_(bi, bi)],
+                                              items=bi))  # fmt: skip
             for k in ("len2_m", "len2_f", "cos", "rel_m", "rel_f"):
                 o[f"{k}{tag}_lo"], o[f"{k}{tag}_hi"] = _ci([b[k] for b in bg])
             o[f"diff{tag}_lo"], o[f"diff{tag}_hi"] = _ci([b["len2_f"] - b["len2_m"] for b in bg])

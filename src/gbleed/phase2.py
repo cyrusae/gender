@@ -24,14 +24,11 @@ import numpy as np
 import pandas as pd
 import torch
 from concept_erasure import LeaceEraser
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import GroupKFold
-from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
 
 from . import activations as acts
-from .estimators import boot_within, nuisance, probe_strat
+from .estimators import auc, boot_within, nuisance, probe_dir, probe_strat
 from .models import (
     git_state,
     load_model,
@@ -166,13 +163,11 @@ def _dom(X, y):
 
 
 def _probe_dir(X, y):
-    sc = StandardScaler().fit(X)
-    lr = LogisticRegression(C=1.0, max_iter=5000).fit(sc.transform(X), y)
-    return lr.coef_[0] / sc.scale_  # direction in raw activation space
+    return probe_dir(X, y)  # direction in raw activation space (estimators.probe_dir)
 
 
 def _auc(y, s):
-    return float(roc_auc_score(y, s)) if len(set(y)) == 2 else float("nan")
+    return auc(y, s)
 
 
 def _boot(fn, n, rng, n_boot=N_BOOT):
