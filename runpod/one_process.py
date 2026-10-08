@@ -22,9 +22,15 @@ def _cached(model_id, device=None, dtype=None):
     return _cache[key]
 
 
-import gbleed.framecheck, gbleed.multigender, gbleed.phase0, gbleed.phase1  # noqa: E401,E402
-import gbleed.phase2, gbleed.phase3, gbleed.phase3_known, gbleed.readout  # noqa: E401,E402
-from gbleed.cli import main  # noqa: E402
+import gbleed.framecheck
+import gbleed.multigender
+import gbleed.phase0
+import gbleed.phase1
+import gbleed.phase2
+import gbleed.phase3
+import gbleed.phase3_known
+import gbleed.readout
+from gbleed.cli import main
 
 for mod in (models, gbleed.framecheck, gbleed.multigender, gbleed.phase0, gbleed.phase1,
             gbleed.phase2, gbleed.phase3, gbleed.phase3_known, gbleed.readout):  # fmt: skip
@@ -49,4 +55,7 @@ for args in STEPS:
     print(f"=== {time.strftime('%H:%M:%S')} start: {' '.join(args)}", flush=True)
     sys.argv = ["gbleed", *args]
     main()
-    print(f"=== {time.strftime('%H:%M:%S')} done:  {' '.join(args)} ({time.time() - t:.0f} s)", flush=True)
+    print(
+        f"=== {time.strftime('%H:%M:%S')} done:  {' '.join(args)} ({time.time() - t:.0f} s)",
+        flush=True,
+    )

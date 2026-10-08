@@ -3,6 +3,7 @@
 # the same GPU type, bf16; analysis happens on the Mac (a worktree at BUNDLE_COMMIT.txt).
 # Run from the repo root after setup.sh:  nohup bash runpod/session.sh > /dev/null 2>&1 < /dev/null &
 # Watch:  tail -f logs/session.log      Resume after a failure: MODELS="..." bash runpod/session.sh
+# Models whose loading dominates (Qwen3-30B-A3B, ~25 min per load): runpod/one_process.py.
 # Local smoke test: KEEP_MODELS=1 HF_HOME=~/.cache/huggingface OUT=/tmp/x MODELS=Qwen/Qwen3-0.6B-Base bash runpod/session.sh
 set -euo pipefail
 export HF_HOME=${HF_HOME:-/root/hf}   # local disk (the global volume is object storage)
@@ -47,7 +48,10 @@ step() {  # step NAME CMD...: timed, logged, stops the session on failure
     step "$M save archive" tar cf "$OUT/$S.tar.part" activations/"$S" BUNDLE_COMMIT.txt
     mv "$OUT/$S.tar.part" "$OUT/$S.tar"  # complete archives only appear under their final name
     if [ -z "${KEEP_MODELS:-}" ]; then  # free local disk (KEEP_MODELS=1 for local smoke tests)
-      rm -rf activations/"$S" "$HF_HOME"/hub/models--"$(echo "$M" | tr '/' '-' | sed 's/-/--/')"
+      rm -rf activations/"$S"
+      # The HF cache keeps weights in a shared blobs/ tree (deleting models--X only removes links),
+      # so delete the model through huggingface_hub's own cache API.
+      uv run python -c "from huggingface_hub import scan_cache_dir as s; c=s(); [c.delete_revisions(*[r.commit_hash for r in repo.revisions]).execute() for repo in c.repos if repo.repo_id=='$M']"
     fi
   done
   step "results archive" tar czf "$OUT/results.tgz.part" results logs BUNDLE_COMMIT.txt
