@@ -39,6 +39,7 @@ def main() -> None:
     pr = sub.add_parser("readout", help="Gender-blind readout-position check (LAST vs AFTER)")
     pr.add_argument("models", nargs="+")
     pr.add_argument("--skip-extract", action="store_true")
+    pr.add_argument("--extract-only", action="store_true", help="GPU sessions: skip the analysis")
     sub.add_parser("token-report", help="Add Qwen3 token counts to the lexicons; write the report")
     pm = sub.add_parser("multi-check", help="Do models accept both genders for See/mar-type items?")
     pm.add_argument("models", nargs="+")
@@ -180,8 +181,10 @@ def main() -> None:
             if not a.skip_extract:
                 readout.extract(m)
                 _free_memory()
-            readout.analyze(m)
-        print(readout.decide(a.models))
+            if not a.extract_only:
+                readout.analyze(m)
+        if not a.extract_only:
+            print(readout.decide(a.models))
         return
     if a.cmd == "token-report":
         from .tokreport import add_token_counts, write_report
