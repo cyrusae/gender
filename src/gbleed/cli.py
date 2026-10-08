@@ -32,7 +32,7 @@ def main() -> None:
     )
 
     pl = sub.add_parser("lexicon", help="Build noun lexicons from Wiktionary (kaikki.org)")
-    pl.add_argument("--langs", nargs="*", default=["de", "es"], choices=["de", "es"])
+    pl.add_argument("--langs", nargs="*", default=["de", "es"], choices=["de", "es", "ru"])
     pl.add_argument("--redownload", action="store_true")
 
     sub.add_parser("classics", help="Look up genders for data/stimuli/classics_spec.csv")
@@ -93,8 +93,9 @@ def main() -> None:
 
         for lang in a.langs:
             lexicon.build_lexicon(lang, a.redownload)
-        lexicon.build_pairs()
-        lexicon.write_multi_candidates()
+        if {"de", "es"} <= set(a.langs):  # German-Spanish pairs and multi-gender lists
+            lexicon.build_pairs()
+            lexicon.write_multi_candidates()
         return
     if a.cmd == "multi-check":
         from . import multigender
