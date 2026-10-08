@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "git_commit": "9361ee2135efbd3087d3dadb162c5fb65edb519c",
+    "git_dirty": false,
+    "model_id": "Qwen/Qwen3-4B-Base",
+    "model_revision": null,
+    "n_params": 4022468096,
+    "n_layers": 36,
+    "device": "mps",
+    "dtype": "float16",
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "machine": "Darwin arm64 arm",
+    "gpu": "Apple MPS",
+    "timestamp": "2026-10-08T21:07:40+00:00"
+  },
+  "framecheck_known_by_gender": {
+    "f": 0.985,
+    "m": 0.911,
+    "n": 0.99
+  },
+  "framecheck_n_by_gender": {
+    "m": 492,
+    "f": 328,
+    "n": 305
+  },
+  "pool_known_by_gender": {
+    "f": 0.82,
+    "m": 0.602
+  }
+}
