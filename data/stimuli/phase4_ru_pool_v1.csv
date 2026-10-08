@@ -75,7 +75,6 @@ ru,дроссель,m,throttle,throttle,2.41,loan,ль|loan,,,inan,inanimate,str
 ru,фенхель,m,fennel,fennel (plant),2.3,loan,ль|loan,,,inan,inanimate,strat_ru,
 ru,вензель,m,cipher,"cipher, device, monogram (intricately interwoven initials)",2.3,loan,ль|loan,,,inan,inanimate,strat_ru,
 ru,ягель,m,cladonia rangiferina,"Cladonia rangiferina, reindeer moss, reindeer lichen, caribou moss",2.29,loan,ль|loan,,,inan,inanimate,strat_ru,
-ru,мундиаль,m,fifa world cup,The FIFA World Cup,2.27,loan,ль|loan,,,inan,inanimate,strat_ru,
 ru,штепсель,m,plug,plug (device for connecting a machine to main power),2.23,loan,ль|loan,,,inan,inanimate,strat_ru,
 ru,шпиндель,m,spindle,spindle (of a machine tool),2.22,loan,ль|loan,,,inan,inanimate,strat_ru,
 ru,капсюль,m,percussion cap,"percussion cap, fulminate cap, detonator, primer (metal cap on muzzleloading firearms)",2.21,loan,ль|loan,,,inan,inanimate,strat_ru,
@@ -352,6 +351,7 @@ ru,кроль,m,crawl,"crawl, front crawl",2.61,loan,ль|loan,,,anim|inan,inani
 ru,кафель,m,ceramic tiles,"ceramic tiles, Dutch tiles, glazed tiles (used for walls or flooring)",2.51,loan,ль|loan,,,inan,uncertain,,animate (lexicon)
 ru,метрдотель,m,headwaiter,"headwaiter, maître d'hôtel",2.47,loan,ль|loan,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
 ru,крендель,m,pretzel,"pretzel, krendel",2.46,loan,ль|loan,,,anim|inan,inanimate,,grammatically animate
+ru,мундиаль,m,fifa world cup,The FIFA World Cup,2.27,loan,ль|loan,,,inan,inanimate,,proper name
 ru,румпель,m,tiller,tiller,2.26,loan,ль|loan,,,inan,inanimate,,animate (wordnet)
 ru,ригель,m,longitudinal girder/beam,"longitudinal girder/beam, crossbar",2.24,loan,ль|loan,,,inan,uncertain,,animate (lexicon)
 ru,шекель,m,sheqel,"sheqel, shekel (currency unit in Israel)",2.22,loan,ль|loan,,,inan,uncertain,,animate (lexicon)

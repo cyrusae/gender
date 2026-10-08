@@ -122,7 +122,8 @@ def build() -> pd.DataFrame:
                 ("indeclinable", bool(r.ru_indecl)),
                 (f"suffix {r.suffix}", r.suffix != ""),
                 ("month name", bool(MONTHS.search(g))),
-                ("proper name", bool(PROPER.search(g))),
+                # "The FIFA World Cup" (мундиаль, PI review): a gloss naming one specific thing
+                ("proper name", bool(PROPER.search(g)) or bool(re.match(r"(The|the) [A-Z]", g))),
                 ("chemical", bool(CHEMICAL.search(g)) or _under(r.concept_en, wn, chem)),
                 ("animate (wordnet)", _under(r.concept_en, wn, animate, senses=2)),
                 ("group (wordnet)", _under(r.concept_en, wn, group)),
