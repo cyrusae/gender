@@ -47,7 +47,8 @@ Then all behavioural results go to the volume as one archive.
 
 - Download the archives (~23 GB of activations in total; ~1–2 GB per small model, ~6–9 GB for
   8B/14B).
-- Unpack into a **separate git worktree at the bundled commit**, not the main checkout, so pod
+- Unpack into a **separate git worktree at the analysis commit** (the bundled commit, or a later one
+  that changes only analysis code: the initial-*a* amendment), not the main checkout, so pod
   activations never mix with Mac activations (0.6B–4B exist on both) and the analysis runs with
   exactly the code that extracted them. Copy in the gitignored lexicon tables
   (`data/lexicon/*_nouns.csv`; the analyses read glosses from them).

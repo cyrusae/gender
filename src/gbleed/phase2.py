@@ -284,11 +284,18 @@ def analyze(model_id: str, out_root: str | None = None, position: str = "last") 
     # concreteness (+ missing flag) and loan status (covariate only in Spanish), then probe.
     ntok = np.array([len(t) for t in mb["tokens"]], dtype=float)
     loan = df.loan.to_numpy() if "loan" in df else np.full(len(df), "unknown")
-    covs_strat = [conc, conc_missing.astype(float), zipf, ntok,
-                  (loan == "loan").astype(float), (loan == "unknown").astype(float)]  # fmt: skip
+    covs_noinit = [conc, conc_missing.astype(float), zipf, ntok,
+                   (loan == "loan").astype(float), (loan == "unknown").astype(float)]  # fmt: skip
+    # Amendment 2026-10-08: word-initial a- (excluding feminine el-agua nouns left it a perfect
+    # masculine cue among the training nouns) is residualised out too.
+    a_init = df.lemma.str.lower().str.match(r"^[aá]").to_numpy().astype(float)
+    covs_strat = [*covs_noinit, a_init]
 
     def fit_strat(Xt, yy, idx):
         return probe_strat(Xt[idx], yy[idx], nuisance(endings[idx], [c[idx] for c in covs_strat]))
+
+    def fit_strat_noinit(Xt, yy, idx):
+        return probe_strat(Xt[idx], yy[idx], nuisance(endings[idx], [c[idx] for c in covs_noinit]))
 
     def fit_adom(Xt, yy, idx):
         return _adom(Xt[idx], yy[idx], [c[idx] for c in covs])
@@ -315,7 +322,7 @@ def analyze(model_id: str, out_root: str | None = None, position: str = "last") 
 
     rows = []
     stage(
-        f"{model_id}: Phase 2 analysis, {Xb.shape[1]} layers x 7 directions x {N_BOOT} bootstrap rounds"
+        f"{model_id}: Phase 2 analysis, {Xb.shape[1]} layers x 8 directions x {N_BOOT} bootstrap rounds"
     )
     for layer in progress(range(Xb.shape[1]), desc="layers", unit="layer"):
         X = Xb[:, layer].astype(np.float64)
@@ -335,7 +342,8 @@ def analyze(model_id: str, out_root: str | None = None, position: str = "last") 
         directions = {
             "adom_matched": (ident, matched, fit_adom),  # PRIMARY (amended before results)
             "dom_matched": (ident, matched, plain(_dom)),
-            "probe_strat": (ident, strat, fit_strat),  # PRIMARY (v4)
+            "probe_strat": (ident, strat, fit_strat),  # PRIMARY (v4 + initial-a amendment)
+            "probe_strat_noinit": (ident, strat, fit_strat_noinit),  # v4 as first run
             "probe_matched": (ident, matched, plain(_probe_dir)),
             "dom_regular": (ident, reg_tr, plain(_dom)),
             "dom_regular_verberase": (ev, reg_tr, plain(_dom)),
