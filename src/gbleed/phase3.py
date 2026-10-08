@@ -30,7 +30,6 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import balanced_accuracy_score, roc_auc_score
 from sklearn.model_selection import GroupKFold
 from sklearn.preprocessing import StandardScaler
@@ -38,6 +37,7 @@ from sklearn.preprocessing import StandardScaler
 from . import activations as acts
 from .estimators import (
     boot_within,
+    fit_logistic,
     nuisance,
     plain_geometry,
     probe_strat,
@@ -98,7 +98,7 @@ def _auc(y, s) -> float:
 def _probe3(X, y, Z):
     R = residualise(X, Z)
     sc = StandardScaler().fit(R)
-    lr = LogisticRegression(C=1.0, max_iter=5000).fit(sc.transform(R), y)
+    lr = fit_logistic(sc.transform(R), y)
     return sc, lr
 
 

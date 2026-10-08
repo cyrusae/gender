@@ -113,3 +113,23 @@ def test_gram_shortcut_matches_direct_computation():
     assert np.isclose(
         s["cos"], (vA[0] @ vB[1] + vB[0] @ vA[1]) / 2 / np.sqrt(s["len2_m"] * s["len2_f"])
     )
+
+
+def test_fit_logistic_rowspace_matches_direct():
+    from sklearn.linear_model import LogisticRegression
+
+    from gbleed.estimators import fit_logistic
+
+    rng = np.random.default_rng(0)
+    Z = rng.normal(size=(60, 400))
+    for y in (rng.integers(0, 2, 60), rng.integers(0, 3, 60)):
+        a = fit_logistic(Z, y)
+        b = LogisticRegression(C=1.0, max_iter=100000, tol=1e-10).fit(Z, y)
+        assert a.coef_.shape == b.coef_.shape
+        cos = (
+            (a.coef_ * b.coef_).sum(1)
+            / np.linalg.norm(a.coef_, axis=1)
+            / np.linalg.norm(b.coef_, axis=1)
+        )
+        assert cos.min() > 0.9999
+        assert (a.predict(Z) == b.predict(Z)).mean() == 1.0

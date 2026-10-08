@@ -39,9 +39,28 @@ def residualise(X: np.ndarray, Z: np.ndarray) -> np.ndarray:
     return X - Z @ B
 
 
+def fit_logistic(Z: np.ndarray, y: np.ndarray) -> LogisticRegression:
+    """L2 logistic regression (C = 1) on Z, fitted in Z's row space when n < d.
+
+    Same optimum as fitting on Z directly: the penalty sets any weight component outside the row
+    space to zero, so the problem is solved on the n coordinates U*s (Z = U s V^T, from the n x n
+    Gram matrix) and the weights mapped back with V. Several times faster for d in the thousands
+    (bootstrap refits at 8B/14B); checked against the direct fit at tight tolerance (cosine 1.0)."""
+    n, d = Z.shape
+    if n >= d:
+        return LogisticRegression(C=1.0, max_iter=5000).fit(Z, y)
+    w, U = np.linalg.eigh(Z @ Z.T)
+    keep = w > w.max() * 1e-10
+    s, U = np.sqrt(w[keep]), U[:, keep]
+    lr = LogisticRegression(C=1.0, max_iter=5000).fit(U * s, y)
+    lr.coef_ = lr.coef_ @ ((U / s).T @ Z)
+    lr.n_features_in_ = d
+    return lr
+
+
 def probe_dir(X: np.ndarray, y: np.ndarray) -> np.ndarray:
     sc = StandardScaler().fit(X)
-    lr = LogisticRegression(C=1.0, max_iter=5000).fit(sc.transform(X), y)
+    lr = fit_logistic(sc.transform(X), y)
     return lr.coef_[0] / sc.scale_
 
 
