@@ -62,6 +62,13 @@ def main() -> None:
     p3k.add_argument("--device", default=None)
     p3k.add_argument("--dtype", default=None)
     sub.add_parser("phase3-finalize", help="Keep Phase 3 nouns known by 1.7B and 4B; freeze splits")
+    p3 = sub.add_parser("phase3", help="Extract German activations and run the Phase 3 analysis")
+    p3.add_argument("models", nargs="+")
+    p3.add_argument("--device", default=None)
+    p3.add_argument("--dtype", default=None)
+    p3.add_argument("--position", choices=["last", "after"], default="last")
+    p3.add_argument("--skip-extract", action="store_true")
+    p3.add_argument("--extract-only", action="store_true")
     sub.add_parser("phase2-stimuli", help="Build Phase 2 pools (data/stimuli/phase2_pool_v3.csv)")
     sub.add_parser("phase1-stimuli", help="Build Phase 1 verb / nonce / noun lists (v1)")
     p1 = sub.add_parser("phase1", help="Extract activations and fit/validate the spelling eraser")
@@ -135,6 +142,16 @@ def main() -> None:
         from .phase3_known import finalize
 
         finalize()
+        return
+    if a.cmd == "phase3":
+        from . import phase3
+
+        for m in a.models:
+            if not a.skip_extract:
+                phase3.extract(m, a.device, a.dtype)  # both positions in one pass
+                _free_memory()
+            if not a.extract_only:
+                phase3.analyze(m, a.position)
         return
     if a.cmd == "phase2-stimuli":
         from .phase2_stimuli import build

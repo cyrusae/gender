@@ -4,7 +4,9 @@ Pre-registered reading: docs/decisions.md (2026-10-06). Explainer: docs/explaine
 
 Items: nouns known (Phase 0 status "known") by all three Qwen sizes; see finalize().
 Directions (fem - masc, per layer):
-  dom_matched     difference of class means on the ending-matched set   <- PRIMARY
+  probe_strat     probe on the stratified set (cells = endings), activations residualised on
+                  cells + frequency/token count/concreteness/loan status   <- PRIMARY (v4)
+  dom_matched     difference of class means on the ending-matched set
   probe_matched   logistic-regression weights on the ending-matched set
   dom_regular     difference of means on regular -o/-a training nouns (comparison)
   dom_regular_verberase / dom_regular_rank2   same, after the Phase 1 erasers
@@ -29,6 +31,7 @@ from sklearn.preprocessing import StandardScaler
 from tqdm import tqdm
 
 from . import activations as acts
+from .estimators import boot_within, nuisance, probe_strat
 from .models import (
     git_state,
     load_model,
@@ -49,7 +52,7 @@ KNOWN_MODELS = ["Qwen/Qwen3-1.7B-Base", "Qwen/Qwen3-4B-Base"]  # 0.6B dropped (d
 N_BOOT = 1000
 # Primary direction for confirmatory runs (decisions.md, 2026-10-06: single estimator for all
 # sizes, chosen by the pre-registered training-only CV rule). Earlier dev runs used adom_matched.
-PRIMARY = "probe_matched"
+PRIMARY = "probe_strat"  # v4 (adopted 2026-10-07); probe_matched before
 SEED = 0
 
 
@@ -259,6 +262,7 @@ def analyze(model_id: str, out_root: str | None = None, position: str = "last") 
     y = (df.gender == "f").to_numpy(int)
     s_ = df.set.to_numpy()
     matched = s_ == "matched"
+    strat = np.isin(s_, ["matched", "strat"])  # the stratified set contains the matched set
     reg_tr = (s_ == "regular") & (df.split == "train").to_numpy()
     reg_te = (s_ == "regular") & (df.split == "test").to_numpy()
     exc = np.char.startswith(s_.astype(str), "exception")
@@ -276,6 +280,15 @@ def analyze(model_id: str, out_root: str | None = None, position: str = "last") 
     conc[conc_missing] = np.nanmean(conc[matched])  # impute the training-set mean (flagged)
     zipf = pd.to_numeric(df.zipf, errors="coerce").to_numpy()
     covs = [conc, zipf]
+    # Stratified primary (v4): residualise on cell indicators + frequency, token count,
+    # concreteness (+ missing flag) and loan status (covariate only in Spanish), then probe.
+    ntok = np.array([len(t) for t in mb["tokens"]], dtype=float)
+    loan = df.loan.to_numpy() if "loan" in df else np.full(len(df), "unknown")
+    covs_strat = [conc, conc_missing.astype(float), zipf, ntok,
+                  (loan == "loan").astype(float), (loan == "unknown").astype(float)]  # fmt: skip
+
+    def fit_strat(Xt, yy, idx):
+        return probe_strat(Xt[idx], yy[idx], nuisance(endings[idx], [c[idx] for c in covs_strat]))
 
     def fit_adom(Xt, yy, idx):
         return _adom(Xt[idx], yy[idx], [c[idx] for c in covs])
@@ -302,7 +315,7 @@ def analyze(model_id: str, out_root: str | None = None, position: str = "last") 
 
     rows = []
     stage(
-        f"{model_id}: Phase 2 analysis, {Xb.shape[1]} layers x 6 directions x {N_BOOT} bootstrap rounds"
+        f"{model_id}: Phase 2 analysis, {Xb.shape[1]} layers x 7 directions x {N_BOOT} bootstrap rounds"
     )
     for layer in progress(range(Xb.shape[1]), desc="layers", unit="layer"):
         X = Xb[:, layer].astype(np.float64)
@@ -322,6 +335,7 @@ def analyze(model_id: str, out_root: str | None = None, position: str = "last") 
         directions = {
             "adom_matched": (ident, matched, fit_adom),  # PRIMARY (amended before results)
             "dom_matched": (ident, matched, plain(_dom)),
+            "probe_strat": (ident, strat, fit_strat),  # PRIMARY (v4)
             "probe_matched": (ident, matched, plain(_probe_dir)),
             "dom_regular": (ident, reg_tr, plain(_dom)),
             "dom_regular_verberase": (ev, reg_tr, plain(_dom)),
@@ -344,8 +358,11 @@ def analyze(model_id: str, out_root: str | None = None, position: str = "last") 
             # 95% CIs: resample training nouns (refit the direction) AND test nouns
             boots = []
             for _ in progress(range(N_BOOT), desc=f"L{layer} {name}", unit="round", leave=False):
-                tb = np.concatenate([rng.choice(tr_idx[y[tr_idx] == g], (y[tr_idx] == g).sum())
-                                     for g in (0, 1)])  # fmt: skip
+                if trmask is strat:  # resample within cell x gender, as pre-registered
+                    tb = tr_idx[boot_within(endings[tr_idx], y[tr_idx], rng)]
+                else:
+                    tb = np.concatenate([rng.choice(tr_idx[y[tr_idx] == g], (y[tr_idx] == g).sum())
+                                         for g in (0, 1)])  # fmt: skip
                 ib = {k: rng.choice(v, len(v)) for k, v in full_idx.items()}
                 boots.append(core(fit(Xt, y, tb), ib))
             for k in CI_KEYS:
@@ -376,15 +393,15 @@ def analyze(model_id: str, out_root: str | None = None, position: str = "last") 
             r["multi_p_diff_lean_f"] = (
                 float(dp[lean < 0].mean()) if (lean < 0).any() else float("nan")
             )
-            if trmask is matched:  # in-domain: CV grouped by ending
+            if trmask is matched or trmask is strat:  # in-domain: CV grouped by ending
                 aucs = []
-                for a, b in GroupKFold(n_splits=5).split(Xt[matched], y[matched], endings[matched]):
-                    dd = fit(Xt, y, np.where(matched)[0][a])
-                    aucs.append(_auc(y[matched][b], Xt[matched][b] @ dd))
-                r["matched_cv_auc"] = float(np.nanmean(aucs))
+                for a, b in GroupKFold(n_splits=5).split(Xt[trmask], y[trmask], endings[trmask]):
+                    dd = fit(Xt, y, np.where(trmask)[0][a])
+                    aucs.append(_auc(y[trmask][b], Xt[trmask][b] @ dd))
+                r["matched_cv_auc"] = float(np.nanmean(aucs))  # (name kept: train-set CV AUC)
             rows.append(r)
         r0 = next(x for x in rows[-len(directions) :] if x["direction"] == PRIMARY)
-        tqdm.write(f"layer {layer:2d} adom_matched: A_f {r0['A_f']:.2f} [{r0['A_f_lo']:.2f},{r0['A_f_hi']:.2f}] "
+        tqdm.write(f"layer {layer:2d} {PRIMARY}: A_f {r0['A_f']:.2f} [{r0['A_f_lo']:.2f},{r0['A_f_hi']:.2f}] "
               f"A_m {r0['A_m']:.2f} [{r0['A_m_lo']:.2f},{r0['A_m_hi']:.2f}]  p(-ma m)={r0.get('p_ma_m', float('nan')):.2f}  "
               f"homo diff {r0['homo_auc_diff']:+.2f}  multi {r0['multi_p_diff']:+.2f}  "
               f"regular AUC {r0['regular_test_auc']:.2f}  matched CV {r0['matched_cv_auc']:.2f}")  # fmt: skip
