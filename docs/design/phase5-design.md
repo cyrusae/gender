@@ -313,6 +313,22 @@ difficulty is that Spanish/German person words carry grammatical gender too (*la
   - Estimate: ~2.5–3.5 h ≈ $4–5.50, without 30B-A3B (its 25-min load doesn't justify it for
     steering).
 
+## Same chip if the next round uses an H100 (2026-10-08)
+
+The rule is "never compare activations across hardware", i.e. every comparison *within a phase*
+happens on one chip. If an H100 is cheaper per run (published bf16 compute ~3×, memory bandwidth
+1.7× an A100's; real speedups typically 1.5–3×; **benchmark one fixed batch at the start, switch
+to an A100 if the speedup doesn't beat the price**), then in that session: re-extract the Phase
+2/3 training activations on the H100 and refit the directions there (minutes per model), so all
+of Phase 4 and Phase 5 is single-chip. Phases 2–3's confirmatory results stay on the A100.
+Bonus check: cosine between the A100- and H100-fitted directions of each model (expected ≈ 1).
+
+**Napkin cost (2026-10-08, before measuring):** ~500 steered items × ~600 conditions (real
+directions × 9 doses × noun-only/every-position; 20 random across doses + 80 at the working dose;
+1–2 layers) × all readouts: with P16, ~3–4 h (8B) + ~5–7 h (14B) + ~1 h extraction/setup on an
+A100 ≈ 9–12 h ≈ $14–19. Firm estimate from the Mac exploratory run's measured throughput before
+renting. Trims if needed: every-position steering at the working dose only (~−25%), one layer.
+
 ## Decisions for the PI
 
 - **P1. Adopted (PI, 2026-10-08).** First-round scope as above (gate, baseline, dose-response, specificity; erasure,
@@ -341,6 +357,14 @@ difficulty is that Spanish/German person words carry grammatical gender too (*la
 - **P14. Adopted (PI, 2026-10-08), amended the same day (PI):** every-position steering as a
   *secondary test of vector-level overlap* (not descriptive only), with the etymology covariate,
   Spanish/German sign agreement and, if Phase 4 supports it, the pooled vector.
+- **P16. Adopted (PI, 2026-10-08), conditional on the count below:** R1/R1-EN score only
+  adjectives that are a **single token** in the model's vocabulary (one forward pass gives all
+  their probabilities; full-word scoring of multi-token adjectives made R1 ~40× more expensive
+  than everything else). Counted on the Glasgow adjectives (adjective-dominant, Zipf ≥ 3; 739):
+  single-token in Qwen3 656 (89%; lost: *awesome*, *weird*, *cute*, *ridiculous*…), in EuroLLM
+  471, in both 468. **Each model family uses its own set** (cross-family comparisons are
+  conclusion-level); gender–valence correlation unchanged (≈ −0.45), so the covariate design
+  stands.
 - **P15. Adopted (PI, 2026-10-08).** Graded nonce ending set (*-a*/*-o*/*-e*/consonant on the same stems), **all new nonce
   sets generated with Wuggy** (`wuggy` 1.1.2, MIT; confirm the Spanish module before building),
   plus the Phase 1 checks (absent from Wiktionary, zero frequency in six languages)?
