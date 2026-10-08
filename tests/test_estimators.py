@@ -147,3 +147,10 @@ def test_auc_matches_sklearn_with_ties():
         if 0 < y.sum() < 40:
             assert abs(auc(y, s) - roc_auc_score(y, s)) < 1e-12
     assert np.isnan(auc(np.ones(5), np.arange(5)))
+
+
+def test_fit_logistic_degenerate_all_zero_features():
+    from gbleed.estimators import fit_logistic
+
+    lr = fit_logistic(np.zeros((20, 300)), np.r_[np.zeros(10), np.ones(10)].astype(int))
+    assert lr.coef_.shape == (1, 300) and np.all(lr.coef_ == 0)
