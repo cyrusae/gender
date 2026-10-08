@@ -133,3 +133,17 @@ def test_fit_logistic_rowspace_matches_direct():
         )
         assert cos.min() > 0.9999
         assert (a.predict(Z) == b.predict(Z)).mean() == 1.0
+
+
+def test_auc_matches_sklearn_with_ties():
+    from sklearn.metrics import roc_auc_score
+
+    from gbleed.estimators import auc
+
+    rng = np.random.default_rng(0)
+    for _ in range(50):
+        y = rng.integers(0, 2, 40)
+        s = rng.integers(0, 6, 40).astype(float)  # many ties
+        if 0 < y.sum() < 40:
+            assert abs(auc(y, s) - roc_auc_score(y, s)) < 1e-12
+    assert np.isnan(auc(np.ones(5), np.arange(5)))

@@ -24,12 +24,11 @@ import numpy as np
 import pandas as pd
 import torch
 from concept_erasure import LeaceEraser
-from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import GroupKFold
 from tqdm import tqdm
 
 from . import activations as acts
-from .estimators import boot_within, nuisance, probe_dir, probe_strat
+from .estimators import auc, boot_within, nuisance, probe_dir, probe_strat
 from .models import (
     git_state,
     load_model,
@@ -168,7 +167,7 @@ def _probe_dir(X, y):
 
 
 def _auc(y, s):
-    return float(roc_auc_score(y, s)) if len(set(y)) == 2 else float("nan")
+    return auc(y, s)
 
 
 def _boot(fn, n, rng, n_boot=N_BOOT):

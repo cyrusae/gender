@@ -22,6 +22,7 @@ Pre-registration: docs/design/phases-3-5-plan.md ("Phase 2 (v4) and Phase 3 anal
 from __future__ import annotations
 
 import numpy as np
+from scipy.stats import rankdata
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 
@@ -37,6 +38,20 @@ def nuisance(cells, covs=()) -> np.ndarray:
 def residualise(X: np.ndarray, Z: np.ndarray) -> np.ndarray:
     B, *_ = np.linalg.lstsq(Z, X, rcond=None)
     return X - Z @ B
+
+
+def auc(y, s) -> float:
+    """ROC AUC of scores s for binary labels y (nan unless both classes are present).
+
+    Exact Mann-Whitney form, P(positive scores above negative), ties counting half: the same
+    value as sklearn's roc_auc_score, ~50x faster (it runs inside every bootstrap round)."""
+    y = np.asarray(y).astype(bool)
+    n1 = int(y.sum())
+    n0 = len(y) - n1
+    if n1 == 0 or n0 == 0:
+        return float("nan")
+    r = rankdata(s)
+    return float((r[y].sum() - n1 * (n1 + 1) / 2) / (n1 * n0))
 
 
 def fit_logistic(Z: np.ndarray, y: np.ndarray) -> LogisticRegression:
@@ -77,13 +92,18 @@ def class_betas(X: np.ndarray, G: np.ndarray, Z: np.ndarray) -> np.ndarray:
     return (np.linalg.pinv(M) @ X)[: G.shape[1]]
 
 
-def _halves(cells, labels, rng) -> np.ndarray:
-    """Boolean mask of half A: within every cell x label stratum, half the items (odd counts:
-    the extra item goes to a random half)."""
-    a = np.zeros(len(cells), dtype=bool)
+def _strata(cells, labels) -> list[np.ndarray]:
+    """Row indices of every cell x label stratum, in sorted key order."""
     keys = np.char.add(np.asarray(cells).astype(str), "|" + np.asarray(labels).astype(str))
-    for k in np.unique(keys):
-        idx = rng.permutation(np.where(keys == k)[0])
+    return [np.where(keys == k)[0] for k in np.unique(keys)]
+
+
+def _halves(cells, labels, rng, strata: list[np.ndarray] | None = None) -> np.ndarray:
+    """Boolean mask of half A: within every cell x label stratum, half the items (odd counts:
+    the extra item goes to a random half). `strata` (from `_strata`) skips recomputing them."""
+    a = np.zeros(len(cells), dtype=bool)
+    for idx in _strata(cells, labels) if strata is None else strata:
+        idx = rng.permutation(idx)
         n = len(idx) // 2 + (rng.random() < 0.5 if len(idx) % 2 else 0)
         a[idx[:n]] = True
     return a
@@ -111,16 +131,17 @@ def split_half_geometry(
     dots = {c: [] for c in classes}
     rel = {c: [] for c in classes}
     cross = []
+    strata = _strata(cells, labels)
     for _ in range(n_splits):
-        a = _halves(cells, labels, rng)
+        a = _halves(cells, labels, rng, strata)
         P = []
         for half in (a, ~a):
             Ph = np.zeros((k, len(labels)))
             Ph[:, half] = np.linalg.pinv(M[half])[:k]
             P.append(Ph)
         AB = P[0] @ K @ P[1].T  # (k x k): v_i^A . v_j^B
-        AA = np.einsum("ij,jk,ik->i", P[0], K, P[0])
-        BB = np.einsum("ij,jk,ik->i", P[1], K, P[1])
+        AA = ((P[0] @ K) * P[0]).sum(1)  # v_i^A . v_i^A
+        BB = ((P[1] @ K) * P[1]).sum(1)
         for i, c in enumerate(classes):
             dots[c].append(AB[i, i])
             rel[c].append(AB[i, i] / (np.sqrt(max(AA[i], 0) * max(BB[i], 0)) + 1e-12))
