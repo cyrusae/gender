@@ -109,6 +109,12 @@ def _halves(cells, labels, rng, strata: list[np.ndarray] | None = None) -> np.nd
     return a
 
 
+def _pinv_rows(Mh: np.ndarray, k: int) -> np.ndarray:
+    """First k rows of pinv(Mh) for a stack of (n x p) matrices, via the p x p normal matrix."""
+    MtM = Mh.transpose(0, 2, 1) @ Mh
+    return np.linalg.pinv(MtM, hermitian=True)[:, :k] @ Mh.transpose(0, 2, 1)
+
+
 def split_half_geometry(
     X, labels, cells, covs, classes, ref, rng, n_splits: int = 200, gram: np.ndarray | None = None
 ) -> dict:
@@ -128,30 +134,24 @@ def split_half_geometry(
     M = np.column_stack([G, nuisance(cells, covs)])
     K = X @ X.T if gram is None else gram
     k = len(classes)
-    dots = {c: [] for c in classes}
-    rel = {c: [] for c in classes}
-    cross = []
     strata = _strata(cells, labels)
-    for _ in range(n_splits):
-        a = _halves(cells, labels, rng, strata)
-        P = []
-        for half in (a, ~a):
-            Ph = np.zeros((k, len(labels)))
-            Ph[:, half] = np.linalg.pinv(M[half])[:k]
-            P.append(Ph)
-        AB = P[0] @ K @ P[1].T  # (k x k): v_i^A . v_j^B
-        AA = ((P[0] @ K) * P[0]).sum(1)  # v_i^A . v_i^A
-        BB = ((P[1] @ K) * P[1]).sum(1)
-        for i, c in enumerate(classes):
-            dots[c].append(AB[i, i])
-            rel[c].append(AB[i, i] / (np.sqrt(max(AA[i], 0) * max(BB[i], 0)) + 1e-12))
-        if k == 2:
-            cross.append((AB[0, 1] + AB[1, 0]) / 2)
-    out = {f"len2_{c}": float(np.mean(dots[c])) for c in classes}
-    out |= {f"rel_{c}": float(np.mean(rel[c])) for c in classes}
+    A = np.stack([_halves(cells, labels, rng, strata) for _ in range(n_splits)])  # (S, n)
+    # All splits at once: zeroing the other half's rows leaves the singular values unchanged and
+    # gives pinv(M[half]) in the half's columns and zeros elsewhere (the per-split P_h).
+    # pinv(Mh) = pinv(Mh^T Mh) Mh^T: the same matrix, from p x p instead of n x p decompositions.
+    PA, PB = (_pinv_rows(M[None] * h[..., None], k) for h in (A, ~A))  # (S, k, n) each
+    KA, KB = PA @ K, PB @ K
+    AB = KA @ PB.transpose(0, 2, 1)  # (S, k, k): v_i^A . v_j^B
+    AA = (KA * PA).sum(-1)  # (S, k): v_i^A . v_i^A
+    BB = (KB * PB).sum(-1)
+    diag = np.diagonal(AB, axis1=1, axis2=2)  # (S, k)
+    rel = diag / (np.sqrt(np.maximum(AA, 0) * np.maximum(BB, 0)) + 1e-12)
+    out = {f"len2_{c}": float(diag[:, i].mean()) for i, c in enumerate(classes)}
+    out |= {f"rel_{c}": float(rel[:, i].mean()) for i, c in enumerate(classes)}
     if k == 2:
+        cross = (AB[:, 0, 1] + AB[:, 1, 0]) / 2
         l1, l2 = out[f"len2_{classes[0]}"], out[f"len2_{classes[1]}"]
-        out["cos"] = float(np.mean(cross) / np.sqrt(l1 * l2)) if l1 > 0 and l2 > 0 else float("nan")
+        out["cos"] = float(cross.mean() / np.sqrt(l1 * l2)) if l1 > 0 and l2 > 0 else float("nan")
     return out
 
 
