@@ -1,0 +1,1622 @@
+lang,lemma,gender,concept_en,gloss,zipf,loan,cell,suffix,base_noun,ru_animacy,animacy,set,excluded
+ru,грудь,f,chest,chest,4.48,native,дь|native,,,inan,inanimate,strat_ru,
+ru,исповедь,f,confession,confession,3.58,native,дь|native,,,inan,inanimate,strat_ru,
+ru,проповедь,f,sermon,"sermon, homily",3.56,native,дь|native,,,inan,inanimate,strat_ru,
+ru,заповедь,f,commandment,commandment,3.13,native,дь|native,,,inan,inanimate,strat_ru,
+ru,прядь,f,lock,lock (of hair),3.02,native,дь|native,,,inan,inanimate,strat_ru,
+ru,гроздь,f,bunch,"bunch, cluster, (botany) truss (a group of a number of similar things)",2.62,native,дь|native,,,inan,inanimate,strat_ru,
+ru,жердь,f,perch,perch; pole; ricker,2.25,native,дь|native,,,inan,inanimate,strat_ru,
+ru,дождь,m,rain,rain,4.64,native,дь|native,,,inan,inanimate,strat_ru,
+ru,гвоздь,m,nail,"nail, tack, peg (construction)",3.59,native,дь|native,,,inan,inanimate,strat_ru,
+ru,жёлудь,m,acorn,acorn,2.25,native,дь|native,,,inan,inanimate,strat_ru,
+ru,груздь,m,lactarius mushroom,"Lactarius mushroom, milk-cap",2.17,native,дь|native,,,inan,inanimate,strat_ru,
+ru,роль,f,role,"role, part",5.28,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,цель,f,goal,"goal, target, aim, end, object",4.98,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,медаль,f,medal,medal,4.47,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,мебель,f,furniture,furniture,4.11,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,деталь,f,detail,"detail, nicety",3.88,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,мораль,f,morals,morals; morality,3.76,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,дуэль,f,duel,"duel (combat between two persons, often over a matter of honor)",3.59,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,капель,f,dripping water from thawing snow or ice,"dripping water from thawing snow or ice, also the sound of that (verbal noun of ка́пать (kápatʹ) (nomen actionis instantiae; nomen agentis (compare мете́ль (metélʹ))))",3.54,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,спираль,f,spiral,"spiral, spire helix",3.35,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,педаль,f,pedal,"pedal, treadle",3.31,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,шаль,f,shawl,"shawl (a square piece of cloth worn as a covering for the head, neck, and shoulders)",3.04,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,вуаль,f,veil,"veil, voile",2.99,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,шинель,f,uniform overcoat,uniform overcoat; greatcoat,2.99,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,эмаль,f,enamel,enamel,2.97,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,бутыль,f,large bottle,"a large bottle; carboy, demijohn, flask",2.85,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,карамель,f,caramel,caramel,2.83,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,бандероль,f,periodical wrapper,"periodical wrapper, post package, small parcel",2.47,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,шрапнель,f,shrapnel,shrapnel,2.45,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,вермишель,f,vermicelli,vermicelli,2.41,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,гастроль,f,tour,(concert) tour,2.04,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,контроль,m,control,control,4.81,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,автомобиль,m,car,"car, automobile, motorcar",4.66,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,спектакль,m,performance,"performance, play, matinee",4.39,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,ноль,m,zero,zero (0),4.17,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,алкоголь,m,ethanol,"ethanol, ethyl alcohol",4.17,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,руль,m,rudder,rudder,4.11,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,дубль,m,take,take,4.01,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,госпиталь,m,hospital,hospital,4.0,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,пароль,m,password,password,3.96,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,марсель,m,topsail,topsail,3.88,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,коктейль,m,cocktail,cocktail,3.87,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,модуль,m,module,module,3.81,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,портфель,m,briefcase,briefcase,3.8,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,дизель,m,diesel fuel,diesel fuel,3.77,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,рояль,m,grand piano,grand piano,3.5,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,туннель,m,tunnel,tunnel,3.4,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,гель,m,gel,gel (suspension of solid in liquid),3.35,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,бинокль,m,binoculars,binoculars,3.2,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,киль,m,keel,"keel, back",3.16,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,куль,m,sack,sack,3.11,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,бордель,m,brothel,"brothel, bordello",2.99,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,дирижабль,m,airship,"airship, dirigible, blimp",2.99,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,штиль,m,dead calm,dead calm,2.97,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,хрусталь,m,crystal,"crystal, cut glass, lead glass (glass with a high refractive index, used for making fine glassware; by extension, fine glassware made of such glass)",2.96,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,шпиль,m,spire,"spire, steeple, spike",2.93,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,скальпель,m,scalpel,scalpel,2.84,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,бемоль,m,flat,flat,2.83,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,водевиль,m,vaudeville,vaudeville,2.77,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,ракель,m,doctor blade,doctor blade,2.75,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,вексель,m,bill of credit,"bill of credit, bill of exchange, promissory note",2.74,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,сель,m,landslide,"landslide, mudslide, mudflow (a geological disaster)",2.71,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,штемпель,m,stamp,"stamp, seal",2.71,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,некрополь,m,necropolis,necropolis (large cemetery),2.7,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,цоколь,m,socle,"socle (plinth, i.e. thickened bottom part of a wall or pedestal, often used to display art work)",2.69,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,артикль,m,article,article (part of speech),2.6,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,циркуль,m,pair of compasses,pair of compasses,2.59,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,шницель,m,schnitzel,schnitzel (a meat dish),2.51,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,трюфель,m,truffle,truffle (mushroom),2.5,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,фалафель,m,falafel,falafel,2.47,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,штрудель,m,strudel,strudel,2.42,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,эндшпиль,m,endgame,endgame,2.42,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,дроссель,m,throttle,throttle,2.41,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,фенхель,m,fennel,fennel (plant),2.3,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,вензель,m,cipher,"cipher, device, monogram (intricately interwoven initials)",2.3,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,ягель,m,cladonia rangiferina,"Cladonia rangiferina, reindeer moss, reindeer lichen, caribou moss",2.29,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,мундиаль,m,fifa world cup,The FIFA World Cup,2.27,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,штепсель,m,plug,plug (device for connecting a machine to main power),2.23,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,шпиндель,m,spindle,spindle (of a machine tool),2.22,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,капсюль,m,percussion cap,"percussion cap, fulminate cap, detonator, primer (metal cap on muzzleloading firearms)",2.21,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,халяль,m,any halal act,any halal act; any act permissible in Islam,2.2,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,пасквиль,m,libel,"libel, libelous or defamatory piece of journalism",2.13,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,нагель,m,pin,"pin, peg, dowel",2.06,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,грифель,m,slate pencil,"slate pencil, stylus for writing on a slate board",2.02,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,стапель,m,building slip,"building slip(s), stocks, launching slipway",2.02,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,штабель,m,stack,"stack, pile",2.01,loan,ль|loan,,,inan,inanimate,strat_ru,
+ru,боль,f,pain,"pain, ache",4.81,native,ль|native,,,inan,inanimate,strat_ru,
+ru,мысль,f,thought,thought,4.76,native,ль|native,,,inan,inanimate,strat_ru,
+ru,прибыль,f,rise,"rise, increase, growth, increment",4.43,native,ль|native,,,inan,inanimate,strat_ru,
+ru,гибель,f,loss,"loss, death, demise (due to a violent or unnatural cause, e.g. war, accident, or natural disaster)",4.27,native,ль|native,,,inan,inanimate,strat_ru,
+ru,пыль,f,dust,dust,4.11,native,ль|native,,,inan,inanimate,strat_ru,
+ru,печаль,f,sadness,"sadness, grief, sorrow",3.85,native,ль|native,,,inan,inanimate,strat_ru,
+ru,даль,f,distance,distance,3.75,native,ль|native,,,inan,inanimate,strat_ru,
+ru,ель,f,spruce,spruce,3.47,native,ль|native,,,inan,inanimate,strat_ru,
+ru,колыбель,f,cradle,cradle,3.28,native,ль|native,,,inan,inanimate,strat_ru,
+ru,мель,f,shallow,"shallow, shoal",3.26,native,ль|native,,,inan,inanimate,strat_ru,
+ru,быль,f,true story,"true story, fact",3.12,native,ль|native,,,inan,inanimate,strat_ru,
+ru,гниль,f,rottenness,"rottenness, rot",3.02,native,ль|native,,,inan,inanimate,strat_ru,
+ru,купель,f,font,font,2.89,native,ль|native,,,inan,inanimate,strat_ru,
+ru,мозоль,f,skin blister,skin blister,2.83,native,ль|native,,,inan,inanimate,strat_ru,
+ru,свирель,f,pipe,"pipe, svirel (musical instrument)",2.49,native,ль|native,,,inan,inanimate,strat_ru,
+ru,скрижаль,f,table,"table, tablet (with sacred text inscribed upon it)",2.37,native,ль|native,,,inan,inanimate,strat_ru,
+ru,корабль,m,ship,"ship, liner",4.72,native,ль|native,,,inan,inanimate,strat_ru,
+ru,рубль,m,ruble,"ruble, rouble (a monetary unit of Russia and Belarus equal to 100 kopecks)",4.42,native,ль|native,,,inan,inanimate,strat_ru,
+ru,кремль,m,kremlin,kremlin (a central fortress in medieval Russian cities),4.19,native,ль|native,,,inan,inanimate,strat_ru,
+ru,уголь,m,coal,"coal (a black rock formed from prehistoric plant remains, composed largely of carbon and burned as a fuel)",4.08,native,ль|native,,,inan,inanimate,strat_ru,
+ru,кашель,m,cough,cough,3.54,native,ль|native,,,inan,inanimate,strat_ru,
+ru,стебель,m,stem,"stem, stalk (botany: above-ground stalk of a vascular plant)",3.36,native,ль|native,,,inan,inanimate,strat_ru,
+ru,миндаль,m,almond,almond (nut),3.06,native,ль|native,,,inan,inanimate,strat_ru,
+ru,фитиль,m,wick,wick,3.05,native,ль|native,,,inan,inanimate,strat_ru,
+ru,вопль,m,cry,"cry, wail, howl, yell, scream (prolonged cry of distress or anguish)",2.93,native,ль|native,,,inan,inanimate,strat_ru,
+ru,хмель,m,hop,hop (plant),2.93,native,ль|native,,,inan,inanimate,strat_ru,
+ru,щавель,m,sorrel,"sorrel, dock (plant)",2.76,native,ль|native,,,inan,inanimate,strat_ru,
+ru,панель,f,panel,panel,3.75,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,опухоль,f,tumour,"tumour, tumor",3.69,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,карусель,f,merry-go-round,"merry-go-round, carousel",3.53,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,магистраль,f,main line,"main line, main route, main waterway (air, rail, nautical, automotive)",3.52,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,параллель,f,parallel,parallel (line),3.44,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,консоль,f,console,console,3.38,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,оттепель,f,thaw,"thaw (a warmth of weather, also figurative)",3.24,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,вертикаль,f,vertical,"vertical, vertical line",3.21,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,убыль,f,diminution,"diminution, decrease",3.21,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,погибель,f,death,"death, destruction, ruin, perdition",3.02,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,диагональ,f,diagonal,diagonal,2.93,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,виолончель,f,cello,cello,2.88,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,автомагистраль,f,dual carriageway,dual carriageway,2.58,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,трель,f,trill,trill,2.54,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,удаль,f,prowess,"prowess, boldness",2.4,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,горизонталь,f,horizontal,horizontal (line),2.34,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,аллель,f,allele,allele,2.16,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,фестиваль,m,festival,festival (celebration),4.66,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,стиль,m,style,style,4.6,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,профиль,m,profile,profile (various senses),4.2,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,тоннель,m,tunnel,tunnel,3.74,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,кинофестиваль,m,film festival,film festival,3.56,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,баррель,m,barrel,barrel (unit of liquid measure equal to one-quarter of a pipe),3.34,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,гриль,m,grill,grill (barbecue),3.21,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,электромобиль,m,electric car,electric car,2.93,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,вентиль,m,valve,valve,2.86,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,утиль,m,scrap,"scrap, recycling (discarded objects which can be recycled)",2.75,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,пиксель,m,pixel,pixel,2.69,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,аэрозоль,m,aerosol,aerosol,2.58,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,монокль,m,monocle,monocle (a single lens),2.43,unknown,ль|unknown,,,inan,inanimate,strat_ru,
+ru,гавань,f,haven,"haven (harbour), port",3.66,loan,нь|loan,,,inan,inanimate,strat_ru,
+ru,мигрень,f,migraine,"migraine, sick headache",2.88,loan,нь|loan,,,inan,inanimate,strat_ru,
+ru,герань,f,geranium,geranium,2.66,loan,нь|loan,,,inan,inanimate,strat_ru,
+ru,бюллетень,m,ballot paper,ballot paper,3.61,loan,нь|loan,,,inan,inanimate,strat_ru,
+ru,юань,m,yuan,yuan,3.4,loan,нь|loan,,,inan,inanimate,strat_ru,
+ru,противень,m,baking pan,"baking pan, baking tray, sheet pan",2.95,loan,нь|loan,,,inan,inanimate,strat_ru,
+ru,женьшень,m,ginseng,ginseng,2.63,loan,нь|loan,,,inan,inanimate,strat_ru,
+ru,ревень,m,rhubarb,rhubarb,2.54,loan,нь|loan,,,inan,inanimate,strat_ru,
+ru,жизнь,f,life,life,5.73,native,нь|native,,,inan,inanimate,strat_ru,
+ru,степень,f,degree,"degree, extent",4.62,native,нь|native,,,inan,inanimate,strat_ru,
+ru,болезнь,f,disease,"disease, sickness, illness",4.5,native,нь|native,,,inan,inanimate,strat_ru,
+ru,осень,f,autumn,"autumn, fall",4.2,native,нь|native,,,inan,inanimate,strat_ru,
+ru,казнь,f,execution,execution (putting someone to death),4.03,native,нь|native,,,inan,inanimate,strat_ru,
+ru,дань,f,contribution,"contribution, tribute",3.96,native,нь|native,,,inan,inanimate,strat_ru,
+ru,печень,f,liver,liver,3.94,native,нь|native,,,inan,inanimate,strat_ru,
+ru,ткань,f,fabric,"fabric, cloth",3.9,native,нь|native,,,inan,inanimate,strat_ru,
+ru,грань,f,facet,"facet, side (of an object with flat, sharply defined surfaces)",3.81,native,нь|native,,,inan,inanimate,strat_ru,
+ru,ступень,f,step,step (interval between two contiguous degrees of the scale),3.78,native,нь|native,,,inan,inanimate,strat_ru,
+ru,песнь,f,canto,canto,3.74,native,нь|native,,,inan,inanimate,strat_ru,
+ru,боязнь,f,fear,"fear, dread",3.52,native,нь|native,,,inan,inanimate,strat_ru,
+ru,ладонь,f,palm,palm (of the hand),3.47,native,нь|native,,,inan,inanimate,strat_ru,
+ru,вонь,f,stink,"stink, stench",3.22,native,нь|native,,,inan,inanimate,strat_ru,
+ru,плесень,f,mildew,"mildew, mold, must",3.19,native,нь|native,,,inan,inanimate,strat_ru,
+ru,брань,f,scolding,"scolding, invective, swearing",3.18,native,нь|native,,,inan,inanimate,strat_ru,
+ru,рань,f,early morning,early morning,3.06,native,нь|native,,,inan,inanimate,strat_ru,
+ru,полынь,f,wormwood,"wormwood, mugwort, artemisia",3.0,native,нь|native,,,inan,inanimate,strat_ru,
+ru,голень,f,shin,"shin, shank",2.9,native,нь|native,,,inan,inanimate,strat_ru,
+ru,яблонь,f,apple tree,apple tree,2.83,native,нь|native,,,inan,inanimate,strat_ru,
+ru,сень,f,canopy,canopy (in church),2.68,native,нь|native,,,inan,inanimate,strat_ru,
+ru,гортань,f,larynx,larynx; throat,2.66,native,нь|native,,,inan,inanimate,strat_ru,
+ru,лохань,f,washtub,"washtub, pan",2.1,native,нь|native,,,inan,inanimate,strat_ru,
+ru,день,m,day,"day, daytime",5.84,native,нь|native,,,inan,inanimate,strat_ru,
+ru,камень,m,stone,"stone, rock",4.61,native,нь|native,,,inan,inanimate,strat_ru,
+ru,корень,m,root,root,3.91,native,нь|native,,,inan,inanimate,strat_ru,
+ru,ремень,m,strap,"strap, thong, sling",3.69,native,нь|native,,,inan,inanimate,strat_ru,
+ru,стержень,m,shank,"shank, rod, pivot, spindle (straight round stick, shaft, or bar)",3.54,native,нь|native,,,inan,inanimate,strat_ru,
+ru,перстень,m,ring,ring,3.2,native,нь|native,,,inan,inanimate,strat_ru,
+ru,ясень,m,ash,ash (tree or wood),3.12,native,нь|native,,,inan,inanimate,strat_ru,
+ru,щебень,m,crushed stone,"crushed stone, road metal",3.07,native,нь|native,,,inan,inanimate,strat_ru,
+ru,пламень,m,flame,"flame (also figurative, referring to emotions)",2.51,native,нь|native,,,inan,inanimate,strat_ru,
+ru,бивень,m,tusk,tusk,2.41,native,нь|native,,,inan,inanimate,strat_ru,
+ru,клубень,m,tuber,tuber,2.29,native,нь|native,,,inan,inanimate,strat_ru,
+ru,зелень,f,greenery,"greenery, verdure (vegetation)",3.71,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,пустынь,f,hermitage,hermitage,3.4,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,неприязнь,f,enmity,"enmity, hostility (hostile or unfriendly disposition)",3.36,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,пристань,f,wharf,"wharf, pier",3.33,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,сирень,f,lilac,lilac (Syringa),3.18,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,синь,f,blue colour,blue colour,3.13,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,ругань,f,abuse,"abuse, swearing (insulting speech)",3.03,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,бронь,f,ripe ear of oat,ripe ear of oat,3.01,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,глухомань,f,thick forest,thick forest,2.39,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,уровень,m,level,"level, standard, amount",5.18,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,ливень,m,shower,"shower, downpour, heavy rain, cloud-burst",3.44,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,оползень,m,landslide,landslide,2.7,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,плетень,m,wattle fence,wattle fence,2.55,unknown,нь|unknown,,,inan,inanimate,strat_ru,
+ru,глазурь,f,syrup,"syrup (for fruit), icing (for cakes)",2.86,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,лазурь,f,azure,azure (colour/color),2.8,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,лагерь,m,camp,"camp, camp-out",4.43,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,монастырь,m,monastery,"monastery, convent",4.12,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,календарь,m,calendar,calendar,4.11,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,фонарь,m,lantern,"lantern, streetlight, streetlamp",3.72,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,инвентарь,m,inventory,"inventory, stock",3.51,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,алтарь,m,altar,altar,3.51,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,козырь,m,trump,trump,3.32,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,имбирь,m,ginger,ginger,2.91,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,штырь,m,pin,"pin, pivot, spike",2.66,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,лейкопластырь,m,plaster,"plaster, band-aid",2.02,loan,рь|loan,,,inan,inanimate,strat_ru,
+ru,дверь,f,door,door,4.87,native,рь|native,,,inan,inanimate,strat_ru,
+ru,корь,f,measles,measles,2.73,native,рь|native,,,inan,inanimate,strat_ru,
+ru,ширь,f,expanse,"expanse, scope",2.37,native,рь|native,,,inan,inanimate,strat_ru,
+ru,якорь,m,anchor,anchor,3.6,native,рь|native,,,inan,inanimate,strat_ru,
+ru,вихрь,m,whirlwind,whirlwind,3.27,native,рь|native,,,inan,inanimate,strat_ru,
+ru,янтарь,m,amber,amber (fossil resin),3.2,native,рь|native,,,inan,inanimate,strat_ru,
+ru,пластырь,m,plaster,"plaster, band-aid",3.12,native,рь|native,,,inan,inanimate,strat_ru,
+ru,часть,f,part,part,5.55,native,ть|native,,,inan,inanimate,strat_ru,
+ru,память,f,memory,memory,4.96,native,ть|native,,,inan,inanimate,strat_ru,
+ru,суть,f,essence,"essence, core, gist, main point",4.63,native,ть|native,,,inan,inanimate,strat_ru,
+ru,печать,f,printing,"printing, print",4.18,native,ть|native,,,inan,inanimate,strat_ru,
+ru,ненависть,f,hatred,"hatred, hate",4.16,native,ть|native,,,inan,inanimate,strat_ru,
+ru,нить,f,thread,thread,3.91,native,ть|native,,,inan,inanimate,strat_ru,
+ru,плоть,f,flesh,flesh,3.84,native,ть|native,,,inan,inanimate,strat_ru,
+ru,шерсть,f,fur,"fur, hair (animal hair or human body hair; contrast волосы and мех)",3.8,native,ть|native,,,inan,inanimate,strat_ru,
+ru,челюсть,f,jaw,jaw (bone of the jaw),3.75,native,ть|native,,,inan,inanimate,strat_ru,
+ru,зависть,f,envy,envy,3.67,native,ть|native,,,inan,inanimate,strat_ru,
+ru,благодать,f,divine grace,"divine grace, boon, bliss (a blessing or benefit)",3.52,native,ть|native,,,inan,inanimate,strat_ru,
+ru,кисть,f,brush,"brush, paintbrush (instrument for applying paint)",3.49,native,ть|native,,,inan,inanimate,strat_ru,
+ru,жуть,f,dismay,"dismay, dread, horror",3.46,native,ть|native,,,inan,inanimate,strat_ru,
+ru,горсть,f,hollow of the hand,"hollow of the hand, cupped hand",3.2,native,ть|native,,,inan,inanimate,strat_ru,
+ru,похоть,f,lust,lust,3.1,native,ть|native,,,inan,inanimate,strat_ru,
+ru,рукоять,f,handle,handle,2.94,native,ть|native,,,inan,inanimate,strat_ru,
+ru,масть,f,color,color,2.9,native,ть|native,,,inan,inanimate,strat_ru,
+ru,корысть,f,gain,"gain, profit; self-interest, greed",2.68,native,ть|native,,,inan,inanimate,strat_ru,
+ru,перхоть,f,dandruff,dandruff,2.48,native,ть|native,,,inan,inanimate,strat_ru,
+ru,паперть,f,portico of a church,portico of a church,2.37,native,ть|native,,,inan,inanimate,strat_ru,
+ru,путь,m,way,"way, path, road",5.13,native,ть|native,,,inan,inanimate,strat_ru,
+ru,локоть,m,elbow,elbow,3.69,native,ть|native,,,inan,inanimate,strat_ru,
+ru,ноготь,m,nail,nail (of finger or toe),3.1,native,ть|native,,,inan,inanimate,strat_ru,
+ru,лапоть,m,bast shoe,"bast shoe, bast sandal, lapti",2.33,native,ть|native,,,inan,inanimate,strat_ru,
+ru,скорбь,f,sorrow,"sorrow, grief",3.42,native,бь|native,,,inan,inanimate,,
+ru,дробь,f,fraction,"fraction, broken number",3.26,native,бь|native,,,inan,inanimate,,
+ru,глубь,f,depth,depth,3.11,native,бь|native,,,inan,inanimate,,
+ru,прорубь,f,ice hole,"ice hole, hole in the ice (usually artificial)",2.72,native,бь|native,,,inan,inanimate,,
+ru,зыбь,f,ripple,"ripple, swell (surface wave in the absence of wind)",2.12,native,бь|native,,,inan,inanimate,,
+ru,голубь,m,dove,"dove, pigeon",3.55,native,бь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,особь,f,individual,"individual (of an organism), specimen",3.13,unknown,бь|unknown,,,anim,inanimate,,grammatically animate; animate (wordnet)
+ru,рябь,f,ripple,ripple,2.7,unknown,бь|unknown,,,inan,inanimate,,
+ru,любовь,f,love,love,5.16,native,вь|native,,,inan,inanimate,,other part of speech
+ru,церковь,f,church,church (religious group),4.84,native,вь|native,,,inan,inanimate,,group (wordnet)
+ru,кровь,f,blood,blood,4.74,native,вь|native,,,inan,inanimate,,
+ru,обувь,f,footwear,"footwear, shoes",4.17,native,вь|native,,,inan,inanimate,,
+ru,морковь,f,carrot,carrot (plant),3.69,native,вь|native,,,inan,inanimate,,
+ru,ветвь,f,branch,"branch, bough, limb (woody part of a tree arising from the trunk and usually dividing)",3.61,native,вь|native,,,inan,inanimate,,group (wordnet)
+ru,бровь,f,eyebrow,eyebrow,3.31,native,вь|native,,,inan,inanimate,,
+ru,свекровь,f,mother of one's husband,the mother of one's husband; mother-in-law,3.3,native,вь|native,,,anim,animate,,grammatically animate; animate (lexicon)
+ru,новь,f,newness,"newness, novelty, something new in people's lives",2.83,native,вь|native,,,inan,inanimate,,
+ru,явь,f,reality,reality,2.6,native,вь|native,,,inan,inanimate,,
+ru,хоругвь,f,gonfalon,gonfalon,2.18,native,вь|native,,,inan,uncertain,,animate (lexicon)
+ru,червь,m,worm,worm (invertebrate),3.31,native,вь|native,,,anim|inan,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,нелюбовь,f,dislike,dislike (for),2.93,unknown,вь|unknown,,,inan,inanimate,,
+ru,правь,f,"""rightness""","""rightness"", the universal order according to some Slavic neopagan groups.",2.35,unknown,вь|unknown,,,inan,uncertain,,animate (lexicon)
+ru,тетрадь,f,exercise book,"exercise book, notebook",3.78,loan,дь|loan,,,inan,inanimate,,
+ru,стерлядь,f,sterlet,sterlet,2.58,loan,дь|loan,,,anim,uncertain,,grammatically animate; animate (lexicon)
+ru,отповедь,f,answer,"answer, reply",2.51,loan,дь|loan,,,inan,inanimate,,register mark
+ru,очередь,f,queue,"queue, line",5.1,native,дь|native,,череда,inan,inanimate,,formed from череда
+ru,площадь,f,square,square (open area in a town or city),4.82,native,дь|native,,,inan,inanimate,,proper name
+ru,блядь,f,whore,"whore, slut, prostitute",4.32,native,дь|native,,,anim,animate,,grammatically animate; animate (lexicon); other part of speech; register mark; animate (wordnet)
+ru,лошадь,f,horse,horse,4.29,native,дь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,медь,f,copper,copper,3.51,native,дь|native,,,inan,inanimate,,chemical
+ru,сельдь,f,herring,herring (Clupea),3.14,native,дь|native,,,anim,inanimate,,grammatically animate; animate (wordnet)
+ru,молодь,f,young shoots,young shoots,2.87,native,дь|native,,,inan,uncertain,,animate (lexicon)
+ru,твердь,f,dry land,"dry land, earth",2.6,native,дь|native,,,inan,inanimate,,register mark
+ru,челядь,f,servants,"servants, menials",2.58,native,дь|native,,,inan,uncertain,,animate (lexicon); register mark; animate (wordnet)
+ru,чудь,f,chud,Chud,2.53,native,дь|native,,,inan,animate,,animate (lexicon)
+ru,наледь,f,naled,"naled, icing, ice (a layer of ice over something, especially over ground waters)",2.37,native,дь|native,,лёд,inan,uncertain,,animate (lexicon); formed from лёд
+ru,пядь,f,span,"span (Old Russian unit of length corresponding to the distance between the spaced ends of the thumb and index fingers, seven inches, 17.78 cm)",2.27,native,дь|native,,,inan,inanimate,,register mark
+ru,медведь,m,bear,bear,4.16,native,дь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,вождь,m,chief,"chief, chieftain (of a tribe)",3.97,native,дь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,гладь,f,smooth surface,smooth surface,3.11,unknown,дь|unknown,,,inan,inanimate,,
+ru,изгородь,f,fence,fence (barrier),3.01,unknown,дь|unknown,,,inan,inanimate,,animate (wordnet)
+ru,падь,f,deep narrow valley,"A deep narrow valley, gorge, or riverbank, especially one that is foresty",2.65,unknown,дь|unknown,,,inan,animate,,animate (lexicon); register mark
+ru,жилплощадь,f,floor space,floor space; dwelling or living space,2.65,unknown,дь|unknown,,,inan,inanimate,,
+ru,кладь,f,load,load,2.61,unknown,дь|unknown,,,inan,inanimate,,
+ru,рухлядь,f,junk,"junk, lumber, cruft, old junk (anything old or of inferior quality)",2.57,unknown,дь|unknown,,,anim|inan,inanimate,,grammatically animate; register mark
+ru,заводь,f,creek,"creek, backwater",2.46,unknown,дь|unknown,,,inan,inanimate,,animate (wordnet)
+ru,пелядь,f,peled,peled (fish),2.0,unknown,дь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (gloss)
+ru,ложь,f,lie,"lie, falsehood",4.35,native,жь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь; animate (wordnet)
+ru,дрожь,f,trembling,"trembling, shiver, shivering",3.61,native,жь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,молодёжь,f,young,"the young, youth, young people (collective)",3.43,native,жь|native,sibilant+ь,,inan,animate,,animate (lexicon); suffix sibilant+ь; animate (wordnet)
+ru,рожь,f,rye,rye (grass; grain),3.13,native,жь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,блажь,f,whim,"whim, caprice, fancy, folly",2.61,unknown,жь|unknown,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,упряжь,f,harness,harness (for horses or other animals),2.38,unknown,жь|unknown,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,залежь,f,deposit,"deposit, accumulation",2.18,unknown,жь|unknown,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,ферзь,m,queen,queen,2.53,loan,зь|loan,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,связь,f,tie,"tie, relation, bond, contact",4.92,native,зь|native,,,inan,inanimate,,
+ru,грязь,f,dirt,dirt (uncleanliness),4.12,native,зь|native,,,inan,inanimate,,
+ru,взаимосвязь,f,interconnection,interconnection,3.36,native,зь|native,,связь,inan,inanimate,,formed from связь
+ru,мазь,f,ointment,"ointment, salve, liniment",3.23,native,зь|native,,,inan,inanimate,,
+ru,слизь,f,mucus,mucus,3.13,native,зь|native,,,inan,inanimate,,
+ru,радиосвязь,f,radio communication/contact,radio communication/contact,2.97,native,зь|native,,радио,inan,uncertain,,animate (lexicon); formed from радио
+ru,вязь,f,vyaz,vyaz (Cyrillic calligraphy),2.52,native,зь|native,,,inan,uncertain,,animate (lexicon); animate (gloss)
+ru,перевязь,f,sash,sash,2.39,native,зь|native,,,inan,inanimate,,
+ru,резь,f,sharp pain,"sharp pain, colic",2.02,native,зь|native,,,inan,inanimate,,
+ru,князь,m,prince,prince; duke,4.52,native,зь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,витязь,m,hero,"hero, knight",3.57,native,зь|native,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,кладезь,m,fount,"fount, treasury, storehouse (abundant, inexhaustible source of something, e.g. knowledge)",2.81,native,зь|native,,,inan,inanimate,,register mark
+ru,колодезь,m,well,well,2.5,native,зь|native,,,inan,inanimate,,register mark
+ru,язь,m,ide,ide (fish),2.49,native,зь|native,,,anim,uncertain,,grammatically animate; animate (lexicon); animate (gloss)
+ru,мразь,f,scum,"scum, dregs, despicable person, despicable people",3.35,unknown,зь|unknown,,,anim|inan,inanimate,,grammatically animate; register mark; animate (wordnet)
+ru,завязь,f,ovary,ovary (plant),2.52,unknown,зь|unknown,,,inan,inanimate,,
+ru,прорезь,f,cut,"cut, opening, slit",2.39,unknown,зь|unknown,,,inan,inanimate,,
+ru,изморозь,f,rime,"rime, hoarfrost, glaze",2.17,unknown,зь|unknown,,,inan,inanimate,,
+ru,модель,f,model,"model (model car, fashion model, etc.)",4.85,loan,ль|loan,,,anim|inan,inanimate,,grammatically animate
+ru,сталь,f,steel,steel,3.95,loan,ль|loan,,,inan,inanimate,,chemical
+ru,газель,f,gazelle,gazelle,3.42,loan,ль|loan,,,anim|inan,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,фасоль,f,beans,beans,3.36,loan,ль|loan,,,inan,uncertain,,animate (lexicon)
+ru,мадемуазель,f,mademoiselle,"mademoiselle, Miss (polite term of address to an unmarried woman)",3.33,loan,ль|loan,,,anim,animate,,grammatically animate; animate (lexicon); register mark; indeclinable; animate (wordnet)
+ru,цитадель,f,citadel,citadel (a strong fortress that sits high above a city),3.31,loan,ль|loan,,,inan,inanimate,,proper name
+ru,форель,f,trout,trout,3.29,loan,ль|loan,,,anim,inanimate,,grammatically animate; animate (wordnet)
+ru,артель,f,artel,an artel: a worker or peasant cooperative.,3.26,loan,ль|loan,-тель,,inan,uncertain,,animate (lexicon); suffix -тель
+ru,акварель,f,watercolour/watercolor,"watercolour/watercolor (a painting technique, paint or painting)",3.24,loan,ль|loan,,,inan,uncertain,,animate (lexicon)
+ru,ваниль,f,vanilla,vanilla (Vanilla planifolia),2.87,loan,ль|loan,,,inan,inanimate,,animate (gloss)
+ru,канитель,f,thin metallic gold or silver thread,"thin metallic gold or silver thread, used for embroidery or decoration",2.54,loan,ль|loan,-тель,,inan,inanimate,,suffix -тель
+ru,кефаль,f,mullet,mullet,2.38,loan,ль|loan,,,anim,inanimate,,grammatically animate; animate (wordnet)
+ru,макрель,f,mackerel,mackerel,2.28,loan,ль|loan,,,anim,inanimate,,grammatically animate; animate (wordnet)
+ru,рель,f,floodmeadow,"floodmeadow, floodplain",2.02,loan,ль|loan,,,inan,uncertain,,animate (lexicon)
+ru,канифоль,f,rosin,"rosin, colophony",2.01,loan,ль|loan,,,inan,inanimate,,chemical
+ru,отель,m,hotel,hotel,4.43,loan,ль|loan,-тель,,inan,inanimate,,suffix -тель
+ru,июль,m,july,July,4.11,loan,ль|loan,,,inan,inanimate,,month name
+ru,картофель,m,potatoes,potatoes,4.0,loan,ль|loan,,,inan,uncertain,,animate (lexicon)
+ru,ансамбль,m,ensemble,ensemble (various senses),3.92,loan,ль|loan,,,inan,inanimate,,group (wordnet)
+ru,патруль,m,patrol,patrol,3.63,loan,ль|loan,,,inan,inanimate,,group (wordnet)
+ru,кабель,m,cable,cable,3.62,loan,ль|loan,,,inan,inanimate,,register mark
+ru,паскаль,m,pascal,pascal,3.5,loan,ль|loan,,,inan,inanimate,,animate (wordnet)
+ru,тролль,m,troll,troll (supernatural being in Scandinavian mythology),3.34,loan,ль|loan,,,anim,animate,,grammatically animate; animate (lexicon)
+ru,вестибюль,m,lobby,"lobby, foyer",3.19,loan,ль|loan,,,inan,inanimate,,animate (wordnet)
+ru,флигель,m,wing,"wing (extension of a building); by extension, a secondary (possibly detached) dwelling located on an estate",3.05,loan,ль|loan,,,inan,animate,,animate (lexicon)
+ru,текстиль,m,textiles,textiles,3.04,loan,ль|loan,,,anim|inan,uncertain,,grammatically animate; animate (lexicon)
+ru,толь,m,tarpaper,tarpaper (roofing and waterproofing material made by impregnating roofing paper with coal tar or shale oil products),3.02,loan,ль|loan,,,inan,uncertain,,animate (lexicon); other part of speech
+ru,кобель,m,male dog,male dog,2.97,loan,ль|loan,,,anim,animate,,grammatically animate; animate (lexicon)
+ru,обыватель,m,average man/citizen,"the average man/citizen, the man in the street",2.89,loan,ль|loan,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,констебль,m,constable,constable,2.83,loan,ль|loan,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,таль,m,chain hoist,"chain hoist, chain block, pulley block, hoisting tackle, block and tackle",2.79,loan,ль|loan,,,anim|inan,inanimate,,grammatically animate
+ru,китель,m,type of a military uniform,type of a military uniform,2.75,loan,ль|loan,-тель,,inan,inanimate,,suffix -тель
+ru,пудель,m,poodle,poodle,2.75,loan,ль|loan,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,фельдфебель,m,feldwebel ),feldwebel (a non-commissioned officer (NCO)),2.74,loan,ль|loan,,,anim,uncertain,,grammatically animate; animate (lexicon); register mark
+ru,мотель,m,motel,motel (type of hotel),2.72,loan,ль|loan,-тель,,inan,inanimate,,suffix -тель
+ru,кроль,m,crawl,"crawl, front crawl",2.61,loan,ль|loan,,,anim|inan,inanimate,,grammatically animate
+ru,кафель,m,ceramic tiles,"ceramic tiles, Dutch tiles, glazed tiles (used for walls or flooring)",2.51,loan,ль|loan,,,inan,uncertain,,animate (lexicon)
+ru,метрдотель,m,headwaiter,"headwaiter, maître d'hôtel",2.47,loan,ль|loan,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,крендель,m,pretzel,"pretzel, krendel",2.46,loan,ль|loan,,,anim|inan,inanimate,,grammatically animate
+ru,румпель,m,tiller,tiller,2.26,loan,ль|loan,,,inan,inanimate,,animate (wordnet)
+ru,ригель,m,longitudinal girder/beam,"longitudinal girder/beam, crossbar",2.24,loan,ль|loan,,,inan,uncertain,,animate (lexicon)
+ru,шекель,m,sheqel,"sheqel, shekel (currency unit in Israel)",2.22,loan,ль|loan,,,inan,uncertain,,animate (lexicon)
+ru,аваль,m,aval,"aval, bank guarantee, surety",2.16,loan,ль|loan,,,inan,uncertain,,animate (lexicon)
+ru,шнобель,m,schnozzle,"schnozzle, conk, honker, schnoz, snoot (human nose)",2.1,loan,ль|loan,,,inan,inanimate,,register mark
+ru,шпатель,m,putty knife,putty knife,2.02,loan,ль|loan,-тель,,inan,inanimate,,suffix -тель
+ru,винкель,m,winkel,winkel (color and letter coded patch used by Nazis to classify prisoners in concentration camps),2.01,loan,ль|loan,,,inan,uncertain,,animate (lexicon); register mark
+ru,криль,m,krill,krill,2.01,loan,ль|loan,,,inan,animate,,animate (lexicon); animate (wordnet)
+ru,постель,f,bed,bed (a piece of furniture to sleep on),4.11,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,отрасль,f,branch,"branch, field (area in business or of knowledge, research)",3.88,native,ль|native,,,inan,inanimate,,group (wordnet)
+ru,обитель,f,abode,"abode, dwelling place",3.69,native,ль|native,-тель,,inan,inanimate,,register mark; suffix -тель
+ru,добродетель,f,virtue,virtue (excellence in morals),3.52,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,метель,f,blizzard,"blizzard, snowstorm (verbal noun of мести́ (mestí) (nomen actionis instantiae; nomen agentis (compare капе́ль (kapélʹ))))",3.51,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,щель,f,chink,"chink, crack; gap, opening",3.35,native,ль|native,,,inan,animate,,animate (lexicon); animate (wordnet)
+ru,фотомодель,f,model who poses for photographs,model who poses for photographs; fashion model,2.91,native,ль|native,,модель,anim,uncertain,,grammatically animate; animate (lexicon); formed from модель
+ru,падаль,f,carrion,"carrion, offal (dead flesh; carcasses)",2.88,native,ль|native,,,anim|inan,animate,,grammatically animate; animate (lexicon)
+ru,самоцель,f,end in itself,end in itself,2.63,native,ль|native,,цель,inan,uncertain,,animate (lexicon); formed from цель
+ru,отмель,f,sand bar,"sand bar, sand bank",2.54,native,ль|native,,мель,inan,inanimate,,formed from мель
+ru,водоросль,f,seaweed,"seaweed, algae",2.41,native,ль|native,,вода,inan,animate,,animate (lexicon); formed from вода
+ru,невидаль,f,something unprecedented,"something unprecedented, surprising, not seen before",2.25,native,ль|native,,,inan,uncertain,,animate (lexicon); register mark
+ru,сверхприбыль,f,superprofit,"superprofit, excess profit",2.18,native,ль|native,,прибыль,inan,uncertain,,animate (lexicon); formed from прибыль
+ru,юдоль,f,valley,valley,2.09,native,ль|native,,,inan,inanimate,,register mark
+ru,пищаль,f,shepherd's pipe,shepherd's pipe,2.05,native,ль|native,,,inan,inanimate,,register mark
+ru,председатель,m,chairman,"chairman, president",4.94,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,заместитель,m,substitute,"substitute, replacement",4.81,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,король,m,king,king,4.81,native,ль|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,руководитель,m,leader,"leader, chief, manager, director, instructor, teacher",4.69,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,представитель,m,representative,representative,4.62,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,учитель,m,teacher,"teacher, instructor",4.58,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,писатель,m,writer,writer,4.57,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,водитель,m,guide,"guide, leader (a person who guides others or leads the way)",4.56,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,показатель,m,indicator,"indicator, measure, index (sign, indication, token)",4.49,native,ль|native,-тель,,inan,animate,,animate (lexicon); suffix -тель
+ru,двигатель,m,engine,"engine, motor",4.38,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,апрель,m,april,April,4.33,native,ль|native,,,inan,inanimate,,month name
+ru,февраль,m,february,February,4.28,native,ль|native,,,inan,inanimate,,month name
+ru,основатель,m,founder,founder,4.13,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,преподаватель,m,teacher,"teacher, lecturer, instructor, professor (a person who teaches)",4.09,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,исполнитель,m,executor,executor,4.08,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,деятель,m,doer,"doer, actor, agent (one who acts; a doer)",4.05,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,производитель,m,manufacturer,manufacturer (one who manufactures),4.03,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); group (wordnet); animate (gloss)
+ru,создатель,m,creator,creator (one who creates),3.99,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,следователь,m,investigator,"investigator, detective",3.99,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,предприниматель,m,industrialist,"industrialist, businessman, entrepreneur",3.98,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,исследователь,m,researcher,researcher,3.94,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,обладатель,m,possessor,"possessor, owner, holder",3.93,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,читатель,m,reader,reader,3.89,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,любитель,m,lover,"lover, devotee, fan",3.89,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,свидетель,m,eyewitness,"eyewitness, witness (one who has a personal knowledge of something)",3.85,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,пользователь,m,user,user,3.84,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,гоголь,m,common goldeneye,"Common goldeneye (Bucephala clangula), a kind of duck.",3.81,native,ль|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (gloss)
+ru,приятель,m,friend,"friend, chum",3.8,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,обозреватель,m,observer,"observer; reviewer; editor (newspaper, television, etc)",3.8,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,строитель,m,builder,"builder, constructor",3.77,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,покупатель,m,buyer,"buyer, purchaser, customer, client, shopper",3.77,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,носитель,m,carrier,"carrier, bearer, holder",3.76,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,правитель,m,ruler,ruler (a person who rules or governs),3.76,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,истребитель,m,destroyer,"destroyer, exterminator, eradicator",3.76,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,хранитель,m,keeper,"keeper, guardian, custodian",3.75,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,зритель,m,spectator,"spectator, onlooker, viewer",3.74,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,повелитель,m,sovereign,"sovereign, master (owner of an animal or slave)",3.68,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,указатель,m,index,"index, indicator, guide, pointer",3.66,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,издатель,m,publisher,"publisher (one who publishes, especially books)",3.62,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); group (wordnet); animate (gloss)
+ru,наблюдатель,m,observer,observer,3.58,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,предатель,m,traitor,"traitor, betrayer",3.57,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,работодатель,m,employer,employer (person or entity which employs others),3.52,native,ль|native,-тель,работа,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); formed from работа
+ru,посетитель,m,visitor,"visitor, caller",3.51,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,спаситель,m,savior,savior (a person who rescues another from harm),3.5,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,изобретатель,m,inventor,inventor,3.49,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,настоятель,m,prior,"prior, abbot, father superior (superior or head of an abbey or monastery)",3.45,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,составитель,m,compiler,"compiler, writer, author",3.36,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,воспитатель,m,educator,"educator, (chiefly nursery/kindergarten, orphanage) teacher, mentor; tutor",3.35,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,предводитель,m,leader,"leader, ringleader",3.34,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,коваль,m,smith,"smith, blacksmith",3.34,native,ль|native,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,покровитель,m,patron,"patron, protector, sponsor",3.33,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,спасатель,m,rescue worker,"rescue worker, rescuer",3.32,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,тополь,m,poplar,"poplar, cottonwood (any of various deciduous trees of the genus Populus)",3.32,native,ль|native,,,inan,inanimate,,animate (gloss)
+ru,смотритель,m,supervisor,"supervisor, inspector, keeper, custodian",3.31,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,соболь,m,sable,sable (a small carnivorous mammal),3.29,native,ль|native,,,anim|inan,inanimate,,grammatically animate; animate (gloss)
+ru,учредитель,m,founder,founder,3.28,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,мыслитель,m,thinker,thinker,3.25,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,переключатель,m,switch,switch,3.25,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,выключатель,m,switch,switch,3.25,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,слушатель,m,listener,"listener, hearer, audience (someone who listens)",3.24,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,искатель,m,seeker,seeker,3.23,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,нарушитель,m,violator,violator; trespasser; infringer; perpetrator; disturber; intruder,3.22,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,ускоритель,m,accelerator,"accelerator (a device for causing acceleration, anything or anyone that accelerates but not the accelerator pedal)",3.18,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,обвинитель,m,accuser,accuser,3.15,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,москаль,m,muscovite,"a Muscovite, someone from the Moscow region.",3.14,native,ль|native,,,anim,inanimate,,grammatically animate; proper name; animate (wordnet)
+ru,избиратель,m,voter,"voter, elector",3.14,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,мститель,m,avenger,"avenger (one who avenges or vindicates; as, an avenger of blood)",3.13,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,последователь,m,follower,follower,3.11,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,множитель,m,multiplier,multiplier (number),3.1,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,определитель,m,determinant,determinant,3.1,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,получатель,m,addressee,"addressee, recipient",3.09,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,мечтатель,m,dreamer,"dreamer, daydreamer",3.08,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,разрушитель,m,destroyer,"destroyer, depredator",3.07,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,держатель,m,holder,holder,3.06,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,накопитель,m,accumulator,"accumulator, stockpiler (someone who accumulates money, property, etc.)",3.05,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,чернобыль,m,wormwood,"wormwood, mugwort (Artemisia vulgaris)",3.05,native,ль|native,,,inan,inanimate,,animate (gloss)
+ru,предохранитель,m,safety device,"safety device, preventer, protector, safeguard",3.03,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,служитель,m,attendant,attendant,3.02,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,соучредитель,m,cofounder,cofounder,3.01,native,ль|native,-тель,учредитель,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); formed from учредитель
+ru,преобразователь,m,reformer,"reformer, reorganizer",3.01,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,проигрыватель,m,gramophone,"gramophone, record player",3.01,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,кисель,m,kisel,"kisel, kissel (a popular jellied dessert made by cooking berry juice or other fruit juice with milk, flour and oatmeal, thickened with starch)",3.01,native,ль|native,,,anim|inan,uncertain,,grammatically animate; animate (lexicon)
+ru,целитель,m,healer,healer,2.99,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,распорядитель,m,administrator,"administrator, manager, steward (one who administers affairs)",2.99,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); register mark; suffix -тель; animate (wordnet); animate (gloss)
+ru,журавль,m,crane,crane (bird),2.99,native,ль|native,,,anim|inan,animate,,grammatically animate; animate (lexicon); animate (wordnet); animate (gloss)
+ru,собиратель,m,collector,"collector, gatherer",2.97,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,испытатель,m,tester,tester (a person who tests products or methods),2.96,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,священнослужитель,m,cleric,"cleric, churchman, clergyman, ecclesiastic, minister (of church)",2.95,native,ль|native,-тель,служитель,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); formed from служитель
+ru,шмель,m,bumblebee,bumblebee,2.94,native,ль|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,изготовитель,m,manufacturer,"manufacturer, producer, maker",2.92,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); group (wordnet)
+ru,электродвигатель,m,electric engine,"electric engine, electric motor",2.91,native,ль|native,-тель,двигатель,inan,inanimate,,suffix -тель; formed from двигатель
+ru,обогреватель,m,heater,heater,2.91,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,вдохновитель,m,inspirer,inspirer,2.91,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,огнетушитель,m,fire extinguisher,fire extinguisher,2.84,native,ль|native,-тель,огонь,inan,inanimate,,suffix -тель; formed from огонь
+ru,властитель,m,ruler,"ruler, arbiter, sovereign",2.84,native,ль|native,-тель,власть,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); formed from власть
+ru,заменитель,m,substitute,substitute (product),2.84,native,ль|native,-тель,,inan,inanimate,,suffix -тель; animate (wordnet)
+ru,растворитель,m,dissolvent,"dissolvent, solvent, thinner, dilutant",2.82,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,неприятель,m,enemy,"enemy, adversary",2.82,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); group (wordnet)
+ru,благодетель,m,benefactor,benefactor,2.81,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,самоконтроль,m,self-control,self-control,2.78,native,ль|native,,контроль,inan,inanimate,,formed from контроль
+ru,костыль,m,crutch,crutch,2.77,native,ль|native,,кость,inan,inanimate,,formed from кость
+ru,пожиратель,m,devourer,devourer,2.77,native,ль|native,-тель,,inan,animate,,animate (lexicon); suffix -тель; animate (wordnet)
+ru,поджигатель,m,arsonist,"arsonist (one who has committed the act of arson, or illegally setting fire to property)",2.76,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,завоеватель,m,conqueror,conqueror; winner,2.75,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,вредитель,m,pest,pest; vermin,2.75,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,взрыватель,m,fuze,fuze,2.75,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,освободитель,m,liberator,"liberator, emancipator",2.75,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,обитатель,m,inhabitant,"inhabitant, dweller",2.72,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,наниматель,m,employer,"employer, hirer (person or entity which employs others)",2.72,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,глушитель,m,muffler,muffler (part of exhaust pipe),2.72,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,наполнитель,m,filler,"filler, filling (substance)",2.72,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,потрошитель,m,disemboweller,disemboweller,2.71,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,каратель,m,punisher,punisher; chastener,2.71,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,громкоговоритель,m,loudspeaker,loudspeaker,2.71,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,ценитель,m,appreciator,"appreciator, judge, connoisseur",2.7,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,преследователь,m,prosecutor,"prosecutor, persecutor, pursuer",2.69,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,автопроизводитель,m,automaker,"automaker, automobile manufacturer",2.68,native,ль|native,-тель,производитель,inan,inanimate,,suffix -тель; group (wordnet); formed from производитель
+ru,недоросль,m,adolescent nobleman who has not entered the civil service,adolescent nobleman who has not entered the civil service (in Russia in the 18th century),2.65,native,ль|native,,,anim,inanimate,,grammatically animate; register mark
+ru,покоритель,m,conqueror,"conqueror, subjugator",2.65,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,дознаватель,m,investigator,"investigator, interrogator",2.63,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,естествоиспытатель,m,natural scientist,natural scientist,2.63,native,ль|native,-тель,естество,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); formed from естество
+ru,продолжатель,m,continuator,"continuator, continuer, successor",2.62,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,раздражитель,m,irritant,irritant,2.61,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,ограничитель,m,limiter,limiter (type of device),2.61,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,первооткрыватель,m,discoverer,"discoverer, pioneer",2.6,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,сожитель,m,roommate,roommate,2.59,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,автолюбитель,m,motorist,"motorist, motor-car enthusiast, motoring fan",2.58,native,ль|native,-тель,любитель,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; formed from любитель
+ru,делитель,m,divisor,divisor (a number that another is to be divided by),2.57,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,ковыль,m,feathergrass,feathergrass (Any of various perennial hermaphroditic grasses of the genus Stipa),2.57,native,ль|native,,,inan,uncertain,,animate (lexicon); animate (gloss)
+ru,долгожитель,m,very-long-lived person,"very-long-lived person, centenarian (approximately; normally refers to someone 90 years and older)",2.56,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,самоучитель,m,self-teaching book,self-teaching book,2.55,native,ль|native,-тель,учитель,inan,inanimate,,suffix -тель; formed from учитель
+ru,креститель,m,baptizer,"baptizer, baptist",2.52,native,ль|native,-тель,,anim,uncertain,,grammatically animate; animate (lexicon); suffix -тель
+ru,соискатель,m,applicant,applicant (one who applies),2.52,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,сеятель,m,sower,sower,2.52,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,почитатель,m,admirer,"admirer, worshipper",2.5,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,осведомитель,m,informant,"informant, informer",2.5,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,машиностроитель,m,machinist,"machinist, machine builder",2.5,native,ль|native,-тель,машина,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); formed from машина
+ru,освежитель,m,freshener,freshener (something that freshens),2.5,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,поручитель,m,guarantor,guarantor,2.49,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,вычислитель,m,computer,computer,2.49,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,сочинитель,m,writer,"writer, author",2.48,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); register mark; suffix -тель; animate (wordnet)
+ru,делопроизводитель,m,filing clerk,filing clerk; secretary,2.46,native,ль|native,-тель,дело,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); formed from дело
+ru,распространитель,m,disseminator,"disseminator, propagator, purveyor",2.46,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,прорицатель,m,diviner,diviner,2.45,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,кошель,m,burse,"burse, bag, purse (especially woven one)",2.45,native,ль|native,,,inan,uncertain,,animate (lexicon); register mark
+ru,водонагреватель,m,water heater,water heater,2.44,native,ль|native,-тель,вода,inan,inanimate,,suffix -тель; formed from вода
+ru,соблазнитель,m,seducer,seducer,2.43,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,распределитель,m,distributor,distributor (various senses),2.43,native,ль|native,-тель,,anim|inan,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,металлоискатель,m,metal detector,metal detector,2.41,native,ль|native,-тель,искатель,inan,inanimate,,suffix -тель; formed from искатель
+ru,страхователь,m,policyholder,policyholder,2.41,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,прародитель,m,progenitor,"progenitor, primogenitor, forefather, ancestor",2.4,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,заседатель,m,assessor,assessor,2.39,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,устроитель,m,organizer,organizer,2.38,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,увлажнитель,m,humidifier,"humidifier, moisturizer, humectant",2.37,native,ль|native,-тель,,inan,uncertain,,animate (lexicon); suffix -тель
+ru,укротитель,m,tamer,tamer,2.36,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,распылитель,m,spray,spray; pulveriser,2.36,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,вытрезвитель,m,drunk tank,drunk tank,2.35,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,обтекатель,m,fairing,fairing,2.35,native,ль|native,-тель,,inan,uncertain,,animate (lexicon); suffix -тель
+ru,толкователь,m,interpreter,"An interpreter, who uses his talents of interpretation to explain something.",2.32,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,бронеавтомобиль,m,armored car,armored car,2.29,native,ль|native,,автомобиль,inan,inanimate,,formed from автомобиль
+ru,блюститель,m,guardian,"guardian, keeper, warden",2.29,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,отравитель,m,poisoner,poisoner (person who poisons something or someone),2.28,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,утешитель,m,consoler,consoler,2.28,native,ль|native,-тель,,anim,uncertain,,grammatically animate; animate (lexicon); suffix -тель
+ru,поглотитель,m,absorber,"absorber, absorbent",2.25,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,удлинитель,m,extension cord,extension cord (an electrical cord),2.25,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,подражатель,m,impersonator,impersonator,2.22,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,созидатель,m,creator,creator,2.22,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,правонарушитель,m,lawbreaker,"lawbreaker, delinquent, offender",2.21,native,ль|native,-тель,право,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); formed from право
+ru,разрыхлитель,m,aerator-fluffer,aerator-fluffer,2.2,native,ль|native,-тель,,inan,uncertain,,animate (lexicon); suffix -тель
+ru,доброжелатель,m,well-wisher,well-wisher,2.2,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,числитель,m,numerator,numerator (in a fraction),2.18,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,подстрекатель,m,instigator,instigator (a person who provokes something),2.17,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,заполнитель,m,filler,"filler, aggregate, placeholder",2.16,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,осветитель,m,illuminator,"illuminator, lighting technician",2.16,native,ль|native,-тель,,anim|inan,uncertain,,grammatically animate; animate (lexicon); suffix -тель
+ru,приобретатель,m,acquisitor,acquisitor,2.14,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,избавитель,m,redeemer,"redeemer, rescuer, savior",2.14,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,отбеливатель,m,bleach,bleach (chemical),2.13,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,уничтожитель,m,destroyer,destroyer (someone who destroys),2.11,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,золотоискатель,m,gold digger,"gold digger, gold prospector",2.11,native,ль|native,-тель,золото,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); formed from золото
+ru,телезритель,m,tv viewer,TV viewer,2.05,native,ль|native,-тель,зритель,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; formed from зритель
+ru,движитель,m,propeller,"propeller, propulsion device, driver, mover (something which propels)",2.04,native,ль|native,-тель,движение,inan,inanimate,,suffix -тель; formed from движение
+ru,ваятель,m,sculptor,sculptor,2.02,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,прикуриватель,m,cigarette lighter,cigarette lighter (of an automobile),2.02,native,ль|native,-тель,,inan,inanimate,,suffix -тель
+ru,вершитель,m,executor,"executor, administrator, decider",2.02,native,ль|native,-тель,,anim,animate,,grammatically animate; animate (lexicon); register mark; suffix -тель; animate (wordnet)
+ru,супермодель,f,supermodel,"supermodel, top model",2.87,unknown,ль|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,дрель,f,drill,drill (tool),2.84,unknown,ль|unknown,,,inan,inanimate,,animate (wordnet)
+ru,голь,f,poor,"the poor, poor people",2.78,unknown,ль|unknown,,,inan,inanimate,,animate (wordnet)
+ru,гиль,f,nonsense,"nonsense, rubbish, baloney, bilge, poppycock",2.77,unknown,ль|unknown,,,inan,inanimate,,register mark
+ru,поросль,f,shoots,"shoots, young growth, verdure",2.66,unknown,ль|unknown,,,inan,uncertain,,animate (lexicon)
+ru,пастель,f,pastel,pastel,2.66,unknown,ль|unknown,-тель,,inan,inanimate,,suffix -тель
+ru,шмаль,f,narcotic cigarette,"narcotic cigarette, marijuana pot, joint",2.42,unknown,ль|unknown,,,inan,inanimate,,register mark
+ru,капитель,f,capital,capital (architecture),2.13,unknown,ль|unknown,-тель,,inan,inanimate,,suffix -тель; proper name
+ru,житель,m,inhabitant,"inhabitant, resident, occupant, dweller",4.35,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,путеводитель,m,guide,"guide, guide book",3.61,unknown,ль|unknown,-тель,,inan,animate,,animate (lexicon); suffix -тель; animate (wordnet)
+ru,никель,m,nickel,nickel,3.51,unknown,ль|unknown,,,inan,inanimate,,chemical
+ru,грабитель,m,robber,"robber, burglar (one who robs or steals)",3.42,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,потребитель,m,consumer,consumer (person purchasing goods),3.33,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,законодатель,m,lawmaker,lawmaker,3.27,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,телохранитель,m,bodyguard,bodyguard,3.26,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,святитель,m,prelate,prelate,3.24,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,похититель,m,abductor,abductor (kidnapper),3.2,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,надзиратель,m,warden,"warden, turnkey, supervisor, overseer",3.14,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,сопредседатель,m,co-chair,"co-chair, co-chairman, co-chairperson",3.08,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,нуль,m,zero,zero (0),3.08,unknown,ль|unknown,,,inan,inanimate,,register mark
+ru,краситель,m,dye,"dye (stuff), colorant",3.08,unknown,ль|unknown,-тель,,inan,inanimate,,suffix -тель
+ru,заявитель,m,applicant,applicant (one who applies),3.0,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,буль,m,encrusted table,An encrusted table.,2.97,unknown,ль|unknown,,,inan,inanimate,,other part of speech; register mark
+ru,просветитель,m,enlightener,enlightener,2.97,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,возбудитель,m,stimulant,stimulant,2.95,unknown,ль|unknown,-тель,,inan,animate,,animate (lexicon); suffix -тель
+ru,попечитель,m,trustee,"trustee, guardian",2.95,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,отправитель,m,sender,sender (someone who sends),2.87,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,спецпредставитель,m,special representative,special representative,2.71,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,смеситель,m,mixer,mixer,2.68,unknown,ль|unknown,-тель,,anim|inan,inanimate,,grammatically animate; suffix -тель; group (wordnet)
+ru,воитель,m,warrior,warrior,2.66,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); register mark; suffix -тель; animate (wordnet)
+ru,знаменатель,m,denominator,denominator (the number or expression written below the line in a fraction),2.65,unknown,ль|unknown,-тель,,inan,inanimate,,suffix -тель
+ru,мореплаватель,m,seafarer,seafarer (one who travels by sea),2.59,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,спаниель,m,spaniel,spaniel,2.54,unknown,ль|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,благотворитель,m,philanthropist,philanthropist,2.52,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,вымогатель,m,extortionist,"extortionist, extortioner, blackmailer (someone who extorts)",2.46,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,искуситель,m,seducer,seducer,2.43,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,метатель,m,thrower,thrower,2.43,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,мучитель,m,tormentor,tormentor; torturer,2.39,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,дембель,m,demob,demob,2.37,unknown,ль|unknown,,,anim|inan,uncertain,,grammatically animate; animate (lexicon); register mark
+ru,душитель,m,strangler,strangler,2.29,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,омуль,m,coregonus autumnalis,"Coregonus autumnalis, whitefish (species) (prized for its high fat content)",2.29,unknown,ль|unknown,,,anim,uncertain,,grammatically animate; animate (lexicon); animate (gloss)
+ru,менестрель,m,minstrel,minstrel,2.28,unknown,ль|unknown,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,проситель,m,petitioner,"petitioner, applicant, suppliant (verbal noun of проси́ть (prosítʹ) (nomen agentis))",2.26,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,хахаль,m,suitor,"suitor, lover",2.25,unknown,ль|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,рекламодатель,m,advertiser,advertiser (one who advertises),2.21,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet); animate (gloss)
+ru,даритель,m,gifter,"gifter, grantor",2.2,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель
+ru,птеродактиль,m,pterodactyl,pterodactyl,2.19,unknown,ль|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,обольститель,m,seducer,seducer,2.16,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,уплотнитель,m,seal,seal,2.1,unknown,ль|unknown,-тель,,inan,inanimate,,suffix -тель
+ru,зачинатель,m,founder,"founder, initiator",2.06,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); register mark; suffix -тель; animate (wordnet)
+ru,дупель,m,great snipe,great snipe,2.05,unknown,ль|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,враль,m,liar,liar,2.02,unknown,ль|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,выразитель,m,exponent,"exponent, spokesman, mouthpiece",2.01,unknown,ль|unknown,-тель,,anim,animate,,grammatically animate; animate (lexicon); suffix -тель; animate (wordnet)
+ru,заумь,f,bollocks,"bollocks, nonsense (that which is silly, illogical, and lacks any meaning, reason, or value; that which does not make sense)",2.01,unknown,мь|unknown,,,inan,uncertain,,animate (lexicon); register mark
+ru,латынь,f,latin,Latin,3.36,loan,нь|loan,,,inan,inanimate,,animate (wordnet)
+ru,бизань,f,spanker,spanker (a fore-and-aft gaff-rigged sail on the aftmost mast),2.08,loan,нь|loan,,,inan,animate,,animate (lexicon); animate (wordnet)
+ru,шампунь,m,shampoo,shampoo,3.2,loan,нь|loan,,,inan,inanimate,,chemical
+ru,тюлень,m,seal,seal (pinniped),2.94,loan,нь|loan,,,anim,animate,,grammatically animate; animate (lexicon)
+ru,дурень,m,fool,"fool, idiot, imbecile (person with poor judgement or little intelligence)",2.9,loan,нь|loan,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,курень,m,zaporozhian cossack village or township,a Zaporozhian Cossack village or township,2.3,loan,нь|loan,,,inan,inanimate,,register mark; proper name
+ru,пельмень,m,pelmen,pelmen (a Russian dumpling resembling ravioli),2.28,loan,нь|loan,,,inan,uncertain,,animate (lexicon)
+ru,тень,f,shade,shade,4.32,native,нь|native,,,anim|inan,inanimate,,grammatically animate
+ru,лень,f,laziness,"laziness, idleness, indolence",3.64,native,нь|native,,,inan,inanimate,,other part of speech
+ru,дрянь,f,rubbish,"rubbish, trash",3.58,native,нь|native,,,anim|inan,inanimate,,grammatically animate; register mark
+ru,мишень,f,target,target (butt or mark to shoot at),3.44,native,нь|native,,,inan,inanimate,,animate (wordnet)
+ru,рознь,f,discord,"discord, disagreement",3.17,native,нь|native,,,inan,inanimate,,other part of speech; register mark
+ru,лань,f,fallow deer,fallow deer,3.09,native,нь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,чернь,f,mob,"mob, populace, riffraff, rabble",2.86,native,нь|native,,,inan,animate,,animate (lexicon); group (wordnet)
+ru,сажень,f,sazhen,"sazhen, old Russian unit of length equal to 3 arshins or 2.134 meters or 7 feet",2.76,native,нь|native,,,inan,uncertain,,animate (lexicon)
+ru,пьянь,f,drunks,"drunks, drunkards",2.52,native,нь|native,,пьяный,inan,uncertain,,animate (lexicon); register mark; animate (wordnet); formed from пьяный
+ru,длань,f,palm,palm (of the hand),2.43,native,нь|native,,,inan,inanimate,,register mark
+ru,поебень,f,thing,"thing, object",2.35,native,нь|native,,,inan,inanimate,,register mark
+ru,погань,f,something disgusting,something disgusting,2.23,native,нь|native,,,inan,uncertain,,animate (lexicon)
+ru,полутень,f,penumbra,penumbra,2.05,native,нь|native,,тень,inan,inanimate,,formed from тень
+ru,парень,m,fellow,"fellow, lad, chap, guy, bloke, boy",4.96,native,нь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,огонь,m,fire,fire (also figurative),4.91,native,нь|native,,,inan,inanimate,,other part of speech
+ru,перечень,m,list,list (register or roll of paper),4.33,native,нь|native,,честь,inan,inanimate,,formed from честь
+ru,июнь,m,june,June,4.12,native,нь|native,,,inan,inanimate,,month name
+ru,полдень,m,noon,"noon, midday",3.83,native,нь|native,,день,inan,inanimate,,formed from день
+ru,олень,m,deer,deer,3.69,native,нь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,пень,m,stump,"stump, stub",3.34,native,нь|native,,,anim|inan,inanimate,,grammatically animate
+ru,гребень,m,comb,comb,3.28,native,нь|native,,,inan,uncertain,,animate (lexicon)
+ru,ячмень,m,barley,barley (annual temperate grasses of the species Hordeum vulgare or its grain used in making food and beverages),3.26,native,нь|native,,,inan,inanimate,,animate (gloss)
+ru,окунь,m,perch,perch,3.18,native,нь|native,,,anim,animate,,grammatically animate; animate (lexicon)
+ru,кремень,m,flint,flint,3.14,native,нь|native,,,anim|inan,inanimate,,grammatically animate; chemical
+ru,линь,m,tench,tench,3.11,native,нь|native,,,anim|inan,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,шершень,m,hornet,hornet,2.65,native,нь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,студень,m,aspic,aspic (dish),2.62,native,нь|native,,,anim|inan,inanimate,,grammatically animate
+ru,поручень,m,handrail,handrail,2.58,native,нь|native,,рука,inan,inanimate,,formed from рука
+ru,селезень,m,drake,"drake, male duck",2.43,native,нь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,трутень,m,drone,"drone, male bee",2.28,native,нь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,слизень,m,slug,slug (gastropod),2.24,native,нь|native,,,anim,inanimate,,grammatically animate
+ru,сбитень,m,sbiten,sbiten (a hot winter honey-based Russian traditional drink/decoction with spices and jam),2.19,native,нь|native,,,inan,uncertain,,animate (lexicon)
+ru,баловень,m,favorite,"favorite, darling, pet, coddle, cosset (a person or animal especially cherished, indulged or spoiled)",2.18,native,нь|native,,,anim,inanimate,,grammatically animate; register mark; animate (wordnet)
+ru,прихвостень,m,henchman,henchman; stooge; lackey; lickspittle; toady,2.15,native,нь|native,,хвост,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet); formed from хвост
+ru,таймень,m,taimen,taimen (any fish of the genus Hucho),2.12,native,нь|native,,,anim,uncertain,,grammatically animate; animate (lexicon); animate (gloss)
+ru,хрень,f,thing,"thing, object, thingy",4.09,unknown,нь|unknown,,,inan,inanimate,,register mark
+ru,гармонь,f,garmon,garmon (a small Russian button accordion),2.95,unknown,нь|unknown,,,inan,uncertain,,animate (lexicon)
+ru,темень,f,darkness,darkness,2.71,unknown,нь|unknown,,,inan,inanimate,,register mark
+ru,дребедень,f,junk,"junk, trash, rubbish",2.64,unknown,нь|unknown,,,inan,inanimate,,register mark
+ru,оболонь,f,alburnum,"alburnum, sapwood",2.58,unknown,нь|unknown,,,inan,uncertain,,animate (lexicon)
+ru,хренотень,f,thingy,"thingy, dealy, trifle",2.53,unknown,нь|unknown,,,inan,uncertain,,animate (lexicon); register mark
+ru,латунь,f,brass,brass,2.45,unknown,нь|unknown,,,inan,inanimate,,chemical
+ru,тарань,f,sea roach,sea roach,2.04,unknown,нь|unknown,,,anim,animate,,grammatically animate; animate (lexicon)
+ru,конь,m,horse,horse; male horse,4.05,unknown,нь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,оборотень,m,werewolf,werewolf (also werefox and any other werebeast),3.29,unknown,нь|unknown,,,anim,animate,,grammatically animate; animate (lexicon)
+ru,поршень,m,piston,"piston; sucker, plunger",3.13,unknown,нь|unknown,,,inan,animate,,animate (lexicon); animate (wordnet)
+ru,лунь,m,harrier,"harrier, ring-tail",2.68,unknown,нь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,увалень,m,galoot,"galoot, lubber, bumpkin, lazybones (clumsy or lazy person)",2.3,unknown,нь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,цепь,f,chain,chain,3.97,native,пь|native,,,inan,inanimate,,
+ru,лесостепь,f,forest steppe,forest steppe,2.43,native,пь|native,,лес,inan,inanimate,,formed from лес
+ru,оторопь,f,shock,"shock, startle, confusion",2.39,native,пь|native,,,inan,inanimate,,
+ru,топь,f,swamp,"swamp, bog, marsh",2.36,native,пь|native,,,inan,inanimate,,
+ru,степь,f,steppe,"steppe, veldt (the grasslands of Eastern Europe and Asia)",3.51,unknown,пь|unknown,,,inan,inanimate,,
+ru,ощупь,f,use of the sense of touch,"the use of the sense of touch, the act of groping",3.39,unknown,пь|unknown,,,inan,inanimate,,
+ru,сыпь,f,rash,"rash, eruption",3.11,unknown,пь|unknown,,,inan,inanimate,,
+ru,насыпь,f,embankment,"embankment, mound",2.95,unknown,пь|unknown,,,inan,inanimate,,
+ru,россыпь,f,placer,"placer, placer/alluvial deposit",2.9,unknown,пь|unknown,,,inan,inanimate,,
+ru,поступь,f,step,"step, tread",2.74,unknown,пь|unknown,,,inan,inanimate,,
+ru,осыпь,f,scree,"scree, talus",2.04,unknown,пь|unknown,,,inan,inanimate,,
+ru,копь,f,ore mine,"ore mine, pit",2.01,unknown,пь|unknown,,,inan,inanimate,,
+ru,выпь,f,bittern,bittern (bird of the family Ardeidae),2.0,unknown,пь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet); animate (gloss)
+ru,киноварь,f,cinnabar,cinnabar (mineral),2.24,loan,рь|loan,,,inan,inanimate,,chemical; animate (wordnet)
+ru,секретарь,m,secretary,secretary,4.78,loan,рь|loan,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,цезарь,m,caesar,Caesar (title of a Roman emperor),3.97,loan,рь|loan,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,рыцарь,m,knight,knight (a medieval Western European nobleman serving as an armored and mounted warrior; a person on whom knighthood has been conferred),3.96,loan,рь|loan,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,слесарь,m,locksmith,locksmith,3.4,loan,рь|loan,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,библиотекарь,m,librarian,librarian,3.29,loan,рь|loan,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,панцирь,m,coat of mail,"coat of mail, hauberk",3.27,loan,рь|loan,,,inan,inanimate,,register mark
+ru,визирь,m,vizier,vizier,2.88,loan,рь|loan,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,егерь,m,gamekeeper,gamekeeper,2.85,loan,рь|loan,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,кобзарь,m,kobza player,kobza player,2.62,loan,рь|loan,,,anim,animate,,grammatically animate; animate (lexicon)
+ru,грабарь,m,digger,"digger, shovelman, navvy, sandhog",2.6,loan,рь|loan,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,лодырь,m,idler,"idler, slacker, loafer (procrastinating or lazy person)",2.32,loan,рь|loan,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,тварь,f,creature,"creature, being, animal, beast, monster",3.97,native,рь|native,,,anim,inanimate,,grammatically animate; animate (wordnet)
+ru,дурь,f,folly,"folly, foolishness, nonsense",3.3,native,рь|native,,,inan,inanimate,,register mark
+ru,гарь,f,something burnt,"something burnt, char, cinder",2.52,native,рь|native,,,inan,uncertain,,animate (lexicon)
+ru,бездарь,f,bungler,"bungler, botcher",2.47,native,рь|native,,,anim|inan,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,царь,m,tsar,"tsar, Russian emperor",4.49,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,январь,m,january,January,4.32,native,рь|native,,,inan,inanimate,,month name
+ru,сентябрь,m,september,September,4.3,native,рь|native,,,inan,inanimate,,month name
+ru,октябрь,m,october,October,4.25,native,рь|native,,,inan,inanimate,,month name
+ru,ноябрь,m,november,November,4.23,native,рь|native,,,inan,inanimate,,month name
+ru,декабрь,m,december,December,4.23,native,рь|native,,,inan,inanimate,,month name
+ru,словарь,m,dictionary,"dictionary, wordbook",4.2,native,рь|native,,слово,inan,inanimate,,formed from слово
+ru,вратарь,m,goalkeeper,goalkeeper,4.06,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,зверь,m,animal,"animal, beast",4.01,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,государь,m,sovereign,sovereign,3.83,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,пузырь,m,bubble,bubble,3.59,native,рь|native,,пузо,inan,inanimate,,formed from пузо
+ru,главарь,m,leader,leader (e.g. of a gang); ringleader; chieftain,3.44,native,рь|native,,глава,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet); formed from глава
+ru,богатырь,m,bogatyr,"bogatyr, a medieval heroic warrior in Kievan Rus",3.32,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); register mark
+ru,лекарь,m,doctor,"doctor, medico, physician (feminine form ""ле́карша"" is usually considered colloquial)",3.32,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,пастырь,m,pastor,"pastor, shepherd",3.08,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,токарь,m,turner,"turner, lathe operator (person working a lathe)",3.0,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,пекарь,m,baker,baker,2.99,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,букварь,m,abc book,"ABC book, primer",2.98,native,рь|native,,буква,inan,inanimate,,formed from буква
+ru,дикарь,m,savage,savage,2.97,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,писарь,m,clerk,"clerk; scribe, scrivener",2.94,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,глухарь,m,western capercaillie,"western capercaillie, wood grouse (Tetrao urogallus)",2.93,native,рь|native,,глухой,anim|inan,animate,,grammatically animate; animate (lexicon); animate (gloss); formed from глухой
+ru,бунтарь,m,provocateur,"provocateur, someone who ""rebels"" against prevailing tastes, archetypes, or rules",2.92,native,рь|native,,бунт,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet); animate (gloss); formed from бунт
+ru,угорь,m,eel,eel,2.9,native,рь|native,,,anim|inan,inanimate,,grammatically animate; animate (wordnet)
+ru,сухарь,m,rusk,"rusk (a piece or slice of bread, dried or toasted until hard and crisp)",2.89,native,рь|native,,,anim|inan,inanimate,,grammatically animate
+ru,аптекарь,m,pharmacist,"pharmacist, chemist, druggist (male or female)",2.88,native,рь|native,,аптека,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet); formed from аптека
+ru,знахарь,m,quack,"quack, witch doctor, sangoma, shaman",2.78,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,упырь,m,vampire,vampire,2.77,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon)
+ru,пахарь,m,plowman,plowman,2.76,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,вепрь,m,boar,boar (usually of mature males),2.65,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,поводырь,m,leader of a blind person,leader of a blind person,2.63,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon)
+ru,тропарь,m,troparion,"troparion, hymn",2.48,native,рь|native,,,inan,uncertain,,animate (lexicon)
+ru,господарь,m,hospodar,hospodar (a type of leader in Wallachia or Moldova),2.47,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); register mark
+ru,пескарь,m,common gudgeon,"common gudgeon (fish, Gobio gobio)",2.46,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (gloss)
+ru,технарь,m,technician,technician (someone engaged in technical sciences),2.45,native,рь|native,,техника,anim|inan,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet); formed from техника
+ru,кесарь,m,caesar,Caesar (title of a Roman or Byzantine emperor),2.36,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,косарь,m,someone who mows,"someone who mows, a mower",2.34,native,рь|native,,,anim|inan,animate,,grammatically animate; animate (lexicon); animate (gloss)
+ru,пушкарь,m,cannoneer,cannoneer (15th–17th century artilleryman),2.33,native,рь|native,,пушка,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet); formed from пушка
+ru,нашатырь,m,sal ammoniac,"sal ammoniac, ammonium chloride (rare mineral)",2.27,native,рь|native,,,inan,inanimate,,register mark; chemical
+ru,хорь,m,ferret,"ferret, polecat",2.27,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,деверь,m,brother-in-law,brother-in-law (husband's brother),2.27,native,рь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,пионерлагерь,m,young pioneer camp,Young Pioneer camp (former type of summer camp in the Soviet Union and other socialist countries),2.26,native,рь|native,,лагерь,inan,inanimate,,formed from лагерь
+ru,ларь,m,chest,"chest, wooden box",2.23,native,рь|native,,,inan,inanimate,,register mark
+ru,архипастырь,m,respectful term for a bishop in the orthodox church,a respectful term for a bishop in the Orthodox church,2.05,native,рь|native,,пастырь,anim,inanimate,,grammatically animate; formed from пастырь
+ru,автослесарь,m,person who repairs cars,a person who repairs cars,2.03,native,рь|native,,слесарь,anim,animate,,grammatically animate; animate (lexicon); animate (gloss); formed from слесарь
+ru,матерь,f,mother,mother,3.35,unknown,рь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,утварь,f,utensils,utensils,3.17,unknown,рь|unknown,,,inan,uncertain,,animate (lexicon)
+ru,хворь,f,illness,illness,2.55,unknown,рь|unknown,,,inan,inanimate,,register mark
+ru,госсекретарь,m,secretary of state,Secretary of State (in the US and other countries),3.57,unknown,рь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); proper name; animate (wordnet)
+ru,сударь,m,sir,sir,3.36,unknown,рь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,концлагерь,m,concentration camp,concentration camp,3.12,unknown,рь|unknown,,,inan,inanimate,,
+ru,бондарь,m,cooper,"cooper (craftsman who manufactures large bowls, barrels or ship masts)",3.04,unknown,рь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,пустырь,m,vacant lot,vacant lot,2.91,unknown,рь|unknown,,,inan,inanimate,,
+ru,пономарь,m,sexton,"sexton, sacristan",2.66,unknown,рь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,звонарь,m,bell ringer / bell-ringer / bellringer,bell ringer / bell-ringer / bellringer,2.53,unknown,рь|unknown,,,anim,uncertain,,grammatically animate; animate (lexicon)
+ru,алатырь,m,alatyr,"alatyr, a magic stone with healing powers",2.51,unknown,рь|unknown,,,inan,uncertain,,animate (lexicon)
+ru,снегирь,m,bullfinch,bullfinch,2.46,unknown,рь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,хмырь,m,creep,"creep, weirdo, scumbag (a strange, unpleasant, sly, or pitiful man)",2.37,unknown,рь|unknown,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,ересь,f,heresy,heresy,3.3,loan,сь|loan,,,inan,inanimate,,
+ru,ипостась,f,hypostasis,hypostasis,2.52,loan,сь|loan,,,inan,inanimate,,
+ru,весь,f,village,village,5.4,native,сь|native,,,inan,inanimate,,other part of speech; register mark; proper name; group (wordnet)
+ru,запись,f,record,"record, recording (e.g. sound)",4.7,native,сь|native,,,inan,inanimate,,
+ru,надпись,f,inscription,"inscription, writing, label",4.29,native,сь|native,,,inan,inanimate,,
+ru,живопись,f,painting,painting,3.93,native,сь|native,,,inan,inanimate,,
+ru,ось,f,axis,axis,3.65,native,сь|native,,,inan,inanimate,,
+ru,видеозапись,f,video recording,video(tape) recording,3.47,native,сь|native,,запись,inan,inanimate,,formed from запись
+ru,рысь,f,lynx,lynx,3.23,native,сь|native,,,anim|inan,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,помесь,f,hybrid,"hybrid, crossbreed",2.76,native,сь|native,,,inan,inanimate,,
+ru,перекись,f,peroxide,peroxide,2.71,native,сь|native,,окись,inan,inanimate,,formed from окись
+ru,высь,f,height,height,2.58,native,сь|native,,,inan,inanimate,,
+ru,звукозапись,f,sound recording,"sound recording, audio recording (process or result)",2.49,native,сь|native,,запись,inan,inanimate,,formed from запись
+ru,взвесь,f,suspension,"suspension, dredge",2.48,native,сь|native,,весь,inan,inanimate,,formed from весь
+ru,иконопись,f,icon painting,icon painting,2.45,native,сь|native,,икона,inan,inanimate,,formed from икона
+ru,двуокись,f,dioxide,dioxide,2.29,native,сь|native,,окись,inan,inanimate,,register mark; chemical; formed from окись
+ru,полуось,f,semiaxis,semiaxis,2.23,native,сь|native,,ось,inan,uncertain,,animate (lexicon); formed from ось
+ru,клинопись,f,cuneiform,cuneiform (ancient writing system),2.13,native,сь|native,,клин,inan,inanimate,,formed from клин
+ru,скоропись,f,skoropis,skoropis (an obsolete form of Russian handwriting used in the 15th–18th centuries),2.03,native,сь|native,,,inan,uncertain,,animate (lexicon); register mark
+ru,гусь,m,goose,goose,3.59,native,сь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,лось,m,moose,"moose (U.S., Canada), elk (British) (an animal belonging to the Alces genus)",3.55,native,сь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet); animate (gloss)
+ru,авось,m,blind trust in divine providence,blind trust in divine providence; blind faith in sheer luck; counting on a miracle,3.33,native,сь|native,,а,inan,inanimate,,other part of speech; formed from а
+ru,лосось,m,salmon,salmon (the fish and the seafood),3.3,native,сь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet); animate (gloss)
+ru,карась,m,crucian carp,crucian carp (Carassius carassius),3.08,native,сь|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet); animate (gloss)
+ru,подпись,f,signature,signature,4.17,unknown,сь|unknown,,,inan,inanimate,,
+ru,смесь,f,blend,"blend, mix, mixture",4.17,unknown,сь|unknown,,,inan,inanimate,,
+ru,русь,f,russians,"Russians, Ruthenians (people of Kievan Rus)",4.15,unknown,сь|unknown,,,inan,uncertain,,animate (lexicon); register mark; animate (wordnet)
+ru,рукопись,f,manuscript,manuscript,3.87,unknown,сь|unknown,,,inan,inanimate,,
+ru,летопись,f,annals,"annals, chronicle, record, fasti (a relation of events)",3.69,unknown,сь|unknown,,,inan,inanimate,,
+ru,роспись,f,paintings,paintings; mural,3.61,unknown,сь|unknown,,,inan,uncertain,,animate (lexicon)
+ru,перепись,f,census,census,3.44,unknown,сь|unknown,,,inan,inanimate,,
+ru,опись,f,inventory,"inventory, making of an inventory",3.36,unknown,сь|unknown,,,inan,inanimate,,
+ru,спесь,f,pride,"pride, hubris, arrogance (act or habit of arrogating, or making undue claims in an overbearing manner)",2.83,unknown,сь|unknown,,,inan,inanimate,,
+ru,примесь,f,admixture,"admixture, tinge, dash",2.64,unknown,сь|unknown,,,inan,inanimate,,
+ru,окись,f,oxide,oxide,2.57,unknown,сь|unknown,,,inan,inanimate,,register mark; chemical
+ru,машинопись,f,typewriting,typewriting,2.28,unknown,сь|unknown,,,inan,inanimate,,
+ru,тайнопись,f,cryptography,"cryptography, steganography",2.27,unknown,сь|unknown,,,inan,inanimate,,
+ru,перезапись,f,rerecording,rerecording,2.18,unknown,сь|unknown,,,inan,uncertain,,animate (lexicon)
+ru,морось,f,drizzle,drizzle,2.14,unknown,сь|unknown,,,inan,inanimate,,
+ru,нефть,f,oil,"oil, petroleum, mineral oil",4.49,loan,ть|loan,,,inan,inanimate,,chemical
+ru,кровать,f,bed,bed,4.33,loan,ть|loan,,,inan,inanimate,,
+ru,мечеть,f,mosque,mosque,3.61,loan,ть|loan,,,inan,inanimate,,
+ru,жесть,f,tin,"tin (plate), sheet metal",3.22,loan,ть|loan,-ость,,inan,inanimate,,other part of speech; suffix -ость; chemical
+ru,известь,f,lime,"lime (calcium oxide, quicklime)",2.84,loan,ть|loan,-ость,,inan,inanimate,,suffix -ость; chemical
+ru,стать,f,build,build,5.3,native,ть|native,,,inan,inanimate,,other part of speech
+ru,возможность,f,opportunity,"opportunity, chance, potential (chance for advancement, progress or profit)",5.28,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,мать,f,mother,mother,5.17,native,ть|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,честь,f,honor,honor,5.09,native,ть|native,-ость,,inan,inanimate,,other part of speech; suffix -ость
+ru,область,f,region,"region, oblast, province",5.08,native,ть|native,,,inan,inanimate,,proper name
+ru,знать,f,nobility,"nobility, noble people",5.07,native,ть|native,,,inan,inanimate,,other part of speech; animate (wordnet)
+ru,деятельность,f,activity,activity,5.06,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,власть,f,authority,"authority, authorities, power",5.01,native,ть|native,,,inan,uncertain,,animate (lexicon); animate (wordnet)
+ru,смерть,f,death,death,4.95,native,ть|native,,,anim|inan,inanimate,,grammatically animate; other part of speech
+ru,сеть,f,net,"net (used for catching fish), mesh",4.79,native,ть|native,,,inan,inanimate,,animate (gloss)
+ru,скорость,f,speed,speed,4.78,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,должность,f,office,"office, post, appointment, position",4.74,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ответственность,f,responsibility,responsibility,4.68,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,новость,f,novelty,novelty,4.56,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,необходимость,f,necessity,"necessity, need",4.53,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,радость,f,joy,"joy, delight",4.51,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,способность,f,ability,"ability, capability (the quality or state of being able)",4.45,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,личность,f,personality,personality,4.44,native,ть|native,-ость,,inan,inanimate,,suffix -ость; animate (wordnet)
+ru,мощность,f,power,"power, capacity, rating",4.44,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,опасность,f,danger,"danger, peril",4.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,численность,f,number,"number, quantity, count",4.41,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,безопасность,f,safety,safety,4.41,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,активность,f,activity,activity,4.38,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,вероятность,f,probability,"probability, likelihood",4.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,независимость,f,independence,independence,4.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,собственность,f,property,property,4.36,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,реальность,f,reality,reality,4.36,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,эффективность,f,effectiveness,"effectiveness, efficiency (extent to which time is well used)",4.36,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,поверхность,f,surface,"surface, face",4.35,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,промышленность,f,industry,industry,4.33,native,ть|native,-ость,,inan,inanimate,,suffix -ость; group (wordnet)
+ru,популярность,f,popularity,popularity,4.26,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,продолжительность,f,duration,duration; continuance,4.25,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,недвижимость,f,real estate,real estate,4.25,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,крепость,f,strength,"strength, stoutness",4.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,плотность,f,density,density (amount of matter contained by a given volume; the ratio of one quantity to that of another quantity),4.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,зависимость,f,dependence,dependence,4.22,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,уверенность,f,firmness,"firmness, assurance",4.22,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,благодарность,f,gratitude,"gratitude, gratefulness, thankfulness",4.2,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,слабость,f,weakness,"weakness, feebleness",4.18,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,справедливость,f,justice,"justice, fairness",4.17,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,страсть,f,passion,passion; obsession,4.16,native,ть|native,,,inan,inanimate,,other part of speech
+ru,ценность,f,value,"value, importance, worth",4.16,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,гордость,f,pride,pride,4.15,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,повесть,f,narrative,"narrative, story, tale",4.15,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,верность,f,faithfulness,"faithfulness, fidelity, loyalty",4.11,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,готовность,f,preparedness,"preparedness, readiness",4.11,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,совесть,f,conscience,conscience (moral sense),4.11,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,прелесть,f,charm,"charm, fascination",4.08,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,известность,f,reputation,"reputation, fame, repute, notoriety, renown",4.07,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,важность,f,importance,"importance, significance; relevance",4.06,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,потребность,f,need,"need, want",4.05,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,глупость,f,stupidity,"stupidity, foolishness, foolery, nonsense (quality of being stupid)",4.05,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,обязанность,f,duty,duty,4.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,месть,f,revenge,"revenge, vengeance",4.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,особенность,f,peculiarity,"peculiarity, feature, characteristic (important or main item)",4.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,вечность,f,eternity,eternity,4.02,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,стабильность,f,stability,stability,4.0,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сущность,f,entity,entity,3.99,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,кость,f,bone,bone,3.96,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,жидкость,f,liquidness,liquidness,3.95,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,редкость,f,rarity,"rarity, uncommon thing; scarcity",3.94,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,мудрость,f,wisdom,wisdom,3.94,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,молодость,f,youth,youth (state of being young),3.93,native,ть|native,-ость,,inan,animate,,animate (lexicon); suffix -ость; proper name; animate (wordnet)
+ru,юность,f,youth,youth (age),3.92,native,ть|native,-ость,,inan,animate,,animate (lexicon); suffix -ость; animate (wordnet)
+ru,производительность,f,productivity,productivity (state of being productive),3.92,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,внешность,f,appearance,"appearance, look (physical appearance)",3.92,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,принадлежность,f,belonging,"belonging, membership, affiliation",3.91,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,усталость,f,weariness,"weariness, tiredness, fatigue, languor, lassitude",3.9,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,последовательность,f,consistency,"consistency, logicality",3.89,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сложность,f,complexity,"complexity, complicacy, complication, difficulty",3.89,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,милость,f,mercy,"mercy, charity, grace, kindness (behaviour, quality)",3.88,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,местность,f,area,"area, district, place, locality, region",3.88,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,влажность,f,humidity,"humidity (dampness, especially that of the air)",3.87,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,пропасть,f,precipice,"precipice, abyss, chasm",3.86,native,ть|native,,,inan,inanimate,,other part of speech
+ru,точность,f,exactness,"exactness, precision, accuracy, punctuality (the state of being exact)",3.82,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,беременность,f,pregnancy,pregnancy,3.81,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ярость,f,fury,"fury, rage, frenzy",3.81,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,смелость,f,boldness,"boldness, courage; audacity",3.81,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,устойчивость,f,steadiness,"steadiness, firmness, stability",3.79,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,значимость,f,meaningfulness,meaningfulness,3.79,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,прочность,f,durability,"durability, solidity, firmness, strength, fastness",3.78,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,общественность,f,public,"public, community",3.77,native,ть|native,-ость,,inan,inanimate,,suffix -ость; animate (wordnet)
+ru,совокупность,f,totality,"totality, the aggregate, the sum total",3.77,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,смертность,f,mortality,mortality,3.75,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,близость,f,nearness,"nearness, proximity, closeness",3.74,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,жестокость,f,brutality,brutality,3.74,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,специальность,f,specialty,"specialty, trade, profession (that in which one specializes)",3.74,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,злость,f,spite,"spite, malice, rage, anger, grudge (a strong feeling of displeasure, hostility or antagonism towards someone or something)",3.73,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,преданность,f,loyalty,"loyalty, devotion",3.73,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,целостность,f,integrity,integrity,3.72,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,честность,f,honesty,honesty (quality of being honest),3.72,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,благотворительность,f,charity,"charity, philanthropy, welfare",3.72,native,ть|native,-ость,,inan,inanimate,,suffix -ость; group (wordnet)
+ru,напасть,f,misfortune,"misfortune, bad luck, trouble",3.71,native,ть|native,,,inan,inanimate,,other part of speech
+ru,видимость,f,visibility,visibility,3.71,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,невозможность,f,impossibility,impossibility,3.7,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,солидарность,f,solidarity,solidarity,3.7,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,разновидность,f,variety,"variety, kind, form, sort",3.69,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,склонность,f,propensity,"propensity, proclivity",3.69,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,храбрость,f,bravery,"bravery; courage, valour",3.68,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,жалость,f,compassion,compassion,3.68,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,интенсивность,f,intensity,"intensity, tenseness",3.67,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,длительность,f,duration,"duration, time length",3.66,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,случайность,f,chance,chance,3.66,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,заинтересованность,f,concernment,"concernment, interest, commitment; motives",3.66,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,себестоимость,f,prime cost,"prime cost, cost price, net cost",3.66,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,участь,f,fate,"fate, destiny, lot",3.65,native,ть|native,,,inan,uncertain,,animate (lexicon)
+ru,ревность,f,jealousy,jealousy,3.65,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бедность,f,poverty,"poverty, poorness",3.65,native,ть|native,-ость,бедный,inan,inanimate,,suffix -ость; formed from бедный
+ru,пасть,f,mouth,"mouth, maw, jaws (of an animal, reptile or fish)",3.65,native,ть|native,,,inan,inanimate,,other part of speech; animate (gloss)
+ru,гадость,f,abomination,abomination (something abominable),3.64,native,ть|native,-ость,,inan,animate,,animate (lexicon); suffix -ость; animate (wordnet)
+ru,законность,f,legality,"legality, lawfulness, legitimacy",3.64,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,весть,f,news,"news, piece of news, message; tidings",3.64,native,ть|native,-ость,,inan,inanimate,,other part of speech; suffix -ость
+ru,старость,f,old age,old age,3.63,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,грусть,f,sadness,sadness (state/emotion),3.63,native,ть|native,,,inan,inanimate,,proper name
+ru,недостаточность,f,insufficiency,"insufficiency, shortage, lack, inadequacy",3.61,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,чувствительность,f,sensitivity,sensitivity,3.61,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,малость,f,smallness,"smallness, trifle",3.6,native,ть|native,-ость,малый,inan,inanimate,,suffix -ость; formed from малый
+ru,осторожность,f,care,"care, caution, prudence",3.6,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,актуальность,f,relevance,"relevance, urgency, topicality",3.59,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,противоположность,f,contrast,"contrast, opposition",3.58,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,несправедливость,f,injustice,"injustice, unfairness",3.58,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ясность,f,clarity,"clarity, lucidity",3.57,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,действительность,f,reality,"reality, actuality",3.57,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,национальность,f,ethnic group,ethnic group; ethnicity,3.56,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неспособность,f,inability,"inability, incompetence, incapacity",3.56,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,причастность,f,participation,"participation, involvement, complicity",3.56,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,привязанность,f,attachment,"attachment, affection",3.55,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,растительность,f,vegetation,"vegetation, verdure",3.55,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,тяжесть,f,heaviness,heaviness,3.55,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,дальность,f,distance,"distance, remoteness, range",3.54,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,современность,f,present,"the present (times), modernity, contemporaneity",3.54,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,совместимость,f,compatibility,compatibility,3.53,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,занятость,f,employment,"employment (rate, status), occupancy",3.53,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,преступность,f,criminality,criminality (state of being criminal),3.53,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,плоскость,f,plane,plane (flat surface extending infinitely in all directions),3.53,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,доступность,f,accessibility,accessibility; availability; moderateness (of prices),3.52,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,искренность,f,sincerity,"sincerity, candour, frankness",3.52,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,стойкость,f,firmness,"firmness, steadfastness, staunchness, stableness",3.51,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,рентабельность,f,profitability,"profitability, profitableness",3.49,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,яркость,f,brightness,brightness,3.49,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,направленность,f,direction,"direction, orientation",3.49,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,нежность,f,tenderness,"tenderness, caress, fondness, delicacy",3.49,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,полость,f,cavity,cavity (hollow area within the body),3.48,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неприкосновенность,f,inviolability,inviolability,3.48,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,приверженность,f,adherence,"adherence, devotion",3.48,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бдительность,f,vigilance,"vigilance, watchfulness",3.48,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,достоверность,f,authenticity,authenticity (the quality of being genuine or not corrupted from the original),3.47,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,жадность,f,greed,"greed, avarice",3.46,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,озабоченность,f,preoccupation,"preoccupation, concern, anxiety",3.46,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,самостоятельность,f,independence,independence (state of having sufficient means for a comfortable livelihood),3.45,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,хитрость,f,craftiness,"craftiness, craft (shrewdness)",3.45,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бесконечность,f,infinity,"infinity, endlessness",3.45,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,выносливость,f,endurance,"endurance, stamina",3.44,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,идентичность,f,identity,identity (the sameness some individuals share to make up the same kind or universal),3.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сохранность,f,safety,safety,3.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,грубость,f,roughness,"roughness, coarseness, crudity, crudeness",3.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,работоспособность,f,capacity for work,"capacity for work, efficiency",3.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,прозрачность,f,transparence,"transparence, transparency, limpidity, pellucidity",3.42,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,привлекательность,f,attractiveness,"attractiveness, appeal",3.42,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,подлинность,f,authenticity,authenticity (the quality of being genuine or not corrupted from the original),3.41,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,индивидуальность,f,individuality,individuality,3.41,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,гибкость,f,flexibility,flexibility (various senses),3.41,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,преемственность,f,succession,"succession, continuity",3.4,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,наглость,f,impudence,"impudence, insolence, effrontery; cheek",3.4,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,грамотность,f,literacy,literacy,3.38,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,мерзость,f,abomination,"abomination, meanness, vileness, loathsomeness",3.38,native,ть|native,-ость,,inan,animate,,animate (lexicon); suffix -ость; animate (wordnet)
+ru,уникальность,f,uniqueness,uniqueness (state or quality of being unique or one-of-a-kind),3.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,скромность,f,modesty,"modesty, humility (the quality of being modest)",3.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неожиданность,f,surprise,surprise,3.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бытность,f,life,"life, existence",3.37,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,ртуть,f,mercury,mercury (Hg),3.36,native,ть|native,,,inan,inanimate,,chemical
+ru,рождаемость,f,birthrate,birthrate,3.36,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,урожайность,f,productivity,"productivity, crop capacity",3.35,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,уязвимость,f,vulnerability,vulnerability (state of being vulnerable),3.35,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,неуверенность,f,uncertainty,"uncertainty, ambivalence",3.35,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,лояльность,f,loyalty,"loyalty, allegiance",3.34,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,доходность,f,profitability,profitability,3.34,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,щедрость,f,generosity,"generosity, largess (the trait of being willing to give your money and/or time)",3.34,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,целесообразность,f,reasonability,"reasonability, suitability",3.34,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,посещаемость,f,attendance,attendance (frequency of one's presence),3.33,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,вместимость,f,capacity,capacity,3.32,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,облачность,f,cloudiness,"cloudiness, clouds, cloud cover",3.32,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,закономерность,f,regularity,"regularity, pattern, rule; appropriateness; objective laws",3.31,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,открытость,f,openness,openness,3.31,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,доблесть,f,valour,"valour, prowess",3.31,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,трудность,f,difficulty,difficulty (state of being difficult),3.31,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,нестабильность,f,instability,instability,3.29,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,признательность,f,appreciation,"appreciation (a just valuation or estimate of merit, worth, weight, etc.; recognition of excellence)",3.29,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,правильность,f,rightness,"rightness, correctness",3.29,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неприятность,f,slovenliness,"slovenliness, unpleasantness",3.28,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,результативность,f,potency,"potency, effectiveness, fecundity",3.27,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сладость,f,sweetness,sweetness,3.25,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,человечность,f,humaneness,"humaneness, humanity (quality of being benevolent)",3.25,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сексуальность,f,sexuality,sexuality (concern with or interest in sexual activity),3.25,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,общность,f,generality,generality,3.24,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,знаменитость,f,fame,fame,3.24,native,ть|native,-ость,,anim|inan,inanimate,,grammatically animate; suffix -ость
+ru,невинность,f,innocence,innocence (lack of ability or intention to harm or damage),3.24,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,оригинальность,f,singularity,"singularity, originality",3.24,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,доверенность,f,letter of attorney,"letter of attorney, power of attorney",3.23,native,ть|native,-ость,доверенный,inan,inanimate,,suffix -ость; formed from доверенный
+ru,вежливость,f,politeness,politeness (act of being polite),3.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,духовность,f,spirituality,spirituality,3.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,погрешность,f,fault,fault; delinquency; sin,3.23,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,девственность,f,virginity,"virginity, chastity",3.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,обеспокоенность,f,concern,"concern, worry, anxiety",3.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,зрелость,f,ripeness,"ripeness, maturity",3.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,нравственность,f,morals,"morals, morality",3.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,толерантность,f,tolerance,tolerance,3.22,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,достопримечательность,f,attraction,attraction (something remarkable or worthy of taking note),3.22,native,ть|native,-ость,,anim|inan,inanimate,,grammatically animate; suffix -ость
+ru,трусость,f,cowardice,cowardice,3.22,native,ть|native,-ость,трус,inan,inanimate,,suffix -ость; formed from трус
+ru,разность,f,difference,difference,3.22,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,невиновность,f,innocence,innocence (absence of responsibility for a crime),3.22,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,заболеваемость,f,morbidity,"morbidity, incidence (rate); sickness rate",3.22,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,окружность,f,circumference,"circumference, circle",3.22,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,трость,f,cane,"cane, stick, walking stick",3.21,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сдержанность,f,restraint,"restraint, self-restraint",3.21,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,откровенность,f,candour,"candour, sincerity, openness",3.21,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,дерзость,f,impudence,"impudence, impertinence, insolence, rudeness, cheek",3.2,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неисправность,f,failure,"failure, malfunction, defect, disrepair",3.2,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неизвестность,f,uncertainty,uncertainty,3.2,native,ть|native,-ость,неизвестный,inan,inanimate,,suffix -ость; formed from неизвестный
+ru,настойчивость,f,persistence,persistence (property of being persistent),3.2,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,подлость,f,meanness,"meanness, baseness",3.2,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ловкость,f,agility,"agility, adroitness, dexterity, deftness",3.19,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,продуктивность,f,productivity,productivity (state of being productive),3.18,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,полезность,f,usability,"usability, usefulness, utility",3.17,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,громкость,f,loudness,"loudness, noisiness, volume",3.17,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,подвижность,f,motility,motility,3.16,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,мобильность,f,mobility,mobility,3.16,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,объективность,f,objective character,objective character,3.16,native,ть|native,-ость,,inan,animate,,animate (lexicon); suffix -ость
+ru,волость,f,volost,"volost, district, county",3.15,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); register mark; suffix -ость; proper name
+ru,конкурентоспособность,f,competitiveness,competitiveness,3.15,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,обоснованность,f,validity,"validity, good reasons",3.15,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,успешность,f,success,"success, successfulness",3.14,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,враждебность,f,hostility,"hostility, animosity, enmity",3.14,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,анонимность,f,anonymity,anonymity,3.14,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,скатерть,f,tablecloth,"tablecloth (a cloth used to cover and protect a table, especially for a dining table)",3.13,native,ть|native,,рука,inan,inanimate,,formed from рука
+ru,функциональность,f,functionality,functionality,3.12,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,легитимность,f,legitimacy,legitimacy,3.12,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,письменность,f,writing,"writing, writing system, script, written language",3.12,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,государственность,f,statehood,statehood,3.12,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,странность,f,strangeness,strangeness,3.11,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неловкость,f,awkwardness,awkwardness,3.11,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,наивность,f,naïveté,"naïveté, naivety",3.11,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,одержимость,f,obsession,"obsession, diabolism, possession",3.1,native,ть|native,-ость,одержимый,inan,inanimate,,suffix -ость; formed from одержимый
+ru,ведомость,f,list,"list, register, roll, statement",3.09,native,ть|native,-ость,ведомый,inan,inanimate,,suffix -ость; formed from ведомый
+ru,негодность,f,unfitness,"unfitness, lack of fitness",3.09,native,ть|native,-ость,негодный,inan,inanimate,,suffix -ость; formed from негодный
+ru,самоотверженность,f,selflessness,"selflessness, dedication, disregard of self",3.09,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,формальность,f,formality,formality,3.08,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,лесть,f,flattery,"flattery, adulation, cajolery",3.07,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,рать,f,army,"army, host, array",3.07,native,ть|native,,,inan,inanimate,,group (wordnet); animate (gloss)
+ru,конфиденциальность,f,confidentiality,confidentiality,3.07,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,периодичность,f,periodicity,periodicity,3.07,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,порядочность,f,decency,"decency, honesty, integrity",3.05,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,данность,f,given,a given,3.05,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,мягкость,f,softness,softness,3.05,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,тональность,f,tonality,"tonality, key (scale of musical notes)",3.05,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,инвалидность,f,disability,"disability, invalidism",3.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,халатность,f,carelessness,"carelessness, unconcern, negligence",3.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ограниченность,f,limitedness,"limitedness, scantiness",3.04,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,пошлость,f,vulgarity,vulgarity,3.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,несостоятельность,f,insolvency,"insolvency, failure",3.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неизбежность,f,inevitability,inevitability,3.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,обеспеченность,f,provision,provision,3.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сонливость,f,sleepiness,sleepiness (property of being sleepy),3.03,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,терпимость,f,tolerance,"tolerance, indulgence",3.03,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,решительность,f,resolution,"resolution, resoluteness, decision",3.03,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,нелепость,f,absurdity,absurdity,3.03,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,боеспособность,f,fight worthiness,fight worthiness,3.02,native,ть|native,-ость,бой,inan,inanimate,,suffix -ость; formed from бой
+ru,возвышенность,f,altitude,"altitude, elevation, eminence, height, highness",3.02,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,судимость,f,previous convictions,previous convictions,3.02,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,оплошность,f,inadvertence,"inadvertence, negligence",3.02,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,гениальность,f,genius,genius (of a person or of an idea),3.01,native,ть|native,-ость,,inan,animate,,animate (lexicon); suffix -ость; animate (wordnet)
+ru,размерность,f,dimension,"dimension, dimensionality",3.01,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,алчность,f,greed,"greed, greediness, avidity, cupidity",3.01,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,трезвость,f,soberness,soberness,3.01,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,оперативность,f,efficiency,efficiency,3.01,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,тупость,f,bluntness,bluntness,3.0,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,нерешительность,f,indecision,"indecision, irresolution",3.0,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сухость,f,dryness,dryness (various senses),3.0,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,некомпетентность,f,incompetence,incompetence,3.0,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,дикость,f,wildness,"wildness, savagery",3.0,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,туманность,f,abstract noun of тума́нный,"abstract noun of тума́нный (tumánnyj): fogginess, dimness",2.99,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,наличность,f,availability,availability,2.99,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,эластичность,f,elasticity,elasticity,2.99,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,святость,f,holiness,"holiness, sanctity",2.99,native,ть|native,-ость,святой,inan,inanimate,,suffix -ость; formed from святой
+ru,нетерпимость,f,intolerance,intolerance,2.98,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,народность,f,nationality,nationality; people,2.98,native,ть|native,-ость,,inan,inanimate,,suffix -ость; animate (wordnet)
+ru,строгость,f,severity,"severity, austerity",2.98,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,словесность,f,literature,literature,2.97,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бодрость,f,vivacity,"vivacity, sprightliness, cheerfulness",2.97,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,схожесть,f,similarity,"similarity, congeniality",2.97,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,агрессивность,f,aggressiveness,"aggressiveness, animus, bellicosity, belligerence",2.97,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,беспомощность,f,helplessness,helplessness,2.97,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,управляемость,f,manageability,"manageability, controllability, manoeuvrability, dirigibility",2.97,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,крайность,f,extremity,"extremity, extreme measure",2.96,native,ть|native,-ость,крайний,inan,inanimate,,suffix -ость; formed from крайний
+ru,древность,f,antiquity,antiquity (time),2.96,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,жизнедеятельность,f,vital activity,vital activity,2.96,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,компетентность,f,competence,competence (the quality or state of being competent for a general role),2.96,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,пассивность,f,passiveness,"passiveness, passivity",2.95,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,виновность,f,guilt,"guilt, culpability",2.95,native,ть|native,-ость,виновный,inan,inanimate,,suffix -ость; formed from виновный
+ru,самоуверенность,f,arrogance,"arrogance, cockiness",2.94,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,благосклонность,f,benevolence,"benevolence, favour/favor, goodwill",2.94,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,резкость,f,harshness,harshness,2.93,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,повинность,f,duty,"duty, obligation",2.93,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,самобытность,f,originality,"originality, (unique) identity, distinctive character",2.93,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,вязкость,f,viscosity,viscosity,2.93,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,стройность,f,slimness,slimness,2.92,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,недопустимость,f,inadmissibility,"inadmissibility, impermissibility",2.92,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,правомерность,f,legitimacy,legitimacy,2.92,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,адекватность,f,adequacy,adequacy,2.92,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,живучесть,f,vitality,"vitality, survivability, viability, survival capability",2.92,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,токсичность,f,toxicity,toxicity,2.92,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,краткость,f,brevity,"brevity, conciseness, shortness",2.92,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,умеренность,f,moderation,moderation,2.91,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,безнаказанность,f,impunity,"impunity (freedom from punishment or retribution; security from any reprisal or injurious consequences of an action, behavior, etc.)",2.91,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,наследственность,f,heredity,heredity,2.91,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,отсталость,f,backwardness,backwardness (state of being backward),2.91,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,предрасположенность,f,predisposition,predisposition,2.91,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,немилость,f,dislike of a superior for a subordinate,dislike of a superior for a subordinate,2.91,native,ть|native,-ость,милость,inan,inanimate,,register mark; suffix -ость; formed from милость
+ru,раздражительность,f,irritability,irritability,2.9,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,правдивость,f,truthfulness,"truthfulness, uprightness, veracity",2.9,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,выразительность,f,expressiveness,expressiveness,2.9,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,проходимость,f,permeability,permeability,2.89,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,жизнеспособность,f,viability,"viability; vital capacity, vitality; survival",2.89,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,изобретательность,f,inventiveness,"inventiveness, ingenuity, resourcefulness",2.89,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,конечность,f,limb,"limb, extremity, member",2.88,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,изменчивость,f,changeableness,"changeableness, mutability; changeability",2.88,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,универсальность,f,universality,universality,2.88,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,долговечность,f,longevity,"longevity, durability",2.88,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неэффективность,f,inefficiency,inefficiency,2.88,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сырость,f,dampness,dampness; moisture,2.87,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,безответственность,f,irresponsibility,irresponsibility,2.87,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,тягость,f,burden,burden,2.87,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,очевидность,f,evidence,"evidence, obviousness, openness",2.86,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,кислотность,f,acidity,acidity (quality or state of being acid),2.86,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,неосторожность,f,carelessness,carelessness; imprudence,2.86,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,элегантность,f,elegance,elegance,2.86,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,живность,f,small living creatures collectively,small living creatures collectively,2.86,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); register mark; suffix -ость
+ru,истинность,f,fact,"fact, sooth, truth, verity, validity",2.85,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,естественность,f,naturalness,naturalness,2.85,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,выживаемость,f,survivability,survivability,2.85,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,непрерывность,f,continuity,continuity,2.85,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неустойчивость,f,instability,"instability, unsteadiness",2.85,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,автономность,f,autonomy,autonomy,2.85,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,нежить,f,evil or dangerous spirits,evil or dangerous spirits,2.85,native,ть|native,,,inan,animate,,animate (lexicon); other part of speech
+ru,секретность,f,secrecy,secrecy,2.85,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,экономичность,f,economicalness,economicalness,2.85,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,женственность,f,femininity,femininity,2.84,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,покорность,f,submissiveness,"submissiveness, obedience",2.84,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,насыщенность,f,saturation,saturation,2.84,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,гомосексуальность,f,homosexuality,homosexuality,2.83,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,низменность,f,lowland,lowland,2.83,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,внезапность,f,suddenness,suddenness,2.83,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,тревожность,f,anxiety,"anxiety, uneasiness",2.83,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,любезность,f,courtesy,"courtesy, politeness, civility",2.82,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,самодеятельность,f,amateur cultural activity,amateur cultural activity,2.82,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,двойственность,f,duality,duality; duplicity; ambivalence,2.82,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,небрежность,f,carelessness,"carelessness, negligence",2.82,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,серьёзность,f,seriousness,"seriousness, earnestness",2.82,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,эмоциональность,f,emotionality,emotionality,2.82,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,гласность,f,public,"public, publicity",2.81,native,ть|native,-ость,гласный,inan,inanimate,,suffix -ость; animate (wordnet); formed from гласный
+ru,незаконность,f,illegality,illegality,2.81,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,драгоценность,f,gem,"gem, jewel; (plural) jewelry",2.81,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,пакость,f,filth,filth,2.8,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,тонкость,f,thinness,"thinness, fineness",2.8,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,нервозность,f,nervousness,nervousness,2.8,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,пригодность,f,fitness,"fitness, suitability",2.8,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,мужественность,f,masculinity,"masculinity, manliness, virility",2.79,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,слякоть,f,slush,"slush, mire, crud, mud",2.79,native,ть|native,,,inan,inanimate,,chemical
+ru,принципиальность,f,adherence to one's principles,adherence to one's principles,2.79,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,внимательность,f,attentiveness,"attentiveness, attention (mental focus)",2.79,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,несовместимость,f,incompatibility,incompatibility,2.79,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,чувственность,f,sensuality,sensuality,2.78,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ментальность,f,mentality,mentality,2.78,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неточность,f,inaccuracy,"inaccuracy, inexactitude",2.78,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,предосторожность,f,caution,"caution, precaution",2.78,native,ть|native,-ость,осторожность,inan,inanimate,,suffix -ость; formed from осторожность
+ru,повседневность,f,daily routine,"daily routine, everyday life",2.77,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,упругость,f,elasticity,"elasticity, resiliency, resilience",2.77,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бессмысленность,f,senselessness,"senselessness, inanity, pointlessness",2.77,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,безысходность,f,hopelessness,"hopelessness, despair",2.77,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,обороноспособность,f,readiness for defense,readiness for defense,2.77,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,растерянность,f,perplexity,perplexity (quality of being confused or puzzled),2.77,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,проводимость,f,conductivity,"conductivity, conduction",2.77,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,суровость,f,severity,severity (degree of something undesirable; badness),2.77,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,исключительность,f,exceptionality,exceptionality,2.77,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,обязательность,f,obligatoriness,"obligatoriness, obligation; compulsion",2.77,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,беспечность,f,carelessness,"carelessness, unconcern",2.76,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,скрытность,f,secretiveness,secretiveness,2.76,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,предвзятость,f,bias,"bias, prejudice",2.76,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,пластичность,f,plasticity,plasticity,2.76,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,религиозность,f,religiousness,"religiousness, religiosity; piety, piousness",2.76,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,проницательность,f,perspicacity,"perspicacity, insight, acumen (the human faculty or power to mentally grasp or understand clearly)",2.75,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,проницаемость,f,permeability,"permeability, penetrability, perviousness, pellucidity",2.75,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,договорённость,f,agreement,agreement (an understanding to follow a course of conduct),2.75,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,отзывчивость,f,kindheartedness,"kindheartedness, sympathy",2.75,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,снисходительность,f,condescension,condescension,2.75,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,абсурдность,f,absurdity,absurdity,2.74,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,банальность,f,banality,"banality, triteness",2.74,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,хрупкость,f,fragility,"fragility, frailty",2.73,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,окупаемость,f,cover of expenditure,"cover of expenditure, recoupment",2.73,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,плавность,f,smoothness,smoothness (of movement or speech),2.73,native,ть|native,-ость,плавный,inan,inanimate,,suffix -ость; formed from плавный
+ru,неверность,f,infidelity,"infidelity, unfaithfulness (unfaithfulness in marriage or other moral obligation)",2.73,native,ть|native,-ость,неверный,inan,inanimate,,suffix -ость; formed from неверный
+ru,сбалансированность,f,balance,"balance, harmony",2.72,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,близорукость,f,shortsightedness,"shortsightedness, nearsightedness, myopia",2.72,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сентиментальность,f,sentimentality,sentimentality,2.72,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бестактность,f,indelicacy,"indelicacy, tactlessness; social blunder, faux pas",2.71,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,безграмотность,f,illiteracy,illiteracy,2.71,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ликвидность,f,liquidity,liquidity,2.71,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,аккуратность,f,tidiness,"tidiness, neatness",2.71,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,лёгкость,f,easiness,"easiness, ease (the quality of being easy; simplicity)",2.71,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,находчивость,f,ingenuity,"ingenuity, resourcefulness, inventiveness",2.71,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бездарность,f,lack of talent,lack of talent,2.7,native,ть|native,-ость,,anim|inan,inanimate,,grammatically animate; suffix -ость
+ru,сообразительность,f,acumen,"acumen, gumption, quick wit",2.7,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,низость,f,lowness,lowness,2.69,native,ть|native,-ость,низ,inan,inanimate,,suffix -ость; formed from низ
+ru,ошибочность,f,erroneousness,"erroneousness, incorrectness, fallaciousness, mistakenness",2.69,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,непредсказуемость,f,unpredictability,unpredictability (the quality of being unpredictable),2.69,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,доброжелательность,f,benevolence,"benevolence, kindness, goodwill",2.68,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,корректность,f,correctness,correctness,2.68,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,наблюдательность,f,observation,"observation (skill), power / keenness of observation",2.68,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,античность,f,antiquity,antiquity,2.68,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сингулярность,f,singularity,singularity,2.68,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неблагодарность,f,ingratitude,ingratitude,2.68,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,поспешность,f,hurry,"hurry, haste",2.68,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,условность,f,conditional character,"conditional character, conditionality",2.67,native,ть|native,-ость,,inan,animate,,animate (lexicon); suffix -ость
+ru,непосредственность,f,spontaneity,"spontaneity, ingenuousness, artlessness, sincerity",2.67,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,робость,f,shyness,"shyness, timidity",2.67,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,посредственность,f,mediocrity,mediocrity,2.67,native,ть|native,-ость,,inan,inanimate,,suffix -ость; animate (wordnet)
+ru,вялость,f,sluggishness,"sluggishness, slowness, lethargy, inactivity",2.67,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,пунктуальность,f,punctuality,punctuality (state of being punctual),2.67,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,боеготовность,f,alertness,alertness,2.67,native,ть|native,-ость,бой,inan,inanimate,,suffix -ость; formed from бой
+ru,неоднозначность,f,ambiguity,ambiguity,2.66,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,восприимчивость,f,susceptibility,susceptibility,2.66,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,организованность,f,organization,organization (state of being well-organized),2.66,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name; group (wordnet)
+ru,обыденность,f,commonness,"commonness, ordinariness",2.66,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,согласованность,f,concordance,concordance (agreement),2.66,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,изысканность,f,refinement,"refinement, elegance, grace, daintiness",2.65,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,подробность,f,detail,detail,2.65,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,застенчивость,f,shyness,"shyness, timidity",2.65,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,медлительность,f,sluggishness,"sluggishness, slowness, lethargy, inactivity",2.64,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,масштабность,f,immensity,"immensity, state of being large-scale",2.64,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,рациональность,f,rationality,rationality,2.64,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неграмотность,f,illiteracy,illiteracy,2.64,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,вредность,f,harmfulness,harmfulness,2.64,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,надёжность,f,reliability,reliability; trustworthiness; dependability; security,2.64,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бесполезность,f,uselessness,uselessness,2.63,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,чуткость,f,sensitiveness,"sensitiveness, keenness",2.63,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сосредоточенность,f,concentration,concentration,2.63,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,надобность,f,need,"need, necessity",2.63,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,достаточность,f,adequacy,"adequacy, sufficiency",2.63,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,серость,f,dullness,"dullness, grayness, drabness",2.63,native,ть|native,-ость,серый,inan,inanimate,,suffix -ость; formed from серый
+ru,невесомость,f,weightlessness,weightlessness,2.63,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,доверчивость,f,trustfulness,trustfulness,2.63,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,необычность,f,singularity,"singularity, queerness, unusualness",2.62,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,своевременность,f,timeliness,timeliness,2.62,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,практичность,f,practicality,practicality,2.62,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неизменность,f,invariability,"invariability, immutability",2.62,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,потливость,f,sweatiness,"sweatiness, hyperhidrosis",2.62,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,образность,f,imagery,imagery,2.61,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,исправность,f,serviceability,"serviceability, soundness, functioning condition (of a machine)",2.61,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,прибыльность,f,profitability,profitability,2.61,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,компактность,f,compactness,compactness,2.61,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неясность,f,ambiguity,ambiguity (something liable to more than one interpretation),2.61,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,скупость,f,stinginess,"stinginess, niggardliness, miserliness, avarice (excessive or inordinate desire of gain)",2.61,native,ть|native,-ость,скупой,inan,inanimate,,suffix -ость; formed from скупой
+ru,загадочность,f,inscrutability,"inscrutability, mystery",2.6,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,радиоактивность,f,radioactivity,radioactivity,2.6,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,холодность,f,coldness,"coldness, frigidity",2.6,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,массовость,f,mass character,mass character,2.6,native,ть|native,-ость,,inan,animate,,animate (lexicon); suffix -ость
+ru,образованность,f,scholarship,scholarship,2.6,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,забывчивость,f,forgetfulness,forgetfulness,2.6,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,текучесть,f,fluidity,fluidity (the state of being fluid rather than viscous),2.6,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,подозрительность,f,suspiciousness,suspiciousness,2.6,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,вольность,f,liberty,liberty; freedom,2.59,native,ть|native,-ость,вольный,inan,inanimate,,suffix -ость; formed from вольный
+ru,загруженность,f,workload,workload,2.59,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неопределённость,f,abeyance,abeyance,2.59,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,требовательность,f,exactingness,"exactingness, demandingness",2.59,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,неадекватность,f,inadequacy,inadequacy,2.59,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сознательность,f,awareness,"awareness, consciousness",2.59,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ёмкость,f,capacitance,"capacitance, capacity, volume",2.59,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,состоятельность,f,wealth,"wealth, affluence, prosperity",2.59,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,дурость,f,stupidity,"stupidity, folly",2.59,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сопротивляемость,f,resistance,resistance,2.59,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,гуманность,f,humanity,"humanity, humaneness",2.59,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,наружность,f,appearance,"appearance, looks; exterior",2.58,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,добросовестность,f,conscientiousness,"conscientiousness, bona fides",2.58,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,перспективность,f,property of being prospective,"property of being prospective, prospects",2.58,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,осмотрительность,f,prudence,"prudence, circumspection",2.58,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,замкнутость,f,unsociability,unsociability; reticence,2.58,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,специфичность,f,specificity,"specificity, peculiarity",2.58,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,срочность,f,urgency,urgency,2.57,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,востребованность,f,demand,"demand, need",2.57,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,праздность,f,idleness,"idleness, indolence",2.57,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,окрестность,f,environs,"environs, vicinity, neighbourhood",2.57,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,безмятежность,f,insouciance,"insouciance, placidity, serenity",2.57,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,оконечность,f,extremity,extremity (furthest point),2.57,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,болезненность,f,sickliness,"sickliness, unhealthiness",2.57,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,предсказуемость,f,predictability,predictability,2.57,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,меткость,f,accuracy,accuracy (when hitting a target),2.57,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,противоречивость,f,inconsistency,inconsistency,2.56,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,цельность,f,wholeness,"wholeness, entirety",2.56,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,двусмысленность,f,ambiguity,ambiguity,2.56,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,невозмутимость,f,imperturbability,"imperturbability, unflappability",2.55,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,приватность,f,privacy,privacy,2.55,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,распущенность,f,laxity,"laxity, lack of discipline",2.55,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,любознательность,f,inquisitiveness,"inquisitiveness, curiosity",2.54,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,регулярность,f,regularity,regularity,2.54,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неопытность,f,inexperience,inexperience,2.54,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,жертвенность,f,self-sacrifice,"self-sacrifice, sacrifice",2.54,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неготовность,f,unpreparedness,"unpreparedness, unreadiness",2.54,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,избыточность,f,redundancy,"redundancy, superfluousness",2.54,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,публичность,f,publicity,publicity,2.54,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неотвратимость,f,inevitability,inevitability,2.53,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бледность,f,pallor,"pallor, paleness",2.53,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,самодостаточность,f,self-sufficiency,self-sufficiency (condition of being self-sufficient),2.53,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,таинственность,f,mystery,"mystery, mysteriousness",2.53,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,нормальность,f,normalcy,normalcy (state of being normal),2.53,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,сходимость,f,merger,"merger, convergence (act of moving toward union or uniformity)",2.52,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,музыкальность,f,musicality,musicality,2.52,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,деликатность,f,tact,"tact, tactfulness, delicacy",2.52,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,повторяемость,f,repetition,"repetition, reiteration, recurrence",2.52,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,взаимозависимость,f,interdependency,interdependency,2.51,native,ть|native,-ость,зависимость,inan,inanimate,,suffix -ость; formed from зависимость
+ru,скованность,f,awkwardness,"awkwardness, inhibition",2.51,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,множественность,f,multiplicity,multiplicity,2.51,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,живость,f,vivacity,"vivacity, liveliness, animation, vividness, alacrity, sprightliness",2.51,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бережливость,f,thrift,"thrift, economy",2.51,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,выпуклость,f,convexity,convexity (state of being convex),2.51,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,божественность,f,deity,"deity, divinity (essential nature of a god)",2.51,native,ть|native,-ость,,inan,animate,,animate (lexicon); suffix -ость
+ru,вседозволенность,f,permissiveness,"permissiveness, policy of all-permissiveness",2.5,native,ть|native,-ость,дозволенность,inan,inanimate,,suffix -ость; formed from дозволенность
+ru,неравномерность,f,unevenness,unevenness,2.5,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,выраженность,f,severity,severity,2.5,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,субъективность,f,subjectivity,subjectivity,2.5,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,прямолинейность,f,straightness,"straightness, rectilinearity",2.49,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,стремительность,f,rashness,"rashness, precipitancy, impetuosity",2.49,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ущербность,f,defectiveness,"defectiveness, inferiority",2.49,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,непоследовательность,f,inconsistency,"inconsistency, incoherence, illogicalness",2.49,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,информированность,f,awareness,awareness (the state or quality of being aware of something),2.49,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,действенность,f,efficacy,"efficacy, efficiency",2.49,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,беспристрастность,f,impartiality,impartiality,2.48,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,закрытость,f,state of being closed,"state of being closed, closedness (e.g. of a society)",2.48,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,рассудительность,f,judiciousness,"judiciousness, reasonableness, judgement, sobriety",2.48,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,премудрость,f,wisdom,wisdom,2.48,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,твёрдость,f,solidity,solidity,2.48,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,недоступность,f,inaccessibility,inaccessibility,2.48,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,благость,f,gentleness,"gentleness, kindness",2.47,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,неподвижность,f,immobility,immobility,2.47,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,снасть,f,tackle,tackle,2.47,native,ть|native,,,inan,animate,,animate (lexicon); animate (wordnet)
+ru,продажность,f,ability to sell,ability to sell,2.46,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,лживость,f,deceitfulness,"deceitfulness, mendacity, dishonesty",2.46,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,электросеть,f,power grid,"power grid, electricity network",2.46,native,ть|native,,сеть,inan,inanimate,,formed from сеть
+ru,неоднородность,f,heterogeneity,"heterogeneity, dissimilarity",2.46,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,незыблемость,f,firmness,"firmness, solidity, immutability",2.46,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,театральность,f,theatricality,theatricality (the totality of means and techniques specific to theater),2.44,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,пряность,f,spice,spice (plant matter used to season or flavour/flavor food),2.44,native,ть|native,-ость,,inan,inanimate,,suffix -ость; chemical
+ru,однородность,f,homogeneity,homogeneity,2.44,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,дееспособность,f,capacity,capacity,2.44,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,напряжённость,f,tensity,"tensity, tenseness, tension (psychological state)",2.44,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,бесперспективность,f,hopelessness,"hopelessness, futility",2.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бездеятельность,f,inactivity,"inactivity, inertia, passivity, lethargy",2.43,native,ть|native,-ость,деятельность,inan,inanimate,,suffix -ость; formed from деятельность
+ru,применимость,f,applicability,"applicability, suitability",2.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,кротость,f,meekness,meekness,2.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,рассеянность,f,dispersion,dispersion,2.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,инертность,f,sluggishness,"sluggishness, inactivity, inertia, passivity, inertness",2.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,интеллигентность,f,intelligence,"intelligence, intellectuality",2.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,слаженность,f,coherence,"coherence, cohesiveness, orderliness",2.43,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сопричастность,f,involvement,"involvement, participation, implication (in)",2.42,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,аутентичность,f,authenticity,authenticity (the quality of being genuine or not corrupted from the original),2.42,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,надменность,f,haughtiness,"haughtiness, arrogance",2.42,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,безнравственность,f,immorality,immorality,2.42,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,вменяемость,f,sanity,"sanity, imputability",2.42,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,тщетность,f,futility,"futility, vainness, uselessness",2.41,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,убедительность,f,persuasiveness,persuasiveness (capability to persuade),2.41,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,декоративность,f,decorativeness,"decorativeness, decorativity, ornamentality",2.41,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,праведность,f,piousness,piousness,2.41,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ненужность,f,uselessness,uselessness,2.41,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,недосказанность,f,understatement,"understatement, vagueness, ambiguity, innuendo, things left unsaid",2.4,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,относительность,f,relativity,relativity,2.4,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,электропроводность,f,electrical conductivity,"electrical conductivity, electrical conduction",2.4,native,ть|native,-ость,провод,inan,inanimate,,suffix -ость; formed from провод
+ru,душевность,f,sincerity,"sincerity, heartfulness",2.4,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,давность,f,remoteness,"remoteness (in time), antiquity; long standing; time limitation",2.4,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,беззаботность,f,insouciance,"insouciance, nonchalance, unconcern, carelessness (lack of care)",2.39,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,валентность,f,valency,valency,2.39,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,окаменелость,f,fossil,"fossil, petrifaction",2.39,native,ть|native,-ость,,inan,animate,,animate (lexicon); suffix -ость; animate (wordnet)
+ru,провинность,f,duty,duty,2.39,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,предусмотрительность,f,prudence,"prudence, foresight",2.38,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неуязвимость,f,invulnerability,invulnerability,2.38,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,виртуозность,f,virtuosity,virtuosity,2.38,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ничтожность,f,insignificance,insignificance,2.38,native,ть|native,-ость,,anim|inan,inanimate,,grammatically animate; suffix -ость
+ru,динамичность,f,dynamism,"dynamism, energy",2.38,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,внутренность,f,interior,"interior, inside",2.38,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,брезгливость,f,squeamishness,squeamishness,2.38,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неповторимость,f,uniqueness,uniqueness,2.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,торжественность,f,grandeur,"grandeur, stateliness, solemnity",2.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,порочность,f,depravity,"depravity, viciousness",2.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,разумность,f,reasonableness,"reasonableness, rationality, sanity",2.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,влюблённость,f,love,"love, infatuation, being in love",2.37,native,ть|native,-ость,влюблённый,inan,inanimate,,suffix -ость; formed from влюблённый
+ru,ветхость,f,dilapidation,"dilapidation, dilapidated state",2.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,многозадачность,f,multitasking,multitasking (the ability to handle multiple tasks at the same time),2.37,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,приятность,f,pleasantness,pleasantness,2.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,трудоспособность,f,ability to work,ability to work (a certain amount and quality),2.37,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,задумчивость,f,thoughtfulness,thoughtfulness; reverie,2.36,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,общительность,f,sociability,"sociability, communicativeness, outgoingness",2.36,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,вшивость,f,lice infestation,"lice infestation, lousiness",2.36,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,раздробленность,f,fragmentation,fragmentation,2.36,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,частотность,f,frequency,"frequency (of oscillations, etc.)",2.35,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,монотонность,f,monotonousness,"monotonousness, monotony",2.35,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,плавучесть,f,buoyancy,"buoyancy, floatability",2.35,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,подсудность,f,cognizance,"cognizance, jurisdiction, suability",2.33,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,пожароопасность,f,fire hazard,fire hazard,2.33,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неуклюжесть,f,clumsiness,clumsiness,2.33,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,отчётность,f,accountability,accountability (state of being accountable),2.33,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,заботливость,f,thoughtfulness,"thoughtfulness, considerateness",2.32,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,тщательность,f,carefulness,"carefulness, thoroughness, care",2.32,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,стрессоустойчивость,f,stress tolerance,"stress tolerance, stress immunity, resistance to stress",2.32,native,ть|native,-ость,стресс,inan,inanimate,,suffix -ость; formed from стресс
+ru,притягательность,f,attractiveness,attractiveness,2.32,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неполноценность,f,badness,"badness, deficiency, inferiority",2.32,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,энергичность,f,energy,"energy, vim",2.32,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,леность,f,laziness,"laziness, indolence, idleness, sloth",2.31,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,необратимость,f,irreversibility,irreversibility,2.31,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,пышность,f,splendor,"splendor, pomp",2.31,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,оторванность,f,isolation,"isolation, alienation, loneliness, lack of communication with others",2.31,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,слышимость,f,audibility,audibility,2.3,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,непорочность,f,chastity,"chastity, immaculacy, purity",2.3,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,заносчивость,f,arrogance,"arrogance, insolence, self-conceit, presumption",2.3,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,учтивость,f,politeness,politeness (act of being polite),2.3,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,причинность,f,causality,causality (agency of cause),2.29,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,узость,f,narrowness,narrowness,2.29,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,предприимчивость,f,initiative,"initiative, enterprise (willingness to take the initiative, especially in business)",2.29,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,комфортность,f,comfortableness,"comfortableness, comfortability, comfort",2.29,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,круговерть,f,circular movement,"circular movement, whirlwind, gyre",2.29,native,ть|native,,круг,inan,inanimate,,register mark; formed from круг
+ru,набожность,f,devotion,"devotion, piety, godliness",2.29,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,пикантность,f,piquancy,"piquancy, poignancy",2.28,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,мрачность,f,darkness,darkness,2.28,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неразвитость,f,lack of development,"lack of development, underdevelopment",2.28,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,убогость,f,disability,"disability, handicap",2.28,native,ть|native,-ость,убогий,inan,inanimate,,suffix -ость; formed from убогий
+ru,стыдливость,f,bashfulness,"bashfulness, shyness",2.27,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,клеть,f,log walls framing and enclosing a room,the log walls framing and enclosing a room; cribbing,2.27,native,ть|native,,,inan,inanimate,,register mark
+ru,торопливость,f,haste,"haste, hurry",2.26,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,несдержанность,f,unrestraint,unrestraint (lack of restraint),2.26,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,амбивалентность,f,ambivalence,ambivalence,2.26,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,невменяемость,f,insanity,"insanity, lunacy",2.26,native,ть|native,-ость,вменяемость,inan,inanimate,,suffix -ость; formed from вменяемость
+ru,информативность,f,informativeness,"informativeness, informativity, information value",2.26,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,похожесть,f,similarity,"similarity, likeness, resemblance",2.26,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,дисциплинированность,f,discipline,"discipline, self-discipline",2.26,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сердечность,f,kindness,"kindness, sincerity, cordiality",2.26,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,приоритетность,f,priority,priority,2.26,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,беспринципность,f,unscrupulousness,"unscrupulousness, unprincipledness",2.25,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,опытность,f,expertise,"expertise, proficiency",2.24,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,значительность,f,importance,"importance, significance",2.24,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,искусственность,f,artificiality,"artificiality (state of being man-made, not natural)",2.24,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,будущность,f,future,"future (events to come, or one's expected success or fate)",2.24,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,копоть,f,soot,"soot, (black) smoke, fume",2.24,native,ть|native,,,inan,inanimate,,chemical
+ru,русскость,f,russianness,Russianness (quality of being Russian),2.24,native,ть|native,-ость,русский,inan,uncertain,,animate (lexicon); suffix -ость; formed from русский
+ru,модальность,f,modality,modality,2.24,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,износостойкость,f,resistance to wear,resistance to wear,2.24,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,непристойность,f,obscenity,obscenity,2.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бисексуальность,f,bisexuality,bisexuality,2.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,непримиримость,f,intransigence,"intransigence, implacability",2.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,вместительность,f,capacity,"capacity (ability to hold); capacity (a measure of such ability), volume",2.23,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,взаимозаменяемость,f,interchangeability,interchangeability,2.22,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,беззащитность,f,defencelessness,defencelessness,2.22,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,подготовленность,f,readiness,"readiness, preparedness",2.22,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,сытость,f,satiety,"satiety, fullness",2.22,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,собранность,f,discipline,"discipline, self-discipline, focus, organization",2.21,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,страстность,f,passion,passion,2.21,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неустроенность,f,state of being unsettled,state of being unsettled,2.21,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,престижность,f,prestigiousness,"prestigiousness, prestige",2.2,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,допустимость,f,admissibility,"admissibility, permissibility",2.2,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,целеустремлённость,f,purposefulness,"purposefulness, resoluteness, (sense of) purpose",2.2,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,соборность,f,principle of joint discussion and solution of important national issues at a council of people's representatives,the principle of joint discussion and solution of important national issues at a council of people's representatives; consensus-driven decision making,2.2,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,единственность,f,uniqueness,"uniqueness, singularity",2.2,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,скудость,f,scarcity,scarcity,2.2,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,подавленность,f,depression,"depression, dejection",2.2,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,развитость,f,development,"development, maturity",2.19,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,фамильярность,f,familiarity,"familiarity, unceremoniousness",2.19,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,уместность,f,relevance,"relevance, relevancy",2.19,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,гать,f,causeway through swamps,"a causeway through swamps, made from logs or brushwood, a corduroy road",2.19,native,ть|native,,,inan,uncertain,,animate (lexicon)
+ru,нереальность,f,unreality,unreality,2.19,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,недоверчивость,f,incredulity,incredulity (unwillingness to believe; doubt about the truth of something),2.18,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,интимность,f,intimacy,"intimacy (feeling of closeness and openness towards someone else; especially, sexual)",2.18,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,годность,f,fitness,"fitness (of something for some purpose), suitability; validity",2.17,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,прозорливость,f,acumen,"acumen, sagacity, astuteness",2.17,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,расслабленность,f,relaxedness,"relaxedness, relaxation, lack of stress",2.17,native,ть|native,-ость,расслабленный,inan,uncertain,,animate (lexicon); suffix -ость; formed from расслабленный
+ru,масштабируемость,f,scalability,scalability,2.16,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,парадоксальность,f,paradoxicality,paradoxicality,2.16,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,неровность,f,unevenness,"unevenness, roughness",2.16,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,партийность,f,party affiliation,party affiliation,2.16,native,ть|native,-ость,партийный,inan,inanimate,,suffix -ость; formed from партийный
+ru,обучаемость,f,learning ability,learning ability,2.16,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,шероховатость,f,roughness,"roughness, asperity (as of stone)",2.15,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,безвыходность,f,inability to exit,inability to exit,2.15,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,непохожесть,f,dissimilarity,"dissimilarity, unlikeness",2.15,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,приветливость,f,friendliness,"friendliness, affability",2.15,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,осведомлённость,f,awareness,awareness (the state or quality of being aware of something),2.13,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,непоколебимость,f,steadfastness,"steadfastness, perseverance, firmness.",2.13,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,горячность,f,hot temper,"hot temper, hot-headed nature",2.12,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,гражданственность,f,civic consciousness,civic consciousness,2.12,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,пропорциональность,f,proportionality,proportionality (the property of being proportional),2.12,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,примитивность,f,primitiveness,primitiveness,2.12,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неподготовленность,f,unpreparedness,unpreparedness,2.12,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,пятнистость,f,speckling,"speckling, spottiness",2.12,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,бездетность,f,childlessness,childlessness (the state of being childless),2.12,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,обрядность,f,rites,rites,2.12,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,лесистость,f,woodiness,woodiness,2.12,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,неправильность,f,incorrectness,incorrectness,2.11,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,адаптивность,f,adaptability,adaptability,2.11,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,непреклонность,f,steadfastness,"steadfastness, firmness, unshakability",2.11,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,невосприимчивость,f,lack of receptivity,"lack of receptivity, unreceptiveness",2.11,native,ть|native,-ость,восприимчивость,inan,inanimate,,suffix -ость; formed from восприимчивость
+ru,наглядность,f,clearness,"clearness, obviousness",2.11,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,соразмерность,f,commensurability,commensurability,2.1,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,косность,f,lethargy,"lethargy, inertia, resistance to change",2.09,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,законченность,f,completeness,completeness,2.09,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,гнусность,f,infamy,"infamy, heinousness",2.09,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ненормальность,f,abnormality,"abnormality, irregularity",2.09,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,греховность,f,depravity,"depravity, peccability, peccancy, sin",2.09,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,начитанность,f,erudition,erudition,2.09,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,основательность,f,thoroughness,thoroughness,2.09,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,веротерпимость,f,religious toleration,religious toleration,2.09,native,ть|native,-ость,вера,inan,inanimate,,suffix -ость; formed from вера
+ru,бренность,f,caducity,"caducity, frailty, transience",2.09,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); register mark; suffix -ость
+ru,безвестность,f,obscurity,obscurity,2.08,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,разрядность,f,number of digits,number of digits (in a given numeric value written in decimal or other positional notation),2.08,native,ть|native,-ость,,inan,inanimate,,register mark; suffix -ость
+ru,прогрессивность,f,progressiveness,progressiveness,2.08,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,свирепость,f,ferocity,"ferocity, savagery, atrociousness",2.07,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,мнительность,f,mistrustfulness,"mistrustfulness, suspiciousness",2.07,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,чёткость,f,clearness,"clearness, legibility",2.07,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,беспощадность,f,ruthlessness,"ruthlessness, mercilessness",2.07,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,коррумпированность,f,corruptness,corruptness,2.06,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,категоричность,f,categoricity,"categoricity, categoricalness",2.06,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,недействительность,f,invalidity,"invalidity, inefficiency, ineffectiveness",2.05,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,ость,f,awn,"awn, beard",2.05,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,гетеросексуальность,f,heterosexuality,heterosexuality,2.05,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,необязательность,f,optionalness,"optionalness, optionality, non-necessity",2.04,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,художественность,f,artistic skills,"artistic skills, artistry",2.04,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,жизненность,f,vitality,"vitality, vital power",2.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,авторитетность,f,authoritativeness,authoritativeness; authoritativity (the quality of being authoritative),2.04,native,ть|native,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,дотошность,f,abstract noun of дото́шный,abstract noun of дото́шный (dotóšnyj): meticulousness,2.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,состязательность,f,competitiveness,competitiveness,2.04,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,релевантность,f,relevance,"relevance (property or state of being relevant, pertinency)",2.03,native,ть|native,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,неискренность,f,insincerity,"insincerity, hypocrisy",2.03,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,раздвоенность,f,bifurcation,bifurcation,2.02,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,непогрешимость,f,infallibility,infallibility,2.02,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,правоспособность,f,legal capacity,legal capacity,2.02,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,когерентность,f,coherence,coherence,2.01,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,конкретность,f,concreteness,concreteness,2.01,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,резвость,f,friskiness,friskiness,2.01,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,изящность,f,elegance,elegance,2.01,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,шаткость,f,shakiness,"shakiness, unsteadiness",2.01,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,водность,f,water content,water content,2.01,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,младость,f,youth,"youth, adolescence",2.01,native,ть|native,-ость,,inan,animate,,animate (lexicon); register mark; suffix -ость; animate (wordnet)
+ru,жёсткость,f,rigidity,"rigidity, inflexibility",2.0,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,бесцеремонность,f,unceremoniousness,"unceremoniousness, sans gêne, presumptuousness",2.0,native,ть|native,-ость,,inan,inanimate,,suffix -ость
+ru,гость,m,guest,"guest, visitor",4.12,native,ть|native,-ость,,anim,animate,,grammatically animate; animate (lexicon); suffix -ость; animate (wordnet)
+ru,зять,m,son-in-law,son-in-law,3.6,native,ть|native,,,anim,animate,,grammatically animate; animate (lexicon); animate (wordnet)
+ru,тесть,m,father of one's wife,the father of one's wife; father-in-law,3.23,native,ть|native,-ость,,anim,animate,,grammatically animate; animate (lexicon); suffix -ость
+ru,коготь,m,claw,"claw, talon",2.88,native,ть|native,,,inan,animate,,animate (lexicon)
+ru,тать,m,thief,thief,2.47,native,ть|native,,,anim,animate,,grammatically animate; animate (lexicon); register mark; animate (wordnet)
+ru,подать,f,tax,"tax, duty",4.29,unknown,ть|unknown,,,inan,inanimate,,other part of speech
+ru,четверть,f,quarter,"quarter, fourth",4.18,unknown,ть|unknown,,,inan,inanimate,,
+ru,треть,f,third,third (one of three equal parts of a whole),4.13,unknown,ть|unknown,,,inan,inanimate,,register mark
+ru,задолженность,f,liabilities,"liabilities, debt, indebtedness, arrears (state or condition of owing something to another)",3.73,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,мякоть,f,flesh,flesh (of meat); pulp (of fruits),3.36,unknown,ть|unknown,,,inan,inanimate,,
+ru,свежесть,f,freshness,freshness,3.31,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость
+ru,соцсеть,f,social network,social network (a network of personal or business contacts on the Internet),3.28,unknown,ть|unknown,,,inan,inanimate,,
+ru,нечисть,f,evil spirits,"evil spirits, unholy creatures",3.06,unknown,ть|unknown,,,inan,inanimate,,
+ru,прихоть,f,whim,"whim, caprice, whimsy, fancy",2.96,unknown,ть|unknown,,,inan,inanimate,,
+ru,муть,f,dregs,"dregs, mud, blur; slime sediment",2.95,unknown,ть|unknown,,,inan,inanimate,,
+ru,шалость,f,prank,"prank, mischief, monkey business",2.83,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость
+ru,плеть,f,whip,whip; lash,2.72,unknown,ть|unknown,,,inan,inanimate,,animate (wordnet)
+ru,лопасть,f,blade,"blade, propeller blade, swim fin blade",2.69,unknown,ть|unknown,,,inan,inanimate,,animate (wordnet)
+ru,вариативность,f,variation,"variation, variability",2.69,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость
+ru,взаимность,f,reciprocity,"reciprocity, mutuality",2.66,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость
+ru,прыть,f,agility,"agility, quickness",2.63,unknown,ть|unknown,,,inan,inanimate,,register mark
+ru,жимолость,f,honeysuckle,honeysuckle,2.55,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость
+ru,настороженность,f,vigilance,"vigilance, watchfulness, alertness",2.53,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость
+ru,политкорректность,f,political correctness,political correctness,2.5,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость
+ru,промежность,f,perineum,perineum,2.48,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость
+ru,матчасть,f,equipment,"equipment, materiel",2.34,unknown,ть|unknown,,,inan,inanimate,,
+ru,госбезопасность,f,state security,state security,2.31,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,самость,f,selfness,selfness,2.26,unknown,ть|unknown,-ость,,inan,uncertain,,animate (lexicon); suffix -ость
+ru,обособленность,f,isolation,isolation,2.2,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость
+ru,санчасть,f,infirmary,infirmary,2.19,unknown,ть|unknown,,,inan,inanimate,,
+ru,воспитанность,f,breeding,breeding (good manners as characteristic of the aristocracy),2.18,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость
+ru,запчасть,f,spare part,spare part,2.16,unknown,ть|unknown,,,inan,inanimate,,
+ru,зернистость,f,abstract noun of зерни́стый,abstract noun of зерни́стый (zernístyj),2.13,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость
+ru,чернеть,f,bluebill,"bluebill, scaup",2.11,unknown,ть|unknown,,,anim,animate,,grammatically animate; animate (lexicon); other part of speech; animate (wordnet)
+ru,госсобственность,f,state property,state property,2.05,unknown,ть|unknown,-ость,,inan,inanimate,,suffix -ость; proper name
+ru,нейросеть,f,neural network,neural network,2.03,unknown,ть|unknown,,,inan,inanimate,,
+ru,ять,m,archaic letter yat,"The archaic letter yat (Cyrillic capital Ѣ, Cyrillic small ѣ, Glagolitic ⱑ).",2.7,unknown,ть|unknown,,,inan,uncertain,,animate (lexicon); other part of speech; register mark; proper name
+ru,ломоть,m,hunk,"hunk, chunk, slice",2.54,unknown,ть|unknown,,,inan,animate,,animate (lexicon); animate (wordnet)
+ru,верфь,f,shipyard,shipyard,3.05,loan,фь|loan,,,inan,inanimate,,
+ru,картечь,f,grapeshot,grapeshot; canister shot,2.39,loan,чь|loan,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,ночь,f,night,"night, nighttime (period of time from sundown to sunup)",5.3,native,чь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,речь,f,speech,"speech, language (spoken)",5.07,native,чь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,дочь,f,daughter,daughter,5.06,native,чь|native,sibilant+ь,,anim,animate,,grammatically animate; animate (lexicon); suffix sibilant+ь; animate (wordnet)
+ru,помочь,f,belt,"belt, tape, or restraint to hold, support, or suspend something or someone (also figurative)",5.01,native,чь|native,sibilant+ь,,inan,inanimate,,other part of speech; suffix sibilant+ь
+ru,печь,f,stove,stove,3.97,native,чь|native,sibilant+ь,,inan,inanimate,,other part of speech; suffix sibilant+ь
+ru,полночь,f,midnight,midnight,3.89,native,чь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,горечь,f,bitterness,"bitterness, bitter taste",3.47,native,чь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,дичь,f,game,game (wild animals or birds hunted for food),3.35,native,чь|native,sibilant+ь,,anim,inanimate,,grammatically animate; suffix sibilant+ь
+ru,желчь,f,bile,bile,2.84,native,чь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,бестолочь,f,blockhead,"blockhead, dumbass, muddlehead",2.71,native,чь|native,sibilant+ь,толк,anim|inan,animate,,grammatically animate; animate (lexicon); register mark; suffix sibilant+ь; animate (wordnet); formed from толк
+ru,мочь,f,power,"power, might",2.63,native,чь|native,sibilant+ь,,inan,inanimate,,other part of speech; suffix sibilant+ь
+ru,мелочь,f,small things,small things,3.88,unknown,чь|unknown,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,сволочь,f,riffraff,"riffraff, rabble",3.81,unknown,чь|unknown,sibilant+ь,,anim,inanimate,,grammatically animate; other part of speech; register mark; suffix sibilant+ь; animate (wordnet)
+ru,течь,f,leak,leak,3.32,unknown,чь|unknown,sibilant+ь,,inan,inanimate,,other part of speech; suffix sibilant+ь
+ru,брешь,f,breach,"breach, gap; break, tear",3.25,loan,шь|loan,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,тушь,f,india ink,India ink,3.09,loan,шь|loan,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,брошь,f,brooch,brooch,3.02,loan,шь|loan,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,фальшь,f,falsity,"falsity, falsehood",2.68,loan,шь|loan,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,гуашь,f,gouache,gouache,2.64,loan,шь|loan,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,мышь,f,mouse,mouse (animal),3.94,native,шь|native,sibilant+ь,,anim,animate,,grammatically animate; animate (lexicon); suffix sibilant+ь; animate (wordnet)
+ru,роскошь,f,luxury,"luxury, opulence",3.71,native,шь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,пустошь,f,wasteland,"wasteland; uninhabited, abandoned or uncultivated area",3.01,native,шь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,вошь,f,louse,louse (insect),2.81,native,шь|native,sibilant+ь,,anim,animate,,grammatically animate; animate (lexicon); suffix sibilant+ь; animate (wordnet); animate (gloss)
+ru,плешь,f,bald spot,"bald spot, bald patch",2.31,native,шь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,ветошь,f,rag,rag (piece of cloth),2.25,native,шь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,чушь,f,rubbish,rubbish,3.9,unknown,шь|unknown,sibilant+ь,,inan,inanimate,,register mark; suffix sibilant+ь
+ru,глушь,f,backwater,"backwater, boondock, middle of nowhere, hinterland, backwoods",2.91,unknown,шь|unknown,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,тишь,f,quiet,"quiet, silence",2.89,unknown,шь|unknown,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,ретушь,f,retouch,"retouch, retouching",2.41,unknown,шь|unknown,sibilant+ь,,inan,uncertain,,animate (lexicon); suffix sibilant+ь
+ru,сушь,f,dry spell,"dry spell, drought; dryness",2.36,unknown,шь|unknown,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,помощь,f,help,"help, assistance, aid",5.25,native,щь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь; animate (wordnet)
+ru,вещь,f,thing,"thing, object",4.61,native,щь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,мощь,f,might,"might, force, power, strength",3.97,native,щь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
+ru,взаимопомощь,f,mutual assistance,mutual assistance,2.69,native,щь|native,sibilant+ь,помощь,inan,inanimate,,suffix sibilant+ь; formed from помощь
+ru,немощь,f,malaise,"malaise, malady, illness, feebleness (especially of old or sick people), sickness",2.29,native,щь|native,sibilant+ь,,inan,inanimate,,suffix sibilant+ь
