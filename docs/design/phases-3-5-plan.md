@@ -321,6 +321,13 @@ CA-MTL-1 / EU-SE-1; A100 SXM 80 GB $1.59 Secure / $1.39 community in EUR-IS-1 / 
 
 ## Later / optional
 
+- **German nonce words with gender-predicting suffixes** (candidate, 2026-10-08, PI): Wuggy
+  pseudo-stems + *-ung*/*-heit* (f), *-ismus* (m), *-tum*/*-chen* (n). Behaviour: does the
+  model assign the suffix's gender (*die Flitrung*)? Representation: does the gender direction
+  read it? "Says *die* but the direction doesn't move" would be clean evidence for the
+  suffix follow-up's two-routes reading, free of real-word confounds. Pre-register only after
+  the suffix follow-up's S1 result.
+
 - **Activation patching** (swap a vector from one run into another) to locate *where* an effect
   lives. Secondary for the main question.
 - **Sparse autoencoders**: now planned via Gemma 3 + Gemma Scope 2 (section above).
