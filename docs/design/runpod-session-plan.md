@@ -143,7 +143,11 @@ Confirmatory runs for everything designed and adopted on 2026-10-08, on **Qwen3-
   (R-NONCE 600 words, English-style 100), noun-only and every-position steering.
 - **Suffix follow-up** (`docs/design/suffix-followup-prereg.md`): `suffix_ctrl` known check +
   extraction (83 nouns), for the confirmatory S1.
-- **Behavioural checks** in the pre-registered fallback precision (fp32 output layer).
+- **Behavioural checks** in the pre-registered fallback precision (fp32 output layer), including
+  a **rerun of session 1's known checks for 8B/14B** (minutes). Only behavioural statuses near the
+  1-nat cutoff can change; activations (read before the output layer), the frozen word lists and
+  session 1's confirmatory results don't. If statuses shift, the per-model sensitivity analysis
+  (drop nouns the model doesn't know) is redone on the Mac with the corrected statuses.
 
 30B-A3B is skipped (P7): its 25-minute load isn't worth it for steering.
 
