@@ -74,7 +74,7 @@ left-to-right model the earlier tokens haven't seen the rest of the word.)
   version needs an improvised reference (candidates: English translations, gender-invariant
   adjectives, *lo* + adjective), each anchor-dependent.
 
-## Phase 2 (v4) and Phase 3 analysis: pre-registration (TENTATIVE, awaiting PI sign-off)
+## Phase 2 (v4) and Phase 3 analysis: pre-registration (adopted 2026-10-07, PI sign-off)
 
 Applies to the confirmatory runs (Qwen3 8B/14B, RunPod, bf16). 1.7B/4B runs are exploratory
 development and are reported as such. Readout: LAST primary, AFTER pre-registered secondary
