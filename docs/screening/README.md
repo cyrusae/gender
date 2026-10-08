@@ -12,7 +12,7 @@ modes. Foreign examples carry English glosses.*
 | [04-german-phase3](04-german-phase3.md) | German training and test sets, compounds (Phase 3) | `phase3_stimuli.py`, `phase3_known.py` |
 | [05-flipped-pairs](05-flipped-pairs.md) | German–Spanish flipped pairs and classics (Phases 4–5) | `lexicon.build_pairs`, `build_classics` |
 | [06-russian](06-russian.md) | Russian *-ь* pool (Phase 4, third language) | `phase4_ru.py` (branch `russian`) |
-| [07-nonce-words](07-nonce-words.md) | Invented words (Phase 1; Phase 5 plan) | `phase1_stimuli.py`; Wuggy (planned) |
+| [07-nonce-words](07-nonce-words.md) | Invented words (Phase 1; Phase 5 R-NONCE and English-style sets, built with Wuggy) | `phase1_stimuli.py`, `nonce5.py` |
 
 ## Principles that apply everywhere
 
