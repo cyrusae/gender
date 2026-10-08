@@ -1,0 +1,2051 @@
+lemma,gender,suffix,zipf,excluded
+Entwicklung,f,ung,5.18,compound
+Meinung,f,ung,5.14,
+Möglichkeit,f,keit,5.09,
+Wohnung,f,ung,5.08,
+Entscheidung,f,ung,5.03,compound
+Lösung,f,ung,5.02,
+Bevölkerung,f,ung,5.0,animate (wordnet)
+Ausbildung,f,ung,4.99,phase 4-5 held out; compound
+Zeitung,f,ung,4.98,
+Bedeutung,f,ung,4.98,
+Verbindung,f,ung,4.98,compound
+Ahnung,f,ung,4.97,
+Erfahrung,f,ung,4.97,
+Unterstützung,f,ung,4.95,compound
+Verfügung,f,ung,4.95,compound
+Ordnung,f,ung,4.93,
+Bildung,f,ung,4.89,compound
+Leistung,f,ung,4.87,phase 4-5 held out
+Werbung,f,ung,4.83,
+Hoffnung,f,ung,4.81,
+Beziehung,f,ung,4.79,
+Umgebung,f,ung,4.78,
+Verantwortung,f,ung,4.74,compound
+Behandlung,f,ung,4.74,phase 4-5 held out
+Führung,f,ung,4.73,phase 4-5 held out
+Leitung,f,ung,4.73,
+Wirkung,f,ung,4.72,phase 4-5 held out
+Verwendung,f,ung,4.72,phase 4-5 held out; compound
+Verwaltung,f,ung,4.71,
+Forschung,f,ung,4.7,
+Ausstellung,f,ung,4.69,compound
+Öffentlichkeit,f,keit,4.69,animate (wordnet)
+Erklärung,f,ung,4.69,
+Sendung,f,ung,4.68,compound
+Stiftung,f,ung,4.67,
+Einführung,f,ung,4.67,compound
+Erinnerung,f,ung,4.65,
+Veranstaltung,f,ung,4.65,
+Bundesregierung,f,ung,4.64,group (wordnet); compound
+Aufmerksamkeit,f,keit,4.64,
+Stimmung,f,ung,4.64,proper name; phase 4-5 held out
+Darstellung,f,ung,4.63,compound
+Prüfung,f,ung,4.63,
+Tätigkeit,f,keit,4.63,
+Vorstellung,f,ung,4.63,compound
+Anwendung,f,ung,4.62,compound
+Parlament,n,ment,4.62,group (wordnet)
+Rechnung,f,ung,4.61,
+Förderung,f,ung,4.61,
+Sammlung,f,ung,4.61,
+Beschreibung,f,ung,4.6,compound
+Nutzung,f,ung,4.59,
+Einrichtung,f,ung,4.59,compound
+Untersuchung,f,ung,4.58,
+Abteilung,f,ung,4.56,group (wordnet); phase 4-5 held out
+Einstellung,f,ung,4.54,compound
+Übersetzung,f,ung,4.54,compound
+Auflösung,f,ung,4.54,compound
+Haltung,f,ung,4.51,
+Zustimmung,f,ung,4.51,phase 4-5 held out
+Planung,f,ung,4.5,
+Änderung,f,ung,4.5,
+Geschwindigkeit,f,keit,4.48,Ge-
+Stellung,f,ung,4.48,
+Begründung,f,ung,4.46,compound
+Vorbereitung,f,ung,4.46,
+Aufklärung,f,ung,4.46,compound
+Verfassung,f,ung,4.46,compound
+Bezeichnung,f,ung,4.46,
+Kleidung,f,ung,4.46,phase 4-5 held out; compound
+Engagement,n,ment,4.45,
+Umsetzung,f,ung,4.45,
+Überraschung,f,ung,4.44,
+Gestaltung,f,ung,4.44,Ge-
+Herstellung,f,ung,4.44,compound
+Handlung,f,ung,4.43,phase 4-5 held out
+Forderung,f,ung,4.43,
+Unterhaltung,f,ung,4.42,compound
+Mischung,f,ung,4.41,
+Wachstum,n,tum,4.41,
+Rassismus,m,ismus,4.41,
+Sitzung,f,ung,4.41,group (wordnet)
+Anerkennung,f,ung,4.41,
+Ernährung,f,ung,4.4,
+Wirklichkeit,f,keit,4.4,
+Einladung,f,ung,4.39,compound
+Gerechtigkeit,f,keit,4.39,Ge-
+Finanzierung,f,ung,4.39,
+Regelung,f,ung,4.39,
+Verbesserung,f,ung,4.38,phase 4-5 held out; compound
+Versicherung,f,ung,4.38,compound
+Versorgung,f,ung,4.38,phase 4-5 held out
+Veröffentlichung,f,ung,4.38,
+Entfernung,f,ung,4.37,
+Eröffnung,f,ung,4.37,
+Verteidigung,f,ung,4.37,
+Veränderung,f,ung,4.36,compound
+Spannung,f,ung,4.36,phase 4-5 held out
+Verbreitung,f,ung,4.36,
+Beratung,f,ung,4.36,
+Beteiligung,f,ung,4.36,
+Trennung,f,ung,4.36,
+Bewertung,f,ung,4.35,
+Erweiterung,f,ung,4.35,
+Herausforderung,f,ung,4.34,compound
+Auseinandersetzung,f,ung,4.33,compound
+Vereinigung,f,ung,4.32,compound
+Verletzung,f,ung,4.32,
+Ausstattung,f,ung,4.31,phase 4-5 held out
+Entstehung,f,ung,4.31,
+Wahrscheinlichkeit,f,keit,4.31,
+Tourismus,m,ismus,4.29,
+Eigentum,n,tum,4.29,
+Voraussetzung,f,ung,4.29,compound
+Durchführung,f,ung,4.28,compound
+Verordnung,f,ung,4.27,compound
+Abstimmung,f,ung,4.27,
+Meldung,f,ung,4.27,phase 4-5 held out; compound
+Fähigkeit,f,keit,4.26,
+Versammlung,f,ung,4.26,group (wordnet); compound
+Überwachung,f,ung,4.26,
+Ausführung,f,ung,4.26,compound
+Wahrnehmung,f,ung,4.25,
+Erziehung,f,ung,4.25,
+Erhöhung,f,ung,4.25,
+Belastung,f,ung,4.25,phase 4-5 held out
+Empfehlung,f,ung,4.24,
+Betreuung,f,ung,4.24,
+Genehmigung,f,ung,4.24,Ge-
+Fortsetzung,f,ung,4.23,compound
+Verlängerung,f,ung,4.23,
+Nahrung,f,ung,4.23,
+Übertragung,f,ung,4.23,
+Störung,f,ung,4.22,phase 4-5 held out
+Begegnung,f,ung,4.22,
+Einschätzung,f,ung,4.22,compound
+Persönlichkeit,f,keit,4.22,animate (wordnet)
+Zerstörung,f,ung,4.21,compound
+Erfüllung,f,ung,4.21,
+Auszeichnung,f,ung,4.21,compound
+Berufung,f,ung,4.21,phase 4-5 held out
+Erkrankung,f,ung,4.2,
+Unabhängigkeit,f,keit,4.2,
+Besetzung,f,ung,4.2,proper name
+Verteilung,f,ung,4.2,compound
+Auffassung,f,ung,4.19,compound
+Anmeldung,f,ung,4.19,compound
+Verfolgung,f,ung,4.19,
+Überzeugung,f,ung,4.18,compound
+Mitteilung,f,ung,4.18,compound
+Verpflichtung,f,ung,4.18,compound
+Weiterbildung,f,ung,4.18,compound
+Beschäftigung,f,ung,4.18,
+Rettung,f,ung,4.18,
+Behauptung,f,ung,4.17,
+Ursprung,m,ung,4.17,
+Ablehnung,f,ung,4.17,
+Berichterstattung,f,ung,4.17,compound
+Sprung,m,ung,4.17,
+Notwendigkeit,f,keit,4.17,
+Dokument,n,ment,4.16,
+Aufregung,f,ung,4.16,compound
+Bedrohung,f,ung,4.16,
+Aufstellung,f,ung,4.16,compound
+Bestätigung,f,ung,4.16,
+Erhebung,f,ung,4.16,
+Vereinbarung,f,ung,4.15,
+Bestimmung,f,ung,4.15,
+Ausrüstung,f,ung,4.15,compound
+Begleitung,f,ung,4.14,compound
+Zusammenfassung,f,ung,4.13,compound
+Sozialismus,m,ismus,4.13,
+Warnung,f,ung,4.13,
+Lieferung,f,ung,4.13,
+Begeisterung,f,ung,4.12,
+Bewerbung,f,ung,4.12,
+Berücksichtigung,f,ung,4.12,
+Sicherung,f,ung,4.12,
+Orientierung,f,ung,4.12,
+Errichtung,f,ung,4.11,phase 4-5 held out
+Pressemitteilung,f,ung,4.11,compound
+Anleitung,f,ung,4.11,
+Kapitalismus,m,ismus,4.1,
+Steigerung,f,ung,4.1,
+Digitalisierung,f,ung,4.1,
+Ausrichtung,f,ung,4.1,group (wordnet); phase 4-5 held out; compound
+Bezahlung,f,ung,4.1,
+Zahlung,f,ung,4.1,
+Gattung,f,ung,4.1,animate (wordnet)
+Entdeckung,f,ung,4.09,phase 4-5 held out; compound
+Kündigung,f,ung,4.09,
+Behinderung,f,ung,4.09,
+Verstärkung,f,ung,4.09,phase 4-5 held out; compound
+Christentum,n,tum,4.09,group (wordnet)
+Bestellung,f,ung,4.08,
+Besserung,f,ung,4.08,
+Berechnung,f,ung,4.08,phase 4-5 held out
+Anordnung,f,ung,4.08,
+Vorsprung,m,ung,4.08,phase 4-5 held out; compound
+Beobachtung,f,ung,4.08,phase 4-5 held out; compound
+Erzählung,f,ung,4.07,
+Erscheinung,f,ung,4.07,
+Vermittlung,f,ung,4.07,
+Anpassung,f,ung,4.07,
+Auswertung,f,ung,4.07,compound
+Belohnung,f,ung,4.06,
+Landesregierung,f,ung,4.06,proper name; group (wordnet); compound
+Befreiung,f,ung,4.06,
+Einleitung,f,ung,4.06,compound
+Einschränkung,f,ung,4.06,
+Arbeitslosigkeit,f,keit,4.06,phase 4-5 held out
+Ergänzung,f,ung,4.06,
+Sanierung,f,ung,4.06,
+Ewigkeit,f,keit,4.05,
+Vermutung,f,ung,4.05,
+Erfindung,f,ung,4.05,compound
+Zulassung,f,ung,4.04,
+Zusammensetzung,f,ung,4.04,compound
+Abhängigkeit,f,keit,4.04,
+Beleuchtung,f,ung,4.04,
+Abschaffung,f,ung,4.04,
+Öffnung,f,ung,4.04,
+Verhandlung,f,ung,4.04,compound
+Benutzung,f,ung,4.04,
+Aufführung,f,ung,4.03,compound
+Messung,f,ung,4.03,
+Journalismus,m,ismus,4.02,
+Ladung,f,ung,4.02,
+Vergewaltigung,f,ung,4.02,
+Formulierung,f,ung,4.02,
+Bekämpfung,f,ung,4.02,
+Scheidung,f,ung,4.02,compound
+Abwechslung,f,ung,4.01,
+Überprüfung,f,ung,4.01,compound
+Diskriminierung,f,ung,4.01,
+Heizung,f,ung,4.01,
+Bedingung,f,ung,4.01,
+Weiterentwicklung,f,ung,4.0,phase 4-5 held out; compound
+Kreuzung,f,ung,4.0,
+Betrachtung,f,ung,4.0,compound
+Erhaltung,f,ung,4.0,phase 4-5 held out
+Antisemitismus,m,ismus,4.0,compound
+Ankündigung,f,ung,4.0,
+Vertretung,f,ung,3.99,
+Wiederholung,f,ung,3.99,compound
+Zeichnung,f,ung,3.99,
+Währung,f,ung,3.99,
+Verarbeitung,f,ung,3.98,phase 4-5 held out
+Verspätung,f,ung,3.98,
+Reichtum,m,tum,3.98,phase 4-5 held out
+Aufhebung,f,ung,3.98,compound
+Faschismus,m,ismus,3.98,
+Erholung,f,ung,3.97,
+Umstellung,f,ung,3.97,
+Beleidigung,f,ung,3.97,
+Steuerung,f,ung,3.97,
+Enttäuschung,f,ung,3.96,compound
+Bindung,f,ung,3.96,compound
+Einigung,f,ung,3.96,
+Flüssigkeit,f,keit,3.96,
+Reinigung,f,ung,3.96,
+Schaffung,f,ung,3.96,
+Festung,f,ung,3.96,
+Abbildung,f,ung,3.96,compound
+Rechtsprechung,f,ung,3.95,
+Tageszeitung,f,ung,3.95,compound
+Deckung,f,ung,3.95,
+Ausübung,f,ung,3.94,compound
+Inszenierung,f,ung,3.94,
+Entschädigung,f,ung,3.94,compound
+Entlassung,f,ung,3.94,
+Aufforderung,f,ung,3.94,compound
+Beurteilung,f,ung,3.94,compound
+Feststellung,f,ung,3.94,compound
+Stärkung,f,ung,3.94,
+Erwähnung,f,ung,3.94,
+Wertung,f,ung,3.94,
+Körperverletzung,f,ung,3.93,compound
+Verzweiflung,f,ung,3.93,
+Beachtung,f,ung,3.93,
+Strahlung,f,ung,3.93,
+Anmerkung,f,ung,3.93,
+Besatzung,f,ung,3.92,group (wordnet); compound
+Erneuerung,f,ung,3.92,
+Schließung,f,ung,3.92,
+Ermittlung,f,ung,3.92,
+Tagung,f,ung,3.92,group (wordnet)
+Nachhaltigkeit,f,keit,3.92,
+Einhaltung,f,ung,3.91,compound
+Beendigung,f,ung,3.91,
+Krankenversicherung,f,ung,3.91,compound
+Verleihung,f,ung,3.91,
+Entspannung,f,ung,3.91,compound
+Unterscheidung,f,ung,3.9,compound
+Abgrenzung,f,ung,3.9,
+Bewährung,f,ung,3.9,
+Empörung,f,ung,3.89,
+Lesung,f,ung,3.89,
+Befragung,f,ung,3.88,phase 4-5 held out
+Heilung,f,ung,3.88,
+Wahlbeteiligung,f,ung,3.88,compound
+Wirksamkeit,f,keit,3.88,
+Schwung,m,ung,3.88,
+Ausstrahlung,f,ung,3.88,compound
+Erforschung,f,ung,3.88,
+Siedlung,f,ung,3.88,group (wordnet); phase 4-5 held out
+Terrorismus,m,ismus,3.88,
+Fertigstellung,f,ung,3.87,compound
+Unterdrückung,f,ung,3.87,
+Erstellung,f,ung,3.87,
+Packung,f,ung,3.87,
+Irrtum,m,tum,3.87,
+Verurteilung,f,ung,3.87,compound
+Verschwörung,f,ung,3.87,
+Auslegung,f,ung,3.86,
+Zugehörigkeit,f,keit,3.86,compound
+Aufschwung,m,ung,3.86,compound
+Spaltung,f,ung,3.86,group (wordnet)
+Gliederung,f,ung,3.86,
+Beförderung,f,ung,3.86,
+Einsamkeit,f,keit,3.85,
+Landung,f,ung,3.85,phase 4-5 held out; compound
+Modernisierung,f,ung,3.85,
+Haftung,f,ung,3.85,
+Menschlichkeit,f,keit,3.85,
+Anweisung,f,ung,3.85,
+Geschäftsführung,f,ung,3.85,Ge-; compound
+Leistungsfähigkeit,f,keit,3.85,compound
+Berührung,f,ung,3.84,phase 4-5 held out
+Erleichterung,f,ung,3.84,phase 4-5 held out
+Verwirrung,f,ung,3.84,compound
+Satzung,f,ung,3.84,phase 4-5 held out
+Tagesordnung,f,ung,3.84,compound
+Kompliment,n,ment,3.84,
+Fundament,n,ment,3.84,
+Drohung,f,ung,3.84,
+Vernichtung,f,ung,3.83,
+Unterbringung,f,ung,3.83,
+Gefährdung,f,ung,3.83,Ge-; compound
+Anbindung,f,ung,3.83,compound
+Gesetzgebung,f,ung,3.83,Ge-
+Registrierung,f,ung,3.82,
+Buchhandlung,f,ung,3.82,compound
+Verpackung,f,ung,3.81,compound
+Abkürzung,f,ung,3.81,
+Ähnlichkeit,f,keit,3.81,
+Wiedervereinigung,f,ung,3.81,compound
+Erfassung,f,ung,3.81,
+Feminismus,m,ismus,3.81,social gender in meaning
+Sortiment,n,ment,3.81,
+Gleichberechtigung,f,ung,3.8,compound
+Stadtverwaltung,f,ung,3.8,proper name; compound
+Realisierung,f,ung,3.8,
+Feuchtigkeit,f,keit,3.8,
+Ausschreibung,f,ung,3.8,animate (wordnet); compound
+Dankbarkeit,f,keit,3.79,phase 4-5 held out
+Kommunismus,m,ismus,3.79,
+Richtigkeit,f,keit,3.79,
+Glaubwürdigkeit,f,keit,3.79,
+Zuwanderung,f,ung,3.79,
+Verlegung,f,ung,3.79,
+Bedienung,f,ung,3.78,phase 4-5 held out
+Abschiebung,f,ung,3.78,
+Vorlesung,f,ung,3.78,compound
+Verzögerung,f,ung,3.78,
+Globalisierung,f,ung,3.78,
+Wertschätzung,f,ung,3.78,compound
+Regulierung,f,ung,3.78,
+Erwartung,f,ung,3.78,
+Schöpfung,f,ung,3.78,
+Teilung,f,ung,3.78,
+Einwanderung,f,ung,3.77,compound
+Annäherung,f,ung,3.77,
+Übereinstimmung,f,ung,3.77,compound
+Ermordung,f,ung,3.77,phase 4-5 held out; compound
+Unterbrechung,f,ung,3.77,compound
+Dienstleistung,f,ung,3.77,compound
+Reduzierung,f,ung,3.77,
+Tötung,f,ung,3.77,
+Medikament,n,ment,3.77,
+Verhaftung,f,ung,3.77,compound
+Aufteilung,f,ung,3.77,group (wordnet); compound
+Anlehnung,f,ung,3.76,
+Dichtung,f,ung,3.76,
+Begrüßung,f,ung,3.76,
+Umwandlung,f,ung,3.76,
+Zuordnung,f,ung,3.76,
+Mitwirkung,f,ung,3.76,compound
+Äußerung,f,ung,3.76,
+Ausbeutung,f,ung,3.76,
+Impfung,f,ung,3.76,
+Entlastung,f,ung,3.76,phase 4-5 held out
+Rechtfertigung,f,ung,3.75,compound
+Aufzeichnung,f,ung,3.75,compound
+Beseitigung,f,ung,3.75,
+Kundgebung,f,ung,3.75,group (wordnet); phase 4-5 held out
+Besprechung,f,ung,3.75,group (wordnet)
+Gültigkeit,f,keit,3.75,
+Nominierung,f,ung,3.75,
+Wiederherstellung,f,ung,3.75,compound
+Neigung,f,ung,3.75,
+Zusammenstellung,f,ung,3.74,compound
+Gleichstellung,f,ung,3.74,compound
+Geltung,f,ung,3.74,Ge-; animate (wordnet)
+Bestrafung,f,ung,3.74,
+Ausdehnung,f,ung,3.74,compound
+Leichtigkeit,f,keit,3.74,
+Begrenzung,f,ung,3.74,
+Anregung,f,ung,3.74,
+Anhörung,f,ung,3.73,
+Zuständigkeit,f,keit,3.73,
+Renovierung,f,ung,3.73,
+Beerdigung,f,ung,3.73,phase 4-5 held out
+Einordnung,f,ung,3.73,compound
+Klärung,f,ung,3.73,
+Mitgliederversammlung,f,ung,3.73,group (wordnet); compound
+Anschaffung,f,ung,3.73,
+Schätzung,f,ung,3.73,
+Nationalismus,m,ismus,3.73,
+Vermeidung,f,ung,3.73,compound
+Umgestaltung,f,ung,3.72,
+Abstammung,f,ung,3.72,phase 4-5 held out
+Ausbreitung,f,ung,3.72,
+Eroberung,f,ung,3.72,
+Anspielung,f,ung,3.72,
+Ablenkung,f,ung,3.72,
+Fortbildung,f,ung,3.72,compound
+Überlegung,f,ung,3.72,
+Gesinnung,f,ung,3.72,Ge-; compound
+Fertigung,f,ung,3.72,phase 4-5 held out
+Lagerung,f,ung,3.72,phase 4-5 held out
+Ausweitung,f,ung,3.72,
+Beschaffung,f,ung,3.72,
+Vergütung,f,ung,3.71,
+Erschließung,f,ung,3.71,
+Freilassung,f,ung,3.71,
+Platzierung,f,ung,3.71,
+Selbstbestimmung,f,ung,3.71,compound
+Abrechnung,f,ung,3.71,group (wordnet)
+Vernetzung,f,ung,3.71,
+Einteilung,f,ung,3.7,compound
+Hinrichtung,f,ung,3.7,compound
+Durchsetzung,f,ung,3.7,compound
+Größenordnung,f,ung,3.7,compound
+Verpflegung,f,ung,3.7,
+Entführung,f,ung,3.7,compound
+Auswirkung,f,ung,3.7,compound
+Senkung,f,ung,3.7,phase 4-5 held out
+Sperrung,f,ung,3.7,
+Ernennung,f,ung,3.7,
+Kennzeichnung,f,ung,3.7,compound
+Auslieferung,f,ung,3.7,compound
+Ehrlichkeit,f,keit,3.7,
+Besichtigung,f,ung,3.69,
+Anstellung,f,ung,3.69,
+Rüstung,f,ung,3.69,phase 4-5 held out
+Organismus,m,ismus,3.69,
+Mechanismus,m,ismus,3.69,
+Überlieferung,f,ung,3.69,compound
+Kleinigkeit,f,keit,3.69,
+Rechtschreibung,f,ung,3.69,compound
+Versuchung,f,ung,3.68,
+Erkältung,f,ung,3.68,phase 4-5 held out
+Niederlassung,f,ung,3.68,group (wordnet)
+Strömung,f,ung,3.68,
+Gegenleistung,f,ung,3.68,Ge-; compound
+Optimierung,f,ung,3.67,
+Besteuerung,f,ung,3.67,compound
+Gewinnung,f,ung,3.67,Ge-; compound
+Bemerkung,f,ung,3.67,
+Erzeugung,f,ung,3.67,animate (wordnet)
+Genauigkeit,f,keit,3.67,Ge-
+Rentenversicherung,f,ung,3.67,compound
+Verschlüsselung,f,ung,3.67,
+Absicherung,f,ung,3.67,
+Wichtigkeit,f,keit,3.67,
+Wartung,f,ung,3.67,
+Schulung,f,ung,3.67,
+Unfähigkeit,f,keit,3.67,
+Vermarktung,f,ung,3.66,
+Verfügbarkeit,f,keit,3.66,
+Vollständigkeit,f,keit,3.66,
+Einweihung,f,ung,3.66,
+Verknüpfung,f,ung,3.66,phase 4-5 held out
+Häufigkeit,f,keit,3.66,
+Verschiebung,f,ung,3.66,compound
+Einbeziehung,f,ung,3.66,compound
+Rechtsextremismus,m,ismus,3.66,compound
+Staatsangehörigkeit,f,keit,3.66,animate (wordnet); compound
+Seitensprung,m,ung,3.66,compound
+Einwilligung,f,ung,3.65,phase 4-5 held out
+Schwierigkeit,f,keit,3.65,
+Zurückhaltung,f,ung,3.65,compound
+Bebauung,f,ung,3.65,
+Gruppierung,f,ung,3.65,
+Betonung,f,ung,3.65,
+Sexismus,m,ismus,3.65,
+Wasserversorgung,f,ung,3.64,compound
+Gleichung,f,ung,3.64,
+Realismus,m,ismus,3.64,
+Festlegung,f,ung,3.63,
+Berufsausbildung,f,ung,3.63,compound
+Zuneigung,f,ung,3.63,phase 4-5 held out
+Einigkeit,f,keit,3.63,
+Anstrengung,f,ung,3.63,
+Müdigkeit,f,keit,3.63,phase 4-5 held out
+Verschwendung,f,ung,3.62,compound
+Benennung,f,ung,3.62,
+Abneigung,f,ung,3.62,
+Auferstehung,f,ung,3.62,
+Mündung,f,ung,3.62,proper name; compound
+Offenbarung,f,ung,3.62,
+Färbung,f,ung,3.62,
+Erlösung,f,ung,3.62,
+Berechtigung,f,ung,3.62,
+Optimismus,m,ismus,3.62,
+Handhabung,f,ung,3.61,
+Erwärmung,f,ung,3.61,phase 4-5 held out
+Täuschung,f,ung,3.61,
+Populismus,m,ismus,3.61,
+Beschleunigung,f,ung,3.61,
+Ausgestaltung,f,ung,3.61,compound
+Zuverlässigkeit,f,keit,3.61,compound
+Bereitstellung,f,ung,3.61,compound
+Selbstverständlichkeit,f,keit,3.61,compound
+Ungerechtigkeit,f,keit,3.6,
+Versöhnung,f,ung,3.6,
+Auslastung,f,ung,3.6,
+Witterung,f,ung,3.6,
+Beschränkung,f,ung,3.6,
+Generalversammlung,f,ung,3.6,Ge-; compound
+Aktualisierung,f,ung,3.6,
+Helligkeit,f,keit,3.6,
+Befestigung,f,ung,3.6,
+Belagerung,f,ung,3.6,
+Abwicklung,f,ung,3.6,
+Vollendung,f,ung,3.6,compound
+Bistum,n,tum,3.6,
+Freundlichkeit,f,keit,3.59,proper name
+Abtreibung,f,ung,3.59,compound
+Vertreibung,f,ung,3.59,compound
+Würdigung,f,ung,3.59,
+Identifizierung,f,ung,3.59,
+Luftfeuchtigkeit,f,keit,3.59,compound
+Erwägung,f,ung,3.59,
+Genesung,f,ung,3.59,Ge-
+Zielsetzung,f,ung,3.59,compound
+Vorratsdatenspeicherung,f,ung,3.58,compound
+Bekleidung,f,ung,3.58,compound
+Eignung,f,ung,3.58,
+Entsorgung,f,ung,3.58,
+Deutung,f,ung,3.58,
+Wahrung,f,ung,3.58,
+Privatisierung,f,ung,3.58,
+Buchhaltung,f,ung,3.58,compound
+Verwertung,f,ung,3.58,compound
+Liberalismus,m,ismus,3.58,
+Fragestellung,f,ung,3.58,compound
+Selbstständigkeit,f,keit,3.58,
+Überweisung,f,ung,3.58,compound
+Verabschiedung,f,ung,3.57,compound
+Differenzierung,f,ung,3.57,
+Programmierung,f,ung,3.57,
+Berufserfahrung,f,ung,3.57,compound
+Erpressung,f,ung,3.57,phase 4-5 held out
+Belästigung,f,ung,3.57,phase 4-5 held out
+Einbindung,f,ung,3.57,compound
+Fahndung,f,ung,3.57,compound
+Räumung,f,ung,3.56,
+Brandstiftung,f,ung,3.56,compound
+Auflistung,f,ung,3.56,
+Verhinderung,f,ung,3.56,compound
+Datierung,f,ung,3.56,
+Schlussfolgerung,f,ung,3.56,compound
+Lebenserwartung,f,ung,3.56,compound
+Schnelligkeit,f,keit,3.55,proper name
+Abkühlung,f,ung,3.55,phase 4-5 held out
+Stromversorgung,f,ung,3.55,compound
+Auszahlung,f,ung,3.55,compound
+Fernbedienung,f,ung,3.55,compound
+Verachtung,f,ung,3.55,compound
+Vergrößerung,f,ung,3.55,
+Abweichung,f,ung,3.55,compound
+Ausprägung,f,ung,3.55,compound
+Wirtschaftswachstum,n,tum,3.55,compound
+Prägung,f,ung,3.55,
+Fälschung,f,ung,3.55,
+Wirtschaftlichkeit,f,keit,3.55,
+Entzündung,f,ung,3.54,compound
+Rückmeldung,f,ung,3.54,compound
+Volksabstimmung,f,ung,3.54,phase 4-5 held out; compound
+Füllung,f,ung,3.54,
+Verständigung,f,ung,3.54,
+Dämmerung,f,ung,3.54,
+Bewältigung,f,ung,3.54,
+Nennung,f,ung,3.53,
+Steuererklärung,f,ung,3.53,compound
+Automatisierung,f,ung,3.53,
+Verehrung,f,ung,3.53,compound
+Wendung,f,ung,3.53,compound
+Höflichkeit,f,keit,3.53,proper name
+Erkennung,f,ung,3.53,phase 4-5 held out
+Energieversorgung,f,ung,3.53,compound
+Stabilisierung,f,ung,3.53,
+Zubereitung,f,ung,3.53,
+Verbrennung,f,ung,3.53,
+Vergebung,f,ung,3.53,
+Volksverhetzung,f,ung,3.53,compound
+Verfilmung,f,ung,3.52,
+Befürchtung,f,ung,3.52,
+Uraufführung,f,ung,3.52,compound
+Industrialisierung,f,ung,3.52,
+Kinderbetreuung,f,ung,3.52,compound
+Umarmung,f,ung,3.52,
+Speicherung,f,ung,3.51,
+Instandhaltung,f,ung,3.51,compound
+Enteignung,f,ung,3.51,compound
+Verschärfung,f,ung,3.51,
+Verkleidung,f,ung,3.51,phase 4-5 held out; compound
+Preisverleihung,f,ung,3.51,compound
+Abspaltung,f,ung,3.5,group (wordnet)
+Unterzeichnung,f,ung,3.5,phase 4-5 held out; compound
+Ehrung,f,ung,3.5,
+Beeinträchtigung,f,ung,3.5,
+Atmung,f,ung,3.5,
+Verringerung,f,ung,3.5,
+Verwirklichung,f,ung,3.5,
+Steuerhinterziehung,f,ung,3.5,compound
+Traurigkeit,f,keit,3.5,
+Überarbeitung,f,ung,3.5,
+Höchstgeschwindigkeit,f,keit,3.49,compound
+Ablösung,f,ung,3.49,
+Ausweisung,f,ung,3.49,compound
+Zustellung,f,ung,3.49,
+Verschlechterung,f,ung,3.49,
+Aktivierung,f,ung,3.49,
+Hauptversammlung,f,ung,3.49,compound
+Strafverfolgung,f,ung,3.49,compound
+Vorführung,f,ung,3.49,compound
+Eintragung,f,ung,3.49,phase 4-5 held out
+Übelkeit,f,keit,3.48,
+Betätigung,f,ung,3.48,proper name
+Erschöpfung,f,ung,3.48,
+Fortpflanzung,f,ung,3.48,compound
+Einstufung,f,ung,3.48,
+Ansiedlung,f,ung,3.48,proper name; group (wordnet)
+Vergeltung,f,ung,3.47,compound
+Gerichtsbarkeit,f,keit,3.47,Ge-
+Drehung,f,ung,3.47,
+Markierung,f,ung,3.47,
+Befriedigung,f,ung,3.47,
+Bequemlichkeit,f,keit,3.47,phase 4-5 held out
+Anforderung,f,ung,3.47,
+Extremismus,m,ismus,3.46,
+Lebensversicherung,f,ung,3.46,compound
+Implementierung,f,ung,3.46,
+Staatsregierung,f,ung,3.46,proper name; group (wordnet); compound
+Neuerung,f,ung,3.46,
+Sozialversicherung,f,ung,3.46,compound
+Buddhismus,m,ismus,3.46,group (wordnet)
+Entfaltung,f,ung,3.46,compound
+Heiligkeit,f,keit,3.46,
+Barmherzigkeit,f,keit,3.45,
+Verwandlung,f,ung,3.45,compound
+Kühlung,f,ung,3.45,
+Abhandlung,f,ung,3.45,
+Versetzung,f,ung,3.45,animate (wordnet); compound
+Begabung,f,ung,3.45,animate (wordnet); phase 4-5 held out
+Erläuterung,f,ung,3.45,
+Benachrichtigung,f,ung,3.45,
+Selbstverteidigung,f,ung,3.45,compound
+Meinungsäußerung,f,ung,3.45,compound
+Zuwendung,f,ung,3.45,compound
+Arbeiterbewegung,f,ung,3.45,compound
+Gewährleistung,f,ung,3.44,Ge-; compound
+Patriotismus,m,ismus,3.44,
+Humanismus,m,ismus,3.44,
+Bekanntmachung,f,ung,3.44,compound
+Restaurierung,f,ung,3.44,
+Schaltung,f,ung,3.44,phase 4-5 held out
+Evakuierung,f,ung,3.44,
+Anspannung,f,ung,3.44,
+Eingliederung,f,ung,3.43,compound
+Beeinflussung,f,ung,3.43,
+Missachtung,f,ung,3.43,compound
+Marxismus,m,ismus,3.43,
+Gesamtwertung,f,ung,3.43,Ge-; compound
+Mahnung,f,ung,3.43,
+Quittung,f,ung,3.43,
+Erteilung,f,ung,3.43,
+Fahrtrichtung,f,ung,3.43,compound
+Beweglichkeit,f,keit,3.43,
+Schenkung,f,ung,3.42,
+Einmischung,f,ung,3.42,compound
+Drehmoment,n,ment,3.42,compound
+Rückführung,f,ung,3.42,compound
+Schilderung,f,ung,3.42,
+Männlichkeit,f,keit,3.42,
+Darbietung,f,ung,3.42,
+Positionierung,f,ung,3.42,phase 4-5 held out
+Egoismus,m,ismus,3.42,
+Wettbewerbsfähigkeit,f,keit,3.42,compound
+Abmahnung,f,ung,3.42,compound
+Vertiefung,f,ung,3.42,
+Vandalismus,m,ismus,3.42,
+Vermietung,f,ung,3.42,
+Autismus,m,ismus,3.42,
+Wiedergutmachung,f,ung,3.41,compound
+Blutung,f,ung,3.41,
+Auslosung,f,ung,3.41,animate (wordnet); compound
+Islamismus,m,ismus,3.41,group (wordnet)
+Verlagerung,f,ung,3.41,compound
+Bewunderung,f,ung,3.41,
+Aufzählung,f,ung,3.41,compound
+Erregung,f,ung,3.41,
+Ableitung,f,ung,3.4,
+Ferienwohnung,f,ung,3.4,compound
+Zeitverschwendung,f,ung,3.4,compound
+Temperament,n,ment,3.4,
+Versteigerung,f,ung,3.4,compound
+Nötigung,f,ung,3.4,
+Nationalversammlung,f,ung,3.4,compound
+Verlobung,f,ung,3.39,
+Bestechung,f,ung,3.39,
+Zivilbevölkerung,f,ung,3.39,compound
+Sicherstellung,f,ung,3.39,compound
+Beschneidung,f,ung,3.39,compound
+Beschädigung,f,ung,3.39,
+Beruhigung,f,ung,3.39,
+Brauchtum,n,tum,3.39,proper name
+Kürzung,f,ung,3.39,
+Begutachtung,f,ung,3.38,compound
+Löschung,f,ung,3.38,
+Unterwerfung,f,ung,3.38,
+Verdrängung,f,ung,3.38,phase 4-5 held out
+Wertschöpfung,f,ung,3.38,compound
+Aufrüstung,f,ung,3.38,compound
+Ansammlung,f,ung,3.38,group (wordnet)
+Lungenentzündung,f,ung,3.38,compound
+Sichtbarkeit,f,keit,3.38,
+Grausamkeit,f,keit,3.38,
+Verlosung,f,ung,3.37,compound
+Durchsuchung,f,ung,3.37,
+Aufwertung,f,ung,3.37,compound
+Aufbereitung,f,ung,3.37,
+Katholizismus,m,ismus,3.37,
+Neuigkeit,f,keit,3.37,
+Genugtuung,f,ung,3.37,Ge-
+Aufbewahrung,f,ung,3.37,compound
+Verschuldung,f,ung,3.37,phase 4-5 held out; compound
+Stromerzeugung,f,ung,3.36,compound
+Reservierung,f,ung,3.36,
+Imperialismus,m,ismus,3.36,
+Qualitätssicherung,f,ung,3.36,compound
+Dosierung,f,ung,3.36,
+Verweigerung,f,ung,3.36,
+Steigung,f,ung,3.36,
+Konsolidierung,f,ung,3.36,
+Abdeckung,f,ung,3.36,
+Vernehmung,f,ung,3.36,
+Herrlichkeit,f,keit,3.36,
+Erleuchtung,f,ung,3.36,
+Bewirtschaftung,f,ung,3.35,compound
+Gleichgültigkeit,f,keit,3.35,compound
+Überführung,f,ung,3.35,compound
+Isolierung,f,ung,3.35,phase 4-5 held out
+Enthüllung,f,ung,3.35,phase 4-5 held out
+Videoüberwachung,f,ung,3.35,compound
+Mitbestimmung,f,ung,3.35,compound
+Grundversorgung,f,ung,3.35,compound
+Geburtsdatum,n,tum,3.35,Ge-; compound
+Sauberkeit,f,keit,3.35,
+Vergiftung,f,ung,3.34,
+Veranlassung,f,ung,3.34,
+Fahrlässigkeit,f,keit,3.34,compound
+Tapferkeit,f,keit,3.34,
+Wechselwirkung,f,ung,3.34,compound
+Androhung,f,ung,3.34,
+Zertifizierung,f,ung,3.34,
+Vereinfachung,f,ung,3.34,
+Qualifizierung,f,ung,3.34,
+Legalisierung,f,ung,3.34,
+Instandsetzung,f,ung,3.34,compound
+Bestattung,f,ung,3.34,
+Neuregelung,f,ung,3.34,compound
+Weisung,f,ung,3.33,
+Bewilligung,f,ung,3.33,
+Abfindung,f,ung,3.33,group (wordnet); compound
+Verkündigung,f,ung,3.33,compound
+Absetzung,f,ung,3.33,
+Haltbarkeit,f,keit,3.33,
+Heiligtum,n,tum,3.33,
+Übernachtung,f,ung,3.33,compound
+Zynismus,m,ismus,3.33,
+Weitsprung,m,ung,3.33,compound
+Umgehung,f,ung,3.33,
+Hilfeleistung,f,ung,3.33,compound
+Geheimhaltung,f,ung,3.33,Ge-; compound
+Etablierung,f,ung,3.33,
+Eigenverantwortung,f,ung,3.33,compound
+Unternehmung,f,ung,3.33,
+Buchung,f,ung,3.32,
+Gemeinsamkeit,f,keit,3.32,Ge-; compound
+Verschmelzung,f,ung,3.32,
+Verwechslung,f,ung,3.32,
+Verdauung,f,ung,3.32,
+Gemeindeverwaltung,f,ung,3.32,Ge-; compound
+Vielseitigkeit,f,keit,3.32,
+Erstattung,f,ung,3.32,
+Idealismus,m,ismus,3.32,
+Widmung,f,ung,3.32,
+Siegerehrung,f,ung,3.32,compound
+Auswanderung,f,ung,3.31,compound
+Sachlichkeit,f,keit,3.31,
+Grundsicherung,f,ung,3.31,compound
+Schädigung,f,ung,3.31,
+Verkürzung,f,ung,3.31,chemical; compound
+Vermehrung,f,ung,3.31,compound
+Unterstellung,f,ung,3.31,compound
+Liberalisierung,f,ung,3.31,
+Datenverarbeitung,f,ung,3.31,compound
+Klassifizierung,f,ung,3.31,
+Freizügigkeit,f,keit,3.31,
+Zählung,f,ung,3.31,
+Eheschließung,f,ung,3.31,phase 4-5 held out; compound
+Departement,n,ment,3.3,group (wordnet)
+Herzogtum,n,tum,3.3,proper name
+Bescheinigung,f,ung,3.3,compound
+Endung,f,ung,3.3,
+Kupplung,f,ung,3.3,
+Geschichtsschreibung,f,ung,3.3,Ge-; compound
+Gewährung,f,ung,3.3,Ge-
+Reglement,n,ment,3.3,
+Unsterblichkeit,f,keit,3.3,compound
+Tarnung,f,ung,3.3,phase 4-5 held out
+Hilfestellung,f,ung,3.29,compound
+Umverteilung,f,ung,3.29,compound
+Überlastung,f,ung,3.29,
+Einbildung,f,ung,3.29,compound
+Befruchtung,f,ung,3.29,
+Abwanderung,f,ung,3.29,
+Tilgung,f,ung,3.29,
+Rechtsstaatlichkeit,f,keit,3.29,
+Nachbildung,f,ung,3.29,compound
+Festigkeit,f,keit,3.29,
+Abwertung,f,ung,3.29,
+Prophezeiung,f,ung,3.28,
+Unordnung,f,ung,3.28,phase 4-5 held out
+Veranlagung,f,ung,3.28,
+Demütigung,f,ung,3.28,
+Eigentumswohnung,f,ung,3.28,compound
+Vermischung,f,ung,3.28,compound
+Überschreitung,f,ung,3.28,
+Fixierung,f,ung,3.28,
+Unendlichkeit,f,keit,3.28,
+Aussetzung,f,ung,3.28,compound
+Verallgemeinerung,f,ung,3.28,
+Abholung,f,ung,3.28,
+Unmöglichkeit,f,keit,3.28,
+Fremdenfeindlichkeit,f,keit,3.28,compound
+Ultimatum,n,tum,3.28,"Latin -um word, not the suffix -tum"
+Verleumdung,f,ung,3.28,compound
+Erkundung,f,ung,3.27,compound
+Begehung,f,ung,3.27,group (wordnet)
+Vollversammlung,f,ung,3.27,compound
+Mobilisierung,f,ung,3.27,
+Wandlung,f,ung,3.27,
+Beherrschung,f,ung,3.27,
+Obrigkeit,f,keit,3.27,group (wordnet)
+Buchführung,f,ung,3.27,compound
+Berichtigung,f,ung,3.27,
+Zärtlichkeit,f,keit,3.27,
+Grundausbildung,f,ung,3.26,compound
+Hilflosigkeit,f,keit,3.26,
+Zumutung,f,ung,3.26,
+Einwirkung,f,ung,3.26,compound
+Weiblichkeit,f,keit,3.26,
+Duldung,f,ung,3.26,compound
+Wiedereinführung,f,ung,3.26,compound
+Pünktlichkeit,f,keit,3.26,
+Abschreckung,f,ung,3.26,
+Eitelkeit,f,keit,3.26,
+Anhebung,f,ung,3.26,
+Dringlichkeit,f,keit,3.26,
+Übertreibung,f,ung,3.25,compound
+Streichung,f,ung,3.25,compound
+Abschlussprüfung,f,ung,3.25,compound
+Rückendeckung,f,ung,3.25,compound
+Massentierhaltung,f,ung,3.25,compound
+Fütterung,f,ung,3.25,
+Verführung,f,ung,3.25,compound
+Rechtmäßigkeit,f,keit,3.25,
+Abonnement,n,ment,3.25,
+Verwunderung,f,ung,3.25,
+Einweisung,f,ung,3.24,compound
+Paarung,f,ung,3.24,phase 4-5 held out
+Lenkung,f,ung,3.24,
+Friedensbewegung,f,ung,3.24,compound
+Abzweigung,f,ung,3.24,group (wordnet)
+Ausnutzung,f,ung,3.24,compound
+Achtsamkeit,f,keit,3.24,
+Bewaffnung,f,ung,3.24,
+Vorrichtung,f,ung,3.24,phase 4-5 held out; compound
+Entfremdung,f,ung,3.24,compound
+Unternehmensführung,f,ung,3.24,compound
+Verbannung,f,ung,3.24,
+Sichtung,f,ung,3.24,phase 4-5 held out
+Schwellung,f,ung,3.23,
+Appartement,n,ment,3.23,
+Frauenbewegung,f,ung,3.23,compound
+Reibung,f,ung,3.23,
+Misshandlung,f,ung,3.23,compound
+Anbetung,f,ung,3.23,
+Verschmutzung,f,ung,3.23,
+Gewaltenteilung,f,ung,3.23,Ge-; compound
+Ernsthaftigkeit,f,keit,3.23,
+Unfallversicherung,f,ung,3.23,compound
+Stadtplanung,f,ung,3.23,compound
+Zündung,f,ung,3.23,compound
+Verabredung,f,ung,3.23,compound
+Charakterisierung,f,ung,3.23,
+Beständigkeit,f,keit,3.22,
+Minderung,f,ung,3.22,
+Sättigung,f,ung,3.22,
+Entlohnung,f,ung,3.22,
+Aufmachung,f,ung,3.22,compound
+Anzahlung,f,ung,3.22,phase 4-5 held out
+Softwareentwicklung,f,ung,3.22,compound
+Visualisierung,f,ung,3.22,
+Regierungsbildung,f,ung,3.22,compound
+Zerschlagung,f,ung,3.22,
+Wasserleitung,f,ung,3.22,compound
+Besiedlung,f,ung,3.22,group (wordnet)
+Vermessung,f,ung,3.21,compound
+Lockerung,f,ung,3.21,
+Grundlagenforschung,f,ung,3.21,compound
+Klarstellung,f,ung,3.21,compound
+Heiterkeit,f,keit,3.21,
+Veräußerung,f,ung,3.21,compound
+Gleichbehandlung,f,ung,3.21,compound
+Gemütlichkeit,f,keit,3.21,Ge-
+Gegenüberstellung,f,ung,3.21,Ge-; compound
+Betäubung,f,ung,3.21,proper name
+Stadtverordnetenversammlung,f,ung,3.21,proper name; compound
+Verantwortlichkeit,f,keit,3.2,
+Bürgertum,n,tum,3.2,animate (wordnet)
+Regelmäßigkeit,f,keit,3.2,
+Verhältnismäßigkeit,f,keit,3.2,
+Pflegeversicherung,f,ung,3.2,compound
+Baugenehmigung,f,ung,3.2,compound
+Verwüstung,f,ung,3.2,compound
+Weltbevölkerung,f,ung,3.2,compound
+Einberufung,f,ung,3.2,compound
+Entsprechung,f,ung,3.2,
+Pensionierung,f,ung,3.2,
+Kolonialismus,m,ismus,3.2,
+Verkündung,f,ung,3.2,compound
+Lebenserfahrung,f,ung,3.2,compound
+Schwächung,f,ung,3.2,phase 4-5 held out
+Umschreibung,f,ung,3.2,compound
+Angleichung,f,ung,3.2,compound
+Erprobung,f,ung,3.2,
+Anfechtung,f,ung,3.2,
+Kopplung,f,ung,3.2,
+Überforderung,f,ung,3.2,compound
+Gehaltserhöhung,f,ung,3.19,Ge-; compound
+Verstopfung,f,ung,3.19,phase 4-5 held out
+Abtretung,f,ung,3.19,
+Weltordnung,f,ung,3.19,compound
+Oberleitung,f,ung,3.19,compound
+Föderalismus,m,ismus,3.19,
+Internetverbindung,f,ung,3.19,compound
+Dämpfung,f,ung,3.19,
+Farbgebung,f,ung,3.19,
+Luftverschmutzung,f,ung,3.19,compound
+Neoliberalismus,m,ismus,3.19,compound
+Arbeitsleistung,f,ung,3.19,compound
+Kriegserklärung,f,ung,3.19,proper name; compound
+Wochenzeitung,f,ung,3.18,compound
+Fürstentum,n,tum,3.18,proper name
+Besinnung,f,ung,3.18,compound
+Sakrament,n,ment,3.18,
+Protestantismus,m,ismus,3.18,
+Verlässlichkeit,f,keit,3.18,
+Säuberung,f,ung,3.18,
+Geschicklichkeit,f,keit,3.18,Ge-
+Bombardierung,f,ung,3.18,
+Fruchtbarkeit,f,keit,3.18,
+Demokratisierung,f,ung,3.18,
+Verjährung,f,ung,3.18,
+Einsparung,f,ung,3.18,
+Geselligkeit,f,keit,3.17,Ge-
+Empfindlichkeit,f,keit,3.17,
+Belehrung,f,ung,3.17,compound
+Sinnlichkeit,f,keit,3.17,
+Anfertigung,f,ung,3.17,
+Atheismus,m,ismus,3.17,
+Interessenvertretung,f,ung,3.17,compound
+Redewendung,f,ung,3.17,compound
+Volkszählung,f,ung,3.17,compound
+Entsendung,f,ung,3.17,group (wordnet); compound
+Gesetzesänderung,f,ung,3.17,Ge-; compound
+Kunstausstellung,f,ung,3.17,compound
+Verdichtung,f,ung,3.17,compound
+Leistungssteigerung,f,ung,3.17,compound
+Belebung,f,ung,3.17,
+Vernachlässigung,f,ung,3.17,
+Aneignung,f,ung,3.17,
+Lüftung,f,ung,3.16,
+Verstaatlichung,f,ung,3.16,
+Arbeitsteilung,f,ung,3.16,compound
+Häufung,f,ung,3.16,
+Zulässigkeit,f,keit,3.16,
+Fröhlichkeit,f,keit,3.16,
+Wertigkeit,f,keit,3.16,
+Sehenswürdigkeit,f,keit,3.16,
+Erledigung,f,ung,3.15,
+Bewässerung,f,ung,3.15,
+Suchmaschinenoptimierung,f,ung,3.15,compound
+Lichtgeschwindigkeit,f,keit,3.15,compound
+Übermittlung,f,ung,3.15,
+Hochachtung,f,ung,3.15,compound
+Gefährlichkeit,f,keit,3.15,Ge-
+Gehirnerschütterung,f,ung,3.15,Ge-; compound
+Einzahlung,f,ung,3.15,compound
+Zeitumstellung,f,ung,3.15,compound
+Anschauung,f,ung,3.15,
+Abrüstung,f,ung,3.15,
+Rechtsberatung,f,ung,3.15,compound
+Koordinierung,f,ung,3.15,
+Bundesversammlung,f,ung,3.15,compound
+Erderwärmung,f,ung,3.14,compound
+Erzbistum,n,tum,3.14,compound
+Ziehung,f,ung,3.14,animate (wordnet)
+Altertum,n,tum,3.14,
+Beschriftung,f,ung,3.14,
+Mietwohnung,f,ung,3.14,compound
+Zuweisung,f,ung,3.14,
+Innenausstattung,f,ung,3.14,compound
+Vollstreckung,f,ung,3.14,compound
+Festanstellung,f,ung,3.14,compound
+Vorbeugung,f,ung,3.14,compound
+Kopfbedeckung,f,ung,3.14,compound
+Sterblichkeit,f,keit,3.14,
+Normalisierung,f,ung,3.14,
+Haftpflichtversicherung,f,ung,3.13,compound
+Legierung,f,ung,3.13,chemical
+Abschottung,f,ung,3.13,
+Inneneinrichtung,f,ung,3.13,compound
+Liebeserklärung,f,ung,3.13,compound
+Setzung,f,ung,3.13,
+Bestleistung,f,ung,3.13,compound
+Beilegung,f,ung,3.13,group (wordnet)
+Rechtspopulismus,m,ismus,3.13,compound
+Großzügigkeit,f,keit,3.13,
+Bewachung,f,ung,3.13,
+Streuung,f,ung,3.13,
+Ansteckung,f,ung,3.13,
+Unterführung,f,ung,3.12,compound
+Personalabteilung,f,ung,3.12,compound
+Inhaftierung,f,ung,3.12,
+Verzerrung,f,ung,3.12,compound
+Halterung,f,ung,3.12,
+Alkoholismus,m,ismus,3.12,
+Absenkung,f,ung,3.12,
+Schlaflosigkeit,f,keit,3.12,
+Gerichtsverhandlung,f,ung,3.12,Ge-; compound
+Offenlegung,f,ung,3.12,
+Grundvoraussetzung,f,ung,3.12,compound
+Fortbewegung,f,ung,3.12,compound
+Körperhaltung,f,ung,3.12,compound
+Gegenseitigkeit,f,keit,3.12,Ge-
+Bestrahlung,f,ung,3.12,
+Anschuldigung,f,ung,3.11,compound
+Anziehung,f,ung,3.11,
+Umweltverschmutzung,f,ung,3.11,compound
+Auszählung,f,ung,3.11,compound
+Hochsprung,m,ung,3.11,compound
+Brandung,f,ung,3.11,phase 4-5 held out; compound
+Linderung,f,ung,3.11,
+Nachahmung,f,ung,3.1,
+Ausrottung,f,ung,3.1,phase 4-5 held out
+Überheblichkeit,f,keit,3.1,
+Weiterleitung,f,ung,3.1,compound
+Verschleierung,f,ung,3.1,
+Empfindung,f,ung,3.1,animate (wordnet); compound
+Behebung,f,ung,3.1,
+Anarchismus,m,ismus,3.1,
+Natürlichkeit,f,keit,3.1,
+Rekrutierung,f,ung,3.1,
+Erörterung,f,ung,3.1,
+Expressionismus,m,ismus,3.1,group (wordnet)
+Vollbeschäftigung,f,ung,3.1,proper name; compound
+Internationalisierung,f,ung,3.1,compound
+Sortierung,f,ung,3.1,
+Privateigentum,n,tum,3.09,compound
+Senatsverwaltung,f,ung,3.09,compound
+Sonderstellung,f,ung,3.09,compound
+Arbeitslosenversicherung,f,ung,3.09,compound
+Entrüstung,f,ung,3.09,compound
+Ermächtigung,f,ung,3.09,
+Einbürgerung,f,ung,3.09,
+Aufrichtigkeit,f,keit,3.09,compound
+Aufdeckung,f,ung,3.09,compound
+Lobbyismus,m,ismus,3.09,
+Pragmatismus,m,ismus,3.09,
+Abnutzung,f,ung,3.09,
+Kapitalerhöhung,f,ung,3.09,proper name; compound
+Abendzeitung,f,ung,3.08,compound
+Lichtung,f,ung,3.08,
+Zurückweisung,f,ung,3.08,compound
+Lokalisierung,f,ung,3.08,
+Wirtschaftsleistung,f,ung,3.08,compound
+Erfrischung,f,ung,3.08,
+Bezirksregierung,f,ung,3.08,proper name; compound
+Verkehrsanbindung,f,ung,3.08,compound
+Hemmung,f,ung,3.08,
+Lähmung,f,ung,3.08,
+Unterlassung,f,ung,3.08,
+Freisetzung,f,ung,3.08,compound
+Glückseligkeit,f,keit,3.08,compound
+Namensgebung,f,ung,3.08,
+Frömmigkeit,f,keit,3.08,
+Verfassungsänderung,f,ung,3.08,compound
+Elektrifizierung,f,ung,3.08,
+Wirtschaftsforschung,f,ung,3.07,compound
+Umschulung,f,ung,3.07,
+Eindämmung,f,ung,3.07,compound
+Begnadigung,f,ung,3.07,
+Befristung,f,ung,3.07,
+Regierungserklärung,f,ung,3.07,compound
+Fanatismus,m,ismus,3.07,
+Kreuzigung,f,ung,3.07,
+Zuteilung,f,ung,3.07,
+Beisetzung,f,ung,3.07,compound
+Schreibung,f,ung,3.07,compound
+Zeitrechnung,f,ung,3.07,compound
+Vervielfältigung,f,ung,3.07,
+Einschüchterung,f,ung,3.07,
+Böschung,f,ung,3.07,proper name
+Stilllegung,f,ung,3.07,
+Weltausstellung,f,ung,3.06,compound
+Kunstsammlung,f,ung,3.06,compound
+Vorentscheidung,f,ung,3.06,compound
+Befähigung,f,ung,3.06,
+Ernüchterung,f,ung,3.06,
+Verdoppelung,f,ung,3.06,
+Unterordnung,f,ung,3.06,compound
+Darlegung,f,ung,3.06,
+Zusammenführung,f,ung,3.06,compound
+Plünderung,f,ung,3.06,
+Beschilderung,f,ung,3.06,
+Allgemeinbildung,f,ung,3.06,compound
+Verwahrung,f,ung,3.06,compound
+Nebenwirkung,f,ung,3.06,compound
+Gentrifizierung,f,ung,3.06,Ge-
+Risikomanagement,n,ment,3.06,compound
+Untätigkeit,f,keit,3.06,
+Verbindlichkeit,f,keit,3.06,
+Energiegewinnung,f,ung,3.05,compound
+Fernsehsendung,f,ung,3.05,compound
+Individualisierung,f,ung,3.05,
+Spiegelung,f,ung,3.05,
+Abtrennung,f,ung,3.05,
+Erbauung,f,ung,3.05,proper name
+Standardisierung,f,ung,3.05,
+Patientenverfügung,f,ung,3.05,compound
+Berufsbezeichnung,f,ung,3.04,compound
+Ortung,f,ung,3.04,
+Enthauptung,f,ung,3.04,
+Polarisierung,f,ung,3.04,compound
+Professionalisierung,f,ung,3.04,
+Entbindung,f,ung,3.04,compound
+Abmachung,f,ung,3.04,
+Zuspitzung,f,ung,3.03,
+Austragung,f,ung,3.03,
+Vererbung,f,ung,3.03,
+Materialismus,m,ismus,3.03,
+Stalinismus,m,ismus,3.03,group (wordnet)
+Lesbarkeit,f,keit,3.03,
+Harmonisierung,f,ung,3.03,
+Enthaltung,f,ung,3.03,compound
+Landesverteidigung,f,ung,3.03,compound
+Freistellung,f,ung,3.03,compound
+Bedeutungslosigkeit,f,keit,3.03,
+Vergänglichkeit,f,keit,3.03,
+Vermögensverwaltung,f,ung,3.03,compound
+Gesichtserkennung,f,ung,3.03,Ge-; compound
+Uneinigkeit,f,keit,3.03,
+Krebserkrankung,f,ung,3.03,animate (wordnet); phase 4-5 held out; compound
+Faktum,n,tum,3.03,"Latin -um word, not the suffix -tum"
+Feindseligkeit,f,keit,3.02,compound
+Zionismus,m,ismus,3.02,
+Jugendabteilung,f,ung,3.02,compound
+Schwingung,f,ung,3.02,
+Verbeugung,f,ung,3.02,phase 4-5 held out; compound
+Erniedrigung,f,ung,3.02,
+Windgeschwindigkeit,f,keit,3.02,compound
+Besoldung,f,ung,3.02,compound
+Fehlermeldung,f,ung,3.02,compound
+Losung,f,ung,3.02,phase 4-5 held out
+Staatsverschuldung,f,ung,3.02,compound
+Dämmung,f,ung,3.02,
+Marktforschung,f,ung,3.02,compound
+Gegenrichtung,f,ung,3.02,Ge-; compound
+Herzlichkeit,f,keit,3.02,
+Geltendmachung,f,ung,3.01,Ge-; compound
+Sonneneinstrahlung,f,ung,3.01,compound
+Vertraulichkeit,f,keit,3.01,
+Unschuldsvermutung,f,ung,3.01,compound
+Katechismus,m,ismus,3.01,
+Aufladung,f,ung,3.01,compound
+Gleichschaltung,f,ung,3.01,compound
+Züchtung,f,ung,3.01,
+Überschwemmung,f,ung,3.01,
+Deutlichkeit,f,keit,3.01,proper name
+Schlachtung,f,ung,3.01,compound
+Dreifaltigkeit,f,keit,3.01,
+Umsiedlung,f,ung,3.01,phase 4-5 held out
+Beharrlichkeit,f,keit,3.01,
+Preiserhöhung,f,ung,3.0,compound
+Stigmatisierung,f,ung,3.0,
+Anstiftung,f,ung,3.0,
+Beatmung,f,ung,3.0,
+Aktivismus,m,ismus,3.0,
+Neuorientierung,f,ung,3.0,compound
+Hochrechnung,f,ung,3.0,compound
+Funktionsfähigkeit,f,keit,3.0,compound
+Ermäßigung,f,ung,3.0,
+Musterung,f,ung,3.0,
+Umkehrung,f,ung,3.0,compound
+Rückerstattung,f,ung,3.0,compound
+Abwandlung,f,ung,3.0,
+Volljährigkeit,f,keit,3.0,
+Zersetzung,f,ung,2.99,compound
+Brüderlichkeit,f,keit,2.99,animate (wordnet)
+Aufspaltung,f,ung,2.99,group (wordnet); compound
+Jungfräulichkeit,f,keit,2.99,
+Diffamierung,f,ung,2.99,
+Auslöschung,f,ung,2.99,compound
+Akkreditierung,f,ung,2.99,
+Sparsamkeit,f,keit,2.99,
+Ungleichbehandlung,f,ung,2.99,compound
+Suspendierung,f,ung,2.99,
+Zahlungsunfähigkeit,f,keit,2.99,compound
+Eilmeldung,f,ung,2.99,compound
+Krümmung,f,ung,2.99,
+Verblendung,f,ung,2.99,proper name; compound
+Völkerwanderung,f,ung,2.98,compound
+Gouvernement,n,ment,2.98,proper name
+Innung,f,ung,2.98,group (wordnet); phase 4-5 held out
+Durchblutung,f,ung,2.98,compound
+Morgendämmerung,f,ung,2.98,compound
+Peinlichkeit,f,keit,2.98,proper name
+Lächerlichkeit,f,keit,2.98,
+Abordnung,f,ung,2.98,group (wordnet)
+Vorsehung,f,ung,2.98,
+Übersichtlichkeit,f,keit,2.98,
+Konservierung,f,ung,2.98,
+Belichtung,f,ung,2.98,
+Wachsamkeit,f,keit,2.98,
+Abschätzung,f,ung,2.97,
+Persönlichkeitsstörung,f,ung,2.97,compound
+Billigung,f,ung,2.97,
+Veranschaulichung,f,ung,2.97,
+Pessimismus,m,ismus,2.97,
+Verabreichung,f,ung,2.97,compound
+Aufnahmeprüfung,f,ung,2.97,compound
+Energieerzeugung,f,ung,2.97,compound
+Dreistigkeit,f,keit,2.97,
+Vertuschung,f,ung,2.97,phase 4-5 held out
+Vermählung,f,ung,2.97,
+Zusicherung,f,ung,2.97,phase 4-5 held out
+Ablieferung,f,ung,2.96,
+Alterung,f,ung,2.96,
+Verunreinigung,f,ung,2.96,proper name; compound
+Geschäftstätigkeit,f,keit,2.96,Ge-; compound
+Ausscheidung,f,ung,2.96,compound
+Völkerverständigung,f,ung,2.96,compound
+Belüftung,f,ung,2.96,
+Erschütterung,f,ung,2.96,
+Individualismus,m,ismus,2.96,compound
+Intensivierung,f,ung,2.96,
+Unterschlagung,f,ung,2.95,
+Mobilmachung,f,ung,2.95,compound
+Unterweisung,f,ung,2.95,compound
+Antragstellung,f,ung,2.95,compound
+Auslösung,f,ung,2.95,compound
+Düngung,f,ung,2.95,
+Zentralisierung,f,ung,2.95,
+Sitzverteilung,f,ung,2.95,compound
+Drosselung,f,ung,2.95,
+Gemeinnützigkeit,f,keit,2.95,Ge-
+Amtseinführung,f,ung,2.95,compound
+Ermutigung,f,ung,2.95,
+Konservatismus,m,ismus,2.95,
+Militarismus,m,ismus,2.94,
+Fundamentalismus,m,ismus,2.94,
+Sinnhaftigkeit,f,keit,2.94,
+Unachtsamkeit,f,keit,2.94,
+Zerlegung,f,ung,2.94,
+Verheißung,f,ung,2.94,
+Abholzung,f,ung,2.94,
+Liebesbeziehung,f,ung,2.94,compound
+Schonung,f,ung,2.94,
+Verwundung,f,ung,2.94,compound
+Anreicherung,f,ung,2.94,phase 4-5 held out
+Selbstbefriedigung,f,ung,2.94,compound
+Klimaerwärmung,f,ung,2.94,compound
+Rodung,f,ung,2.94,
+Fehlentscheidung,f,ung,2.94,compound
+Fernsteuerung,f,ung,2.94,compound
+Bewölkung,f,ung,2.94,
+Beweisführung,f,ung,2.94,compound
+Übergangsregierung,f,ung,2.94,compound
+Dehnung,f,ung,2.94,
+Verherrlichung,f,ung,2.94,
+Formatierung,f,ung,2.94,
+Verzierung,f,ung,2.94,phase 4-5 held out
+Tätowierung,f,ung,2.94,phase 4-5 held out
+Bescherung,f,ung,2.94,
+Aussendung,f,ung,2.94,compound
+Weiterverarbeitung,f,ung,2.94,compound
+Linksextremismus,m,ismus,2.94,compound
+Schutzkleidung,f,ung,2.93,compound
+Festigung,f,ung,2.93,
+Bildungseinrichtung,f,ung,2.93,compound
+Verträglichkeit,f,keit,2.93,
+Selbstbeherrschung,f,ung,2.93,compound
+Lokalzeitung,f,ung,2.93,compound
+Vorladung,f,ung,2.93,compound
+Pluralismus,m,ismus,2.93,
+Kreditwürdigkeit,f,keit,2.93,
+Umschwung,m,ung,2.93,
+Örtlichkeit,f,keit,2.93,
+Zersplitterung,f,ung,2.93,
+Vereidigung,f,ung,2.93,
+Tauglichkeit,f,keit,2.93,
+Verschönerung,f,ung,2.93,
+Danksagung,f,ung,2.93,
+Hochspannung,f,ung,2.93,compound
+Verklärung,f,ung,2.93,compound
+Selbstachtung,f,ung,2.92,compound
+Etablissement,n,ment,2.92,
+Bewusstlosigkeit,f,keit,2.92,
+Hervorhebung,f,ung,2.92,compound
+Überleitung,f,ung,2.92,compound
+Niederung,f,ung,2.92,
+Notlösung,f,ung,2.92,compound
+Straßenbeleuchtung,f,ung,2.92,compound
+Finanzplanung,f,ung,2.92,compound
+Pergament,n,ment,2.92,
+Gärung,f,ung,2.92,
+Lohnerhöhung,f,ung,2.92,compound
+Fettleibigkeit,f,keit,2.92,
+Entnazifizierung,f,ung,2.92,
+Militärregierung,f,ung,2.92,group (wordnet); compound
+Ausgrabung,f,ung,2.92,
+Bestürzung,f,ung,2.92,
+Einarbeitung,f,ung,2.91,
+Sondersitzung,f,ung,2.91,compound
+Auswechslung,f,ung,2.91,
+Ratifizierung,f,ung,2.91,
+Hartnäckigkeit,f,keit,2.91,
+Bemessung,f,ung,2.91,
+Fügung,f,ung,2.91,
+Beschichtung,f,ung,2.91,phase 4-5 held out
+Hoffnungslosigkeit,f,keit,2.91,
+Ergreifung,f,ung,2.91,compound
+Bewirtung,f,ung,2.91,
+Vormachtstellung,f,ung,2.91,compound
+Großherzogtum,n,tum,2.91,compound
+Verwicklung,f,ung,2.91,compound
+Selbstzerstörung,f,ung,2.91,compound
+Authentifizierung,f,ung,2.91,
+Andeutung,f,ung,2.91,
+Hässlichkeit,f,keit,2.91,
+Sinnlosigkeit,f,keit,2.9,
+Jugendbewegung,f,ung,2.9,compound
+Abdankung,f,ung,2.9,
+Leitfähigkeit,f,keit,2.9,compound
+Ruhestörung,f,ung,2.9,compound
+Anfälligkeit,f,keit,2.9,
+Wiederentdeckung,f,ung,2.9,phase 4-5 held out; compound
+Geisteshaltung,f,ung,2.9,Ge-; compound
+Bündelung,f,ung,2.9,
+Behausung,f,ung,2.9,
+Pazifismus,m,ismus,2.9,
+Vertonung,f,ung,2.9,
+Selbstversorgung,f,ung,2.9,phase 4-5 held out; compound
+Respektlosigkeit,f,keit,2.9,
+Entladung,f,ung,2.9,compound
+Misstrauensvotum,n,tum,2.9,compound
+Freiheitsberaubung,f,ung,2.89,compound
+Mächtigkeit,f,keit,2.89,
+Herabsetzung,f,ung,2.89,compound
+Steuererhöhung,f,ung,2.89,compound
+Verengung,f,ung,2.89,phase 4-5 held out
+Verdopplung,f,ung,2.89,
+Mäßigung,f,ung,2.89,
+Minderheitsregierung,f,ung,2.89,compound
+Nichtigkeit,f,keit,2.89,
+Opportunismus,m,ismus,2.89,
+Vorstandssitzung,f,ung,2.89,group (wordnet); compound
+Belustigung,f,ung,2.89,
+Mondlandung,f,ung,2.89,compound
+Fälligkeit,f,keit,2.88,
+Grundausstattung,f,ung,2.88,compound
+Gewöhnung,f,ung,2.88,Ge-
+Einbringung,f,ung,2.88,
+Familienplanung,f,ung,2.88,compound
+Wenigkeit,f,keit,2.88,
+Stabhochsprung,m,ung,2.88,compound
+Totalitarismus,m,ismus,2.88,group (wordnet)
+Widerstandsfähigkeit,f,keit,2.88,compound
+Jahresversammlung,f,ung,2.88,compound
+Bekehrung,f,ung,2.88,compound
+Unterrichtung,f,ung,2.88,compound
+Datenerhebung,f,ung,2.87,compound
+Einlagerung,f,ung,2.87,compound
+Klassizismus,m,ismus,2.87,
+Falschmeldung,f,ung,2.87,compound
+Kleinschreibung,f,ung,2.87,compound
+Unterernährung,f,ung,2.87,compound
+Selbstwahrnehmung,f,ung,2.87,compound
+Rationalismus,m,ismus,2.87,
+Betriebsführung,f,ung,2.87,compound
+Deregulierung,f,ung,2.87,
+Salafismus,m,ismus,2.87,
+Sicherungsverwahrung,f,ung,2.87,compound
+Schlichtung,f,ung,2.87,compound
+Anwendbarkeit,f,keit,2.87,
+Aufenthaltsgenehmigung,f,ung,2.87,proper name; compound
+Hinduismus,m,ismus,2.87,group (wordnet)
+Durchlässigkeit,f,keit,2.87,compound
+Abklärung,f,ung,2.86,
+Obdachlosigkeit,f,keit,2.86,
+Eingebung,f,ung,2.86,
+Schadensbegrenzung,f,ung,2.86,compound
+Verkostung,f,ung,2.86,
+Historismus,m,ismus,2.86,
+Abfertigung,f,ung,2.86,
+Richtigstellung,f,ung,2.86,compound
+Impressionismus,m,ismus,2.86,group (wordnet)
+Marktkapitalisierung,f,ung,2.86,compound
+Rückbesinnung,f,ung,2.86,compound
+Umrechnung,f,ung,2.86,
+Brüstung,f,ung,2.86,
+Pflanzung,f,ung,2.86,
+Euphemismus,m,ismus,2.86,
+Reifeprüfung,f,ung,2.86,compound
+Verarmung,f,ung,2.85,phase 4-5 held out
+Verschleppung,f,ung,2.85,
+Arbeitsunfähigkeit,f,keit,2.85,compound
+Abstufung,f,ung,2.85,
+Reifung,f,ung,2.85,
+Entgleisung,f,ung,2.85,phase 4-5 held out
+Urbanisierung,f,ung,2.85,
+Stellenausschreibung,f,ung,2.85,compound
+Vielfältigkeit,f,keit,2.85,
+Firmung,f,ung,2.85,
+Vorahnung,f,ung,2.85,compound
+Protektionismus,m,ismus,2.85,
+Verkettung,f,ung,2.85,
+Verwahrlosung,f,ung,2.85,compound
+Schwerelosigkeit,f,keit,2.85,
+Jugendarbeitslosigkeit,f,keit,2.85,compound
+Strafprozessordnung,f,ung,2.85,compound
+Süßigkeit,f,keit,2.85,
+Pfändung,f,ung,2.84,compound
+Kannibalismus,m,ismus,2.84,
+Nachlässigkeit,f,keit,2.84,compound
+Militarisierung,f,ung,2.84,compound
+Ermahnung,f,ung,2.84,compound
+Fernbeziehung,f,ung,2.84,compound
+Oberflächlichkeit,f,keit,2.84,
+Volksbildung,f,ung,2.84,compound
+Krisenmanagement,n,ment,2.84,compound
+Langsamkeit,f,keit,2.84,
+Sitzheizung,f,ung,2.84,compound
+Verflechtung,f,ung,2.84,
+Herausbildung,f,ung,2.84,compound
+Bitterkeit,f,keit,2.84,
+Aufhängung,f,ung,2.84,
+Mannigfaltigkeit,f,keit,2.84,
+Zuführung,f,ung,2.84,
+Radikalismus,m,ismus,2.84,
+Abberufung,f,ung,2.83,
+Unabhängigkeitserklärung,f,ung,2.83,compound
+Behaarung,f,ung,2.83,phase 4-5 held out
+Biegung,f,ung,2.83,
+Abenddämmerung,f,ung,2.83,phase 4-5 held out; compound
+Geistlichkeit,f,keit,2.83,Ge-; group (wordnet)
+Verständlichkeit,f,keit,2.83,
+Abdichtung,f,ung,2.83,
+Ausfertigung,f,ung,2.83,compound
+Zuschreibung,f,ung,2.83,compound
+Anlieferung,f,ung,2.83,
+Staatsführung,f,ung,2.83,proper name; compound
+Zwangsvollstreckung,f,ung,2.83,compound
+Automatismus,m,ismus,2.83,
+Verstümmelung,f,ung,2.83,
+Sonderbehandlung,f,ung,2.83,compound
+Beauftragung,f,ung,2.83,
+Aberkennung,f,ung,2.83,
+Bemühung,f,ung,2.83,
+Archivierung,f,ung,2.82,
+Einlagensicherung,f,ung,2.82,compound
+Begünstigung,f,ung,2.82,
+Wertsteigerung,f,ung,2.82,compound
+Besteigung,f,ung,2.82,
+Langlebigkeit,f,keit,2.82,
+Schleichwerbung,f,ung,2.82,compound
+Überdachung,f,ung,2.82,
+Nummerierung,f,ung,2.81,
+Wohltätigkeit,f,keit,2.81,group (wordnet); compound
+Geschwindigkeitsbegrenzung,f,ung,2.81,Ge-; compound
+Notlandung,f,ung,2.81,compound
+Informationsverarbeitung,f,ung,2.81,compound
+Widerlegung,f,ung,2.81,
+Strahlenbelastung,f,ung,2.81,compound
+Anmaßung,f,ung,2.81,
+Schädlingsbekämpfung,f,ung,2.81,compound
+Minimalismus,m,ismus,2.81,group (wordnet)
+Abschwächung,f,ung,2.81,
+Mangelernährung,f,ung,2.81,compound
+Nachrichtensendung,f,ung,2.81,compound
+Federung,f,ung,2.81,
+Kultivierung,f,ung,2.81,
+Gebrauchsanweisung,f,ung,2.81,Ge-; compound
+Nachprüfung,f,ung,2.81,compound
+Absolutismus,m,ismus,2.81,
+Fußbodenheizung,f,ung,2.81,compound
+Beschwörung,f,ung,2.81,
+Überhitzung,f,ung,2.81,
+Absichtserklärung,f,ung,2.8,compound
+Urkundenfälschung,f,ung,2.8,compound
+Surrealismus,m,ismus,2.8,group (wordnet); compound
+Scheinheiligkeit,f,keit,2.8,compound
+Protestbewegung,f,ung,2.8,compound
+Magnetismus,m,ismus,2.8,
+Zweisamkeit,f,keit,2.8,
+Einfallsreichtum,m,tum,2.8,compound
+Nachwirkung,f,ung,2.8,compound
+Monopolstellung,f,ung,2.8,compound
+Wahrhaftigkeit,f,keit,2.8,
+Bedienungsanleitung,f,ung,2.8,compound
+Bilanzierung,f,ung,2.8,
+Überquerung,f,ung,2.8,
+Kopfverletzung,f,ung,2.8,compound
+Mündigkeit,f,keit,2.8,
+Erschießung,f,ung,2.8,
+Bedürftigkeit,f,keit,2.8,
+Dualismus,m,ismus,2.8,
+Überflutung,f,ung,2.8,
+Preissteigerung,f,ung,2.8,compound
+Bruchlandung,f,ung,2.8,compound
+Verdunstung,f,ung,2.79,
+Generierung,f,ung,2.79,Ge-; animate (wordnet)
+Segnung,f,ung,2.79,
+Verstrickung,f,ung,2.79,
+Volksvertretung,f,ung,2.79,group (wordnet); compound
+Abschirmung,f,ung,2.79,
+Sonderregelung,f,ung,2.79,compound
+Pietismus,m,ismus,2.79,group (wordnet)
+Berufsunfähigkeit,f,keit,2.79,compound
+Verfallsdatum,n,tum,2.79,compound
+Datensammlung,f,ung,2.79,compound
+Anwendungsentwicklung,f,ung,2.79,compound
+Verbitterung,f,ung,2.79,
+Zeitverschiebung,f,ung,2.79,compound
+Radierung,f,ung,2.79,
+Umvolkung,f,ung,2.79,
+Umweltbelastung,f,ung,2.79,compound
+Rangordnung,f,ung,2.79,phase 4-5 held out; compound
+Bombendrohung,f,ung,2.79,compound
+Verifizierung,f,ung,2.78,
+Rechtsschutzversicherung,f,ung,2.78,compound
+Beunruhigung,f,ung,2.78,
+Zeugung,f,ung,2.78,
+Erwiderung,f,ung,2.78,
+Unmenschlichkeit,f,keit,2.78,
+Ablagerung,f,ung,2.78,
+Leninismus,m,ismus,2.78,
+Anpassungsfähigkeit,f,keit,2.78,compound
+Befindlichkeit,f,keit,2.78,proper name
+Gleichwertigkeit,f,keit,2.78,compound
+Austrocknung,f,ung,2.78,compound
+Alltagsrassismus,m,ismus,2.78,compound
+Feudalismus,m,ismus,2.78,
+Gewinnmaximierung,f,ung,2.78,Ge-; compound
+Panzerung,f,ung,2.78,group (wordnet)
+Amtsenthebung,f,ung,2.78,compound
+Einlösung,f,ung,2.78,compound
+Volksversammlung,f,ung,2.78,compound
+Datensicherung,f,ung,2.78,animate (wordnet); compound
+Veredelung,f,ung,2.78,
+Neubildung,f,ung,2.78,compound
+Problemstellung,f,ung,2.78,compound
+Ermüdung,f,ung,2.78,compound
+Gefälligkeit,f,keit,2.77,Ge-
+Halbierung,f,ung,2.77,
+Verärgerung,f,ung,2.77,
+Seligkeit,f,keit,2.77,
+Kaisertum,n,tum,2.77,proper name
+Barzahlung,f,ung,2.77,compound
+Besiedelung,f,ung,2.77,group (wordnet)
+Steuersenkung,f,ung,2.77,compound
+Verzweigung,f,ung,2.77,group (wordnet)
+Fertigkeit,f,keit,2.77,phase 4-5 held out
+Urteilsverkündung,f,ung,2.77,compound
+Nützlichkeit,f,keit,2.77,
+Gewalttätigkeit,f,keit,2.77,Ge-; compound
+Weltöffentlichkeit,f,keit,2.77,compound
+Überholung,f,ung,2.77,
+Gründlichkeit,f,keit,2.77,phase 4-5 held out
+Entschärfung,f,ung,2.77,
+Verwerfung,f,ung,2.76,
+Kodierung,f,ung,2.76,
+Fällung,f,ung,2.76,
+Zeichensetzung,f,ung,2.76,compound
+Wissensvermittlung,f,ung,2.76,compound
+Verunglimpfung,f,ung,2.76,compound
+Weltregierung,f,ung,2.76,compound
+Handbewegung,f,ung,2.76,compound
+Bürgerrechtsbewegung,f,ung,2.76,group (wordnet); compound
+Verneinung,f,ung,2.76,
+Verdünnung,f,ung,2.76,
+Grundlegung,f,ung,2.76,
+Glanzleistung,f,ung,2.76,compound
+Ausrufung,f,ung,2.75,
+Ausländerfeindlichkeit,f,keit,2.75,compound
+Entgiftung,f,ung,2.75,
+Standhaftigkeit,f,keit,2.75,
+Musikinstrument,n,ment,2.75,compound
+Exorzismus,m,ismus,2.75,
+Minimierung,f,ung,2.75,
+Bestäubung,f,ung,2.75,
+Versiegelung,f,ung,2.75,
+Versklavung,f,ung,2.75,
+Risikobewertung,f,ung,2.75,compound
+Rassentrennung,f,ung,2.75,compound
+Entschlüsselung,f,ung,2.74,
+Folgerung,f,ung,2.74,
+Aufweichung,f,ung,2.74,compound
+Kriegführung,f,ung,2.74,compound
+Verformung,f,ung,2.74,compound
+Befriedung,f,ung,2.74,compound
+Zerstreuung,f,ung,2.74,compound
+Thronbesteigung,f,ung,2.74,compound
+Eliminierung,f,ung,2.74,
+Präteritum,n,tum,2.74,"Latin -um word, not the suffix -tum"
+Rührung,f,ung,2.74,
+Standardabweichung,f,ung,2.74,compound
+Verknappung,f,ung,2.74,
+Schrifttum,n,tum,2.74,
+Blockierung,f,ung,2.74,
+Abfassung,f,ung,2.74,
+Typisierung,f,ung,2.73,
+Vergangenheitsbewältigung,f,ung,2.73,compound
+Bestuhlung,f,ung,2.73,
+Rechtswidrigkeit,f,keit,2.73,compound
+Anhäufung,f,ung,2.73,proper name
+Bösartigkeit,f,keit,2.73,
+Geschäftsbeziehung,f,ung,2.73,Ge-; compound
+Überschneidung,f,ung,2.73,compound
+Wölbung,f,ung,2.73,phase 4-5 held out
+Judenverfolgung,f,ung,2.73,compound
+Einfassung,f,ung,2.73,phase 4-5 held out; compound
+Steifigkeit,f,keit,2.73,
+Gotteslästerung,f,ung,2.73,compound
+Reizung,f,ung,2.73,phase 4-5 held out
+Überlagerung,f,ung,2.73,compound
+Verfehlung,f,ung,2.73,
+Teuerung,f,ung,2.73,
+Freizeitbeschäftigung,f,ung,2.73,compound
+Ersetzung,f,ung,2.73,animate (wordnet)
+Anrufung,f,ung,2.72,
+Feierlichkeit,f,keit,2.72,
+Überbevölkerung,f,ung,2.72,phase 4-5 held out; compound
+Kinderlähmung,f,ung,2.72,compound
+Begrünung,f,ung,2.72,
+Chauvinismus,m,ismus,2.72,social gender in meaning
+Annullierung,f,ung,2.72,
+Unterkühlung,f,ung,2.72,compound
+Dachgeschosswohnung,f,ung,2.72,compound
+Wiederauferstehung,f,ung,2.72,compound
+Lebensplanung,f,ung,2.72,compound
+Zusammengehörigkeit,f,keit,2.72,compound
+Enthaltsamkeit,f,keit,2.72,
+Verletzlichkeit,f,keit,2.72,
+Zerrung,f,ung,2.72,
+Verdeutlichung,f,ung,2.72,
+Eingrenzung,f,ung,2.71,
+Stützung,f,ung,2.71,
+Näherung,f,ung,2.71,
+Perfektionismus,m,ismus,2.71,
+Konstruktivismus,m,ismus,2.71,group (wordnet)
+Geschmacksrichtung,f,ung,2.71,Ge-; compound
+Unfruchtbarkeit,f,keit,2.71,
+Selbstgefälligkeit,f,keit,2.71,compound
+Rückkopplung,f,ung,2.71,compound
+Konvertierung,f,ung,2.71,
+Preissenkung,f,ung,2.7,compound
+Rötung,f,ung,2.7,phase 4-5 held out
+Arbeitsvermittlung,f,ung,2.7,group (wordnet); compound
+Aufwartung,f,ung,2.7,compound
+Beheizung,f,ung,2.7,
+Abiturprüfung,f,ung,2.7,compound
+Umsatzwachstum,n,tum,2.7,compound
+Validierung,f,ung,2.7,
+Kalibrierung,f,ung,2.7,
+Beschuldigung,f,ung,2.7,compound
+Buchvorstellung,f,ung,2.7,compound
+Diversifizierung,f,ung,2.7,
+Verleugnung,f,ung,2.7,compound
+Entwertung,f,ung,2.7,compound
+Umdrehung,f,ung,2.7,
+Kränkung,f,ung,2.7,
+Rückgewinnung,f,ung,2.7,compound
+Nichtbeachtung,f,ung,2.7,compound
+Willenserklärung,f,ung,2.7,compound
+Zielstrebigkeit,f,keit,2.7,
+Abmagerung,f,ung,2.69,
+Rücksichtslosigkeit,f,keit,2.69,
+Einlassung,f,ung,2.69,
+Begleichung,f,ung,2.69,compound
+Sportveranstaltung,f,ung,2.69,compound
+Normalverteilung,f,ung,2.69,compound
+Brustvergrößerung,f,ung,2.69,compound
+Körperlichkeit,f,keit,2.69,
+Eindeutigkeit,f,keit,2.69,
+Vorbemerkung,f,ung,2.69,compound
+Sondergenehmigung,f,ung,2.69,compound
+Vergesslichkeit,f,keit,2.69,
+Verstimmung,f,ung,2.69,compound
+Unregelmäßigkeit,f,keit,2.69,
+Unverträglichkeit,f,keit,2.69,
+Verpfändung,f,ung,2.69,animate (wordnet); compound
+Verlangsamung,f,ung,2.69,
+Steinigung,f,ung,2.69,
+Erstausstrahlung,f,ung,2.69,compound
+Fragmentierung,f,ung,2.69,
+Gesundung,f,ung,2.69,Ge-; compound
+Selbsttötung,f,ung,2.69,compound
+Umwälzung,f,ung,2.68,
+Kochsalzlösung,f,ung,2.68,compound
+Wallung,f,ung,2.68,
+Abänderung,f,ung,2.68,
+Tönung,f,ung,2.68,
+Selbstbedienung,f,ung,2.68,phase 4-5 held out; compound
+Wundheilung,f,ung,2.68,compound
+Steuerbefreiung,f,ung,2.68,compound
+Eisprung,m,ung,2.68,phase 4-5 held out
+Bodenhaftung,f,ung,2.68,compound
+Angststörung,f,ung,2.68,compound
+Forschungseinrichtung,f,ung,2.68,compound
+Wohnsiedlung,f,ung,2.68,compound
+Verdrehung,f,ung,2.68,compound
+Verwesung,f,ung,2.67,
+Verfärbung,f,ung,2.67,compound
+Autorisierung,f,ung,2.67,
+Nihilismus,m,ismus,2.67,
+Regung,f,ung,2.67,phase 4-5 held out
+Ungenauigkeit,f,keit,2.67,
+Schwankung,f,ung,2.67,
+Darmspiegelung,f,ung,2.67,compound
+Abfallentsorgung,f,ung,2.67,compound
+Klimaforschung,f,ung,2.67,compound
+Verlockung,f,ung,2.67,compound
+Zurschaustellung,f,ung,2.66,compound
+Heimsuchung,f,ung,2.66,
+Krebsforschung,f,ung,2.66,compound
+Untertreibung,f,ung,2.66,compound
+Geringschätzung,f,ung,2.66,Ge-; compound
+Spracherkennung,f,ung,2.66,compound
+Rundung,f,ung,2.66,compound
+Redlichkeit,f,keit,2.66,
+Gelehrsamkeit,f,keit,2.66,Ge-
+Rohrleitung,f,ung,2.66,compound
+Behaglichkeit,f,keit,2.66,proper name
+Belastungsstörung,f,ung,2.66,compound
+Effizienzsteigerung,f,ung,2.65,compound
+Erzielung,f,ung,2.65,
+Schutzwirkung,f,ung,2.65,compound
+Zuzahlung,f,ung,2.65,
+Endlagerung,f,ung,2.65,compound
+Unmündigkeit,f,keit,2.65,
+Schnappatmung,f,ung,2.65,compound
+Unzuverlässigkeit,f,keit,2.65,compound
+Altersbeschränkung,f,ung,2.65,compound
+Wahlempfehlung,f,ung,2.65,compound
+Straßenkreuzung,f,ung,2.65,group (wordnet); compound
+Sadismus,m,ismus,2.65,
+Skeptizismus,m,ismus,2.65,
+Bedeckung,f,ung,2.65,
+Gegenargument,n,ment,2.65,Ge-; compound
+Zellteilung,f,ung,2.65,compound
+Streckung,f,ung,2.65,
+Lässigkeit,f,keit,2.65,
+Wahrheitsfindung,f,ung,2.65,compound
+Kolonisierung,f,ung,2.65,
+Textverarbeitung,f,ung,2.65,compound
+Plenarsitzung,f,ung,2.65,compound
+Kulturförderung,f,ung,2.65,compound
+Telefonleitung,f,ung,2.65,compound
+Einheitlichkeit,f,keit,2.65,
+Metallverarbeitung,f,ung,2.64,compound
+Tuchfühlung,f,ung,2.64,compound
+Zuwiderhandlung,f,ung,2.64,compound
+Vertragsunterzeichnung,f,ung,2.64,compound
+Bestechlichkeit,f,keit,2.64,
+Zuladung,f,ung,2.64,compound
+Notierung,f,ung,2.64,
+Umdeutung,f,ung,2.64,
+Geschlechtsumwandlung,f,ung,2.64,Ge-; compound
+Verstellung,f,ung,2.64,compound
+Gruppenvergewaltigung,f,ung,2.64,compound
+Internierung,f,ung,2.64,phase 4-5 held out
+Aufopferung,f,ung,2.63,phase 4-5 held out
+Firmament,n,ment,2.63,
+Beimischung,f,ung,2.63,compound
+Massenarbeitslosigkeit,f,keit,2.63,compound
+Sendungsverfolgung,f,ung,2.63,compound
+Göttlichkeit,f,keit,2.63,
+Höchstleistung,f,ung,2.63,compound
+Reisewarnung,f,ung,2.63,compound
+Gewaltlosigkeit,f,keit,2.63,Ge-
+Haftentlassung,f,ung,2.63,compound
+Blutvergiftung,f,ung,2.63,compound
+Mogelpackung,f,ung,2.63,compound
+Gasleitung,f,ung,2.62,compound
+Differentialgleichung,f,ung,2.62,compound
+Zweckmäßigkeit,f,keit,2.62,
+Schändung,f,ung,2.62,compound
+Beanstandung,f,ung,2.62,compound
+Rektum,n,tum,2.62,"Latin -um word, not the suffix -tum"
+Auflockerung,f,ung,2.62,compound
+Vertagung,f,ung,2.62,compound
+Ausleuchtung,f,ung,2.62,
+Abschwung,m,ung,2.62,
+Verfeinerung,f,ung,2.62,phase 4-5 held out
+Wasserkühlung,f,ung,2.62,compound
+Mindesthaltbarkeitsdatum,n,tum,2.62,compound
+Faltung,f,ung,2.62,
+Ölförderung,f,ung,2.62,
+Heldentum,n,tum,2.62,
+Generalisierung,f,ung,2.62,Ge-
+Alphabetisierung,f,ung,2.62,
+Beugung,f,ung,2.61,
+Verschreibung,f,ung,2.61,compound
+Zinserhöhung,f,ung,2.61,compound
+Giftigkeit,f,keit,2.61,chemical
+Andersartigkeit,f,keit,2.61,
+Beaufsichtigung,f,ung,2.61,
+Verbrechensbekämpfung,f,ung,2.61,compound
+Blutgerinnung,f,ung,2.61,compound
+Aufbruchstimmung,f,ung,2.61,compound
+Züchtigung,f,ung,2.61,
+Erweckung,f,ung,2.61,
+Verhüllung,f,ung,2.61,
+Datenspeicherung,f,ung,2.61,compound
+Sonnenstrahlung,f,ung,2.61,compound
+Bildgebung,f,ung,2.61,
+Frauenförderung,f,ung,2.61,compound
+Machtlosigkeit,f,keit,2.61,
+Kunstfertigkeit,f,keit,2.61,compound
+Zuleitung,f,ung,2.61,
+Darwinismus,m,ismus,2.61,
+Wärmeleitfähigkeit,f,keit,2.61,compound
+Wahlmöglichkeit,f,keit,2.61,compound
+Zentralheizung,f,ung,2.61,compound
+Voyeurismus,m,ismus,2.6,
+Himmelsrichtung,f,ung,2.6,compound
+Einschreibung,f,ung,2.6,compound
+Okkultismus,m,ismus,2.6,
+Metallbearbeitung,f,ung,2.6,compound
+Verladung,f,ung,2.6,compound
+Servolenkung,f,ung,2.6,compound
+Bankrotterklärung,f,ung,2.6,compound
+Kernspaltung,f,ung,2.6,compound
+Erhitzung,f,ung,2.59,
+Prellung,f,ung,2.59,
+Maximierung,f,ung,2.59,
+Nehrung,f,ung,2.59,
+Indizierung,f,ung,2.59,
+Schichtung,f,ung,2.59,
+Immunisierung,f,ung,2.59,
+Schrittgeschwindigkeit,f,keit,2.59,compound
+Zwangsräumung,f,ung,2.59,compound
+Altruismus,m,ismus,2.59,
+Nazismus,m,ismus,2.59,
+Wärmestrahlung,f,ung,2.59,compound
+Anmutung,f,ung,2.59,
+Revisionismus,m,ismus,2.59,
+Kinderlosigkeit,f,keit,2.59,
+Unzulänglichkeit,f,keit,2.59,
+Grundierung,f,ung,2.59,
+Ehrerbietung,f,ung,2.59,
+Umschuldung,f,ung,2.59,compound
+Rechtsbeugung,f,ung,2.59,compound
+Empirismus,m,ismus,2.59,
+Lebensmittelvergiftung,f,ung,2.58,compound
+Hochschulbildung,f,ung,2.58,compound
+Tätlichkeit,f,keit,2.58,
+Arbeitszeitverkürzung,f,ung,2.58,compound
+Schuldentilgung,f,ung,2.58,compound
+Terminierung,f,ung,2.58,
+Gabelung,f,ung,2.58,
+Köstlichkeit,f,keit,2.58,
+Ahndung,f,ung,2.58,compound
+Heftigkeit,f,keit,2.58,
+Majestätsbeleidigung,f,ung,2.58,compound
+Bücherverbrennung,f,ung,2.58,compound
+Raumgestaltung,f,ung,2.58,compound
+Appetitlosigkeit,f,keit,2.58,
+Genitalverstümmelung,f,ung,2.57,Ge-; compound
+Fassungslosigkeit,f,keit,2.57,
+Determinismus,m,ismus,2.57,
+Lieblingsbeschäftigung,f,ung,2.57,compound
+Gangschaltung,f,ung,2.57,compound
+Stromleitung,f,ung,2.57,compound
+Verwurzelung,f,ung,2.57,
+Essstörung,f,ung,2.57,compound
+Blutuntersuchung,f,ung,2.57,compound
+Erdung,f,ung,2.57,
+Mehrdeutigkeit,f,keit,2.57,
+Internationalismus,m,ismus,2.57,compound
+Spitzenleistung,f,ung,2.56,compound
+Ressentiment,n,ment,2.56,
+Fatalismus,m,ismus,2.56,
+Wicklung,f,ung,2.56,
+Anhängerkupplung,f,ung,2.56,compound
+Selbsterhaltung,f,ung,2.56,compound
+Stadtparlament,n,ment,2.56,proper name; group (wordnet); compound
+Sittlichkeit,f,keit,2.56,
+Funktionstüchtigkeit,f,keit,2.56,compound
+Beschattung,f,ung,2.56,
+Metabolismus,m,ismus,2.56,
+Schamanismus,m,ismus,2.56,
+Koalitionsregierung,f,ung,2.56,compound
+Kommunalverwaltung,f,ung,2.56,group (wordnet); compound
+Hirnblutung,f,ung,2.56,compound
+Lohnfortzahlung,f,ung,2.56,compound
+Boshaftigkeit,f,keit,2.56,
+Einstimmigkeit,f,keit,2.55,
+Brechung,f,ung,2.55,
+Mülltrennung,f,ung,2.55,compound
+Körnung,f,ung,2.55,
+Betriebsleitung,f,ung,2.55,compound
+Relativismus,m,ismus,2.55,
+Geschmacklosigkeit,f,keit,2.55,Ge-
+Vereisung,f,ung,2.55,
+Anbahnung,f,ung,2.55,compound
+Nachforschung,f,ung,2.55,compound
+Verzückung,f,ung,2.55,
+Wertminderung,f,ung,2.55,compound
+Unsichtbarkeit,f,keit,2.55,
+Unfehlbarkeit,f,keit,2.55,
+Schrumpfung,f,ung,2.55,
+Schädlichkeit,f,keit,2.54,
+Verlautbarung,f,ung,2.54,
+Feldforschung,f,ung,2.54,compound
+Zahlungsfähigkeit,f,keit,2.54,proper name; compound
+Einverständniserklärung,f,ung,2.54,compound
+Freischaltung,f,ung,2.54,compound
+Massenbewegung,f,ung,2.54,compound
+Begleiterscheinung,f,ung,2.54,compound
+Umweltverträglichkeit,f,keit,2.54,compound
+Strafandrohung,f,ung,2.54,compound
+Rückbildung,f,ung,2.54,compound
+Quantifizierung,f,ung,2.54,
+Priestertum,n,tum,2.54,group (wordnet)
+Verseuchung,f,ung,2.54,
+Zähigkeit,f,keit,2.54,
+Überlappung,f,ung,2.53,
+Abreibung,f,ung,2.53,
+Separatismus,m,ismus,2.53,
+Schwerhörigkeit,f,keit,2.53,compound
+Massentourismus,m,ismus,2.53,proper name; compound
+Firmenleitung,f,ung,2.53,compound
+Vergünstigung,f,ung,2.53,
+Quantensprung,m,ung,2.53,compound
+Wiedererlangung,f,ung,2.53,
+Anachronismus,m,ismus,2.53,
+Glorifizierung,f,ung,2.53,
+Entwicklungsumgebung,f,ung,2.53,compound
+Schallgeschwindigkeit,f,keit,2.53,compound
+Vertrauenswürdigkeit,f,keit,2.53,
+Pflichterfüllung,f,ung,2.53,compound
+Umzäunung,f,ung,2.53,
+Großartigkeit,f,keit,2.53,
+Kostbarkeit,f,keit,2.53,
+Besorgung,f,ung,2.53,
+Umlagerung,f,ung,2.53,
+Strafvereitelung,f,ung,2.53,
+Sprachregelung,f,ung,2.53,compound
+Klavierbegleitung,f,ung,2.52,compound
+Löslichkeit,f,keit,2.52,
+Einäscherung,f,ung,2.52,compound
+Geschmeidigkeit,f,keit,2.52,Ge-
+Autoversicherung,f,ung,2.52,compound
+Dämonisierung,f,ung,2.52,
+Wahlfälschung,f,ung,2.52,compound
+Wettbewerbsverzerrung,f,ung,2.52,compound
+Dogmatismus,m,ismus,2.52,
+Vegetarismus,m,ismus,2.52,
+Exhibitionismus,m,ismus,2.52,
+Masochismus,m,ismus,2.52,
+Verdächtigung,f,ung,2.52,
+Zeiterfassung,f,ung,2.52,compound
+Initiierung,f,ung,2.52,
+Dauerhaftigkeit,f,keit,2.52,
+Empfindsamkeit,f,keit,2.52,
+Kinderkleidung,f,ung,2.52,compound
+Zivilprozessordnung,f,ung,2.51,compound
+Zentralismus,m,ismus,2.51,
+Drehbewegung,f,ung,2.51,compound
+Vereinsamung,f,ung,2.51,
+Ahnenforschung,f,ung,2.51,group (wordnet); compound
+Formalismus,m,ismus,2.51,
+Kubismus,m,ismus,2.51,group (wordnet)
+Blasenentzündung,f,ung,2.51,compound
+Raumaufteilung,f,ung,2.51,compound
+Abtragung,f,ung,2.51,
+Umformung,f,ung,2.51,
+Reaktionsfähigkeit,f,keit,2.51,compound
+Autoimmunerkrankung,f,ung,2.51,compound
+Satanismus,m,ismus,2.51,
+Gleichzeitigkeit,f,keit,2.51,
+Missbilligung,f,ung,2.51,compound
+Abmessung,f,ung,2.51,
+Umweltverträglichkeitsprüfung,f,ung,2.51,compound
+Kollektivierung,f,ung,2.5,
+Gastlichkeit,f,keit,2.5,
+Läuterung,f,ung,2.5,
+Weissagung,f,ung,2.5,
+Unterbindung,f,ung,2.5,compound
+Lustlosigkeit,f,keit,2.5,
+Liveübertragung,f,ung,2.5,compound
+Vergasung,f,ung,2.5,
+Verwendbarkeit,f,keit,2.5,
+Altbauwohnung,f,ung,2.5,compound
+Lebensbeschreibung,f,ung,2.5,compound
+Aufgabenverteilung,f,ung,2.5,compound
+Bauanleitung,f,ung,2.5,compound
+Entartung,f,ung,2.5,
+Gesetzmäßigkeit,f,keit,2.5,Ge-
+Abschlusskundgebung,f,ung,2.5,compound
+Doppeldeutigkeit,f,keit,2.5,proper name

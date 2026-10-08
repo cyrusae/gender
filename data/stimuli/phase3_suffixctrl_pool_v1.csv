@@ -1,0 +1,84 @@
+lang,lemma,gender,concept_en,gloss,set,suffix,loan,zipf,en_overlap,sex_assoc,source
+de,Sozialismus,m,socialism,socialism,suffix_ctrl,ismus,native,4.13,False,,wiktionary:kaikki@2026-10-03
+de,Kommunismus,m,communism,"communism, Communism",suffix_ctrl,ismus,loan,3.79,False,,wiktionary:kaikki@2026-10-03
+de,Nationalismus,m,nationalism,nationalism,suffix_ctrl,ismus,unknown,3.73,True,,wiktionary:kaikki@2026-10-03
+de,Optimismus,m,optimism,optimism,suffix_ctrl,ismus,unknown,3.62,False,,wiktionary:kaikki@2026-10-03
+de,Extremismus,m,extremism,extremism,suffix_ctrl,ismus,unknown,3.46,True,,wiktionary:kaikki@2026-10-03
+de,Imperialismus,m,imperialism,imperialism (policy aimed at winning dominance over other nations),suffix_ctrl,ismus,loan,3.36,True,,wiktionary:kaikki@2026-10-03
+de,Idealismus,m,idealism,idealism,suffix_ctrl,ismus,native,3.32,False,,wiktionary:kaikki@2026-10-03
+de,Atheismus,m,atheism,atheism,suffix_ctrl,ismus,native,3.17,False,,wiktionary:kaikki@2026-10-03
+de,Lobbyismus,m,lobbyism,"lobbyism, lobbying",suffix_ctrl,ismus,native,3.09,False,,wiktionary:kaikki@2026-10-03
+de,Konservatismus,m,conservatism,conservatism,suffix_ctrl,ismus,unknown,2.95,False,,wiktionary:kaikki@2026-10-03
+de,Fundamentalismus,m,fundamentalism,fundamentalism,suffix_ctrl,ismus,loan,2.94,True,,wiktionary:kaikki@2026-10-03
+de,Militarismus,m,militarism,militarism,suffix_ctrl,ismus,unknown,2.94,True,,wiktionary:kaikki@2026-10-03
+de,Pazifismus,m,pacifism,pacifism,suffix_ctrl,ismus,unknown,2.9,False,,wiktionary:kaikki@2026-10-03
+de,Kannibalismus,m,cannibalism,cannibalism,suffix_ctrl,ismus,native,2.84,False,,wiktionary:kaikki@2026-10-03
+de,Absolutismus,m,absolutism,absolutism,suffix_ctrl,ismus,loan,2.81,True,,wiktionary:kaikki@2026-10-03
+de,Nihilismus,m,nihilism,nihilism,suffix_ctrl,ismus,unknown,2.67,False,,wiktionary:kaikki@2026-10-03
+de,Darwinismus,m,darwinism,Darwinism,suffix_ctrl,ismus,native,2.61,True,,wiktionary:kaikki@2026-10-03
+de,Schamanismus,m,shamanism,shamanism,suffix_ctrl,ismus,unknown,2.56,False,,wiktionary:kaikki@2026-10-03
+de,Metabolismus,m,metabolism,metabolism,suffix_ctrl,ismus,unknown,2.56,True,,wiktionary:kaikki@2026-10-03
+de,Satanismus,m,satanism,satanism,suffix_ctrl,ismus,native,2.51,False,,wiktionary:kaikki@2026-10-03
+de,Unabhängigkeit,f,independence,independence,suffix_ctrl,keit,native,4.2,False,,wiktionary:kaikki@2026-10-03
+de,Ewigkeit,f,eternity,eternity,suffix_ctrl,keit,native,4.05,False,,wiktionary:kaikki@2026-10-03
+de,Gültigkeit,f,validity,validity,suffix_ctrl,keit,native,3.75,False,,wiktionary:kaikki@2026-10-03
+de,Wirtschaftlichkeit,f,efficiency,"efficiency, economic efficiency, profitability, cost-effectiveness, economic viability",suffix_ctrl,keit,native,3.55,False,,wiktionary:kaikki@2026-10-03
+de,Rechtmäßigkeit,f,legality,"legality, legitimacy",suffix_ctrl,keit,native,3.25,False,,wiktionary:kaikki@2026-10-03
+de,Achtsamkeit,f,mindfulness,"mindfulness, wariness",suffix_ctrl,keit,native,3.24,False,,wiktionary:kaikki@2026-10-03
+de,Regelmäßigkeit,f,homogeneity,"homogeneity, uniformity",suffix_ctrl,keit,native,3.2,False,,wiktionary:kaikki@2026-10-03
+de,Sinnlichkeit,f,sensuality,sensuality,suffix_ctrl,keit,unknown,3.17,False,,wiktionary:kaikki@2026-10-03
+de,Wertigkeit,f,valence,valence,suffix_ctrl,keit,native,3.16,False,,wiktionary:kaikki@2026-10-03
+de,Wachsamkeit,f,vigilance,vigilance,suffix_ctrl,keit,native,2.98,False,,wiktionary:kaikki@2026-10-03
+de,Fettleibigkeit,f,obesity,obesity,suffix_ctrl,keit,native,2.92,False,,wiktionary:kaikki@2026-10-03
+de,Hartnäckigkeit,f,tenacity,"tenacity, persistence, doggedness",suffix_ctrl,keit,native,2.91,False,,wiktionary:kaikki@2026-10-03
+de,Mächtigkeit,f,cardinality,cardinality,suffix_ctrl,keit,unknown,2.89,False,,wiktionary:kaikki@2026-10-03
+de,Enthaltsamkeit,f,abstinence,abstinence,suffix_ctrl,keit,native,2.72,False,,wiktionary:kaikki@2026-10-03
+de,Vergesslichkeit,f,forgetfulness,forgetfulness,suffix_ctrl,keit,unknown,2.69,False,,wiktionary:kaikki@2026-10-03
+de,Redlichkeit,f,honesty,"honesty, integrity",suffix_ctrl,keit,native,2.66,False,,wiktionary:kaikki@2026-10-03
+de,Unmündigkeit,f,immaturity,immaturity,suffix_ctrl,keit,native,2.65,False,,wiktionary:kaikki@2026-10-03
+de,Heftigkeit,f,fierceness,"fierceness, vehemence",suffix_ctrl,keit,unknown,2.58,False,,wiktionary:kaikki@2026-10-03
+de,Mehrdeutigkeit,f,ambiguity,ambiguity,suffix_ctrl,keit,native,2.57,False,,wiktionary:kaikki@2026-10-03
+de,Unsichtbarkeit,f,invisibility,invisibility,suffix_ctrl,keit,native,2.55,False,,wiktionary:kaikki@2026-10-03
+de,Engagement,n,commitment,"commitment, dedication",suffix_ctrl,ment,loan,4.45,True,,wiktionary:kaikki@2026-10-03
+de,Dokument,n,document,document,suffix_ctrl,ment,loan,4.16,False,,wiktionary:kaikki@2026-10-03
+de,Kompliment,n,compliment,compliment,suffix_ctrl,ment,loan,3.84,True,,wiktionary:kaikki@2026-10-03
+de,Fundament,n,foundation,foundation,suffix_ctrl,ment,native,3.84,False,,wiktionary:kaikki@2026-10-03
+de,Sortiment,n,range,range (the entirety or a particular grouping of the articles produced by a company or sold by a shop),suffix_ctrl,ment,loan,3.81,False,,wiktionary:kaikki@2026-10-03
+de,Medikament,n,drug,"drug, medicine",suffix_ctrl,ment,loan,3.77,False,,wiktionary:kaikki@2026-10-03
+de,Temperament,n,temperament,temperament,suffix_ctrl,ment,loan,3.4,True,,wiktionary:kaikki@2026-10-03
+de,Reglement,n,regulation,"regulation, regulations",suffix_ctrl,ment,loan,3.3,False,,wiktionary:kaikki@2026-10-03
+de,Abonnement,n,subscription,subscription,suffix_ctrl,ment,loan,3.25,False,,wiktionary:kaikki@2026-10-03
+de,Appartement,n,suite in a hotel,suite in a hotel,suffix_ctrl,ment,loan,3.23,False,,wiktionary:kaikki@2026-10-03
+de,Sakrament,n,sacrament,sacrament,suffix_ctrl,ment,native,3.18,False,,wiktionary:kaikki@2026-10-03
+de,Etablissement,n,establishment,establishment,suffix_ctrl,ment,loan,2.92,False,,wiktionary:kaikki@2026-10-03
+de,Pergament,n,parchment,parchment (material),suffix_ctrl,ment,loan,2.92,False,,wiktionary:kaikki@2026-10-03
+de,Firmament,n,firmament,"firmament (the sky, especially when conceived as a dome)",suffix_ctrl,ment,native,2.63,True,,wiktionary:kaikki@2026-10-03
+de,Ressentiment,n,resentment,resentment,suffix_ctrl,ment,loan,2.56,True,,wiktionary:kaikki@2026-10-03
+de,Irrtum,m,error,"error, mistake",suffix_ctrl,tum,native,3.87,False,,wiktionary:kaikki@2026-10-03
+de,Wachstum,n,growth,growth,suffix_ctrl,tum,native,4.41,False,,wiktionary:kaikki@2026-10-03
+de,Eigentum,n,ownership,ownership,suffix_ctrl,tum,native,4.29,False,,wiktionary:kaikki@2026-10-03
+de,Bistum,n,bishopric,bishopric,suffix_ctrl,tum,native,3.6,False,,wiktionary:kaikki@2026-10-03
+de,Heiligtum,n,sacred site,sacred site; sanctuary; shrine,suffix_ctrl,tum,native,3.33,False,,wiktionary:kaikki@2026-10-03
+de,Altertum,n,antiquity,antiquity,suffix_ctrl,tum,native,3.14,False,,wiktionary:kaikki@2026-10-03
+de,Schrifttum,n,corpus,corpus (entirety of literature in a particular domain),suffix_ctrl,tum,native,2.74,False,,wiktionary:kaikki@2026-10-03
+de,Heldentum,n,heroism,heroism,suffix_ctrl,tum,unknown,2.62,False,,wiktionary:kaikki@2026-10-03
+de,Forschung,f,research,research,suffix_ctrl,ung,native,4.7,False,,wiktionary:kaikki@2026-10-03
+de,Umsetzung,f,implementation,"implementation, execution, realisation",suffix_ctrl,ung,native,4.45,False,,wiktionary:kaikki@2026-10-03
+de,Entfernung,f,distance,distance,suffix_ctrl,ung,native,4.37,False,,wiktionary:kaikki@2026-10-03
+de,Abwechslung,f,alternation,alternation,suffix_ctrl,ung,unknown,4.01,False,,wiktionary:kaikki@2026-10-03
+de,Verspätung,f,delay,"delay, lateness, late arrival",suffix_ctrl,ung,native,3.98,False,,wiktionary:kaikki@2026-10-03
+de,Vergütung,f,consideration,"consideration, emolument (a recompense for something done)",suffix_ctrl,ung,native,3.71,False,,wiktionary:kaikki@2026-10-03
+de,Benennung,f,naming,"naming, denomination",suffix_ctrl,ung,native,3.62,False,,wiktionary:kaikki@2026-10-03
+de,Qualifizierung,f,qualification,qualification,suffix_ctrl,ung,unknown,3.34,False,,wiktionary:kaikki@2026-10-03
+de,Verschmelzung,f,merger,"merger, amalgamation",suffix_ctrl,ung,native,3.32,False,,wiktionary:kaikki@2026-10-03
+de,Zerschlagung,f,destruction,"destruction, crushing, smashing, shattering",suffix_ctrl,ung,native,3.22,False,,wiktionary:kaikki@2026-10-03
+de,Anziehung,f,attraction,attraction; pull; draw,suffix_ctrl,ung,unknown,3.11,False,,wiktionary:kaikki@2026-10-03
+de,Namensgebung,f,naming,naming (name giving),suffix_ctrl,ung,native,3.08,False,,wiktionary:kaikki@2026-10-03
+de,Vervielfältigung,f,duplication,duplication,suffix_ctrl,ung,native,3.07,False,,wiktionary:kaikki@2026-10-03
+de,Abwandlung,f,adaptation,"adaptation, variation",suffix_ctrl,ung,native,3.0,False,,wiktionary:kaikki@2026-10-03
+de,Suspendierung,f,suspension,suspension,suffix_ctrl,ung,native,2.99,False,,wiktionary:kaikki@2026-10-03
+de,Verkettung,f,concatenation,concatenation,suffix_ctrl,ung,native,2.85,False,,wiktionary:kaikki@2026-10-03
+de,Biegung,f,bend,bend; curve,suffix_ctrl,ung,native,2.83,False,,wiktionary:kaikki@2026-10-03
+de,Federung,f,suspension,suspension,suffix_ctrl,ung,unknown,2.81,False,,wiktionary:kaikki@2026-10-03
+de,Beheizung,f,heating,heating,suffix_ctrl,ung,unknown,2.7,False,,wiktionary:kaikki@2026-10-03
+de,Streckung,f,stretching,"stretching, straightening (both spatially as well as temporally)",suffix_ctrl,ung,native,2.65,False,,wiktionary:kaikki@2026-10-03
