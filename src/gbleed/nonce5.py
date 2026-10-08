@@ -51,6 +51,17 @@ def _generator(plugin: str):
     return g
 
 
+def _generate(g, templates: list[str], ncand: int) -> tuple[list[dict], list[str]]:
+    """Wuggy per template; templates missing from Wuggy's own lexicon are skipped and listed."""
+    out, skipped = [], []
+    for t in templates:
+        try:
+            out += g.generate_classic([t], ncandidates_per_sequence=ncand)
+        except Exception:  # noqa: BLE001 (Wuggy raises a bare Exception for unknown words)
+            skipped.append(t)
+    return out, skipped
+
+
 def _zero_freq(w: str) -> bool:
     from wordfreq import zipf_frequency
 
@@ -79,7 +90,8 @@ def build_spanish(n_stems: int = 150, ncand: int = 10) -> pd.DataFrame:
     all_forms, _, _ = scan_spanish()
     g = _generator("orthographic_spanish")
     templates = spanish_templates()
-    res = g.generate_classic(templates, ncandidates_per_sequence=ncand)
+    res, skipped = _generate(g, templates, ncand)
+    print(f"Spanish templates: {len(templates)}, not in Wuggy's lexicon: {len(skipped)}")
     stems = {}
     for r in res:
         pw = r["pseudoword"]
@@ -136,7 +148,9 @@ def english_templates(n: int = 200) -> list[str]:
 def build_english(n: int = 100, ncand: int = 5) -> pd.DataFrame:
     wn = _wordnet()
     g = _generator("orthographic_english")
-    res = g.generate_classic(english_templates(), ncandidates_per_sequence=ncand)
+    templates = english_templates()
+    res, skipped = _generate(g, templates, ncand)
+    print(f"English templates: {len(templates)}, not in Wuggy's lexicon: {len(skipped)}")
     seen, rows = set(), []
     for r in res:
         pw = r["pseudoword"]
