@@ -44,8 +44,11 @@ def _items() -> pd.DataFrame:
     return p
 
 
-def score(model_id: str, device=None, dtype=None, out_root: str = "results/phase3_known"):
-    df = _items()
+def score(
+    model_id: str, device=None, dtype=None, out_root: str = "results/phase3_known", items=None
+):
+    """`items`: another word list to score with the same frames (default: the Phase 3 pool)."""
+    df = _items() if items is None else items.reset_index(drop=True).copy()
     dev = pick_device(device)
     dt = pick_dtype(dtype, dev)
     model, tok = load_model(model_id, dev, dt)
