@@ -179,3 +179,24 @@ def test_fit_logistic_degenerate_all_zero_features():
 
     lr = fit_logistic(np.zeros((20, 300)), np.r_[np.zeros(10), np.ones(10)].astype(int))
     assert lr.coef_.shape == (1, 300) and np.all(lr.coef_ == 0)
+
+
+def test_split_half_bootstrap_keeps_copies_together():
+    """Pure noise: under bootstrap resampling, squared lengths must stay ~0 (unbiased) when
+    copies of an item are kept in one half; splitting copies across halves inflates them."""
+    from gbleed.estimators import boot_within, split_half_geometry
+
+    rng = np.random.default_rng(0)
+    n, d = 120, 400
+    labels = np.array(["m", "f", "n"] * (n // 3))
+    cells = np.array(["a", "b"] * (n // 2))
+    X = rng.normal(size=(n, d))
+    fixed, naive = [], []
+    for _ in range(40):
+        bi = boot_within(cells, labels, rng)
+        args = (X[bi], labels[bi], cells[bi], [], ["m", "f"], "n")
+        fixed.append(split_half_geometry(*args, rng, 20, items=bi)["len2_m"])
+        naive.append(split_half_geometry(*args, rng, 20)["len2_m"])
+    noise = d * (1 / 40 + 1 / 40)  # plain squared-length bias scale, tr(Sigma)(1/n_m + 1/n_n)
+    assert abs(np.mean(fixed)) < 0.15 * noise
+    assert np.mean(naive) > 0.3 * noise
