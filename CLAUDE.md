@@ -9,6 +9,10 @@ Research project: does an LLM's representation of grammatical gender (learned fr
 - The PI **doesn't read German**. Never rely on them to check German content. Anything they need to review must be checkable in English (show glosses).
 - Preference: **drop anything that would need a manual check** rather than keep it and ask for review. Small, clean, automatically filtered sets beat large ones needing review. Hand-picked items (classics) are the exception, and they still get automatic checks.
 - Report findings that cut against what you just built (e.g. a measure that turns out noisy).
+- Keep `docs/project-outline.md` (the chronological "what we've done" outline) current: add to it
+  whenever a phase, a cloud session or another major step finishes.
+- The PI has ADHD and is tracking many threads: when several are open, give one consolidated list
+  (running / waiting on the PI / next) with a recommendation.
 
 ## Hard rules
 
