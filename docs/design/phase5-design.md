@@ -397,8 +397,20 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     "{noun}". Described in one word, it is very ___* (gloss and noun in the other order, no
     article to choose for mass nouns); (W3) *The Spanish word "{noun}" means {gloss}. I think it
     is very ___*.
-  - Rejected: *Everyone says…* (a social frame, which is what we measure); *looks very* (visual
-    bias), *seems* and *so* (already rejected for R1-EN); wordings with the noun after the slot.
+  - Rejected from the averaged score: *looks very* (visual bias), *seems* and *so* (already
+    rejected for R1-EN); wordings with the noun after the slot. *Everyone says…* is kept out of
+    the average (a social frame would change what the primary score measures) but added as a
+    contrast (below).
+  - **Consensus contrast (PI, 2026-10-08), secondary:** (W4) R1-EN *Everyone says the {noun} is
+    very ___*; R1 *The Spanish word "{noun}" means {gloss}. Everyone says it is very ___*. W3 and
+    W4 are a minimal pair: a personal opinion vs what people say (consensus, i.e. the register
+    stereotypes are reported in). Statistic: W4's gender coefficient minus W3's, with a noun
+    bootstrap CI, two-sided (no direction pre-registered; a larger W4 effect would suggest the
+    bleed travels through stereotype knowledge, a smaller one that consensus framing pulls
+    toward generic praise/criticism). Also reported unsteered for R1 (do Spanish feminine vs
+    masculine nouns draw more gendered adjectives under consensus framing?). Same frame check;
+    outside the Holm family. Run at the working dose (real direction + all random directions,
+    whose W4 − W3 differences are the null), not across the dose sweep.
   - **Score:** each adjective's steered-minus-unsteered shift is averaged over the wordings, then
     the same graded regression as now. The averaged score is the pre-registered statistic, so
     the Holm family stays two tests. Each wording's gender coefficient is reported separately;
@@ -412,7 +424,7 @@ renting. Trims if needed: every-position steering at the working dose only (~−
   - Cost: +2 forward passes per steered item and condition for R1 and for R1-EN, on top of the
     ~2 each now (with/without *very*) and R2/R2-EN's seven each: roughly **+20–35% steered
     compute**, i.e. the session-2 estimate of 9–12 A100-hours becomes **~11–16 h (~$17–25)**,
-    to be firmed up by the Mac dry run. Trim if needed, decided before renting: W2/W3 at the working dose only
+    to be firmed up by the Mac dry run. W4 at the working dose only adds a few percent. Trim if needed, decided before renting: W2/W3 at the working dose only
     (real + all 100 random directions), dose sweep on W1.
 - **P15. Adopted (PI, 2026-10-08).** Graded nonce ending set (*-a*/*-o*/*-e*/consonant on the same stems), **all new nonce
   sets generated with Wuggy** (`wuggy` 1.1.2, MIT; confirm the Spanish module before building),
