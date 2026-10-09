@@ -36,8 +36,12 @@ def nuisance(cells, covs=()) -> np.ndarray:
 
 
 def residualise(X: np.ndarray, Z: np.ndarray) -> np.ndarray:
-    B, *_ = np.linalg.lstsq(Z, X, rcond=None)
-    return X - Z @ B
+    """X minus its least-squares fit on Z: X - U U^T X, U = Z's left singular vectors (rank cut as
+    np.linalg.lstsq's default). The same fitted values as lstsq, ~30x faster for wide X (lstsq's
+    solver is slow with thousands of right-hand sides)."""
+    U, s, _ = np.linalg.svd(Z, full_matrices=False)
+    U = U[:, s > s[0] * max(Z.shape) * np.finfo(float).eps]
+    return X - U @ (U.T @ X)
 
 
 def auc(y, s) -> float:
@@ -52,6 +56,37 @@ def auc(y, s) -> float:
         return float("nan")
     r = rankdata(s)
     return float((r[y].sum() - n1 * (n1 + 1) / 2) / (n1 * n0))
+
+
+def _newton_logistic(C: np.ndarray, y1: np.ndarray, tol: float = 1e-9, max_iter: int = 100):
+    """Binary L2 logistic regression, sklearn's objective with C = 1 (log-loss sum + ||a||^2 / 2,
+    intercept unpenalised), by Newton's method with backtracking. Returns (a, b), or None if it
+    doesn't converge (the caller falls back to sklearn)."""
+    n, r = C.shape
+    A = np.column_stack([C, np.ones(n)])
+    pen = np.r_[np.ones(r), 0.0]
+    w = np.zeros(r + 1)
+
+    def f(w):
+        eta = A @ w
+        return np.logaddexp(0, eta).sum() - y1 @ eta + 0.5 * (pen * w) @ w
+
+    fw = f(w)
+    for _ in range(max_iter):
+        p = 0.5 * (1 + np.tanh(0.5 * (A @ w)))  # sigmoid, overflow-free
+        g = A.T @ (p - y1) + pen * w
+        if np.abs(g).max() < tol:
+            return w[:r], w[r]
+        H = (A.T * (p * (1 - p))) @ A + np.diag(pen)
+        step = np.linalg.solve(H, g)
+        t = 1.0
+        while True:  # Armijo backtracking
+            fn = f(w - t * step)
+            if fn <= fw - 1e-4 * t * (g @ step) or t < 1e-10:
+                break
+            t *= 0.5
+        w, fw = w - t * step, fn
+    return None
 
 
 def fit_logistic(Z: np.ndarray, y: np.ndarray) -> LogisticRegression:
@@ -70,7 +105,14 @@ def fit_logistic(Z: np.ndarray, y: np.ndarray) -> LogisticRegression:
         # for every word): the direct fit, which returns zero weights, as the original code did
         return LogisticRegression(C=1.0, max_iter=5000).fit(Z, y)
     s, U = np.sqrt(w[keep]), U[:, keep]
-    lr = LogisticRegression(C=1.0, max_iter=5000).fit(U * s, y)
+    classes = np.unique(y)
+    sol = _newton_logistic(U * s, (y == classes[-1]).astype(float)) if len(classes) == 2 else None
+    if sol is None:  # multiclass (or no convergence): sklearn's lbfgs on the same coordinates
+        lr = LogisticRegression(C=1.0, max_iter=5000).fit(U * s, y)
+    else:  # an sklearn object carrying the Newton solution, so predict() etc. work unchanged
+        lr = LogisticRegression(C=1.0)
+        lr.classes_, lr.coef_, lr.intercept_ = classes, sol[0][None], np.array([sol[1]])
+        lr.n_iter_ = np.array([0])
     lr.coef_ = lr.coef_ @ ((U / s).T @ Z)
     lr.n_features_in_ = d
     return lr

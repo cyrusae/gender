@@ -149,6 +149,31 @@ def test_auc_matches_sklearn_with_ties():
     assert np.isnan(auc(np.ones(5), np.arange(5)))
 
 
+def test_residualise_matches_lstsq_incl_rank_deficient():
+    from gbleed.estimators import residualise
+
+    rng = np.random.default_rng(0)
+    X = rng.normal(size=(50, 300))
+    Z = rng.normal(size=(50, 6))
+    Z[:, 5] = Z[:, 0] + Z[:, 1]  # rank-deficient, as a bootstrap with an empty cell can be
+    B, *_ = np.linalg.lstsq(Z, X, rcond=None)
+    assert np.abs(residualise(X, Z) - (X - Z @ B)).max() < 1e-10
+
+
+def test_newton_matches_sklearn_tight_and_separable():
+    from sklearn.linear_model import LogisticRegression
+
+    from gbleed.estimators import fit_logistic
+
+    rng = np.random.default_rng(1)
+    Z = rng.normal(size=(40, 500))
+    y = (Z[:, 0] > 0).astype(int)  # separable: the L2 penalty keeps the optimum finite
+    a = fit_logistic(Z, y)
+    b = LogisticRegression(C=1.0, max_iter=100000, tol=1e-12).fit(Z, y)
+    cos = (a.coef_ @ b.coef_.T).item() / np.linalg.norm(a.coef_) / np.linalg.norm(b.coef_)
+    assert cos > 0.99999 and abs(a.intercept_[0] - b.intercept_[0]) < 1e-3
+
+
 def test_fit_logistic_degenerate_all_zero_features():
     from gbleed.estimators import fit_logistic
 
