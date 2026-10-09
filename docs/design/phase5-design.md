@@ -489,6 +489,33 @@ renting. Trims if needed: every-position steering at the working dose only (~−
   most, over the whole vocabulary; (3) shortlist coverage: the share of slot probability the
   rated adjectives take, and the most probable unrated words (a check on the confirmatory
   design). No test is run on these; no choice is changed because of them.
+- **P22. Adopted (PI, 2026-10-08): the model's own gender axis, validated against Glasgow
+  (exploratory).** A measurement *of* the model, not an outcome scale for the bleed tests (those
+  stay on human ratings: scoring a steered direction on the model's own axis would partly
+  re-measure the overlap Phase 4/P14/§5.7 already test, and the axis also carries grammar).
+  - **Axis, fixed now:** per model and language, the mean difference of the output (unembedding)
+    vectors of suppletive woman/man pairs, the same concepts in every language: *woman/man*,
+    *mother/father* (es *mujer/hombre*, *madre/padre*; de *Frau/Mann*, *Mutter/Vater*).
+    Excluded on principle: Spanish/German pronouns (*ella/él*, *sie/er* agree with objects too:
+    grammar; German *sie* is also "they"/formal "you"); *-a/-o* and *-in* pairs (*hija/hijo*,
+    *Königin/König*: the ending would carry spelling/morphology into the axis). English is also
+    reported with *she/he* added. Words are scored by cosine with the axis (first token, with a
+    leading space; multi-token words flagged).
+  - **Validation (the point of P22):** Spearman correlation between the axis score and the
+    Glasgow gender rating over the rated adjectives, raw and partial on valence (r = −0.47: an
+    axis could be a pleasantness axis). In English on the English adjectives; in Spanish and
+    German on their Wiktionary translations (P20 mapping), still against the English rating.
+  - **Cross-language:** rank correlation of the axis scores of translation-equivalent
+    adjectives (es vs en, de vs en, es vs de), and cosine between the languages' axes.
+  - **Reading it:** if the Spanish/German validation is close to the English one, the model's
+    in-language sense of gendered adjectives agrees with the projected English ratings, which
+    supports using them in R3/R3-PAIR; if much lower, R3's reliance on Glasgow is weakened and
+    that is reported. Either way it describes this "speaker", not human Spanish or German
+    speakers: it doesn't replace native norms.
+  - **Coverage:** where validation is good, the axis also scores unrated tokens in the P21
+    open-vocabulary record (descriptive only).
+  - Cheap: no forward passes for the axis itself (output weights only); every model, Mac and
+    pod. Outside Holm.
 - **P15. Adopted (PI, 2026-10-08).** Graded nonce ending set (*-a*/*-o*/*-e*/consonant on the same stems), **all new nonce
   sets generated with Wuggy** (`wuggy` 1.1.2, MIT; confirm the Spanish module before building),
   plus the Phase 1 checks (absent from Wiktionary, zero frequency in six languages)?
