@@ -426,7 +426,7 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     compute**, i.e. the session-2 estimate of 9–12 A100-hours becomes **~11–16 h (~$17–25)**,
     to be firmed up by the Mac dry run. W4 at the working dose only adds a few percent. Trim if needed, decided before renting: W2/W3 at the working dose only
     (real + all 100 random directions), dose sweep on W1.
-- **P19. Proposed (2026-10-08, PI): a gender wug test on the R-NONCE words (exploratory).**
+- **P19. Adopted (PI, 2026-10-08): a gender wug test on the R-NONCE words (exploratory).**
   Do models assign Spanish gender to brand-new words by their ending, from what size up, and in
   the order the lexicon predicts? Published LLM wug tests (Weissweiler et al. 2023; Anh et al.
   2024) cover inflection in large chat models, not gender assignment across one family's sizes.
