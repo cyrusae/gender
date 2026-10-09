@@ -65,6 +65,7 @@ uv run gbleed phase0-compare [--by freq_bin|set|de_suffix|es_exception]
 - **Don't edit a job list a running bash `while read` loop is reading** (it buffers); start a new runner instead.
 
 - **Lengths and cosines of mean differences are noise-biased** (smaller group looks longer; shared reference pushes cosines up): use split-half estimates + a within-cell shuffle null (`estimators.py`).
+- **Mac memory: 8 parallel analysis jobs (4 of them 30B-A3B) + a GPU run filled 23 GB of swap** (thrashing, battery drain on the 18 W charger). Cap parallel jobs by memory, not cores; check `sysctl vm.swapusage` before adding work.
 - **Two models on the Mac's GPU at once slow down ~30×**: run GPU steps one at a time; CPU analyses can run in parallel (set `OMP_NUM_THREADS=1` etc.).
 
 - **Never test an eraser with a probe trained on the eraser's fit data**: chance by construction (LEACE equalises class means → zero optimal weights). Erase-all-then-cross-validate goes *below* chance. Report AUC, not just accuracy.
