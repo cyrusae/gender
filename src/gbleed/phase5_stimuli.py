@@ -48,7 +48,8 @@ DE_GATE_CANDIDATES = {
     "C3": ("Wörterbuch:\n{noun}, mit", {"m": [" dem"], "f": [" der"]}, None),
     "C4": ("Wörterbuch:\n{noun},", {"m": [" der"], "f": [" die"]}, "N/A"),
 }  # fmt: skip
-DE_GATE_PRIMARY = None  # set from the frame-check selection (decisions.md)
+DE_GATE_PRIMARY = "C4"  # PI 2026-10-09 (decisions.md): one frame for all models
+DE_GATE_SECONDARY = "C1"
 
 
 def glasgow() -> pd.DataFrame:

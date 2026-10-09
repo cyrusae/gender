@@ -430,7 +430,7 @@ def run_gate(model_id: str, out_root: str = "results/phase5_gate", device=None, 
     from datetime import UTC, datetime
 
     from .models import load_model, pick_device, pick_dtype, run_metadata
-    from .phase5_stimuli import NOUNS
+    from .phase5_stimuli import DE_GATE_PRIMARY, DE_GATE_SECONDARY, NOUNS
 
     nouns = pd.read_csv(NOUNS, keep_default_na=False)
     dev = pick_device(device)
@@ -447,14 +447,17 @@ def run_gate(model_id: str, out_root: str = "results/phase5_gate", device=None, 
             if max_nouns:
                 nn = nn.groupby("gender").head(max_nouns // 2)
             v = dom_vector(model_id, lang, k)
-            g, sec = timed(gate, model, tok, model_id, k, nn, lang, v)
-            g["table"].to_csv(out / f"gate_{lang}_k{k}.csv", index=False)
-            s = {kk: vv for kk, vv in g.items() if kk != "table"}
-            s |= {"seconds": sec, "n_nouns": len(nn)}
-            summary.append(s)
-            stage(f"k={k} {lang}: alpha*={g['alpha_star']} random flip "
-                  f"{np.mean(g['random_flip']) if g['random_flip'] else float('nan'):.2f} "
-                  f"pass={g['passes']} ({sec:.0f} s)")  # fmt: skip
+            frames = [None] if lang == "es" else [DE_GATE_PRIMARY, DE_GATE_SECONDARY]
+            for fr in frames:
+                g, sec = timed(gate, model, tok, model_id, k, nn, lang, v, de_frame=fr)
+                tag = lang if fr is None else f"{lang}_{fr}"
+                g["table"].to_csv(out / f"gate_{tag}_k{k}.csv", index=False)
+                s = {kk: vv for kk, vv in g.items() if kk != "table"}
+                s |= {"frame": fr, "seconds": sec, "n_nouns": len(nn)}
+                summary.append(s)
+                stage(f"k={k} {tag}: alpha*={g['alpha_star']} random flip "
+                      f"{np.mean(g['random_flip']) if g['random_flip'] else float('nan'):.2f} "
+                      f"pass={g['passes']} ({sec:.0f} s)")  # fmt: skip
     (out / "summary.json").write_text(json.dumps({"meta": meta, "gate": summary}, indent=1,
                                                  default=float))  # fmt: skip
     return summary
