@@ -75,17 +75,18 @@ def states_at(model, tok, words: list[str], after: str | None = None, batch_size
         for j, sq in enumerate(batch):  # right-padding; causal attention ignores the pad tail
             ids[j, : len(sq)] = torch.tensor(sq)
             mask[j, : len(sq)] = 1
-        hs = model(
+        # The transformer body only: the output layer's vocabulary-sized logits aren't needed.
+        hs = model.get_decoder()(
             input_ids=ids.to(model.device), attention_mask=mask.to(model.device),
             output_hidden_states=True,
         ).hidden_states  # fmt: skip
-        stacked = torch.stack(hs, dim=1)  # [b, L+1, t, d]
-        rows = torch.arange(len(batch))
-        last = torch.tensor([len(pre) + len(b) - 1 for b in bodies])
-        out_last.append(stacked[rows, :, last].float().cpu().numpy())
+        rows = torch.arange(len(batch), device=model.device)
+        last = torch.tensor([len(pre) + len(b) - 1 for b in bodies], device=model.device)
+        # pick the readout positions per layer, then stack: [b, L+1, d]
+        out_last.append(torch.stack([h[rows, last] for h in hs], 1).float().cpu().numpy())
         if suf:
-            end = torch.tensor([len(sq) - 1 for sq in batch])
-            out_after.append(stacked[rows, :, end].float().cpu().numpy())
+            end = torch.tensor([len(sq) - 1 for sq in batch], device=model.device)
+            out_after.append(torch.stack([h[rows, end] for h in hs], 1).float().cpu().numpy())
     X_last = np.concatenate(out_last)
     check_no_sink(X_last, words)
     X_after = np.concatenate(out_after) if suf else None
