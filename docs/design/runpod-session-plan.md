@@ -211,6 +211,15 @@ two. The Mac exploratory run replaces these guesses with measured throughput.
   model in progress.
 - Budget guard as in session 1: no new model starts past a set hour limit; the PI sets the hard
   stop (credit balance; no pre-paying).
+- **Efficiency changes since session 1 (2026-10-08 overnight; checked on the Mac):** the
+  scorer runs the vocabulary-sized output layer only at scored positions and moves results off
+  the GPU once per batch (identical to 4e-6 nat); `GBLEED_FP32_HEAD=1` gives the fp32 output
+  layer for the known-check rerun (recorded as `head_dtype`; moves fp16 scores by ≤ 0.026
+  nat); extraction skips the output layer (bit-identical); `session.sh` downloads the next
+  model while the current one runs (container disk must hold two models: 8B + 14B ≈ 45 GB, well
+  within 150 GB). Phase 5 steering code is to be written with: layers below the steering
+  layer computed once per item, many conditions per batch (one steering vector per row), and
+  the output layer only at the slot. Batch size: try 128–256 on the A100 (Mac default 32).
 - Behavioural results and activations are small this time (steering outputs are scores, not
   activations), except the Phase 2/3 re-extraction (~6–9 GB per model, as session 1).
 

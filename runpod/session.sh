@@ -23,12 +23,25 @@ step() {  # step NAME CMD...: timed, logged, stops the session on failure
 }
 {
   echo "=== $(date) session start on $(uv run python -c 'import torch; print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else "no CUDA")'), commit $(cat BUNDLE_COMMIT.txt)"
-  for M in $MODELS; do
+  # Prefetch: the next model downloads in the background while the current one runs, so the GPU
+  # doesn't sit idle during downloads (session 1). Needs disk for two models at once
+  # (PREFETCH=0 to turn off).
+  fetch() { uv run python -c "from huggingface_hub import snapshot_download; snapshot_download('$1')"; }
+  read -r -a MLIST <<< "$MODELS"
+  PF_PID=""
+  for idx in "${!MLIST[@]}"; do
+    M=${MLIST[$idx]}
     if [ "$(( $(date +%s) - START ))" -gt "$(python3 -c "print(int($MAX_HOURS*3600))")" ]; then
       echo "=== $(date +%T) MAX_HOURS ($MAX_HOURS h) reached: not starting $M"; break
     fi
     S=$(echo "$M" | tr '/' '_' | sed 's/_/__/')
-    step "$M download" uv run python -c "from huggingface_hub import snapshot_download; snapshot_download('$M')"
+    if [ -n "$PF_PID" ]; then wait "$PF_PID" || echo "=== prefetch of $M failed; retrying"; PF_PID=""; fi
+    step "$M download" fetch "$M"  # no-op when the prefetch finished
+    NEXT=${MLIST[$((idx + 1))]:-}
+    if [ -n "$NEXT" ] && [ "${PREFETCH:-1}" = "1" ]; then
+      fetch "$NEXT" > "logs/prefetch_$(echo "$NEXT" | tr '/' '_').log" 2>&1 &
+      PF_PID=$!
+    fi
     # behavioural checks (frozen lists; nothing is re-selected)
     step "$M phase0 v3"          uv run gbleed phase0 "$M" --stimuli data/stimuli/phase0_v3.csv
     step "$M multi-check"        uv run gbleed multi-check "$M"
