@@ -43,6 +43,8 @@ GATE_GRID = (0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0)  # x
 N_RANDOM_GATE = 20
 N_RANDOM = 100  # P9: >= 40; 20 across doses, all 100 at the working dose
 TOPK = 50
+DOSE_SUBSET_FRAC = 0.25  # random directions across doses run on this share of nouns
+DOSE_SUBSET_SEED = 0
 LANG_NAME = {"es": "Spanish", "de": "German"}
 FAMILY = {"Qwen/": "qwen3", "utter-project/EuroLLM": "eurollm"}
 
@@ -464,18 +466,36 @@ def run_gate(model_id: str, out_root: str = "results/phase5_gate", device=None, 
 
 
 # ---- dose-response sweep (§5.3) with specificity controls -------------------------------
-def conditions(n_prompts: int, n_random: int, n_random_sweep: int, extra_vecs: int = 0):
-    """(prompt, vector, dose multiple) for: v (index 0) and the first n_random_sweep random
-    vectors at every DOSE_MULTS; the remaining random vectors at the working dose (1.0) only;
-    extra vectors (number, social; indices after the random ones) at every dose."""
+def conditions(n_prompts: int, n_random: int, n_random_sweep: int, extra_vecs: int = 0,
+               in_subset: list[bool] | None = None):  # fmt: skip
+    """(prompt, vector, dose multiple) for: v (index 0) at every DOSE_MULTS, including 0 (the
+    unsteered baseline, shared by every vector); the first n_random_sweep random vectors at every
+    nonzero dose on the dose subset's prompts (trim, PI 2026-10-09), else at the working dose
+    (1.0) only; the remaining random vectors at the working dose only; extra vectors (number,
+    social; indices after the random ones) at every nonzero dose. A zero dose is the same for
+    every vector, so it is run once (with v)."""
+    nonzero = [m for m in DOSE_MULTS if m != 0.0]
+    extras = list(range(1 + n_random, 1 + n_random + extra_vecs))
     conds = []
-    sweep_vecs = [0, *range(1, 1 + n_random_sweep)]
-    sweep_vecs += list(range(1 + n_random, 1 + n_random + extra_vecs))
     for i in range(n_prompts):
-        for vi in sweep_vecs:
-            conds += [(i, vi, m) for m in DOSE_MULTS]
+        conds += [(i, 0, m) for m in DOSE_MULTS]
+        for vi in extras:
+            conds += [(i, vi, m) for m in nonzero]
+        full = in_subset is None or in_subset[i]
+        for vi in range(1, 1 + n_random_sweep):
+            conds += [(i, vi, m) for m in nonzero] if full else [(i, vi, 1.0)]
         conds += [(i, vi, 1.0) for vi in range(1 + n_random_sweep, 1 + n_random)]
     return conds
+
+
+def dose_subset(nouns: pd.DataFrame, frac: float = DOSE_SUBSET_FRAC,
+                seed: int = DOSE_SUBSET_SEED) -> set[str]:  # fmt: skip
+    """The fixed prompt subset on which random directions run across doses (trim, PI
+    2026-10-09): a seeded share of nouns per (language, set, gender), with their English
+    concepts (R1-EN/R2-EN prompts are keyed by concept). Every wording of a chosen noun is in."""
+    pick = pd.concat([g.sample(max(1, round(frac * len(g))), random_state=seed)
+                      for _, g in nouns.groupby(["lang", "set", "gender"])])  # fmt: skip
+    return set(pick.lemma) | set(pick.concept_en)
 
 
 def readout_sets(tok, nouns: pd.DataFrame, lang: str, fam: str):
@@ -522,7 +542,9 @@ def sweep(model_id: str, k: int, lang: str, alpha_star: float, out_root: str = "
         if readouts and name not in readouts:
             continue
         unit = noun_norm(model, tok, prompts[:: max(1, len(prompts) // 200)], k)
-        conds = conditions(len(prompts), n_random, n_random_sweep)
+        sub = dose_subset(nouns[nouns.lang == lang])
+        conds = conditions(len(prompts), n_random, n_random_sweep,
+                           in_subset=[p.key["lemma"] in sub for p in prompts])  # fmt: skip
         dose = alpha_star  # multiples of alpha* (in norm units)
         cc = [(i, vi, m * dose) for i, vi, m in conds]
         res, sec = timed(run, model, tok, prompts, k, cc, V, read, unit=unit)
