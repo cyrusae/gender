@@ -426,6 +426,30 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     compute**, i.e. the session-2 estimate of 9–12 A100-hours becomes **~11–16 h (~$17–25)**,
     to be firmed up by the Mac dry run. W4 at the working dose only adds a few percent. Trim if needed, decided before renting: W2/W3 at the working dose only
     (real + all 100 random directions), dose sweep on W1.
+- **P19. Proposed (2026-10-08, PI): a gender wug test on the R-NONCE words (exploratory).**
+  Do models assign Spanish gender to brand-new words by their ending, from what size up, and in
+  the order the lexicon predicts? Published LLM wug tests (Weissweiler et al. 2023; Anh et al.
+  2024) cover inflection in large chat models, not gender assignment across one family's sizes.
+  - Items: the 150 R-NONCE stems × *-a/-o/-e/-iz* (`phase5_nonce_es_v1.csv`), scored only, never
+    trained on. **Stems beginning with *a-*/*ha-* dropped (5: *alboñ*, *aspann*, *haubl*,
+    *albov*, *alboh*)**: feminine nouns with stressed initial *a* take *el* (*el aula*), so the
+    article frames would be ambiguous there. 145 stems remain.
+  - Method: Phase 0 exactly (`phase0.py`): *Esto tiene que ver con el/la X.* and *Aquí hay
+    un/una X.*, margin = log P(word + rest | masculine) − log P(… | feminine), no thresholds
+    retuned.
+  - Prediction, fixed now from the Spanish lexicon (share of nouns feminine by ending): *-a*
+    most feminine, then *-iz* (38%), *-e* (16%), *-o* least. Reported per model: mean margin and
+    share preferring feminine per ending; Spearman correlation between the four endings' model
+    order and the lexicon order; *-a* vs *-o* AUC over stems.
+  - **"Passes the gender wug test"** (fixed before data, mirroring the Phase 0 frame check):
+    in both frames, ≥ 70% of *-a* forms prefer feminine and ≥ 70% of *-o* forms prefer
+    masculine. A model that fails gets its R-NONCE unsteered result flagged as uninterpretable
+    (it doesn't treat the endings as gender cues at all).
+  - Models: Qwen3 0.6B/1.7B/4B and EuroLLM-1.7B on the Mac (exploratory, fp16); 0.6B–14B in
+    session 2 on one chip (minutes; scoring only). Tokenisation reported (whether the ending is
+    its own token), since that may decide what small models can see.
+  - Not tested: German (no German nonces yet; candidate after S1), English nonces (no grammatical
+    gender).
 - **P15. Adopted (PI, 2026-10-08).** Graded nonce ending set (*-a*/*-o*/*-e*/consonant on the same stems), **all new nonce
   sets generated with Wuggy** (`wuggy` 1.1.2, MIT; confirm the Spanish module before building),
   plus the Phase 1 checks (absent from Wiktionary, zero frequency in six languages)?
