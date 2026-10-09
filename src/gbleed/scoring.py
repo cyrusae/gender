@@ -126,7 +126,8 @@ def continuation_logprobs_batch(
             rows += [row] * (e - s)
             pos += range(s - 1, e - 1)  # predictions for tokens s..e-1
         dev = model.device
-        h = body(input_ids=ids.to(dev), attention_mask=mask.to(dev)).last_hidden_state
+        h = body(input_ids=ids.to(dev), attention_mask=mask.to(dev), use_cache=False)
+        h = h.last_hidden_state
         rows_t, pos_t = torch.tensor(rows, device=dev), torch.tensor(pos, device=dev)
         lg = h[rows_t, pos_t].to(W.dtype) @ W.T
         if bias is not None:

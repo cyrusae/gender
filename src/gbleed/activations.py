@@ -78,7 +78,7 @@ def states_at(model, tok, words: list[str], after: str | None = None, batch_size
         # The transformer body only: the output layer's vocabulary-sized logits aren't needed.
         hs = model.get_decoder()(
             input_ids=ids.to(model.device), attention_mask=mask.to(model.device),
-            output_hidden_states=True,
+            output_hidden_states=True, use_cache=False,
         ).hidden_states  # fmt: skip
         rows = torch.arange(len(batch), device=model.device)
         last = torch.tensor([len(pre) + len(b) - 1 for b in bodies], device=model.device)
