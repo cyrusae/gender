@@ -62,6 +62,23 @@ Automatic animacy tagging needed three layers plus a human read: a limitation wo
 - **Feminine-suffix nouns don't score feminine**: the direction learned on single-root nouns doesn't carry over to *-ung*/*-heit* words, which sit about a third of the way from masculine to feminine. (They never appear in training, by design.)
 - **At the AFTER position nothing holds**, as in Spanish: the gender information is at the word's own last token.
 
+## Confirmatory results (RunPod, A100, bf16; all sizes on one chip)
+
+`results/runpod/phase3*`; bootstrap with copies of a resampled noun kept in one half.
+
+| inner layers | 0.6B | 1.7B | 4B | **8B** | **14B** | 30B-A3B |
+|---|---|---|---|---|---|---|
+| compounds follow the **head** (LAST) | 26/27 | 27/27 | 35/35 | **35/35** | **39/39** | 47/47 |
+| compounds follow the first part (LAST) | 0 | 0 | 0 | 0 | 0 | 0 |
+| markedness supported (split-half, LAST) | 0 | 0 | 0 | 0 | 0 | 0 |
+| head (AFTER) | 0 | 1 | 2 | 7 | 3 | 9 |
+| head AUC, mean over layers (LAST) | 0.76 | 0.81 | 0.82 | 0.77 | 0.81 | 0.87 |
+
+- **Confirmed in 8B and 14B**: compounds follow their head's gender in every layer, never their
+  first part's.
+- **Markedness: not supported in any layer of any model.**
+- At AFTER almost nothing holds (≤ 9 layers), as in Spanish.
+
 ## How to read this in a write-up
 
 - "A German gender direction trained on single-root nouns predicts the gender of unseen compounds from their head, including when the first part has the other gender."

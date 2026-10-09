@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "git_commit": "90516ac03bf661e894b2a5c88ecd7257a423d8aa",
+    "git_dirty": null,
+    "git_source": "bundle",
+    "model_id": "Qwen/Qwen3-0.6B-Base",
+    "model_revision": null,
+    "n_params": 596049920,
+    "n_layers": 28,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "machine": "Linux x86_64 x86_64",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "cuda": "13.0",
+    "stimuli": "data/stimuli/phase0_v3.csv",
+    "timestamp": "2026-10-08T13:19:15+00:00"
+  },
+  "results": {
+    "min_margin": 1.0,
+    "de": {
+      "n": 257,
+      "known_bal": 0.8879498364231189,
+      "ctx_bal_acc": 0.9923664122137404,
+      "meta_bal_acc": 0.8282745668241851,
+      "n_m": 126,
+      "n_f": 131,
+      "known_m": 0.9285714285714286,
+      "known_f": 0.8473282442748091,
+      "rate_known": 0.8871595330739299,
+      "rate_wrong": 0.007782101167315175,
+      "rate_conflict": 0.0,
+      "rate_unsure": 0.10505836575875487,
+      "frames_agree": 0.9727626459143969,
+      "quiz_agrees_with_ctx": 0.8210116731517509,
+      "meta_order_agree": 0.8171206225680934,
+      "mean_meta_mass": 0.8948392044316719,
+      "frac_multitoken": 0.933852140077821
+    },
+    "es": {
+      "n": 257,
+      "known_bal": 0.8871402327005511,
+      "ctx_bal_acc": 0.9807409675443968,
+      "meta_bal_acc": 0.954225352112676,
+      "n_m": 142,
+      "n_f": 115,
+      "known_m": 0.8873239436619719,
+      "known_f": 0.8869565217391304,
+      "rate_known": 0.8871595330739299,
+      "rate_wrong": 0.007782101167315175,
+      "rate_conflict": 0.0,
+      "rate_unsure": 0.10505836575875487,
+      "frames_agree": 0.9571984435797666,
+      "quiz_agrees_with_ctx": 0.9377431906614786,
+      "meta_order_agree": 0.5758754863813229,
+      "mean_meta_mass": 0.9394576411479731,
+      "frac_multitoken": 0.9066147859922179
+    },
+    "flipped_pairs": {
+      "n": 78,
+      "both_pass": 60
+    },
+    "by_freq_bin": {
+      "de": {
+        "high": {
+          "n": 47,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9166666666666667
+        },
+        "low": {
+          "n": 123,
+          "known_bal": 0.8228283898305084,
+          "ctx_bal_acc": 0.9921875,
+          "meta_bal_acc": 0.7862817796610169
+        },
+        "mid": {
+          "n": 87,
+          "known_bal": 0.9188689217758985,
+          "ctx_bal_acc": 0.9883720930232558,
+          "meta_bal_acc": 0.8395877378435518
+        }
+      },
+      "es": {
+        "high": {
+          "n": 52,
+          "known_bal": 0.942962962962963,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9814814814814814
+        },
+        "low": {
+          "n": 122,
+          "known_bal": 0.844103838718586,
+          "ctx_bal_acc": 0.9788732394366197,
+          "meta_bal_acc": 0.9295774647887324
+        },
+        "mid": {
+          "n": 83,
+          "known_bal": 0.9146270396270396,
+          "ctx_bal_acc": 0.9743589743589743,
+          "meta_bal_acc": 0.9772727272727273
+        }
+      }
+    },
+    "by_set": {
+      "de": {
+        "classic": {
+          "n": 19,
+          "known_bal": 0.95,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.7777777777777778
+        },
+        "control": {
+          "n": 59,
+          "known_bal": 0.7541666666666667,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.8857142857142857
+        },
+        "flipped": {
+          "n": 59,
+          "known_bal": 0.85995085995086,
+          "ctx_bal_acc": 0.9864864864864865,
+          "meta_bal_acc": 0.8187960687960688
+        },
+        "single": {
+          "n": 120,
+          "known_bal": 0.9583333333333333,
+          "ctx_bal_acc": 0.9916666666666667,
+          "meta_bal_acc": 0.8166666666666667
+        }
+      },
+      "es": {
+        "classic": {
+          "n": 19,
+          "known_bal": 0.95,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.95
+        },
+        "control": {
+          "n": 59,
+          "known_bal": 0.9220238095238096,
+          "ctx_bal_acc": 0.9857142857142858,
+          "meta_bal_acc": 0.9428571428571428
+        },
+        "flipped": {
+          "n": 59,
+          "known_bal": 0.855036855036855,
+          "ctx_bal_acc": 0.9637592137592138,
+          "meta_bal_acc": 0.9459459459459459
+        },
+        "single": {
+          "n": 120,
+          "known_bal": 0.875,
+          "ctx_bal_acc": 0.9833333333333333,
+          "meta_bal_acc": 0.9666666666666667
+        }
+      }
+    },
+    "by_de_suffix": {
+      "de": {
+        "-anz": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.0
+        },
+        "-ei": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-heit": {
+          "n": 2,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ik": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ion": {
+          "n": 3,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.6666666666666666
+        },
+        "-ismus": {
+          "n": 1,
+          "known_bal": 0.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-keit": {
+          "n": 3,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-schaft": {
+          "n": 2,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-tät": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.0
+        },
+        "-ung": {
+          "n": 22,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.7727272727272727
+        },
+        "-ur": {
+          "n": 2,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        }
+      }
+    }
+  }
+}

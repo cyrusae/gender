@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "git_commit": "90516ac03bf661e894b2a5c88ecd7257a423d8aa",
+    "git_dirty": null,
+    "git_source": "bundle",
+    "model_id": "Qwen/Qwen3-4B-Base",
+    "model_revision": null,
+    "n_params": 4022468096,
+    "n_layers": 36,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "machine": "Linux x86_64 x86_64",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "cuda": "13.0",
+    "timestamp": "2026-10-08T13:26:46+00:00"
+  },
+  "by_ending": {
+    "a": {
+      "n_homograph": 35,
+      "n_regular": 125,
+      "diff": 2.544,
+      "ci": [
+        1.721,
+        3.352
+      ],
+      "pass": true
+    },
+    "o": {
+      "n_homograph": 37,
+      "n_regular": 122,
+      "diff": 2.562,
+      "ci": [
+        1.706,
+        3.504
+      ],
+      "pass": true
+    }
+  }
+}

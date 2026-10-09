@@ -147,6 +147,32 @@ The primary direction above was underpowered (25 nouns per gender). For the conf
 - At AFTER, the stratified primary reads gender in only 7 (1.7B) and 2 (4B) layers: **position-dependent**, as the adopted amendment requires saying.
 - Still exploratory: the confirmatory test is the same analysis on 8B/14B.
 
+## Confirmatory results (RunPod, A100, bf16; all sizes on one chip)
+
+Same analysis, frozen v4 stimuli, every model extracted on one A100 (2026-10-08) and analysed on
+the Mac (`results/runpod/phase2*`). 8B/14B are the pre-registered confirmatory models; 0.6B–4B
+repeat the ladder on the same hardware; 30B-A3B (mixture of experts) is exploratory.
+
+| inner layers: stratified primary reads **gender** | 0.6B | 1.7B | 4B | **8B** | **14B** | 30B-A3B |
+|---|---|---|---|---|---|---|
+| LAST (primary) | 24/27 | 22/27 | 26/35 | **28/35** | **26/39** | 45/47 |
+| AFTER (secondary) | 0/27 | 2/27 | 0/35 | 3/35 | 0/39 | 38/47 |
+| rank-2-erased direction: homographs beyond spelling (LAST) | 16 | 12 | 25 | 21 | 26 | 35 |
+
+Mean AUCs at LAST (8B): A_f 0.83 (masculine -a exceptions separated from regular feminine -a
+nouns), A_m 0.48 (not separated from regular masculine -o nouns): the "gender" pattern. Same at
+every size (A_f 0.82–0.86, A_m 0.39–0.54). No layer of any
+model reads spelling under the stratified primary at LAST.
+
+- **Confirmed at LAST in 8B and 14B**: the spelling-controlled direction tracks grammatical
+  gender in most layers.
+- **Not position-robust** in the dense models: at AFTER the result holds in ≤ 3 layers of any
+  of them. Under the adopted rule, the claim is "gender at the noun's own last token".
+- **The 30B mixture-of-experts model is the exception**: gender at AFTER in 38 of 47 layers
+  (exploratory model; not part of the confirmatory claim, and not in session 2).
+- The homograph result (erased direction reads more gender on nouns than on verb uses) holds in
+  every size, most strongly in the largest.
+
 ## How to read this in a write-up
 
 - The pre-registered primary test is inconclusive: the spelling-free instrument is too weak at this sample size to show gender or spelling.

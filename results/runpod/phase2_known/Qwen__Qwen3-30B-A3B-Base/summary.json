@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "git_commit": "90516ac03bf661e894b2a5c88ecd7257a423d8aa",
+    "git_dirty": null,
+    "git_source": "bundle",
+    "model_id": "Qwen/Qwen3-30B-A3B-Base",
+    "model_revision": null,
+    "n_params": 30532122624,
+    "n_layers": 48,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "machine": "Linux x86_64 x86_64",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "cuda": "13.0",
+    "stimuli": "data/stimuli/phase2_pool_v4.csv",
+    "timestamp": "2026-10-08T14:15:23+00:00"
+  },
+  "results": {
+    "min_margin": 1.0,
+    "es": {
+      "n": 1013,
+      "known_bal": 0.8872218420239304,
+      "ctx_bal_acc": 0.9824164422270298,
+      "meta_bal_acc": 0.9616760121859684,
+      "n_m": 781,
+      "n_f": 232,
+      "known_m": 0.882202304737516,
+      "known_f": 0.8922413793103449,
+      "rate_known": 0.8845014807502468,
+      "rate_wrong": 0.009871668311944718,
+      "rate_conflict": 0.006910167818361303,
+      "rate_unsure": 0.09871668311944719,
+      "frames_agree": 0.9664363277393879,
+      "quiz_agrees_with_ctx": 0.9664363277393879,
+      "meta_order_agree": 0.9713721618953604,
+      "mean_meta_mass": 0.9563033805666257,
+      "frac_multitoken": 0.9338598223099703
+    },
+    "flipped_pairs": {
+      "n": 0,
+      "both_pass": 0
+    },
+    "by_set": {
+      "es": {
+        "exception_clipping": {
+          "n": 2,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "exception_ma": {
+          "n": 25,
+          "known_bal": 0.96,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "exception_true": {
+          "n": 7,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "homograph": {
+          "n": 76,
+          "known_bal": 0.9605263157894737,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9342105263157895
+        },
+        "regular": {
+          "n": 271,
+          "known_bal": 0.9452435436417129,
+          "ctx_bal_acc": 0.9963768115942029,
+          "meta_bal_acc": 0.9818840579710144
+        },
+        "stratum": {
+          "n": 632,
+          "known_bal": 0.8210968814155832,
+          "ctx_bal_acc": 0.959608303190276,
+          "meta_bal_acc": 0.9382148792648353
+        }
+      }
+    }
+  }
+}

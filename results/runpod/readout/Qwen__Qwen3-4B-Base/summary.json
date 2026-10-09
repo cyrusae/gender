@@ -1,0 +1,48 @@
+{
+  "model": "Qwen/Qwen3-4B-Base",
+  "analysis_git": {
+    "git_commit": "ca6b92b15742ef6ead0b0543b250f43fb24b1bb5",
+    "git_dirty": false
+  },
+  "cells": {
+    "de": {
+      "means": {
+        "after": {
+          "c1_identity": 0.916,
+          "c2": 0.569,
+          "c2_ntok": 0.727,
+          "c2_final": 0.411,
+          "c3_sink_share": 0.0
+        },
+        "last": {
+          "c1_identity": 0.979,
+          "c2": 0.689,
+          "c2_ntok": 0.727,
+          "c2_final": 0.651,
+          "c3_sink_share": 0.0
+        }
+      },
+      "after_meets_rule": false
+    },
+    "es": {
+      "means": {
+        "after": {
+          "c1_identity": 0.868,
+          "c2": 0.716,
+          "c2_ntok": 0.807,
+          "c2_final": 0.624,
+          "c3_sink_share": 0.0
+        },
+        "last": {
+          "c1_identity": 0.985,
+          "c2": 0.802,
+          "c2_ntok": 0.779,
+          "c2_final": 0.826,
+          "c3_sink_share": 0.0
+        }
+      },
+      "after_meets_rule": false
+    }
+  },
+  "after_sink_clean": true
+}

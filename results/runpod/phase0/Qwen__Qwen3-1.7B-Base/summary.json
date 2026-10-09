@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "git_commit": "90516ac03bf661e894b2a5c88ecd7257a423d8aa",
+    "git_dirty": null,
+    "git_source": "bundle",
+    "model_id": "Qwen/Qwen3-1.7B-Base",
+    "model_revision": null,
+    "n_params": 1720574976,
+    "n_layers": 28,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "machine": "Linux x86_64 x86_64",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "cuda": "13.0",
+    "stimuli": "data/stimuli/phase0_v3.csv",
+    "timestamp": "2026-10-08T13:21:57+00:00"
+  },
+  "results": {
+    "min_margin": 1.0,
+    "de": {
+      "n": 257,
+      "known_bal": 0.9006118987035018,
+      "ctx_bal_acc": 0.9885496183206106,
+      "meta_bal_acc": 0.9445959045195687,
+      "n_m": 126,
+      "n_f": 131,
+      "known_m": 0.9920634920634921,
+      "known_f": 0.8091603053435115,
+      "rate_known": 0.8988326848249028,
+      "rate_wrong": 0.0038910505836575876,
+      "rate_conflict": 0.019455252918287938,
+      "rate_unsure": 0.07782101167315175,
+      "frames_agree": 0.9610894941634242,
+      "quiz_agrees_with_ctx": 0.9416342412451362,
+      "meta_order_agree": 0.9494163424124513,
+      "mean_meta_mass": 0.8902367722292078,
+      "frac_multitoken": 0.933852140077821
+    },
+    "es": {
+      "n": 257,
+      "known_bal": 0.919228413962033,
+      "ctx_bal_acc": 0.98156766687079,
+      "meta_bal_acc": 0.9929577464788732,
+      "n_m": 142,
+      "n_f": 115,
+      "known_m": 0.8732394366197183,
+      "known_f": 0.9652173913043478,
+      "rate_known": 0.914396887159533,
+      "rate_wrong": 0.011673151750972763,
+      "rate_conflict": 0.01556420233463035,
+      "rate_unsure": 0.058365758754863814,
+      "frames_agree": 0.953307392996109,
+      "quiz_agrees_with_ctx": 0.9727626459143969,
+      "meta_order_agree": 0.9844357976653697,
+      "mean_meta_mass": 0.9277791156974086,
+      "frac_multitoken": 0.9066147859922179
+    },
+    "flipped_pairs": {
+      "n": 78,
+      "both_pass": 61
+    },
+    "by_freq_bin": {
+      "de": {
+        "high": {
+          "n": 47,
+          "known_bal": 0.9583333333333333,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "low": {
+          "n": 123,
+          "known_bal": 0.8509004237288136,
+          "ctx_bal_acc": 0.9765625,
+          "meta_bal_acc": 0.9328654661016949
+        },
+        "mid": {
+          "n": 87,
+          "known_bal": 0.9418604651162791,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9318181818181819
+        }
+      },
+      "es": {
+        "high": {
+          "n": 52,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "low": {
+          "n": 122,
+          "known_bal": 0.8649544324772163,
+          "ctx_bal_acc": 0.971830985915493,
+          "meta_bal_acc": 0.9929577464788732
+        },
+        "mid": {
+          "n": 83,
+          "known_bal": 0.953088578088578,
+          "ctx_bal_acc": 0.9871794871794872,
+          "meta_bal_acc": 0.9886363636363636
+        }
+      }
+    },
+    "by_set": {
+      "de": {
+        "classic": {
+          "n": 19,
+          "known_bal": 0.95,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.8333333333333333
+        },
+        "control": {
+          "n": 59,
+          "known_bal": 0.8398809523809524,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9571428571428571
+        },
+        "flipped": {
+          "n": 59,
+          "known_bal": 0.8513513513513513,
+          "ctx_bal_acc": 0.9594594594594594,
+          "meta_bal_acc": 0.941031941031941
+        },
+        "single": {
+          "n": 120,
+          "known_bal": 0.95,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9583333333333333
+        }
+      },
+      "es": {
+        "classic": {
+          "n": 19,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "control": {
+          "n": 59,
+          "known_bal": 0.8714285714285714,
+          "ctx_bal_acc": 0.9571428571428571,
+          "meta_bal_acc": 1.0
+        },
+        "flipped": {
+          "n": 59,
+          "known_bal": 0.8734643734643734,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9864864864864865
+        },
+        "single": {
+          "n": 120,
+          "known_bal": 0.9583333333333333,
+          "ctx_bal_acc": 0.9833333333333333,
+          "meta_bal_acc": 0.9916666666666667
+        }
+      }
+    },
+    "by_de_suffix": {
+      "de": {
+        "-anz": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ei": {
+          "n": 1,
+          "known_bal": 0.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-heit": {
+          "n": 2,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ik": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ion": {
+          "n": 3,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ismus": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-keit": {
+          "n": 3,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-schaft": {
+          "n": 2,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-tät": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ung": {
+          "n": 22,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ur": {
+          "n": 2,
+          "known_bal": 0.5,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        }
+      }
+    }
+  }
+}
