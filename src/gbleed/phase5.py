@@ -501,3 +501,56 @@ def sweep(model_id: str, k: int, lang: str, alpha_star: float, out_root: str = "
               f"({len(conds) / sec:.0f}/s)")  # fmt: skip
     (out / "timings.json").write_text(json.dumps({"alpha_star": alpha_star, **timings}, indent=1))
     return timings
+
+
+def frame_check(model_id: str, out_root: str = "results/phase5_framecheck", device=None,
+                dtype=None) -> dict:  # fmt: skip
+    """Pre-registered gate frame check (§5.2): unsteered, >= 70% of this model's known Zipf >= 4
+    Phase 0 nouns must get the right gender, per gender, in each gate frame."""
+    from .models import load_model, pick_device, pick_dtype, run_metadata
+    from .phase5_stimuli import DE_GATE, gate_adjectives
+
+    dev = pick_device(device)
+    dt = pick_dtype(dtype, dev)
+    model, tok = load_model(model_id, dev, dt)
+    meta = run_metadata(model, model_id, dev, dt)
+    it = pd.read_csv(f"results/phase0/{model_slug(model_id)}/items.csv", keep_default_na=False)
+    it = it[(it.status == "known") & (pd.to_numeric(it.zipf) >= 4)]
+    res = {}
+    V = torch.zeros((1, model.config.hidden_size))
+    for lang in ("es", "de"):
+        nn = it[it.lang == lang][["lemma", "gender"]]
+        if lang == "es":
+            adj = gate_adjectives(family(model_id))
+            prompts = [Prompt(ES_GATE.format(N=w), w, {"lemma": w, "gender": g}, extra=st)
+                       for w, g in zip(nn.lemma, nn.gender, strict=True) for _, _, st, _, _ in adj]  # fmt: skip
+            read = sorted({i for *_, im, i_f in adj for i in (im, i_f)})
+            r = run(model, tok, prompts, 0, [(i, 0, 0.0) for i in range(len(prompts))], V, read)
+            pos = {t: j for j, t in enumerate(read)}
+            ends = [(im, i_f) for w in nn.lemma for *_, im, i_f in adj]
+            m = np.array(
+                [r["lp"][j, pos[f]] - r["lp"][j, pos[mm]] for j, (mm, f) in enumerate(ends)]
+            )
+            df = pd.DataFrame({"lemma": [p.key["lemma"] for p in prompts],
+                               "gender": [p.key["gender"] for p in prompts], "m": m})  # fmt: skip
+            per = df.groupby(["lemma", "gender"]).m.mean().reset_index()
+            res["es_adj"] = {g: float(np.mean((per[per.gender == g].m > 0) == (g == "f")))
+                             for g in ("m", "f")}  # fmt: skip
+        else:
+            for fr, (t, arts) in DE_GATE.items():
+                prompts = [Prompt(t.format(noun=w), w, {"lemma": w, "gender": g})
+                           for w, g in zip(nn.lemma, nn.gender, strict=True)]  # fmt: skip
+                read = single_ids(tok, list(arts.values()))
+                r = run(model, tok, prompts, 0, [(i, 0, 0.0) for i in range(len(prompts))], V, read)
+                lp = r["lp"]
+                g = nn.gender.to_numpy()
+                right = np.where(g == "f", lp[:, 1] > np.maximum(lp[:, 0], lp[:, 2]),
+                                 lp[:, 0] > np.maximum(lp[:, 1], lp[:, 2]))  # fmt: skip
+                res[f"de_{fr}"] = {x: float(right[g == x].mean()) for x in ("m", "f")}
+    res["n"] = it.groupby("lang").size().to_dict()
+    res["passes"] = {k: all(v >= 0.7 for v in d.values()) for k, d in res.items() if k != "n"}
+    out = Path(out_root) / model_slug(model_id)
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "summary.json").write_text(json.dumps({"meta": meta, **res}, indent=1, default=float))
+    print(model_id, json.dumps(res, default=float))
+    return res
