@@ -202,6 +202,14 @@ A100. Bonus check: cosine between session-1 and session-2 directions per model (
 Trims if needed: every-position steering at the working dose only (~−25%); one layer instead of
 two. The Mac exploratory run replaces these guesses with measured throughput.
 
+**Measured (2026-10-09, `runpod/bench_steer.py`, results/bench_steer/):** Qwen3-8B on an L40S
+(48 GB, $1.09/h), trimmed condition set (decisions.md): ~650–830 rows/s on R1/R2/R2-EN, ~2,600 on
+R1-EN, best batch 16 prompts × 128 rows, peak memory 16 GB. One layer of the four main readouts:
+0.38 h (Spanish) + 0.42 h (German). With R3, the number/social vectors, damage runs and P14 at
+the working dose (~×1.5), ~7 layer-languages per model and 14B at ~1.8× 8B: **~12–13 L40S-hours
+≈ $14 for every passing layer** (~$25 without the trim). The A100/PRO 6000 runs were not done
+(tool permissions), so the L40S is the measured option; 14B (~30 GB) fits its 48 GB.
+
 ## Mechanics (from session 1's lessons)
 
 - Claude creates the pod via the API, bundles the code at a committed analysis commit, runs a
