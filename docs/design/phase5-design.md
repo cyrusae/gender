@@ -238,6 +238,10 @@ Phase 5 step 3 (*"The bridge was ___"*), which the first version of this draft h
 - Ratings via the English gloss to Glasgow, which is noisy; reported. This is the only readout
   applying Glasgow (UK English raters) across languages (PI concern 2026-10-08); check for native
   Spanish/German gender-association norms before finalising R3.
+- Steered like every readout (same layers, doses and random controls), on the Spanish gate's own
+  sentence, so the manipulation check and the readout share a prompt. Spanish only: no German
+  determiner hides the noun's gender, and steering a noun against a visible *der/die* would be
+  confounded; German appears unsteered in R3-PAIR (P20). (Clarified 2026-10-09, PI question.)
 
 **Baseline test (§5.0)**
 - On flipped pairs: the R1 score for the Spanish noun minus the German noun, regressed on the
