@@ -450,6 +450,35 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     its own token), since that may decide what small models can see.
   - Not tested: German (no German nonces yet; candidate after S1), English nonces (no grammatical
     gender).
+- **P20. Proposed (2026-10-08, PI): in-language baseline on flipped pairs (R3-PAIR), unsteered.**
+  Ask each language directly, *El puente es muy ___* / *Die Brücke ist sehr ___*, and compare the
+  same concept across the two languages. Extends R3 (Spanish only) to German and to the pairs.
+  - Frames: Spanish *El/La {noun} es muy ___* (the noun's own article: the natural sentence, as
+    a speaker would say it); German *Der/Die {Noun} ist sehr ___*. German predicate adjectives
+    never inflect, so any adjective is grammatical; Spanish ones agree, so **Spanish uses only
+    gender-invariant adjectives** (*fuerte*, *elegante*, *frágil*: same form for both genders),
+    else the adjective's form would carry the noun's grammatical gender into the score.
+  - Adjectives: Glasgow-rated English adjectives (as R1) whose German and Spanish translations
+    come from Wiktionary (kaikki dumps: a de/es adjective whose gloss is that English word;
+    ambiguous mappings dropped, not reviewed). Each adjective keeps its English Glasgow rating
+    in both languages, so the same rating is used on both sides of a pair. No native German or
+    Spanish adjective gender norms were found (2026-10-08 search: role-noun and free-association
+    norms exist, not adjective gender ratings); stated as a limit.
+  - **Statistic (difference-in-differences):** per pair, the graded score (adjectives' log
+    probability regressed on rating, covariates as R1) for the German noun minus the Spanish
+    noun; then de-f/es-m pairs minus de-m/es-f pairs. The concept cancels within a pair
+    (*bridge*-ness is on both sides); a language's overall lean (German frames drawing more
+    masculine-rated adjectives, say) cancels between the two pair types. What's left is
+    grammatical gender. Prediction: > 0 (the feminine side draws more feminine-rated
+    adjectives). Item-level (pair) bootstrap; cognate sensitivity as in Phase 4.
+  - Single-token adjectives not required (unsteered only: one pass per noun, cheap); Mac
+    exploratory on 1.7B/4B + EuroLLM, confirmatory 8B/14B in session 2. Secondary, outside Holm.
+  - Reading it: this is the in-language form of the human Boroditsky question. Boroditsky's
+    participants answered *in English* to avoid agreement; R1 copies that design, R3-PAIR is the
+    in-language counterpart. A positive R3-PAIR with a null R1 would say the association lives
+    inside each language but doesn't reach English.
+  - Later (not this round): steer these frames with the congruent vs the opposite gender
+    direction.
 - **P15. Adopted (PI, 2026-10-08).** Graded nonce ending set (*-a*/*-o*/*-e*/consonant on the same stems), **all new nonce
   sets generated with Wuggy** (`wuggy` 1.1.2, MIT; confirm the Spanish module before building),
   plus the Phase 1 checks (absent from Wiktionary, zero frequency in six languages)?
