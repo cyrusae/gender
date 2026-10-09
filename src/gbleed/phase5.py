@@ -14,7 +14,8 @@ Readouts (each frame is fixed text; every scored word is a single token, P16):
   R2      forced choice man/woman, male/female, boy/girl (both orders) + narrative pronoun
   R2-EN   the same with the English noun
 Gate (§5.2): Spanish *Mi {noun} es muy ___* agreement (adjective endings given their stem);
-German dictionary frame (der/die/das) and pronoun frame (Er/Sie/Es).
+German label frame *Genus:* maskulin/feminin/neutrum (primary; revised 2026-10-09 after
+the frame check) and dictionary frame der/die/das (secondary).
 Damage (§5.3): KL(unsteered || steered) of the next-token distribution over the 20 tokens after
 the noun in a neutral sentence.
 P21: the top-50 next tokens of every scored prompt are saved alongside.
@@ -275,6 +276,13 @@ def single_ids(tok, words) -> list[int]:
     return [i[0] for i in ids]
 
 
+def first_ids(tok, words) -> list[int]:
+    """First token of each word (the German gate labels: the first tokens differ)."""
+    ids = [tok(w, add_special_tokens=False)["input_ids"][0] for w in words]
+    assert len(set(ids)) == len(ids), words
+    return ids
+
+
 def family(model_id: str) -> str:
     return next(v for k, v in FAMILY.items() if model_id.startswith(k))
 
@@ -282,7 +290,8 @@ def family(model_id: str) -> str:
 # ---- gate -----------------------------------------------------------------------------
 def gate_prompts(nouns: pd.DataFrame, lang: str, fam: str):
     """Spanish: one prompt per noun x gate adjective (stem appended), read the two endings.
-    German: one prompt per noun x frame, read der/die/das (Er/Sie/Es)."""
+    German: one prompt per noun x frame, read maskulin/feminin/neutrum (label frame, primary)
+    and der/die/das (dictionary frame)."""
     from .phase5_stimuli import DE_GATE, gate_adjectives
 
     out = []
@@ -313,7 +322,7 @@ def gate(model, tok, model_id: str, k: int, nouns: pd.DataFrame, lang: str, v: n
     if lang == "es":
         read = sorted({i for _, r in gp for i in r})
     else:
-        read = single_ids(tok, [*DE_GATE["dict"][1].values(), *DE_GATE["pron"][1].values()])
+        read = first_ids(tok, [*DE_GATE["genus"][1].values(), *DE_GATE["dict"][1].values()])
     unit = noun_norm(model, tok, prompts[:: max(1, len(prompts) // 200)], k)
     d = model.config.hidden_size
     V = torch.tensor(np.r_[v[None], random_vectors(d, n_random, seed=k)], dtype=torch.float32)
@@ -328,9 +337,9 @@ def gate(model, tok, model_id: str, k: int, nouns: pd.DataFrame, lang: str, v: n
             m = np.array([lp[j, pos[gp[i][1][1]]] - lp[j, pos[gp[i][1][0]]]
                           for j, i in enumerate(idx_prompts)])  # fmt: skip
         else:
-            m = lp[:, 1] - lp[:, 0]  # dictionary frame: die - der
+            m = lp[:, 1] - lp[:, 0]  # label frame: feminin - maskulin (primary)
             fr = np.array([prompts[i].key["frame"] for i in idx_prompts])
-            m = np.where(fr == "dict", m, lp[:, 4] - lp[:, 3])  # pronoun frame: Sie - Er
+            m = np.where(fr == "genus", m, lp[:, 4] - lp[:, 3])  # dictionary frame: die - der
         return m
 
     rows = []
@@ -342,7 +351,7 @@ def gate(model, tok, model_id: str, k: int, nouns: pd.DataFrame, lang: str, v: n
                            "gender": [p.key["gender"] for p in prompts], "m": m,
                            "frame": [p.key.get("frame", "adj") for p in prompts]})  # fmt: skip
         if lang == "de":
-            df = df[df.frame == "dict"]
+            df = df[df.frame == "genus"]
         per = df.groupby(["lemma", "gender"]).m.mean().reset_index()
         rows.append({"dose": a, "median_f": float(per[per.gender == "f"].m.median()),
                      "median_m": float(per[per.gender == "m"].m.median()),
@@ -361,7 +370,7 @@ def gate(model, tok, model_id: str, k: int, nouns: pd.DataFrame, lang: str, v: n
                                "gender": [p.key["gender"] for p in prompts], "m": m,
                                "frame": [p.key.get("frame", "adj") for p in prompts]})  # fmt: skip
             if lang == "de":
-                df = df[df.frame == "dict"]
+                df = df[df.frame == "genus"]
             per = df.groupby(["lemma", "gender"]).m.mean().reset_index()
             rand_flip.append(float(np.mean(np.where(per.gender == "f", per.m < 0, per.m > 0))))
     passes = bool(np.isfinite(a_star) and np.mean(rand_flip) < 0.10)
@@ -540,7 +549,7 @@ def frame_check(model_id: str, out_root: str = "results/phase5_framecheck", devi
             for fr, (t, arts) in DE_GATE.items():
                 prompts = [Prompt(t.format(noun=w), w, {"lemma": w, "gender": g})
                            for w, g in zip(nn.lemma, nn.gender, strict=True)]  # fmt: skip
-                read = single_ids(tok, list(arts.values()))
+                read = first_ids(tok, list(arts.values()))
                 r = run(model, tok, prompts, 0, [(i, 0, 0.0) for i in range(len(prompts))], V, read)
                 lp = r["lp"]
                 g = nn.gender.to_numpy()

@@ -114,6 +114,10 @@ fixed on grammatical grounds, not tuned on scores.
 - Candidate B, pronoun after a bare noun: *Thema: {Noun}. ___ ist*, then P(*Er/Sie/Es*). Weaker:
   expletive *Es* competes.
 - Plan: A primary, B secondary (P4).
+- **Revised 2026-10-09 (PI) after the pre-registered frame check:** B fails (sentence-initial
+  *Sie* is also "they"/formal "you") and A fails on 4B (masculine nouns lose to *die*, also
+  plural). New primary: grammatical-gender label, *Wörterbuch:\n{Noun}\nGenus:* →
+  *maskulin/feminin/neutrum* (first token of each); A secondary; B dropped.
 
 **Pass rule**
 - Flip dose α\*: the smallest dose at which the median agreement margin crosses zero (feminine

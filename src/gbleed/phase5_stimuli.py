@@ -29,9 +29,9 @@ ES_GATE_ADJ = ["blanco", "negro", "nuevo", "viejo", "bonito", "feo", "alto", "ba
                "caro", "largo", "corto", "ancho", "limpio", "sucio", "rojo", "redondo", "lleno",
                "vacío", "seco", "frío", "pequeño", "duro", "blando", "oscuro", "claro", "lento",
                "rápido", "pesado", "ligero"]  # fmt: skip
-DE_GATE = {  # P4: dictionary frame primary, pronoun frame secondary
+DE_GATE = {  # revised 2026-10-09 (PI) after the frame check: label frame primary, dict secondary
+    "genus": ("Wörterbuch:\n{noun}\nGenus:", {"m": " maskulin", "f": " feminin", "n": " neutrum"}),
     "dict": ("Wörterbuch:\n{noun},", {"m": " der", "f": " die", "n": " das"}),
-    "pron": ("Thema: {noun}.", {"m": " Er", "f": " Sie", "n": " Es"}),
 }
 
 

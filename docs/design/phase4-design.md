@@ -40,8 +40,11 @@ Each direction is tested both as a probe direction and as a stratified differenc
   *-e* nouns are mostly feminine and Spanish *-e* nouns mostly masculine, so an unstratified
   transfer test would mix in spelling effects in either direction.
 - "Transfers" if the lower bound is > 0.5 in a majority of inner layers.
-- Test nouns: a fresh held-out draw from each pool (same filters, never trained on), plus the
-  flipped pairs (T3).
+- Test nouns (**revised 2026-10-09, PI**): the other language's training set (ES scores German
+  `strat3` m/f nouns, DE scores Spanish `strat` nouns), since no fresh draw exists (every known
+  mixed-cell noun is already in training); held out for the direction under test.
+- Decision rules (2026-10-09, PI): Holm via interval width (97.5% first, 95% for the second
+  test if one passes); T3 = ES-on-both and DE-on-both, paired AUC.
 
 **T2 Geometry (descriptive).**
 - Split-half cosine between ES and DE (noise-corrected, as in Phase 3), with the within-cell
