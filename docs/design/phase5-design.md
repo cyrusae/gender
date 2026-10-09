@@ -381,6 +381,39 @@ renting. Trims if needed: every-position steering at the working dose only (~−
   471, in both 468. **Each model family uses its own set** (cross-family comparisons are
   conclusion-level); gender–valence correlation unchanged (≈ −0.45), so the covariate design
   stands.
+- **P18. Proposed (2026-10-08, PI request): paraphrased wordings for R1 and R1-EN.**
+  Scoring is deterministic (one forward pass gives exact probabilities; rerunning the same
+  prompt gives the same numbers, up to GPU rounding), so repeated runs add nothing. The
+  variation that matters is *which wording* was chosen: a result that holds under one wording
+  only may be about that sentence. R2 already varies its wording (three framings × two orders);
+  R1 and R1-EN, the co-primaries, have one wording each. Proposal: **three wordings each**, fixed
+  now on grammatical grounds (every one keeps *very* before the slot, so the slot is an
+  adjective; the noun never comes first; the noun is the only steered position, as before).
+  - R1-EN: (W1) *The {noun} is very ___* (current); (W2) *The {noun} was very ___* (past tense:
+    the original design's "The bridge was ___"); (W3) *I think the {noun} is very ___*
+    (an opinion carrier).
+  - R1 (Spanish or German word; "Spanish" ↔ "German"): (W1) *The Spanish word "{noun}" means
+    {gloss}. Described in one word, it is very ___* (current); (W2) *In Spanish, "{gloss}" is
+    "{noun}". Described in one word, it is very ___* (gloss and noun in the other order, no
+    article to choose for mass nouns); (W3) *The Spanish word "{noun}" means {gloss}. I think it
+    is very ___*.
+  - Rejected: *Everyone says…* (a social frame, which is what we measure); *looks very* (visual
+    bias), *seems* and *so* (already rejected for R1-EN); wordings with the noun after the slot.
+  - **Score:** each adjective's steered-minus-unsteered shift is averaged over the wordings, then
+    the same graded regression as now. The averaged score is the pre-registered statistic, so
+    the Holm family stays two tests. Each wording's gender coefficient is reported separately;
+    a result is **"wording-robust"** if every wording's coefficient has the same sign (as
+    "position-robust").
+  - **Frame check per wording** (unsteered, Qwen3 + EuroLLM, same threshold as W1). A wording
+    that fails is dropped before any steering, on that ground alone, and the drop is reported;
+    no substitute is chosen afterwards.
+  - The no-*very* secondary frames stay W1-only; the random directions, dose sweep and
+    every-position steering use the averaged score, so real and random are scored alike.
+  - Cost: +2 forward passes per steered item and condition for R1 and for R1-EN, on top of the
+    ~2 each now (with/without *very*) and R2/R2-EN's seven each: roughly **+20–35% steered
+    compute**, i.e. the session-2 estimate of 9–12 A100-hours becomes **~11–16 h (~$17–25)**,
+    to be firmed up by the Mac dry run. Trim if needed, decided before renting: W2/W3 at the working dose only
+    (real + all 100 random directions), dose sweep on W1.
 - **P15. Adopted (PI, 2026-10-08).** Graded nonce ending set (*-a*/*-o*/*-e*/consonant on the same stems), **all new nonce
   sets generated with Wuggy** (`wuggy` 1.1.2, MIT; confirm the Spanish module before building),
   plus the Phase 1 checks (absent from Wiktionary, zero frequency in six languages)?

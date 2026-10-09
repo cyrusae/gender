@@ -40,6 +40,14 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
 - **Zipf frequency** *(from the `wordfreq` library)*. log₁₀ of how often a word occurs per billion
   words. 3 = once per million words; 6 = once per thousand. Frequency bins: low 2.5–3.5,
   mid 3.5–4.5, high ≥ 4.5.
+- **Scoring vs sampling (decoding).** *Sampling* is how chatbots write: compute the next-token
+  probabilities, draw one token at random, repeat; the same prompt can give different text.
+  *Scoring* reads the probabilities of chosen words directly, with no draw. One forward pass gives
+  the exact numbers, and rerunning gives the same ones (up to GPU rounding), so scoring needs no
+  repeats. Every measurement in this project is scoring. Its real variance is the choice of items
+  and wordings, hence many nouns and several paraphrased frames.
+- **Paraphrase / wording robustness.** The same measurement under different sentence wordings
+  (Phase 5 P18); a result is *wording-robust* if it has the same sign in every wording.
 
 ## Inside the model (interpretability)
 
