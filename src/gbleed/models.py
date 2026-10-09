@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import platform
 import re
 import subprocess
@@ -88,6 +89,7 @@ def run_metadata(model, model_id: str, device: str, dtype: torch.dtype) -> dict:
         "n_layers": getattr(model.config, "num_hidden_layers", None),
         "device": device,
         "dtype": str(dtype).removeprefix("torch."),
+        "head_dtype": "float32" if os.environ.get("GBLEED_FP32_HEAD") == "1" else "model",
         "torch": torch.__version__,
         "transformers": transformers.__version__,
         "machine": f"{platform.system()} {platform.machine()} {platform.processor()}",

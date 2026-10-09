@@ -59,6 +59,30 @@ def tokens_of(tok, text: str) -> list[str]:
     return [tok.decode([i]) for i in ids]
 
 
+HEAD_DTYPE_ENV = "GBLEED_FP32_HEAD"  # =1: output layer (unembedding) in float32, see head_dtype()
+
+
+def head_dtype(model) -> torch.dtype:
+    """dtype for the output layer in batched scoring: the model's own, or float32 when
+    GBLEED_FP32_HEAD=1 (session-2 precision fix: bf16 logits carry a few tenths of a nat of
+    rounding noise; computing the last projection in fp32 removes most of it). Recorded in
+    run metadata as `head_dtype`."""
+    import os
+
+    return torch.float32 if os.environ.get(HEAD_DTYPE_ENV) == "1" else model.dtype
+
+
+def _head(model, dtype: torch.dtype):
+    """(weight, bias) of the output layer in `dtype`, cached on the model (fp32 copy made once)."""
+    cache = getattr(model, "_gbleed_head", None)
+    if cache is None or cache[0] != dtype:
+        lin = model.get_output_embeddings()
+        w = lin.weight.to(dtype)
+        b = lin.bias.to(dtype) if lin.bias is not None else None
+        model._gbleed_head = cache = (dtype, w, b)
+    return cache[1], cache[2]
+
+
 @torch.no_grad()
 def continuation_logprobs_batch(
     model, tok, requests: list[tuple[str, str]], batch_size: int = 32, desc: str = "scoring"
@@ -69,9 +93,17 @@ def continuation_logprobs_batch(
     attention mask (padding sits after each sequence, so causal attention never sees it).
     Requests are sorted by length to minimise padding; results come back in input order.
     For a single-token continuation this equals the next-token log-probability.
+
+    The transformer body runs on the whole batch; the output layer (vocabulary-sized) runs only
+    at the positions that predict continuation tokens, in head_dtype(model), and results are
+    summed on the device (one transfer per batch).
     """
     from .models import progress
 
+    if getattr(model.config, "final_logit_softcapping", None):
+        raise NotImplementedError("logit softcapping (Gemma) isn't applied by this scorer")
+    body = model.get_decoder()
+    W, bias = _head(model, head_dtype(model))
     seqs, spans = [], []
     for prompt, cont in requests:
         p = _ids(tok, prompt, special=True)
@@ -86,18 +118,27 @@ def continuation_logprobs_batch(
         width = max(len(seqs[i]) for i in chunk)
         ids = torch.full((len(chunk), width), pad, dtype=torch.long)
         mask = torch.zeros_like(ids)
+        rows, pos = [], []
         for row, i in enumerate(chunk):
             ids[row, : len(seqs[i])] = torch.tensor(seqs[i])
             mask[row, : len(seqs[i])] = 1
-        logits = model(input_ids=ids.to(model.device), attention_mask=mask.to(model.device)).logits
-        for row, i in enumerate(chunk):
             s, e = spans[i]
-            lg = logits[row, s - 1 : e - 1].float()  # predictions for tokens s..e-1
-            if not torch.isfinite(lg).all():
-                raise FloatingPointError(
-                    "Non-finite logits (fp16 overflow?). Retry with --dtype float32."
-                )
-            lp = torch.log_softmax(lg, dim=-1)
-            tgt = ids[row, s:e].to(lp.device)
-            out[i] = lp.gather(1, tgt[:, None]).sum().item()
+            rows += [row] * (e - s)
+            pos += range(s - 1, e - 1)  # predictions for tokens s..e-1
+        dev = model.device
+        h = body(input_ids=ids.to(dev), attention_mask=mask.to(dev)).last_hidden_state
+        rows_t, pos_t = torch.tensor(rows, device=dev), torch.tensor(pos, device=dev)
+        lg = h[rows_t, pos_t].to(W.dtype) @ W.T
+        if bias is not None:
+            lg = lg + bias
+        lg = lg.float()
+        if not torch.isfinite(lg).all():
+            raise FloatingPointError(
+                "Non-finite logits (fp16 overflow?). Retry with --dtype float32."
+            )
+        tgt = ids.to(dev)[rows_t, pos_t + 1]
+        lp = torch.log_softmax(lg, dim=-1).gather(1, tgt[:, None]).squeeze(1)
+        sums = torch.zeros(len(chunk), device=dev, dtype=lp.dtype).index_add_(0, rows_t, lp)
+        for row, v in zip(range(len(chunk)), sums.cpu().tolist(), strict=True):
+            out[chunk[row]] = v
     return out
