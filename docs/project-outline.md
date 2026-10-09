@@ -91,6 +91,11 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
   direction reads *more* gender on homographs used as nouns than as verbs. At the next token
   (AFTER) the Spanish result vanishes: the gender lives on the word itself.
 
+- **All sizes analysed (Oct 9):** every dense model from 0.6B to 14B shows the same picture at
+  LAST, and none at AFTER. The 30B mixture-of-experts model (exploratory) is the only one where
+  the Spanish result also holds at the next token. The laptop analysis ran overnight; it briefly
+  filled the swap with eight parallel jobs (memory, not cores, is the limit).
+
 ## 8. Designing what comes next (Oct 8)
 
 - **Phase 4 (shared across languages?):** train on Spanish, test on German; the decisive test is
@@ -108,6 +113,18 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
   feminine. First look: partly a shared "derived noun" offset; whether gender is ranked inside it
   differs between models (one ranks, the other reverses in middle layers). Confirmation waits for
   the next cloud run.
+
+## 9. More design, and speed (Oct 8–9)
+
+- Phase 5 additions: three wordings per main readout plus an "Everyone says" vs "I think"
+  contrast (P18); a gender wug test on the invented words across model sizes (P19); an
+  in-language *El puente es muy ___* / *Die Brücke ist sehr ___* comparison on the flipped pairs
+  (P20); a record of what the models actually say, beyond the shortlist (P21); the model's own
+  woman/man axis checked against human ratings (P22).
+- Closest prior work found: Flint & Ivanova (2024), same question in older embedding models.
+- Efficiency pass before the next cloud run: a steering engine 8–30× faster than the plain
+  method, verified identical; faster scoring and extraction; the next model downloads while the
+  current one runs.
 
 ## Where things stand
 
