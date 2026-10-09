@@ -121,6 +121,9 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
   in-language *El puente es muy ___* / *Die Brücke ist sehr ___* comparison on the flipped pairs
   (P20); a record of what the models actually say, beyond the shortlist (P21); the model's own
   woman/man axis checked against human ratings (P22).
+- The gender wug test: every model, even 0.6B, gives invented *-a* words feminine and *-o* words
+  masculine articles (~80% vs ~5%), with *-e* and *-iz* in between, as Spanish nouns are. No
+  model was too small to pass.
 - Closest prior work found: Flint & Ivanova (2024), same question in older embedding models.
 - Efficiency pass before the next cloud run: a steering engine 8–30× faster than the plain
   method, verified identical; faster scoring and extraction; the next model downloads while the

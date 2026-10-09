@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "git_commit": "bb0456ea96a2ba61c801fe474829df2949e65e81",
+    "git_dirty": false,
+    "model_id": "Qwen/Qwen3-0.6B-Base",
+    "model_revision": null,
+    "n_params": 596049920,
+    "n_layers": 28,
+    "device": "mps",
+    "dtype": "float16",
+    "head_dtype": "model",
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "machine": "Darwin arm64 arm",
+    "gpu": "Apple MPS",
+    "stimuli": "data/stimuli/phase5_nonce_es_v1.csv",
+    "timestamp": "2026-10-09T08:44:00+00:00"
+  },
+  "results": {
+    "n_stems": 145,
+    "ctx1_margin": {
+      "share_feminine": {
+        "a": 0.8344827586206897,
+        "o": 0.05517241379310345,
+        "e": 0.3724137931034483,
+        "iz": 0.45517241379310347
+      },
+      "mean_margin": {
+        "a": -1.9367965040535762,
+        "o": 3.25997209220097,
+        "e": 0.7841960906982421,
+        "iz": 0.20551476314150055
+      },
+      "auc_a_vs_o": 0.9586682520808562,
+      "spearman_vs_predicted_order": 1.0
+    },
+    "ctx2_margin": {
+      "share_feminine": {
+        "a": 0.8275862068965517,
+        "o": 0.08275862068965517,
+        "e": 0.2827586206896552,
+        "iz": 0.36551724137931035
+      },
+      "mean_margin": {
+        "a": -2.1730804180276806,
+        "o": 4.074777524224643,
+        "e": 1.4946523863693764,
+        "iz": 0.975585700725687
+      },
+      "auc_a_vs_o": 0.9522473246135553,
+      "spearman_vs_predicted_order": 1.0
+    },
+    "passes": true,
+    "ending_own_token": {
+      "a": 0.0896551724137931,
+      "o": 0.09655172413793103,
+      "e": 0.034482758620689655,
+      "iz": 0.9241379310344827
+    },
+    "mean_tokens": {
+      "a": 2.5586206896551724,
+      "o": 2.6206896551724137,
+      "e": 2.537931034482759,
+      "iz": 3.2896551724137932
+    },
+    "frames_agree": 0.8051724137931034
+  }
+}

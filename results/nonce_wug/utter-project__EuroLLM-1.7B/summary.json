@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "git_commit": "e63924464d6589b549f5b0b1cc3819ae40a29c61",
+    "git_dirty": false,
+    "model_id": "utter-project/EuroLLM-1.7B",
+    "model_revision": null,
+    "n_params": 1656850432,
+    "n_layers": 24,
+    "device": "mps",
+    "dtype": "float16",
+    "head_dtype": "model",
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "machine": "Darwin arm64 arm",
+    "gpu": "Apple MPS",
+    "stimuli": "data/stimuli/phase5_nonce_es_v1.csv",
+    "timestamp": "2026-10-09T08:56:05+00:00"
+  },
+  "results": {
+    "n_stems": 145,
+    "ctx1_margin": {
+      "share_feminine": {
+        "a": 0.8482758620689655,
+        "o": 0.07586206896551724,
+        "e": 0.38620689655172413,
+        "iz": 0.3724137931034483
+      },
+      "mean_margin": {
+        "a": -2.3000918815875875,
+        "o": 3.726250115756331,
+        "e": 0.7477686125656654,
+        "iz": 0.5590472780424973
+      },
+      "auc_a_vs_o": 0.9568133174791914,
+      "spearman_vs_predicted_order": 0.7999999999999999
+    },
+    "ctx2_margin": {
+      "share_feminine": {
+        "a": 0.7655172413793103,
+        "o": 0.05517241379310345,
+        "e": 0.2482758620689655,
+        "iz": 0.31724137931034485
+      },
+      "mean_margin": {
+        "a": -1.6513450754099879,
+        "o": 3.7069834215887663,
+        "e": 1.3584112364670327,
+        "iz": 1.0770053074277681
+      },
+      "auc_a_vs_o": 0.9407847800237812,
+      "spearman_vs_predicted_order": 1.0
+    },
+    "passes": true,
+    "ending_own_token": {
+      "a": 0.027586206896551724,
+      "o": 0.05517241379310345,
+      "e": 0.013793103448275862,
+      "iz": 0.8
+    },
+    "mean_tokens": {
+      "a": 2.489655172413793,
+      "o": 2.5310344827586206,
+      "e": 2.4551724137931035,
+      "iz": 3.110344827586207
+    },
+    "frames_agree": 0.7879310344827586
+  }
+}
