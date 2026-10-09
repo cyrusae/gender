@@ -91,14 +91,15 @@ def build_pairs() -> pd.DataFrame:
     out["split"] = "test"
     out.to_csv(PAIRS_POOL, index=False)
     es = pd.DataFrame({"lang": "es", "lemma": out.es_lemma, "gender": out.es_gender,
-                       "concept_en": out.concept_en, "set": "pair", "source": PAIRS_SRC})  # fmt: skip
+                       "concept_en": out.concept_en, "set": "pair", "source": PAIRS_SRC,
+                       "zipf": out.es_zipf})  # fmt: skip
     es.to_csv(PAIRS_ES_KNOWN_INPUT, index=False)
     print(f"{len(out)} pairs ({int(out.en_cognate.sum())} English cognates); "
           f"{out.groupby(['de_gender', 'es_gender']).size().to_dict()}")  # fmt: skip
     return out
 
 
-def known(model_id: str, device=None, dtype=None) -> None:
+def known(model_id: str, device=None, dtype=None, which: str = "both") -> None:
     """Known checks on both nouns of every pair: German three-way (Phase 3 frames), Spanish
     Phase 0 frames."""
     from . import phase0, phase3_known
@@ -106,9 +107,11 @@ def known(model_id: str, device=None, dtype=None) -> None:
 
     p = pd.read_csv(PAIRS_POOL, keep_default_na=False)
     de = pd.DataFrame({"lemma": p.de_lemma, "gender": p.de_gender})
-    phase3_known.score(model_id, device, dtype, out_root="results/phase4_known_de", items=de)
-    _free_memory()
-    phase0.run(model_id, PAIRS_ES_KNOWN_INPUT, "results/phase4_known_es", device, dtype)
+    if which in ("both", "de"):
+        phase3_known.score(model_id, device, dtype, out_root="results/phase4_known_de", items=de)
+        _free_memory()
+    if which in ("both", "es"):
+        phase0.run(model_id, PAIRS_ES_KNOWN_INPUT, "results/phase4_known_es", device, dtype)
 
 
 def known_sets(model_id: str) -> tuple[set[str], set[str]]:
