@@ -129,6 +129,26 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
   method, verified identical; faster scoring and extraction; the next model downloads while the
   current one runs.
 
+## 10. Laptop dry run of Phases 4–5 (Oct 9, development numbers, Mac fp16)
+
+- Phase 4 code run on 1.7B/4B (Mac data; the confirmatory run is on the cloud):
+  - Flipped pairs (*la luna* / *der Mond*): a direction trained on one language scores each pair
+    by its own language's gender in every layer (4B: mean AUC 0.93 with the Spanish direction,
+    0.88 with the German one; same without English cognates). At the AFTER position, much
+    weaker (Spanish direction 15/35 layers, German 0).
+  - Strict transfer (Spanish direction sorting German nouns within matched endings, and the
+    reverse): above chance in only a minority of layers (4B 12 and 17 of 35; 1.7B 1 and 15 of
+    27), mean AUC ~0.70–0.74. Fails the majority rule.
+  - Geometry: Spanish and German directions' split-half cosine ~0.44 (4B), but no layer above
+    the shuffle null.
+  - Caveat worth stating: the pair test doesn't control German endings, the strict test does.
+- Phase 5 gate on 4B (does pushing the noun's gender direction flip agreement?):
+  - Spanish (*Mi {noun} es muy ___*): flips at a small dose (α\* = 0.2) at all four layers;
+    random directions flip nothing.
+  - German (C4, calibrated dictionary frame): passes at 25%, 40% and 55% depth (α\* 0.75, 0.4,
+    0.3); fails at 70% (random directions flip 10%, the limit is <10%).
+  - Gate run time on the laptop: ~2 hours for 4B.
+
 ## Where things stand
 
 - Done: Phases 0, 2 and 3 confirmed on the target models (Phase 1 confirmatory analysis pending: the cloud data is saved, analysis not yet run); Phases 4–5 and the suffix follow-up fully
