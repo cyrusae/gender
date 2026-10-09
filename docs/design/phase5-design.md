@@ -381,7 +381,7 @@ renting. Trims if needed: every-position steering at the working dose only (~−
   471, in both 468. **Each model family uses its own set** (cross-family comparisons are
   conclusion-level); gender–valence correlation unchanged (≈ −0.45), so the covariate design
   stands.
-- **P18. Proposed (2026-10-08, PI request): paraphrased wordings for R1 and R1-EN.**
+- **P18. Adopted (PI, 2026-10-08): paraphrased wordings for R1 and R1-EN.**
   Scoring is deterministic (one forward pass gives exact probabilities; rerunning the same
   prompt gives the same numbers, up to GPU rounding), so repeated runs add nothing. The
   variation that matters is *which wording* was chosen: a result that holds under one wording
