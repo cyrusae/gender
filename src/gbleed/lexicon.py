@@ -33,7 +33,7 @@ from tqdm import tqdm
 RAW_DIR = Path("data/raw/kaikki")
 NLTK_DIR = Path("data/raw/nltk_data")
 LEX_DIR = Path("data/lexicon")
-LANG_NAMES = {"de": "German", "es": "Spanish"}
+LANG_NAMES = {"de": "German", "es": "Spanish", "ru": "Russian"}
 URL = "https://kaikki.org/dictionary/{name}/kaikki.org-dictionary-{name}.jsonl"
 
 GENDER_TAGS = {"masculine": "m", "feminine": "f", "neuter": "n"}
@@ -57,6 +57,7 @@ OTHER_POS = {
 WORD_RE = {
     "de": re.compile(r"^[A-ZÄÖÜ][a-zäöüß]+$"),  # nouns are capitalised; no compounds w/ hyphens
     "es": re.compile(r"^[a-záéíóúüñ]+$"),
+    "ru": re.compile(r"^[а-яё]+$"),  # page titles are unstressed and lowercase
 }
 
 # ---- animacy heuristics -----------------------------------------------------
@@ -128,6 +129,38 @@ def es_morphology(word: str, gender: str, etymology: str, sense_tags: set[str]) 
         # el agua, el hacha: feminine nouns with stressed initial a- take "el".
         # Stress isn't in the data, so flag every feminine a-/ha- noun.
         "initial_a_f": gender == "f" and bool(re.match(r"^h?[aá]", word)),
+    }
+
+
+def ru_head(expansion: str) -> str:
+    """Grammatical part of a Russian headword line, e.g. 'f anim' from
+    'соба́ка • (sobáka) f anim (genitive ...)': the transliteration comes in parentheses
+    *before* the gender, so the German/Spanish rule (text before the first '(') misses it."""
+    m = re.match(r"[^(]*\([^)]*\)\s*([^(]*)", expansion)
+    return m.group(1).strip() if m else ""
+
+
+def ru_morphology(word: str, gender: str, tags: set[str], heads: list[str]) -> dict:
+    """Ending class (the spelling cue Russian gender mostly follows) and grammatical animacy.
+    a: -а/-я (mostly f); o: -о/-е/-ё (mostly n); mja: -мя (n); soft: -ь (m or f: the
+    spelling-matched cell); cons: consonant or -й (mostly m)."""
+    if word.endswith("мя"):
+        ending = "mja"
+    elif word[-1] in "ая":
+        ending = "a"
+    elif word[-1] in "оеё":
+        ending = "o"
+    elif word[-1] == "ь":
+        ending = "soft"
+    else:
+        ending = "cons"
+    head = " ".join(ru_head(h) for h in heads)  # heads: full headword lines
+    anim = "anim" if "animate" in tags or re.search(r"\banim\b", head) else ""
+    inan = "inan" if "inanimate" in tags or re.search(r"\binan\b", head) else ""
+    return {
+        "ru_ending": ending,
+        "ru_animacy": "|".join(x for x in (anim, inan) if x),  # grammatical animacy tag
+        "ru_indecl": "indeclinable" in tags or any("indecl" in h for h in heads),
     }
 
 
@@ -374,7 +407,8 @@ def parse_dump(lang: str, path: Path):
             genders = {GENDER_TAGS[t] for s in core for t in s.get("tags", []) if t in GENDER_TAGS}
             if not genders:  # fall back to the headword line, e.g. "Brücke f (...)"
                 for h in r.get("head_templates", []):
-                    head = h.get("expansion", "").split("(")[0]
+                    exp = h.get("expansion", "")
+                    head = ru_head(exp) if lang == "ru" else exp.split("(")[0]
                     genders |= set(re.findall(r"\b([mfn])\b", head))
             # Topical categories of the FIRST sense only: "Buch" has a minor sense
             # (omasum) filed under "Animal body parts".
@@ -400,12 +434,17 @@ def parse_dump(lang: str, path: Path):
                     "tags": {t for s in core for t in s.get("tags", [])},
                     "cats": cats,
                     "etymology": r.get("etymology_text", ""),
+                    "heads": [h.get("expansion", "") for h in r.get("head_templates", [])]
+                    if lang == "ru"
+                    else [],
                     # A *different singular word* of the other gender (director ->
                     # directora). Not plurals: "mares" is tagged with gender too.
                     "counterpart": any(
                         {"masculine", "feminine"} & set(fm.get("tags", []))
-                        and not {"plural", "diminutive", "augmentative"} & set(fm.get("tags", []))
-                        and fm.get("form") != word
+                        and not {"plural", "diminutive", "augmentative", "canonical"}
+                        & set(fm.get("tags", []))
+                        # Russian headwords carry stress marks (кни́га vs the title книга)
+                        and fm.get("form", "").replace("\u0301", "").replace("\u0300", "") != word
                         for fm in r.get("forms", [])
                     )
                     or any(
@@ -474,6 +513,8 @@ def build_lexicon(lang: str, force_download: bool = False) -> pd.DataFrame:
         }
         if lang == "de":
             row["de_suffix"] = de_suffix(word)
+        elif lang == "ru":
+            row.update(ru_morphology(word, gender, tags, [h for e in ents for h in e["heads"]]))
         else:
             row.update(es_morphology(word, gender, first["etymology"], tags))
         rows.append(row)

@@ -33,5 +33,23 @@
       "animate": 14249,
       "uncertain": 12893
     }
+  },
+  "ru": {
+    "url": "https://kaikki.org/dictionary/Russian/kaikki.org-dictionary-Russian.jsonl",
+    "dump_mtime": "2026-10-08T15:10:20.235917+00:00",
+    "dump_sha256": "c11885ee3628630b9d516d5ee56263ae5207b4cd1f87f2071c122ca63bd85259",
+    "built": "2026-10-08T15:15:43+00:00",
+    "n_lemmas": 23737,
+    "by_gender": {
+      "m": 12036,
+      "f": 7919,
+      "n": 3436,
+      "multi": 346
+    },
+    "by_animacy": {
+      "inanimate": 15165,
+      "animate": 5540,
+      "uncertain": 3032
+    }
   }
 }

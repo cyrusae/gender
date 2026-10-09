@@ -128,3 +128,14 @@ def test_split_compound_head_first_part_and_linkers():
     assert split_compound("Bettelei", g) is None  # heads need >= 4 letters
     assert split_compound("Ausweisung", g) is None  # particle prefix: a derivation
     assert split_compound("Datenschutz", g)[3] == ""  # -n- after neuter: first part unresolved
+
+
+def test_russian_headword_parsing():
+    from gbleed.lexicon import ru_head, ru_morphology
+
+    assert ru_head("соба́ка • (sobáka) f anim (genitive соба́ки)") == "f anim"
+    assert ru_head("зонт • (zont) m inan (genitive зонта́)") == "m inan"
+    m = ru_morphology("ночь", "f", set(), ["ночь • (nočʹ) f inan (genitive но́чи)"])
+    assert m == {"ru_ending": "soft", "ru_animacy": "inan", "ru_indecl": False}
+    assert ru_morphology("кофе", "m", set(), ["ко́фе • (kófe) m inan (indeclinable)"])["ru_indecl"]
+    assert ru_morphology("время", "n", set(), [])["ru_ending"] == "mja"

@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "git_commit": "9361ee2135efbd3087d3dadb162c5fb65edb519c",
+    "git_dirty": false,
+    "model_id": "utter-project/EuroLLM-1.7B",
+    "model_revision": null,
+    "n_params": 1656850432,
+    "n_layers": 24,
+    "device": "mps",
+    "dtype": "float16",
+    "torch": "2.14.1",
+    "transformers": "5.18.0",
+    "machine": "Darwin arm64 arm",
+    "gpu": "Apple MPS",
+    "timestamp": "2026-10-08T22:14:56+00:00"
+  },
+  "framecheck_known_by_gender": {
+    "f": 0.985,
+    "m": 0.978,
+    "n": 0.993
+  },
+  "framecheck_n_by_gender": {
+    "m": 492,
+    "f": 328,
+    "n": 305
+  },
+  "pool_known_by_gender": {
+    "f": 0.803,
+    "m": 0.707
+  }
+}

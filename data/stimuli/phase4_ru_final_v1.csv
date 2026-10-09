@@ -1,0 +1,175 @@
+lang,lemma,gender,concept_en,gloss,zipf,loan,cell,suffix,base_noun,ru_animacy,animacy,set,excluded,split,known_by
+ru,грудь,f,chest,chest,4.48,native,дь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,проповедь,f,sermon,"sermon, homily",3.56,native,дь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,прядь,f,lock,lock (of hair),3.02,native,дь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,гроздь,f,bunch,"bunch, cluster, (botany) truss (a group of a number of similar things)",2.62,native,дь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,жердь,f,perch,perch; pole; ricker,2.25,native,дь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,дождь,m,rain,rain,4.64,native,дь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,гвоздь,m,nail,"nail, tack, peg (construction)",3.59,native,дь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,жёлудь,m,acorn,acorn,2.25,native,дь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,груздь,m,lactarius mushroom,"Lactarius mushroom, milk-cap",2.17,native,дь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,роль,f,role,"role, part",5.28,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,цель,f,goal,"goal, target, aim, end, object",4.98,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,медаль,f,medal,medal,4.47,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,мебель,f,furniture,furniture,4.11,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,деталь,f,detail,"detail, nicety",3.88,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,мораль,f,morals,morals; morality,3.76,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,дуэль,f,duel,"duel (combat between two persons, often over a matter of honor)",3.59,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,спираль,f,spiral,"spiral, spire helix",3.35,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,шаль,f,shawl,"shawl (a square piece of cloth worn as a covering for the head, neck, and shoulders)",3.04,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,вуаль,f,veil,"veil, voile",2.99,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,шинель,f,uniform overcoat,uniform overcoat; greatcoat,2.99,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,эмаль,f,enamel,enamel,2.97,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,ваниль,f,vanilla,vanilla (Vanilla planifolia),2.87,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,бутыль,f,large bottle,"a large bottle; carboy, demijohn, flask",2.85,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,карамель,f,caramel,caramel,2.83,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,бандероль,f,periodical wrapper,"periodical wrapper, post package, small parcel",2.47,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,шрапнель,f,shrapnel,shrapnel,2.45,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,контроль,m,control,control,4.81,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,автомобиль,m,car,"car, automobile, motorcar",4.66,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,спектакль,m,performance,"performance, play, matinee",4.39,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,алкоголь,m,ethanol,"ethanol, ethyl alcohol",4.17,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,руль,m,rudder,rudder,4.11,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,госпиталь,m,hospital,hospital,4.0,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,пароль,m,password,password,3.96,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,коктейль,m,cocktail,cocktail,3.87,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,модуль,m,module,module,3.81,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,портфель,m,briefcase,briefcase,3.8,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,дизель,m,diesel fuel,diesel fuel,3.77,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,туннель,m,tunnel,tunnel,3.4,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,гель,m,gel,gel (suspension of solid in liquid),3.35,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,киль,m,keel,"keel, back",3.16,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,куль,m,sack,sack,3.11,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,бордель,m,brothel,"brothel, bordello",2.99,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,хрусталь,m,crystal,"crystal, cut glass, lead glass (glass with a high refractive index, used for making fine glassware; by extension, fine glassware made of such glass)",2.96,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,водевиль,m,vaudeville,vaudeville,2.77,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,вексель,m,bill of credit,"bill of credit, bill of exchange, promissory note",2.74,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,штемпель,m,stamp,"stamp, seal",2.71,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,цоколь,m,socle,"socle (plinth, i.e. thickened bottom part of a wall or pedestal, often used to display art work)",2.69,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,артикль,m,article,article (part of speech),2.6,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,циркуль,m,pair of compasses,pair of compasses,2.59,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,трюфель,m,truffle,truffle (mushroom),2.5,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,фалафель,m,falafel,falafel,2.47,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,штрудель,m,strudel,strudel,2.42,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,эндшпиль,m,endgame,endgame,2.42,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,дроссель,m,throttle,throttle,2.41,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,фенхель,m,fennel,fennel (plant),2.3,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,вензель,m,cipher,"cipher, device, monogram (intricately interwoven initials)",2.3,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,штепсель,m,plug,plug (device for connecting a machine to main power),2.23,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,пасквиль,m,libel,"libel, libelous or defamatory piece of journalism",2.13,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,грифель,m,slate pencil,"slate pencil, stylus for writing on a slate board",2.02,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,штабель,m,stack,"stack, pile",2.01,loan,ль|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,боль,f,pain,"pain, ache",4.81,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,мысль,f,thought,thought,4.76,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,прибыль,f,rise,"rise, increase, growth, increment",4.43,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,пыль,f,dust,dust,4.11,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,печаль,f,sadness,"sadness, grief, sorrow",3.85,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,даль,f,distance,distance,3.75,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,ель,f,spruce,spruce,3.47,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,колыбель,f,cradle,cradle,3.28,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,гниль,f,rottenness,"rottenness, rot",3.02,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,купель,f,font,font,2.89,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,мозоль,f,skin blister,skin blister,2.83,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,свирель,f,pipe,"pipe, svirel (musical instrument)",2.49,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,скрижаль,f,table,"table, tablet (with sacred text inscribed upon it)",2.37,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,корабль,m,ship,"ship, liner",4.72,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,уголь,m,coal,"coal (a black rock formed from prehistoric plant remains, composed largely of carbon and burned as a fuel)",4.08,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,стебель,m,stem,"stem, stalk (botany: above-ground stalk of a vascular plant)",3.36,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,миндаль,m,almond,almond (nut),3.06,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,фитиль,m,wick,wick,3.05,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,чернобыль,m,wormwood,"wormwood, mugwort (Artemisia vulgaris)",3.05,native,ль|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,панель,f,panel,panel,3.75,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,опухоль,f,tumour,"tumour, tumor",3.69,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,карусель,f,merry-go-round,"merry-go-round, carousel",3.53,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,магистраль,f,main line,"main line, main route, main waterway (air, rail, nautical, automotive)",3.52,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,параллель,f,parallel,parallel (line),3.44,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,консоль,f,console,console,3.38,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,вертикаль,f,vertical,"vertical, vertical line",3.21,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,убыль,f,diminution,"diminution, decrease",3.21,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,погибель,f,death,"death, destruction, ruin, perdition",3.02,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,виолончель,f,cello,cello,2.88,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,автомагистраль,f,dual carriageway,dual carriageway,2.58,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,трель,f,trill,trill,2.54,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,удаль,f,prowess,"prowess, boldness",2.4,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,горизонталь,f,horizontal,horizontal (line),2.34,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,фестиваль,m,festival,festival (celebration),4.66,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,стиль,m,style,style,4.6,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,профиль,m,profile,profile (various senses),4.2,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,тоннель,m,tunnel,tunnel,3.74,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,баррель,m,barrel,barrel (unit of liquid measure equal to one-quarter of a pipe),3.34,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,гриль,m,grill,grill (barbecue),3.21,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,вентиль,m,valve,valve,2.86,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,пиксель,m,pixel,pixel,2.69,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,аэрозоль,m,aerosol,aerosol,2.58,unknown,ль|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,гавань,f,haven,"haven (harbour), port",3.66,loan,нь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,женьшень,m,ginseng,ginseng,2.63,loan,нь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,ревень,m,rhubarb,rhubarb,2.54,loan,нь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,жизнь,f,life,life,5.73,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,степень,f,degree,"degree, extent",4.62,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,болезнь,f,disease,"disease, sickness, illness",4.5,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,осень,f,autumn,"autumn, fall",4.2,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,казнь,f,execution,execution (putting someone to death),4.03,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,дань,f,contribution,"contribution, tribute",3.96,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,ткань,f,fabric,"fabric, cloth",3.9,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,грань,f,facet,"facet, side (of an object with flat, sharply defined surfaces)",3.81,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,ступень,f,step,step (interval between two contiguous degrees of the scale),3.78,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,боязнь,f,fear,"fear, dread",3.52,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,вонь,f,stink,"stink, stench",3.22,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,плесень,f,mildew,"mildew, mold, must",3.19,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,брань,f,scolding,"scolding, invective, swearing",3.18,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,рань,f,early morning,early morning,3.06,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,полынь,f,wormwood,"wormwood, mugwort, artemisia",3.0,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,сень,f,canopy,canopy (in church),2.68,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,гортань,f,larynx,larynx; throat,2.66,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,день,m,day,"day, daytime",5.84,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,корень,m,root,root,3.91,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,стержень,m,shank,"shank, rod, pivot, spindle (straight round stick, shaft, or bar)",3.54,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,ячмень,m,barley,barley (annual temperate grasses of the species Hordeum vulgare or its grain used in making food and beverages),3.26,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,бивень,m,tusk,tusk,2.41,native,нь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,зелень,f,greenery,"greenery, verdure (vegetation)",3.71,unknown,нь|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,пустынь,f,hermitage,hermitage,3.4,unknown,нь|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,неприязнь,f,enmity,"enmity, hostility (hostile or unfriendly disposition)",3.36,unknown,нь|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,пристань,f,wharf,"wharf, pier",3.33,unknown,нь|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,сирень,f,lilac,lilac (Syringa),3.18,unknown,нь|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,синь,f,blue colour,blue colour,3.13,unknown,нь|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,ругань,f,abuse,"abuse, swearing (insulting speech)",3.03,unknown,нь|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,бронь,f,ripe ear of oat,ripe ear of oat,3.01,unknown,нь|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,уровень,m,level,"level, standard, amount",5.18,unknown,нь|unknown,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,глазурь,f,syrup,"syrup (for fruit), icing (for cakes)",2.86,loan,рь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,лазурь,f,azure,azure (colour/color),2.8,loan,рь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,лагерь,m,camp,"camp, camp-out",4.43,loan,рь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,монастырь,m,monastery,"monastery, convent",4.12,loan,рь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,календарь,m,calendar,calendar,4.11,loan,рь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,фонарь,m,lantern,"lantern, streetlight, streetlamp",3.72,loan,рь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,инвентарь,m,inventory,"inventory, stock",3.51,loan,рь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,алтарь,m,altar,altar,3.51,loan,рь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,козырь,m,trump,trump,3.32,loan,рь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,штырь,m,pin,"pin, pivot, spike",2.66,loan,рь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,лейкопластырь,m,plaster,"plaster, band-aid",2.02,loan,рь|loan,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,дверь,f,door,door,4.87,native,рь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,корь,f,measles,measles,2.73,native,рь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,ширь,f,expanse,"expanse, scope",2.37,native,рь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,якорь,m,anchor,anchor,3.6,native,рь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,пластырь,m,plaster,"plaster, band-aid",3.12,native,рь|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,часть,f,part,part,5.55,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,память,f,memory,memory,4.96,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,сеть,f,net,"net (used for catching fish), mesh",4.79,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,суть,f,essence,"essence, core, gist, main point",4.63,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,печать,f,printing,"printing, print",4.18,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,ненависть,f,hatred,"hatred, hate",4.16,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,нить,f,thread,thread,3.91,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,плоть,f,flesh,flesh,3.84,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,шерсть,f,fur,"fur, hair (animal hair or human body hair; contrast волосы and мех)",3.8,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,челюсть,f,jaw,jaw (bone of the jaw),3.75,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,зависть,f,envy,envy,3.67,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,благодать,f,divine grace,"divine grace, boon, bliss (a blessing or benefit)",3.52,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,кисть,f,brush,"brush, paintbrush (instrument for applying paint)",3.49,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,жуть,f,dismay,"dismay, dread, horror",3.46,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,горсть,f,hollow of the hand,"hollow of the hand, cupped hand",3.2,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,похоть,f,lust,lust,3.1,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,рукоять,f,handle,handle,2.94,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,масть,f,color,color,2.9,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,корысть,f,gain,"gain, profit; self-interest, greed",2.68,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,перхоть,f,dandruff,dandruff,2.48,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,путь,m,way,"way, path, road",5.13,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
+ru,ноготь,m,nail,nail (of finger or toe),3.1,native,ть|native,,,inan,inanimate,strat_ru,,test,Qwen3-4B
