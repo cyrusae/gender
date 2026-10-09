@@ -106,7 +106,7 @@ def known(model_id: str, device=None, dtype=None, which: str = "both") -> None:
     from .cli import _free_memory
 
     p = pd.read_csv(PAIRS_POOL, keep_default_na=False)
-    de = pd.DataFrame({"lemma": p.de_lemma, "gender": p.de_gender})
+    de = pd.DataFrame({"lemma": p.de_lemma, "gender": p.de_gender, "zipf": p.de_zipf})
     if which in ("both", "de"):
         phase3_known.score(model_id, device, dtype, out_root="results/phase4_known_de", items=de)
         _free_memory()
