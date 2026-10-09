@@ -14,8 +14,8 @@ Readouts (each frame is fixed text; every scored word is a single token, P16):
   R2      forced choice man/woman, male/female, boy/girl (both orders) + narrative pronoun
   R2-EN   the same with the English noun
 Gate (§5.2): Spanish *Mi {noun} es muy ___* agreement (adjective endings given their stem);
-German label frame *Genus:* maskulin/feminin/neutrum (primary; revised 2026-10-09 after
-the frame check) and dictionary frame der/die/das (secondary).
+German: the frame selected from DE_GATE_CANDIDATES by the pre-declared frame-check rule
+(phase5_stimuli; revised 2026-10-09 after the dictionary and pronoun frames failed).
 Damage (§5.3): KL(unsteered || steered) of the next-token distribution over the 20 tokens after
 the noun in a neutral sentence.
 P21: the top-50 next tokens of every scored prompt are saved alongside.
@@ -288,11 +288,39 @@ def family(model_id: str) -> str:
 
 
 # ---- gate -----------------------------------------------------------------------------
-def gate_prompts(nouns: pd.DataFrame, lang: str, fam: str):
+def de_reader(tok, frame: str):
+    """(read ids, margin function lp[:, read] -> f - m) for a German candidate frame."""
+    from .phase5_stimuli import DE_GATE_CANDIDATES
+
+    _, forms, _ = DE_GATE_CANDIDATES[frame]
+    im, i_f = single_ids(tok, forms["m"]), single_ids(tok, forms["f"])
+    read = im + i_f
+
+    def margin(lp):
+        lp = torch.as_tensor(lp)
+        return (torch.logsumexp(lp[:, len(im) :], 1) - torch.logsumexp(lp[:, : len(im)], 1)).numpy()
+
+    return read, margin
+
+
+@torch.no_grad()
+def de_calibration(model, tok, frame: str) -> float:
+    """Contextual calibration: the margin of the content-free headword (0 if the frame has none)."""
+    from .phase5_stimuli import DE_GATE_CANDIDATES
+
+    t, _, cf = DE_GATE_CANDIDATES[frame]
+    if cf is None:
+        return 0.0
+    read, margin = de_reader(tok, frame)
+    V = torch.zeros((1, model.config.hidden_size))
+    r = run(model, tok, [Prompt(t.format(noun=cf), cf)], 0, [(0, 0, 0.0)], V, read)
+    return float(margin(r["lp"])[0])
+
+
+def gate_prompts(nouns: pd.DataFrame, lang: str, fam: str, de_frame: str | None = None):
     """Spanish: one prompt per noun x gate adjective (stem appended), read the two endings.
-    German: one prompt per noun x frame, read maskulin/feminin/neutrum (label frame, primary)
-    and der/die/das (dictionary frame)."""
-    from .phase5_stimuli import DE_GATE, gate_adjectives
+    German: one prompt per noun in the selected candidate frame (DE_GATE_CANDIDATES)."""
+    from .phase5_stimuli import DE_GATE_CANDIDATES, gate_adjectives
 
     out = []
     if lang == "es":
@@ -302,27 +330,30 @@ def gate_prompts(nouns: pd.DataFrame, lang: str, fam: str):
                                    {"lemma": r.lemma, "gender": r.gender, "adj": m}, extra=stem),
                             [im, i_f]))  # fmt: skip
     else:
+        t = DE_GATE_CANDIDATES[de_frame][0]
         for r in nouns.itertuples():
-            for fr, (t, _) in DE_GATE.items():
-                out.append((Prompt(t.format(noun=r.lemma), r.lemma,
-                                   {"lemma": r.lemma, "gender": r.gender, "frame": fr}), None))  # fmt: skip
+            out.append((Prompt(t.format(noun=r.lemma), r.lemma,
+                               {"lemma": r.lemma, "gender": r.gender, "frame": de_frame}), None))  # fmt: skip
     return out
 
 
 def gate(model, tok, model_id: str, k: int, nouns: pd.DataFrame, lang: str, v: np.ndarray,
-         n_random: int = N_RANDOM_GATE) -> dict:  # fmt: skip
+         n_random: int = N_RANDOM_GATE, de_frame: str | None = None) -> dict:  # fmt: skip
     """Agreement margin (feminine minus masculine log-prob; Spanish: mean over adjectives; German:
     dictionary frame) per noun across the gate grid, for v and random vectors (the random ones at
     the flip dose only). Feminine nouns are pushed with -dose, masculine with +dose."""
-    from .phase5_stimuli import DE_GATE
+    from .phase5_stimuli import DE_GATE_PRIMARY
 
     fam = family(model_id)
-    gp = gate_prompts(nouns, lang, fam)
+    de_frame = de_frame or DE_GATE_PRIMARY
+    gp = gate_prompts(nouns, lang, fam, de_frame)
     prompts = [p for p, _ in gp]
     if lang == "es":
         read = sorted({i for _, r in gp for i in r})
     else:
-        read = first_ids(tok, [*DE_GATE["genus"][1].values(), *DE_GATE["dict"][1].values()])
+        assert de_frame, "no German gate frame selected (DE_GATE_PRIMARY)"
+        read, de_margin = de_reader(tok, de_frame)
+        cal = de_calibration(model, tok, de_frame)
     unit = noun_norm(model, tok, prompts[:: max(1, len(prompts) // 200)], k)
     d = model.config.hidden_size
     V = torch.tensor(np.r_[v[None], random_vectors(d, n_random, seed=k)], dtype=torch.float32)
@@ -337,9 +368,7 @@ def gate(model, tok, model_id: str, k: int, nouns: pd.DataFrame, lang: str, v: n
             m = np.array([lp[j, pos[gp[i][1][1]]] - lp[j, pos[gp[i][1][0]]]
                           for j, i in enumerate(idx_prompts)])  # fmt: skip
         else:
-            m = lp[:, 1] - lp[:, 0]  # label frame: feminin - maskulin (primary)
-            fr = np.array([prompts[i].key["frame"] for i in idx_prompts])
-            m = np.where(fr == "genus", m, lp[:, 4] - lp[:, 3])  # dictionary frame: die - der
+            m = de_margin(lp) - cal
         return m
 
     rows = []
@@ -350,8 +379,6 @@ def gate(model, tok, model_id: str, k: int, nouns: pd.DataFrame, lang: str, v: n
         df = pd.DataFrame({"lemma": [p.key["lemma"] for p in prompts],
                            "gender": [p.key["gender"] for p in prompts], "m": m,
                            "frame": [p.key.get("frame", "adj") for p in prompts]})  # fmt: skip
-        if lang == "de":
-            df = df[df.frame == "genus"]
         per = df.groupby(["lemma", "gender"]).m.mean().reset_index()
         rows.append({"dose": a, "median_f": float(per[per.gender == "f"].m.median()),
                      "median_m": float(per[per.gender == "m"].m.median()),
@@ -369,8 +396,6 @@ def gate(model, tok, model_id: str, k: int, nouns: pd.DataFrame, lang: str, v: n
             df = pd.DataFrame({"lemma": [p.key["lemma"] for p in prompts],
                                "gender": [p.key["gender"] for p in prompts], "m": m,
                                "frame": [p.key.get("frame", "adj") for p in prompts]})  # fmt: skip
-            if lang == "de":
-                df = df[df.frame == "genus"]
             per = df.groupby(["lemma", "gender"]).m.mean().reset_index()
             rand_flip.append(float(np.mean(np.where(per.gender == "f", per.m < 0, per.m > 0))))
     passes = bool(np.isfinite(a_star) and np.mean(rand_flip) < 0.10)
@@ -517,7 +542,7 @@ def frame_check(model_id: str, out_root: str = "results/phase5_framecheck", devi
     """Pre-registered gate frame check (§5.2): unsteered, >= 70% of this model's known Zipf >= 4
     Phase 0 nouns must get the right gender, per gender, in each gate frame."""
     from .models import load_model, pick_device, pick_dtype, run_metadata
-    from .phase5_stimuli import DE_GATE, gate_adjectives
+    from .phase5_stimuli import DE_GATE_CANDIDATES, gate_adjectives
 
     dev = pick_device(device)
     dt = pick_dtype(dtype, dev)
@@ -546,15 +571,14 @@ def frame_check(model_id: str, out_root: str = "results/phase5_framecheck", devi
             res["es_adj"] = {g: float(np.mean((per[per.gender == g].m > 0) == (g == "f")))
                              for g in ("m", "f")}  # fmt: skip
         else:
-            for fr, (t, arts) in DE_GATE.items():
-                prompts = [Prompt(t.format(noun=w), w, {"lemma": w, "gender": g})
-                           for w, g in zip(nn.lemma, nn.gender, strict=True)]  # fmt: skip
-                read = first_ids(tok, list(arts.values()))
+            g = nn.gender.to_numpy()
+            for fr, (t, _, _) in DE_GATE_CANDIDATES.items():
+                prompts = [Prompt(t.format(noun=w), w, {"lemma": w, "gender": x})
+                           for w, x in zip(nn.lemma, g, strict=True)]  # fmt: skip
+                read, margin = de_reader(tok, fr)
                 r = run(model, tok, prompts, 0, [(i, 0, 0.0) for i in range(len(prompts))], V, read)
-                lp = r["lp"]
-                g = nn.gender.to_numpy()
-                right = np.where(g == "f", lp[:, 1] > np.maximum(lp[:, 0], lp[:, 2]),
-                                 lp[:, 0] > np.maximum(lp[:, 1], lp[:, 2]))  # fmt: skip
+                m = margin(r["lp"]) - de_calibration(model, tok, fr)
+                right = np.where(g == "f", m > 0, m < 0)
                 res[f"de_{fr}"] = {x: float(right[g == x].mean()) for x in ("m", "f")}
     res["n"] = it.groupby("lang").size().to_dict()
     res["passes"] = {k: all(v >= 0.7 for v in d.values()) for k, d in res.items() if k != "n"}

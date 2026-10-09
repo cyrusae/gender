@@ -29,10 +29,26 @@ ES_GATE_ADJ = ["blanco", "negro", "nuevo", "viejo", "bonito", "feo", "alto", "ba
                "caro", "largo", "corto", "ancho", "limpio", "sucio", "rojo", "redondo", "lleno",
                "vacío", "seco", "frío", "pequeño", "duro", "blando", "oscuro", "claro", "lento",
                "rápido", "pesado", "ligero"]  # fmt: skip
-DE_GATE = {  # revised 2026-10-09 (PI) after the frame check: label frame primary, dict secondary
-    "genus": ("Wörterbuch:\n{noun}\nGenus:", {"m": " maskulin", "f": " feminin", "n": " neutrum"}),
-    "dict": ("Wörterbuch:\n{noun},", {"m": " der", "f": " die", "n": " das"}),
-}
+# German gate candidates (2026-10-09, PI), written with their grammatical reasons before any
+# test. Readout after the noun; zero-article contexts (any article before the noun gives the
+# gender away). Margin = logsumexp(feminine forms) - logsumexp(masculine forms) (m/f only).
+#   C1   dictionary headword + comma -> article (die is also plural: the earlier failure)
+#   C2   dative pronoun after "mit": ihm (m/n) / ihr (f); plural would be ihnen
+#   C2p  C2 pooled with dative articles (mit dem/einem vs der/einer may start a new noun phrase)
+#   C3   relative pronoun forced by "Noun, mit": dem (m/n) / der (f); plural would be denen
+#   C4   C1 minus the margin of a content-free headword ("N/A"): contextual calibration
+#        (Zhao et al. 2021)
+# Selection (pre-declared): candidates passing >= 70% per gender on Qwen3 (1.7B, 4B) and
+# EuroLLM-1.7B; the highest worst-case accuracy wins; ties: C2 > C3 > C1 > C4 > C2p.
+DE_GATE_CANDIDATES = {
+    "C1": ("Wörterbuch:\n{noun},", {"m": [" der"], "f": [" die"]}, None),
+    "C2": ("Thema: {noun}. Was macht man mit", {"m": [" ihm"], "f": [" ihr"]}, None),
+    "C2p": ("Thema: {noun}. Was macht man mit",
+            {"m": [" ihm", " dem", " einem"], "f": [" ihr", " der", " einer"]}, None),
+    "C3": ("Wörterbuch:\n{noun}, mit", {"m": [" dem"], "f": [" der"]}, None),
+    "C4": ("Wörterbuch:\n{noun},", {"m": [" der"], "f": [" die"]}, "N/A"),
+}  # fmt: skip
+DE_GATE_PRIMARY = None  # set from the frame-check selection (decisions.md)
 
 
 def glasgow() -> pd.DataFrame:
