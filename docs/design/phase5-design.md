@@ -450,7 +450,7 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     its own token), since that may decide what small models can see.
   - Not tested: German (no German nonces yet; candidate after S1), English nonces (no grammatical
     gender).
-- **P20. Proposed (2026-10-08, PI): in-language baseline on flipped pairs (R3-PAIR), unsteered.**
+- **P20. Adopted (PI, 2026-10-08): in-language baseline on flipped pairs (R3-PAIR), unsteered.**
   Ask each language directly, *El puente es muy ___* / *Die Brücke ist sehr ___*, and compare the
   same concept across the two languages. Extends R3 (Spanish only) to German and to the pairs.
   - Frames: Spanish *El/La {noun} es muy ___* (the noun's own article: the natural sentence, as
@@ -458,6 +458,9 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     never inflect, so any adjective is grammatical; Spanish ones agree, so **Spanish uses only
     gender-invariant adjectives** (*fuerte*, *elegante*, *frágil*: same form for both genders),
     else the adjective's form would carry the noun's grammatical gender into the score.
+  - Second Spanish wording (PI): *Es un/una {noun} muy ___* (attributive; no German counterpart,
+    since a German attributive adjective comes before the noun). Scores averaged over the two
+    Spanish wordings, each also reported; both must pass the frame check (as P18).
   - Adjectives: Glasgow-rated English adjectives (as R1) whose German and Spanish translations
     come from Wiktionary (kaikki dumps: a de/es adjective whose gloss is that English word;
     ambiguous mappings dropped, not reviewed). Each adjective keeps its English Glasgow rating
@@ -479,6 +482,13 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     inside each language but doesn't reach English.
   - Later (not this round): steer these frames with the congruent vs the opposite gender
     direction.
+- **P21. Adopted (PI, 2026-10-08): open-vocabulary record (exploratory).** Every scored frame
+  (R1, R1-EN, R2, R3, R3-PAIR, R-NONCE; unsteered and steered at the working dose) also saves the
+  top 50 next tokens with their log probabilities. Reported, labelled exploratory: (1) what the
+  models actually put in the slot, per language and gender group; (2) the tokens steering moves
+  most, over the whole vocabulary; (3) shortlist coverage: the share of slot probability the
+  rated adjectives take, and the most probable unrated words (a check on the confirmatory
+  design). No test is run on these; no choice is changed because of them.
 - **P15. Adopted (PI, 2026-10-08).** Graded nonce ending set (*-a*/*-o*/*-e*/consonant on the same stems), **all new nonce
   sets generated with Wuggy** (`wuggy` 1.1.2, MIT; confirm the Spanish module before building),
   plus the Phase 1 checks (absent from Wiktionary, zero frequency in six languages)?
