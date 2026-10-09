@@ -131,7 +131,7 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
 
 ## Where things stand
 
-- Done: Phases 0–3 confirmed on the target models; Phases 4–5 and the suffix follow-up fully
+- Done: Phases 0, 2 and 3 confirmed on the target models (Phase 1 confirmatory analysis pending: the cloud data is saved, analysis not yet run); Phases 4–5 and the suffix follow-up fully
   designed and pre-registered; stimuli built (pairs, Russian list, nonce words, derived nouns).
 - Next: Phase 4–5 code and a laptop dry run (which also measures how big the next cloud run
   must be), then the second cloud session.

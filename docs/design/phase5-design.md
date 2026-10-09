@@ -522,6 +522,41 @@ renting. Trims if needed: every-position steering at the working dose only (~−
 - **P7. Adopted (PI, 2026-10-08):** 8B/14B only on the next round (30B-A3B skipped).
 - **P8. Adopted (PI, 2026-10-08):** EuroLLM-1.7B as a cross-family check of the gate and baseline on the Mac.
 
+- **P23. Adopted (PI, 2026-10-09): English base case (exploratory).** Before any steering, do
+  English nouns already lean on the gender directions?
+  - Items: bare English nouns, same input format as Phases 2–3: (a) the English concepts of
+    the steering nouns and flipped pairs; (b) a calibration set of Glasgow-rated nouns
+    (WordNet senses ≥ 50% noun, Zipf ≥ 3, inanimate by the Phase 3 WordNet check).
+  - Directions: the social-gender direction (§5.7, definition in P24), ES, DE and POOLED
+    (Phase 4), at every layer.
+  - (1) **Social direction on things:** Spearman correlation of each calibration noun's
+    projection with its Glasgow gender rating, raw and partial on valence (as P22).
+  - (2) **Translation gender in English:** on the flipped-pair concepts, AUC of the ES
+    projection for "the Spanish translation is feminine" and of the DE projection for "the
+    German translation is feminine"; POOLED for both. Expected: 0.5 (noise). Because the pairs
+    are flipped, the two predictions have opposite signs, so a meaning property shared by the
+    concepts can't produce both. Bootstrap over concepts.
+  - Reading: a lean following translation gender would be a baseline, intervention-free
+    "bleed" into English, to know before reading R1-EN.
+- **P24. Adopted (PI, 2026-10-09): cross-domain transfer and the §5.1 cosine (exploratory).**
+  Is one gender direction serving both grammatical and social gender?
+  - **Social direction (fixed now):** difference of means, female minus male, over English
+    person pairs extracted bare: *woman/man, girl/boy, mother/father, daughter/son,
+    sister/brother, queen/king, wife/husband, aunt/uncle, she/he*. Each pair's sex labels are
+    checked automatically against WordNet (first-sense gloss); a pair that fails is dropped.
+  - **Social → grammatical:** the social direction scores the Phase 2 `strat` and Phase 3
+    `strat3` m/f nouns; AUC within each language's cells (as T1).
+  - **Grammatical → social:** ES, DE and POOLED score held-out English sex-specific person
+    nouns (not in the social-direction list). Labels come from WordNet: the noun's first-sense
+    gloss begins "a woman/female…" or "a man/male…" (e.g. *actress* "a female actor"). AUC.
+  - **§5.1 cosine:** split-half cosine between the social direction and ES/DE/POOLED, with the
+    within-cell shuffle null and random directions as calibration (activations aren't
+    centred).
+  - Pooling grammatical and social into one vector: not done; its distance from each mostly
+    restates their cosine.
+  - Data: new extraction of English nouns and person words (minutes; Mac 1.7B/4B, session 2
+    for 8B/14B). Outside Holm.
+
 ## Limits to state
 
 - Steering is an intervention on a linear direction at one position. A null doesn't rule out a
