@@ -1,6 +1,6 @@
 {
  "meta": {
-  "git_commit": "69a75fd5eb030538fb1109f7c313ce996d8aceb6",
+  "git_commit": "b77a1e117602b4e4eeee3486301ba5fa8a2a64c6",
   "git_dirty": false,
   "model_id": "utter-project/EuroLLM-1.7B",
   "model_revision": null,
@@ -18,13 +18,25 @@
   "m": 1.0,
   "f": 0.9473684210526315
  },
- "de_genus": {
-  "m": 0.0,
-  "f": 0.9722222222222222
- },
- "de_dict": {
-  "m": 0.8636363636363636,
+ "de_C1": {
+  "m": 0.8863636363636364,
   "f": 1.0
+ },
+ "de_C2": {
+  "m": 1.0,
+  "f": 0.2222222222222222
+ },
+ "de_C2p": {
+  "m": 1.0,
+  "f": 0.2222222222222222
+ },
+ "de_C3": {
+  "m": 1.0,
+  "f": 0.8611111111111112
+ },
+ "de_C4": {
+  "m": 1.0,
+  "f": 0.8888888888888888
  },
  "n": {
   "de": 80,
@@ -32,7 +44,10 @@
  },
  "passes": {
   "es_adj": true,
-  "de_genus": false,
-  "de_dict": true
+  "de_C1": true,
+  "de_C2": false,
+  "de_C2p": false,
+  "de_C3": true,
+  "de_C4": true
  }
 }
