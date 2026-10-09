@@ -58,6 +58,20 @@ def main() -> None:
     fc.add_argument("--device", default=None)
     fc.add_argument("--dtype", default=None)
     sub.add_parser("phase3-stimuli", help="Build the Phase 3 German pool (m/f/n)")
+    sub.add_parser("phase4-pairs", help="Build the Phase 4 flipped-pair pool (389 pairs)")
+    p4k = sub.add_parser("phase4-known", help="Known checks on both nouns of every pair")
+    p4k.add_argument("models", nargs="+")
+    p4k.add_argument("--device", default=None)
+    p4k.add_argument("--dtype", default=None)
+    sub.add_parser("phase4-finalize", help="Keep pairs known by 1.7B and 4B")
+    p4 = sub.add_parser("phase4", help="Extract Phase 4 words and run the Phase 4 analysis")
+    p4.add_argument("models", nargs="+")
+    p4.add_argument("--device", default=None)
+    p4.add_argument("--dtype", default=None)
+    p4.add_argument("--position", choices=["last", "after"], default="last")
+    p4.add_argument("--skip-extract", action="store_true")
+    p4.add_argument("--extract-only", action="store_true")
+    p4.add_argument("--n-boot", type=int, default=1000)
     p3k = sub.add_parser("phase3-known", help="Three-way article known check for Phase 3")
     p3k.add_argument("models", nargs="+")
     p3k.add_argument("--device", default=None)
@@ -154,6 +168,33 @@ def main() -> None:
                 _free_memory()
             if not a.extract_only:
                 phase3.analyze(m, a.position)
+        return
+    if a.cmd == "phase4-pairs":
+        from .phase4 import build_pairs
+
+        build_pairs()
+        return
+    if a.cmd == "phase4-known":
+        from .phase4 import known
+
+        for m in a.models:
+            known(m, a.device, a.dtype)
+            _free_memory()
+        return
+    if a.cmd == "phase4-finalize":
+        from .phase4 import finalize
+
+        finalize()
+        return
+    if a.cmd == "phase4":
+        from . import phase4
+
+        for m in a.models:
+            if not a.skip_extract:
+                phase4.extract(m, a.device, a.dtype)
+                _free_memory()
+            if not a.extract_only:
+                phase4.analyze(m, a.position, n_boot=a.n_boot)
         return
     if a.cmd == "phase2-stimuli":
         from .phase2_stimuli import build
