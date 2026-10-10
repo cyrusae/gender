@@ -4,6 +4,7 @@
 # steering directions are fitted on this chip). GPU steps only; analysis on the Mac.
 # Run from the repo root after setup.sh:  nohup bash runpod/session2.sh > /dev/null 2>&1 < /dev/null &
 # Watch: tail -f logs/session2.log    Resume after a failure: MODELS="..." bash runpod/session2.sh
+#   (add FROM="<model> <step name>" to start at that step, e.g. FROM="Qwen/Qwen3-8B-Base known ru")
 # Local end-to-end test (from an unpacked bundle, not the main checkout):
 #   KEEP_MODELS=1 GBLEED_SMOKE=1 HF_HOME=~/.cache/huggingface OUT=/tmp/x \
 #   MODELS=Qwen/Qwen3-0.6B-Base SMALL= bash runpod/session2.sh
@@ -18,6 +19,11 @@ OUT=${OUT:-/root/out}
 mkdir -p logs "$OUT"
 step() {
   local name=$1; shift
+  # FROM="<model> <step>": skip steps until that one (resume after a failure without redoing)
+  if [ -n "${FROM:-}" ]; then
+    if [ "$name" != "$FROM" ]; then echo "=== skip: $name"; return; fi
+    FROM=""
+  fi
   local t=$(date +%s)
   echo "=== $(date +%T) start: $name"
   "$@"

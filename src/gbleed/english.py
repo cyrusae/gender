@@ -9,6 +9,11 @@ Words (bare, same input format as Phases 2-3; LAST and AFTER from one pass):
   concepts       the English concepts of the Phase 5 steering nouns and flipped pairs
   calibration    Glasgow-rated nouns: WordNet senses >= 50% noun, Zipf >= 3, one word, not under
                  person/animal/people or group roots in the first two senses
+v2 adds (P24 amendments + P24b, PI 2026-10-10; v1 rows unchanged):
+  person2        P24 main set: unmarked sex-specific person nouns from GN-GloVe's lists (Zhao
+                 et al. 2018) + v1, sex confirmed by the WordNet first-sense gloss
+  name           P24b: SSA first names, >= 95% one sex, >= 10,000 births, not a WordNet lemma;
+                 cell = final letter
 Directions per layer (unit, female/feminine positive): SOCIAL = mean over pairs of (female -
 male); ES/DE = the Phase 5 steering vectors (stratified difference of means); POOLED as Phase 4.
 """
@@ -29,7 +34,13 @@ from .models import git_state, model_slug, progress, stage
 SOCIAL_PAIRS = [("woman", "man"), ("girl", "boy"), ("mother", "father"), ("daughter", "son"),
                 ("sister", "brother"), ("queen", "king"), ("wife", "husband"), ("aunt", "uncle"),
                 ("she", "he")]  # fmt: skip
-WORDS = "data/stimuli/english_v1.csv"
+WORDS_V1 = "data/stimuli/english_v1.csv"
+WORDS = "data/stimuli/english_v2.csv"
+GNGLOVE = "data/raw/gnglove/{}_word_file.txt"  # github.com/uclanlp/gn_glove (Apache 2.0)
+SSA = "data/raw/ssa/names"  # ssa.gov/oact/babynames/names.zip (public domain)
+NAME_MIN_BIRTHS = 10_000
+NAME_MIN_SHARE = 0.95
+NAME_MIN_PER_SEX = 3  # names of each sex for a final-letter cell to count
 SEED = 0
 N_BOOT = 1000
 N_SPLITS = 200
@@ -87,7 +98,74 @@ def _sex(wn, w: str) -> str:
     return ""
 
 
+def _person2(wn, v1: pd.DataFrame) -> dict:
+    """P24 main set: GN-GloVe's male/female words with the first noun sense under person.n.01,
+    a sex word of the list's sex in the gloss's first six words and none of the other sex, no
+    register label, Zipf >= 3, not a social-pair word, not morphologically marked; plus the v1
+    person nouns that are not morphologically marked."""
+    from wordfreq import zipf_frequency
+
+    person = wn.synset("person.n.01")
+    social = {w for p in SOCIAL_PAIRS for w in p}
+    keep = {}
+    for sx, name in (("m", "male"), ("f", "female")):
+        for w in Path(GNGLOVE.format(name)).read_text().split():
+            if (not w or w in social or not w.isalpha() or zipf_frequency(w, "en") < 3
+                    or morph_marked(w)):  # fmt: skip
+                continue
+            ss = [s for s in wn.synsets(w, "n") if w in [x.name() for x in s.lemmas()]]
+            if not ss or person not in {h for path in ss[0].hypernym_paths() for h in path}:
+                continue
+            _, words = _gloss_words(wn, w)
+            mine, other = (FEMALE_WORDS, MALE_WORDS) if sx == "f" else (MALE_WORDS, FEMALE_WORDS)
+            if not set(words) & REGISTER and set(words[:6]) & mine and not set(words) & other:
+                keep[w] = sx
+    per = v1[v1.set == "person"]
+    for w, sx in zip(per.word, per.sex):
+        if not morph_marked(w):
+            keep.setdefault(w, sx)
+    return keep
+
+
+def _names(wn) -> pd.DataFrame:
+    """P24b: SSA national counts summed over all years; capitalised name, sex, births, cell."""
+    tot = {}
+    for f in sorted(Path(SSA).glob("yob*.txt")):
+        for line in f.read_text().split():
+            n, s, c = line.split(",")
+            tot.setdefault(n, {"F": 0, "M": 0})[s] += int(c)
+    lemmas = {x.lower() for x in wn.all_lemma_names()}
+    rows = []
+    for n, c in tot.items():
+        t = c["F"] + c["M"]
+        share = c["F"] / t
+        if (
+            t >= NAME_MIN_BIRTHS
+            and max(share, 1 - share) >= NAME_MIN_SHARE
+            and n.lower() not in lemmas
+        ):
+            rows.append({"word": n, "set": "name", "sex": "f" if share >= 0.5 else "m",
+                         "pair": "", "births": t, "cell": n[-1].lower()})  # fmt: skip
+    return pd.DataFrame(rows).sort_values("word")
+
+
+def build_v2() -> pd.DataFrame:
+    """english_v2 = v1 rows unchanged + person2 + name (v1 has results: new version, not an
+    edit)."""
+    from .lexicon import _wordnet
+
+    wn = _wordnet()
+    v1 = pd.read_csv(WORDS_V1, keep_default_na=False)
+    p2 = pd.DataFrame([{"word": w, "set": "person2", "sex": sx, "pair": ""}
+                       for w, sx in sorted(_person2(wn, v1).items())])  # fmt: skip
+    df = pd.concat([v1, p2, _names(wn)], ignore_index=True)
+    df.to_csv(WORDS, index=False)
+    print(df.groupby(["set", "sex"]).size().to_string())
+    return df
+
+
 def build() -> pd.DataFrame:
+    """v1 (kept for provenance; v2 = build_v2)."""
     from wordfreq import zipf_frequency
 
     from .lexicon import _wordnet
@@ -131,7 +209,7 @@ def build() -> pd.DataFrame:
         rows.append({"word": w, "set": "calibration", "sex": "", "pair": "", "GEND": r.GEND,
                      "VAL": r.VAL, "AROU": r.AROU, "SIZE": r.SIZE})  # fmt: skip
     df = pd.DataFrame(rows).drop_duplicates(["word", "set"])
-    df.to_csv(WORDS, index=False)
+    df.to_csv(WORDS_V1, index=False)
     print(df.groupby(["set", "sex"]).size().to_string())
     return df
 
@@ -246,6 +324,22 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
     per = df[df.set == "person"]
     pi_ = np.array([row[w] for w in per.word])
     py = (per.sex == "f").to_numpy(int)
+    # v2 sets, only when the activations have the whole set (extracted from english_v2; v1
+    # activations already hold some person2 words, which must not give a partial set)
+    p2 = df[df.set == "person2"]
+    p2 = p2 if p2.word.isin(row).all() else p2.iloc[:0]
+    p2i, p2y = np.array([row[w] for w in p2.word], int), (p2.sex == "f").to_numpy(int)
+    nm_df = df[df.set == "name"]
+    nm_df = nm_df if nm_df.word.isin(row).all() else nm_df.iloc[:0]
+    cnt = nm_df.groupby(["cell", "sex"]).size().unstack(fill_value=0)
+    ok_cells = [
+        c
+        for c in cnt.index
+        if all(cnt.get(x, pd.Series(0, cnt.index))[c] >= NAME_MIN_PER_SEX for x in "fm")
+    ]
+    nm_df = nm_df[nm_df.cell.isin(ok_cells)]
+    ni, ny = np.array([row[w] for w in nm_df.word], int), (nm_df.sex == "f").to_numpy(int)
+    ncell = nm_df.cell.to_numpy()
     cal = df[df.set == "calibration"].copy()
     ci_ = np.array([row[w] for w in cal.word])
     gend, val = pd.to_numeric(cal.GEND).to_numpy(), pd.to_numeric(cal.VAL).to_numpy()
@@ -257,7 +351,8 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
     L = X.shape[1]
     rows = []
     stage(f"{model_id} [{position}]: P23/P24 over {L - 2} inner layers; {len(fi)} social pairs, "
-          f"{len(pi_)} person nouns, {len(ci_)} calibration nouns, {len(pc)} pair concepts")  # fmt: skip
+          f"{len(pi_)} person nouns, {len(p2i)} person2, {len(ni)} names in {len(ok_cells)} cells, "
+          f"{len(ci_)} calibration nouns, {len(pc)} pair concepts")  # fmt: skip
     for layer in progress(range(1, L - 1), desc=f"english {position}", unit="layer"):
         Xl = X[:, layer].astype(np.float64)
         Xe, Xd = es["X"][:, layer].astype(np.float64), de["X"][:, layer].astype(np.float64)
@@ -330,6 +425,30 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
             bu["social_on_persons_unmarked"].append(auc(py[jj], Xl[pi_[jj]] @ s_vec))
         r |= unmarked
         bt |= bu
+        # P24 main set (person2) and P24b names (within final-letter cells); own streams
+        extra, bx = {}, {}
+        if len(p2i):
+            rng_p = np.random.default_rng(SEED + 4)
+            for nm, d_ in dirs.items():
+                extra[f"p24_{nm}_on_persons2"] = auc(p2y, Xl[p2i] @ d_)
+            bx = {k: [] for k in extra}
+            for _ in range(n_boot):
+                jj = rng_p.choice(len(p2i), len(p2i))
+                for nm, d_ in dirs.items():
+                    bx[f"p24_{nm}_on_persons2"].append(auc(p2y[jj], Xl[p2i[jj]] @ d_))
+        if len(ni):
+            rng_m = np.random.default_rng(SEED + 5)
+            Pn = {nm: Xl[ni] @ d_ for nm, d_ in dirs.items()}
+            for nm in dirs:
+                extra[f"p24b_{nm}_on_names"] = within_cell_auc(ny, Pn[nm], ncell)
+            bx |= {f"p24b_{nm}_on_names": [] for nm in dirs}
+            by_cell = [np.where(ncell == c)[0] for c in np.unique(ncell)]
+            for _ in range(n_boot):
+                jj = np.concatenate([rng_m.choice(ix, len(ix)) for ix in by_cell])
+                for nm in dirs:
+                    bx[f"p24b_{nm}_on_names"].append(within_cell_auc(ny[jj], Pn[nm][jj], ncell[jj]))
+        r |= extra
+        bt |= bx
         for k, v in bt.items():
             v = np.asarray(v, float)
             v = v[np.isfinite(v)]
@@ -387,6 +506,7 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
     res.to_csv(out / "layers.csv", index=False)
     keys = [c for c in res.columns if c != "layer" and not c.endswith(("_lo", "_hi"))]
     summ = {"model": model_id, "position": position, "analysis_git": git_state(),
+            "n_person2": len(p2i), "n_names": len(ni), "name_cells": ok_cells,
             "mean": res[keys].mean().round(3).to_dict(),
             "layers_lo_above_0.5": {k: int((res[f"{k}_lo"] > 0.5).sum()) for k in keys
                                     if f"{k}_lo" in res and "rho" not in k},
