@@ -191,3 +191,93 @@ def analyze_run(run_dir: str | Path, fam: str, tok, rng=None) -> dict:
             r["slopes"] = slopes(ns, win)
         res["readouts"][name] = r
     return res
+
+
+def layer_pass(run: dict) -> dict[str, bool]:
+    """Holm across the co-primaries R1 and R1-EN at one layer (step-down; CI width matched to
+    the threshold, as Phase 4): the smaller p must be <= 0.025 with the 97.5% CI above 0; then
+    the other <= 0.05 with the 95% CI above 0."""
+    w = {n: run["readouts"][n]["working"] for n in ("R1", "R1-EN") if n in run["readouts"]}
+    order = sorted(w, key=lambda n: w[n]["p"])
+    out = {n: False for n in w}
+    for i, n in enumerate(order):
+        lvl, a = ("975", 0.025) if i == 0 else ("95", 0.05)
+        if w[n]["p"] <= a and w[n][f"diff_lo_{lvl}"] > 0:
+            out[n] = True
+        else:
+            break
+    return out
+
+
+def verdicts(runs: list[dict]) -> pd.DataFrame:
+    """Per language x positions x readout: layers passed (Holm per layer) out of the passing
+    gate layers; counts as passed with a majority (PI 2026-10-09); plus the controls averaged
+    over layers (number vs real effect; social positive control vs the random 95th percentile)."""
+    rows = []
+    for r in runs:
+        lp = layer_pass(r)
+        for n, ok in lp.items():
+            w = r["readouts"][n]["working"]
+            rows.append({"lang": r["lang"], "positions": r["positions"], "readout": n,
+                         "layer": r["layer"], "pass": ok, "effect": w["effect"],
+                         "number": w.get("number_effect"), "social": w.get("social_effect"),
+                         "random_p95": w["random_p95"]})  # fmt: skip
+    df = pd.DataFrame(rows)
+    g = df.groupby(["lang", "positions", "readout"])
+    v = g.agg(layers=("layer", "size"), passed=("pass", "sum"), effect=("effect", "mean"),
+              number=("number", "mean"), social=("social", "mean"),
+              random_p95=("random_p95", "mean")).reset_index()  # fmt: skip
+    v["majority"] = v.passed > v.layers // 2
+    v["social_control_ok"] = v.social > v.random_p95
+    v["gender_beats_number"] = v.effect.abs() > v.number.abs()
+    both = v.pivot_table(index=["positions", "readout"], columns="lang", values="effect")
+    v["sign_agrees"] = [bool(np.sign(both.loc[(p, n)]).nunique() == 1) if len(both.columns) == 2
+                        else None for p, n in zip(v.positions, v.readout, strict=True)]  # fmt: skip
+    return v
+
+
+def p25(run_dir: str | Path, fam: str, rng=None, n_boot: int = N_BOOT) -> dict:
+    """P25: unsteered R1-EN graded score (log-probability levels, not shifts) per flipped-pair
+    concept, averaged over W1-W3; es-f/de-m concepts minus es-m/de-f, concept bootstrap, with
+    and without English cognates."""
+    from .phase4 import PAIRS_FINAL
+
+    rng = rng or np.random.default_rng(SEED)
+    keys, lp, read = load(Path(run_dir), "R1-EN")
+    base = (keys.vec == "v") & (keys.mult == 0.0) & keys.wording.isin(["W1", "W2", "W3"])
+    k = keys[base].copy()
+    k["score"], _ = graded(lp[base.to_numpy()], ratings_for("R1-EN", fam, read))
+    per = k.groupby("lemma").score.mean()
+    pairs = pd.read_csv(PAIRS_FINAL, keep_default_na=False)
+    pairs = pairs[pairs.concept_en.isin(per.index)].drop_duplicates("concept_en")
+    out = {}
+    for nm, p in (("all", pairs), ("no_cognates", pairs[pairs.en_cognate.astype(str) != "True"])):
+        a = per.loc[p[p.es_gender == "f"].concept_en].to_numpy()
+        b = per.loc[p[p.es_gender == "m"].concept_en].to_numpy()
+        bs = [rng.choice(a, len(a)).mean() - rng.choice(b, len(b)).mean() for _ in range(n_boot)]
+        out[nm] = {"diff": float(a.mean() - b.mean()), "lo": float(np.quantile(bs, 0.025)),
+                   "hi": float(np.quantile(bs, 0.975)), "n_esf": len(a), "n_esm": len(b)}  # fmt: skip
+    return out
+
+
+def analyze_model(model_id: str, root: str = "results/phase5", out_root: str | None = None):
+    """Every sweep directory of one model: per-run results, the verdict table, P25."""
+    from transformers import AutoTokenizer
+
+    from .models import model_slug
+    from .phase5 import family
+
+    fam = family(model_id)
+    tok = AutoTokenizer.from_pretrained(model_id)
+    d = Path(root) / model_slug(model_id)
+    runs = [analyze_run(r, fam, tok) for r in sorted(d.iterdir()) if (r / "vectors.json").exists()]
+    out = Path(out_root or f"{root}_analysis") / model_slug(model_id)
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "runs.json").write_text(json.dumps(runs, indent=1, default=float))
+    v = verdicts(runs)
+    v.to_csv(out / "verdicts.csv", index=False)
+    es_noun = [r for r in sorted(d.glob("es_k*")) if not r.name.endswith("_all")]
+    if es_noun:
+        (out / "p25.json").write_text(json.dumps(p25(es_noun[0], fam), indent=1))
+    print(v.to_string(index=False))
+    return runs, v
