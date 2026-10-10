@@ -1,0 +1,52 @@
+{
+ "model": "Qwen/Qwen3-1.7B-Base",
+ "position": "last",
+ "analysis_git": {
+  "git_commit": "495767b6b18150d0c645085a33b38457b4d02c12",
+  "git_dirty": false
+ },
+ "mean": {
+  "p23_social_glasgow_rho": 0.177,
+  "p23_social_glasgow_rho_partial_val": 0.181,
+  "p23_es_vs_es_gender": 0.523,
+  "p23_es_vs_de_gender": 0.477,
+  "p23_de_vs_es_gender": 0.53,
+  "p23_de_vs_de_gender": 0.47,
+  "p23_pooled_vs_es_gender": 0.534,
+  "p23_pooled_vs_de_gender": 0.466,
+  "p24_social_on_es": 0.736,
+  "p24_social_on_de": 0.604,
+  "p24_es_on_persons": 0.745,
+  "p24_de_on_persons": 0.682,
+  "p24_pooled_on_persons": 0.75,
+  "social_on_persons": 0.859,
+  "cos_plain_social_es": 0.126,
+  "cos_plain_social_de": 0.062,
+  "cos_plain_social_pooled": 0.12,
+  "cos_split_social_es": 0.302,
+  "len2_split_social_es": 26727.513,
+  "len2_split_gram_es": 5748.125,
+  "cos_split_social_de": 0.12,
+  "len2_split_social_de": 26727.513,
+  "len2_split_gram_de": 22682.049,
+  "cos_random_sd": 0.022
+ },
+ "layers_lo_above_0.5": {
+  "p23_es_vs_es_gender": 2,
+  "p23_es_vs_de_gender": 0,
+  "p23_de_vs_es_gender": 0,
+  "p23_de_vs_de_gender": 0,
+  "p23_pooled_vs_es_gender": 2,
+  "p23_pooled_vs_de_gender": 0,
+  "p24_social_on_es": 18,
+  "p24_social_on_de": 0,
+  "p24_es_on_persons": 23,
+  "p24_de_on_persons": 10,
+  "p24_pooled_on_persons": 23,
+  "social_on_persons": 27
+ },
+ "layers_rho_lo_above_0": {
+  "p23_social_glasgow_rho": 27,
+  "p23_social_glasgow_rho_partial_val": 27
+ }
+}

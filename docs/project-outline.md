@@ -149,9 +149,31 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
     0.3); fails at 70% (random directions flip 10%, the limit is <10%).
   - Gate run time on the laptop: ~2 hours for 4B.
 
+## 11. Overnight build and confirmatory leftovers (Oct 9–10)
+
+- Phase 1 confirmatory (cloud data, all six models): outcome (b) everywhere. The spelling eraser
+  learned on verbs leaves invented-word endings fully readable in every layer of every size;
+  transfer to unseen verbs stays modest and flat with size (AUC 0.68–0.73).
+- Known-only sensitivity (8B/14B, only nouns each model knows): the Spanish gender result holds
+  (8B 21/35 layers, 14B 37/39; full sets 28/35, 26/39); German compounds still follow the head in
+  every layer; markedness still 0.
+- English base case (P23/P24, laptop 1.7B/4B): the woman/man direction lines up with human gender
+  ratings of things (rho ~0.2, also beyond pleasantness); English concepts don't lean by their
+  translations' gender; the grammatical directions sort English sex-specific person words
+  (actress/actor) above chance; the noise-corrected cosine between social and grammatical
+  directions is ~0.2–0.3 (random ~0.02). A bug in my first version of that cosine was caught
+  (it averaged ratios that explode near zero) and fixed.
+- P22 (laptop): the model's own woman/man axis in its vocabulary agrees weakly with human
+  ratings in English (rho 0.10–0.14, ~0.18 holding valence fixed), barely in Spanish/German.
+- Phase 5 build: number and social vectors, every-position steering, R3, nonce readouts,
+  damage, the in-language baseline (P20), frame-check measurements, the analysis (Holm per
+  layer, majority across layers, sign agreement, controls, P25), the session-2 driver. A full
+  smoke run on 4B (a few nouns) went end to end. The bundle now carries the gitignored files the
+  pod needs (it would have crashed fitting directions).
+
 ## Where things stand
 
-- Done: Phases 0, 2 and 3 confirmed on the target models (Phase 1 confirmatory analysis pending: the cloud data is saved, analysis not yet run); Phases 4–5 and the suffix follow-up fully
+- Done: Phases 0, 2 and 3 confirmed on the target models (Phase 1 confirmatory done Oct 10); Phases 4–5 and the suffix follow-up fully
   designed and pre-registered; stimuli built (pairs, Russian list, nonce words, derived nouns).
 - Next: Phase 4–5 code and a laptop dry run (which also measures how big the next cloud run
   must be), then the second cloud session.
