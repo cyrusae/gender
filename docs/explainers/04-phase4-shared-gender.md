@@ -32,7 +32,7 @@ direction should score the two translations alike, since they mean the same thin
 |---|---|---|
 | T1 transfer (co-primary) | Does the Spanish direction sort German nouns by gender, and vice versa? | AUC **within the test language's ending cells**, so German *-e* (mostly feminine) can't pass as Spanish *-e* (mostly masculine) |
 | T3 flipped pairs (co-primary) | Does one direction score each pair's German noun by German gender and its Spanish noun by Spanish gender? | **paired AUC** over pairs, ES on both nouns and DE on both |
-| T2 geometry | How aligned are the two directions? | **split-half cosine** with a within-cell **shuffle null** |
+| T2 geometry | How aligned are the two directions? | **split-half cosine** (effect size); a within-cell **shuffle null** on the split-half **cross term** (revised 2026-10-10, see below) |
 | T4 third language | Does either direction sort Russian *-ь* nouns (all share one ending) by gender? | AUC |
 
 **Decision rules (adopted before the data).** A test passes if its bootstrap lower bound is
@@ -48,7 +48,11 @@ first judged with 97.5% intervals; if one passes, the other is judged with 95%.
   1.7B: 1 and 15 of 27), mean AUC around 0.70–0.74. At AFTER, 0 layers.
 - **T4 (4B only):** ES and DE both sort Russian *-ь* nouns by gender in almost every layer
   (34 and 31 of 35), a language and script neither was trained on.
-- **T2:** split-half cosine about 0.44 at 4B, but no layer clears the shuffle null.
+- **T2:** split-half cosine about 0.44 at 4B (0.51 at 1.7B). With the original test, no layer
+  cleared the shuffle null. That test was broken: the null used the cosine, and under shuffled
+  labels a direction has almost no length, so dividing by it gave null values above 1. Retested
+  on the cross term (the split-half dot product, no division; PI, 2026-10-10), the overlap beats
+  the null in 25 of 35 layers (4B) and 22 of 27 (1.7B). At AFTER: 0 layers.
 
 ## How to read the combination
 

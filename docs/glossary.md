@@ -120,6 +120,12 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   high dimensions, so it needs bootstrap intervals. *(project: `estimators.py`)*
 - **Shuffle (permutation) null.** Recompute a statistic many times with labels shuffled (here
   within cells, keeping counts): the range it takes when there is no real effect.
+- **Cross term (split-half).** The dot product of two directions, each estimated in a different
+  half of the data: their overlap without noise inflation. Used instead of the cosine as the
+  shuffle-null statistic, because the cosine divides by lengths that are ~0 under shuffling.
+  *(project: P24, Phase 4 T2)*
+- **Final-letter cell (names).** P24b compares first names only with names ending in the same
+  letter, so a direction that only reads "ends in *-a*" scores at chance. *(project: P24b)*
 - **Gram matrix.** The table of dot products between all pairs of items (n × n). Used as an exact
   shortcut when everything needed is dot products: ~120 × 120 instead of 2,560-dimensional
   vectors.
