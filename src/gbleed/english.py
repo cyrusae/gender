@@ -237,7 +237,7 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
     X, meta = acts.load(model_id, "english" + sx)
     row = {w: i for i, w in enumerate(meta["words"])}
     es, de = es_train(model_id, position), de_train(model_id, position)
-    num = _number_acts(model_id) if position == "last" else {}
+    num_acts = _number_acts(model_id) if position == "last" else {}
     po = pooled(es, de)
     soc = df[df.set == "social"]
     fi = np.array([row[w] for w in soc[soc.sex == "f"].word])
@@ -365,7 +365,7 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
             r[f"cos_split_social_{nm}_null_hi"] = float(np.nanpercentile(null, 97.5))
         # reference: a real but unrelated direction built the same way (plural - singular on
         # the same training nouns): how much do real difference-of-means directions overlap?
-        for nm, (Xp, Xs) in num.items():
+        for nm, (Xp, Xs) in num_acts.items():
             r[f"cos_plain_social_number_{nm}"] = float(
                 s_vec @ _unit((Xp[:, layer] - Xs[:, layer]).mean(0))
             )
