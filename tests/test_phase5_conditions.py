@@ -13,7 +13,7 @@ def test_conditions_counts_and_shared_baseline():
     assert len(per[1]) == 9 + 16 + 20 + 80
     zero = [x for x in c if x[2] == 0.0]
     assert all(x[1] == 0 for x in zero) and len(zero) == 2  # dose 0 once per prompt, with v
-    assert {x[1] for x in per[1] if x[2] == 1.0} == set(range(0, 103))
+    assert {x[1] for x in per[1] if x[2] == 1.0} == set(range(103))
 
 
 def test_every_position_has_no_random_dose_curve():
