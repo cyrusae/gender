@@ -309,6 +309,10 @@ difficulty is that Spanish/German person words carry grammatical gender too (*la
 | pass | no | — | — | clean null at this layer and dose |
 | fail | — | — | — | v isn't causally on the agreement pathway; no Phase 5 claim |
 
+**Across layers (PI, 2026-10-09):** every gate-passing layer is steered; per model × language ×
+readout, a test counts as passed only if it passes at a majority of that language's passing
+layers (1 → 1, 2 → 2, 3 → 2, 4 → 3). Every layer is reported; none is singled out afterwards.
+
 ## Compute (P7)
 
 - **Mac, exploratory:** 1.7B/4B, a few hours, sequential GPU.
