@@ -947,7 +947,8 @@ def readout_check(model_id: str, out_root: str = "results/phase5_readoutcheck", 
 
 
 def session(model_id: str, gate_root: str = "results/phase5_gate",
-            out_root: str = "results/phase5", positions=("noun", "all")) -> dict:  # fmt: skip
+            out_root: str = "results/phase5", positions=("noun", "all"),
+            framecheck_root: str = "results/phase5_framecheck") -> dict:  # fmt: skip
     """Session-2 steering for one model: gate at every grid layer (Spanish; German with the
     primary frame), then the full sweep at every passing layer (PI 2026-10-09), noun-only and
     every-position. Layer choice uses the gate's grammatical outcome only."""
@@ -958,8 +959,14 @@ def session(model_id: str, gate_root: str = "results/phase5_gate",
     if not summ_path.exists():
         run_gate(model_id, out_root=gate_root)
     gate_res = json.loads(summ_path.read_text())["gate"]
+    # a language whose gate frame fails the pre-registered frame check gets no gate and no
+    # steering (PI rule, as for 1.7B's German); the check must have run first
+    fc = json.loads((Path(framecheck_root) / model_slug(model_id) / "summary.json").read_text())
+    ok_lang = {"es": fc["passes"]["es_adj"], "de": fc["passes"][f"de_{DE_GATE_PRIMARY}"]}
+    stage(f"{model_id}: gate frame check passes {ok_lang}")
     passing = [(g["lang"], g["layer"], g["alpha_star"], g["unit"]) for g in gate_res
-               if g["passes"] and (g["lang"] == "es" or g["frame"] == DE_GATE_PRIMARY)]  # fmt: skip
+               if g["passes"] and ok_lang[g["lang"]]
+               and (g["lang"] == "es" or g["frame"] == DE_GATE_PRIMARY)]  # fmt: skip
     stage(f"{model_id}: passing (lang, layer, alpha*): {[(a, b, c) for a, b, c, _ in passing]}")
     dev = pick_device(None)
     mt = load_model(model_id, dev, pick_dtype(None, dev))

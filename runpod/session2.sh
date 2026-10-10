@@ -26,7 +26,7 @@ step() {
 fetch() { uv run python -c "from huggingface_hub import snapshot_download; snapshot_download('$1')"; }
 drop() { uv run python -c "from huggingface_hub import scan_cache_dir as s; c=s(); [c.delete_revisions(*[r.commit_hash for r in repo.revisions]).execute() for repo in c.repos if repo.repo_id=='$1']"; }
 {
-  echo "=== $(date) session 2 start on $(uv run python -c 'import torch; print(torch.cuda.get_device_name(0))'), commit $(cat BUNDLE_COMMIT.txt)"
+  echo "=== $(date) session 2 start on $(uv run python -c 'import torch; print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else "no CUDA")'), commit $(cat BUNDLE_COMMIT.txt)"
   read -r -a MLIST <<< "$MODELS"
   PF_PID=""
   for idx in "${!MLIST[@]}"; do

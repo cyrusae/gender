@@ -38,6 +38,20 @@ PRIMARY_WORDINGS = {"R1": {"W1", "W2", "W3"}, "R1-EN": {"W1", "W2", "W3"},
                     "RN-R1": {"W1", "W2", "W3"}, "R3": {"W1"}}  # fmt: skip
 COVS = ["VAL", "AROU", "SIZE", "zipf"]
 FEMALE_FIRST = {"woman_man", "female_male", "girl_boy"}
+# readout frame checks (PI 2026-10-10, fixed before any share was looked at): median unsteered
+# share of the listed adjectives / of the two named options; failing wordings are excluded
+SHARE_MIN = {"R1": 0.05, "R1-EN": 0.05, "R3": 0.05, "RN-R1": 0.05,
+             "R2": 0.25, "R2-EN": 0.25, "RN-R2": 0.25}  # fmt: skip
+
+
+def failed_wordings(model_id: str, root: str = "results/phase5_readoutcheck") -> set:
+    """{(steer_lang, readout, wording)} whose unsteered median share is below SHARE_MIN. Only
+    the unsteered readout check decides."""
+    from .models import model_slug
+
+    d = pd.read_csv(Path(root) / model_slug(model_id) / "shares.csv.gz", keep_default_na=False)
+    med = d.groupby(["steer_lang", "readout", "wording"]).share.median()
+    return {k for k, v in med.items() if v < SHARE_MIN[k[1]]}
 
 
 def load(run_dir: Path, name: str) -> tuple[pd.DataFrame, np.ndarray, np.ndarray]:
@@ -110,12 +124,13 @@ def _r2_ids(tok) -> dict[str, tuple[int, int]]:
     return out
 
 
-def noun_scores(name: str, rows: pd.DataFrame) -> pd.DataFrame:
-    """Mean score per (vec, mult, noun) over the primary wordings."""
+def noun_scores(name: str, rows: pd.DataFrame, drop: set[str] = frozenset()) -> pd.DataFrame:
+    """Mean score per (vec, mult, noun) over the primary wordings that passed the frame check."""
     prim = PRIMARY_WORDINGS.get(name)
     r = rows if prim is None else rows[rows.wording.isin(prim)]
     if name in ("R2", "R2-EN", "RN-R2"):
         r = rows[rows.wording != "narrative"]
+    r = r[~r.wording.isin(drop)]
     return r.groupby(["vec", "mult", "lemma"], as_index=False).score.mean()
 
 
@@ -171,8 +186,8 @@ def slopes(ns: pd.DataFrame, mults: list[float]) -> dict:
     return res
 
 
-def analyze_run(run_dir: str | Path, fam: str, tok, rng=None) -> dict:
-    """Every readout of one sweep directory."""
+def analyze_run(run_dir: str | Path, fam: str, tok, rng=None, failed: set = frozenset()) -> dict:
+    """Every readout of one sweep directory; `failed` = failed_wordings(model) (excluded)."""
     run_dir = Path(run_dir)
     rng = rng or np.random.default_rng(SEED)
     info = json.loads((run_dir / "vectors.json").read_text())
@@ -185,8 +200,12 @@ def analyze_run(run_dir: str | Path, fam: str, tok, rng=None) -> dict:
         name = f.name.removesuffix("_conds.csv.gz")
         keys, lp, read = load(run_dir, name)
         rows = row_scores(name, keys, lp, read, fam, tok)
-        ns = noun_scores(name, rows)
-        r = {"working": working_test(ns, rng)}
+        drop = {w for lg, rd, w in failed if lg == info["lang"] and rd == name}
+        ns = noun_scores(name, rows, drop)
+        if ns.empty:  # every wording failed its frame check
+            res["readouts"][name] = {"excluded": sorted(drop)}
+            continue
+        r = {"working": working_test(ns, rng), "excluded_wordings": sorted(drop)}
         if win:
             r["slopes"] = slopes(ns, win)
         if dmg is not None and (ns.mult == 1.5).any():
@@ -199,7 +218,8 @@ def layer_pass(run: dict) -> dict[str, bool]:
     """Holm across the co-primaries R1 and R1-EN at one layer (step-down; CI width matched to
     the threshold, as Phase 4): the smaller p must be <= 0.025 with the 97.5% CI above 0; then
     the other <= 0.05 with the 95% CI above 0."""
-    w = {n: run["readouts"][n]["working"] for n in ("R1", "R1-EN") if n in run["readouts"]}
+    w = {n: run["readouts"][n]["working"] for n in ("R1", "R1-EN")
+         if "working" in run["readouts"].get(n, {})}  # fmt: skip
     order = sorted(w, key=lambda n: w[n]["p"])
     out = {n: False for n in w}
     for i, n in enumerate(order):
@@ -262,7 +282,8 @@ def p25(run_dir: str | Path, fam: str, rng=None, n_boot: int = N_BOOT) -> dict:
     return out
 
 
-def analyze_model(model_id: str, root: str = "results/phase5", out_root: str | None = None):
+def analyze_model(model_id: str, root: str = "results/phase5", out_root: str | None = None,
+                  readoutcheck_root: str = "results/phase5_readoutcheck"):  # fmt: skip
     """Every sweep directory of one model: per-run results, the verdict table, P25."""
     from transformers import AutoTokenizer
 
@@ -272,7 +293,12 @@ def analyze_model(model_id: str, root: str = "results/phase5", out_root: str | N
     fam = family(model_id)
     tok = AutoTokenizer.from_pretrained(model_id)
     d = Path(root) / model_slug(model_id)
-    runs = [analyze_run(r, fam, tok) for r in sorted(d.iterdir()) if (r / "vectors.json").exists()]
+    rc = Path(f"{readoutcheck_root}") / model_slug(model_id) / "shares.csv.gz"
+    failed = failed_wordings(model_id, readoutcheck_root) if rc.exists() else set()
+    if not rc.exists():
+        print(f"WARNING: no readout check for {model_id}: no wording excluded")
+    runs = [analyze_run(r, fam, tok, failed=failed) for r in sorted(d.iterdir())
+            if (r / "vectors.json").exists()]  # fmt: skip
     out = Path(out_root or f"{root}_analysis") / model_slug(model_id)
     out.mkdir(parents=True, exist_ok=True)
     (out / "runs.json").write_text(json.dumps(runs, indent=1, default=float))
