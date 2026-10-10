@@ -2,8 +2,8 @@
   "model": "Qwen/Qwen3-1.7B-Base",
   "position": "after",
   "analysis_git": {
-    "git_commit": "9542c4ea5366053928906c26c434fbddb6fdbc96",
-    "git_dirty": true
+    "git_commit": "dca518f05d625a2c3622a4cc9c2063103ddac8df",
+    "git_dirty": false
   },
   "pairs": "data/stimuli/phase4_pairs_final_v1.csv",
   "n_pairs": 271,
@@ -42,6 +42,7 @@
   "T3_pairs_follow_gender": false,
   "t2_cos_mean": -0.47889369960720396,
   "t2_layers_above_null": 0,
+  "t2_layers_cos_above_cos_null": 0,
   "q5_neuter_pos_es_median": 0.5412927393626932,
   "q5_neuter_pos_pooled_median": 0.23751380690718016
 }

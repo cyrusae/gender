@@ -2,8 +2,8 @@
  "model": "Qwen/Qwen3-4B-Base",
  "position": "last",
  "analysis_git": {
-  "git_commit": "08478ea6b25783f787caac1dac8d106061e82c97",
-  "git_dirty": true
+  "git_commit": "dca518f05d625a2c3622a4cc9c2063103ddac8df",
+  "git_dirty": false
  },
  "mean": {
   "p23_social_glasgow_rho": 0.206,
@@ -30,9 +30,11 @@
   "cos_split_social_es": 0.299,
   "len2_split_social_es": 1180.362,
   "len2_split_gram_es": 282.849,
+  "cross_split_social_es": 126.635,
   "cos_split_social_de": 0.218,
   "len2_split_social_de": 1180.362,
   "len2_split_gram_de": 878.345,
+  "cross_split_social_de": 44.54,
   "cos_random_sd": 0.02,
   "cos_plain_social_number_es": 0.008,
   "cos_split_social_number_es": 0.011,
@@ -57,9 +59,9 @@
   "p24_pooled_on_persons_unmarked": 20,
   "social_on_persons_unmarked": 35
  },
- "layers_cos_above_shuffle_null": {
-  "es": 3,
-  "de": 0
+ "layers_cross_above_shuffle_null": {
+  "es": 29,
+  "de": 24
  },
  "layers_rho_lo_above_0": {
   "p23_social_glasgow_rho": 35,
