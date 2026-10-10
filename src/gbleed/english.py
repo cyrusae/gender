@@ -22,7 +22,7 @@ import numpy as np
 import pandas as pd
 
 from . import activations as acts
-from .estimators import auc
+from .estimators import auc, shuffle_within
 from .models import git_state, model_slug, progress, stage
 
 # (female, male); sex labels checked against WordNet in build() (pronouns: grammatical person)
@@ -170,6 +170,63 @@ def _partial_spearman(x, y, z) -> float:
     return float(np.corrcoef(*res)[0, 1])
 
 
+N_SHUFFLE = 100
+N_NULL_SPLITS = 20
+
+
+def _ratio_cos(terms) -> float:
+    num, a, b = np.mean(terms, axis=0)
+    return float(num / np.sqrt(a * b)) if a > 0 and b > 0 else float("nan")
+
+
+def _split_cos(Xl, fi, mi, Xg, y, cells, covs, rng, n_splits) -> float:
+    """Split-half cosine (ratio of means) between the social direction (pairs halved) and a
+    grammatical class vector (halves within cell x label)."""
+    from .estimators import _halves, class_betas, nuisance
+
+    terms = []
+    for _ in range(n_splits):
+        h = rng.permutation(len(fi)) < len(fi) // 2
+        sA, sB = ((Xl[fi[m]] - Xl[mi[m]]).mean(0) for m in (h, ~h))
+        A = _halves(cells, y, rng)
+        gA, gB = (class_betas(Xg[m], y[m][:, None].astype(float),
+                              nuisance(cells[m], [c[m] for c in covs]))[0] for m in (A, ~A))  # fmt: skip
+        terms.append(((sA @ gB + sB @ gA) / 2, sA @ sB, gA @ gB))
+    return _ratio_cos(terms)
+
+
+def _split_cos_pairs(Xl, fi, mi, Xp, Xs, rng, n_splits) -> float:
+    """Split-half cosine between the social direction and a paired-difference direction
+    (plural - singular), both halved by pairs."""
+    terms = []
+    for _ in range(n_splits):
+        h = rng.permutation(len(fi)) < len(fi) // 2
+        sA, sB = ((Xl[fi[m]] - Xl[mi[m]]).mean(0) for m in (h, ~h))
+        g = rng.permutation(len(Xp)) < len(Xp) // 2
+        nA, nB = ((Xp[m] - Xs[m]).mean(0) for m in (g, ~g))
+        terms.append(((sA @ nB + sB @ nA) / 2, sA @ sB, nA @ nB))
+    return _ratio_cos(terms)
+
+
+def _number_acts(model_id: str) -> dict:
+    """{lang: (plural rows, singular rows)} of the phase5_number pairs, if extracted."""
+    from .phase5_stimuli import NUMBER
+
+    try:
+        Xp, mp = acts.load(model_id, "phase5_number")
+    except FileNotFoundError:
+        return {}
+    df = pd.read_csv(NUMBER, keep_default_na=False)
+    rp = {w: i for i, w in enumerate(mp["words"])}
+    out = {}
+    for lang, name in (("es", "phase2_bare"), ("de", "phase3_bare")):
+        Xs, ms = acts.load(model_id, name)
+        rs = {w: i for i, w in enumerate(ms["words"])}
+        d = df[df.lang == lang]
+        out[lang] = (Xp[[rp[w] for w in d.plural]], Xs[[rs[w] for w in d.lemma]])
+    return out
+
+
 def analyze(model_id: str, position: str = "last", out_root: str | None = None,
             n_boot: int = N_BOOT) -> dict:  # fmt: skip
     from .estimators import _halves, class_betas, nuisance
@@ -180,6 +237,7 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
     X, meta = acts.load(model_id, "english" + sx)
     row = {w: i for i, w in enumerate(meta["words"])}
     es, de = es_train(model_id, position), de_train(model_id, position)
+    num = _number_acts(model_id) if position == "last" else {}
     po = pooled(es, de)
     soc = df[df.set == "social"]
     fi = np.array([row[w] for w in soc[soc.sex == "f"].word])
@@ -297,6 +355,29 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
                                            else float("nan"))  # fmt: skip
             r[f"len2_split_social_{nm}"], r[f"len2_split_gram_{nm}"] = float(l_s), float(l_g)
         r["cos_random_sd"] = 1 / np.sqrt(Xl.shape[1])
+        # null (as Phase 4 T2): grammatical labels shuffled within cells; separate stream so the
+        # estimates above are unchanged
+        rng_n = np.random.default_rng(SEED + 2)
+        for nm, d, Xg in (("es", es, Xe), ("de", de, Xd)):
+            null = [_split_cos(Xl, fi, mi, Xg, shuffle_within(d["y"], d["cells"], rng_n),
+                               d["cells"], d["covs"], rng_n, N_NULL_SPLITS)
+                    for _ in range(N_SHUFFLE)]  # fmt: skip
+            r[f"cos_split_social_{nm}_null_hi"] = float(np.nanpercentile(null, 97.5))
+        # reference: a real but unrelated direction built the same way (plural - singular on
+        # the same training nouns): how much do real difference-of-means directions overlap?
+        for nm, (Xp, Xs) in num.items():
+            r[f"cos_plain_social_number_{nm}"] = float(
+                s_vec @ _unit((Xp[:, layer] - Xs[:, layer]).mean(0))
+            )
+            r[f"cos_split_social_number_{nm}"] = _split_cos_pairs(
+                Xl,
+                fi,
+                mi,
+                Xp[:, layer].astype(np.float64),
+                Xs[:, layer].astype(np.float64),
+                np.random.default_rng(SEED + 3),
+                N_SPLITS,
+            )
         rows.append(r)
     res = pd.DataFrame(rows)
     out = Path(out_root or f"results/english{sx}") / model_slug(model_id)
@@ -307,6 +388,9 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
             "mean": res[keys].mean().round(3).to_dict(),
             "layers_lo_above_0.5": {k: int((res[f"{k}_lo"] > 0.5).sum()) for k in keys
                                     if f"{k}_lo" in res and "rho" not in k},
+            "layers_cos_above_shuffle_null": {
+                nm: int((res[f"cos_split_social_{nm}"] > res[f"cos_split_social_{nm}_null_hi"]).sum())
+                for nm in ("es", "de")},
             "layers_rho_lo_above_0": {k: int((res[f"{k}_lo"] > 0).sum()) for k in keys
                                       if "rho" in k}}  # fmt: skip
     (out / "summary.json").write_text(json.dumps(summ, indent=1, default=float))
