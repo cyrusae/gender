@@ -56,8 +56,7 @@ The cost is a possibly weak or self-repaired edit, which is what the agreement g
 
 - **Position:** only the noun's last token, in every prompt. (P13: all of the noun's tokens
   instead, for multi-token nouns and nonce words.)
-- **Every-position steering (P14, amended 2026-10-08 after PI challenge): secondary test of
-  vector-level overlap.** The first version called this "descriptive only, not evidence of
+- **Every-position steering (P14, amended 2026-10-08 after PI challenge): secondary test of vector-level overlap.** The first version called this "descriptive only, not evidence of
   bleed"; that was too strong. A noteworthy all-token effect shows the grammatical-gender
   vector (learned from inanimate nouns only) carries something that moves social-gender
   associations: the project's question in its *representational* form, a causal cousin of the
@@ -67,9 +66,7 @@ The cost is a possibly weak or self-repaired edit, which is what the agreement g
   - Its specific confound: at the readout position the vector acts directly on the next-word
     choice, so features that go along with gender *within the training nouns* (not language
     identity, which a feminine-minus-masculine difference cancels) reach the output directly.
-    E.g. if feminine training nouns lean learned/Latinate, the push could favour Latinate English
-    adjectives (*elegant*, *delicate*), which are often feminine-rated, while Germanic ones
-    (*strong*, *hard*) are often masculine-rated.
+    E.g. if feminine training nouns lean learned/Latinate, the push could favour Latinate English adjectives (*elegant*, *delicate*), which are often feminine-rated, while Germanic ones (*strong*, *hard*) are often masculine-rated.
   - Controls: (1) **etymology covariate** in the R1 regression: each adjective's origin (Latin/
     Romance borrowing vs native English, from Wiktionary's English etymologies, automatic);
     (2) **Spanish and German vectors must agree in sign** (PI): flavour confounds predict
@@ -566,6 +563,19 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     restates their cosine.
   - Data: new extraction of English nouns and person words (minutes; Mac 1.7B/4B, session 2
     for 8B/14B). Outside Holm.
+- **P25. Adopted (PI, 2026-10-09): unsteered R1-EN on the flipped pairs (exploratory).** The
+  behavioural counterpart of P23: do English concepts already lean toward one language's gender?
+  - Data: the dose-0 (unsteered) R1-EN rows every steering run already collects; no extra passes.
+  - Items: the English concepts of the final flipped pairs only (concept assignment to pair
+    type is not chosen on meaning, unlike arbitrary nouns, where meaning confounds it).
+  - Score: the R1 graded score (adjective log-probability regressed on Glasgow gender rating,
+    valence/arousal/size/frequency covariates), averaged over wordings W1–W3, per concept.
+  - Statistic: mean score of es-f/de-m concepts minus es-m/de-f concepts, bootstrap over
+    concepts (95% CI); with and without English cognates; per model.
+  - Reading: > 0 = English concepts lean toward their Spanish gender more than their German
+    one; < 0 the reverse; ≈ 0 = no leak *or* equal leaks that cancel (stated as a limit: a net
+    contrast). Compared with P23's projection result for the same concepts.
+  - Outside Holm; no steering, so no gate dependence.
 
 ## Limits to state
 
