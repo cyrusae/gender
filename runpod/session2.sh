@@ -4,6 +4,9 @@
 # steering directions are fitted on this chip). GPU steps only; analysis on the Mac.
 # Run from the repo root after setup.sh:  nohup bash runpod/session2.sh > /dev/null 2>&1 < /dev/null &
 # Watch: tail -f logs/session2.log    Resume after a failure: MODELS="..." bash runpod/session2.sh
+# Local end-to-end test (from an unpacked bundle, not the main checkout):
+#   KEEP_MODELS=1 GBLEED_SMOKE=1 HF_HOME=~/.cache/huggingface OUT=/tmp/x \
+#   MODELS=Qwen/Qwen3-0.6B-Base SMALL= bash runpod/session2.sh
 set -euo pipefail
 export HF_HOME=${HF_HOME:-/root/hf}
 export PATH="$HOME/.local/bin:$PATH"
@@ -37,6 +40,7 @@ drop() { uv run python -c "from huggingface_hub import scan_cache_dir as s; c=s(
     NEXT=${MLIST[$((idx + 1))]:-}
     if [ -n "$NEXT" ]; then fetch "$NEXT" > "logs/prefetch.log" 2>&1 & PF_PID=$!; fi
     # behavioural checks: session 1's known checks again with the fp32 output layer (plan)
+    step "$M phase0 v3"           uv run gbleed phase0 "$M" --stimuli data/stimuli/phase0_v3.csv
     step "$M known v3 fp32-head"  env GBLEED_FP32_HEAD=1 uv run gbleed phase0 "$M" --stimuli data/stimuli/phase0_v3.csv --out results/phase0_fp32head
     step "$M known es fp32-head"  env GBLEED_FP32_HEAD=1 uv run gbleed phase0 "$M" --stimuli data/stimuli/phase2_pool_v4.csv --out results/phase2_known_fp32head
     step "$M known de fp32-head"  env GBLEED_FP32_HEAD=1 uv run python -c "from gbleed import phase3_known as k; k.score('$M', out_root='results/phase3_known_fp32head')"
@@ -60,7 +64,7 @@ drop() { uv run python -c "from huggingface_hub import scan_cache_dir as s; c=s(
     step "$M phase5 session"       uv run gbleed p5 session "$M"
     step "$M save archive" tar cf "$OUT/$S.tar.part" activations/"$S" results BUNDLE_COMMIT.txt logs
     mv "$OUT/$S.tar.part" "$OUT/$S.tar"
-    rm -rf activations/"$S"; drop "$M"
+    if [ -z "${KEEP_MODELS:-}" ]; then rm -rf activations/"$S"; drop "$M"; fi
   done
   for M in $SMALL; do step "$M wug" uv run gbleed p5 wug "$M"; done
   step "results archive" tar czf "$OUT/results.tgz.part" results logs BUNDLE_COMMIT.txt

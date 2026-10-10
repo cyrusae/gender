@@ -24,6 +24,7 @@ P21: the top-50 next tokens of every scored prompt are saved alongside.
 from __future__ import annotations
 
 import json
+import os
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -50,6 +51,9 @@ TOPK = 50
 DOSE_SUBSET_FRAC = 0.25  # random directions across doses run on this share of nouns
 DOSE_SUBSET_SEED = 0
 LANG_NAME = {"es": "Spanish", "de": "German"}
+# GBLEED_SMOKE=1: local end-to-end test of the session driver (one noun per language x set x
+# gender, a few nonce words and pairs); never for real runs
+SMOKE = os.environ.get("GBLEED_SMOKE") == "1"
 FAMILY = {"Qwen/": "qwen3", "utter-project/EuroLLM": "eurollm"}
 
 # ---- frames ----------------------------------------------------------------------
@@ -95,6 +99,10 @@ class Prompt:
     noun: str  # the steered substring (its first occurrence after `noun_from`)
     key: dict = field(default_factory=dict)  # readout, wording, item, ...
     extra: list[int] = field(default_factory=list)  # token ids appended after the text
+
+
+def _smoke(df: pd.DataFrame, by=("lang", "set", "gender"), n: int = 1) -> pd.DataFrame:
+    return df.groupby(list(by)).head(n) if SMOKE else df
 
 
 def _encode(tok, p: Prompt) -> tuple[list[int], list[int]]:
@@ -497,7 +505,7 @@ def run_gate(model_id: str, out_root: str = "results/phase5_gate", device=None, 
     from .models import load_model, pick_device, pick_dtype, run_metadata
     from .phase5_stimuli import DE_GATE_PRIMARY, DE_GATE_SECONDARY, NOUNS
 
-    nouns = pd.read_csv(NOUNS, keep_default_na=False)
+    nouns = _smoke(pd.read_csv(NOUNS, keep_default_na=False))
     dev = pick_device(device)
     dt = pick_dtype(dtype, dev)
     model, tok = load_model(model_id, dev, dt)
@@ -623,7 +631,8 @@ def readout_sets(tok, nouns: pd.DataFrame, lang: str, fam: str, nonce: bool = Tr
     if lang == "es":
         out.append(("R3", r3_prompts(nl), r3_ids(tok, fam), "full"))
     if nonce:
-        a, b = rnonce_prompts(nonce_words())
+        nw = nonce_words()
+        a, b = rnonce_prompts(_smoke(nw, by=("set",), n=2))
         out += [("RN-R1", a, adj_ids, "working"), ("RN-R2", b, r2_ids, "working")]
     return out
 
@@ -696,7 +705,7 @@ def sweep(model_id: str, k: int, lang: str, alpha_star: float, unit: float,
         model, tok = load_model(model_id, dev, pick_dtype(dtype, dev))
     else:
         model, tok = model_tok
-    nouns = pd.read_csv(NOUNS, keep_default_na=False)
+    nouns = _smoke(pd.read_csv(NOUNS, keep_default_na=False))
     if nouns_filter is not None:
         nouns = nouns_filter(nouns)
     fam = family(model_id)
@@ -856,6 +865,7 @@ def run_p20(model_id: str, out_root: str = "results/phase5_p20", device=None, dt
     meta = run_metadata(model, model_id, dev, dt)
     meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
     pairs = pd.read_csv(PAIRS_FINAL, keep_default_na=False)
+    pairs = pairs.head(4) if SMOKE else pairs
     adj = pd.read_csv(ADJ_TRANS, keep_default_na=False)
     keys, reqs = p20_requests(pairs, adj)
     keys["lp"] = continuation_logprobs_batch(model, tok, reqs, desc="P20")
@@ -908,7 +918,7 @@ def readout_check(model_id: str, out_root: str = "results/phase5_readoutcheck", 
         model, tok = load_model(model_id, dev, pick_dtype(dtype, dev))
     else:
         model, tok = model_tok
-    nouns = pd.read_csv(NOUNS, keep_default_na=False)
+    nouns = _smoke(pd.read_csv(NOUNS, keep_default_na=False))
     fam = family(model_id)
     V = torch.zeros((1, model.config.hidden_size))
     rows = []
