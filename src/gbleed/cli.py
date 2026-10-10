@@ -101,6 +101,12 @@ def main() -> None:
     ps.add_argument("--seed", type=int, default=0)
     ps.add_argument("--abstract-pairs", action="store_true", help="allow non-concrete pairs")
 
+    p5 = sub.add_parser("p5", help="Session-2 steps (Phases 4-5 additions), one model at a time")
+    p5.add_argument("step", choices=["english-extract", "number-extract", "wug", "gate-framecheck",
+                                     "readout-check", "gate", "session", "p20", "suffix-extract",
+                                     "p4-known", "ru-known", "suffix-known"])  # fmt: skip
+    p5.add_argument("models", nargs="+")
+
     a = p.parse_args()
     if a.cmd == "lexicon":
         from . import lexicon
@@ -110,6 +116,9 @@ def main() -> None:
         if {"de", "es"} <= set(a.langs):  # German-Spanish pairs and multi-gender lists
             lexicon.build_pairs()
             lexicon.write_multi_candidates()
+        return
+    if a.cmd == "p5":
+        _p5(a.step, a.models)
         return
     if a.cmd == "multi-check":
         from . import multigender
@@ -267,6 +276,20 @@ def main() -> None:
         _print_table(phase0.compare(a.out))
     elif a.cmd == "phase0-compare":
         _print_table(phase0.compare(a.out, a.by))
+
+
+def _p5(step: str, models: list[str]) -> None:
+    from . import english, nonce_wug, phase4, phase5, ru_known, suffix_ctrl
+
+    fns = {"english-extract": english.extract, "number-extract": phase5.number_extract,
+           "wug": nonce_wug.run, "gate-framecheck": phase5.frame_check,
+           "readout-check": phase5.readout_check, "gate": phase5.run_gate,
+           "session": phase5.session, "p20": phase5.run_p20, "suffix-extract": suffix_ctrl.extract,
+           "p4-known": lambda m: phase4.known(m, None, None), "ru-known": ru_known.score,
+           "suffix-known": suffix_ctrl.known}  # fmt: skip
+    for m in models:
+        fns[step](m)
+        _free_memory()
 
 
 def _free_memory() -> None:

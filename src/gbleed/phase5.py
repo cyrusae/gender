@@ -803,3 +803,148 @@ def frame_check(model_id: str, out_root: str = "results/phase5_framecheck", devi
     (out / "summary.json").write_text(json.dumps({"meta": meta, **res}, indent=1, default=float))
     print(model_id, json.dumps(res, default=float))
     return res
+
+
+# ---- P20 / R3-PAIR: in-language baseline on the flipped pairs (unsteered) -------------------
+P20_FRAMES = {  # (lang, wording): template with {art} and {N}; articles by gender
+    ("es", "W1"): ("{art} {N} es muy", {"m": "El", "f": "La"}),
+    ("es", "W2"): ("Es {art} {N} muy", {"m": "un", "f": "una"}),
+    ("de", "W1"): ("{art} {N} ist sehr", {"m": "Der", "f": "Die"}),
+}
+
+
+def p20_requests(pairs: pd.DataFrame, adj: pd.DataFrame):
+    """(key rows, (prompt, " adjective") requests): every pair noun in its frames x that
+    language's translated adjectives (Spanish: gender-invariant only), full-word scoring."""
+    keys, reqs = [], []
+    for (lang, w), (t, arts) in P20_FRAMES.items():
+        a = adj[(adj[lang] != "") & ((adj.es_invariant.astype(str) == "True") | (lang != "es"))]
+        for r in pairs.itertuples():
+            noun, g = getattr(r, f"{lang}_lemma"), getattr(r, f"{lang}_gender")
+            prompt = t.format(art=arts[g], N=noun)
+            for e, f in zip(a.en, a[lang], strict=True):
+                keys.append({"pair_id": r.pair_id, "lang": lang, "wording": w, "noun": noun,
+                             "gender": g, "en": e, "adj": f})  # fmt: skip
+                reqs.append((prompt, " " + f))
+    return pd.DataFrame(keys), reqs
+
+
+def run_p20(model_id: str, out_root: str = "results/phase5_p20", device=None, dtype=None):
+    """P20: log P(adjective | in-language frame) for every pair noun and translated adjective,
+    plus each frame's first-token share (the frame check's quantity)."""
+    from datetime import UTC, datetime
+
+    from .models import load_model, pick_device, pick_dtype, run_metadata
+    from .phase4 import PAIRS_FINAL
+    from .phase5_stimuli import ADJ_TRANS
+    from .scoring import continuation_logprobs_batch
+
+    dev = pick_device(device)
+    dt = pick_dtype(dtype, dev)
+    model, tok = load_model(model_id, dev, dt)
+    meta = run_metadata(model, model_id, dev, dt)
+    meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
+    pairs = pd.read_csv(PAIRS_FINAL, keep_default_na=False)
+    adj = pd.read_csv(ADJ_TRANS, keep_default_na=False)
+    keys, reqs = p20_requests(pairs, adj)
+    keys["lp"] = continuation_logprobs_batch(model, tok, reqs, desc="P20")
+    out = Path(out_root) / model_slug(model_id)
+    out.mkdir(parents=True, exist_ok=True)
+    keys.to_csv(out / "scores.csv.gz", index=False)
+    shares = frame_shares(model, tok, keys, reqs)
+    shares.to_csv(out / "frame_shares.csv", index=False)
+    (out / "summary.json").write_text(json.dumps(
+        {"meta": meta, "n": len(keys),
+         "median_share": shares.groupby(["lang", "wording"]).share.median().to_dict()},
+        indent=1, default=str))  # fmt: skip
+    return keys
+
+
+@torch.no_grad()
+def frame_shares(model, tok, keys: pd.DataFrame, reqs) -> pd.DataFrame:
+    """Per prompt: total next-token probability of the listed adjectives' first tokens (the
+    slot-share quantity of the pre-registered frame checks)."""
+    first = {}
+    for (p, c), lang, w in zip(reqs, keys.lang, keys.wording, strict=True):
+        first.setdefault((p, lang, w), set()).add(tok(c, add_special_tokens=False)["input_ids"][0])
+    prompts = list(first)
+    V = torch.zeros((1, model.config.hidden_size))
+    ps = [Prompt(p, p.split()[1]) for p, _, _ in prompts]
+    allids = sorted({i for s in first.values() for i in s})
+    pos = {t: j for j, t in enumerate(allids)}
+    r = run(model, tok, ps, 0, [(i, 0, 0.0) for i in range(len(ps))], V, allids)
+    rows = []
+    for j, (p, lang, w) in enumerate(prompts):
+        ids = [pos[t] for t in first[(p, lang, w)]]
+        rows.append({"prompt": p, "lang": lang, "wording": w,
+                     "share": float(np.exp(r["lp"][j, ids]).sum())})  # fmt: skip
+    return pd.DataFrame(rows)
+
+
+# ---- readout frame checks (unsteered; thresholds: see design, pre-registered before use) ----
+@torch.no_grad()
+def readout_check(model_id: str, out_root: str = "results/phase5_readoutcheck", device=None,
+                  dtype=None, model_tok=None) -> pd.DataFrame:  # fmt: skip
+    """Unsteered slot shares per readout x wording on the steering nouns' prompts: R1/R1-EN/R3:
+    total next-token probability of the listed adjectives; R2: of the two scored options (the
+    pronoun narrative: of she+he, with it/they reported). Median and quartiles per wording."""
+    from .phase5_stimuli import NOUNS
+
+    if model_tok is None:
+        from .models import load_model, pick_device, pick_dtype
+
+        dev = pick_device(device)
+        model, tok = load_model(model_id, dev, pick_dtype(dtype, dev))
+    else:
+        model, tok = model_tok
+    nouns = pd.read_csv(NOUNS, keep_default_na=False)
+    fam = family(model_id)
+    V = torch.zeros((1, model.config.hidden_size))
+    rows = []
+    for lang in ("es", "de"):
+        for name, prompts, read, _ in readout_sets(tok, nouns, lang, fam):
+            r = run(model, tok, prompts, 0, [(i, 0, 0.0) for i in range(len(prompts))], V, read)
+            p = np.exp(r["lp"])
+            col = {t: j for j, t in enumerate(read)}
+            for i, pr in enumerate(prompts):
+                w = pr.key.get("wording", "")
+                if name in ("R2", "R2-EN", "RN-R2"):
+                    ws = R2_CHOICES[w][2] if w in R2_CHOICES else (" she", " he")
+                    share = float(sum(p[i, col[t]] for t in single_ids(tok, list(ws))))
+                else:
+                    share = float(p[i].sum())
+                rows.append({"steer_lang": lang, "readout": name, "wording": w,
+                             "lemma": pr.key["lemma"], "share": share})  # fmt: skip
+    df = pd.DataFrame(rows).drop_duplicates(["readout", "wording", "lemma"])
+    out = Path(out_root) / model_slug(model_id)
+    out.mkdir(parents=True, exist_ok=True)
+    df.to_csv(out / "shares.csv.gz", index=False)
+    summ = df.groupby(["readout", "wording"]).share.describe()[["count", "25%", "50%", "75%"]]
+    summ.to_csv(out / "summary.csv")
+    print(summ.to_string())
+    return df
+
+
+def session(model_id: str, gate_root: str = "results/phase5_gate",
+            out_root: str = "results/phase5", positions=("noun", "all")) -> dict:  # fmt: skip
+    """Session-2 steering for one model: gate at every grid layer (Spanish; German with the
+    primary frame), then the full sweep at every passing layer (PI 2026-10-09), noun-only and
+    every-position. Layer choice uses the gate's grammatical outcome only."""
+    from .models import load_model, pick_device, pick_dtype
+    from .phase5_stimuli import DE_GATE_PRIMARY
+
+    summ_path = Path(gate_root) / model_slug(model_id) / "summary.json"
+    if not summ_path.exists():
+        run_gate(model_id, out_root=gate_root)
+    gate_res = json.loads(summ_path.read_text())["gate"]
+    passing = [(g["lang"], g["layer"], g["alpha_star"], g["unit"]) for g in gate_res
+               if g["passes"] and (g["lang"] == "es" or g["frame"] == DE_GATE_PRIMARY)]  # fmt: skip
+    stage(f"{model_id}: passing (lang, layer, alpha*): {[(a, b, c) for a, b, c, _ in passing]}")
+    dev = pick_device(None)
+    mt = load_model(model_id, dev, pick_dtype(None, dev))
+    done = {}
+    for lang, k, a_star, unit in passing:
+        for pos in positions:
+            done[f"{lang}_k{k}_{pos}"] = sweep(model_id, k, lang, a_star, unit, out_root=out_root,
+                                               model_tok=mt, positions=pos)  # fmt: skip
+    return {"passing": passing, "timings": done}
