@@ -232,19 +232,28 @@ def run(model, tok, prompts: list[Prompt], k: int, conds: list[tuple[int, int, f
         h = lower(model, ids, mask, k)
         cis = [c for i in pis for c in by_prompt[i]]
         local = {i: r for r, i in enumerate(pis)}
+        # condition tensors once per prompt batch; results stay on the device until the batch is
+        # done (one host transfer per batch instead of three per chunk)
+        item_all = torch.tensor([local[conds[c][0]] for c in cis], device=dev)
+        vi_all = torch.tensor([conds[c][1] for c in cis], device=dev)
+        al_all = torch.tensor([conds[c][2] * unit for c in cis], device=dev, dtype=h.dtype)
+        lps, tis, tvs = [], [], []
         for c0 in range(0, len(cis), row_batch):
-            chunk = cis[c0 : c0 + row_batch]
-            item = torch.tensor([local[conds[c][0]] for c in chunk], device=dev)
-            vi = torch.tensor([conds[c][1] for c in chunk], device=dev)
-            al = torch.tensor([conds[c][2] * unit for c in chunk], device=dev, dtype=h.dtype)
+            item, vi = item_all[c0 : c0 + row_batch], vi_all[c0 : c0 + row_batch]
+            al = al_all[c0 : c0 + row_batch]
             hc = h[item].clone()
             hc += (al[:, None, None] * vecs[vi].to(h.dtype)[:, None, :]) * where[item][..., None]
             lp = upper(model, hc, mask[item], k, slot[item])
             if read_ids:
-                out_lp[chunk] = lp[:, rid].cpu().numpy()
+                lps.append(lp[:, rid])
             t = lp.topk(topk, dim=-1)
-            out_top[chunk] = t.indices.cpu().numpy()
-            out_toplp[chunk] = t.values.cpu().numpy()
+            tis.append(t.indices)
+            tvs.append(t.values)
+        idx = np.asarray(cis)
+        if read_ids:
+            out_lp[idx] = torch.cat(lps).float().cpu().numpy()
+        out_top[idx] = torch.cat(tis).cpu().numpy()
+        out_toplp[idx] = torch.cat(tvs).float().cpu().numpy()
     return {"lp": out_lp, "top": out_top, "toplp": out_toplp}
 
 
@@ -264,8 +273,10 @@ def noun_norm(model, tok, prompts: list[Prompt], k: int, batch: int = 32) -> flo
 
 @torch.no_grad()
 def damage(model, tok, prompts: list[Prompt], k: int, conds, vecs, unit: float,
-           batch_rows: int = 16, positions: str = "noun") -> np.ndarray:  # fmt: skip
-    """Mean KL(unsteered || steered) over the KL_TOKENS positions after the noun, per condition."""
+           batch_rows: int = 16, positions: str = "noun", prompt_batch: int = 8) -> np.ndarray:  # fmt: skip
+    """Mean KL(unsteered || steered) over the KL_TOKENS positions after the noun's last token,
+    per condition. Batched across sentences (right padding, as `run`); the layers below k run
+    once per sentence batch, the unsteered reference once per sentence."""
     from .steering import _only_layers_from
 
     enc = [_encode(tok, p) for p in prompts]
@@ -277,34 +288,52 @@ def damage(model, tok, prompts: list[Prompt], k: int, conds, vecs, unit: float,
     by_prompt: dict[int, list[int]] = {}
     for ci, (pi, _, _) in enumerate(conds):
         by_prompt.setdefault(pi, []).append(ci)
-    for pi, cis in by_prompt.items():
-        ids_l, pos = enc[pi]
-        ids, mask = _pad(tok, [ids_l])
-        ids, mask = ids.to(dev), mask.to(dev)
-        last = pos[-1]
-        span = list(range(last, min(last + KL_TOKENS, len(ids_l) - 1)))
+    order = sorted(by_prompt, key=lambda i: len(enc[i][0]))
+
+    def logp(hh, mm, sp):  # log-probs at span positions sp [R, S] -> [R, S, V]
+        with _only_layers_from(body, k):
+            x = body(inputs_embeds=hh, attention_mask=mm, use_cache=False).last_hidden_state
+        xs = x.gather(1, sp[..., None].expand(-1, -1, x.shape[-1]))
+        lg = xs.to(W.dtype) @ W.T
+        if bias is not None:
+            lg = lg + bias
+        return torch.log_softmax(lg.float(), -1)
+
+    for b0 in range(0, len(order), prompt_batch):
+        pis = order[b0 : b0 + prompt_batch]
+        ids, mask = _pad(tok, [enc[i][0] for i in pis])
+        where = torch.zeros_like(ids, dtype=torch.bool)
+        span = torch.zeros((len(pis), KL_TOKENS), dtype=torch.long)
+        smask = torch.zeros((len(pis), KL_TOKENS), dtype=torch.bool)
+        for r, i in enumerate(pis):
+            ids_l, pos = enc[i]
+            where[r, pos] = True
+            sp = list(range(pos[-1], min(pos[-1] + KL_TOKENS, len(ids_l) - 1)))
+            span[r, : len(sp)] = torch.tensor(sp, dtype=torch.long)
+            smask[r, : len(sp)] = True
+        if positions == "all":
+            where = mask.bool()
+        ids, mask, where = ids.to(dev), mask.to(dev), where.to(dev)
+        span, smask = span.to(dev), smask.to(dev)
         h = lower(model, ids, mask, k)
-
-        def logp(hh, mm, span=span):
-            with _only_layers_from(body, k):
-                x = body(inputs_embeds=hh, attention_mask=mm, use_cache=False).last_hidden_state
-            lg = x[:, span].to(W.dtype) @ W.T
-            if bias is not None:
-                lg = lg + bias
-            return torch.log_softmax(lg.float(), -1)
-
-        base = logp(h, mask)[0]
+        base = logp(h, mask, span)
+        cis = [c for i in pis for c in by_prompt[i]]
+        local = {i: r for r, i in enumerate(pis)}
+        item_all = torch.tensor([local[conds[c][0]] for c in cis], device=dev)
+        vi_all = torch.tensor([conds[c][1] for c in cis], device=dev)
+        al_all = torch.tensor([conds[c][2] * unit for c in cis], device=dev, dtype=h.dtype)
+        kls = []
         for c0 in range(0, len(cis), batch_rows):
-            chunk = cis[c0 : c0 + batch_rows]
-            hc = h.repeat(len(chunk), 1, 1)
-            al = torch.tensor([conds[c][2] * unit for c in chunk], device=dev, dtype=h.dtype)
-            vi = torch.tensor([conds[c][1] for c in chunk], device=dev)
-            add = al[:, None] * vecs[vi].to(h.dtype)
-            where = pos if positions == "noun" else list(range(len(ids_l)))
-            hc[:, where] += add[:, None, :]
-            lp = logp(hc, mask.repeat(len(chunk), 1))
-            kl = (base.exp()[None] * (base[None] - lp)).sum(-1).mean(-1)
-            out[chunk] = kl.cpu().numpy()
+            item, vi = item_all[c0 : c0 + batch_rows], vi_all[c0 : c0 + batch_rows]
+            al = al_all[c0 : c0 + batch_rows]
+            hc = h[item].clone()
+            hc += (al[:, None, None] * vecs[vi].to(h.dtype)[:, None, :]) * where[item][..., None]
+            lp = logp(hc, mask[item], span[item])
+            b = base[item]
+            kl = (b.exp() * (b - lp)).sum(-1)  # [R, S]
+            m = smask[item].float()
+            kls.append((kl * m).sum(1) / m.sum(1).clamp(min=1))
+        out[np.asarray(cis)] = torch.cat(kls).cpu().numpy()
     return out
 
 
