@@ -296,3 +296,19 @@ def build_adj_translations() -> pd.DataFrame:
     )
     print(f"invariant gender-valence r = {np.corrcoef(inv.GEND, inv.VAL)[0, 1]:.2f}")
     return df
+
+
+# PI review of the R3 set (2026-10-10): English loanwords (in an in-language frame they'd be read
+# as English) and words outside the PI's Spanish lexicon. Dropped from every Spanish use (R3 and
+# the Spanish side of P20), never replaced.
+ES_ADJ_PI_DROP = {"bara", "ultra", "crazy", "heavy", "nice", "random", "smart"}
+
+
+def es_invariant_adjectives(fam: str | None = None) -> pd.DataFrame:
+    """Gender-invariant Spanish adjectives of the translation list, minus the PI drops; with
+    `fam`, only those that are a single token in that family (R3, P16)."""
+    t = pd.read_csv(ADJ_TRANS, keep_default_na=False)
+    t = t[(t.es_invariant.astype(str) == "True") & ~t.es.isin(ES_ADJ_PI_DROP)]
+    if fam is not None:
+        t = t[t[f"es_ntok_{fam}"] == 1]
+    return t.reset_index(drop=True)

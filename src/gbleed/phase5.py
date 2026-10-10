@@ -600,11 +600,9 @@ def rnonce_prompts(nw: pd.DataFrame) -> tuple[list[Prompt], list[Prompt]]:
 
 def r3_ids(tok, fam: str) -> list[int]:
     """Single-token (P16) gender-invariant Spanish adjectives of the translation list."""
-    from .phase5_stimuli import ADJ_TRANS
+    from .phase5_stimuli import es_invariant_adjectives
 
-    t = pd.read_csv(ADJ_TRANS, keep_default_na=False)
-    t = t[(t.es_invariant.astype(str) == "True") & (t[f"es_ntok_{fam}"] == 1)]
-    return single_ids(tok, [" " + w for w in t.es])
+    return single_ids(tok, [" " + w for w in es_invariant_adjectives(fam).es])
 
 
 def readout_sets(tok, nouns: pd.DataFrame, lang: str, fam: str, nonce: bool = True):
@@ -827,9 +825,11 @@ P20_FRAMES = {  # (lang, wording): template with {art} and {N}; articles by gend
 def p20_requests(pairs: pd.DataFrame, adj: pd.DataFrame):
     """(key rows, (prompt, " adjective") requests): every pair noun in its frames x that
     language's translated adjectives (Spanish: gender-invariant only), full-word scoring."""
+    from .phase5_stimuli import es_invariant_adjectives
+
     keys, reqs = [], []
     for (lang, w), (t, arts) in P20_FRAMES.items():
-        a = adj[(adj[lang] != "") & ((adj.es_invariant.astype(str) == "True") | (lang != "es"))]
+        a = adj[adj[lang] != ""] if lang != "es" else es_invariant_adjectives()
         for r in pairs.itertuples():
             noun, g = getattr(r, f"{lang}_lemma"), getattr(r, f"{lang}_gender")
             prompt = t.format(art=arts[g], N=noun)

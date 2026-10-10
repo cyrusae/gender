@@ -51,10 +51,9 @@ def ratings_for(name: str, fam: str, read: np.ndarray) -> pd.DataFrame:
     if name == "R3":
         from wordfreq import zipf_frequency
 
-        from .phase5_stimuli import ADJ_TRANS
+        from .phase5_stimuli import es_invariant_adjectives
 
-        t = pd.read_csv(ADJ_TRANS, keep_default_na=False)
-        t = t[(t.es_invariant.astype(str) == "True") & (t[f"es_ntok_{fam}"] == 1)]
+        t = es_invariant_adjectives(fam)
         t = t.rename(columns={"en": "word"}).reset_index(drop=True)
         t["zipf"] = [zipf_frequency(w, "es") for w in t.es]  # the Spanish word's frequency
         assert len(t) == len(read)
