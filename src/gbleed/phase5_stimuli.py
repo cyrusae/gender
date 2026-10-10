@@ -301,7 +301,9 @@ def build_adj_translations() -> pd.DataFrame:
 # PI review of the R3 set (2026-10-10): English loanwords (in an in-language frame they'd be read
 # as English) and words outside the PI's Spanish lexicon. Dropped from every Spanish use (R3 and
 # the Spanish side of P20), never replaced.
-ES_ADJ_PI_DROP = {"bara", "ultra", "crazy", "heavy", "nice", "random", "smart"}
+ES_ADJ_PI_DROP = {"bara", "ultra", "crazy", "heavy", "nice", "random", "smart",
+                  # PI review sheet, checked against the RAE (2026-10-10)
+                  "real", "chispa", "estacional", "meñique", "posta", "salame", "taba"}  # fmt: skip
 
 
 def es_invariant_adjectives(fam: str | None = None) -> pd.DataFrame:
