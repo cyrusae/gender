@@ -26,6 +26,12 @@ step() {
 fetch() { uv run python -c "from huggingface_hub import snapshot_download; snapshot_download('$1')"; }
 drop() { uv run python -c "from huggingface_hub import scan_cache_dir as s; c=s(); [c.delete_revisions(*[r.commit_hash for r in repo.revisions]).execute() for repo in c.repos if repo.repo_id=='$1']"; }
 {
+  # machine checks (throttling, cores, RAM) and GPU utilization every 10 s for the whole session
+  if command -v nvidia-smi >/dev/null; then
+    nvidia-smi -q -d PERFORMANCE | grep -iE "throttle|slowdown|active" | head -20 || true
+    nvidia-smi dmon -s um -d 10 > logs/gpu_dmon.log 2>&1 & DMON_PID=$!
+  fi
+  echo "cores: $(nproc 2>/dev/null || sysctl -n hw.ncpu)"; free -h 2>/dev/null | head -2 || true
   echo "=== $(date) session 2 start on $(uv run python -c 'import torch; print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else "no CUDA")'), commit $(cat BUNDLE_COMMIT.txt)"
   read -r -a MLIST <<< "$MODELS"
   PF_PID=""
@@ -58,10 +64,8 @@ drop() { uv run python -c "from huggingface_hub import scan_cache_dir as s; c=s(
     step "$M number extract"       uv run gbleed p5 number-extract "$M"
     # Phase 5: frame checks, in-language baseline, gate + sweeps at every passing layer
     step "$M p22 axis"             uv run gbleed p5 p22 "$M"
-    step "$M gate frame check"     uv run gbleed p5 gate-framecheck "$M"
-    step "$M readout check"        uv run gbleed p5 readout-check "$M"
-    step "$M p20"                  uv run gbleed p5 p20 "$M"
-    step "$M phase5 session"       uv run gbleed p5 session "$M"
+    # gate frame check, readout check, P20, gate + sweeps: one process, one model load
+    step "$M phase5"               uv run gbleed p5 phase5-all "$M"
     step "$M save archive" tar cf "$OUT/$S.tar.part" activations/"$S" results BUNDLE_COMMIT.txt logs
     mv "$OUT/$S.tar.part" "$OUT/$S.tar"
     if [ -z "${KEEP_MODELS:-}" ]; then rm -rf activations/"$S"; drop "$M"; fi
@@ -69,5 +73,6 @@ drop() { uv run python -c "from huggingface_hub import scan_cache_dir as s; c=s(
   for M in $SMALL; do step "$M wug" uv run gbleed p5 wug "$M"; done
   step "results archive" tar czf "$OUT/results.tgz.part" results logs BUNDLE_COMMIT.txt
   mv "$OUT/results.tgz.part" "$OUT/results.tgz"
+  [ -n "${DMON_PID:-}" ] && kill "$DMON_PID" 2>/dev/null || true
   echo "=== $(date) session 2 done"
 } 2>&1 | tee -a logs/session2.log

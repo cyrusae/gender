@@ -526,7 +526,7 @@ def timed(fn, *a, **kw):
 
 
 def run_gate(model_id: str, out_root: str = "results/phase5_gate", device=None, dtype=None,
-             max_nouns: int | None = None) -> list[dict]:  # fmt: skip
+             max_nouns: int | None = None, model_tok=None) -> list[dict]:  # fmt: skip
     """§5.2 gate at every grid layer, both languages, on the steering nouns (steer_es /
     steer_de). Writes per-layer tables and a summary with timings."""
     from datetime import UTC, datetime
@@ -537,7 +537,7 @@ def run_gate(model_id: str, out_root: str = "results/phase5_gate", device=None, 
     nouns = _smoke(pd.read_csv(NOUNS, keep_default_na=False))
     dev = pick_device(device)
     dt = pick_dtype(dtype, dev)
-    model, tok = load_model(model_id, dev, dt)
+    model, tok = model_tok or load_model(model_id, dev, dt)
     meta = run_metadata(model, model_id, dev, dt)
     meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
     out = Path(out_root) / model_slug(model_id)
@@ -801,7 +801,7 @@ def sweep(model_id: str, k: int, lang: str, alpha_star: float, unit: float,
 
 
 def frame_check(model_id: str, out_root: str = "results/phase5_framecheck", device=None,
-                dtype=None) -> dict:  # fmt: skip
+                dtype=None, model_tok=None) -> dict:  # fmt: skip
     """Pre-registered gate frame check (§5.2): unsteered, >= 70% of this model's known Zipf >= 4
     Phase 0 nouns must get the right gender, per gender, in each gate frame."""
     from .models import load_model, pick_device, pick_dtype, run_metadata
@@ -809,7 +809,7 @@ def frame_check(model_id: str, out_root: str = "results/phase5_framecheck", devi
 
     dev = pick_device(device)
     dt = pick_dtype(dtype, dev)
-    model, tok = load_model(model_id, dev, dt)
+    model, tok = model_tok or load_model(model_id, dev, dt)
     meta = run_metadata(model, model_id, dev, dt)
     it = pd.read_csv(f"results/phase0/{model_slug(model_id)}/items.csv", keep_default_na=False)
     it = it[(it.status == "known") & (pd.to_numeric(it.zipf) >= 4)]
@@ -878,7 +878,8 @@ def p20_requests(pairs: pd.DataFrame, adj: pd.DataFrame):
     return pd.DataFrame(keys), reqs
 
 
-def run_p20(model_id: str, out_root: str = "results/phase5_p20", device=None, dtype=None):
+def run_p20(model_id: str, out_root: str = "results/phase5_p20", device=None, dtype=None,
+            model_tok=None):  # fmt: skip
     """P20: log P(adjective | in-language frame) for every pair noun and translated adjective,
     plus each frame's first-token share (the frame check's quantity)."""
     from datetime import UTC, datetime
@@ -890,7 +891,7 @@ def run_p20(model_id: str, out_root: str = "results/phase5_p20", device=None, dt
 
     dev = pick_device(device)
     dt = pick_dtype(dtype, dev)
-    model, tok = load_model(model_id, dev, dt)
+    model, tok = model_tok or load_model(model_id, dev, dt)
     meta = run_metadata(model, model_id, dev, dt)
     meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
     pairs = pd.read_csv(PAIRS_FINAL, keep_default_na=False)
@@ -977,16 +978,18 @@ def readout_check(model_id: str, out_root: str = "results/phase5_readoutcheck", 
 
 def session(model_id: str, gate_root: str = "results/phase5_gate",
             out_root: str = "results/phase5", positions=("noun", "all"),
-            framecheck_root: str = "results/phase5_framecheck") -> dict:  # fmt: skip
+            framecheck_root: str = "results/phase5_framecheck", model_tok=None) -> dict:  # fmt: skip
     """Session-2 steering for one model: gate at every grid layer (Spanish; German with the
     primary frame), then the full sweep at every passing layer (PI 2026-10-09), noun-only and
     every-position. Layer choice uses the gate's grammatical outcome only."""
     from .models import load_model, pick_device, pick_dtype
     from .phase5_stimuli import DE_GATE_PRIMARY
 
+    dev = pick_device(None)
+    mt = model_tok or load_model(model_id, dev, pick_dtype(None, dev))
     summ_path = Path(gate_root) / model_slug(model_id) / "summary.json"
     if not summ_path.exists():
-        run_gate(model_id, out_root=gate_root)
+        run_gate(model_id, out_root=gate_root, model_tok=mt)
     gate_res = json.loads(summ_path.read_text())["gate"]
     # a language whose gate frame fails the pre-registered frame check gets no gate and no
     # steering (PI rule, as for 1.7B's German); the check must have run first
@@ -997,11 +1000,23 @@ def session(model_id: str, gate_root: str = "results/phase5_gate",
                if g["passes"] and ok_lang[g["lang"]]
                and (g["lang"] == "es" or g["frame"] == DE_GATE_PRIMARY)]  # fmt: skip
     stage(f"{model_id}: passing (lang, layer, alpha*): {[(a, b, c) for a, b, c, _ in passing]}")
-    dev = pick_device(None)
-    mt = load_model(model_id, dev, pick_dtype(None, dev))
     done = {}
     for lang, k, a_star, unit in passing:
         for pos in positions:
             done[f"{lang}_k{k}_{pos}"] = sweep(model_id, k, lang, a_star, unit, out_root=out_root,
                                                model_tok=mt, positions=pos)  # fmt: skip
     return {"passing": passing, "timings": done}
+
+
+def all_steps(model_id: str) -> dict:
+    """Session-2 Phase 5 steps for one model in one process (one model load): the gate frame
+    check, the readout frame check, P20, then the gate and sweeps (`session`)."""
+    from .models import load_model, pick_device, pick_dtype
+
+    dev = pick_device(None)
+    mt = load_model(model_id, dev, pick_dtype(None, dev))
+    for name, fn in (("gate frame check", frame_check), ("readout check", readout_check),
+                     ("p20", run_p20)):  # fmt: skip
+        stage(f"{model_id}: {name}")
+        fn(model_id, model_tok=mt)
+    return session(model_id, model_tok=mt)
