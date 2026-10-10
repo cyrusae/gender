@@ -43,7 +43,8 @@ def main():
            "readouts": {}}  # fmt: skip
     for lang in ("es", "de"):
         sub = phase5.dose_subset(nouns[nouns.lang == lang])
-        for name, prompts, read in phase5.readout_sets(tok, nouns, lang, phase5.family(a.model)):
+        sets = phase5.readout_sets(tok, nouns, lang, phase5.family(a.model), nonce=False)
+        for name, prompts, read, _ in sets:
             full = phase5.conditions(len(prompts), phase5.N_RANDOM, phase5.N_RANDOM_GATE,
                                      in_subset=[p.key["lemma"] in sub for p in prompts])  # fmt: skip
             idx = sorted(rng.choice(len(prompts), a.per_readout, replace=False))

@@ -252,7 +252,7 @@ def noun_norm(model, tok, prompts: list[Prompt], k: int, batch: int = 32) -> flo
 
 @torch.no_grad()
 def damage(model, tok, prompts: list[Prompt], k: int, conds, vecs, unit: float,
-           batch_rows: int = 16) -> np.ndarray:  # fmt: skip
+           batch_rows: int = 16, positions: str = "noun") -> np.ndarray:  # fmt: skip
     """Mean KL(unsteered || steered) over the KL_TOKENS positions after the noun, per condition."""
     from .steering import _only_layers_from
 
@@ -288,7 +288,8 @@ def damage(model, tok, prompts: list[Prompt], k: int, conds, vecs, unit: float,
             al = torch.tensor([conds[c][2] * unit for c in chunk], device=dev, dtype=h.dtype)
             vi = torch.tensor([conds[c][1] for c in chunk], device=dev)
             add = al[:, None] * vecs[vi].to(h.dtype)
-            hc[:, pos] += add[:, None, :]
+            where = pos if positions == "noun" else list(range(len(ids_l)))
+            hc[:, where] += add[:, None, :]
             lp = logp(hc, mask.repeat(len(chunk), 1))
             kl = (base.exp()[None] * (base[None] - lp)).sum(-1).mean(-1)
             out[chunk] = kl.cpu().numpy()
@@ -556,9 +557,53 @@ def dose_subset(nouns: pd.DataFrame, frac: float = DOSE_SUBSET_FRAC,
     return set(pick.lemma) | set(pick.concept_en)
 
 
-def readout_sets(tok, nouns: pd.DataFrame, lang: str, fam: str):
-    """(name, prompts, read ids) for one steering language: R1/R2 on that language's nouns,
-    R1-EN/R2-EN on their English concepts."""
+def r3_prompts(nouns: pd.DataFrame) -> list[Prompt]:
+    """R3: the Spanish gate sentence, read on gender-invariant Spanish adjectives."""
+    return [Prompt(ES_GATE.format(N=r.lemma), r.lemma,
+                   {"readout": "R3", "wording": "W1", "lemma": r.lemma, "lang": "es"})
+            for r in nouns.itertuples()]  # fmt: skip
+
+
+def nonce_words() -> pd.DataFrame:
+    """R-NONCE words: the Spanish-ending set (150 stems x -a/-o/-e/-iz) and the English-style
+    set, with their ending class."""
+    es = pd.read_csv("data/stimuli/phase5_nonce_es_v1.csv", keep_default_na=False)
+    en = pd.read_csv("data/stimuli/phase5_nonce_en_v1.csv", keep_default_na=False)
+    rows = [{"word": getattr(r, f"form_{e}"), "set": "es", "ending": e, "stem": r.stem}
+            for r in es.itertuples() for e in ("a", "o", "e", "iz")]  # fmt: skip
+    rows += [{"word": r.word, "set": "en", "ending": r.final, "stem": r.word}
+             for r in en.itertuples()]  # fmt: skip
+    return pd.DataFrame(rows)
+
+
+def rnonce_prompts(nw: pd.DataFrame) -> tuple[list[Prompt], list[Prompt]]:
+    """R-NONCE (P12/P17): the R1-EN (W1-W3) and R2-EN frames with a nonce word in place of the
+    English noun, steered at the nonce word's tokens."""
+    a, b = [], []
+    for r in nw.itertuples():
+        key = {"lemma": r.word, "lang": "nonce", "nonce_set": r.set, "ending": r.ending}
+        for w in ("W1", "W2", "W3"):
+            a.append(Prompt(R1_EN[w].format(N=r.word), r.word,
+                            {"readout": "RN-R1", "wording": w, **key}))  # fmt: skip
+        for p in r2_prompts(None, [r.word]):
+            p.key = {**p.key, "readout": "RN-R2", **key}
+            b.append(p)
+    return a, b
+
+
+def r3_ids(tok, fam: str) -> list[int]:
+    """Single-token (P16) gender-invariant Spanish adjectives of the translation list."""
+    from .phase5_stimuli import ADJ_TRANS
+
+    t = pd.read_csv(ADJ_TRANS, keep_default_na=False)
+    t = t[(t.es_invariant.astype(str) == "True") & (t[f"es_ntok_{fam}"] == 1)]
+    return single_ids(tok, [" " + w for w in t.es])
+
+
+def readout_sets(tok, nouns: pd.DataFrame, lang: str, fam: str, nonce: bool = True):
+    """(name, prompts, read ids, condition kind) for one steering language: R1/R2 on that
+    language's nouns, R1-EN/R2-EN on their English concepts, R3 (Spanish only), R-NONCE.
+    Kinds: "full" = `conditions` (dose sweep); "working" = `working_conditions`."""
     adj = pd.read_csv(f"data/stimuli/phase5_adjectives_{fam}_v1.csv", keep_default_na=False)
     adj_ids = adj.token_id.astype(int).tolist()
     r2_ids = single_ids(
@@ -566,15 +611,77 @@ def readout_sets(tok, nouns: pd.DataFrame, lang: str, fam: str):
     )
     nl = nouns[nouns.lang == lang]
     concepts = sorted(set(nl.concept_en))
-    return [("R1", r1_prompts(nl), adj_ids), ("R1-EN", r1en_prompts(concepts), adj_ids),
-            ("R2", r2_prompts(nl, None), r2_ids), ("R2-EN", r2_prompts(None, concepts), r2_ids)]  # fmt: skip
+    out = [("R1", r1_prompts(nl), adj_ids, "full"),
+           ("R1-EN", r1en_prompts(concepts), adj_ids, "full"),
+           ("R2", r2_prompts(nl, None), r2_ids, "full"),
+           ("R2-EN", r2_prompts(None, concepts), r2_ids, "full")]  # fmt: skip
+    if lang == "es":
+        out.append(("R3", r3_prompts(nl), r3_ids(tok, fam), "full"))
+    if nonce:
+        a, b = rnonce_prompts(nonce_words())
+        out += [("RN-R1", a, adj_ids, "working"), ("RN-R2", b, r2_ids, "working")]
+    return out
 
 
-def sweep(model_id: str, k: int, lang: str, alpha_star: float, out_root: str = "results/phase5",
-          device=None, dtype=None, nouns_filter=None, n_random: int = N_RANDOM,
-          n_random_sweep: int = N_RANDOM_GATE, readouts=None, model_tok=None) -> dict:  # fmt: skip
-    """Run every readout for one steering language at boundary k. Saves per readout an .npz
-    (log-probs at the read ids, top-50) and a condition table; returns timings."""
+def working_conditions(n_prompts: int, n_random: int, extra_vecs: int = 0,
+                       n_vec_random: int = N_RANDOM):  # fmt: skip
+    """R-NONCE (tentative, cost): v and the extra vectors at -1, (0,) +1 x alpha*; the first
+    n_random random vectors at +1 only."""
+    conds = []
+    extras = range(1 + n_vec_random, 1 + n_vec_random + extra_vecs)
+    for i in range(n_prompts):
+        conds += [(i, 0, m) for m in (-1.0, 0.0, 1.0)]
+        for vi in extras:
+            conds += [(i, vi, m) for m in (-1.0, 1.0)]
+        conds += [(i, vi, 1.0) for vi in range(1, 1 + n_random)]
+    return conds
+
+
+def neutral_prompts(nouns: pd.DataFrame, lang: str) -> list[Prompt]:
+    """Damage (§5.3): one neutral sentence per steered noun and per English concept."""
+    nl = nouns[nouns.lang == lang]
+    out = [Prompt(NEUTRAL[lang].format(N=w), w, {"readout": "damage", "lemma": w, "lang": lang})
+           for w in dict.fromkeys(nl.lemma)]  # fmt: skip
+    out += [Prompt(NEUTRAL["en"].format(N=c), c, {"readout": "damage", "lemma": c, "lang": "en"})
+            for c in sorted(set(nl.concept_en))]  # fmt: skip
+    return out
+
+
+def steering_vectors(model_id: str, lang: str, k: int, d: int, n_random: int = N_RANDOM,
+                     extras: tuple[str, ...] = ("number", "social")):  # fmt: skip
+    """[v, n_random random, extras...] as float32 rows, and their names."""
+    rows = [dom_vector(model_id, lang, k)]
+    rows += list(random_vectors(d, n_random, seed=1000 + k))
+    for e in extras:
+        rows.append(
+            number_vector(model_id, lang, k) if e == "number" else social_vector(model_id, k)
+        )
+    names = ["v"] + [f"rand{i}" for i in range(n_random)] + list(extras)
+    return torch.tensor(np.array(rows), dtype=torch.float32), names
+
+
+def gate_unit(model_id: str, lang: str, k: int, gate_root: str = "results/phase5_gate") -> float:
+    """The dose unit the gate's alpha* refers to (median noun norm of the gate prompts at k), so
+    every readout gets the same absolute push that flipped agreement."""
+    from .phase5_stimuli import DE_GATE_PRIMARY
+
+    s = json.loads((Path(gate_root) / model_slug(model_id) / "summary.json").read_text())
+    fr = None if lang == "es" else DE_GATE_PRIMARY
+    g = [x for x in s["gate"] if x["layer"] == k and x["lang"] == lang and x["frame"] == fr]
+    assert len(g) == 1, (model_id, lang, k)
+    return float(g[0]["unit"])
+
+
+def sweep(model_id: str, k: int, lang: str, alpha_star: float, unit: float,
+          out_root: str = "results/phase5", device=None, dtype=None, nouns_filter=None,
+          n_random: int = N_RANDOM, n_random_sweep: int = N_RANDOM_GATE, readouts=None,
+          model_tok=None, positions: str = "noun", extras=("number", "social"),
+          nonce: bool = True, with_damage: bool = True, prompt_batch: int = 16,
+          row_batch: int = 128) -> dict:  # fmt: skip
+    """Every readout for one steering language at boundary k, plus damage. Doses are multiples
+    of alpha* in gate units (`unit`). positions="all" (P14): random directions at the working
+    dose only (no random dose curve). Saves per readout an .npz (log-probs at the read ids,
+    top-50) and a condition table; vectors.json records the vectors' names and cosines."""
     from .phase5_stimuli import NOUNS
 
     if model_tok is None:
@@ -588,35 +695,61 @@ def sweep(model_id: str, k: int, lang: str, alpha_star: float, out_root: str = "
     if nouns_filter is not None:
         nouns = nouns_filter(nouns)
     fam = family(model_id)
-    v = dom_vector(model_id, lang, k)
-    d = model.config.hidden_size
-    V = torch.tensor(
-        np.r_[v[None], random_vectors(d, n_random, seed=1000 + k)], dtype=torch.float32
+    V, names = steering_vectors(model_id, lang, k, model.config.hidden_size, n_random, extras)
+    n_ex = len(extras)
+    out = (
+        Path(out_root) / model_slug(model_id) / f"{lang}_k{k}{'_all' if positions == 'all' else ''}"
     )
-    out = Path(out_root) / model_slug(model_id) / f"{lang}_k{k}"
     out.mkdir(parents=True, exist_ok=True)
+    cos = {nm: float(V[0] @ V[i]) for i, nm in enumerate(names) if not nm.startswith("rand")}
+    (out / "vectors.json").write_text(json.dumps(
+        {"names": names, "cos_with_v": cos, "alpha_star": alpha_star, "unit": unit,
+         "positions": positions, "layer": k, "lang": lang}, indent=1))  # fmt: skip
+    sub = dose_subset(nouns[nouns.lang == lang])
+    nrs = n_random_sweep if positions == "noun" else 0
     timings = {}
-    for name, prompts, read in readout_sets(tok, nouns, lang, fam):
+    sets = readout_sets(tok, nouns, lang, fam, nonce=nonce)
+    for name, prompts, read, kind in sets:
         if readouts and name not in readouts:
             continue
-        unit = noun_norm(model, tok, prompts[:: max(1, len(prompts) // 200)], k)
-        sub = dose_subset(nouns[nouns.lang == lang])
-        conds = conditions(len(prompts), n_random, n_random_sweep,
-                           in_subset=[p.key["lemma"] in sub for p in prompts])  # fmt: skip
-        dose = alpha_star  # multiples of alpha* (in norm units)
-        cc = [(i, vi, m * dose) for i, vi, m in conds]
-        res, sec = timed(run, model, tok, prompts, k, cc, V, read, unit=unit)
+        if kind == "full":
+            conds = conditions(len(prompts), n_random, nrs, extra_vecs=n_ex,
+                               in_subset=[p.key["lemma"] in sub for p in prompts])  # fmt: skip
+        else:
+            conds = working_conditions(len(prompts), N_RANDOM_GATE, extra_vecs=n_ex,
+                                       n_vec_random=n_random)  # fmt: skip
+        cc = [(i, vi, m * alpha_star) for i, vi, m in conds]
+        res, sec = timed(run, model, tok, prompts, k, cc, V, read, unit=unit, positions=positions,
+                         prompt_batch=prompt_batch, row_batch=row_batch)  # fmt: skip
         keys = pd.DataFrame([prompts[i].key for i, _, _ in conds])
-        keys["vec"] = [vi for _, vi, _ in conds]
+        keys["vec"] = [names[vi] for _, vi, _ in conds]
         keys["mult"] = [m for _, _, m in conds]
         keys.to_csv(out / f"{name}_conds.csv.gz", index=False)
         np.savez_compressed(out / f"{name}.npz", lp=res["lp"], top=res["top"],
                             toplp=res["toplp"], read=np.array(read))  # fmt: skip
         timings[name] = {"prompts": len(prompts), "conditions": len(conds), "seconds": sec,
-                         "rows_per_s": len(conds) / sec, "unit": unit}  # fmt: skip
-        stage(f"{model_id} k={k} {lang} {name}: {len(conds)} rows in {sec:.0f} s "
+                         "rows_per_s": len(conds) / sec}  # fmt: skip
+        stage(f"{model_id} k={k} {lang} {positions} {name}: {len(conds)} rows in {sec:.0f} s "
               f"({len(conds) / sec:.0f}/s)")  # fmt: skip
-    (out / "timings.json").write_text(json.dumps({"alpha_star": alpha_star, **timings}, indent=1))
+    if with_damage and (not readouts or "damage" in readouts):
+        prompts = neutral_prompts(nouns, lang)
+        conds = []
+        for i in range(len(prompts)):
+            conds += [(i, 0, m) for m in DOSE_MULTS if m != 0.0]
+            for vi in range(1 + n_random, 1 + n_random + n_ex):
+                conds += [(i, vi, m) for m in DOSE_MULTS if m != 0.0]
+            conds += [(i, vi, 1.0) for vi in range(1, 1 + N_RANDOM_GATE)]
+        cc = [(i, vi, m * alpha_star) for i, vi, m in conds]
+        kl, sec = timed(damage, model, tok, prompts, k, cc, V, unit, positions=positions)
+        keys = pd.DataFrame([prompts[i].key for i, _, _ in conds])
+        keys["vec"] = [names[vi] for _, vi, _ in conds]
+        keys["mult"] = [m for _, _, m in conds]
+        keys["kl"] = kl
+        keys.to_csv(out / "damage.csv.gz", index=False)
+        timings["damage"] = {"prompts": len(prompts), "conditions": len(conds), "seconds": sec,
+                             "rows_per_s": len(conds) / sec}  # fmt: skip
+        stage(f"{model_id} k={k} {lang} {positions} damage: {len(conds)} rows in {sec:.0f} s")
+    (out / "timings.json").write_text(json.dumps(timings, indent=1))
     return timings
 
 
