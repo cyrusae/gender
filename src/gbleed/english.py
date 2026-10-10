@@ -256,7 +256,7 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
                 (np.percentile(v, 2.5), np.percentile(v, 97.5)) if len(v) else (np.nan, np.nan)
             )
         # §5.1 split-half cosine: social halves (pairs) x grammatical halves (within cell x gender)
-        cs = {nm: [] for nm in ("es", "de")}
+        cs = {nm: [] for nm in ("es", "de")}  # per split: (cross term, social len2, gram len2)
         for _ in range(N_SPLITS):
             h = rng.permutation(npair) < npair // 2
             sA, sB = ((Xl[fi[m]] - Xl[mi[m]]).mean(0) for m in (h, ~h))
@@ -265,11 +265,15 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
                 gA, gB = (class_betas(Xg[m], d["y"][m][:, None].astype(float),
                                       nuisance(d["cells"][m], [c[m] for c in d["covs"]]))[0]
                           for m in (A, ~A))  # fmt: skip
-                num = (sA @ gB + sB @ gA) / 2
-                den = np.sqrt(max(sA @ sB, 1e-12) * max(gA @ gB, 1e-12))
-                cs[nm].append(num / den)
+                cs[nm].append(((sA @ gB + sB @ gA) / 2, sA @ sB, gA @ gB))
         for nm in ("es", "de"):
-            r[f"cos_split_social_{nm}"] = float(np.mean(cs[nm]))
+            # ratio of means over splits, as estimators.split_half_geometry (a per-split ratio
+            # explodes when a half's noise-corrected length is near zero); NaN if a mean
+            # length is not positive (direction not reproducible across halves)
+            num, l_s, l_g = np.mean(cs[nm], axis=0)
+            r[f"cos_split_social_{nm}"] = (float(num / np.sqrt(l_s * l_g)) if l_s > 0 and l_g > 0
+                                           else float("nan"))  # fmt: skip
+            r[f"len2_split_social_{nm}"], r[f"len2_split_gram_{nm}"] = float(l_s), float(l_g)
         r["cos_random_sd"] = 1 / np.sqrt(Xl.shape[1])
         rows.append(r)
     res = pd.DataFrame(rows)
