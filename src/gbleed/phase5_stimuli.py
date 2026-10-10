@@ -107,6 +107,56 @@ def gate_adjectives(family: str) -> list[tuple[str, str, list[int], int, int]]:
     return out
 
 
+NUMBER = "data/stimuli/phase5_number_v1.csv"
+KAIKKI = "data/raw/kaikki/kaikki.org-dictionary-{}.jsonl"
+
+
+def _headword_plurals(lang: str, lemmas: set[str]) -> dict[str, set[str]]:
+    """Headword-line plurals (kaikki `forms` tagged exactly ["plural"]) of the given nouns, over
+    all of each word's noun entries."""
+    import json
+
+    out: dict[str, set[str]] = {w: set() for w in lemmas}
+    with open(KAIKKI.format({"es": "Spanish", "de": "German"}[lang]), encoding="utf-8") as f:
+        for line in f:
+            d = json.loads(line)
+            w = d.get("word")
+            if w in out and d.get("pos") == "noun":
+                out[w] |= {x["form"] for x in d.get("forms", []) if x.get("tags") == ["plural"]}
+    return out
+
+
+def build_number() -> pd.DataFrame:
+    """Singular/plural pairs for the §5.4 number direction, on the nouns the gender directions
+    are fitted on (Phase 2 `strat`+`matched`, Phase 3 `strat3`, all three genders), so number and gender
+    vectors come from the same words. Kept only if Wiktionary's headword gives exactly one
+    plural, letters only, different from the singular (dropped, not reviewed)."""
+    import re
+
+    from .phase4 import P2_FINAL, P3_FINAL
+
+    p2 = pd.read_csv(P2_FINAL, keep_default_na=False)
+    p3 = pd.read_csv(P3_FINAL, keep_default_na=False)
+    src = {"es": p2[p2.set.isin(["strat", "matched"])],
+           "de": p3[p3.set == "strat3"]}  # fmt: skip
+    rows, counts = [], {}
+    for lang, df in src.items():
+        pl = _headword_plurals(lang, set(df.lemma))
+        for r in df.itertuples():
+            forms = pl[r.lemma]
+            p = next(iter(forms)) if len(forms) == 1 else ""
+            if p and re.fullmatch(r"[^\W\d_]+", p) and p != r.lemma:
+                rows.append({"lang": lang, "lemma": r.lemma, "plural": p, "gender": r.gender,
+                             "split": "train"})  # fmt: skip
+        counts[lang] = (len(df), sum(1 for x in rows if x["lang"] == lang))
+    out = pd.DataFrame(rows)
+    out.to_csv(NUMBER, index=False)
+    for lang, (n0, n1) in counts.items():
+        g = out[out.lang == lang].gender.value_counts().to_dict()
+        print(f"{lang}: {n1} of {n0} nouns kept {g}")
+    return out
+
+
 def build_nouns() -> pd.DataFrame:
     """Steering nouns (both languages), final flipped pairs and classics."""
     from .phase3_stimuli import held_out_phase45
@@ -155,4 +205,94 @@ def build_nouns() -> pd.DataFrame:
     df["split"] = "test"
     df.to_csv(NOUNS, index=False)
     print(df.groupby(["set", "lang", "gender"]).size().unstack(fill_value=0).to_string())
+    return df
+
+
+ADJ_TRANS = "data/stimuli/phase5_adj_translations_v1.csv"
+SKIP_ADJ_TAGS = {"archaic", "obsolete", "rare", "dated"}
+
+
+def _gloss_head(g: str, exact: bool = True) -> str:
+    """exact: the whole first gloss minus parentheticals ('strong (intense)' -> 'strong'; 'good,
+    great' -> 'good, great', which matches nothing). Else its first comma item ('good')."""
+    import re
+
+    g = re.sub(r"\([^)]*\)", "", g).strip().lower()
+    return g if exact else re.split(r"[,;]", g)[0].strip()
+
+
+def _adjectives_glossing(lang: str, english: set[str]) -> dict[str, list[dict]]:
+    """Foreign adjectives whose first sense's first gloss head is one of the English words (first
+    sense not archaic/obsolete/rare/dated). Spanish: also whether the form is gender-invariant
+    (no feminine singular form listed: *fuerte*, not *blanco/blanca*)."""
+    import json
+
+    out: dict[str, list[dict]] = {}
+    with open(KAIKKI.format({"es": "Spanish", "de": "German"}[lang]), encoding="utf-8") as f:
+        for line in f:
+            if '"pos": "adj"' not in line:
+                continue
+            d = json.loads(line)
+            ss = [s for s in d.get("senses", []) if s.get("glosses")]
+            if d.get("pos") != "adj" or not ss or set(ss[0].get("tags", [])) & SKIP_ADJ_TAGS:
+                continue
+            e = _gloss_head(ss[0]["glosses"][0])
+            if e not in english or " " in d["word"] or not d["word"].isalpha():
+                continue
+            fem = {x["form"] for x in d.get("forms", [])
+                   if "feminine" in x.get("tags", []) and "plural" not in x.get("tags", [])}  # fmt: skip
+            out.setdefault(e, []).append({"word": d["word"], "invariant": not (fem - {d["word"]})})
+    return out
+
+
+def build_adj_translations() -> pd.DataFrame:
+    """P20/R3 adjectives: the R1 Glasgow adjectives (qwen3 set) with one Spanish and one German
+    translation from Wiktionary (kaikki): a foreign adjective (Zipf >= 3 in its language) whose
+    first gloss is that English word; English words with two or more such translations are
+    dropped (ambiguous; not reviewed). Spanish `invariant` marks the R3 set. Token counts with a
+    leading space for both families (P16 applies to steered readouts)."""
+    from transformers import AutoTokenizer
+    from wordfreq import zipf_frequency
+
+    g = pd.concat([pd.read_csv(f"data/stimuli/phase5_adjectives_{f}_v1.csv")
+                   for f in ("qwen3", "eurollm")]).drop_duplicates("word")  # fmt: skip
+    eng = set(g.word)
+    toks = {f: AutoTokenizer.from_pretrained(m) for f, m in FAMILIES.items()}
+    cols = {}
+    for lang in ("es", "de"):
+        cand = _adjectives_glossing(lang, eng)
+        keep = {}
+        for e, cs in cand.items():
+            cs = [
+                c
+                for c in {c["word"]: c for c in cs}.values()
+                if zipf_frequency(c["word"], lang) >= 3
+            ]
+            if len(cs) == 1:
+                keep[e] = cs[0]
+        cols[lang] = keep
+        print(f"{lang}: {len(cand)} English adjectives with a candidate, {len(keep)} unambiguous")
+    rows = []
+    for r in g.itertuples():
+        es, de = cols["es"].get(r.word), cols["de"].get(r.word)
+        if not es and not de:
+            continue
+        row = {"en": r.word, "es": es["word"] if es else "", "de": de["word"] if de else "",
+               "es_invariant": bool(es and es["invariant"])}  # fmt: skip
+        row |= {sc: getattr(r, sc) for sc in SCALES}
+        for f, t in toks.items():
+            for lang in ("es", "de"):
+                w = row[lang]
+                row[f"{lang}_ntok_{f}"] = (
+                    len(t(" " + w, add_special_tokens=False)["input_ids"]) if w else 0
+                )
+        rows.append(row)
+    df = pd.DataFrame(rows)
+    df.to_csv(ADJ_TRANS, index=False)
+    inv = df[df.es_invariant]
+    print(
+        f"rows {len(df)}: es {int((df.es != '').sum())} (invariant {len(inv)}; single-token "
+        f"qwen3 {int((inv.es_ntok_qwen3 == 1).sum())}), de {int((df.de != '').sum())}"
+    )
+    print(f"invariant gender-valence r = {np.corrcoef(inv.GEND, inv.VAL)[0, 1]:.2f}")
     return df

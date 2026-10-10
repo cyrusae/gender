@@ -127,6 +127,59 @@ def dom_vector(model_id: str, lang: str, k: int) -> np.ndarray:
     return v / np.linalg.norm(v)
 
 
+def number_extract(model_id: str, device=None, dtype=None) -> None:
+    """Bare-word activations of the plurals in phase5_number_v1 (input format as Phases 2-3;
+    the singulars are the existing phase2_bare / phase3_bare rows)."""
+    from datetime import UTC, datetime
+
+    from . import activations as acts
+    from .models import load_model, pick_device, pick_dtype, run_metadata
+    from .phase5_stimuli import NUMBER
+
+    df = pd.read_csv(NUMBER, keep_default_na=False)
+    words = list(dict.fromkeys(df.plural))
+    dev = pick_device(device)
+    dt = pick_dtype(dtype, dev)
+    model, tok = load_model(model_id, dev, dt)
+    meta = run_metadata(model, model_id, dev, dt)
+    meta["timestamp"] = datetime.now(UTC).isoformat(timespec="seconds")
+    X, _, toks = acts.states_at(model, tok, words, None, desc="plurals")
+    acts.save(model_id, "phase5_number", X, words, toks, {**meta, "position": "last"})
+
+
+def number_vector(model_id: str, lang: str, k: int) -> np.ndarray:
+    """§5.4 number direction: unit mean (plural - singular) at boundary k over that language's
+    phase5_number pairs (the gender directions' own training nouns)."""
+    from . import activations as acts
+    from .phase5_stimuli import NUMBER
+
+    df = pd.read_csv(NUMBER, keep_default_na=False)
+    df = df[df.lang == lang]
+    Xp, mp = acts.load(model_id, "phase5_number")
+    Xs, ms = acts.load(model_id, "phase2_bare" if lang == "es" else "phase3_bare")
+    rp = {w: i for i, w in enumerate(mp["words"])}
+    rs = {w: i for i, w in enumerate(ms["words"])}
+    d = (Xp[[rp[w] for w in df.plural], k].astype(np.float64)
+         - Xs[[rs[w] for w in df.lemma], k].astype(np.float64)).mean(0)  # fmt: skip
+    return d / np.linalg.norm(d)
+
+
+def social_vector(model_id: str, k: int) -> np.ndarray:
+    """§5.7 / P24 social-gender direction: unit mean (female - male) at boundary k over the
+    WordNet-checked English person pairs (english_v1 `social`), bare words."""
+    from . import activations as acts
+    from .english import WORDS
+
+    df = pd.read_csv(WORDS, keep_default_na=False)
+    X, meta = acts.load(model_id, "english")
+    row = {w: i for i, w in enumerate(meta["words"])}
+    soc = df[df.set == "social"]
+    f = X[[row[w] for w in soc[soc.sex == "f"].word], k].astype(np.float64)
+    m = X[[row[w] for w in soc[soc.sex == "m"].word], k].astype(np.float64)
+    d = (f - m).mean(0)
+    return d / np.linalg.norm(d)
+
+
 def random_vectors(d: int, n: int, seed: int) -> np.ndarray:
     v = np.random.default_rng(seed).standard_normal((n, d))
     return v / np.linalg.norm(v, axis=1, keepdims=True)
@@ -136,9 +189,12 @@ def random_vectors(d: int, n: int, seed: int) -> np.ndarray:
 @torch.no_grad()
 def run(model, tok, prompts: list[Prompt], k: int, conds: list[tuple[int, int, float]],
         vecs: torch.Tensor, read_ids: list[int] | None, prompt_batch: int = 16,
-        row_batch: int = 64, topk: int = TOPK, unit: float = 1.0) -> dict:  # fmt: skip
+        row_batch: int = 64, topk: int = TOPK, unit: float = 1.0,
+        positions: str = "noun") -> dict:  # fmt: skip
     """conds: (prompt index, vector index, dose in units); vecs [n_vec, d] unit vectors.
+    positions: "noun" (the noun's tokens, P13) or "all" (every token of the prompt, P14).
     Returns per condition: log-probs at read_ids [n_cond, len(read_ids)] and top-k ids/logprobs."""
+    assert positions in ("noun", "all"), positions
     enc = [_encode(tok, p) for p in prompts]
     by_prompt: dict[int, list[int]] = {}
     for ci, (pi, _, _) in enumerate(conds):
@@ -157,6 +213,8 @@ def run(model, tok, prompts: list[Prompt], k: int, conds: list[tuple[int, int, f
         where = torch.zeros_like(ids, dtype=torch.bool)
         for r, i in enumerate(pis):
             where[r, enc[i][1]] = True
+        if positions == "all":
+            where = mask.bool()
         ids, mask, where = ids.to(dev), mask.to(dev), where.to(dev)
         slot = mask.sum(1) - 1
         h = lower(model, ids, mask, k)
