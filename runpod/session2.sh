@@ -53,6 +53,7 @@ drop() { uv run python -c "from huggingface_hub import scan_cache_dir as s; c=s(
     step "$M english extract"      uv run gbleed p5 english-extract "$M"
     step "$M number extract"       uv run gbleed p5 number-extract "$M"
     # Phase 5: frame checks, in-language baseline, gate + sweeps at every passing layer
+    step "$M p22 axis"             uv run gbleed p5 p22 "$M"
     step "$M gate frame check"     uv run gbleed p5 gate-framecheck "$M"
     step "$M readout check"        uv run gbleed p5 readout-check "$M"
     step "$M p20"                  uv run gbleed p5 p20 "$M"
