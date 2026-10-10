@@ -2,7 +2,7 @@
  "model": "Qwen/Qwen3-4B-Base",
  "position": "last",
  "analysis_git": {
-  "git_commit": "495767b6b18150d0c645085a33b38457b4d02c12",
+  "git_commit": "02f25832d61dec4f3ffa8d610953fd133eeef58e",
   "git_dirty": false
  },
  "mean": {
@@ -23,6 +23,10 @@
   "cos_plain_social_es": 0.132,
   "cos_plain_social_de": 0.094,
   "cos_plain_social_pooled": 0.152,
+  "p24_es_on_persons_unmarked": 0.811,
+  "p24_de_on_persons_unmarked": 0.669,
+  "p24_pooled_on_persons_unmarked": 0.8,
+  "social_on_persons_unmarked": 0.843,
   "cos_split_social_es": 0.299,
   "len2_split_social_es": 1180.362,
   "len2_split_gram_es": 282.849,
@@ -43,7 +47,11 @@
   "p24_es_on_persons": 27,
   "p24_de_on_persons": 12,
   "p24_pooled_on_persons": 31,
-  "social_on_persons": 34
+  "social_on_persons": 34,
+  "p24_es_on_persons_unmarked": 26,
+  "p24_de_on_persons_unmarked": 5,
+  "p24_pooled_on_persons_unmarked": 20,
+  "social_on_persons_unmarked": 35
  },
  "layers_rho_lo_above_0": {
   "p23_social_glasgow_rho": 35,
