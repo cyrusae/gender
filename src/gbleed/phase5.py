@@ -39,6 +39,10 @@ from .steering import lower, upper
 
 LAYER_FRACS = (0.25, 0.40, 0.55, 0.70)
 DOSE_MULTS = (-2.0, -1.0, -0.5, -0.25, 0.0, 0.25, 0.5, 1.0, 2.0)
+# damage-matched comparison (PI 2026-10-10, option c): the dose-curve random directions also run
+# at these larger doses (dose subset only), with their damage, so their effect can be read off at
+# the dose where their damage equals the real direction's at alpha*
+RANDOM_EXTRA_MULTS = (1.5, 3.0)
 GATE_GRID = (0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0)  # x median norm
 N_RANDOM_GATE = 20
 N_RANDOM = 100  # P9: >= 40; 20 across doses, all 100 at the working dose
@@ -532,7 +536,8 @@ def conditions(n_prompts: int, n_random: int, n_random_sweep: int, extra_vecs: i
     nonzero dose on the dose subset's prompts (trim, PI 2026-10-09), else at the working dose
     (1.0) only; the remaining random vectors at the working dose only; extra vectors (number,
     social; indices after the random ones) at every nonzero dose. A zero dose is the same for
-    every vector, so it is run once (with v)."""
+    every vector, so it is run once (with v). The dose-curve random vectors also run at
+    RANDOM_EXTRA_MULTS on the subset (damage-matched comparison)."""
     nonzero = [m for m in DOSE_MULTS if m != 0.0]
     extras = list(range(1 + n_random, 1 + n_random + extra_vecs))
     conds = []
@@ -542,7 +547,9 @@ def conditions(n_prompts: int, n_random: int, n_random_sweep: int, extra_vecs: i
             conds += [(i, vi, m) for m in nonzero]
         full = in_subset is None or in_subset[i]
         for vi in range(1, 1 + n_random_sweep):
-            conds += [(i, vi, m) for m in nonzero] if full else [(i, vi, 1.0)]
+            conds += (
+                [(i, vi, m) for m in (*nonzero, *RANDOM_EXTRA_MULTS)] if full else [(i, vi, 1.0)]
+            )
         conds += [(i, vi, 1.0) for vi in range(1 + n_random_sweep, 1 + n_random)]
     return conds
 
@@ -679,8 +686,8 @@ def sweep(model_id: str, k: int, lang: str, alpha_star: float, unit: float,
           nonce: bool = True, with_damage: bool = True, prompt_batch: int = 16,
           row_batch: int = 128) -> dict:  # fmt: skip
     """Every readout for one steering language at boundary k, plus damage. Doses are multiples
-    of alpha* in gate units (`unit`). positions="all" (P14): random directions at the working
-    dose only (no random dose curve). Saves per readout an .npz (log-probs at the read ids,
+    of alpha* in gate units (`unit`), the same absolute push in every readout; each readout's own
+    median noun norm is recorded (timings.json) for reporting. Saves per readout an .npz (log-probs at the read ids,
     top-50) and a condition table; vectors.json records the vectors' names and cosines."""
     from .phase5_stimuli import NOUNS
 
@@ -706,7 +713,7 @@ def sweep(model_id: str, k: int, lang: str, alpha_star: float, unit: float,
         {"names": names, "cos_with_v": cos, "alpha_star": alpha_star, "unit": unit,
          "positions": positions, "layer": k, "lang": lang}, indent=1))  # fmt: skip
     sub = dose_subset(nouns[nouns.lang == lang])
-    nrs = n_random_sweep if positions == "noun" else 0
+    nrs = n_random_sweep  # every-position gets the random dose curve too (PI 2026-10-10)
     timings = {}
     sets = readout_sets(tok, nouns, lang, fam, nonce=nonce)
     for name, prompts, read, kind in sets:
@@ -727,8 +734,10 @@ def sweep(model_id: str, k: int, lang: str, alpha_star: float, unit: float,
         keys.to_csv(out / f"{name}_conds.csv.gz", index=False)
         np.savez_compressed(out / f"{name}.npz", lp=res["lp"], top=res["top"],
                             toplp=res["toplp"], read=np.array(read))  # fmt: skip
+        own = noun_norm(model, tok, prompts[:: max(1, len(prompts) // 200)], k)
         timings[name] = {"prompts": len(prompts), "conditions": len(conds), "seconds": sec,
-                         "rows_per_s": len(conds) / sec}  # fmt: skip
+                         "rows_per_s": len(conds) / sec, "noun_norm": own,
+                         "push_over_own_norm": alpha_star * unit / own}  # fmt: skip
         stage(f"{model_id} k={k} {lang} {positions} {name}: {len(conds)} rows in {sec:.0f} s "
               f"({len(conds) / sec:.0f}/s)")  # fmt: skip
     if with_damage and (not readouts or "damage" in readouts):
@@ -738,7 +747,9 @@ def sweep(model_id: str, k: int, lang: str, alpha_star: float, unit: float,
             conds += [(i, 0, m) for m in DOSE_MULTS if m != 0.0]
             for vi in range(1 + n_random, 1 + n_random + n_ex):
                 conds += [(i, vi, m) for m in DOSE_MULTS if m != 0.0]
-            conds += [(i, vi, 1.0) for vi in range(1, 1 + N_RANDOM_GATE)]
+            for vi in range(1, 1 + N_RANDOM_GATE):
+                big = prompts[i].key["lemma"] in sub
+                conds += [(i, vi, m) for m in ((1.0, 2.0, *RANDOM_EXTRA_MULTS) if big else (1.0,))]
         cc = [(i, vi, m * alpha_star) for i, vi, m in conds]
         kl, sec = timed(damage, model, tok, prompts, k, cc, V, unit, positions=positions)
         keys = pd.DataFrame([prompts[i].key for i, _, _ in conds])

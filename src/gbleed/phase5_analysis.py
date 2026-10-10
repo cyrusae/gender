@@ -178,7 +178,8 @@ def analyze_run(run_dir: str | Path, fam: str, tok, rng=None) -> dict:
     rng = rng or np.random.default_rng(SEED)
     info = json.loads((run_dir / "vectors.json").read_text())
     dmg_path = run_dir / "damage.csv.gz"
-    win = window(pd.read_csv(dmg_path, keep_default_na=False)) if dmg_path.exists() else None
+    dmg = pd.read_csv(dmg_path, keep_default_na=False) if dmg_path.exists() else None
+    win = window(dmg) if dmg is not None else None
     res = {"run": run_dir.name, **{k: info[k] for k in ("lang", "layer", "positions")},
            "window": win, "readouts": {}}  # fmt: skip
     for f in sorted(run_dir.glob("*_conds.csv.gz")):
@@ -189,6 +190,8 @@ def analyze_run(run_dir: str | Path, fam: str, tok, rng=None) -> dict:
         r = {"working": working_test(ns, rng)}
         if win:
             r["slopes"] = slopes(ns, win)
+        if dmg is not None and (ns.mult == 1.5).any():
+            r["damage_matched"] = damage_matched(ns, dmg)
         res["readouts"][name] = r
     return res
 
@@ -281,3 +284,32 @@ def analyze_model(model_id: str, root: str = "results/phase5", out_root: str | N
         (out / "p25.json").write_text(json.dumps(p25(es_noun[0], fam), indent=1))
     print(v.to_string(index=False))
     return runs, v
+
+
+def damage_matched(ns: pd.DataFrame, damage: pd.DataFrame) -> dict:
+    """Option (c), PI 2026-10-10 (exploratory secondary): each dose-curve random direction is
+    read at the dose where its median damage equals the real direction's median damage at alpha*
+    (linear interpolation over its doses 1-3 x alpha*; NaN if never reached), on the dose
+    subset; compared with the real direction's effect at alpha* on the same nouns."""
+    big = set(damage[damage.mult == 1.5].lemma) & set(ns.lemma)  # this readout's nouns
+    dm = damage[damage.lemma.isin(big)]
+    d_v = dm[(dm.vec == "v") & (dm.mult == 1.0)].kl.median()
+    sub = ns[ns.lemma.isin(ns[ns.mult == 1.5].lemma.unique())]
+    e_v = sub[(sub.vec == "v") & (sub.mult == 1.0)].score.mean()
+    out, doses = [], []
+    for vec, g in dm[dm.vec.str.startswith("rand")].groupby("vec"):
+        curve = g.groupby("mult").kl.median().sort_index()
+        if len(curve) < 2 or curve.max() < d_v:
+            out.append(np.nan)
+            doses.append(np.nan)
+            continue
+        m = float(np.interp(d_v, curve.to_numpy(), curve.index.to_numpy()))
+        eff = sub[sub.vec == vec].groupby("mult").score.mean().sort_index()
+        out.append(float(np.interp(m, eff.index.to_numpy(), eff.to_numpy())))
+        doses.append(m)
+    r = np.array(out, float)
+    ok = r[np.isfinite(r)]
+    return {"effect_v": float(e_v), "damage_v": float(d_v), "n_random": len(r),
+            "n_matched": len(ok), "matched_doses": doses,
+            "random_p95": float(np.quantile(ok, 0.95)) if len(ok) else np.nan,
+            "p": (1 + int((ok >= e_v).sum())) / (1 + len(ok)) if len(ok) else np.nan}  # fmt: skip

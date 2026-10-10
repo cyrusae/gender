@@ -40,6 +40,14 @@ FEMALE_WORDS = {"woman", "women", "female", "girl", "wife", "mother", "sister", 
 MALE_WORDS = {"man", "men", "male", "boy", "husband", "father", "brother", "son", "gentleman"}  # fmt: skip
 
 
+def morph_marked(w: str) -> bool:
+    """Person words whose form carries sex (P24 robustness, PI 2026-10-10): a compound containing
+    a sex word (salesman, schoolgirl, gentleman), an English feminine suffix (-ess, -ette, -ine,
+    -ina), or a final -a/-o (Spanish-like gender endings: ballerina, soprano, hero)."""
+    sex = (FEMALE_WORDS | MALE_WORDS) - {w}
+    return any(x in w for x in sex) or w.endswith(("ess", "ette", "ine", "ina", "a", "o"))
+
+
 REGISTER = {"offensive", "slang", "informal", "disparaging", "derogatory", "vulgar", "term"}
 
 
@@ -214,6 +222,10 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
         for nm in ("es", "de", "pooled"):
             r[f"p24_{nm}_on_persons"] = auc(py, Xl[pi_] @ dirs[nm])
         r["social_on_persons"] = auc(py, Xl[pi_] @ s_vec)  # sanity: should be high
+        um = ~per.word.map(morph_marked).to_numpy()  # robustness: unmarked person words only
+        unmarked = {f"p24_{nm}_on_persons_unmarked": auc(py[um], Xl[pi_[um]] @ dirs[nm])
+                    for nm in ("es", "de", "pooled")}  # fmt: skip
+        unmarked["social_on_persons_unmarked"] = auc(py[um], Xl[pi_[um]] @ s_vec)
         for nm in ("es", "de", "pooled"):
             r[f"cos_plain_social_{nm}"] = float(s_vec @ dirs[nm])
         # bootstrap CIs (items resampled; directions refitted where they depend on the items)
@@ -249,6 +261,16 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
             for nm in ("es", "de", "pooled"):
                 bt[f"p24_{nm}_on_persons"].append(auc(py[jq], Xl[pi_[jq]] @ dirs[nm]))
             bt["social_on_persons"].append(auc(py[jq], Xl[pi_[jq]] @ sv))
+        rng_u = np.random.default_rng(SEED + 1)  # separate stream: other CIs stay as before
+        iu = np.where(um)[0]
+        bu = {k: [] for k in unmarked}
+        for _ in range(n_boot):
+            jj = iu[rng_u.choice(len(iu), len(iu))]
+            for nm in ("es", "de", "pooled"):
+                bu[f"p24_{nm}_on_persons_unmarked"].append(auc(py[jj], Xl[pi_[jj]] @ dirs[nm]))
+            bu["social_on_persons_unmarked"].append(auc(py[jj], Xl[pi_[jj]] @ s_vec))
+        r |= unmarked
+        bt |= bu
         for k, v in bt.items():
             v = np.asarray(v, float)
             v = v[np.isfinite(v)]

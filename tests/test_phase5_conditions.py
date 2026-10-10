@@ -8,8 +8,8 @@ from gbleed.phase5_analysis import graded, window, working_test
 def test_conditions_counts_and_shared_baseline():
     c = phase5.conditions(2, 100, 20, extra_vecs=2, in_subset=[True, False])
     per = {i: [x for x in c if x[0] == i] for i in (0, 1)}
-    # v: 9 doses; extras: 2 x 8 nonzero; random sweep: 20 x 8 (subset) or 20 x 1; rest 80 x 1
-    assert len(per[0]) == 9 + 16 + 160 + 80
+    # v: 9 doses; extras: 2 x 8 nonzero; random sweep: 20 x (8 + 2 extra) (subset) or 20 x 1; rest 80
+    assert len(per[0]) == 9 + 16 + 200 + 80
     assert len(per[1]) == 9 + 16 + 20 + 80
     zero = [x for x in c if x[2] == 0.0]
     assert all(x[1] == 0 for x in zero) and len(zero) == 2  # dose 0 once per prompt, with v
