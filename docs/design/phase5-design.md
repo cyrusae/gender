@@ -569,8 +569,12 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     for 8B/14B). Outside Holm.
 - **P24 amendments (PI, 2026-10-10).** (a) **Shuffle null for the §5.1 cosine** (it was in this
   design but not in the code; side-agent flag): grammatical labels shuffled within cells, 100
-  shuffles × 20 splits, as Phase 4's T2; a layer's cosine counts only above the null's 97.5th
-  percentile. Plus a **real reference direction**: the social direction's cosine with the number
+  shuffles × 20 splits, as Phase 4's T2. **Statistic revised (PI, 2026-10-10): the split-half
+  cross term (sA·gB + sB·gA)/2, not the cosine** — under shuffling the grammatical vector's
+  noise-corrected length is ~0, so the null cosine was ill-conditioned (97.5th percentiles
+  0.3–1.86, above the possible maximum of 1) and could not reject; the cross term needs no
+  division. A layer counts if its cross term is above the null's 97.5th percentile; the
+  cosine stays as the effect size. Applied to Phase 4 T2 as well. Plus a **real reference direction**: the social direction's cosine with the number
   direction (plural − singular on the same training nouns; a real difference-of-means direction
   with no reason to point at "woman"). (b) **Person words, main set = unmarked words from two
   human-made sources** (GN-GloVe's male/female lists, Zhao et al. 2018, and WordNet), each

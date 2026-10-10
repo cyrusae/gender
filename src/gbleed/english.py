@@ -179,9 +179,10 @@ def _ratio_cos(terms) -> float:
     return float(num / np.sqrt(a * b)) if a > 0 and b > 0 else float("nan")
 
 
-def _split_cos(Xl, fi, mi, Xg, y, cells, covs, rng, n_splits) -> float:
-    """Split-half cosine (ratio of means) between the social direction (pairs halved) and a
-    grammatical class vector (halves within cell x label)."""
+def _split_cross(Xl, fi, mi, Xg, y, cells, covs, rng, n_splits) -> float:
+    """Split-half cross term (mean over splits of (sA.gB + sB.gA)/2) between the social
+    direction (pairs halved) and a grammatical class vector (halves within cell x label): the
+    shuffle-null statistic (PI 2026-10-10; the null cosine is ill-conditioned)."""
     from .estimators import _halves, class_betas, nuisance
 
     terms = []
@@ -191,8 +192,8 @@ def _split_cos(Xl, fi, mi, Xg, y, cells, covs, rng, n_splits) -> float:
         A = _halves(cells, y, rng)
         gA, gB = (class_betas(Xg[m], y[m][:, None].astype(float),
                               nuisance(cells[m], [c[m] for c in covs]))[0] for m in (A, ~A))  # fmt: skip
-        terms.append(((sA @ gB + sB @ gA) / 2, sA @ sB, gA @ gB))
-    return _ratio_cos(terms)
+        terms.append((sA @ gB + sB @ gA) / 2)
+    return float(np.mean(terms))
 
 
 def _split_cos_pairs(Xl, fi, mi, Xp, Xs, rng, n_splits) -> float:
@@ -354,15 +355,16 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
             r[f"cos_split_social_{nm}"] = (float(num / np.sqrt(l_s * l_g)) if l_s > 0 and l_g > 0
                                            else float("nan"))  # fmt: skip
             r[f"len2_split_social_{nm}"], r[f"len2_split_gram_{nm}"] = float(l_s), float(l_g)
+            r[f"cross_split_social_{nm}"] = float(num)
         r["cos_random_sd"] = 1 / np.sqrt(Xl.shape[1])
         # null (as Phase 4 T2): grammatical labels shuffled within cells; separate stream so the
         # estimates above are unchanged
         rng_n = np.random.default_rng(SEED + 2)
         for nm, d, Xg in (("es", es, Xe), ("de", de, Xd)):
-            null = [_split_cos(Xl, fi, mi, Xg, shuffle_within(d["y"], d["cells"], rng_n),
+            null = [_split_cross(Xl, fi, mi, Xg, shuffle_within(d["y"], d["cells"], rng_n),
                                d["cells"], d["covs"], rng_n, N_NULL_SPLITS)
                     for _ in range(N_SHUFFLE)]  # fmt: skip
-            r[f"cos_split_social_{nm}_null_hi"] = float(np.nanpercentile(null, 97.5))
+            r[f"cross_split_social_{nm}_null_hi"] = float(np.nanpercentile(null, 97.5))
         # reference: a real but unrelated direction built the same way (plural - singular on
         # the same training nouns): how much do real difference-of-means directions overlap?
         for nm, (Xp, Xs) in num_acts.items():
@@ -388,8 +390,8 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
             "mean": res[keys].mean().round(3).to_dict(),
             "layers_lo_above_0.5": {k: int((res[f"{k}_lo"] > 0.5).sum()) for k in keys
                                     if f"{k}_lo" in res and "rho" not in k},
-            "layers_cos_above_shuffle_null": {
-                nm: int((res[f"cos_split_social_{nm}"] > res[f"cos_split_social_{nm}_null_hi"]).sum())
+            "layers_cross_above_shuffle_null": {
+                nm: int((res[f"cross_split_social_{nm}"] > res[f"cross_split_social_{nm}_null_hi"]).sum())
                 for nm in ("es", "de")},
             "layers_rho_lo_above_0": {k: int((res[f"{k}_lo"] > 0).sum()) for k in keys
                                       if "rho" in k}}  # fmt: skip

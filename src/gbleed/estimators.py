@@ -234,6 +234,9 @@ def split_half_geometry(
         cross = (AB[:, 0, 1] + AB[:, 1, 0]) / 2
         l1, l2 = out[f"len2_{classes[0]}"], out[f"len2_{classes[1]}"]
         out["cos"] = float(cross.mean() / np.sqrt(l1 * l2)) if l1 > 0 and l2 > 0 else float("nan")
+        # the cross term itself (no division): the statistic for shuffle-null tests, since a
+        # shuffled class vector's noise-corrected length is ~0 and makes the null cosine explode
+        out["cross"] = float(cross.mean())
     return out
 
 

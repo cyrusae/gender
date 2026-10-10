@@ -370,8 +370,12 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
                                  rng, n_splits=N_SPLITS, gram=K)  # fmt: skip
         null = [split_half_geometry(Xpo, shuffle_within(labels, po["cells"], rng), po["cells"],
                                     po["covs"], ["es_f", "de_f"], "m", rng, n_splits=20,
-                                    gram=K)["cos"] for _ in range(N_SHUFFLE)]  # fmt: skip
-        row |= {"t2_cos": g2["cos"], "t2_null_hi": float(np.nanpercentile(null, 97.5)),
+                                    gram=K) for _ in range(N_SHUFFLE)]  # fmt: skip
+        # test on the cross term (PI 2026-10-10): the shuffled cosine's null was ill-conditioned
+        # (97.5th percentiles above 1); the cosine stays as the effect size
+        row |= {"t2_cos": g2["cos"], "t2_cross": g2["cross"],
+                "t2_cross_null_hi": float(np.nanpercentile([n["cross"] for n in null], 97.5)),
+                "t2_cos_null_hi": float(np.nanpercentile([n["cos"] for n in null], 97.5)),
                 "t2_rel_es": g2["rel_es_f"], "t2_rel_de": g2["rel_de_f"]}  # fmt: skip
         rows.append(row)
     res = pd.DataFrame(rows)
@@ -413,7 +417,8 @@ def verdicts(res: pd.DataFrame) -> dict:
     out["T1_transfers"] = bool(t1s or (t3s and t1))
     out["T3_pairs_follow_gender"] = bool(t3s or (t1s and t3))
     out["t2_cos_mean"] = float(res.t2_cos.mean())
-    out["t2_layers_above_null"] = int((res.t2_cos > res.t2_null_hi).sum())
+    out["t2_layers_above_null"] = int((res.t2_cross > res.t2_cross_null_hi).sum())
+    out["t2_layers_cos_above_cos_null"] = int((res.t2_cos > res.t2_cos_null_hi).sum())  # old test
     for nm in ("es", "pooled"):
         out[f"q5_neuter_pos_{nm}_median"] = float(res[f"q5_neuter_pos_{nm}"].median())
     return out
