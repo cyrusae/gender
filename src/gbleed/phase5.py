@@ -906,7 +906,8 @@ def run_p20(model_id: str, out_root: str = "results/phase5_p20", device=None, dt
     shares.to_csv(out / "frame_shares.csv", index=False)
     (out / "summary.json").write_text(json.dumps(
         {"meta": meta, "n": len(keys),
-         "median_share": shares.groupby(["lang", "wording"]).share.median().to_dict()},
+         "median_share": {f"{lang}/{w}": v for (lang, w), v in
+                          shares.groupby(["lang", "wording"]).share.median().items()}},
         indent=1, default=str))  # fmt: skip
     return keys
 

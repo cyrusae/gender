@@ -171,6 +171,21 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
   smoke run on 4B (a few nouns) went end to end. The bundle now carries the gitignored files the
   pod needs (it would have crashed fitting directions).
 
+## 12. Fixing a test that couldn't fail, and more English words (Oct 10)
+
+- The shuffle test for "does the grammatical direction overlap the social one?" turned out to be
+  unable to reject anything: under shuffled labels the grammatical direction has almost no
+  length, so the null cosine blew up (above 1). Switched (PI) to the split-half cross term,
+  which needs no division, for both P24 and Phase 4's T2 (Spanish × German overlap).
+- Reruns (laptop, last position): Spanish × German gender directions overlap beyond chance in
+  22/27 layers (1.7B) and 25/35 (4B), none at the after position; social × Spanish grammatical
+  in 23/27 and 29/35 layers, social × German in 6/27 and 24/35. Effect sizes: cosine ≈ 0.3
+  (Spanish), 0.12–0.22 (German), against ≈ 0.01–0.03 for the number direction.
+- English list v2: 30 unmarked person nouns (GN-GloVe + WordNet) and 1,779 US first names
+  (P24b), compared within final-letter groups so spelling can't do the work.
+- Session-2 script: end-to-end test on 0.6B caught a missing Russian lexicon in the bundle;
+  the script can now resume at a named step.
+
 ## Where things stand
 
 - Done: Phases 0, 2 and 3 confirmed on the target models (Phase 1 confirmatory done Oct 10); Phases 4–5 and the suffix follow-up fully
