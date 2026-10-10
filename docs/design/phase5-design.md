@@ -567,6 +567,29 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     restates their cosine.
   - Data: new extraction of English nouns and person words (minutes; Mac 1.7B/4B, session 2
     for 8B/14B). Outside Holm.
+- **P24 amendments (PI, 2026-10-10).** (a) **Shuffle null for the §5.1 cosine** (it was in this
+  design but not in the code; side-agent flag): grammatical labels shuffled within cells, 100
+  shuffles × 20 splits, as Phase 4's T2; a layer's cosine counts only above the null's 97.5th
+  percentile. Plus a **real reference direction**: the social direction's cosine with the number
+  direction (plural − singular on the same training nouns; a real difference-of-means direction
+  with no reason to point at "woman"). (b) **Person words, main set = unmarked words from two
+  human-made sources** (GN-GloVe's male/female lists, Zhao et al. 2018, and WordNet), each
+  word's sex confirmed by its WordNet first-sense gloss (sex word in the first six words, none
+  of the other sex, no register label), first sense under *person*, Zipf ≥ 3, not a social-
+  direction word, not morphologically marked (`english.morph_marked`): 16 f / 14 m. The v1 list
+  (17/18, marked words included) and its unmarked subset (11/9) are reported alongside.
+- **P24b. Adopted (PI, 2026-10-10): first names (exploratory).** A large set for the
+  grammatical → social test, with spelling controlled the same way as everywhere else.
+  - Source: US Social Security Administration national baby-name counts (public domain).
+    Names with ≥ 95% of births one sex and at least 10,000 births in total; dropped if the
+    lowercased name is a WordNet lemma of any part of speech (*Rose*, *Mark*, *Will*, *Grace*).
+  - Input: the capitalised name, bare, same input format as Phases 2–3.
+  - Cells: the name's final letter (vowel-final names lean female in English: the Spanish-like
+    ending cue). AUC of the ES, DE, POOLED and social directions within cells containing at
+    least 3 names of each sex, averaged; token count and log frequency as covariates where
+    directions are fitted (they aren't fitted on names). Bootstrap over names within cells.
+  - Reading: a name is a social-gender cue by convention, not meaning, so this is a separate
+    test, not a replacement for the person words. Outside Holm.
 - **P25. Adopted (PI, 2026-10-09): unsteered R1-EN on the flipped pairs (exploratory).** The
   behavioural counterpart of P23: do English concepts already lean toward one language's gender?
   - Data: the dose-0 (unsteered) R1-EN rows every steering run already collects; no extra passes.

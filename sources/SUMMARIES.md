@@ -167,3 +167,16 @@ Data availability: public. The aggregated data are a csv at https://osf.io/z9gke
 | Small World of Words Dutch (SWOW-NL; De Deyne et al. 2013) | Vankrunkelsven et al. | no URL given |
 | Brysbaert et al. (2014) English concreteness ratings (noun source) | Flint & Ivanova | no URL given |
 | Elpers et al. (2022) Study 1 nouns (registered replication of Phillips & Boroditsky 2003) | Flint & Ivanova | no URL given |
+
+## Resources this project uses (cite in the write-up)
+
+| Resource | Used for | Citation / licence |
+|---|---|---|
+| Wiktionary via kaikki.org (Ylonen 2022, Wiktextract) | genders, plurals, adjective translations | Ylonen, T. (2022). Wiktextract: Wiktionary as machine-readable structured data. LREC. CC BY-SA |
+| WordNet 3.0 (NLTK) | animacy, person-noun sex labels | Miller (1995); Princeton WordNet licence |
+| Glasgow Norms | adjective/noun gender, valence, arousal, size ratings | Scott, Keitel, Becirspahic, Yao & Sereno (2019), Behavior Research Methods. CC BY 4.0 |
+| Brysbaert et al. (2014) concreteness ratings | covariate | Brysbaert, Warriner & Kuperman (2014), Behavior Research Methods |
+| wordfreq | Zipf frequencies | Speer (2022), wordfreq v3. Apache 2.0 / CC BY-SA data |
+| Wuggy | nonce words (P15/P17) | Keuleers & Brysbaert (2010), Behavior Research Methods |
+| GN-GloVe male/female word lists | P24 person words (with WordNet gloss check) | Zhao, Zhou, Li, Wang & Chang (2018). Learning Gender-Neutral Word Embeddings. EMNLP. https://github.com/uclanlp/gn_glove (Apache 2.0) |
+| US Social Security Administration baby names | P24b first names | SSA, "Popular Baby Names" national data (public domain), https://www.ssa.gov/oact/babynames/limits.html |
