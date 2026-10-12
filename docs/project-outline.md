@@ -2,8 +2,9 @@
 
 *A chronological outline of the project so far, for orienting yourself or as the skeleton of a
 blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, dated),
-`docs/explainers/` (methods, per phase), `docs/screening/` (word lists) and
-`docs/methods-summary.md` (one page).*
+`docs/explainers/` (methods, per phase), `docs/screening/` and `docs/reports/` (word lists and
+review sheets) and `docs/methods-summary.md` (one page). "PI" = the researcher; "side agent" = a
+second Claude session that read along and flagged problems.*
 
 ## 0. The question (Oct 5)
 
@@ -32,7 +33,7 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
   article has another meaning (*la* = "her"); Qwen3 adds no start token, so never put the tested
   word first.
 - Model choice: **Qwen3 base models** (Gemma breaks in the Mac's half precision); 0.6B/1.7B/4B on
-  the laptop know ~90% of the test nouns.
+  the laptop know ~90% of the test nouns. EuroLLM-1.7B as a second model family for checks.
 
 ## 3. Phase 1: can we erase spelling? (Oct 6)
 
@@ -77,7 +78,7 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
 - A sparse-autoencoder feature exposed a filter artifact: dropping *el agua*-type nouns had left
   word-initial *a-* as a perfect masculine cue; fixed by an amendment before the big run.
 
-## 7. The confirmatory cloud run (Oct 8)
+## 7. The confirmatory cloud run (Oct 8–9)
 
 - Rented one A100 GPU; all six models (0.6B–14B plus a 30B mixture-of-experts) extracted in ~1.1
   hours for **$1.80**. Hiccups: the 30B model took 25 min to load; a disk filled up.
@@ -90,11 +91,10 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
   compounds follow their head in 35/35 and 39/39; markedness not supported. A spelling-erased
   direction reads *more* gender on homographs used as nouns than as verbs. At the next token
   (AFTER) the Spanish result vanishes: the gender lives on the word itself.
-
 - **All sizes analysed (Oct 9):** every dense model from 0.6B to 14B shows the same picture at
   LAST, and none at AFTER. The 30B mixture-of-experts model (exploratory) is the only one where
-  the Spanish result also holds at the next token. The laptop analysis ran overnight; it briefly
-  filled the swap with eight parallel jobs (memory, not cores, is the limit).
+  the Spanish result also holds at the next token. The laptop analysis briefly filled the swap
+  with eight parallel jobs (memory, not cores, is the limit; a memory-guarded job queue followed).
 
 ## 8. Designing what comes next (Oct 8)
 
@@ -111,19 +111,20 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
   reversed after a devil's-advocate review.
 - **Suffix puzzle:** feminine-suffix nouns (*-ung*, *-heit*) sit only a third of the way toward
   feminine. First look: partly a shared "derived noun" offset; whether gender is ranked inside it
-  differs between models (one ranks, the other reverses in middle layers). Confirmation waits for
-  the next cloud run.
+  differs between models. Confirmation waits for the next cloud run.
 
-## 9. More design, and speed (Oct 8–9)
+## 9. More design, a tangent, and speed (Oct 8–9)
 
 - Phase 5 additions: three wordings per main readout plus an "Everyone says" vs "I think"
-  contrast (P18); a gender wug test on the invented words across model sizes (P19); an
-  in-language *El puente es muy ___* / *Die Brücke ist sehr ___* comparison on the flipped pairs
-  (P20); a record of what the models actually say, beyond the shortlist (P21); the model's own
-  woman/man axis checked against human ratings (P22).
-- The gender wug test: every model, even 0.6B, gives invented *-a* words feminine and *-o* words
-  masculine articles (~80% vs ~5%), with *-e* and *-iz* in between, as Spanish nouns are. No
-  model was too small to pass.
+  contrast (P18); an in-language *El puente es muy ___* / *Die Brücke ist sehr ___* comparison
+  on the flipped pairs (P20); a record of what the models actually say, beyond the shortlist
+  (P21); the model's own woman/man axis checked against human ratings (P22).
+- **Tangent: the gender wug test (P19).** Linguists test children with invented words ("this is
+  a *wug*; now there are two ___"). We gave the models invented Spanish nouns and asked which
+  article fits. Every model, even 0.6B, gives invented *-a* words feminine and *-o* words
+  masculine articles (~80% vs ~5%), with *-e* and *-iz* in between, as real Spanish nouns are. No
+  model was too small to pass. It reassures us that the invented words used later in Phase 5
+  carry a gender cue the models actually use.
 - Closest prior work found: Flint & Ivanova (2024), same question in older embedding models.
 - Efficiency pass before the next cloud run: a steering engine 8–30× faster than the plain
   method, verified identical; faster scoring and extraction; the next model downloads while the
@@ -131,74 +132,123 @@ blog post. Dates are 2026. Details live in `docs/decisions.md` (every decision, 
 
 ## 10. Laptop dry run of Phases 4–5 (Oct 9, development numbers, Mac fp16)
 
-- Phase 4 code run on 1.7B/4B (Mac data; the confirmatory run is on the cloud):
+- Phase 4 on 1.7B/4B:
   - Flipped pairs (*la luna* / *der Mond*): a direction trained on one language scores each pair
     by its own language's gender in every layer (4B: mean AUC 0.93 with the Spanish direction,
-    0.88 with the German one; same without English cognates). At the AFTER position, much
-    weaker (Spanish direction 15/35 layers, German 0).
+    0.88 with the German one; same without English cognates). At AFTER, much weaker.
   - Strict transfer (Spanish direction sorting German nouns within matched endings, and the
-    reverse): above chance in only a minority of layers (4B 12 and 17 of 35; 1.7B 1 and 15 of
-    27), mean AUC ~0.70–0.74. Fails the majority rule.
-  - Geometry: Spanish and German directions' split-half cosine ~0.44 (4B), but no layer above
-    the shuffle null.
-  - Caveat worth stating: the pair test doesn't control German endings, the strict test does.
-- Phase 5 gate on 4B (does pushing the noun's gender direction flip agreement?):
-  - Spanish (*Mi {noun} es muy ___*): flips at a small dose (α\* = 0.2) at all four layers;
-    random directions flip nothing.
-  - German (C4, calibrated dictionary frame): passes at 25%, 40% and 55% depth (α\* 0.75, 0.4,
-    0.3); fails at 70% (random directions flip 10%, the limit is <10%).
-  - Gate run time on the laptop: ~2 hours for 4B.
+    reverse): above chance in only a minority of layers (mean AUC ~0.70–0.74). Fails the
+    majority rule.
+  - Russian *-ь* nouns (one shared ending, so spelling can't help): both directions sort them by
+    gender in almost every 4B layer.
+  - Geometry: split-half cosine ~0.44 (4B), at first with no layer above the shuffle null (that
+    test turned out to be broken; see §12).
+- Phase 5 gate on 4B (does pushing a noun along the direction flip agreement?): Spanish flips at
+  a small dose at all four depths, random directions flip nothing; German passes at 25%, 40% and
+  55% depth and fails at 70%.
+- **Steering plan (PI):** steer at every layer that passes the gate ("more data"), push the same
+  absolute amount everywhere, decide by the majority of passing layers and report every layer.
+  Random-direction dose curves on a seeded 25% of nouns to keep the cost down.
 
-## 11. Overnight build and confirmatory leftovers (Oct 9–10)
+## 11. A costly pause, then a measured budget (Oct 9)
 
-- Phase 1 confirmatory (cloud data, all six models): outcome (b) everywhere. The spelling eraser
-  learned on verbs leaves invented-word endings fully readable in every layer of every size;
-  transfer to unseen verbs stays modest and flat with size (AUC 0.68–0.73).
-- Known-only sensitivity (8B/14B, only nouns each model knows): the Spanish gender result holds
-  (8B 21/35 layers, 14B 37/39; full sets 28/35, 26/39); German compounds still follow the head in
-  every layer; markedness still 0.
+- Benchmarking chips for the second cloud session: a permission prompt blocked a step while two
+  rented GPUs sat idle for ~55 minutes (~$4 of a $7 balance). New rule: shut idle machines down
+  *before* stopping to ask.
+- Measured throughput on an L40S GPU: the full second session (every passing layer, both
+  languages, 8B and 14B) comes to **~$14**; faster chips cost more per hour than they save.
+
+## 12. Overnight build, confirmatory leftovers, a test that couldn't fail (Oct 9–10)
+
+- Phase 1 confirmatory (cloud data, all six models): outcome (b) everywhere; the spelling eraser
+  leaves invented-word endings readable in every layer of every size.
+- Known-only sensitivity (8B/14B, only nouns each model knows): the Spanish result holds; German
+  compounds still follow the head; markedness still 0.
 - English base case (P23/P24, laptop 1.7B/4B): the woman/man direction lines up with human gender
-  ratings of things (rho ~0.2, also beyond pleasantness); English concepts don't lean by their
-  translations' gender; the grammatical directions sort English sex-specific person words
-  (actress/actor) above chance; the noise-corrected cosine between social and grammatical
-  directions is ~0.2–0.3 (random ~0.02). A bug in my first version of that cosine was caught
-  (it averaged ratios that explode near zero) and fixed.
-- P22 (laptop): the model's own woman/man axis in its vocabulary agrees weakly with human
-  ratings in English (rho 0.10–0.14, ~0.18 holding valence fixed), barely in Spanish/German.
-- Phase 5 build: number and social vectors, every-position steering, R3, nonce readouts,
-  damage, the in-language baseline (P20), frame-check measurements, the analysis (Holm per
-  layer, majority across layers, sign agreement, controls, P25), the session-2 driver. A full
-  smoke run on 4B (a few nouns) went end to end. The bundle now carries the gitignored files the
-  pod needs (it would have crashed fitting directions).
+  ratings of things (rho ~0.2, also beyond pleasantness); the Spanish/German directions sort
+  English sex-specific person words above chance. A bug in my first cosine (averaging ratios that
+  explode near zero) was caught and fixed.
+- P22: the model's own woman/man axis in its vocabulary agrees weakly with human ratings in
+  English (rho 0.10–0.14), barely in Spanish/German.
+- Phase 5 code complete (vectors, readouts, damage, analysis, session-2 driver).
+- **PI decisions (Oct 10):** verdict by majority of layers; frame checks enforced (no steering for a
+  language whose test sentence fails; failing wordings excluded); a damage-matched comparison
+  with random pushes; the Spanish adjective list reviewed against the RAE dictionary (unfamiliar
+  words and English loanwords dropped).
+- **A test that couldn't fail.** The shuffle test for "do two directions overlap?" could never
+  reject: under shuffled labels a direction has almost no length, so the null cosine blew up
+  (above 1, impossible for a cosine). Switched (PI) to the split-half *cross term*, which needs no
+  division. Reruns (LAST): Spanish × German overlap beyond chance in 22/27 (1.7B) and 25/35 (4B)
+  layers, none at AFTER; social × Spanish in 23/27 and 29/35; social × German 6/27 and 24/35.
+  Cosines ≈ 0.3 (Spanish), 0.12–0.22 (German), vs ≈ 0.01–0.03 for the plural−singular direction.
+- **Speed review** (from a separate conversation the PI had): fewer GPU↔CPU syncs, damage scored in
+  batches (checked identical to 1e-5), one model load for all Phase 5 steps, GPU utilization
+  logged on the pod.
+- **End-to-end test of the cloud script** on 0.6B in a small mode: caught a missing Russian
+  word list in the bundle and a crash saving one summary; both fixed; the script can now resume at
+  a named step. Full pass on Oct 10.
 
-## 12. Fixing a test that couldn't fail, and more English words (Oct 10)
+## 13. Curating the English person words (Oct 10–12)
 
-- The shuffle test for "does the grammatical direction overlap the social one?" turned out to be
-  unable to reject anything: under shuffled labels the grammatical direction has almost no
-  length, so the null cosine blew up (above 1). Switched (PI) to the split-half cross term,
-  which needs no division, for both P24 and Phase 4's T2 (Spanish × German overlap).
-- Reruns (laptop, last position): Spanish × German gender directions overlap beyond chance in
-  22/27 layers (1.7B) and 25/35 (4B), none at the after position; social × Spanish grammatical
-  in 23/27 and 29/35 layers, social × German in 6/27 and 24/35. Effect sizes: cosine ≈ 0.3
-  (Spanish), 0.12–0.22 (German), against ≈ 0.01–0.03 for the number direction.
-- English list v2: 30 unmarked person nouns (GN-GloVe + WordNet) and 1,779 US first names
-  (P24b), compared within final-letter groups so spelling can't do the work.
-- Session-2 script: end-to-end test on 0.6B caught a missing Russian lexicon in the bundle;
-  the script can now resume at a named step.
+- **Lists keep getting better, and smaller.** The person-word test (P24) asks whether the Spanish
+  or German direction puts *bride*, *nun*, *lady* on one side and *groom*, *monk*, *prince* on the
+  other. Steps:
+  - v2: words whose spelling gives sex away (*waitress*, *salesman*, *ballerina*) moved out of the
+    main set; GN-GloVe's gendered word lists (Zhao et al. 2018) added as a second source.
+  - v3: the PI dropped *whore*, *jackass*, *prostitute* (WordNet has no register label for them).
+  - v4: *miss*, *stud*, *groom* dropped because their verb uses dominate (the PI spotted *miss*;
+    the rule existed but I had not applied it to the new source); *fiancé/fiancée* dropped (PI:
+    swapped and merged in real use). Main set: 12 women's words, 10 men's.
+- **First names (P24b):** 1,738 US first names (≥ 95% one sex), compared only with names ending in
+  the same letter so *-a* can't do the work. Unisex names (*Jordan*, *Taylor*) are excluded by
+  rule, not tagged.
+- **Pairs (P24c):** female/male equivalents (*widow/widower*, *nun/monk*) from Wiktionary, WordNet
+  and Bolukbasi et al. (2016), checked automatically and reviewed by the PI: 16 woman-vs-man pairs
+  and 6 woman-vs-generic ones (*actress/actor*, *heroine/hero*: the base word is now used for
+  anyone). The first review sheet had bugs (a dialect *da* "dad" matched to "district attorney";
+  plurals that defeated the sex check); rebuilt by code.
+- Results so far (laptop, Spanish direction): main set AUC ~0.82 (1.7B) / 0.76 (4B), names 0.78 /
+  0.72; German weaker. Three small, complementary tests that agree, rather than one big one.
 
-## Where things stand
+## 14. Tangents that became checks (Oct 12)
 
-- Done: Phases 0, 2 and 3 confirmed on the target models (Phase 1 confirmatory done Oct 10); Phases 4–5 and the suffix follow-up fully
-  designed and pre-registered; stimuli built (pairs, Russian list, nonce words, derived nouns).
-- Next: Phase 4–5 code and a laptop dry run (which also measures how big the next cloud run
-  must be), then the second cloud session.
+- **La muerte (PI).** Is the Spanish direction carried by nouns the culture personifies (Death as
+  a woman, as in *La Catrina*)? Segel & Boroditsky (2011) showed artists personify by
+  grammatical gender. Personified concepts taken from Iconclass (an art-subject catalogue,
+  including Ripa's *Iconologia*); dropping the 7 Spanish training nouns it flags changes the
+  direction no more than dropping 7 random nouns. *Muerte* isn't special.
+- **Cross-language steering (P26, PI).** Push the *German* direction into a Spanish sentence
+  (*Mi puente es muy ___*): does it move adjectives as the Spanish one does? Added to the cloud
+  run for ~$1. (The social-gender push on the same sentence was already in.)
+- **Grammar and sex pulled apart (P27).** A multilingual "social" direction was rejected (in
+  Spanish/German, words for women are also grammatically feminine, so the two can't be
+  separated). Instead: German diminutives are always neuter (*das Schwesterchen*, *das
+  Brüderchen*). Does the German direction still sort them by sex? Side-agent flags shaped the
+  design: the stem (*Schwester*) is itself feminine, so the effect is compared with neuter
+  object diminutives of feminine vs masculine stems; the cleanest cases (*Dienstmädchen*, built
+  on neuter *Mädchen*) are compared with sex-neutral person words (*Kindchen*, *Frühchen*) to
+  rule out "person vs thing"; uncertainty is computed by word family. Suggestive only (one clean
+  family, no clean male words).
+
+## Where things stand (Oct 12)
+
+- **Done:** Phases 0–3 confirmed on all target sizes; Phase 4 developed on the laptop; Phase 5
+  code complete and tested end to end; English and German side tests built and reviewed.
+- **Running:** a full end-to-end test of the cloud script on the latest code; English v4 and
+  German diminutive extractions and analyses (1.7B/4B).
+- **Next:** one final end-to-end test on the finished code, then the second cloud session (L40S,
+  8B/14B, ~$15): Phase 4 and 5 confirmatory, the suffix follow-up, P26 and P27.
 
 ## Threads a blog post could pull on
 
 - How many ways a "gender direction" can secretly be a spelling detector, and how each was ruled
   out.
-- A noise bias that would have handed us a false confirmation.
+- A noise bias that would have handed us a false confirmation; a shuffle test that could never
+  fail.
 - Mistakes caught and logged: the circular eraser test, the attention-sink bug, the pronoun
   confound in the verb frame, the training leak, the bootstrap duplicates, applying a filter
-  without sign-off.
-- Doing serious interpretability research on a laptop plus $1.80 of cloud time.
+  without sign-off, a rule I forgot to apply to a new source, idle cloud machines.
+- What curating a word list really involves: slurs, verbs hiding in nouns, words people misuse,
+  and dictionaries written from one sex's point of view (*boyfriend* is "the lover of a girl").
+- Tangents worth following: wug tests, Santa Muerte, and German's neuter girls.
+- Doing serious interpretability research on a laptop plus a few dollars of cloud time.
