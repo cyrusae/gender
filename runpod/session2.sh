@@ -68,6 +68,7 @@ drop() { uv run python -c "from huggingface_hub import scan_cache_dir as s; c=s(
     step "$M suffix extract"       uv run gbleed p5 suffix-extract "$M"
     step "$M english extract"      uv run gbleed p5 english-extract "$M"
     step "$M number extract"       uv run gbleed p5 number-extract "$M"
+    step "$M diminutives extract"  uv run gbleed p5 diminutives-extract "$M"
     # Phase 5: frame checks, in-language baseline, gate + sweeps at every passing layer
     step "$M p22 axis"             uv run gbleed p5 p22 "$M"
     # gate frame check, readout check, P20, gate + sweeps: one process, one model load

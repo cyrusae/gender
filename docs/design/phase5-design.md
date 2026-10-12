@@ -600,6 +600,10 @@ renting. Trims if needed: every-position steering at the working dose only (~−
   Statistic: share of pairs where a direction (ES, DE, POOLED, social) scores the female word
   higher; bootstrap over pairs; reported for all pairs and per type. Suffix pairs (*-ess*) are
   spelling-marked: reported within the type split, not claimed as spelling-controlled.
+- **P27. Adopted (PI, 2026-10-12): German neuter diminutives (exploratory).** Neuter *-chen/-lein*
+  person nouns separate grammatical gender (neuter) from sex. Persons f vs m, against the stem
+  effect measured on object diminutives (f-stem vs m-stem); clean subset (*-mädchen*, neuter stem)
+  vs neuter-stem objects. Details and limits: `src/gbleed/diminutives.py`, decisions.md.
 - **P25. Adopted (PI, 2026-10-09): unsteered R1-EN on the flipped pairs (exploratory).** The
   behavioural counterpart of P23: do English concepts already lean toward one language's gender?
   - Data: the dose-0 (unsteered) R1-EN rows every steering run already collects; no extra passes.

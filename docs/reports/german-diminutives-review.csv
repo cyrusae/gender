@@ -1,22 +1,23 @@
 word,sex,english_gloss,sex_from,stem,stem_gender,clean (stem not m/f),zipf,keep (PI: y/n)
-Mädchen,f,girl,girl,"(Magd, archaic)",,True,5.21,
-Frauchen,f,"female owner, mistress (of an animal)",female,Frau,f,False,3.38,
-Schneewittchen,f,A girl or woman with black or dark brown hair and pale skin.,"girl,woman",,,False,3.25,
-Dienstmädchen,f,"maid, housemaid","maid,housemaid",Mädchen,n,True,3.11,
-Töchterchen,f,daughter,daughter,Tochter,f,False,2.97,
-Kindermädchen,f,nanny (female) (cf. männliches Kindermädchen (“male nanny or manny”)),nanny,Mädchen,n,True,2.95,
-Hausmädchen,f,"maid, housemaid","maid,housemaid",Mädchen,n,True,2.71,
-Schwesterchen,f,little sister,sister,Schwester,f,False,2.66,
-Mütterchen,f,mother,mother,Mutter,f,False,2.56,
-Töchterlein,f,daughter,daughter,Tochter,f,False,2.31,
-Milchmädchen,f,milkmaid,milkmaid,Mädchen,n,True,2.2,
-Schwesterlein,f,sister,sister,Schwester,f,False,2.13,
-Männchen,m,a little or small man,man,Mann,m,False,3.83,
-Kerlchen,m,"fellow, guy, chap, bloke","fellow,guy,chap,bloke",Kerl,m,False,3.13,
-Söhnchen,m,son,son,Sohn,m,False,2.8,
-Brüderchen,m,little brother,brother,Bruder,m,False,2.73,
-Väterchen,m,father,father,Vater,m,False,2.58,
-Strichmännchen,m,stick man,man,Mann,m,False,2.34,
-Bürschchen,m,"boy, young man","boy,man",Bursche,multi,False,2.27,
-Söhnlein,m,son,son,Sohn,m,False,2.1,
-Brüderlein,m,brother,brother,Bruder,m,False,2.0,
+Mädchen,f,girl,girl,"(Magd, archaic)",,True,5.21,y
+Frauchen,f,"female owner, mistress (of an animal)",female,Frau,f,False,3.38,y
+Schneewittchen,f,A girl or woman with black or dark brown hair and pale skin.,"girl,woman",,,False,3.25,n
+Dienstmädchen,f,"maid, housemaid","maid,housemaid",Mädchen,n,True,3.11,y
+Töchterchen,f,daughter,daughter,Tochter,f,False,2.97,y
+Kindermädchen,f,nanny (female) (cf. männliches Kindermädchen (“male nanny or manny”)),nanny,Mädchen,n,True,2.95,y
+Hausmädchen,f,"maid, housemaid","maid,housemaid",Mädchen,n,True,2.71,y
+Schwesterchen,f,little sister,sister,Schwester,f,False,2.66,y
+Mütterchen,f,mother,mother,Mutter,f,False,2.56,y
+Töchterlein,f,daughter,daughter,Tochter,f,False,2.31,y
+Milchmädchen,f,milkmaid,milkmaid,Mädchen,n,True,2.2,y
+Schwesterlein,f,sister,sister,Schwester,f,False,2.13,y
+Männchen,m,a little or small man,man,Mann,m,False,3.83,n
+Kerlchen,m,"fellow, guy, chap, bloke","fellow,guy,chap,bloke",Kerl,m,False,3.13,y
+Söhnchen,m,son,son,Sohn,m,False,2.8,y
+Brüderchen,m,little brother,brother,Bruder,m,False,2.73,y
+Väterchen,m,father,father,Vater,m,False,2.58,y
+Strichmännchen,m,stick man,man,Mann,m,False,2.34,n
+Bürschchen,m,"boy, young man","boy,man",Bursche,multi,False,2.27,y
+Söhnlein,m,son,son,Sohn,m,False,2.1,y
+Brüderlein,m,brother,brother,Bruder,m,False,2.0,y
+Herrchen,m,"master, owner (of an animal)","PI (stem Herr: man, gentleman)",Herr,m,False,3.34,y

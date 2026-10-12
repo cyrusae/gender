@@ -1,0 +1,185 @@
+word,set,sex,stem,stem_gender,clean,english,zipf
+Mädchen,person,f,"(Magd, archaic)",,True,girl,5.21
+Frauchen,person,f,Frau,f,False,"female owner, mistress (of an animal)",3.38
+Dienstmädchen,person,f,Mädchen,n,True,"maid, housemaid",3.11
+Töchterchen,person,f,Tochter,f,False,daughter,2.97
+Kindermädchen,person,f,Mädchen,n,True,nanny (female) (cf. männliches Kindermädchen (“male nanny or manny”)),2.95
+Hausmädchen,person,f,Mädchen,n,True,"maid, housemaid",2.71
+Schwesterchen,person,f,Schwester,f,False,little sister,2.66
+Mütterchen,person,f,Mutter,f,False,mother,2.56
+Töchterlein,person,f,Tochter,f,False,daughter,2.31
+Milchmädchen,person,f,Mädchen,n,True,milkmaid,2.2
+Schwesterlein,person,f,Schwester,f,False,sister,2.13
+Kerlchen,person,m,Kerl,m,False,"fellow, guy, chap, bloke",3.13
+Söhnchen,person,m,Sohn,m,False,son,2.8
+Brüderchen,person,m,Bruder,m,False,little brother,2.73
+Väterchen,person,m,Vater,m,False,father,2.58
+Bürschchen,person,m,Bursche,multi,False,"boy, young man",2.27
+Söhnlein,person,m,Sohn,m,False,son,2.1
+Brüderlein,person,m,Bruder,m,False,brother,2.0
+Herrchen,person,m,Herr,m,False,"master, owner (of an animal)",3.34
+Häuschen,object,,Haus,n,,house,3.68
+Kästchen,object,,Kasten,m,,crate,3.27
+Zäpfchen,object,,Zapfen,m,,plug,2.69
+Häkchen,object,,Haken,m,,hook,3.06
+Schläfchen,object,,Schlaf,m,,sleep,2.61
+Blümchen,object,,Blume,f,,flower,3.24
+Knöllchen,object,,Knolle,f,,bulb,3.0
+Würstchen,object,,Wurst,f,,sausage,3.71
+Köpfchen,object,,Kopf,m,,head,3.26
+Fähnchen,object,,Fahne,f,,flag,3.17
+Büchlein,object,,Buch,n,,book,3.14
+Bierchen,object,,Bier,n,,beer,3.15
+Körperchen,object,,Körper,m,,body,2.16
+Lätzchen,object,,Latz,m,,bib,2.39
+Schätzchen,object,,Schatz,m,,treasure,3.21
+Händchen,object,,Hand,f,,hand,3.51
+Weilchen,object,,Weile,f,,while,3.11
+Pärchen,object,,Paar,n,,pair,3.72
+Fässchen,object,,Fass,n,,barrel,2.41
+Küsschen,object,,Kuss,m,,kiss,3.35
+Plätzchen,object,,Platz,m,,square,3.61
+Hähnchen,object,,Hahn,m,,cock,3.42
+Bäckchen,object,,Backe,f,,cheek,2.12
+Röhrchen,object,,Rohr,n,,duct,2.88
+Öhrchen,object,,Ohr,n,,ear,2.31
+Klümpchen,object,,Klumpen,m,,lump,2.2
+Kügelchen,object,,Kugel,f,,ball,2.82
+Scheibchen,object,,Scheibe,f,,flat piece or surface,2.36
+Liedchen,object,,Lied,n,,song,2.81
+Sträßchen,object,,Straße,f,,street,2.21
+Päuschen,object,,Pause,f,,pause,2.21
+Bäumchen,object,,Baum,m,,tree,2.99
+Tischchen,object,,Tisch,m,,table,2.46
+Büdchen,object,,Bude,f,,booth,2.32
+Herzchen,object,,Herz,n,,heart,3.19
+Mäppchen,object,,Mappe,f,,portfolio,2.03
+Äuglein,object,,Auge,n,,eye,2.47
+Stückchen,object,,Stück,n,,one,3.71
+Döschen,object,,Dose,f,,box,2.29
+Schleifchen,object,,Schleife,f,,bow,2.43
+Bällchen,object,,Ball,m,,ball,2.66
+Jährchen,object,,Jahr,n,,year,2.57
+Küchlein,object,,Kuchen,m,,pie,2.3
+Bärtchen,object,,Bart,m,,beard,2.31
+Bettchen,object,,Bett,n,,bed,2.97
+Bildchen,object,,Bild,n,,depiction,3.14
+Brettchen,object,,Brett,n,,board,2.34
+Deckchen,object,,Decke,f,,any cloth or cushion used as a covering,2.17
+Eckchen,object,,Ecke,f,,corner,2.31
+Fläschchen,object,,Flasche,f,,bottle,3.23
+Fleckchen,object,,Fleck,m,,stain,3.03
+Früchtchen,object,,Frucht,f,,fruit,2.7
+Füßchen,object,,Fuß,m,,foot,2.76
+Gässchen,object,,Gasse,f,,alley,2.47
+Glöckchen,object,,Glocke,f,,bell,2.97
+Härchen,object,,Haar,n,,hair,2.82
+Häufchen,object,,Haufen,m,,heap,3.04
+Hintertürchen,object,,Hintertür,f,,back door,2.68
+Kännchen,object,,Kanne,f,,jug,2.34
+Löffelchen,object,,Löffel,m,,spoon,2.31
+Püppchen,object,,Puppe,f,,doll,2.61
+Sümmchen,object,,Summe,f,,sum,2.43
+Grübchen,object,,Grube,f,,pit,2.66
+Kirchlein,object,,Kirche,f,,church,2.62
+Spielchen,object,,Spiel,n,,game,3.53
+Tischlein,object,,Tisch,m,,table,2.24
+Bisschen,object,,Biss,m,,bite,5.23
+Kämmerchen,object,,Kammer,f,,chamber,2.21
+Kämmerlein,object,,Kammer,f,,chamber,2.65
+Städtchen,object,,Stadt,f,,city,3.52
+Schiffchen,object,,Schiff,n,,ship,2.65
+Türchen,object,,Tür,f,,door,2.87
+Wörtchen,object,,Wort,n,,word as an isolated unit,3.27
+Däumchen,object,,Daumen,m,,thumb,2.71
+Rippchen,object,,Rippe,f,,rib,2.5
+Zähnchen,object,,Zahn,m,,tooth,2.52
+Näschen,object,,Nase,f,,nose,2.5
+Ärmchen,object,,Arm,m,,arm,2.46
+Beinchen,object,,Bein,n,,leg of a person,2.7
+Gläschen,object,,Glas,n,,glass,3.29
+Türmchen,object,,Turm,m,,tower,2.6
+Problemchen,object,,Problem,n,,problem,2.77
+Wäldchen,object,,Wald,m,,forest,2.93
+Flüsschen,object,,Fluss,m,,river,2.68
+Krönchen,object,,Krone,f,,crown,2.4
+Grüppchen,object,,Gruppe,f,,group,2.85
+Figürchen,object,,Figur,f,,figure,2.22
+Inselchen,object,,Insel,f,,island,2.35
+Möhrchen,object,,Möhre,f,,carrot,2.24
+Lämpchen,object,,Lampe,f,,lamp,2.75
+Häppchen,object,,Happen,m,,morsel,3.13
+Käffchen,object,,Kaffee,m,,coffee,2.15
+Schlückchen,object,,Schluck,m,,sip,2.39
+Filmchen,object,,Film,m,,film,2.95
+Rädchen,object,,Rad,n,,wheel,2.79
+Kärtchen,object,,Karte,f,,card,2.88
+Gärtchen,object,,Garten,m,,garden,2.13
+Schnürchen,object,,Schnur,f,,cord,2.66
+Klößchen,object,,Kloß,m,,thickish lump,2.19
+Süppchen,object,,Suppe,f,,soup,2.84
+Häuflein,object,,Haufen,m,,heap,2.42
+Töpfchen,object,,Topf,m,,pot,2.79
+Klötzchen,object,,Klotz,m,,block,2.15
+Häubchen,object,,Haube,f,,bonnet,2.14
+Kettchen,object,,Kette,f,,chain,2.39
+Säckchen,object,,Sack,m,,sack,2.6
+Fünkchen,object,,Funke,m,,spark,2.69
+Ständchen,object,,Stand,m,,standing,2.87
+Stündchen,object,,Stunde,f,,hour,2.82
+Stündlein,object,,Stunde,f,,hour,2.12
+Feuerchen,object,,Feuer,n,,fire,2.22
+Spieglein,object,,Spiegel,m,,mirror,2.69
+Röckchen,object,,Rock,m,,skirt,2.51
+Lichtlein,object,,Licht,n,,light,2.39
+Schühchen,object,,Schuh,m,,shoe,2.1
+Hemdchen,object,,Hemd,n,,shirt,2.32
+Lüftchen,object,,Luft,f,,air,2.76
+Schneeflöckchen,object,,Schneeflocke,f,,snowflake,2.37
+Sprüchlein,object,,Spruch,m,,short saying,2.04
+Mäntelchen,object,,Mantel,m,,coat,2.33
+Kleidchen,object,,Kleid,n,,dress,2.84
+Körbchen,object,,Korb,m,,basket,3.15
+Steinchen,object,,Stein,m,,stone,3.03
+Stübchen,object,,Stube,f,,living room,2.22
+Schlösschen,object,,Schloss,n,,lock,2.58
+Gartenhäuschen,object,,Gartenhaus,n,,summer house,2.35
+Ländchen,object,,Land,n,,country,2.4
+Schrittchen,object,,Schritt,m,,step,2.03
+Röllchen,object,,Rolle,f,,roll,2.29
+Kreuzchen,object,,Kreuz,n,,cross,2.97
+Schwätzchen,object,,Schwatz,m,,chat,2.48
+Stöckchen,object,,Stock,m,,stick,2.9
+Kreischen,object,,Kreis,m,,circle,3.15
+Mittelchen,object,,Mittel,n,,agent,2.26
+Zünglein,object,,Zunge,f,,tongue,2.57
+Fäustchen,object,,Faust,f,,fist,2.6
+Täfelchen,object,,Tafel,f,,panel,2.18
+Röslein,object,,Rose,f,,rose,2.12
+Röschen,object,,Rose,f,,rose,2.52
+Gürkchen,object,,Gurke,f,,cucumber,2.31
+Böhnchen,object,,Bohne,f,,bean,2.01
+Späßchen,object,,Spaß,m,,fun,2.58
+Schränkchen,object,,Schrank,m,,cabinet,2.34
+Dörfchen,object,,Dorf,n,,village,2.85
+Mittagsschläfchen,object,,Mittagsschlaf,m,,afternoon nap,2.2
+Tässchen,object,,Tasse,f,,cup,2.48
+Stimmchen,object,,Stimme,f,,voice,2.1
+Knötchen,object,,Knoten,m,,knot,2.42
+Briefchen,object,,Brief,m,,letter,2.28
+Blümlein,object,,Blume,f,,flower,2.09
+Blümelein,object,,Blume,f,,flower,2.05
+Zettelchen,object,,Zettel,m,,small or loose piece of paper,2.49
+Zimmerchen,object,,Zimmer,n,,room,2.0
+Treppchen,object,,Treppe,f,,stairs,2.77
+Köfferchen,object,,Koffer,m,,case,2.37
+Sträußchen,object,,Strauß,m,,bunch,2.16
+Mützchen,object,,Mütze,f,,cap,2.24
+Milliönchen,object,,Million,f,,million,2.12
+Söckchen,object,,Socke,f,,sock,2.35
+Wartehäuschen,object,,Wartehaus,n,,shelter where people can spend time waiting,2.17
+Tittchen,object,,Titte,f,,tit,2.03
+Pflänzchen,object,,Pflanze,f,,plant,2.93
+Pünktchen,object,,Punkt,m,,dot,3.05
+Schirmchen,object,,Schirm,m,,screen,2.25
+Täschchen,object,,Tasche,f,,bag,2.46
