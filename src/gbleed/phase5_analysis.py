@@ -17,7 +17,8 @@ positions) and computes, per readout:
   window    doses whose median damage (KL on neutral sentences) is <= the random directions'
             median damage at alpha* (§5.3); the dose-response slope within it, real vs the 20
             random directions on the dose subset (descriptive).
-  extras    the number and social directions' scores (specificity, positive control), and the
+  extras    the number, social and cross-language directions' scores (specificity, positive
+            control, P26), and the
             correlation of the real direction's per-adjective shift profile with the social one.
 
 Verdicts across layers (majority of passing layers) and languages (sign agreement) are made by
@@ -150,7 +151,7 @@ def working_test(ns: pd.DataFrame, rng, n_boot: int = N_BOOT) -> dict:
            "diff": float(d.mean()), "p": p}  # fmt: skip
     for lvl, q in (("95", (0.025, 0.975)), ("975", (0.0125, 0.9875))):
         out[f"diff_lo_{lvl}"], out[f"diff_hi_{lvl}"] = map(float, np.quantile(bs, q))
-    for ex in ("number", "social"):
+    for ex in ("number", "social", "cross"):
         if ex in piv:
             out[f"{ex}_effect"] = float(piv[ex].mean())
     return out
@@ -180,7 +181,7 @@ def slopes(ns: pd.DataFrame, mults: list[float]) -> dict:
     res = {"window": mults, "slope_v": out.get("v", (np.nan, 0))[0], "n_random_slopes": len(rand)}
     if rand:
         res["slope_random_p95"] = float(np.quantile(rand, 0.95))
-    for ex in ("number", "social"):
+    for ex in ("number", "social", "cross"):
         if ex in out:
             res[f"slope_{ex}"] = out[ex][0]
     return res
@@ -231,6 +232,26 @@ def layer_pass(run: dict) -> dict[str, bool]:
     return out
 
 
+def p26(runs: list[dict]) -> pd.DataFrame:
+    """P26 (exploratory, PI 2026-10-12): per run x readout, the steering language's own direction,
+    the other language's direction and the social direction at the same absolute push, against
+    the random directions' 95th percentile (R3 = Mi {noun} es muy: does the German push move
+    Spanish adjectives as the Spanish push does?)."""
+    rows = []
+    for r in runs:
+        for n, x in r["readouts"].items():
+            w = x.get("working")
+            if w:
+                rows.append({"lang": r["lang"], "positions": r["positions"], "layer": r["layer"],
+                             "readout": n, "own": w["effect"], "cross": w.get("cross_effect"),
+                             "social": w.get("social_effect"), "random_p95": w["random_p95"]})  # fmt: skip
+    df = pd.DataFrame(rows)
+    if not df.empty:
+        df["cross_above_random"] = df.cross > df.random_p95
+        df["cross_same_sign"] = np.sign(df.cross) == np.sign(df.own)
+    return df
+
+
 def verdicts(runs: list[dict]) -> pd.DataFrame:
     """Per language x positions x readout: layers passed (Holm per layer) out of the passing
     gate layers; counts as passed with a majority (PI 2026-10-09); plus the controls averaged
@@ -243,11 +264,12 @@ def verdicts(runs: list[dict]) -> pd.DataFrame:
             rows.append({"lang": r["lang"], "positions": r["positions"], "readout": n,
                          "layer": r["layer"], "pass": ok, "effect": w["effect"],
                          "number": w.get("number_effect"), "social": w.get("social_effect"),
+                         "cross": w.get("cross_effect"),
                          "random_p95": w["random_p95"]})  # fmt: skip
     df = pd.DataFrame(rows)
     g = df.groupby(["lang", "positions", "readout"])
     v = g.agg(layers=("layer", "size"), passed=("pass", "sum"), effect=("effect", "mean"),
-              number=("number", "mean"), social=("social", "mean"),
+              number=("number", "mean"), social=("social", "mean"), cross=("cross", "mean"),
               random_p95=("random_p95", "mean")).reset_index()  # fmt: skip
     v["majority"] = v.passed > v.layers // 2
     v["social_control_ok"] = v.social > v.random_p95
@@ -304,6 +326,7 @@ def analyze_model(model_id: str, root: str = "results/phase5", out_root: str | N
     (out / "runs.json").write_text(json.dumps(runs, indent=1, default=float))
     v = verdicts(runs)
     v.to_csv(out / "verdicts.csv", index=False)
+    p26(runs).to_csv(out / "p26.csv", index=False)
     es_noun = [r for r in sorted(d.glob("es_k*")) if not r.name.endswith("_all")]
     if es_noun:
         (out / "p25.json").write_text(json.dumps(p25(es_noun[0], fam), indent=1))

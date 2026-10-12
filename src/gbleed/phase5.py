@@ -690,15 +690,21 @@ def neutral_prompts(nouns: pd.DataFrame, lang: str) -> list[Prompt]:
     return out
 
 
+EXTRAS = ("number", "social", "cross")
+
+
 def steering_vectors(model_id: str, lang: str, k: int, d: int, n_random: int = N_RANDOM,
-                     extras: tuple[str, ...] = ("number", "social")):  # fmt: skip
-    """[v, n_random random, extras...] as float32 rows, and their names."""
+                     extras: tuple[str, ...] = EXTRAS):  # fmt: skip
+    """[v, n_random random, extras...] as float32 rows, and their names. Extras: number (plural -
+    singular, specificity), social (English woman - man, positive control), cross (the other
+    steering language's grammatical direction at the same k; P26, PI 2026-10-12)."""
     rows = [dom_vector(model_id, lang, k)]
     rows += list(random_vectors(d, n_random, seed=1000 + k))
+    other = "de" if lang == "es" else "es"
     for e in extras:
-        rows.append(
-            number_vector(model_id, lang, k) if e == "number" else social_vector(model_id, k)
-        )
+        rows.append({"number": lambda: number_vector(model_id, lang, k),
+                     "social": lambda: social_vector(model_id, k),
+                     "cross": lambda: dom_vector(model_id, other, k)}[e]())  # fmt: skip
     names = ["v"] + [f"rand{i}" for i in range(n_random)] + list(extras)
     return torch.tensor(np.array(rows), dtype=torch.float32), names
 
@@ -718,7 +724,7 @@ def gate_unit(model_id: str, lang: str, k: int, gate_root: str = "results/phase5
 def sweep(model_id: str, k: int, lang: str, alpha_star: float, unit: float,
           out_root: str = "results/phase5", device=None, dtype=None, nouns_filter=None,
           n_random: int = N_RANDOM, n_random_sweep: int = N_RANDOM_GATE, readouts=None,
-          model_tok=None, positions: str = "noun", extras=("number", "social"),
+          model_tok=None, positions: str = "noun", extras=None,
           nonce: bool = True, with_damage: bool = True, prompt_batch: int = 16,
           row_batch: int = 128) -> dict:  # fmt: skip
     """Every readout for one steering language at boundary k, plus damage. Doses are multiples
@@ -738,6 +744,7 @@ def sweep(model_id: str, k: int, lang: str, alpha_star: float, unit: float,
     if nouns_filter is not None:
         nouns = nouns_filter(nouns)
     fam = family(model_id)
+    extras = EXTRAS if extras is None else extras
     V, names = steering_vectors(model_id, lang, k, model.config.hidden_size, n_random, extras)
     n_ex = len(extras)
     out = (
