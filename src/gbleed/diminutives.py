@@ -110,6 +110,7 @@ def extract(model_id: str, device=None, dtype=None) -> None:
 def analyze(model_id: str, out_root: str = "results/diminutives", n_boot: int = N_BOOT):
     from .estimators import auc
     from .phase4 import _fit, de_train, es_train, pooled
+    from .phase5 import social_vector
 
     df = pd.read_csv(ITEMS, keep_default_na=False, dtype=str)
     X, meta = acts.load(model_id, "de_diminutives")
@@ -148,7 +149,10 @@ def analyze(model_id: str, out_root: str = "results/diminutives", n_boot: int = 
         Xe, Xd = es["X"][:, layer].astype(np.float64), de["X"][:, layer].astype(np.float64)
         Xl = X[:, layer].astype(np.float64)
         dirs = {"de": _fit(Xd, de, kind="dom"), "es": _fit(Xe, es, kind="dom"),
-                "pooled": _fit(np.r_[Xe, Xd], pooled(es, de), kind="dom")}  # fmt: skip
+                "pooled": _fit(np.r_[Xe, Xd], pooled(es, de), kind="dom"),
+                # control (PI 2026-10-12, added after the first results): the English social
+                # direction (9 woman/man pairs), as a reference for what a sex direction does here
+                "social": social_vector(model_id, layer)}  # fmt: skip
         r = {"layer": layer}
         for nm, v in dirs.items():
             s = Xl @ (v / np.linalg.norm(v))
