@@ -135,6 +135,9 @@ feminine-rated adjectives, holding pleasantness fixed.
   no test).
 - **P22:** the model's own woman↔man axis in its output vocabulary (*woman − man*,
   *mother − father*, in each language), checked against the Glasgow ratings. No steering.
+  Laptop result (1.7B/4B, exploratory): English agrees weakly (ρ ≈ 0.18 with valence partialled
+  out); Spanish and German translations ≈ 0, which weakens R3/P20's use of English ratings for
+  Spanish (a crude probe: two word pairs, first-token vectors; 8B/14B in session 2).
 
 ## Limits worth stating
 
