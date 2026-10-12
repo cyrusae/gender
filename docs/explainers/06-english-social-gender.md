@@ -2,7 +2,7 @@
 
 Exploratory side study of Phase 5 (design: `docs/design/phase5-design.md` P23, P24, P24b; code:
 `src/gbleed/english.py`). Laptop numbers below are development results (Mac, fp16, LAST
-position, Qwen3 1.7B/4B).
+position, Qwen3 1.7B/4B; word list v3).
 
 ## The question
 
@@ -30,7 +30,8 @@ P23 asks the opposite way round: does the social direction line up with human ra
   - **v1** (35 words, WordNet rule): includes words whose *form* gives sex away (*waitress*,
     *salesman*, *ballerina*);
   - **unmarked v1** (20): those dropped;
-  - **person2, the main set** (16 f / 14 m): unmarked words from two human-made sources (GN-GloVe's
+  - **person2, the main set** (14 f / 13 m after the PI dropped *whore*, *jackass* and
+    *prostitute*): unmarked words from two human-made sources (GN-GloVe's
     gendered word lists, Zhao et al. 2018, and WordNet), each word's sex confirmed by its
     dictionary gloss.
 - **First names (P24b):** 1,738 US first names (Social Security records, ≥ 95% one sex,
@@ -55,8 +56,8 @@ P23 asks the opposite way round: does the social direction line up with human ra
 
 | | 1.7B | 4B |
 |---|---|---|
-| ES direction on person2 (mean AUC; layers with CI above 0.5) | 0.84 (25/27) | 0.80 (28/35) |
-| DE direction on person2 | 0.66 (12/27) | 0.62 (3/35) |
+| ES direction on person2 (mean AUC; layers with CI above 0.5) | 0.82 (24/27) | 0.76 (25/35) |
+| DE direction on person2 | 0.68 (12/27) | 0.66 (7/35) |
 | ES on names, within final letter | 0.78 (23/27) | 0.72 (32/35) |
 | DE on names, within final letter | 0.61 (17/27) | 0.66 (27/35) |
 | social direction on names (sanity check) | 0.97 | 0.98 |
@@ -72,10 +73,10 @@ is weaker and less consistent: clear at 4B on names and overlap, weak on person 
 ## Limits worth stating
 
 - Exploratory and laptop-only so far; the RunPod session re-extracts on 8B/14B.
-- Small person-word sets (30 main): wide intervals. Names are the large set, but a name's sex is a
+- Small person-word sets (27 main): wide intervals. Names are the large set, but a name's sex is a
   social convention, so they test association with sex, not the meaning *female*.
 - Final-letter cells control the last letter only, not other spelling cues (*-ette*, *-lyn*) or
   frequency.
 - A cosine of 0.3 is a partial overlap: most of each direction is not shared.
-- The main person set includes a few insult and slur words (*whore*, *jackass*) that the
-  dictionary's register check misses; flagged for the PI.
+- WordNet's register labels miss some insults; the PI dropped three such words by hand
+  (list v3), so the main set is not purely rule-built.
