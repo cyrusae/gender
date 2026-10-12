@@ -102,6 +102,10 @@ whether the grammatical directions respond to a person's sex when grammar says n
 | DE: sex-neutral persons vs neuter-base things | 0.79 (17/27) | 0.73 (8/35) |
 | DE: *Mädchen* family vs sex-neutral persons | 0.35 (4/27) | 0.43 (6/35) |
 | ES direction: female vs male persons | 0.60 (1/27) | 0.53 (2/35) |
+| *Control:* English social direction, female vs male persons | 0.89 (19/27) | 0.95 (33/35) |
+| *Control:* social, *Mädchen* family vs sex-neutral persons | 1.00 (27/27) | 0.99 (35/35) |
+| *Control:* social, sex-neutral persons vs neuter-base things | 0.39 (0/27) | 0.49 (0/35) |
+| *Control:* social, stem effect for things | 0.48 (0/27) | 0.51 (0/35) |
 
 Reading: **no sex signal in neuter person diminutives.** Female and male persons aren't
 separated (if anything the order is reversed, not reliably). *Mädchen* does look more
@@ -109,6 +113,13 @@ feminine than neuter things, but so do sex-neutral persons, by as much or more, 
 **person effect** (persons sit toward the feminine side of the direction), not sex. The base
 noun's gender does survive diminutivisation for things (4B: 27/35 layers). Small sets: suggestive
 only.
+
+**The control makes the null informative (added at the PI's request, after the first results).**
+The English social direction (woman − man) separates the same female and male diminutives almost
+perfectly, puts the *Mädchen* family far from sex-neutral persons, and shows no person effect and
+no stem effect. So the model *does* represent the sex of *das Mädchen* and *das Brüderchen*; the
+grammatical directions just don't pick it up there. For neuter persons, the grammatical directions
+track grammar and personhood, not sex: the opposite of what they do for English person words.
 
 ## Limits worth stating
 

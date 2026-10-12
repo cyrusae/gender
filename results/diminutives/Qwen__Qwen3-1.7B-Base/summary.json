@@ -1,7 +1,7 @@
 {
  "model": "Qwen/Qwen3-1.7B-Base",
  "analysis_git": {
-  "git_commit": "48ffd1ae2ad0cfb538190864b9f0aec45858f4b3",
+  "git_commit": "29d3578964a9ebb487d00c6911bcd65cad4a83de",
   "git_dirty": false
  },
  "n": {
@@ -38,19 +38,27 @@
   "pooled_male_persons_vs_neuter_objects": 0.692,
   "pooled_neutral_persons_vs_neuter_objects": 0.79,
   "pooled_clean_vs_neutral_persons": 0.421,
-  "pooled_excess": -0.104
+  "pooled_excess": -0.104,
+  "social_persons": 0.887,
+  "social_objects": 0.483,
+  "social_clean_vs_neuter_objects": 0.997,
+  "social_clean4_vs_neuter_objects": 0.996,
+  "social_male_persons_vs_neuter_objects": 0.334,
+  "social_neutral_persons_vs_neuter_objects": 0.385,
+  "social_clean_vs_neutral_persons": 0.999,
+  "social_excess": 0.405
  },
  "layers_lo_above": {
   "de_persons": 0,
-  "de_objects": 13,
+  "de_objects": 15,
   "de_clean_vs_neuter_objects": 23,
-  "de_clean4_vs_neuter_objects": 19,
+  "de_clean4_vs_neuter_objects": 18,
   "de_male_persons_vs_neuter_objects": 20,
   "de_neutral_persons_vs_neuter_objects": 17,
   "de_clean_vs_neutral_persons": 4,
   "de_excess": 0,
   "es_persons": 1,
-  "es_objects": 21,
+  "es_objects": 20,
   "es_clean_vs_neuter_objects": 22,
   "es_clean4_vs_neuter_objects": 19,
   "es_male_persons_vs_neuter_objects": 12,
@@ -64,6 +72,14 @@
   "pooled_male_persons_vs_neuter_objects": 19,
   "pooled_neutral_persons_vs_neuter_objects": 21,
   "pooled_clean_vs_neutral_persons": 5,
-  "pooled_excess": 0
+  "pooled_excess": 0,
+  "social_persons": 19,
+  "social_objects": 0,
+  "social_clean_vs_neuter_objects": 27,
+  "social_clean4_vs_neuter_objects": 27,
+  "social_male_persons_vs_neuter_objects": 0,
+  "social_neutral_persons_vs_neuter_objects": 0,
+  "social_clean_vs_neutral_persons": 27,
+  "social_excess": 21
  }
 }
