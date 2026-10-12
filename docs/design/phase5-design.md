@@ -538,6 +538,38 @@ renting. Trims if needed: every-position steering at the working dose only (~−
 - **P7. Adopted (PI, 2026-10-08):** 8B/14B only on the next round (30B-A3B skipped).
 - **P8. Adopted (PI, 2026-10-08):** EuroLLM-1.7B as a cross-family check of the gate and baseline on the Mac.
 
+- **P22b. Adopted (PI, 2026-10-12): P22 in context, with whole words (exploratory).** P22 reads
+  one output vector per word, so multi-token words are scored on their first token: fine in
+  English (656/656 single tokens), but most Spanish/German translations are several tokens (es
+  79/283, de 58/238 single), so its Spanish/German numbers are unreliable. P22b asks the model in
+  context instead, scoring each adjective as a whole word (`p22b.py`; frames fixed before any
+  P22b output).
+  - **Frames (feminine / masculine):** en *The woman / The man is very ___*, *My mother / My
+    father is very ___*; es *La mujer / El hombre es muy ___*, *Mi madre / Mi padre es muy ___*;
+    de *Die Frau / Der Mann ist sehr ___*, *Meine Mutter / Mein Vater ist sehr ___*.
+  - **Simple score** (log-probability bias score): mean over the two frame pairs of log P(adj |
+    feminine) − log P(adj | masculine); the adjective's own frequency cancels. Sets: English 656
+    (as P22), German 238 translations (predicative adjectives don't inflect), Spanish 110
+    gender-invariant translations (after the PI drops).
+  - **Spanish gendered translations (159; feminine form = the single Wiktionary `forms` entry
+    tagged feminine, `p22b_es_gendered_v1.csv`): double difference.** The two sides score
+    different strings (*blanca* vs *blanco*), so the form's own prior would enter the simple
+    score. Subtract the same gap after the 83 Phase 5 Spanish steering nouns (inanimate, known):
+    *La/El {noun} es muy*, *Mi {noun} es muy*, feminine nouns with the feminine form, masculine
+    with the masculine, averaged over nouns. What's left is woman vs man beyond what any
+    feminine vs masculine noun does. Conservative: any lean grammatical gender itself gives
+    adjectives is subtracted too, so it can only understate agreement with Glasgow. Also
+    computed on the invariant set, so the two scores can be compared on the same words.
+  - **Validation:** Spearman ρ with the Glasgow gender rating (> 0 = agrees), raw and partial on
+    valence, per set and score. Reading: as P22. If the Spanish invariant (simple) and gendered
+    (double) sets agree, both measures are behaving.
+  - Unsteered, minutes per model; 1.7B/4B on the Mac, 8B/14B in session 2 (`p22b context` step).
+    Outside Holm. P22 stays as run, reported with the multi-token caveat.
+  - Why gendered forms can't rescue R3 or P20 (PI question 2026-10-12): there the effect of
+    interest *is* grammatical gender, and with agreeing forms the form is the grammatical gender,
+    so a form's prior and a grammatical-gender lean are the same quantity; any control that
+    removes one removes the other. In P22b grammatical gender is the nuisance, so it can be
+    subtracted.
 - **P23. Adopted (PI, 2026-10-09): English base case (exploratory).** Before any steering, do
   English nouns already lean on the gender directions?
   - Items: bare English nouns, same input format as Phases 2–3: (a) the English concepts of

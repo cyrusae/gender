@@ -71,6 +71,7 @@ drop() { uv run python -c "from huggingface_hub import scan_cache_dir as s; c=s(
     step "$M diminutives extract"  uv run gbleed p5 diminutives-extract "$M"
     # Phase 5: frame checks, in-language baseline, gate + sweeps at every passing layer
     step "$M p22 axis"             uv run gbleed p5 p22 "$M"
+    step "$M p22b context"         uv run gbleed p5 p22b "$M"
     # gate frame check, readout check, P20, gate + sweeps: one process, one model load
     step "$M phase5"               uv run gbleed p5 phase5-all "$M"
     step "$M save archive" tar cf "$OUT/$S.tar.part" activations/"$S" results BUNDLE_COMMIT.txt logs

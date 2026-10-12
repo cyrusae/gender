@@ -46,6 +46,15 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   the exact numbers, and rerunning gives the same ones (up to GPU rounding), so scoring needs no
   repeats. Every measurement in this project is scoring. Its real variance is the choice of items
   and wordings, hence many nouns and several paraphrased frames.
+- **Double difference (control-subtracted score)** *(project usage; standard idea)*. A
+  difference minus the same difference in a control condition, so whatever the two share cancels.
+  P22b: (*blanca* after *la mujer* − *blanco* after *el hombre*) − (*blanca* after *la mesa* −
+  *blanco* after *el libro*): the form's own frequency and the generic feminine/masculine lean
+  cancel, leaving woman vs man. Same idea as difference-in-differences (P20) and contextual
+  calibration (German gate C4).
+- **Log-probability bias score** *(standard, Kurita et al. 2019)*. How much likelier a word is
+  after a female than a male context: log P(word | *The woman is very*) − log P(word | *The man
+  is very*). The word's own frequency cancels. P22b uses it.
 - **Paraphrase / wording robustness.** The same measurement under different sentence wordings
   (Phase 5 P18); a result is *wording-robust* if it has the same sign in every wording.
 

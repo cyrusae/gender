@@ -104,7 +104,7 @@ def main() -> None:
     p5 = sub.add_parser("p5", help="Session-2 steps (Phases 4-5 additions), one model at a time")
     p5.add_argument("step", choices=["english-extract", "number-extract", "wug", "gate-framecheck",
                                      "readout-check", "gate", "session", "p20", "suffix-extract",
-                                     "p4-known", "ru-known", "suffix-known", "p22", "phase5-all",
+                                     "p4-known", "ru-known", "suffix-known", "p22", "p22b", "phase5-all",
                                      "diminutives-extract"])  # fmt: skip
     p5.add_argument("models", nargs="+")
 
@@ -280,14 +280,14 @@ def main() -> None:
 
 
 def _p5(step: str, models: list[str]) -> None:
-    from . import diminutives, english, nonce_wug, p22, phase4, phase5, ru_known, suffix_ctrl
+    from . import diminutives, english, nonce_wug, p22, p22b, phase4, phase5, ru_known, suffix_ctrl
 
     fns = {"english-extract": english.extract, "number-extract": phase5.number_extract,
            "wug": nonce_wug.run, "gate-framecheck": phase5.frame_check,
            "readout-check": phase5.readout_check, "gate": phase5.run_gate,
            "session": phase5.session, "p20": phase5.run_p20, "suffix-extract": suffix_ctrl.extract,
            "p4-known": lambda m: phase4.known(m, None, None), "ru-known": ru_known.score,
-           "suffix-known": suffix_ctrl.known, "p22": p22.run, "phase5-all": phase5.all_steps,
+           "suffix-known": suffix_ctrl.known, "p22": p22.run, "p22b": p22b.run, "phase5-all": phase5.all_steps,
            "diminutives-extract": diminutives.extract}  # fmt: skip
     for m in models:
         fns[step](m)
