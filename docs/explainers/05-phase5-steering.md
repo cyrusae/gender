@@ -139,6 +139,24 @@ feminine-rated adjectives, holding pleasantness fixed.
   Laptop result (1.7B/4B, exploratory): English agrees weakly (ρ ≈ 0.18 with valence partialled
   out); Spanish and German translations ≈ 0, which weakens R3/P20's use of English ratings for
   Spanish (a crude probe: two word pairs, first-token vectors; 8B/14B in session 2).
+  Mostly a measurement artefact: see P22b.
+- **P22b:** the same question asked in sentences, with whole words: how much more likely is
+  the adjective after *The woman is very* than after *The man is very* (and mother/father), in
+  each language. Gendered Spanish forms (*blanca*/*blanco*) use a double difference: the same
+  gap after feminine vs masculine inanimate nouns is subtracted, so only the woman/man part is
+  left. Laptop result (ρ with Glasgow, raw / pleasantness removed; 1.7B, 4B):
+
+  | | 1.7B | 4B |
+  |---|---|---|
+  | English (656) | 0.59 / 0.57 | 0.52 / 0.52 |
+  | German (238) | 0.43 / 0.36 | 0.36 / 0.32 |
+  | Spanish invariant (110) | 0.45 / 0.28 | 0.25 / −0.01 |
+  | Spanish gendered, double (157) | 0.24 / 0.19 | 0.21 / 0.07 |
+
+  English and German track the human ratings on both sizes, so English ratings on German
+  translations are reasonable. Spanish is weaker: on 4B the woman/man lean is explained by
+  pleasantness (woman frames favour nicer words), not by Glasgow gender. Spanish R3/P20 results
+  carry that caveat; 8B/14B (session 2) show whether it grows with size.
 
 ## Limits worth stating
 
@@ -147,6 +165,8 @@ feminine-rated adjectives, holding pleasantness fixed.
   that way unprompted.
 - Glasgow ratings are UK English raters' associations; R3 and P20 apply them to Spanish and
   German words through translation (no native adjective gender norms exist).
+  P22b checks this: it holds for German, only weakly for Spanish (gone on 4B once
+  pleasantness is removed).
 - The translation lists come from Wiktionary glosses by a strict automatic rule; a few wrong
   senses remain (*tiny* → *meñique*).
 - **Single tokens only (P16):** the steered readouts score only words that are one token, so
