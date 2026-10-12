@@ -15,7 +15,12 @@ Statistics per layer (directions DE / ES / POOLED as Phase 4, kind="dom"):
   excess       persons - objects (sex beyond what the stem explains)
   clean        AUC clean female persons vs neuter-stem objects (sex with no gendered stem);
                also without Mädchen
-Bootstrap: persons and objects resampled independently. Same bare-word input as Phases 2-3.
+  person ctl   sex-neutral person diminutives (Kindchen, Frühchen...; side-agent flag: the clean
+               test also differs by person vs object): neutral persons vs neuter-stem objects (the
+               person effect) and clean female vs neutral persons (sex, persons on both sides)
+Bootstrap: by stem family (the -mädchen words are one family, Schwesterchen/Schwesterlein
+another), persons and objects independently. Same bare-word input as Phases 2-3. The clean
+tests rest on one stem family (-mädchen): suggestive only.
 """
 
 from __future__ import annotations
@@ -112,12 +117,18 @@ def analyze(model_id: str, out_root: str = "results/diminutives", n_boot: int = 
     es, de = es_train(model_id, "last"), de_train(model_id, "last")
     per, obj = df.set == "person", df.set == "object"
     pf, pm = (per & (df.sex == "f")).to_numpy(), (per & (df.sex == "m")).to_numpy()
+    pn = (per & (df.sex == "neutral")).to_numpy()
     of, om = (obj & (df.stem_gender == "f")).to_numpy(), (obj & (df.stem_gender == "m")).to_numpy()
     on = (obj & (df.stem_gender == "n")).to_numpy()
-    clean = (per & (df.clean == "True")).to_numpy()
+    clean = (per & (df.clean == "True") & (df.sex == "f")).to_numpy()
     clean4 = clean & (df.word != "Mädchen").to_numpy()
-    groups = {"pf": pf, "pm": pm, "of": of, "om": om, "on": on, "clean": clean, "clean4": clean4}
+    groups = {"pf": pf, "pm": pm, "pn": pn, "of": of, "om": om, "on": on, "clean": clean,
+              "clean4": clean4}  # fmt: skip
     idx = {k: np.where(v)[0] for k, v in groups.items()}
+    # stem families for the bootstrap (Mädchen and its compounds = one family)
+    fam = np.where(df.word.str.endswith("mädchen") | (df.word == "Mädchen"), "Mädchen",
+                   np.where(df.stem != "", df.stem, df.word))  # fmt: skip
+    fams = {k: [ix[fam[ix] == f] for f in dict.fromkeys(fam[ix])] for k, ix in idx.items()}
     rng = np.random.default_rng(SEED)
 
     def stats(s, ix):
@@ -126,7 +137,9 @@ def analyze(model_id: str, out_root: str = "results/diminutives", n_boot: int = 
         out = {"persons": a(ix["pf"], ix["pm"]), "objects": a(ix["of"], ix["om"]),
                "clean_vs_neuter_objects": a(ix["clean"], ix["on"]),
                "clean4_vs_neuter_objects": a(ix["clean4"], ix["on"]),
-               "male_persons_vs_neuter_objects": a(ix["pm"], ix["on"])}  # fmt: skip
+               "male_persons_vs_neuter_objects": a(ix["pm"], ix["on"]),
+               "neutral_persons_vs_neuter_objects": a(ix["pn"], ix["on"]),
+               "clean_vs_neutral_persons": a(ix["clean"], ix["pn"])}  # fmt: skip
         out["excess"] = out["persons"] - out["objects"]
         return out
 
@@ -142,7 +155,8 @@ def analyze(model_id: str, out_root: str = "results/diminutives", n_boot: int = 
             point = stats(s, idx)
             boots = {k: [] for k in point}
             for _ in range(n_boot):
-                ib = {k: rng.choice(v_, len(v_)) for k, v_ in idx.items()}
+                ib = {k: (np.concatenate([fl[i] for i in rng.integers(0, len(fl), len(fl))])
+                          if fl else np.array([], int)) for k, fl in fams.items()}  # fmt: skip
                 for k, x in stats(s, ib).items():
                     boots[k].append(x)
             for k, x in point.items():

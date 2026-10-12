@@ -21,3 +21,9 @@ Bürschchen,m,"boy, young man","boy,man",Bursche,multi,False,2.27,y
 Söhnlein,m,son,son,Sohn,m,False,2.1,y
 Brüderlein,m,brother,brother,Bruder,m,False,2.0,y
 Herrchen,m,"master, owner (of an animal)","PI (stem Herr: man, gentleman)",Herr,m,False,3.34,y
+Zimmermädchen,f,"chambermaid, parlourmaid",maid (PI-visible: WordNet defines chambermaid without a sex word),Mädchen,n,True,2.77,
+Kindchen,neutral,kid; child (young person),child,Kind,n,True,2.79,
+Kindlein,neutral,kid; child (young person),child,Kind,n,True,2.56,
+Frühchen,neutral,preemie (premature baby),preemie,,,True,2.52,
+Liebchen,neutral,sweetheart (a term of address),sweetheart,,,True,2.66,
+Sensibelchen,neutral,extremely sensitive person,person,,,True,2.28,
