@@ -1,7 +1,9 @@
 # RunPod sessions: plans and outcomes
 
 *Session 1 (confirmatory Phases 0–3): **done** 2026-10-08, outcome below the plan. Session 2
-(Phases 4–5 + suffix follow-up): **plan** at the end of this file.*
+(Phases 4–5 + suffix follow-up + exploratory add-ons, 8B/14B on an L40S): **plan** at the end
+of this file; its choices were adopted piecemeal in `docs/decisions.md`, and the authoritative step
+list is `runpod/session2.sh`.*
 
 ---
 
@@ -130,7 +132,28 @@ supported. At AFTER the Spanish result vanishes (8B: 3/35). Details: `docs/decis
 
 ---
 
-# Session 2: plan (draft 2026-10-08; not yet adopted)
+# Session 2: plan (drafted 2026-10-08; choices adopted piecemeal in decisions.md)
+
+**Status 2026-10-12 (read this first; the draft below is kept for its reasoning).** Models:
+Qwen3-8B and 14B (confirmatory); 0.6B/1.7B/4B get the wug test only. Chip: L40S Secure,
+$1.09/h, measured ~12–13 h ≈ $14 (bench 2026-10-09); live prices rechecked 2026-10-12: no other
+chip is cheaper per run (A40 $0.59 ≈ same cost at ~2× the time; RTX PRO 6000 $2.49 faster but
+dearer), so no further benchmarks; if no L40S is in stock at launch, fall back to the A40 (cheap,
+slow) or the RTX PRO 6000 (fast, ~$17–22). Per model, in order (`runpod/session2.sh`):
+1. Known checks: Phase 0 v3, fp32-head reruns (v3, Spanish pool, German), Phase 4 pairs, Russian
+   *-ь* (`ru-known`), suffix controls; wug test.
+2. Extraction: Phase 2 (LAST, AFTER), Phase 3, Phase 4 (pairs, held-out draws, Russian), suffix
+   controls, English (v4: social pairs, person words, SSA names, P24c pairs), plurals (number
+   direction), German diminutives (P27).
+3. P22 (output-vocabulary woman/man axis; no forward pass).
+4. Phase 5 in one process: gate frame check, readout frame check, P20, gate at 25/40/55/70% depth,
+   then the full sweep at every passing (language, layer), noun-only and every-position, with
+   extra vectors number, social and cross (P26). Full inventory: explainer 05.
+5. Archive, download, delete the model and its activations.
+Analysis (Phases 4–5, P24/P24b/P24c, P26, P27, personification check) runs on the Mac afterwards.
+Additions since the draft: P18–P27, damage-matched random doses (2026-10-10 (c)), English v4,
+P26, P27, the wug test, `FROM=` resume. Lists all signed off (2026-10-10, reconfirmed 2026-10-12).
+
 
 ## What it's for
 

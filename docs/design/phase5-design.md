@@ -500,6 +500,11 @@ renting. Trims if needed: every-position steering at the working dose only (~−
   most, over the whole vocabulary; (3) shortlist coverage: the share of slot probability the
   rated adjectives take, and the most probable unrated words (a check on the confirmatory
   design). No test is run on these; no choice is changed because of them.
+  As built, the top 50 are saved for **every** steered row (every vector and dose), not only the
+  working dose; the damage sentences save only the KL. A multi-token word appears here only as
+  its first token. *Candidate for later (not adopted, PI interest 2026-10-12):* steered greedy
+  continuations (10–20 tokens with the push held on), for whole-word answers beyond one token;
+  needs new code, so not in session 2; can run on the Mac (4B) or later from saved directions.
 - **P22. Adopted (PI, 2026-10-08): the model's own gender axis, validated against Glasgow
   (exploratory).** A measurement *of* the model, not an outcome scale for the bleed tests (those
   stay on human ratings: scoring a steered direction on the model's own axis would partly
