@@ -4306,6 +4306,8 @@ grandma,gpair,f,grandma/grandpa,,,,,,,female vs male
 grandpa,gpair,m,grandma/grandpa,,,,,,,female vs male
 grandmother,gpair,f,grandmother/grandfather,,,,,,,female vs male
 grandfather,gpair,m,grandmother/grandfather,,,,,,,female vs male
+heroine,gpair,f,heroine/hero,,,,,,,female vs generic
+hero,gpair,generic,heroine/hero,,,,,,,female vs generic
 hostess,gpair,f,hostess/host,,,,,,,female vs generic
 host,gpair,generic,hostess/host,,,,,,,female vs generic
 niece,gpair,f,niece/nephew,,,,,,,female vs male
@@ -4314,8 +4316,6 @@ stepmother,gpair,f,stepmother/stepfather,,,,,,,female vs male
 stepfather,gpair,m,stepmother/stepfather,,,,,,,female vs male
 widow,gpair,f,widow/widower,,,,,,,female vs male
 widower,gpair,m,widow/widower,,,,,,,female vs male
-female,gpair,f,female/male,,,,,,,female vs male
-male,gpair,m,female/male,,,,,,,female vs male
 nun,gpair,f,nun/monk,,,,,,,female vs male
 monk,gpair,m,nun/monk,,,,,,,female vs male
 lass,gpair,f,lass/lad,,,,,,,female vs male
