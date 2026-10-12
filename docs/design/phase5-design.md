@@ -607,6 +607,18 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     one; < 0 the reverse; ≈ 0 = no leak *or* equal leaks that cancel (stated as a limit: a net
     contrast). Compared with P23's projection result for the same concepts.
   - Outside Holm; no steering, so no gate dependence.
+- **P26. Adopted (PI, 2026-10-12): cross-language steering (exploratory).** Does the other
+  language's grammatical direction move adjectives the way the steering language's own one does
+  (e.g. the German f − m direction pushed into *Mi {noun} es muy ___*)? Phase 4 found the two
+  directions partly shared (T3 everywhere, T2 cross term 22–25 layers; T1 below majority).
+  - Vector: the other language's stratified f − m direction at the same boundary k (`dom_vector`),
+    added as a third extra vector beside number and social: 8 nonzero doses, the same absolute
+    push (the steering language's gate α* in its gate units), every readout including damage.
+    If the other language failed its own gate or frame check, its direction is still built
+    (training activations exist) and still gets the steering language's dose.
+  - Statistic: the cross direction's graded effect per readout and layer, against the random
+    directions' 95th percentile, and its sign relative to the own direction (`p26.csv`).
+  - Cost ≈ +7% rows (≈ +$1 on session 2). Outside Holm; descriptive.
 
 ## Limits to state
 
