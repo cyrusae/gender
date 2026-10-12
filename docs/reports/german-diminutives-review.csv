@@ -1,6 +1,6 @@
 word,sex,english_gloss,sex_from,stem,stem_gender,clean (stem not m/f),zipf,keep (PI: y/n)
 Mädchen,f,girl,girl,"(Magd, archaic)",,True,5.21,
-Frauchen,f,"female owner, mistress (of an animal)",female,,,False,3.38,
+Frauchen,f,"female owner, mistress (of an animal)",female,Frau,f,False,3.38,
 Schneewittchen,f,A girl or woman with black or dark brown hair and pale skin.,"girl,woman",,,False,3.25,
 Dienstmädchen,f,"maid, housemaid","maid,housemaid",Mädchen,n,True,3.11,
 Töchterchen,f,daughter,daughter,Tochter,f,False,2.97,
