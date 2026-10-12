@@ -18,6 +18,12 @@ Bürschchen,person,m,Bursche,multi,False,"boy, young man",2.27
 Söhnlein,person,m,Sohn,m,False,son,2.1
 Brüderlein,person,m,Bruder,m,False,brother,2.0
 Herrchen,person,m,Herr,m,False,"master, owner (of an animal)",3.34
+Zimmermädchen,person,f,Mädchen,n,True,"chambermaid, parlourmaid",2.77
+Kindchen,person,neutral,Kind,n,True,kid; child (young person),2.79
+Kindlein,person,neutral,Kind,n,True,kid; child (young person),2.56
+Frühchen,person,neutral,,,True,preemie (premature baby),2.52
+Liebchen,person,neutral,,,True,sweetheart (a term of address),2.66
+Sensibelchen,person,neutral,,,True,extremely sensitive person,2.28
 Häuschen,object,,Haus,n,,house,3.68
 Kästchen,object,,Kasten,m,,crate,3.27
 Zäpfchen,object,,Zapfen,m,,plug,2.69
