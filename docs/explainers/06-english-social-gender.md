@@ -52,23 +52,63 @@ P23 asks the opposite way round: does the social direction line up with human ra
   nouns): a real direction built the same way, with no reason to point at "woman". It shows what
   "unrelated" looks like.
 
-## Laptop results
+## Laptop results (English list v4, 2026-10-12)
+
+Mean AUC over inner layers; in brackets, layers whose bootstrap interval is above 0.5 (pairs:
+above chance share 0.5).
 
 | | 1.7B | 4B |
 |---|---|---|
-| ES direction on person2 (mean AUC; layers with CI above 0.5) | 0.82 (24/27) | 0.76 (25/35) |
-| DE direction on person2 | 0.68 (12/27) | 0.66 (7/35) |
+| ES direction on person words (v4: 12 f / 10 m) | 0.81 (24/27) | 0.77 (24/35) |
+| DE direction on person words | 0.70 (8/27) | 0.68 (5/35) |
 | ES on names, within final letter | 0.78 (23/27) | 0.72 (32/35) |
 | DE on names, within final letter | 0.61 (17/27) | 0.66 (27/35) |
-| social direction on names (sanity check) | 0.97 | 0.98 |
-| overlap with social, ES: layers above shuffle null | 23/27 | 29/35 |
-| overlap with social, DE | 6/27 | 24/35 |
+| ES on pairs, female vs male word (16 pairs; share of pairs ordered right) | 0.81 (21/27) | 0.88 (30/35) |
+| DE on pairs, female vs male | 0.80 (18/27) | 0.78 (24/35) |
+| ES / DE on pairs, female vs generic (6 pairs: *actress/actor*, *heroine/hero*…) | 0.48 / 0.69 (0, 5 layers) | 0.67 / 0.77 (3, 5 layers) |
+| social direction: person words / names / pairs (sanity check) | 0.82 / 0.97 / 0.99 | 0.83 / 0.98 / 0.96 |
+| overlap with social, ES: layers above shuffle null | 21/27 | 29/35 |
+| overlap with social, DE | 7/27 | 24/35 |
 | split-half cosine with social: ES / DE / number | 0.30 / 0.12 / 0.01 | 0.30 / 0.22 / 0.01–0.03 |
 
 Reading: the Spanish grammatical direction, learned only from inanimate nouns, sorts English
-person words and first names by sex, with spelling held fixed for the names. It also overlaps the
-social direction well beyond the shuffle null (cosine ≈ 0.3 against ≈ 0.01 for number). German
-is weaker and less consistent: clear at 4B on names and overlap, weak on person words.
+person words, first names (spelling held fixed) and matched female/male pairs (*niece/nephew*:
+concept held fixed) by sex. It overlaps the social direction well beyond the shuffle null
+(cosine ≈ 0.3 against ≈ 0.01 for number). German is weaker and less consistent: clear on names,
+pairs and overlap at 4B, weak on the person-word list. Female vs generic (*actress* vs *actor*):
+no reliable ordering, but only 6 pairs, so it can't distinguish "the generic word reads as
+neutral" from noise. v3 → v4 changed the person-word numbers by ≤ 0.02.
+
+## P27: German neuter diminutives (exploratory)
+
+*Das Mädchen* (girl) and *das Brüderchen* (little brother) are grammatically **neuter**: the
+diminutive endings *-chen/-lein* make any noun neuter, whatever the person's sex. So they test
+whether the grammatical directions respond to a person's sex when grammar says neither.
+
+- **Items:** 25 PI-screened person diminutives (12 female, 8 male, 5 sex-neutral such as
+  *Kindchen*) and 165 diminutives of things (*Tischchen*), automatically from Wiktionary, whose
+  base noun is feminine (68), masculine (62) or neuter (35).
+- **Comparisons:** female vs male persons; things with a feminine vs masculine base (the
+  **stem effect**: does the base noun's gender survive the diminutive?); *excess* = persons'
+  separation minus things'; the *Mädchen* family vs neuter-base things, and vs sex-neutral
+  persons (is it sex, or just being a person?). Bootstrap by stem family (*Mädchen*,
+  *Zimmermädchen*… count as one).
+
+| (mean AUC; layers with CI above 0.5) | 1.7B | 4B |
+|---|---|---|
+| DE direction: female vs male persons | 0.39 (0/27) | 0.38 (0/35) |
+| DE: things, feminine vs masculine base (stem effect) | 0.60 (13/27) | 0.61 (27/35) |
+| DE: *Mädchen* family vs neuter-base things | 0.68 (23/27) | 0.64 (21/35) |
+| DE: sex-neutral persons vs neuter-base things | 0.79 (17/27) | 0.73 (8/35) |
+| DE: *Mädchen* family vs sex-neutral persons | 0.35 (4/27) | 0.43 (6/35) |
+| ES direction: female vs male persons | 0.60 (1/27) | 0.53 (2/35) |
+
+Reading: **no sex signal in neuter person diminutives.** Female and male persons aren't
+separated (if anything the order is reversed, not reliably). *Mädchen* does look more
+feminine than neuter things, but so do sex-neutral persons, by as much or more, so that is a
+**person effect** (persons sit toward the feminine side of the direction), not sex. The base
+noun's gender does survive diminutivisation for things (4B: 27/35 layers). Small sets: suggestive
+only.
 
 ## Limits worth stating
 
