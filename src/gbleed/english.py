@@ -36,10 +36,14 @@ SOCIAL_PAIRS = [("woman", "man"), ("girl", "boy"), ("mother", "father"), ("daugh
                 ("she", "he")]  # fmt: skip
 WORDS_V1 = "data/stimuli/english_v1.csv"
 WORDS_V2 = "data/stimuli/english_v2.csv"
-WORDS = "data/stimuli/english_v3.csv"
+WORDS_V3 = "data/stimuli/english_v3.csv"
+WORDS = "data/stimuli/english_v4.csv"
 # PI 2026-10-11: insults/slurs and sex-work terms out of both person sets (WordNet's gloss has
 # no register label for them)
 PERSON_PI_DROP = {"whore", "jackass", "prostitute"}
+# PI 2026-10-12: fiance/fiancee (sexes swapped and merged in real use, and unaccented here)
+PERSON_PI_DROP_V4 = PERSON_PI_DROP | {"fiancee", "fiance"}
+PAIRS_SHEET = "docs/reports/english-gender-pairs-review.csv"  # PI-reviewed (english_pairs.py)
 GNGLOVE = "data/raw/gnglove/{}_word_file.txt"  # github.com/uclanlp/gn_glove (Apache 2.0)
 SSA = "data/raw/ssa/names"  # ssa.gov/oact/babynames/names.zip (public domain)
 NAME_MIN_BIRTHS = 10_000
@@ -125,7 +129,9 @@ def _person2(wn, v1: pd.DataFrame, dominance: bool = False) -> dict:
             ss = [s for s in wn.synsets(w, "n") if w in [x.name() for x in s.lemmas()]]
             if not ss or person not in {h for path in ss[0].hypernym_paths() for h in path}:
                 continue
-            if dominance and not _dominant(wn, w, ss[0]):
+            # untagged words pass (no evidence another sense dominates; as english_pairs.check)
+            tagged = sum(x.count() for z in wn.synsets(w) for x in z.lemmas() if x.name() == w)
+            if dominance and tagged and not _dominant(wn, w, ss[0]):
                 continue
             _, words = _gloss_words(wn, w)
             mine, other = (FEMALE_WORDS, MALE_WORDS) if sx == "f" else (MALE_WORDS, FEMALE_WORDS)
@@ -175,11 +181,47 @@ def build_v2() -> pd.DataFrame:
     return df
 
 
+def build_v4() -> pd.DataFrame:
+    """english_v4 = v3 with person2 rebuilt under the dominance rule (person sense >= 50% of
+    WordNet tagged usage, as v1's rule; drops miss/stud/groom) minus PERSON_PI_DROP_V4, plus
+    gpair: the PI-reviewed female/male (or female/generic) pairs (P24c), one row per word with
+    pair = "female/partner" and pair_type."""
+    from .english_pairs import check
+    from .lexicon import _wordnet
+
+    wn = _wordnet()
+    v1 = pd.read_csv(WORDS_V1, keep_default_na=False)
+    df = pd.read_csv(WORDS_V3, keep_default_na=False)
+    df = df[~((df.set == "person2") | ((df.set == "person") & df.word.isin(PERSON_PI_DROP_V4)))]
+    p2 = {w: sx for w, sx in _person2(wn, v1, dominance=True).items()
+          if w not in PERSON_PI_DROP_V4}  # fmt: skip
+    p2 = pd.DataFrame([{"word": w, "set": "person2", "sex": sx, "pair": ""}
+                       for w, sx in sorted(p2.items())])  # fmt: skip
+    sheet = pd.read_csv(PAIRS_SHEET, keep_default_na=False)
+    sheet = sheet[sheet["keep (PI: y/n)"].str.strip() == "y"]
+    social = {w for p in SOCIAL_PAIRS for w in p}
+    rows, seen = [], set()
+    for r in sheet.itertuples():
+        f, m, typ = r.female, r.male_or_generic, r.type
+        assert not {f, m} & social, (f, m)
+        assert not {f, m} & seen, f"word in two pairs: {f}/{m}"
+        assert check(wn, f)[0] and check(wn, m)[0], (f, m)
+        seen |= {f, m}
+        ptype = "female vs generic" if typ == "female vs generic" else "female vs male"
+        for w, sx in ((f, "f"), (m, "m" if ptype == "female vs male" else "generic")):
+            rows.append({"word": w, "set": "gpair", "sex": sx, "pair": f"{f}/{m}",
+                         "pair_type": ptype})  # fmt: skip
+    df = pd.concat([df, p2, pd.DataFrame(rows)], ignore_index=True)
+    df.to_csv(WORDS, index=False)
+    print(df.groupby(["set", "sex"]).size().to_string())
+    return df
+
+
 def build_v3() -> pd.DataFrame:
     """english_v3 = v2 minus PERSON_PI_DROP from the person sets (v2 has results)."""
     df = pd.read_csv(WORDS_V2, keep_default_na=False)
     df = df[~(df.set.isin(["person", "person2"]) & df.word.isin(PERSON_PI_DROP))]
-    df.to_csv(WORDS, index=False)
+    df.to_csv(WORDS_V3, index=False)
     print(df.groupby(["set", "sex"]).size().to_string())
     return df
 
@@ -360,6 +402,18 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
     nm_df = nm_df[nm_df.cell.isin(ok_cells)]
     ni, ny = np.array([row[w] for w in nm_df.word], int), (nm_df.sex == "f").to_numpy(int)
     ncell = nm_df.cell.to_numpy()
+    # P24c: female/partner pairs (v4), only with the whole set in the activations
+    gp = df[df.set == "gpair"]
+    gp = gp if len(gp) and gp.word.isin(row).all() else gp.iloc[:0]
+    gpf = gp[gp.sex == "f"].set_index("pair")
+    gpo = gp[gp.sex != "f"].set_index("pair").loc[gpf.index] if len(gp) else gp
+    gfi = np.array([row[w] for w in gpf.word], int)
+    goi = np.array([row[w] for w in gpo.word], int)
+    gtype = gpf.pair_type.to_numpy() if len(gp) else np.array([])
+    gsub = {"all": np.ones(len(gfi), bool)} | {
+        t.replace("female vs ", "f_vs_"): gtype == t
+        for t in ("female vs male", "female vs generic")
+    }
     cal = df[df.set == "calibration"].copy()
     ci_ = np.array([row[w] for w in cal.word])
     gend, val = pd.to_numeric(cal.GEND).to_numpy(), pd.to_numeric(cal.VAL).to_numpy()
@@ -467,6 +521,22 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
                 jj = np.concatenate([rng_m.choice(ix, len(ix)) for ix in by_cell])
                 for nm in dirs:
                     bx[f"p24b_{nm}_on_names"].append(within_cell_auc(ny[jj], Pn[nm][jj], ncell[jj]))
+        if len(gfi):
+            rng_g = np.random.default_rng(SEED + 6)
+            D = {nm: Xl[gfi] @ d_ - Xl[goi] @ d_ for nm, d_ in dirs.items()}
+
+            def _share(x):  # pairs scored the right way round (ties count half)
+                return float(np.mean((x > 0) + 0.5 * (x == 0))) if len(x) else float("nan")
+
+            for nm in dirs:
+                for sub, msk in gsub.items():
+                    extra[f"p24c_{nm}_pairs_{sub}"] = _share(D[nm][msk])
+                    bx[f"p24c_{nm}_pairs_{sub}"] = []
+            for _ in range(n_boot):
+                jj = rng_g.choice(len(gfi), len(gfi))
+                for nm in dirs:
+                    for sub, msk in gsub.items():
+                        bx[f"p24c_{nm}_pairs_{sub}"].append(_share(D[nm][jj][msk[jj]]))
         r |= extra
         bt |= bx
         for k, v in bt.items():
@@ -527,6 +597,7 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
     keys = [c for c in res.columns if c != "layer" and not c.endswith(("_lo", "_hi"))]
     summ = {"model": model_id, "position": position, "analysis_git": git_state(),
             "n_person2": len(p2i), "n_names": len(ni), "name_cells": ok_cells,
+            "n_pairs": {k: int(v.sum()) for k, v in gsub.items()},
             "mean": res[keys].mean().round(3).to_dict(),
             "layers_lo_above_0.5": {k: int((res[f"{k}_lo"] > 0.5).sum()) for k in keys
                                     if f"{k}_lo" in res and "rho" not in k},

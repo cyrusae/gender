@@ -1,29 +1,32 @@
 female,male_or_generic,type,status,flag,source,female_definition,male_definition,keep (PI: y/n)
-mommy,daddy,PI pair,kept,,PI,informal terms for a mother,an informal term for a father; probably derived from baby talk,
-actress,actor,female vs generic,kept,,WordNet 'a female X',a female actor,a theatrical performer,
-heiress,heir,female vs generic,kept,,WordNet 'a female X',a female heir,a person who is entitled by law or by the terms of a will to inherit the estate of another,
-lesbian,homosexual,female vs generic,kept,,WordNet 'a female X',a female homosexual,someone who practices homosexuality; having a sexual attraction to persons of the same sex,
-soprano,singer,female vs generic,kept,,WordNet 'a female X',a female singer,a person who sings,
-spokeswoman,spokesperson,female vs generic,kept,,WordNet 'a female X',a female spokesperson,an advocate who represents someone else's policy or purpose,
-waitress,waiter,female vs generic,kept,,WordNet 'a female X',a woman waiter,a person whose occupation is to serve at table (as in a restaurant),
-fiancee,fiance,female vs male,kept,,WordNet mirror definitions,a woman who is engaged to be married,a man who is engaged to be married,
-granddaughter,grandson,female vs male,kept,,Bolukbasi et al. 2016 + WordNet mirror definitions,a female grandchild,a male grandchild,
-lady,gentleman,female vs male,kept,,Bolukbasi et al. 2016,a polite name for any woman,a man of refinement,
-madam,gentleman,female vs male,kept,,WordNet mirror definitions,a woman of refinement,a man of refinement,
-mom,dad,female vs male,kept,,Bolukbasi et al. 2016,informal terms for a mother,an informal term for a father; probably derived from baby talk,
-princess,prince,female vs male,kept,,Bolukbasi et al. 2016,a female member of a royal family other than the queen (especially the daughter of a sovereign),a male member of a royal family other than the sovereign (especially the son of a sovereign),
-schoolgirl,schoolboy,female vs male,kept,,Bolukbasi et al. 2016 + Wiktionary mirror glosses + WordNet mirror definitions,a girl attending school,a boy attending school,
-spokeswoman,spokesman,female vs male,kept,,Bolukbasi et al. 2016 + WordNet mirror definitions,a female spokesperson,a male spokesperson,
+mommy,daddy,PI pair,kept,,PI,informal terms for a mother,an informal term for a father; probably derived from baby talk,y
+actress,actor,female vs generic,kept,,WordNet 'a female X',a female actor,a theatrical performer,y
+heiress,heir,female vs generic,kept,,WordNet 'a female X',a female heir,a person who is entitled by law or by the terms of a will to inherit the estate of another,y
+lesbian,homosexual,female vs generic,kept,,WordNet 'a female X',a female homosexual,someone who practices homosexuality; having a sexual attraction to persons of the same sex,y
+soprano,singer,female vs generic,kept,,WordNet 'a female X',a female singer,a person who sings,n
+spokeswoman,spokesperson,female vs generic,kept,,WordNet 'a female X',a female spokesperson,an advocate who represents someone else's policy or purpose,n
+waitress,waiter,female vs generic,kept,,WordNet 'a female X',a woman waiter,a person whose occupation is to serve at table (as in a restaurant),y
+fiancee,fiance,female vs male,kept,,WordNet mirror definitions,a woman who is engaged to be married,a man who is engaged to be married,n
+granddaughter,grandson,female vs male,kept,,Bolukbasi et al. 2016 + WordNet mirror definitions,a female grandchild,a male grandchild,y
+lady,gentleman,female vs male,kept,,Bolukbasi et al. 2016,a polite name for any woman,a man of refinement,y
+madam,gentleman,female vs male,kept,,WordNet mirror definitions,a woman of refinement,a man of refinement,n
+mom,dad,female vs male,kept,,Bolukbasi et al. 2016,informal terms for a mother,an informal term for a father; probably derived from baby talk,y
+princess,prince,female vs male,kept,,Bolukbasi et al. 2016,a female member of a royal family other than the queen (especially the daughter of a sovereign),a male member of a royal family other than the sovereign (especially the son of a sovereign),y
+schoolgirl,schoolboy,female vs male,kept,,Bolukbasi et al. 2016 + Wiktionary mirror glosses + WordNet mirror definitions,a girl attending school,a boy attending school,y
+spokeswoman,spokesman,female vs male,kept,,Bolukbasi et al. 2016 + WordNet mirror definitions,a female spokesperson,a male spokesperson,y
 maid,domestic,female vs generic,flagged,domestic: person sense not the dominant use,WordNet 'a female X',a female domestic,a servant who is paid to perform menial tasks around the household,n
-nun,religious,female vs generic,flagged,religious: person sense not the dominant use,WordNet 'a female X',a woman religious,a member of a religious order who is bound by vows of poverty and chastity and obedience,
-girlfriend,boyfriend,female vs male,flagged,boyfriend: definition mentions both sexes,Wiktionary mirror glosses,any female friend,a man who is the lover of a girl or young woman,
-granddaughter,grandchild,female vs male,flagged,grandchild: definition mentions both sexes,WordNet 'a female X',a female grandchild,a child of your son or daughter,
-grandma,grandpa,female vs male,flagged,grandma: definition mentions both sexes; grandpa: definition mentions both sexes,Bolukbasi et al. 2016,the mother of your father or mother,the father of your father or mother,
-grandmother,grandfather,female vs male,flagged,grandmother: definition mentions both sexes; grandfather: definition mentions both sexes,Bolukbasi et al. 2016 + Wiktionary mirror glosses,the mother of your father or mother,the father of your father or mother,
-granny,fella,female vs male,flagged,granny: definition mentions both sexes,Bolukbasi et al. 2016,the mother of your father or mother,a boy or man,
-heroine,hero,female vs male,flagged,heroine: person sense not the dominant use,Wiktionary 'female/male (equivalent of) X',a woman possessing heroic qualities or a woman who has performed heroic deeds,a man distinguished by exceptional courage and nobility and strength,
-hostess,host,female vs male,flagged,hostess: person sense not the dominant use; host: person sense not the dominant use; host: definition mentions both sexes,Wiktionary 'female/male (equivalent of) X' + WordNet 'a female X',a woman host,a person who invites guests to a social event (such as a party in his or her own home) and who is responsible for them while they are there,
-niece,nephew,female vs male,flagged,niece: definition mentions both sexes; nephew: definition mentions both sexes,Bolukbasi et al. 2016,a daughter of your brother or sister,a son of your brother or sister,
-stepmother,stepfather,female vs male,flagged,stepmother: definition mentions both sexes; stepfather: definition mentions both sexes,WordNet mirror definitions,the wife of your father by a subsequent marriage,the husband of your mother by a subsequent marriage,
-widow,widower,female vs male,flagged,widow: definition mentions both sexes; widower: definition mentions both sexes,WordNet mirror definitions,a woman whose husband is dead especially one who has not remarried,a man whose wife is dead especially one who has not remarried,
-female,male,unknown,flagged,sexes generic/generic; female: person sense not the dominant use; male: person sense not the dominant use,Bolukbasi et al. 2016,a person who belongs to the sex that can have babies,a person who belongs to the sex that cannot have babies,
+nun,religious,female vs generic,flagged,religious: person sense not the dominant use,WordNet 'a female X',a woman religious,a member of a religious order who is bound by vows of poverty and chastity and obedience,n
+girlfriend,boyfriend,female vs male,flagged,boyfriend: definition mentions both sexes,Wiktionary mirror glosses,any female friend,a man who is the lover of a girl or young woman,y
+granddaughter,grandchild,female vs male,flagged,grandchild: definition mentions both sexes,WordNet 'a female X',a female grandchild,a child of your son or daughter,n
+grandma,grandpa,female vs male,flagged,grandma: definition mentions both sexes; grandpa: definition mentions both sexes,Bolukbasi et al. 2016,the mother of your father or mother,the father of your father or mother,y
+grandmother,grandfather,female vs male,flagged,grandmother: definition mentions both sexes; grandfather: definition mentions both sexes,Bolukbasi et al. 2016 + Wiktionary mirror glosses,the mother of your father or mother,the father of your father or mother,y
+granny,fella,female vs male,flagged,granny: definition mentions both sexes,Bolukbasi et al. 2016,the mother of your father or mother,a boy or man,n
+heroine,hero,female vs generic,flagged,heroine: person sense not the dominant use,Wiktionary 'female/male (equivalent of) X',a woman possessing heroic qualities or a woman who has performed heroic deeds,a man distinguished by exceptional courage and nobility and strength,
+hostess,host,female vs generic,flagged,hostess: person sense not the dominant use; host: person sense not the dominant use; host: definition mentions both sexes,Wiktionary 'female/male (equivalent of) X' + WordNet 'a female X',a woman host,a person who invites guests to a social event (such as a party in his or her own home) and who is responsible for them while they are there,y
+niece,nephew,female vs male,flagged,niece: definition mentions both sexes; nephew: definition mentions both sexes,Bolukbasi et al. 2016,a daughter of your brother or sister,a son of your brother or sister,y
+stepmother,stepfather,female vs male,flagged,stepmother: definition mentions both sexes; stepfather: definition mentions both sexes,WordNet mirror definitions,the wife of your father by a subsequent marriage,the husband of your mother by a subsequent marriage,y
+widow,widower,female vs male,flagged,widow: definition mentions both sexes; widower: definition mentions both sexes,WordNet mirror definitions,a woman whose husband is dead especially one who has not remarried,a man whose wife is dead especially one who has not remarried,y
+female,male,female vs male,flagged,sexes generic/generic; female: person sense not the dominant use; male: person sense not the dominant use,Bolukbasi et al. 2016,a person who belongs to the sex that can have babies,a person who belongs to the sex that cannot have babies,y
+nun,monk,female vs male,added,,PI,,,y
+lass,lad,female vs male,added,,PI,,,y
+duchess,duke,female vs male,added,,PI,,,y
