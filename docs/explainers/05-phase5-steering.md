@@ -67,6 +67,7 @@ exact probability (**scoring, not sampling**).
 | R1-EN | *The bridge is very ___* (3 wordings; same two checks) | same | co-primary |
 | R2 / R2-EN | *If the bridge were a person, would it be a man or a woman? It would be a ___* (3 framings × 2 orders), plus a story frame *…came to life. Every morning, ___* | man/woman, male/female, boy/girl; story: she/he (it/they recorded) | secondary |
 | R3 | *Mi puente es muy ___* | gender-invariant Spanish adjectives (*fuerte*, *elegante*) | secondary |
+| R3-POOL (P28) | same sentence | gendered Spanish adjectives read as the lemma, P(*blanco*) + P(*blanca*), so agreement drops out (Qwen3: 116) | secondary, exploratory |
 | R-NONCE | R1-EN/R2-EN frames with invented words (*The sianta is very ___*; 600 Spanish-looking, 100 English-looking) | as R1-EN/R2-EN | secondary (cheaper set: ±1 × α\*, 20 random directions) |
 
 **Readout frame check:** before steering is analysed, each wording must put a clear share of
@@ -150,7 +151,8 @@ feminine-rated adjectives, holding pleasantness fixed.
   senses remain (*tiny* → *meñique*).
 - **Single tokens only (P16):** the steered readouts score only words that are one token, so
   everything is one forward pass. English loses little (656 of 739 adjectives), but Spanish R3
-  keeps 51 of 110 invariant adjectives, skewed toward short Latinate words (*natural*, *cruel*);
+  keeps 51 of 110 invariant adjectives, skewed toward short Latinate words (*natural*, *cruel*;
+  R3-POOL adds 116 gendered ones, read through the first token their two forms share);
   tokenisation costs non-English readouts more. P20 (unsteered) scores whole words, all 110.
   Nothing is generated: what the model would say over several tokens under steering is not
   measured (a candidate for later, P21 note).

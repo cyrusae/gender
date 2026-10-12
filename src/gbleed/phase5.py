@@ -636,10 +636,21 @@ def rnonce_prompts(nw: pd.DataFrame) -> tuple[list[Prompt], list[Prompt]]:
 
 
 def r3_ids(tok, fam: str) -> list[int]:
-    """Single-token (P16) gender-invariant Spanish adjectives of the translation list."""
+    """R3 read ids: the single-token (P16) gender-invariant Spanish adjectives of the translation
+    list (R3 proper; the frame check and the R3 analysis use these, first), then the pooled
+    gendered adjectives' tokens (R3-POOL, PI 2026-10-12; `phase5_stimuli.es_pooled`)."""
+    from .phase5_stimuli import es_invariant_adjectives, es_pooled
+
+    inv = single_ids(tok, [" " + w for w in es_invariant_adjectives(fam).es])
+    pooled = [i for ids in es_pooled(fam).ids for i in ids]
+    assert not set(inv) & set(pooled) and len(set(pooled)) == len(pooled)
+    return inv + pooled
+
+
+def r3_n_invariant(fam: str) -> int:
     from .phase5_stimuli import es_invariant_adjectives
 
-    return single_ids(tok, [" " + w for w in es_invariant_adjectives(fam).es])
+    return len(es_invariant_adjectives(fam))
 
 
 def readout_sets(tok, nouns: pd.DataFrame, lang: str, fam: str, nonce: bool = True):
@@ -870,8 +881,9 @@ P20_FRAMES = {  # (lang, wording): template with {art} and {N}; articles by gend
 def p20_requests(pairs: pd.DataFrame, adj: pd.DataFrame):
     """(key rows, (prompt, " adjective") requests): every pair noun in its frames x that
     language's translated adjectives (Spanish: gender-invariant only), full-word scoring."""
-    from .phase5_stimuli import es_invariant_adjectives
+    from .phase5_stimuli import ES_POOLED, es_invariant_adjectives
 
+    pooled = pd.read_csv(ES_POOLED, keep_default_na=False)
     keys, reqs = [], []
     for (lang, w), (t, arts) in P20_FRAMES.items():
         a = adj[adj[lang] != ""] if lang != "es" else es_invariant_adjectives()
@@ -880,8 +892,15 @@ def p20_requests(pairs: pd.DataFrame, adj: pd.DataFrame):
             prompt = t.format(art=arts[g], N=noun)
             for e, f in zip(a.en, a[lang], strict=True):
                 keys.append({"pair_id": r.pair_id, "lang": lang, "wording": w, "noun": noun,
-                             "gender": g, "en": e, "adj": f})  # fmt: skip
+                             "gender": g, "en": e, "adj": f, "set": "main", "form": ""})  # fmt: skip
                 reqs.append((prompt, " " + f))
+            if lang == "es":  # pooled gendered adjectives (PI 2026-10-12): both forms, whole words
+                for e, am, af in zip(pooled.en, pooled.es_m, pooled.es_f, strict=True):
+                    for form, f in (("m", am), ("f", af)):
+                        keys.append({"pair_id": r.pair_id, "lang": lang, "wording": w,
+                                     "noun": noun, "gender": g, "en": e, "adj": f,
+                                     "set": "pooled", "form": form})  # fmt: skip
+                        reqs.append((prompt, " " + f))
     return pd.DataFrame(keys), reqs
 
 
@@ -909,7 +928,9 @@ def run_p20(model_id: str, out_root: str = "results/phase5_p20", device=None, dt
     out = Path(out_root) / model_slug(model_id)
     out.mkdir(parents=True, exist_ok=True)
     keys.to_csv(out / "scores.csv.gz", index=False)
-    shares = frame_shares(model, tok, keys, reqs)
+    main = (keys.set == "main").to_numpy()  # the frame check is on the pre-registered set only
+    shares = frame_shares(model, tok, keys[main].reset_index(drop=True),
+                          [q for q, m in zip(reqs, main, strict=True) if m])  # fmt: skip
     shares.to_csv(out / "frame_shares.csv", index=False)
     (out / "summary.json").write_text(json.dumps(
         {"meta": meta, "n": len(keys),
@@ -970,6 +991,8 @@ def readout_check(model_id: str, out_root: str = "results/phase5_readoutcheck", 
                 if name in ("R2", "R2-EN", "RN-R2"):
                     ws = R2_CHOICES[w][2] if w in R2_CHOICES else (" she", " he")
                     share = float(sum(p[i, col[t]] for t in single_ids(tok, list(ws))))
+                elif name == "R3":  # frame check on R3 proper (invariant adjectives) only
+                    share = float(p[i, : r3_n_invariant(fam)].sum())
                 else:
                     share = float(p[i].sum())
                 rows.append({"steer_lang": lang, "readout": name, "wording": w,

@@ -57,7 +57,8 @@ def build_gendered() -> pd.DataFrame:
                 if fm.get("tags") == ["feminine"]:
                     fem.setdefault(d["word"], set()).add(fm["form"])
     one = {w: next(iter(v)) for w, v in fem.items() if len(v) == 1}
-    t = t[t.es.isin(one)]
+    # a Spanish word glossing two English words has no single rating (salado: expensive, salty)
+    t = t[t.es.isin(one) & ~t.es.duplicated(keep=False)]
     out = pd.DataFrame({"en": t.en, "es_m": t.es, "es_f": t.es.map(one), "GEND": t.GEND,
                         "VAL": t.VAL, "source": "kaikki es forms [feminine]"})  # fmt: skip
     out.to_csv(GENDERED, index=False)

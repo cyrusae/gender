@@ -314,3 +314,69 @@ def es_invariant_adjectives(fam: str | None = None) -> pd.DataFrame:
     if fam is not None:
         t = t[t[f"es_ntok_{fam}"] == 1]
     return t.reset_index(drop=True)
+
+
+# ---- pooled-across-agreement Spanish adjectives (PI 2026-10-12) --------------------------
+# Gendered Spanish adjectives read as the lemma: P(blanco) + P(blanca), whichever form agreement
+# picks. Steering flips agreement (mass moves between forms); the pooled total moves only if the
+# lemma does. Steered readout (R3, single next token): both forms single tokens -> sum of the two;
+# multi-token forms sharing their first token (blanc + o/a) -> that token, whose probability
+# already covers both forms (plus other words with the same first piece: noise); else excluded.
+# A pooled token used by two adjectives, or equal to an R3 invariant token, is dropped (ambiguous).
+ES_POOLED = "data/stimuli/phase5_es_pooled_v1.csv"
+
+
+def build_es_pooled() -> pd.DataFrame:
+    import json
+
+    from transformers import AutoTokenizer
+
+    g = pd.read_csv("data/stimuli/p22b_es_gendered_v1.csv", keep_default_na=False)
+    # a Spanish word glossing two English words has no single rating: dropped (as P20's rule for
+    # English words with two translations)
+    g = g[~g.es_m.duplicated(keep=False)].reset_index(drop=True)
+    forms, other = set(g.es_m) | set(g.es_f), {}
+    with open(KAIKKI.format("Spanish")) as f:
+        for line in f:
+            d = json.loads(line)
+            if d.get("word") in forms and d.get("pos") in ("noun", "name"):
+                other.setdefault(d["word"], set()).add(d["pos"])
+    g["homograph"] = [";".join(sorted(other.get(m, set()) | other.get(f, set())))
+                      for m, f in zip(g.es_m, g.es_f, strict=True)]  # fmt: skip
+    for fam, mid in FAMILIES.items():
+        tok = AutoTokenizer.from_pretrained(mid)
+        inv = {tok(" " + w, add_special_tokens=False)["input_ids"][0]
+               for w in es_invariant_adjectives(fam).es}  # fmt: skip
+        kinds, pools = [], []
+        for m, f in zip(g.es_m, g.es_f, strict=True):
+            im = tok(" " + m, add_special_tokens=False)["input_ids"]
+            i_f = tok(" " + f, add_special_tokens=False)["input_ids"]
+            if len(im) == 1 and len(i_f) == 1:
+                kinds.append("both_single")
+                pools.append([im[0], i_f[0]])
+            elif len(im) > 1 and len(i_f) > 1 and im[0] == i_f[0]:
+                kinds.append("shared_first")
+                pools.append([im[0]])
+            else:
+                kinds.append("excluded")
+                pools.append([])
+        count = pd.Series([i for p in pools for i in p]).value_counts()
+        for j, p in enumerate(pools):
+            if p and (any(count[i] > 1 for i in p) or any(i in inv for i in p)):
+                kinds[j], pools[j] = "excluded_collision", []
+        g[f"kind_{fam}"] = kinds
+        g[f"pool_ids_{fam}"] = [";".join(map(str, p)) for p in pools]
+    g = g.drop(columns=["source"])
+    g.to_csv(ES_POOLED, index=False)
+    for fam in FAMILIES:
+        print(fam, g[f"kind_{fam}"].value_counts().to_dict())
+    print("homographs", (g.homograph != "").sum())
+    return g
+
+
+def es_pooled(fam: str) -> pd.DataFrame:
+    """Pooled adjectives usable in R3 for this family, with their token ids (list)."""
+    g = pd.read_csv(ES_POOLED, keep_default_na=False)
+    g = g[g[f"pool_ids_{fam}"] != ""].reset_index(drop=True)
+    g["ids"] = [[int(i) for i in s.split(";")] for s in g[f"pool_ids_{fam}"]]
+    return g

@@ -569,7 +569,37 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     interest *is* grammatical gender, and with agreeing forms the form is the grammatical gender,
     so a form's prior and a grammatical-gender lean are the same quantity; any control that
     removes one removes the other. In P22b grammatical gender is the nuisance, so it can be
-    subtracted.
+    subtracted. *Superseded the same day by the PI's pooling idea (P28): summing the two forms
+    reads the lemma, so agreement drops out and gendered adjectives become usable in R3/P20.*
+- **P28. Adopted (PI, 2026-10-12): gendered Spanish adjectives pooled across agreement
+  (R3-POOL, P20-POOL; secondary, exploratory).** R3 and P20 used only gender-invariant
+  adjectives because an agreeing form carries the noun's grammatical gender. Pooling fixes that
+  (PI): read the **lemma**, P(*blanco*) + P(*blanca*), whichever form agreement picks. Steering
+  flips agreement, which only moves probability between the two forms; the pooled total changes
+  only if the push changes how likely *white* is. The adjective's own prior is the same in every
+  condition and cancels in steered-minus-unsteered (R3) and in the pair difference-in-differences
+  (P20). Left as noise: quirks of one form only (homographs such as *cuerda* "rope", *física*
+  "physics", names *Blanca*): not filtered (the *muy ___* slot disfavours noun readings), flagged
+  (`homograph`, 68 of 157), with a sensitivity analysis without them.
+  - **Items:** the 159 gendered translations with one Wiktionary feminine form
+    (`p22b_es_gendered_v1.csv`), minus Spanish words glossing two English words (*salado*:
+    expensive/salty; no single rating): 157 (`phase5_es_pooled_v1.csv`).
+  - **R3-POOL (steered, one next token):** both forms single tokens → sum of the two
+    probabilities (Qwen3 10, EuroLLM 41); both multi-token with the **same first token**
+    (*blanc* + *o/a*) → that token's probability, which already covers both forms (Qwen3 106,
+    EuroLLM 89); otherwise excluded (Qwen3 20). A pooled token shared by two adjectives or
+    equal to an R3 invariant token is dropped (Qwen3 21). Usable: **Qwen3 116, EuroLLM 130**.
+    The pooled tokens are extra read columns of the R3 run (no extra forward passes); R3 proper,
+    its frame check and its analysis use the invariant columns only. Limitation: a shared first
+    token also covers other words beginning with it (noise, not a gender bias). Sensitivity: the
+    both-single-token subset (exact sums).
+  - **P20-POOL (unsteered):** both forms of all 157 scored as whole words in the Spanish P20
+    frames (rows `set = pooled`, `form = m/f`); lemma score = log(P(m form) + P(f form)). Same
+    difference-in-differences as P20. P20's frame check stays on the pre-registered set.
+  - **Statistic and reading:** as R3 / P20 (graded score: shift regressed on the Glasgow rating
+    with the same covariates), reported beside the invariant-only versions, never replacing
+    them. Agreement between the invariant and pooled versions supports both.
+  - Fixed before any session-2 output and before any pooled score was computed.
 - **P23. Adopted (PI, 2026-10-09): English base case (exploratory).** Before any steering, do
   English nouns already lean on the gender directions?
   - Items: bare English nouns, same input format as Phases 2–3: (a) the English concepts of

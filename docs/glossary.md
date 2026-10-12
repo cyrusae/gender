@@ -55,6 +55,10 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
 - **Log-probability bias score** *(standard, Kurita et al. 2019)*. How much likelier a word is
   after a female than a male context: log P(word | *The woman is very*) − log P(word | *The man
   is very*). The word's own frequency cancels. P22b uses it.
+- **Pooling across agreement** *(project usage)*. Reading a Spanish adjective as its lemma,
+  P(*blanco*) + P(*blanca*), so which form agreement picks doesn't matter (P28). When both forms
+  are several tokens that start with the same token (*blanc* + *o/a*), that first token's
+  probability already is the pooled probability.
 - **Paraphrase / wording robustness.** The same measurement under different sentence wordings
   (Phase 5 P18); a result is *wording-robust* if it has the same sign in every wording.
 

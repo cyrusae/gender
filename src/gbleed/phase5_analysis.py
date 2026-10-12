@@ -71,7 +71,8 @@ def ratings_for(name: str, fam: str, read: np.ndarray) -> pd.DataFrame:
         t = es_invariant_adjectives(fam)
         t = t.rename(columns={"en": "word"}).reset_index(drop=True)
         t["zipf"] = [zipf_frequency(w, "es") for w in t.es]  # the Spanish word's frequency
-        assert len(t) == len(read)
+        # R3 proper = the first len(t) read ids; the pooled gendered tokens (R3-POOL) follow
+        assert len(t) <= len(read)
         return t
     a = pd.read_csv(f"data/stimuli/phase5_adjectives_{fam}_v1.csv", keep_default_na=False)
     assert (a.token_id.to_numpy() == read).all()
@@ -108,7 +109,7 @@ def row_scores(name: str, keys: pd.DataFrame, lp: np.ndarray, read: np.ndarray,
         k["size_coef"] = np.nan
     else:
         rat = ratings_for(name, fam, read)
-        k["score"], k["size_coef"] = graded(shift, rat)
+        k["score"], k["size_coef"] = graded(shift[:, : len(rat)], rat)  # R3: R3 proper only
     return k
 
 
