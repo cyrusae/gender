@@ -80,6 +80,13 @@ def _social_ok(wn, w: str, sx: str) -> bool:
     return bool(set(words) & (FEMALE_WORDS if sx == "f" else MALE_WORDS))
 
 
+def _dominant(wn, w: str, syn) -> bool:
+    """The person sense is the word's dominant one in WordNet's tagged usage, all parts of speech
+    (>= 50%; drops rip, antique, private, and miss/stud/groom, whose verb uses dominate)."""
+    counts = {x.synset(): x.count() for ss in wn.synsets(w) for x in ss.lemmas() if x.name() == w}
+    return bool(counts.get(syn)) and counts[syn] >= 0.5 * sum(counts.values())
+
+
 def _sex(wn, w: str) -> str:
     """Held-out person nouns: first noun sense under person.n.01 and at least half of the word's
     tagged WordNet usage; a female or male word among the gloss's first four words and no word
@@ -89,10 +96,7 @@ def _sex(wn, w: str) -> str:
         return ""
     if wn.synset("person.n.01") not in {h for path in syn.hypernym_paths() for h in path}:
         return ""
-    # the person sense must be the word's dominant one in WordNet's tagged usage (drops rip,
-    # antique, private, whose first noun sense is a rare person sense)
-    counts = {x.synset(): x.count() for ss in wn.synsets(w) for x in ss.lemmas() if x.name() == w}
-    if not counts.get(syn) or counts[syn] < 0.5 * sum(counts.values()):
+    if not _dominant(wn, w, syn):
         return ""
     head, allw = set(words[:4]), set(words)
     if head & FEMALE_WORDS and not allw & MALE_WORDS:
@@ -102,11 +106,12 @@ def _sex(wn, w: str) -> str:
     return ""
 
 
-def _person2(wn, v1: pd.DataFrame) -> dict:
+def _person2(wn, v1: pd.DataFrame, dominance: bool = False) -> dict:
     """P24 main set: GN-GloVe's male/female words with the first noun sense under person.n.01,
     a sex word of the list's sex in the gloss's first six words and none of the other sex, no
     register label, Zipf >= 3, not a social-pair word, not morphologically marked; plus the v1
-    person nouns that are not morphologically marked."""
+    person nouns that are not morphologically marked. dominance (v4 on): person sense >= 50% of
+    WordNet tagged usage, as v1's rule (missing from v2/v3)."""
     from wordfreq import zipf_frequency
 
     person = wn.synset("person.n.01")
@@ -119,6 +124,8 @@ def _person2(wn, v1: pd.DataFrame) -> dict:
                 continue
             ss = [s for s in wn.synsets(w, "n") if w in [x.name() for x in s.lemmas()]]
             if not ss or person not in {h for path in ss[0].hypernym_paths() for h in path}:
+                continue
+            if dominance and not _dominant(wn, w, ss[0]):
                 continue
             _, words = _gloss_words(wn, w)
             mine, other = (FEMALE_WORDS, MALE_WORDS) if sx == "f" else (MALE_WORDS, FEMALE_WORDS)
