@@ -2,7 +2,7 @@
 
 *Papers and resources mentioned while building the project, with why they're relevant and
 where they came up. Bibliographic details were checked against publisher/arXiv/ACL pages on
-2026-10-06 unless marked otherwise. Nothing here has been read for the project yet; these are
+2026-10-06 unless marked otherwise. Whether a work has been read varies and is not listed/will not be updated in any consistent manner; these are
 pointers, not summaries.*
 
 ## Model internals that affected the measurements
