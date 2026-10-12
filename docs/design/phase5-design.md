@@ -594,6 +594,12 @@ renting. Trims if needed: every-position steering at the working dose only (~−
     directions are fitted (they aren't fitted on names). Bootstrap over names within cells.
   - Reading: a name is a social-gender cue by convention, not meaning, so this is a separate
     test, not a replacement for the person words. Outside Holm.
+- **P24c. Adopted (PI, 2026-10-12): female/partner pairs (exploratory).** English person-word
+  pairs that differ only in sex (*widow/widower*, *nun/monk*) or a female-marked word and its
+  now-generic base (*actress/actor*); sources, checks and review in decisions.md (list v4).
+  Statistic: share of pairs where a direction (ES, DE, POOLED, social) scores the female word
+  higher; bootstrap over pairs; reported for all pairs and per type. Suffix pairs (*-ess*) are
+  spelling-marked: reported within the type split, not claimed as spelling-controlled.
 - **P25. Adopted (PI, 2026-10-09): unsteered R1-EN on the flipped pairs (exploratory).** The
   behavioural counterpart of P23: do English concepts already lean toward one language's gender?
   - Data: the dose-0 (unsteered) R1-EN rows every steering run already collects; no extra passes.
