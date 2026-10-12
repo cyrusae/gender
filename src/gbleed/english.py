@@ -35,7 +35,11 @@ SOCIAL_PAIRS = [("woman", "man"), ("girl", "boy"), ("mother", "father"), ("daugh
                 ("sister", "brother"), ("queen", "king"), ("wife", "husband"), ("aunt", "uncle"),
                 ("she", "he")]  # fmt: skip
 WORDS_V1 = "data/stimuli/english_v1.csv"
-WORDS = "data/stimuli/english_v2.csv"
+WORDS_V2 = "data/stimuli/english_v2.csv"
+WORDS = "data/stimuli/english_v3.csv"
+# PI 2026-10-11: insults/slurs and sex-work terms out of both person sets (WordNet's gloss has
+# no register label for them)
+PERSON_PI_DROP = {"whore", "jackass", "prostitute"}
 GNGLOVE = "data/raw/gnglove/{}_word_file.txt"  # github.com/uclanlp/gn_glove (Apache 2.0)
 SSA = "data/raw/ssa/names"  # ssa.gov/oact/babynames/names.zip (public domain)
 NAME_MIN_BIRTHS = 10_000
@@ -159,13 +163,22 @@ def build_v2() -> pd.DataFrame:
     p2 = pd.DataFrame([{"word": w, "set": "person2", "sex": sx, "pair": ""}
                        for w, sx in sorted(_person2(wn, v1).items())])  # fmt: skip
     df = pd.concat([v1, p2, _names(wn)], ignore_index=True)
+    df.to_csv(WORDS_V2, index=False)
+    print(df.groupby(["set", "sex"]).size().to_string())
+    return df
+
+
+def build_v3() -> pd.DataFrame:
+    """english_v3 = v2 minus PERSON_PI_DROP from the person sets (v2 has results)."""
+    df = pd.read_csv(WORDS_V2, keep_default_na=False)
+    df = df[~(df.set.isin(["person", "person2"]) & df.word.isin(PERSON_PI_DROP))]
     df.to_csv(WORDS, index=False)
     print(df.groupby(["set", "sex"]).size().to_string())
     return df
 
 
 def build() -> pd.DataFrame:
-    """v1 (kept for provenance; v2 = build_v2)."""
+    """v1 (kept for provenance; v2 = build_v2, v3 = build_v3)."""
     from wordfreq import zipf_frequency
 
     from .lexicon import _wordnet
