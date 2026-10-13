@@ -89,15 +89,23 @@ def graded(shift: np.ndarray, rat: pd.DataFrame) -> tuple[np.ndarray, np.ndarray
     return -B[1], B[1 + cols.index("SIZE")]
 
 
+def shifts(keys: pd.DataFrame, lp: np.ndarray) -> tuple[pd.DataFrame, np.ndarray]:
+    """Each row's log-probs minus its prompt's unsteered row (v at dose 0). A noun in two noun
+    sets (steer_es and pair: 8 Spanish nouns) is scored twice; each copy is shifted from its own
+    unsteered row (bf16 batch noise differs between copies, up to ~0.3 nat)."""
+    k = keys.copy()
+    k["dup"] = k.groupby(list(keys.columns), sort=False).cumcount()
+    pk = ["readout", "wording", "lemma", "lang", "dup"]
+    k["prompt"] = k.groupby(pk, sort=False).ngroup()
+    base = k[(k.vec == "v") & (k.mult == 0.0)].reset_index().set_index("prompt")["index"]
+    assert base.index.is_unique and len(base) == k.prompt.nunique()
+    return k, lp - lp[base.loc[k.prompt].to_numpy()]
+
+
 def row_scores(name: str, keys: pd.DataFrame, lp: np.ndarray, read: np.ndarray,
                fam: str, tok=None) -> pd.DataFrame:  # fmt: skip
     """Each row's score as a shift from its prompt's unsteered row (v at dose 0)."""
-    k = keys.copy()
-    pk = ["readout", "wording", "lemma", "lang"]
-    k["prompt"] = k.groupby(pk, sort=False).ngroup()
-    base = k[(k.vec == "v") & (k.mult == 0.0)].reset_index().set_index("prompt")["index"]
-    b = base.loc[k.prompt].to_numpy()
-    shift = lp - lp[b]
+    k, shift = shifts(keys, lp)
     if name in ("R2", "R2-EN", "RN-R2"):
         col = {int(t): j for j, t in enumerate(read)}
         ids = _r2_ids(tok)

@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 from gbleed import phase5
-from gbleed.phase5_analysis import graded, window, working_test
+from gbleed.phase5_analysis import graded, shifts, window, working_test
 
 
 def test_conditions_counts_and_shared_baseline():
@@ -59,3 +59,13 @@ def test_window():
     d = pd.DataFrame({"vec": ["rand0"] * 3 + ["v"] * 4, "mult": [1.0] * 3 + [-1.0, 0.5, 1.0, 2.0],
                       "kl": [1.0, 1.0, 1.0, 0.5, 0.2, 0.9, 3.0]})  # fmt: skip
     assert window(d) == [-1.0, 0.0, 0.5, 1.0]
+
+
+def test_shifts_duplicate_prompt_uses_own_baseline():
+    # the same prompt twice (a noun in two noun sets): each copy minus its own dose-0 row
+    keys = pd.DataFrame({"readout": "R1", "wording": "W1", "lemma": "tarta", "lang": "es",
+                         "vec": "v", "mult": [0.0, 1.0, 0.0, 1.0]})  # fmt: skip
+    lp = np.array([[0.0], [1.0], [0.3], [1.3]])
+    k, s = shifts(keys, lp)
+    assert k.dup.tolist() == [0, 0, 1, 1]
+    assert np.allclose(s[:, 0], [0.0, 1.0, 0.0, 1.0])
