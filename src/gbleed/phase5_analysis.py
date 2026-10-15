@@ -253,6 +253,12 @@ def analyze_run(run_dir: str | Path, fam: str, tok, rng=None, failed: set = froz
         keys, lp, read = load(run_dir, name)
         rows = row_scores(name, keys, lp, read, fam, tok)
         drop = {w for lg, rd, w in failed if lg == info["lang"] and rd == name}
+        if name == "R3":  # R3-POOL (P28): extra read columns of the same run, own frame check
+            # (computed even when R3 proper is excluded); own seed: must not shift the random
+            # draws of the readouts after it
+            res["readouts"]["R3-POOL"] = r3_pool(
+                keys, lp, read, fam, np.random.default_rng(SEED + 1), drop
+            )
         ns = noun_scores(name, rows, drop)
         if ns.empty:  # every wording failed its frame check
             res["readouts"][name] = {"excluded": sorted(drop)}
@@ -263,11 +269,6 @@ def analyze_run(run_dir: str | Path, fam: str, tok, rng=None, failed: set = froz
         if dmg is not None and (ns.mult == 1.5).any():
             r["damage_matched"] = damage_matched(ns, dmg)
         res["readouts"][name] = r
-        if name == "R3":  # R3-POOL (P28): extra read columns of the same run, own analysis
-            # own seed: R3-POOL must not shift the random draws of the readouts after it
-            res["readouts"]["R3-POOL"] = r3_pool(
-                keys, lp, read, fam, np.random.default_rng(SEED + 1), drop
-            )
     return res
 
 
