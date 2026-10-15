@@ -175,6 +175,24 @@ gendered adjective choice in one model size, weakly, and not in the larger one.*
   layers, R1-EN 2/4 (not a majority); 14B 0/3 on both.
 - **R3 (in-language Spanish adjectives)** failed its readout check on 8B (the listed adjectives
   took 2.9% of the probability, below the 5% bar) and is excluded.
+- **R3-POOL (Spanish adjectives, pooled across agreement; exploratory).** R3 proper failed its
+  check on both sizes (its 51 adjectives got 2.9% / 2.4% of the probability). R3-POOL got its
+  own check, fixed before computing it (PI, 2026-10-15, a logged deviation: by the P20-POOL
+  analogy it would have been excluded). It passes (18%). Result: **positive at every layer of
+  both models**, noun-only 8B 0.05–0.07, 14B 0.04–0.05, against a random 95% of ≤ 0.01. The push
+  moves the same adjectives the woman–man push moves (rank correlation 0.56–0.87; number and
+  random pushes ≈ 0). So on 14B, a push that changes nothing in English *does* change Spanish
+  adjective choice: the "inside the language but not reaching English" pattern. Three reasons
+  for caution: it passed only a revised check; reading a shared first token (*blanc-*) is assumed
+  not to depend on agreement, which wasn't tested; and the woman–man direction also makes a
+  Spanish noun grammatically feminine, so the profile match doesn't prove the content is social.
+- **P20 / P20-POOL (unsteered, flipped pairs).** Concept held fixed within a pair (*el puente* /
+  *die Brücke*): does the grammatically feminine side draw more feminine-rated adjectives?
+  Difference-in-differences, > 0 = yes. Invariant Spanish adjectives: 8B +0.056 [−0.009, 0.115],
+  14B +0.032 [−0.024, 0.086]. Pooled gendered adjectives: **8B +0.103 [0.050, 0.155]** (also
+  without cognates and without homographs), 14B +0.010 [−0.034, 0.056]. All of it is Spanish:
+  German nouns' own feminine-minus-masculine contrast is ≈ 0 on both. A frequency confound
+  (feminine forms of feminine-rated adjectives being commoner) was checked and isn't there.
 - **P25** (unsteered lean of English concepts toward a translation's gender): the difference is
   near zero on both, with intervals covering 0 (8B −0.03 [−0.06, 0.01]; 14B −0.03 [−0.07, 0.00]).
 
