@@ -69,3 +69,25 @@ def test_shifts_duplicate_prompt_uses_own_baseline():
     k, s = shifts(keys, lp)
     assert k.dup.tolist() == [0, 0, 1, 1]
     assert np.allclose(s[:, 0], [0.0, 1.0, 0.0, 1.0])
+
+
+def test_p20_did_sign_and_concept_cancels():
+    from gbleed.phase5_analysis import p20_did
+
+    rng = np.random.default_rng(0)
+    pairs = pd.DataFrame({"pair_id": range(40), "de_gender": ["f", "m"] * 20,
+                          "es_gender": ["m", "f"] * 20})  # fmt: skip
+    concept = rng.normal(0, 5, 40)  # shared by both nouns of a pair: must cancel
+    fem_de = (pairs.de_gender == "f").to_numpy()
+    per = pd.DataFrame({"de": concept + 0.3 + np.where(fem_de, 1.0, 0.0),  # German lean 0.3
+                        "es": concept + np.where(fem_de, 0.0, 1.0)}, index=pairs.pair_id)  # fmt: skip
+    r = p20_did(per, pairs, rng, n_boot=200)
+    assert abs(r["did"] - 2.0) < 1e-9 and r["lo"] > 0 and r["n_def_esm"] == 20
+
+
+def test_r3_pool_share_uses_unsteered_rows_and_all_columns():
+    from gbleed.phase5_analysis import r3_pool_share
+
+    keys = pd.DataFrame({"vec": ["v", "v", "rand0"], "mult": [0.0, 1.0, 0.0], "wording": "W1"})
+    lp = np.log(np.array([[0.01, 0.02, 0.03], [0.5, 0.2, 0.1], [0.5, 0.2, 0.1]]))
+    assert np.isclose(r3_pool_share(keys, lp), 0.06)

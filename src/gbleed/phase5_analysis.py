@@ -79,6 +79,23 @@ def ratings_for(name: str, fam: str, read: np.ndarray) -> pd.DataFrame:
     return a
 
 
+def pooled_ratings(fam: str | None = None) -> pd.DataFrame:
+    """P28 pooled Spanish adjectives (all 157, or with `fam` the R3-POOL usable ones in read
+    order) with the English Glasgow ratings of their gloss and the lemma's frequency (both forms'
+    frequencies summed: the pooled score reads the lemma)."""
+    from wordfreq import zipf_frequency
+
+    from .phase5_stimuli import ADJ_TRANS, ES_POOLED, es_pooled
+
+    g = es_pooled(fam) if fam else pd.read_csv(ES_POOLED, keep_default_na=False)
+    t = pd.read_csv(ADJ_TRANS, keep_default_na=False).drop_duplicates("en").set_index("en")
+    g = g.drop(columns=["GEND", "VAL"]).join(t[["GEND", "VAL", "AROU", "SIZE"]], on="en")
+    assert g.GEND.notna().all()
+    g["zipf"] = [np.log10(10 ** zipf_frequency(m, "es") + 10 ** zipf_frequency(f, "es"))
+                 for m, f in zip(g.es_m, g.es_f, strict=True)]  # fmt: skip
+    return g.rename(columns={"en": "word"}).reset_index(drop=True)
+
+
 def graded(shift: np.ndarray, rat: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
     """Per row: the feminine-direction gender coefficient (-beta_GEND) of the shift regressed on
     [1, GEND, covariates] across adjectives, and the size coefficient (the §5.4 control)."""
@@ -119,6 +136,31 @@ def row_scores(name: str, keys: pd.DataFrame, lp: np.ndarray, read: np.ndarray,
         rat = ratings_for(name, fam, read)
         k["score"], k["size_coef"] = graded(shift[:, : len(rat)], rat)  # R3: R3 proper only
     return k
+
+
+def r3_pool_scores(keys: pd.DataFrame, lp: np.ndarray, read: np.ndarray, fam: str,
+                   subset: str = "all") -> pd.DataFrame:  # fmt: skip
+    """R3-POOL (P28): the R3 run's pooled columns (after R3 proper), one log-probability per
+    lemma (log of the summed probabilities of its read tokens: both single-token forms, or the
+    shared first token), then shifted from the unsteered row and graded as R3. `subset`:
+    "all", "both_single" (exact sums only) or "no_homograph"."""
+    from .phase5 import r3_n_invariant
+
+    g = pooled_ratings(fam)
+    n_inv = r3_n_invariant(fam)
+    col = {int(t): j for j, t in enumerate(read)}
+    assert n_inv + sum(map(len, g.ids)) == len(read)
+    lem = np.stack([np.logaddexp.reduce(lp[:, [col[i] for i in ids]], axis=1) for ids in g.ids],
+                   axis=1)  # fmt: skip
+    keep = {"all": np.ones(len(g), bool), "both_single": (g[f"kind_{fam}"] == "both_single"),
+            "no_homograph": (g.homograph == "")}[subset]  # fmt: skip
+    keep = np.asarray(keep)
+    k, shift = shifts(keys, lem[:, keep])
+    k["score"], k["size_coef"] = graded(shift, g[keep].reset_index(drop=True))
+    return k
+
+
+R3_POOL_SUBSETS = ("all", "both_single", "no_homograph")
 
 
 def _r2_ids(tok) -> dict[str, tuple[int, int]]:
@@ -221,6 +263,146 @@ def analyze_run(run_dir: str | Path, fam: str, tok, rng=None, failed: set = froz
         if dmg is not None and (ns.mult == 1.5).any():
             r["damage_matched"] = damage_matched(ns, dmg)
         res["readouts"][name] = r
+        if name == "R3":  # R3-POOL (P28): extra read columns of the same run, own analysis
+            # own seed: R3-POOL must not shift the random draws of the readouts after it
+            res["readouts"]["R3-POOL"] = r3_pool(
+                keys, lp, read, fam, np.random.default_rng(SEED + 1), drop
+            )
+    return res
+
+
+def r3_pool_share(keys: pd.DataFrame, lp: np.ndarray) -> float:
+    """R3-POOL's own frame check quantity (PI 2026-10-15): median over unsteered prompts of the
+    total next-token probability of every token the R3 run reads (invariant + pooled)."""
+    m = (keys.vec == "v") & (keys.mult == 0.0) & keys.wording.isin(PRIMARY_WORDINGS["R3"])
+    return float(np.median(np.exp(lp[m.to_numpy()]).sum(1)))
+
+
+def r3_pool(keys, lp, read, fam, rng, r3_failed: set) -> dict:
+    """R3-POOL at the working dose, per subset, if its own frame check passes (combined share
+    >= SHARE_MIN["R3"], PI 2026-10-15; a deviation: R3's own check is on the invariant columns
+    only and is recorded, not applied)."""
+    share = r3_pool_share(keys, lp)
+    out = {"r3_frame_check_failed": sorted(r3_failed), "share": share,
+           "frame_check_passed": share >= SHARE_MIN["R3"]}  # fmt: skip
+    if not out["frame_check_passed"]:
+        return out
+    for sub in R3_POOL_SUBSETS:
+        ns = noun_scores("R3", r3_pool_scores(keys, lp, read, fam, sub))
+        out[sub] = working_test(ns, rng)
+    return out
+
+
+def r3_pool_table(runs: list[dict]) -> pd.DataFrame:
+    """R3-POOL per run x subset (secondary, outside Holm): a layer passes if p <= 0.05 with the
+    95% interval of real - random above 0; plus the controls, as `verdicts`."""
+    rows = []
+    for r in runs:
+        x = r["readouts"].get("R3-POOL")
+        if not x:
+            continue
+        base = {"lang": r["lang"], "positions": r["positions"], "layer": r["layer"],
+                "share": x["share"], "frame_check_passed": x["frame_check_passed"]}  # fmt: skip
+        if not x["frame_check_passed"]:
+            rows.append({**base, "subset": "excluded"})
+            continue
+        for sub in R3_POOL_SUBSETS:
+            w = x[sub]
+            rows.append({**base, "subset": sub, "effect": w["effect"], "random_p95": w["random_p95"],
+                         "p": w["p"], "diff_lo_95": w["diff_lo_95"],
+                         "pass": w["p"] <= 0.05 and w["diff_lo_95"] > 0,
+                         "number": w.get("number_effect"), "social": w.get("social_effect"),
+                         "cross": w.get("cross_effect"),
+                         "r3_frame_check_failed": bool(x["r3_frame_check_failed"])})  # fmt: skip
+    return pd.DataFrame(rows)
+
+
+# ---- P20 / R3-PAIR and P20-POOL (unsteered, flipped pairs) ----------------------------------
+P20_SHARE_MIN = 0.05  # the adjective readouts' frame-check bar (PI 2026-10-10)
+
+
+def p20_pair_scores(scores: pd.DataFrame, pooled: bool = False) -> pd.DataFrame:
+    """Graded score (as R1, on log-probability levels) per pair x language x wording. Spanish
+    `pooled`: the 157 gendered adjectives read as lemmas, log(P(m form) + P(f form))."""
+    from wordfreq import zipf_frequency
+
+    from .phase5_stimuli import ADJ_TRANS
+
+    t = pd.read_csv(ADJ_TRANS, keep_default_na=False).drop_duplicates("en").set_index("en")
+    out = []
+    for (lang, w), d in scores.groupby(["lang", "wording"]):
+        if pooled and lang == "es":
+            d = d[d.set == "pooled"]
+            lp = d.pivot_table(index=["pair_id", "en"], columns="form", values="lp")
+            lp = np.logaddexp(lp.m, lp.f).unstack("en")
+            rat = pooled_ratings().set_index("word").loc[lp.columns].reset_index()
+        else:
+            d = d[d.set == "main"]
+            lp = d.pivot_table(index="pair_id", columns="en", values="lp")
+            adj = d.drop_duplicates("en").set_index("en").adj.loc[lp.columns]
+            rat = t.loc[lp.columns, ["GEND", "VAL", "AROU", "SIZE"]].reset_index(names="word")
+            rat["zipf"] = [zipf_frequency(a, lang) for a in adj]
+        assert lp.notna().all().all()
+        s, _ = graded(lp.to_numpy(), rat)
+        out.append(pd.DataFrame({"pair_id": lp.index, "lang": lang, "wording": w, "score": s}))
+    return pd.concat(out, ignore_index=True)
+
+
+def p20_did(per: pd.DataFrame, pairs: pd.DataFrame, rng, n_boot: int = N_BOOT) -> dict:
+    """Difference-in-differences: per pair German-noun score minus Spanish-noun score, then
+    de-f/es-m pairs minus de-m/es-f pairs (> 0 predicted); pair bootstrap within pair type."""
+    d = (per.de - per.es).rename("d").to_frame().join(pairs.set_index("pair_id").de_gender)
+    a, b = d[d.de_gender == "f"].d.to_numpy(), d[d.de_gender == "m"].d.to_numpy()
+    bs = np.array([rng.choice(a, len(a)).mean() - rng.choice(b, len(b)).mean()
+                   for _ in range(n_boot)])  # fmt: skip
+    lo, hi = np.quantile(bs, [0.025, 0.975])
+    # each language's own contrast (concept not cancelled; descriptive)
+    es_f = pairs.set_index("pair_id").es_gender.loc[per.index] == "f"
+    de_f = pairs.set_index("pair_id").de_gender.loc[per.index] == "f"
+    return {"did": float(a.mean() - b.mean()), "lo": float(lo), "hi": float(hi),
+            "p_one_sided": float((1 + (bs <= 0).sum()) / (1 + n_boot)),
+            "n_def_esm": len(a), "n_dem_esf": len(b),
+            "es_f_minus_m": float(per.es[es_f.to_numpy()].mean() - per.es[~es_f.to_numpy()].mean()),
+            "de_f_minus_m": float(per.de[de_f.to_numpy()].mean() - per.de[~de_f.to_numpy()].mean())}  # fmt: skip
+
+
+def p20(model_id: str, root: str = "results/phase5_p20", rng=None) -> dict:
+    """P20 (R3-PAIR) and P20-POOL (P28) for one model: frame check, then the
+    difference-in-differences with the Spanish wordings averaged (and each alone), with and
+    without English cognates; P20-POOL also without homographs."""
+    from .models import model_slug
+    from .phase4 import PAIRS_FINAL
+
+    rng = rng or np.random.default_rng(SEED)
+    d = Path(root) / model_slug(model_id)
+    scores = pd.read_csv(d / "scores.csv.gz", keep_default_na=False)
+    shares = json.loads((d / "summary.json").read_text())["median_share"]
+    ok = {k for k, v in shares.items() if v >= P20_SHARE_MIN}
+    scores = scores[[f"{lg}/{w}" in ok for lg, w in zip(scores.lang, scores.wording, strict=True)]]
+    pairs = pd.read_csv(PAIRS_FINAL, keep_default_na=False)
+    pairs = pairs[pairs.pair_id.isin(scores.pair_id)]
+    nocog = set(pairs[pairs.en_cognate.astype(str) != "True"].pair_id)
+    res = {"median_share": shares, "frame_check_passed": sorted(ok)}
+    homog = set(pooled_ratings().query("homograph != ''").word)
+    for name, pooled in (("P20", False), ("P20-POOL", True)):
+        variants = [(None, scores)]
+        if pooled:
+            variants.append(("no_homograph", scores[~(scores.en.isin(homog)
+                                                    & (scores.set == "pooled"))]))  # fmt: skip
+        for tag, sc in variants:
+            ps = p20_pair_scores(sc, pooled)
+            es_w = sorted(ps[ps.lang == "es"].wording.unique())
+            if "de" not in set(ps.lang) or not es_w:
+                res[name] = {"excluded": "a language failed its frame check"}
+                break
+            piv = ps.pivot_table(index="pair_id", columns=["lang", "wording"], values="score")
+            de = piv[("de", "W1")]
+            for wd in ["mean", *es_w] if len(es_w) > 1 else es_w:
+                es = piv["es"].mean(1) if wd == "mean" else piv[("es", wd)]
+                per = pd.DataFrame({"de": de, "es": es})
+                key = name + (f"/{tag}" if tag else "") + ("" if wd == "mean" else f"/es_{wd}")
+                res[key] = {"all": p20_did(per, pairs, rng),
+                            "no_cognates": p20_did(per[per.index.isin(nocog)], pairs, rng)}  # fmt: skip
     return res
 
 
@@ -314,8 +496,10 @@ def p25(run_dir: str | Path, fam: str, rng=None, n_boot: int = N_BOOT) -> dict:
 
 
 def analyze_model(model_id: str, root: str = "results/phase5", out_root: str | None = None,
-                  readoutcheck_root: str = "results/phase5_readoutcheck"):  # fmt: skip
-    """Every sweep directory of one model: per-run results, the verdict table, P25."""
+                  readoutcheck_root: str = "results/phase5_readoutcheck",
+                  p20_root: str = "results/phase5_p20"):  # fmt: skip
+    """Every sweep directory of one model: per-run results, the verdict table, P25, R3-POOL
+    (`r3_pool.csv`) and P20 / P20-POOL (`p20.json`)."""
     from transformers import AutoTokenizer
 
     from .models import model_slug
@@ -336,6 +520,9 @@ def analyze_model(model_id: str, root: str = "results/phase5", out_root: str | N
     v = verdicts(runs)
     v.to_csv(out / "verdicts.csv", index=False)
     p26(runs).to_csv(out / "p26.csv", index=False)
+    r3_pool_table(runs).to_csv(out / "r3_pool.csv", index=False)
+    if (Path(p20_root) / model_slug(model_id) / "scores.csv.gz").exists():
+        (out / "p20.json").write_text(json.dumps(p20(model_id, p20_root), indent=1))
     es_noun = [r for r in sorted(d.glob("es_k*")) if not r.name.endswith("_all")]
     if es_noun:
         (out / "p25.json").write_text(json.dumps(p25(es_noun[0], fam), indent=1))
