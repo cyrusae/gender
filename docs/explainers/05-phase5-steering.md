@@ -3,9 +3,9 @@
 *Code: `src/gbleed/steering.py` (the split forward pass), `phase5.py` (gate, sweeps, readouts,
 damage), `phase5_stimuli.py` (word lists), `phase5_analysis.py` (scores, tests, verdicts).
 Design and every pre-registered choice: `docs/design/phase5-design.md` (P1–P27) and
-`docs/decisions.md`. Terms in **bold** are in the [glossary](../glossary.md). Nothing in this
-file is a result yet: the 4B gate is a laptop development run, and the confirmatory runs are
-8B/14B in cloud session 2.*
+`docs/decisions.md`. Terms in **bold** are in the [glossary](../glossary.md). Confirmatory
+results (8B/14B, cloud session 2, L40S bf16) are in [Results](#results-session-2-confirmatory-8b14b);
+the 4B numbers elsewhere are laptop development runs.*
 
 ## The question
 
@@ -124,6 +124,59 @@ feminine-rated adjectives, holding pleasantness fixed.
   social content?), with its own confound (the push acts directly on the predicted word), so it
   is reported separately and labelled by the claim it supports.
 
+## Results (session 2, confirmatory, 8B/14B)
+
+**German: no valid test on either size.** The pre-registered German gate frame (C4) failed: on
+8B it failed its frame check (unsteered, the feminine nouns were read correctly only 62% of
+the time, below the 70% bar); on 14B it passed that check but failed the gate at every layer.
+On 14B the push didn't swap genders, it collapsed both toward neutral: feminine nouns' scores
+crossed zero, masculine nouns' stayed negative. The secondary frame (C1) passed, but switching to it after seeing
+C4 fail would be choosing a frame on the model's scores, so (PI decision, 2026-10-13) German
+is reported as "no valid confirmatory test" and **every verdict below is Spanish-only**. At most
+"language-specific"; "bleed" needed both languages.
+
+**Gate (Spanish):** the push flips the median noun's article at small doses on both sizes
+(α\*, in multiples of a typical noun state's size at that layer: 8B 0.3/0.2/0.15/0.3
+at layers 9/14/20/25; 14B 0.2/0.3/0.2 at 10/16/22; 14B layer 28 never flipped the median
+within the random-flip limit and drops out).
+
+**Readouts, noun-only steering (the pre-registered claim):** mean shift in log-probability
+toward feminine-rated adjectives, at the gate dose, averaged over passing layers; "random 95%"
+is the 95th percentile of 100 random directions of the same size.
+
+| | 8B | 14B |
+|---|---|---|
+| R1 (*very ___*): grammatical push | **0.020** (passes 3/4 layers) | **0.000** (0/3) |
+| R1: random 95% | 0.012 | 0.008 |
+| R1: social push (control) | 0.064 | 0.047 |
+| R1: number push (control) | −0.003 | 0.002 |
+| R1-EN (English noun only): grammatical push | **0.011** (3/4) | **−0.001** (0/3) |
+| R1-EN: social push | 0.033 | 0.029 |
+| **Verdict** | language-specific effect | **no effect** |
+
+How to read it: on 8B, pushing *el puente* toward feminine moves English adjective choices
+toward feminine-rated words, about a third as much as pushing along the woman–man direction,
+and plural/singular pushes don't. On 14B the same push still flips the article but moves the
+adjectives **not at all**, although the social push shows the readout can move. So there's
+no growth with size; if anything the link fades. One result at one size isn't a trend, and
+the 8B effect is small, so the safe summary is: **grammatical gender can be made to leak into
+gendered adjective choice in one model size, weakly, and not in the larger one.**
+
+- **R2 (the man/woman forced choice) moves on both sizes** (14B: all 3 layers above random). It
+  shows the Spanish noun next to the question, so the model can answer "woman" just because
+  the noun is grammatically feminine; R2-EN (English noun only) moved on 14B at 1 of 3 layers.
+  Read R2 as "the model connects grammatical gender with man/woman words when it can see the
+  noun", not as social association.
+- **Cross-language (P26, exploratory):** the German direction pushed into Spanish nouns moves 14B
+  R1 slightly above random at layers 10/16, while Spanish's own direction doesn't. Small, not
+  pre-registered: a footnote.
+- **Every-position steering** (pushing every token, a different claim): 8B passes R1 at 3/4
+  layers, R1-EN 2/4 (not a majority); 14B 0/3 on both.
+- **R3 (in-language Spanish adjectives)** failed its readout check on 8B (the listed adjectives
+  took 2.9% of the probability, below the 5% bar) and is excluded.
+- **P25** (unsteered lean of English concepts toward a translation's gender): the difference is
+  near zero on both, with intervals covering 0 (8B −0.03 [−0.06, 0.01]; 14B −0.03 [−0.07, 0.00]).
+
 ## Side questions answered with the same runs
 
 - **P25:** unsteered, do English concepts already lean toward one translation's gender? On the
@@ -146,17 +199,17 @@ feminine-rated adjectives, holding pleasantness fixed.
   gap after feminine vs masculine inanimate nouns is subtracted, so only the woman/man part is
   left. Laptop result (ρ with Glasgow, raw / pleasantness removed; 1.7B, 4B):
 
-  | | 1.7B | 4B |
-  |---|---|---|
-  | English (656) | 0.59 / 0.57 | 0.52 / 0.52 |
-  | German (238) | 0.43 / 0.36 | 0.36 / 0.32 |
-  | Spanish invariant (110) | 0.45 / 0.28 | 0.25 / −0.01 |
-  | Spanish gendered, double (157) | 0.24 / 0.19 | 0.21 / 0.07 |
+  | | 1.7B | 4B | 8B | 14B |
+  |---|---|---|---|---|
+  | English (656) | 0.59 / 0.57 | 0.52 / 0.52 | 0.51 / 0.49 | 0.57 / 0.56 |
+  | German (238) | 0.43 / 0.36 | 0.36 / 0.32 | 0.28 / 0.32 | 0.39 / 0.43 |
+  | Spanish invariant (110) | 0.45 / 0.28 | 0.25 / −0.01 | 0.27 / 0.04 | 0.34 / 0.12 |
+  | Spanish gendered, double (157) | 0.24 / 0.19 | 0.21 / 0.07 | 0.23 / 0.08 | 0.21 / 0.19 |
 
-  English and German track the human ratings on both sizes, so English ratings on German
-  translations are reasonable. Spanish is weaker: on 4B the woman/man lean is explained by
-  pleasantness (woman frames favour nicer words), not by Glasgow gender. Spanish R3/P20 results
-  carry that caveat; 8B/14B (session 2) show whether it grows with size.
+  English and German track the human ratings at every size, so English ratings on German
+  translations are reasonable. Spanish stays weak at every size: once pleasantness is removed
+  (woman frames favour nicer words), little Glasgow gender is left (8B/14B are bf16 cloud runs;
+  1.7B/4B laptop). Spanish R3/P20 results carry that caveat.
 
 ## Limits worth stating
 
@@ -178,3 +231,12 @@ feminine-rated adjectives, holding pleasantness fixed.
   measured (a candidate for later, P21 note).
 - German has no frame where a noun's gender can be pushed against a gender-neutral determiner,
   so R3 is Spanish only.
+- **The confirmatory verdicts are Spanish-only** (German's pre-registered frame failed on both
+  sizes), so the cross-language half of the question is unanswered: "bleed" needed both.
+- **Two sizes, opposite answers.** 8B shows a small effect, 14B none. With one model family and
+  two confirmatory sizes, "size-dependent" is a description, not an explanation; a third family
+  (e.g. EuroLLM) would be needed to say more.
+- A gate dose is chosen per layer (the smallest that flips the median noun), so 14B's readouts
+  were measured at doses similar to 8B's (0.2–0.3 of a typical state). A larger push might move them; the
+  pre-registered test asks whether the push that *just* changes the grammar also changes
+  associations.

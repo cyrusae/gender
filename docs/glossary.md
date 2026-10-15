@@ -155,6 +155,10 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   the direction itself as well as in the test. It can't correct a systematically biased item set.
 - **Pre-registration.** Writing down how results will be read before running (the design doc's
   outcome tables; `decisions.md`). Analyses added after seeing results are labelled exploratory.
+- **Holm correction** *(standard statistics, Holm 1979)*. With two co-primary tests, the stronger
+  must pass at half the error rate (97.5% intervals); only then is the other judged at the usual
+  rate (95%). Keeps the chance of any false positive at 5% overall. Used for Phase 4 T1/T3 and
+  Phase 5 R1/R1-EN.
 - **Concept erasure.** Editing activations so a concept can no longer be read out.
 - **Linear guardedness.** A representation is linearly guarded against a concept if no linear
   classifier can predict the concept better than always guessing the majority class. Belrose et al.
@@ -265,3 +269,21 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   `free_variation` (*el/la mar*).
 - **Outcome table.** The design doc's per-phase table of possible results → meaning → next step,
   written before running.
+- **Position-robust** *(project usage)*. A gender result that holds at both readout positions
+  (LAST, pre-registered primary, and AFTER, secondary). Most Phase 2–4 results hold at LAST only.
+- **Frame check** *(project usage)*. Before a frame is used to judge anything, the unsteered model
+  must get it right (e.g. Phase 5 German C4: feminine nouns read correctly at least 70% of the
+  time). A frame that fails is not used for that model; switching to another frame after seeing
+  the failure would be choosing on results.
+- **Gate / flip dose (α\*)** *(project usage, Phase 5)*. The gate asks whether a push along the
+  grammatical direction changes the article the model expects (*el* → *la*). α\* is the smallest
+  dose at which the median noun flips while random pushes of that size flip under 10%. Readouts
+  are measured at α\*. A layer that never flips fails the gate and drops out.
+- **Noun-only vs every-position steering** *(project usage, Phase 5)*. Noun-only pushes just the
+  noun's own token (the pre-registered claim: does the noun's gender feed into later words?).
+  Every-position pushes all tokens, so the push also acts on the word being predicted; it asks
+  whether the direction itself carries social content, a different claim.
+- **Verdict labels (Phase 5)** *(project usage)*. *Bleed*: grammatical pushes move social
+  readouts in Spanish and German, same sign. *Language-specific*: one language only (or only one
+  could be tested). *No effect*: the push moves the readouts no more than random pushes do,
+  while the social push shows the readouts can move.

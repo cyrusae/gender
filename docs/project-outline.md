@@ -230,14 +230,43 @@ second Claude session that read along and flagged problems.*
   rule out "person vs thing"; uncertainty is computed by word family. Suggestive only (one clean
   family, no clean male words).
 
-## Where things stand (Oct 12)
+## 15. The second cloud session: 8B and 14B (Oct 12–13)
 
-- **Done:** Phases 0–3 confirmed on all target sizes; Phase 4 developed on the laptop; Phase 5
-  code complete and tested end to end; English and German side tests built and reviewed.
-- **Running:** a full end-to-end test of the cloud script on the latest code; English v4 and
-  German diminutive extractions and analyses (1.7B/4B).
-- **Next:** one final end-to-end test on the finished code, then the second cloud session (L40S,
-  8B/14B, ~$15): Phase 4 and 5 confirmatory, the suffix follow-up, P26 and P27.
+- **The run.** One L40S, about 10 hours of work: Phases 4 and 5 (confirmatory), the suffix
+  follow-up, the English and German side tests, and wug tests for the small models. German's
+  failed gate cut the planned runs, so 14B finished early.
+- **German: no valid test.** The pre-registered German steering frame failed on both sizes: on
+  8B the model misread feminine nouns in it unsteered; on 14B the push didn't swap genders, it
+  pushed both toward neutral. A backup frame passed, but switching to it after seeing the first
+  one fail would be choosing on results, so the PI decided not to. Every Phase 5 verdict is
+  Spanish-only.
+- **The headline: steering works on 8B, not on 14B.** On 8B, pushing *el puente* toward feminine
+  moves English adjective choices toward feminine-rated words, about a third as much as a
+  woman–man push, and a plural–singular push doesn't. On 14B the same push still flips the
+  article but moves the adjectives not at all, while the woman–man push still does. No growth
+  with size; if anything, the link fades.
+- **Phase 4 holds at both sizes.** Pairs follow each language's gender everywhere, Russian *-ь*
+  nouns are sorted by both directions, the overlap beats chance, and the strict within-ending
+  transfer test fails (on 14B one direction passes, German → Spanish).
+- **English person words: still sorted, but less overlap.** The Spanish direction sorts English
+  person words and names by sex on both sizes, but on 14B its overlap with the woman–man
+  direction halves. That fits the steering null, but it's an observation on two sizes, not a test.
+- **German neuter diminutives:** the null replicates; the grammatical directions don't read the
+  sex of *das Schwesterchen*, the social direction does.
+- **A bug found on real data:** 8 Spanish nouns sat in two word lists, so their sentences were
+  scored twice; the analysis crashed until each copy was compared with its own baseline.
+- **An expensive slip.** The script that should have told me the run had ended matched its own
+  process, so the machine sat idle for 16.5 hours after finishing: $28.67 instead of about
+  $11.50. Fixed by waiting for the log's "done" line and checking in on a timer.
+
+## Where things stand (Oct 15)
+
+- **Done:** Phases 0–4 confirmed on the target sizes; Phase 5 confirmatory for Spanish (8B:
+  language-specific effect; 14B: none); German Phase 5 has no valid test; side tests replicated
+  on 8B/14B.
+- **Next:** analysis code for the remaining pooled readouts (R3-POOL, P20); then write-up.
+  Candidates: steered text generation (what the model *says* under a push), a second model
+  family (EuroLLM) to see whether 8B or 14B is the odd one out.
 
 ## Threads a blog post could pull on
 
@@ -247,8 +276,10 @@ second Claude session that read along and flagged problems.*
   fail.
 - Mistakes caught and logged: the circular eraser test, the attention-sink bug, the pronoun
   confound in the verb frame, the training leak, the bootstrap duplicates, applying a filter
-  without sign-off, a rule I forgot to apply to a new source, idle cloud machines.
+  without sign-off, a rule I forgot to apply to a new source, idle cloud machines (twice; the second time a watcher that matched itself).
 - What curating a word list really involves: slurs, verbs hiding in nouns, words people misuse,
   and dictionaries written from one sex's point of view (*boyfriend* is "the lover of a girl").
 - Tangents worth following: wug tests, Santa Muerte, and German's neuter girls.
+- A pre-registered effect that shows up at 8B and is gone at 14B: what a null at the larger size
+  does and doesn't mean.
 - Doing serious interpretability research on a laptop plus a few dollars of cloud time.

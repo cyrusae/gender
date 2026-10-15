@@ -1,8 +1,8 @@
 # RunPod sessions: plans and outcomes
 
 *Session 1 (confirmatory Phases 0–3): **done** 2026-10-08, outcome below the plan. Session 2
-(Phases 4–5 + suffix follow-up + exploratory add-ons, 8B/14B on an L40S): **plan** at the end
-of this file; its choices were adopted piecemeal in `docs/decisions.md`, and the authoritative step
+(Phases 4–5 + suffix follow-up + exploratory add-ons, 8B/14B on an L40S): **done** 2026-10-13,
+outcome after session 1's; **plan** at the end of this file; its choices were adopted piecemeal in `docs/decisions.md`, and the authoritative step
 list is `runpod/session2.sh`.*
 
 ---
@@ -129,6 +129,44 @@ supported. At AFTER the Spanish result vanishes (8B: 3/35). Details: `docs/decis
 3. Budget the **Mac analysis time** as carefully as the pod time; measure throughput first.
 4. Pod time was cheap relative to the plan; the estimate was conservative (A100 + extraction-only
    is fast).
+
+---
+
+# Session 2: outcome (2026-10-12/13)
+
+**Cost: $28.67 billed** ($28.13 GPU + $0.54 disk; L40S, pod up 18:21 Oct 12 → 21:06 UTC Oct 13
+≈ 26.7 h). The work took ~10.3 h (≈ $11); **the other ~16.5 h were idle** after the script
+finished at 04:41 UTC, because the end-of-run watcher (`ssh pod 'pgrep -f session2.sh'`) matched
+its own remote shell and never saw the script end. Within the PI's $30.
+
+**What ran:** 8B and 14B, every step that the pre-registered gates allowed; wug tests for
+0.6B/1.7B/4B. Results and activations were copied to the Mac continuously (rsync) and verified
+before termination: a checksum pass found 0 differing results files, and SHA-256 of all 50 14B
+activation files inside the pod's archive matched the Mac copies (so the 28 GB archive itself
+was never downloaded).
+
+**What went differently from the plan:**
+- **German steering didn't run.** The pre-registered German frame (C4) failed its frame check
+  on 8B and its gate at every layer on 14B, so no German sweeps (PI, 2026-10-13: no exploratory
+  switch to C1). That removed about half the planned steering runs.
+- **14B was ~2.3× slower than 8B**, not the 1.8× assumed; the German cut more than made up for it.
+- **Spanish 14B layer 28 failed the gate**, so 14B had 3 steering layers, not 4.
+- **Analysis crash on real data:** 8 Spanish nouns are in two noun sets, so their prompts are
+  scored twice; fixed on the Mac (each copy against its own baseline), logged.
+- **Mac analysis time:** eight jobs per model; 14B took ~3 h with two jobs at a time (the Phase 4
+  bootstrap is most of it).
+
+**Results:** `docs/decisions.md` (2026-10-12/13), explainers 04–06. Headline: Spanish steering
+moves gendered adjectives on 8B (language-specific effect) and not on 14B (no effect).
+
+**Lessons:**
+1. **Detect the end by a log marker** (`grep -q "session 2 done"`), never `pgrep -f NAME` over
+   ssh; test the wait condition against an already-finished run before relying on it.
+2. **Keep a timed check-in while a pod bills** (every 1–2 h, reading the log tail), so a broken
+   watcher can't go unnoticed.
+3. Hash files inside the pod's archive and compare with the live copy instead of downloading
+   the archive: saved 28 GB of transfer and the Mac disk.
+4. Smoke subsets should include the overlaps that real lists have (here, nouns in two sets).
 
 ---
 

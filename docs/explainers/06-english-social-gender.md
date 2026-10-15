@@ -79,6 +79,37 @@ pairs and overlap at 4B, weak on the person-word list. Female vs generic (*actre
 no reliable ordering, but only 6 pairs, so it can't distinguish "the generic word reads as
 neutral" from noise. v3 → v4 changed the person-word numbers by ≤ 0.02.
 
+## Cloud results (8B/14B, session 2, LAST)
+
+Same layout as above: mean AUC, layers whose interval is above 0.5 in brackets. These were
+pre-registered as side tests, not as confirmatory Phase 4–5 tests.
+
+| | 8B (35 layers) | 14B (39 layers) |
+|---|---|---|
+| ES direction on person words | 0.87 (31) | 0.85 (35) |
+| DE direction on person words | 0.67 (9) | 0.72 (20) |
+| ES on names, within final letter | 0.75 (31) | 0.70 (34) |
+| DE on names, within final letter | 0.64 (27) | 0.62 (34) |
+| ES on pairs, female vs male word | 0.92 (30) | 0.87 (35) |
+| DE on pairs, female vs male | 0.75 (25) | 0.81 (30) |
+| ES / DE on pairs, female vs generic (6 pairs) | 0.60 / 0.73 (0, 9) | 0.62 / 0.71 (0, 8) |
+| social direction: person words / names / pairs | 0.93 / 0.95 / 0.99 | 0.85 / 0.97 / 0.97 |
+| overlap with social, layers above shuffle null: ES / DE | 34 / 15 | 34 / 13 |
+| split-half cosine with social: ES / DE / number | 0.44 / 0.18 / −0.01 | 0.22 / 0.08 / 0.00 |
+
+Reading: the laptop result replicates at both sizes. The Spanish direction, learned from
+inanimate nouns, sorts English person words, names and female/male pairs by sex; German is
+weaker. **One thing to set beside Phase 5:** on 14B the Spanish direction still *sorts* English
+person words as well as on 8B, but its overlap with the social direction halves (cosine 0.44 →
+0.22). Phase 5 found that pushing along it moves gendered adjectives on 8B and not on 14B. The
+two fit together (a smaller shared component, a smaller push on social readouts), but this is a
+post-hoc observation on two sizes, not a test. Sorting and steering ask different things: a
+direction can rank person words by sex because a small part of it lines up with sex, without
+that part being large enough for a push to move behaviour.
+
+The personified-noun check (dropping nouns cultures personify) changes the directions little on
+14B as well (cosine with the original ≥ 0.95).
+
 ## P27: German neuter diminutives (exploratory)
 
 *Das Mädchen* (girl) and *das Brüderchen* (little brother) are grammatically **neuter**: the
@@ -121,9 +152,16 @@ no stem effect. So the model *does* represent the sex of *das Mädchen* and *das
 grammatical directions just don't pick it up there. For neuter persons, the grammatical directions
 track grammar and personhood, not sex: the opposite of what they do for English person words.
 
+**Cloud (8B/14B):** the null replicates. DE direction, female vs male persons: 0.38 (1/35) on
+8B, 0.47 (0/39) on 14B; ES direction 0.55 (8/35), 0.49 (0/39). The social control separates
+them on both (0.97, 32/35; 0.97, 39/39) and the *Mädchen* family from sex-neutral persons
+(0.99 on both, every layer). The stem effect for things weakens on 14B (8B 0.67, 30/35; 14B
+0.56, 5/39).
+
 ## Limits worth stating
 
-- Exploratory and laptop-only so far; the RunPod session re-extracts on 8B/14B.
+- 1.7B/4B are laptop runs (fp16); 8B/14B are cloud runs (bf16), so the two pairs of sizes differ
+  in hardware and precision as well as size.
 - Small person-word sets (27 main): wide intervals. Names are the large set, but a name's sex is a
   social convention, so they test association with sex, not the meaning *female*.
 - Final-letter cells control the last letter only, not other spelling cues (*-ette*, *-lyn*) or
