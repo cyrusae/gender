@@ -159,7 +159,8 @@ toward feminine-rated words, about a third as much as pushing along the woman–
 and plural/singular pushes don't. On 14B the same push still flips the article but moves the
 adjectives **not at all**, although the social push shows the readout can move. So there's
 no growth with size; if anything the link fades. One result at one size isn't a trend, and
-the 8B effect is small, so the safe summary is: **grammatical gender can be made to leak into
+the 8B effect is small (and largest at the 70% depth, where 14B couldn't be tested: see
+Limits), so the safe summary is: **grammatical gender can be made to leak into
 gendered adjective choice in one model size, weakly, and not in the larger one.**
 
 - **R2 (the man/woman forced choice) moves on both sizes** (14B: all 3 layers above random). It
@@ -233,6 +234,11 @@ gendered adjective choice in one model size, weakly, and not in the larger one.*
   so R3 is Spanish only.
 - **The confirmatory verdicts are Spanish-only** (German's pre-registered frame failed on both
   sizes), so the cross-language half of the question is unanswered: "bleed" needed both.
+- **14B wasn't tested where 8B's effect was largest** (flagged by a side agent, 2026-10-15). Steering
+  layers sit at fixed relative depths. 8B's R1 effect grows with depth (25%: 0.004, none; 40%:
+  0.018; 55%: 0.020; 70%: 0.039), but 14B's 70% layer (k28) failed the gate and dropped out. At
+  the depths tested on both (40%, 55%), 8B moves and 14B doesn't, so the 14B null is real there.
+  "8B yes, 14B no" is a statement about the middle of the model, not about size in general.
 - **Two sizes, opposite answers.** 8B shows a small effect, 14B none. With one model family and
   two confirmatory sizes, "size-dependent" is a description, not an explanation; a third family
   (e.g. EuroLLM) would be needed to say more.

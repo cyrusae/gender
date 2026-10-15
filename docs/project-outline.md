@@ -244,7 +244,8 @@ second Claude session that read along and flagged problems.*
   moves English adjective choices toward feminine-rated words, about a third as much as a
   woman–man push, and a plural–singular push doesn't. On 14B the same push still flips the
   article but moves the adjectives not at all, while the woman–man push still does. No growth
-  with size; if anything, the link fades.
+  with size; if anything, the link fades. Caveat (a side agent's catch): 8B's effect was largest at 70% depth, and
+  14B's layer at that depth failed the gate, so the comparison holds only for the middle of the model.
 - **Phase 4 holds at both sizes.** Pairs follow each language's gender everywhere, Russian *-ь*
   nouns are sorted by both directions, the overlap beats chance, and the strict within-ending
   transfer test fails (on 14B one direction passes, German → Spanish).
