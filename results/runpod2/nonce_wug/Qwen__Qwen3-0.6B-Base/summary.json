@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "git_commit": "482430e4698c101afb87f9cc0fc4252a6439772d",
+    "git_dirty": null,
+    "git_source": "bundle",
+    "model_id": "Qwen/Qwen3-0.6B-Base",
+    "model_revision": null,
+    "n_params": 596049920,
+    "n_layers": 28,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "head_dtype": "model",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "machine": "Linux x86_64 x86_64",
+    "gpu": "NVIDIA L40S",
+    "cuda": "13.0",
+    "stimuli": "data/stimuli/phase5_nonce_es_v1.csv",
+    "timestamp": "2026-10-13T04:35:12+00:00"
+  },
+  "results": {
+    "n_stems": 145,
+    "ctx1_margin": {
+      "share_feminine": {
+        "a": 0.8482758620689655,
+        "o": 0.06896551724137931,
+        "e": 0.3724137931034483,
+        "iz": 0.46206896551724136
+      },
+      "mean_margin": {
+        "a": -1.9762454723489695,
+        "o": 3.2175193391997237,
+        "e": 0.7451424434267241,
+        "iz": 0.17230240394329202
+      },
+      "auc_a_vs_o": 0.9584304399524376,
+      "spearman_vs_predicted_order": 1.0
+    },
+    "ctx2_margin": {
+      "share_feminine": {
+        "a": 0.8206896551724138,
+        "o": 0.08275862068965517,
+        "e": 0.2827586206896552,
+        "iz": 0.3448275862068966
+      },
+      "mean_margin": {
+        "a": -2.19865230691844,
+        "o": 4.049506167707772,
+        "e": 1.4848032589616447,
+        "iz": 0.9601291130329
+      },
+      "auc_a_vs_o": 0.9512960760998811,
+      "spearman_vs_predicted_order": 1.0
+    },
+    "passes": true,
+    "ending_own_token": {
+      "a": 0.0896551724137931,
+      "o": 0.09655172413793103,
+      "e": 0.034482758620689655,
+      "iz": 0.9241379310344827
+    },
+    "mean_tokens": {
+      "a": 2.5586206896551724,
+      "o": 2.6206896551724137,
+      "e": 2.537931034482759,
+      "iz": 3.2896551724137932
+    },
+    "frames_agree": 0.7965517241379311
+  }
+}

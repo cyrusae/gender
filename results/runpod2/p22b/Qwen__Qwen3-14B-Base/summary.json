@@ -1,0 +1,91 @@
+{
+ "meta": {
+  "git_commit": "482430e4698c101afb87f9cc0fc4252a6439772d",
+  "git_dirty": null,
+  "git_source": "bundle",
+  "model_id": "Qwen/Qwen3-14B-Base",
+  "model_revision": null,
+  "n_params": 14768307200,
+  "n_layers": 40,
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "head_dtype": "model",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.18.0",
+  "machine": "Linux x86_64 x86_64",
+  "gpu": "NVIDIA L40S",
+  "cuda": "13.0"
+ },
+ "frames": {
+  "en": [
+   [
+    "The woman is very",
+    "The man is very"
+   ],
+   [
+    "My mother is very",
+    "My father is very"
+   ]
+  ],
+  "es": [
+   [
+    "La mujer es muy",
+    "El hombre es muy"
+   ],
+   [
+    "Mi madre es muy",
+    "Mi padre es muy"
+   ]
+  ],
+  "de": [
+   [
+    "Die Frau ist sehr",
+    "Der Mann ist sehr"
+   ],
+   [
+    "Meine Mutter ist sehr",
+    "Mein Vater ist sehr"
+   ]
+  ]
+ },
+ "validation": {
+  "en": {
+   "simple": {
+    "n": 656,
+    "rho": 0.5704218476661449,
+    "rho_partial_val": 0.5571618439617451
+   }
+  },
+  "de": {
+   "simple": {
+    "n": 238,
+    "rho": 0.3895634336891544,
+    "rho_partial_val": 0.4321883427833105
+   }
+  },
+  "es_invariant": {
+   "simple": {
+    "n": 110,
+    "rho": 0.3357821700351314,
+    "rho_partial_val": 0.11557164324566617
+   },
+   "double": {
+    "n": 110,
+    "rho": 0.22134358848361532,
+    "rho_partial_val": 0.03789022741874226
+   }
+  },
+  "es_gendered": {
+   "simple": {
+    "n": 157,
+    "rho": 0.19030622258392796,
+    "rho_partial_val": 0.15596107977455026
+   },
+   "double": {
+    "n": 157,
+    "rho": 0.21024452688101058,
+    "rho_partial_val": 0.1875480631060121
+   }
+  }
+ }
+}

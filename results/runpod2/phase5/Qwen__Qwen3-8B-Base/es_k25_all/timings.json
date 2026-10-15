@@ -1,0 +1,64 @@
+{
+ "R1": {
+  "prompts": 1850,
+  "conditions": 331550,
+  "seconds": 179.94352269172668,
+  "rows_per_s": 1842.522559525527,
+  "noun_norm": 264.9669952392578,
+  "push_over_own_norm": 0.29951697325584276
+ },
+ "R1-EN": {
+  "prompts": 1795,
+  "conditions": 321535,
+  "seconds": 61.740416049957275,
+  "rows_per_s": 5207.852822692835,
+  "noun_norm": 279.9438781738281,
+  "push_over_own_norm": 0.28349293774332424
+ },
+ "R2": {
+  "prompts": 2590,
+  "conditions": 464170,
+  "seconds": 309.51793026924133,
+  "rows_per_s": 1499.6546390583285,
+  "noun_norm": 268.36407470703125,
+  "push_over_own_norm": 0.295725545654336
+ },
+ "R2-EN": {
+  "prompts": 2513,
+  "conditions": 450149,
+  "seconds": 235.69417428970337,
+  "rows_per_s": 1909.8859840578816,
+  "noun_norm": 261.75103759765625,
+  "push_over_own_norm": 0.30319693535942044
+ },
+ "R3": {
+  "prompts": 370,
+  "conditions": 66310,
+  "seconds": 13.986579895019531,
+  "rows_per_s": 4740.97316840211,
+  "noun_norm": 264.8064270019531,
+  "push_over_own_norm": 0.2996985886077926
+ },
+ "RN-R1": {
+  "prompts": 2100,
+  "conditions": 60900,
+  "seconds": 16.656875610351562,
+  "rows_per_s": 3656.1478529714873,
+  "noun_norm": 268.1005859375,
+  "push_over_own_norm": 0.2960161841841659
+ },
+ "RN-R2": {
+  "prompts": 4900,
+  "conditions": 142100,
+  "seconds": 89.61457109451294,
+  "rows_per_s": 1585.6796307168927,
+  "noun_norm": 257.3941345214844,
+  "push_over_own_norm": 0.30832914112164256
+ },
+ "damage": {
+  "prompts": 721,
+  "conditions": 48532,
+  "seconds": 69.57158350944519,
+  "rows_per_s": 697.5836620624165
+ }
+}
