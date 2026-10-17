@@ -272,6 +272,9 @@ second Claude session that read along and flagged problems.*
   as steering did (14B) or more (8B). **R3-POOL doesn't survive.** Part of the article's pull
   shows even on adjectives without gendered forms: the feminine article itself nudges toward
   feminine-rated words (possibly by suggesting the unknown noun is a woman).
+- **The same flaw reaches P20-POOL.** Its 8B "robust positive" (+0.10) is all Spanish, and is
+  the size the bare article flip produces on nonsense nouns (+0.096). So it no longer counts as
+  evidence about concepts either. (Spotted by a side agent, then checked.)
 - **Cost $0.51** (L40S, 28 min). The pod couldn't be made to stop itself (its built-in key is
   refused), so the Mac watched it; a copy loop briefly stopped early when its "done" check matched
   the wrong line, which was caught and fixed mid-run.

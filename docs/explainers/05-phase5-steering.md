@@ -214,6 +214,14 @@ gendered adjective choice in one model size, weakly, and not in the larger one.*
   without cognates and without homographs), 14B +0.010 [−0.034, 0.056]. All of it is Spanish:
   German nouns' own feminine-minus-masculine contrast is ≈ 0 on both. A frequency confound
   (feminine forms of feminine-rated adjectives being commoner) was checked and isn't there.
+  - **Reinterpreted after P29 (2026-10-17; interpretation, not a pre-registered verdict).** The
+    8B P20-POOL result is all Spanish: feminine minus masculine nouns +0.108, German −0.006.
+    In P29, *La* vs *El* on *meaningless* nouns moved the same pooled readout by +0.096 on 8B.
+    So the 8B positive is about the size an article flip produces with no meaning involved, and
+    **can't be read as grammatical gender attaching associations to concepts.** Same caveat as
+    R3-POOL.
+  - **Puzzle:** on 14B, meaningless nouns shift (+0.038) but real noun pairs don't (Spanish
+    contrast ≈ 0), so real nouns may override the article's own pull. P30 bears on this.
 - **P25** (unsteered lean of English concepts toward a translation's gender): the difference is
   near zero on both, with intervals covering 0 (8B −0.03 [−0.06, 0.01]; 14B −0.03 [−0.07, 0.00]).
 

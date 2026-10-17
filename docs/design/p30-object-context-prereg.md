@@ -40,8 +40,10 @@ lexicon, by rule:
 - Zipf ≥ 3.5; a single entry; no other part of speech;
 - not ending in *-o* or *-s*; at least 4 letters; not an English loanword (English Zipf < 3).
 
-That gives **53 nouns**: *presidente, juez, artista, periodista, poeta, colega, turista, dentista,
-pianista, ...* (full list in the code's output). Scored in N1, P1, P2. They aren't used in the
+That gave 53; the PI dropped *sacerdote*, *poeta* (dedicated feminine forms exist), *nene*
+(colloquial) and *falte* (rare), leaving **49** (`P30_PERSON_DROP` in the code): *presidente,
+juez, personaje, artista, periodista, bebé, comandante, representante, protagonista, colega,
+...*. Scored in N1, P1, P2. They aren't used in the
 object frames, which would be nonsense for them. Here the article really does mark a woman,
 which gives the scale for "the model thinks it's a woman".
 
