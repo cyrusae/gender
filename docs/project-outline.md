@@ -260,13 +260,30 @@ second Claude session that read along and flagged problems.*
   process, so the machine sat idle for 16.5 hours after finishing: $28.67 instead of about
   $11.50. Fixed by waiting for the log's "done" line and checking in on a timer.
 
-## Where things stand (Oct 15)
+## 16. Housekeeping, and a check that sank a result (Oct 16–17)
+
+- **Bulky data moved to an external drive** (~121 GB: activations, raw steering arrays,
+  Wiktionary dumps, pod archives), each file checksum-verified before its original was deleted.
+  The code finds it through environment variables (`src/gbleed/paths.py`).
+- **P29, the pooling check.** R3-POOL had found that the grammatical push makes Spanish
+  adjective choice more "feminine", even on 14B where English didn't move. That reading assumed
+  that counting *blanco* + *blanca* as one word removes agreement. Test: made-up nouns, only the
+  article changed (*El/La siante es muy ___*). Result: the article alone moves the score as much
+  as steering did (14B) or more (8B). **R3-POOL doesn't survive.** Part of the article's pull
+  shows even on adjectives without gendered forms: the feminine article itself nudges toward
+  feminine-rated words (possibly by suggesting the unknown noun is a woman).
+- **Cost $0.51** (L40S, 28 min). The pod couldn't be made to stop itself (its built-in key is
+  refused), so the Mac watched it; a copy loop briefly stopped early when its "done" check matched
+  the wrong line, which was caught and fixed mid-run.
+
+## Where things stand (Oct 17)
 
 - **Done:** Phases 0–4 confirmed on the target sizes; Phase 5 confirmatory for Spanish (8B:
   language-specific effect; 14B: none); German Phase 5 has no valid test; side tests replicated
   on 8B/14B.
-- **Next:** analysis code for the remaining pooled readouts (R3-POOL, P20); then write-up.
-  Candidates: steered text generation (what the model *says* under a push), a second model
+- **R3-POOL and P20 analysed; R3-POOL then failed its pooling check (P29).** So the 14B
+  "inside Spanish but not English" pattern has no surviving evidence.
+- **Next:** write-up. Candidates: steered text generation (what the model *says* under a push), a second model
   family (EuroLLM) to see whether 8B or 14B is the odd one out.
 
 ## Threads a blog post could pull on

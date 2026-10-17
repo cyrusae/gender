@@ -67,7 +67,7 @@ exact probability (**scoring, not sampling**).
 | R1-EN | *The bridge is very ___* (3 wordings; same two checks) | same | co-primary |
 | R2 / R2-EN | *If the bridge were a person, would it be a man or a woman? It would be a ___* (3 framings × 2 orders), plus a story frame *…came to life. Every morning, ___* | man/woman, male/female, boy/girl; story: she/he (it/they recorded) | secondary |
 | R3 | *Mi puente es muy ___* | gender-invariant Spanish adjectives (*fuerte*, *elegante*) | secondary |
-| R3-POOL (P28) | same sentence | gendered Spanish adjectives read as the lemma, P(*blanco*) + P(*blanca*), so agreement drops out (Qwen3: 116) | secondary, exploratory |
+| R3-POOL (P28) | same sentence | gendered Spanish adjectives read as the lemma, P(*blanco*) + P(*blanca*), meant to make agreement drop out; P29 found it doesn't (Qwen3: 116) | secondary, exploratory |
 | R-NONCE | R1-EN/R2-EN frames with invented words (*The sianta is very ___*; 600 Spanish-looking, 100 English-looking) | as R1-EN/R2-EN | secondary (cheaper set: ±1 × α\*, 20 random directions) |
 
 **Readout frame check:** before steering is analysed, each wording must put a clear share of
@@ -186,6 +186,27 @@ gendered adjective choice in one model size, weakly, and not in the larger one.*
   for caution: it passed only a revised check; reading a shared first token (*blanc-*) is assumed
   not to depend on agreement, which wasn't tested; and the woman–man direction also makes a
   Spanish noun grammatically feminine, so the profile match doesn't prove the content is social.
+  - **Tested, and it fails (P29, 2026-10-17, pre-registered).** Made-up nouns (*siante*,
+    *capirre*) with only the article changed, *El/La siante es muy ___*, so meaning can't
+    change, only grammar. The article flips agreement in every word. It also moves the R3-POOL
+    score by **+0.096 [0.090, 0.103] on 8B** and **+0.038 [0.033, 0.043] on 14B**: as large
+    as or larger than the steering effects (0.052–0.075 and 0.038–0.045), against a pass bound of
+    half the smallest one. So a grammar-only change reproduces R3-POOL's effect, and **R3-POOL
+    can't be read as evidence that steering moved meaning.**
+  - **What does the moving (exploratory):**
+    - It isn't the first-token shortcut: pooling the whole words gives a bigger shift (8B +0.120,
+      14B +0.060).
+    - Invariant adjectives (*grande*, *feliz*), which have no agreement to leak, also shift
+      toward feminine-rated ones after *La*: 8B +0.028, 14B +0.082. On 14B that's more than the
+      gendered ones; on 8B, a third.
+    - So part of it is the feminine article itself making feminine-rated adjectives likelier,
+      even for a meaningless noun. One ordinary reason: a Spanish unknown noun with *la* could
+      be a woman (*la estudiante*); nouns in *-e*/*-iz* are often person nouns. The shift
+      appears for the object-like *-a*/*-o* nouns too, though.
+    - Caveats: the invariant readout's share is below the 5% bar (3–5%), and the adjective sets
+      differ, so the comparison is rough.
+    - The 10 exact-sum lemmas go the *other* way on both models (−0.08); with 10 items and 5
+      covariates, that's unstable.
 - **P20 / P20-POOL (unsteered, flipped pairs).** Concept held fixed within a pair (*el puente* /
   *die Brücke*): does the grammatically feminine side draw more feminine-rated adjectives?
   Difference-in-differences, > 0 = yes. Invariant Spanish adjectives: 8B +0.056 [−0.009, 0.115],

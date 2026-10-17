@@ -119,3 +119,31 @@ Adopted as recommended:
 2. Pass bound at **half** the smallest R3-POOL effect. Alternatives not taken: below the random
    95th percentile (stricter), below the full effect (looser).
 3. The 14B deep-layer (k28) run stays a separate decision.
+
+## Results (2026-10-17; L40S bf16, commit c48d86b; `results/p29/`)
+
+| | 8B | 14B |
+|---|---|---|
+| M0: words where the article flips agreement | 100% | 100% |
+| **M1: A (all), primary** | **+0.096 [0.090, 0.103]** | **+0.038 [0.033, 0.043]** |
+| bound (half the smallest R3-POOL effect) | 0.0260 | 0.0188 |
+| **M1 verdict** | **fail** | **fail** |
+| A, no homographs | +0.111 | +0.048 |
+| A, exact sums (10 lemmas) | −0.083 | −0.078 |
+| A, -o/-a set | +0.083 | +0.030 |
+| M2: invariant adjectives, A_inv | +0.028 [0.018, 0.039] | +0.082 [0.073, 0.091] |
+| invariant share (median) | 4.6% | 3.2% |
+| M3: A from whole-word pooling | +0.120 | +0.060 |
+| M3: ρ first-token vs whole-word lemma shifts | 0.46 | 0.57 |
+
+**Reading (as pre-registered: M0 pass, M1 fail):** a grammar-only change produces a shift as
+large as R3-POOL's steering effect, so R3-POOL is uninterpretable on its own.
+- **M3:** the first-token proxy isn't the cause; whole words shift more.
+- **M2:** invariant adjectives shift too, so part of the effect is the feminine article's own
+  pull toward feminine-rated words, not leakage through word forms. That holds for most of it
+  on 14B, about a third on 8B.
+- **Not anticipated in this design:** nouns in *-e*/*-iz* are often person nouns
+  (*la estudiante*, *la actriz*), so *la* + unknown noun may read as "a woman". By ending, the
+  invariant shift is +0.027/+0.029/+0.017/+0.018 for -e/-iz/-a/-o on 8B and
+  +0.083/+0.081/+0.054/+0.068 on 14B. Somewhat larger for -e/-iz, but present for -a/-o too, so
+  this can't be the whole story, and the design can't separate it.
