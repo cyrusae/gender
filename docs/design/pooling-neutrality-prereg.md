@@ -1,0 +1,109 @@
+# P29: is the pooled adjective readout agreement-neutral? (DRAFT, awaiting PI sign-off)
+
+Drafted 2026-10-17. Nothing below has been run. Thresholds are fixed here, before any data,
+from the R3-POOL results already on file (`results/runpod2/phase5_analysis/*/r3_pool.csv`).
+
+## The question in plain words
+
+R3-POOL reads Spanish gendered adjectives as *lemmas*: *blanco* and *blanca* count as one word,
+so that when steering flips agreement (probability moving from *blanco* to *blanca*) the total
+shouldn't change. Only a change in *which adjective* the model picks should register. On both
+8B and 14B, the grammatical push makes the model prefer adjectives that English speakers rate
+as feminine (noun-only effect 0.052–0.075 on 8B, 0.038–0.045 on 14B; random directions' 95th
+percentile about 0.006–0.010).
+
+That reading rests on an untested assumption: **pooling really is neutral to agreement.** If
+it isn't, part of the effect could be the agreement flip itself leaking into the score. Two
+ways that could happen:
+
+1. **Tokenisation proxy.** For 106 of the 116 lemmas we don't read the two words, only their
+   shared first token (*blanc*-). That token also starts other words, and its probability need
+   not move exactly like P(*blanco*) + P(*blanca*). Only 10 lemmas are exact sums (both forms
+   single tokens). The exact-sum subset mostly *doesn't* show the effect: noun-only it
+   passes at 1/4 layers on 8B and 1/3 on 14B. With ten items it has little power (random
+   95th percentile ~0.03 vs ~0.007), but it's a reason to look.
+2. **Form availability.** Once agreement demands the feminine form, the model may favour
+   lemmas whose feminine form is common in text. If those happen to be feminine-rated, the
+   score moves with no change in meaning.
+
+## Design
+
+Change agreement **without** changing meaning, and see whether the R3-POOL score moves.
+
+- **Items: nonce nouns**, so there's no meaning to change. The R-NONCE Spanish set
+  (`phase5_nonce_es_v1.csv`, 150 stems, already screened as non-words): primary set =
+  the **-e and -iz forms** (300 words). Those endings don't settle gender, so the article does.
+  Sensitivity set: the -o/-a forms (300). There the ending conflicts with the article half the
+  time.
+- **Frames:** the P20 Spanish wordings with the article as the only gender cue:
+  W1 *{El/La} {N} es muy ___*, W2 *Es {un/una} {N} muy ___*. Every word appears with both
+  articles. Primary = mean of the two wordings (as P20).
+- **One unsteered forward pass per prompt**, next token after *muy*, reading:
+  - the R3-POOL lemma ids (exactly the R3-POOL columns and pooling function);
+  - the R3 invariant adjectives (*grande*, *feliz*, ...: one form for both genders);
+  - the gate adjectives (-o/-a pairs), for the manipulation check;
+  - plus whole-word scoring of both forms of every pooled lemma, for the fidelity check (M3).
+
+## Measures and rules (pre-registered)
+
+**M0, manipulation check (validity, as the gate).** Agreement margin = log P(feminine forms) −
+log P(masculine forms) over the gate adjectives. Valid test iff the margin is higher under
+*La/una* than under *El/un* for ≥ 90% of the primary nonce words (per wording, then
+the mean), with the median margin > 0 under *La* and < 0 under *El*. Fail → no valid
+test (like German Phase 5), reported as such.
+
+**M1, primary.** A = mean over nonce words of the R3-POOL graded score (−β_GEND, same
+regression and covariates as R3-POOL, `all` subset) of the shift *La* minus *El*. 95% CI:
+bootstrap over stems (a stem's -e and -iz words stay together).
+- **Pass (agreement can't explain R3-POOL)** iff A's upper 95% bound < **half** of that
+  model's smallest noun-only R3-POOL effect: **8B < 0.026** (half of 0.052, k20), **14B <
+  0.019** (half of 0.038, k10).
+- Why this is conservative: the article flips agreement in nearly every word (M0 checks
+  this). Steering at α\* flips it in only about half the nouns, since α\* is defined as the
+  dose where the median agreement margin crosses zero. So A overstates how much agreement
+  could contribute to R3-POOL.
+- Also reported: the `both_single` and `no_homograph` subsets, and the -o/-a set.
+
+**M2, secondary (interpreting a failed M1; exploratory).** A_inv = the same graded score on
+the invariant adjectives, under the same *La* − *El* contrast. Invariant adjectives have no
+agreement to leak, so a shift there is the article's own association (a grammatical-to-social
+link, i.e. bleed-like), not a pooling artefact.
+- If A > 0 and A_inv ≈ 0: **mechanical leakage**. R3-POOL can't be read as evidence about
+  meaning.
+- If A_inv is about as large as A: **the article itself carries the association**. That's
+  substantively interesting (P20-POOL's 8B result points the same way), but it means R3-POOL
+  doesn't separate "steering grammar" from "grammar implies social gender".
+- The adjective sets differ, so this comparison is rough. The invariant readout also failed
+  R3's frame check (share < 5%), so it's noisy; its share here is reported.
+
+**M3, fidelity diagnostic (reported, not a gate).** On the shared-first-token lemmas, compare
+the *La* − *El* shift read from the first token with the shift from the whole words
+(log[P(m) + P(f)]): correlation across lemmas, and A recomputed from whole-word pooling. If
+whole-word A ≈ first-token A, the proxy behaves like the real lemma probability under an
+agreement change.
+
+## What each outcome means for the write-up
+
+| M0 | M1 | Reading |
+|---|---|---|
+| fail | n/a | No valid test. R3-POOL stays caveated as now. |
+| pass | pass | A full agreement flip moves the score by less than half the steering effect. R3-POOL is not an agreement artefact. |
+| pass | fail | Agreement (or the article's own association) could account for R3-POOL. M2/M3 say which. R3-POOL is reported as uninterpretable on its own. |
+
+## Hardware and cost
+
+8B and 14B don't fit on the Mac in fp16 (8B alone is ~16 GB), and R3-POOL ran in bf16 on an
+L40S. So: one RunPod L40S session, both models, unsteered scoring only (~1,200 prompts per model
+plus ~280k whole-word continuations). Estimated well under an hour, about $1 at session 2's
+rate; the live price will be stated before creating the pod. Smoke test on 0.6B locally first.
+The code is new (`p29` step), committed before the run.
+
+## Decisions for the PI
+
+1. Adopt M0–M3 as written?
+2. The pass bound at **half** the smallest R3-POOL effect. Alternatives: below the random 95th
+   percentile (stricter; likely too strict given the article flips agreement fully), or below
+   the full effect (looser).
+3. Bundle the 14B deep-layer (k28) exploratory steering run into the same pod session? Marginal
+   cost about $1–2 more. It would need its own pre-registration first, so it would slow the
+   start.
