@@ -1,4 +1,4 @@
-# P30: does *la* pull toward feminine-rated adjectives when the noun is clearly an object? (DRAFT, awaiting PI sign-off)
+# P30: does *la* pull toward feminine-rated adjectives when the noun is clearly an object? (ADOPTED, PI 2026-10-17)
 
 Drafted 2026-10-17. Only a 0.6B smoke test (n = 4 stems) has run; code in `src/gbleed/p30.py`. Follows P29
 (`pooling-neutrality-prereg.md`). Exploratory.
@@ -110,7 +110,9 @@ measures how far it drops.
   (project rule); its invariant and pooled lists already exist.
 - Smoke test on Qwen3-0.6B first. Code committed before the run.
 
-## Decisions for the PI
+## Decisions (PI, 2026-10-17)
+
+Adopted as drafted, including the neutral-pull precondition; 49 person nouns after the PI's drops.
 
 1. Adopt C1–C2 and the measures as written (including the 1-nat margin and the "half of
    S(neutral)" bound)?
