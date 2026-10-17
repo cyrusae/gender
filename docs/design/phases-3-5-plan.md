@@ -323,6 +323,18 @@ CA-MTL-1 / EU-SE-1; A100 SXM 80 GB $1.59 Secure / $1.39 community in EUR-IS-1 / 
 
 ## Later / optional
 
+- **Instruct-tuned follow-up** (PI interested, 2026-10-17): does post-training change the overlap,
+  or only what the model says? Base vs instruct *within a family*, never mixed into the main
+  results.
+  - Representation first: Phases 2–4 extraction on the instruct checkpoints, which avoids the
+    raw-text and overconfidence issues.
+  - Then behaviour: the Phase 5 gate and readouts, raw-text frames primary, chat template as a
+    sensitivity check.
+  - Pair: Gemma 3 `-it`, since Gemma Scope 2 has IT SAEs too; Qwen3 post-trained 8B/14B only if
+    Gemma's comparison is interesting.
+  - Needs a PI-approved amendment to the base-only rule (CLAUDE.md) for this study only.
+  - Known limit: instruct models' sharpened distributions can compress the graded shift scores.
+
 - **German nonce words with gender-predicting suffixes** (candidate, 2026-10-08, PI): Wuggy
   pseudo-stems + *-ung*/*-heit* (f), *-ismus* (m), *-tum*/*-chen* (n). Behaviour: does the
   model assign the suffix's gender (*die Flitrung*)? Representation: does the gender direction
