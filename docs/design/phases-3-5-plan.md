@@ -282,6 +282,8 @@ one. Stretch goal: the reverse direction (erase social gender, test article agre
 
 ## After the Qwen RunPod session: Gemma 3 + Gemma Scope 2 (planned)
 
+**Status 2026-10-17 (PI):** confirmed as the replication family; full vs slim pass deferred until the Qwen3 results are reviewed. Licence accepted; token at pod time only.
+
 A cross-family replication with a sparse-autoencoder extension. Gemma Scope 2 has SAEs on every
 layer of every Gemma 3 size (270M–27B, base and instruction-tuned); 270M and 1B are English-only, so
 the German/Spanish work uses **4B, 12B and, budget allowing, 27B**.
