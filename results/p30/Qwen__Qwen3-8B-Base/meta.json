@@ -1,0 +1,21 @@
+{
+ "meta": {
+  "git_commit": "6ed2c99b4f4e5e02a1ad1e848bb22fd6e8313ad8",
+  "git_dirty": null,
+  "git_source": "bundle",
+  "model_id": "Qwen/Qwen3-8B-Base",
+  "model_revision": null,
+  "n_params": 8190735360,
+  "n_layers": 36,
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "head_dtype": "model",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.18.0",
+  "machine": "Linux x86_64 x86_64",
+  "gpu": "NVIDIA L40S",
+  "cuda": "13.0",
+  "timestamp": "2026-10-17T22:39:26+00:00"
+ },
+ "n_prompts": 6294
+}

@@ -1,0 +1,19 @@
+{
+ "meta": {
+  "git_commit": "6ed2c99b4f4e5e02a1ad1e848bb22fd6e8313ad8",
+  "git_dirty": false,
+  "model_id": "utter-project/EuroLLM-1.7B",
+  "model_revision": null,
+  "n_params": 1656850432,
+  "n_layers": 24,
+  "device": "mps",
+  "dtype": "float16",
+  "head_dtype": "model",
+  "torch": "2.14.1",
+  "transformers": "5.18.0",
+  "machine": "Darwin arm64 arm",
+  "gpu": "Apple MPS",
+  "timestamp": "2026-10-17T22:36:38+00:00"
+ },
+ "n_prompts": 6294
+}

@@ -275,6 +275,15 @@ second Claude session that read along and flagged problems.*
 - **The same flaw reaches P20-POOL.** Its 8B "robust positive" (+0.10) is all Spanish, and is
   the size the bare article flip produces on nonsense nouns (+0.096). So it no longer counts as
   evidence about concepts either. (Spotted by a side agent, then checked.)
+- **P30: is the article's pull just the model guessing "a woman"? No.** With the made-up noun
+  placed where only a thing fits (*La siante que compré ayer es muy ___*, "The siante I bought
+  yesterday is very ___"), Qwen3 8B and 14B still lean toward feminine-rated adjectives after
+  *La*, even more than in the plain sentence. EuroLLM-1.7B shows nothing.
+  - **Reading:** feminine grammar on a *thing* pulls toward feminine-rated words in the two
+    larger models. That's the closest thing yet to a direct, in-language yes to the project's
+    question.
+  - **Caveat:** whether it's about *social* gender or about how feminine nouns are described in
+    Spanish text isn't settled. Pod cost $0.12.
 - **Cost $0.51** (L40S, 28 min). The pod couldn't be made to stop itself (its built-in key is
   refused), so the Mac watched it; a copy loop briefly stopped early when its "done" check matched
   the wrong line, which was caught and fixed mid-run.
@@ -286,6 +295,9 @@ second Claude session that read along and flagged problems.*
   on 8B/14B.
 - **R3-POOL and P20 analysed; R3-POOL then failed its pooling check (P29).** So the 14B
   "inside Spanish but not English" pattern has no surviving evidence.
+- **Unsteered, in-language:** a feminine article on a thing-noun pulls toward feminine-rated
+  adjectives on Qwen3 8B/14B (P30). Not on EuroLLM-1.7B; mechanism (social vs distributional)
+  open.
 - **Next:** write-up. Candidates: steered text generation (what the model *says* under a push), a second model
   family (EuroLLM) to see whether 8B or 14B is the odd one out.
 

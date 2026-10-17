@@ -222,6 +222,28 @@ gendered adjective choice in one model size, weakly, and not in the larger one.*
     R3-POOL.
   - **Puzzle:** on 14B, meaningless nouns shift (+0.038) but real noun pairs don't (Spanish
     contrast ≈ 0), so real nouns may override the article's own pull. P30 bears on this.
+- **P30 (unsteered, exploratory): does *la* pull toward feminine-rated adjectives when the noun
+  is clearly a thing?** Made-up nouns in sentences that force a reading:
+  - object: *La siante que compré ayer es muy ___*, "The siante I bought yesterday is very ___";
+  - neutral;
+  - person: *...con quien hablé ayer...*, "...I talked with yesterday...".
+
+  A probe (*...es una persona* vs *...es una cosa*) checks the reading took. Scored on adjectives
+  with one form for both genders, so agreement can't leak.
+  - **Qwen3 8B/14B: yes.** With the noun read as a thing, *La* still shifts toward
+    feminine-rated adjectives: 8B +0.080, 14B +0.124. Bigger than in the neutral sentence (+0.020,
+    +0.068), smaller than in the person sentence (+0.152, +0.187). So P29's pull isn't just the
+    model guessing "a woman".
+  - **EuroLLM-1.7B:** no pull even in the neutral sentence (≈ 0), so nothing to explain there.
+  - **How to read it:** feminine *grammar* alone, on a noun understood as a thing, makes
+    English-feminine-rated adjectives likelier. That's an unsteered, in-language
+    grammatical-to-social association, the shape the project asks about.
+  - **Limits:**
+    - it may run through Spanish text statistics (feminine nouns as a class described
+      differently) rather than through ideas about women;
+    - sizes across sentences aren't strictly comparable;
+    - it's large, ~70–78% of the shift for a real woman;
+    - it doesn't appear in the two smallest models tried, so it may need scale.
 - **P25** (unsteered lean of English concepts toward a translation's gender): the difference is
   near zero on both, with intervals covering 0 (8B −0.03 [−0.06, 0.01]; 14B −0.03 [−0.07, 0.00]).
 

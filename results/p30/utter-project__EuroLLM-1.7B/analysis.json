@@ -1,0 +1,92 @@
+{
+ "model": "utter-project/EuroLLM-1.7B",
+ "wordings": {
+  "O1": {
+   "context": "object",
+   "probe_median": -2.0625,
+   "share": 0.31852802634239197,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "O2": {
+   "context": "object",
+   "probe_median": -0.1640625,
+   "share": 0.2070903182029724,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "N1": {
+   "context": "neutral",
+   "probe_median": 2.300781249999999,
+   "share": 0.19151265919208527,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "P1": {
+   "context": "person",
+   "probe_median": 1.96875,
+   "share": 0.2692975401878357,
+   "C1": false,
+   "C2": true,
+   "valid": false
+  },
+  "P2": {
+   "context": "person",
+   "probe_median": 0.875,
+   "share": 0.21131502091884613,
+   "C1": false,
+   "C2": true,
+   "valid": false
+  }
+ },
+ "probe_real_person_N1": 6.6484373807907104,
+ "valid": true,
+ "S_object": {
+  "S": 0.007735411059488193,
+  "lo95": 0.00016442951959838933,
+  "hi95": 0.015496091933447552,
+  "wordings": [
+   "O1",
+   "O2"
+  ],
+  "n_words": 600
+ },
+ "S_object_pooled": -0.04602413524744589,
+ "S_object_by_ending": {
+  "a": 0.0160005338365265,
+  "o": -0.007398857961044761,
+  "e": 0.013894045455083172,
+  "iz": 0.008445922907387856
+ },
+ "S_neutral": {
+  "S": -0.0004146830282667598,
+  "lo95": -0.012687349945920131,
+  "hi95": 0.012757711330233238,
+  "wordings": [
+   "N1"
+  ],
+  "n_words": 600
+ },
+ "S_neutral_pooled": -0.028227430112805756,
+ "S_neutral_by_ending": {
+  "a": 0.009002410344332695,
+  "o": -0.00814451432403932,
+  "e": -0.00032604677042596806,
+  "iz": -0.002190581362934442
+ },
+ "S_real_neutral": {
+  "S": 0.05166681477267608,
+  "lo95": 0.029308788214413455,
+  "hi95": 0.07446453672035441
+ },
+ "ratio_object_neutral": {
+  "ratio": -18.653792251444905,
+  "lo95": -15.092844109627258,
+  "hi95": 16.552427658779877
+ },
+ "n_invariant": 72,
+ "verdict": "no neutral pull to explain (descriptive only)"
+}

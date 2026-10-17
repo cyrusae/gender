@@ -184,6 +184,13 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
 - **Random-vector baseline.** Steering with a random direction of the same size, to show an effect
   isn't just from perturbing the model.
 
+- **Manipulation check** *(standard, experimental design)*. A measurement that the experimental
+  manipulation actually did what it was meant to, gating the main test. P30: a probe
+  (*...es una persona* vs *...es una cosa*) checks that "object" sentences really make the
+  model read the noun as a thing.
+- **Positive control** *(standard)*. A condition where the effect is known to be present, used
+  as a yardstick. P30: real nouns like *el/la periodista*, where *la* really means a woman.
+
 ## Hardware and precision
 
 - **fp16 / bf16 / fp32.** Number formats. fp32 = full precision (4 bytes/parameter); fp16 and bf16
@@ -251,7 +258,7 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   machine-readable extracts of it. Source of all gold gender labels.
 - **WordNet** *(data source, via NLTK)*. English lexical database; its category labels
   (`noun.person`, `noun.artifact`) help judge animacy and concreteness from English glosses.
-- **Nonce word.** An invented but plausible word (*brelda*), used in Phase 1.
+- **Nonce word.** An invented but plausible word (*brelda*), used in Phase 1, the wug test and P29/P30.
 
 ## Project-specific terms
 
