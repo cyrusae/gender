@@ -33,6 +33,26 @@ uv run ruff check . && uv run ruff format .
 Gated models (Llama, Gemma, ...) need `uv run hf auth login` and accepting the terms on the
 model's Hugging Face page. Qwen3 is ungated.
 
+### Where the bulky data lives
+
+Activations, Phase 5 sweep arrays (`results/phase5/`) and the Wiktionary dumps (`data/raw/kaikki/`)
+are tens of GB, so by default they live on an external drive, not in the repo
+(`src/gbleed/paths.py`):
+
+```
+$GBLEED_STORE/<checkout>/activations      # default store: /Volumes/Lexar/gbleed
+$GBLEED_STORE/<checkout>/results/phase5   # <checkout> = repo directory name (gender, gender-s2, ...)
+$GBLEED_STORE/shared/kaikki               # one copy for every checkout
+$GBLEED_STORE/archive/                    # finished pod sessions' raw copies (not read by code)
+```
+
+`GBLEED_ACT_DIR`, `GBLEED_P5_DIR`, `GBLEED_KAIKKI_DIR` point one directory elsewhere;
+`GBLEED_STORE=local` keeps everything in the repo (the RunPod scripts set this). If the drive isn't
+mounted, the code warns and falls back to the in-repo path, so a "file not found" right after that
+warning means: plug the drive in. The drive is exFAT, so macOS writes a `._<name>` sidecar next to
+every file; code that lists a directory there must skip them (`paths.visible`). Eject the drive
+before unplugging it (exFAT has no journal).
+
 ## Conventions (see CLAUDE.md for the full list)
 
 - **Gold labels never come from a language model.** Genders come from Wiktionary.
@@ -178,11 +198,11 @@ pre-registered reading (including the amendment made before results) is in `deci
 ```
 data/stimuli/     stimulus lists and hand-picked specs (versioned, tracked)
 data/lexicon/     pairs, multi-gender candidates, metadata (full noun tables git-ignored)
-data/raw/         Wiktionary dumps, NLTK data (git-ignored)
+data/raw/         NLTK data, norms, name lists (git-ignored); the Wiktionary dumps are on the store
 src/gbleed/       models, scoring, stimuli, lexicon, phase0, multigender, activations,
                   phase1(_stimuli), phase2(_stimuli), cli
 results/          small result tables (tracked): phase0/, multigender/, phase1/, phase2_known/, phase2/
-activations/      extracted hidden states (git-ignored; one device and precision per model)
+activations/      extracted hidden states: on the store by default (see Setup; one device and precision per model)
 docs/             glossary, decisions log, per-phase explainers, writeups/, design/, reading-list.md
 sources/          papers (PDFs git-ignored) + SUMMARIES.md
 ```
