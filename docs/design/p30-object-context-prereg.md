@@ -1,6 +1,6 @@
 # P30: does *la* pull toward feminine-rated adjectives when the noun is clearly an object? (DRAFT, awaiting PI sign-off)
 
-Drafted 2026-10-17. Nothing below has been run. Follows P29
+Drafted 2026-10-17. Only a 0.6B smoke test (n = 4 stems) has run; code in `src/gbleed/p30.py`. Follows P29
 (`pooling-neutrality-prereg.md`). Exploratory.
 
 ## The question in plain words
@@ -74,6 +74,10 @@ S(context) = mean over nonce words of the graded score (−β_GEND, R3 covariate
 the *La* − *El* shift on the invariant adjectives, averaged over the context's wordings. 95% CI
 from a stem bootstrap (a stem's four words stay together).
 
+- **Precondition: the neutral pull replicates P29**, i.e. S(neutral)'s lower 95% bound > 0.
+  If not, there's no pull to explain and the object result is reported descriptively. (Added
+  2026-10-17 before sign-off: a logic gap the 0.6B smoke test exposed. With S(neutral) ≤ 0,
+  "below half of S(neutral)" is meaningless. Not tuned on any value.)
 - **Primary: S(object).**
   - **The pull survives an object reading** iff its lower 95% bound > 0.
   - **Mostly the "a woman" guess** iff its upper 95% bound < half of S(neutral)'s point
@@ -90,6 +94,7 @@ from a stem bootstrap (a stem's four words stay together).
 | C1/C2 | S(object) | Reading |
 |---|---|---|
 | fail | n/a | No valid test: the contexts don't steer object vs person readings. |
+| pass, but S(neutral) ≤ 0 | n/a | No pull to explain: descriptive only. |
 | pass | lower bound > 0 | **Feminine grammar pulls toward feminine-rated adjectives even for things.** An unsteered, in-language grammatical-to-social association. On its own it says nothing about steering or English. |
 | pass | upper bound < ½ S(neutral) | P29's pull was mostly the model guessing "a woman". Ordinary semantics. |
 | pass | otherwise | Both contribute. |

@@ -105,7 +105,7 @@ def main() -> None:
     p5.add_argument("step", choices=["english-extract", "number-extract", "wug", "gate-framecheck",
                                      "readout-check", "gate", "session", "p20", "suffix-extract",
                                      "p4-known", "ru-known", "suffix-known", "p22", "p22b", "phase5-all",
-                                     "diminutives-extract", "p29", "p29-analyze"])  # fmt: skip
+                                     "diminutives-extract", "p29", "p29-analyze", "p30", "p30-analyze"])  # fmt: skip
     p5.add_argument("models", nargs="+")
 
     a = p.parse_args()
@@ -287,6 +287,7 @@ def _p5(step: str, models: list[str]) -> None:
         p22,
         p22b,
         p29,
+        p30,
         phase4,
         phase5,
         ru_known,
@@ -299,7 +300,8 @@ def _p5(step: str, models: list[str]) -> None:
            "session": phase5.session, "p20": phase5.run_p20, "suffix-extract": suffix_ctrl.extract,
            "p4-known": lambda m: phase4.known(m, None, None), "ru-known": ru_known.score,
            "suffix-known": suffix_ctrl.known, "p22": p22.run, "p22b": p22b.run, "phase5-all": phase5.all_steps,
-           "diminutives-extract": diminutives.extract, "p29": p29.run, "p29-analyze": p29.analyze}  # fmt: skip
+           "diminutives-extract": diminutives.extract, "p29": p29.run, "p29-analyze": p29.analyze,
+           "p30": p30.run, "p30-analyze": p30.analyze}  # fmt: skip
     for m in models:
         fns[step](m)
         _free_memory()
