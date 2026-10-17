@@ -33,6 +33,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from . import paths
+
 SEED = 0
 N_BOOT = 2000
 PRIMARY_WORDINGS = {"R1": {"W1", "W2", "W3"}, "R1-EN": {"W1", "W2", "W3"},
@@ -248,7 +250,7 @@ def analyze_run(run_dir: str | Path, fam: str, tok, rng=None, failed: set = froz
     win = window(dmg) if dmg is not None else None
     res = {"run": run_dir.name, **{k: info[k] for k in ("lang", "layer", "positions")},
            "window": win, "readouts": {}}  # fmt: skip
-    for f in sorted(run_dir.glob("*_conds.csv.gz")):
+    for f in paths.visible(sorted(run_dir.glob("*_conds.csv.gz"))):
         name = f.name.removesuffix("_conds.csv.gz")
         keys, lp, read = load(run_dir, name)
         rows = row_scores(name, keys, lp, read, fam, tok)
@@ -496,7 +498,7 @@ def p25(run_dir: str | Path, fam: str, rng=None, n_boot: int = N_BOOT) -> dict:
     return out
 
 
-def analyze_model(model_id: str, root: str = "results/phase5", out_root: str | None = None,
+def analyze_model(model_id: str, root: str | None = None, out_root: str | None = None,
                   readoutcheck_root: str = "results/phase5_readoutcheck",
                   p20_root: str = "results/phase5_p20"):  # fmt: skip
     """Every sweep directory of one model: per-run results, the verdict table, P25, R3-POOL
@@ -508,14 +510,14 @@ def analyze_model(model_id: str, root: str = "results/phase5", out_root: str | N
 
     fam = family(model_id)
     tok = AutoTokenizer.from_pretrained(model_id)
-    d = Path(root) / model_slug(model_id)
+    d = Path(root or paths.p5_dir()) / model_slug(model_id)  # sweep arrays: external store
     rc = Path(f"{readoutcheck_root}") / model_slug(model_id) / "shares.csv.gz"
     failed = failed_wordings(model_id, readoutcheck_root) if rc.exists() else set()
     if not rc.exists():
         print(f"WARNING: no readout check for {model_id}: no wording excluded")
-    runs = [analyze_run(r, fam, tok, failed=failed) for r in sorted(d.iterdir())
+    runs = [analyze_run(r, fam, tok, failed=failed) for r in paths.visible(sorted(d.iterdir()))
             if (r / "vectors.json").exists()]  # fmt: skip
-    out = Path(out_root or f"{root}_analysis") / model_slug(model_id)
+    out = Path(out_root or "results/phase5_analysis") / model_slug(model_id)
     out.mkdir(parents=True, exist_ok=True)
     (out / "runs.json").write_text(json.dumps(runs, indent=1, default=float))
     v = verdicts(runs)

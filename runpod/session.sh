@@ -7,6 +7,7 @@
 # Local smoke test: KEEP_MODELS=1 HF_HOME=~/.cache/huggingface OUT=/tmp/x MODELS=Qwen/Qwen3-0.6B-Base bash runpod/session.sh
 set -euo pipefail
 export HF_HOME=${HF_HOME:-/root/hf}   # local disk (the global volume is object storage)
+export GBLEED_STORE=${GBLEED_STORE:-local}  # no external drive on the pod: data stays in the repo (gbleed/paths.py)
 export PATH="$HOME/.local/bin:$PATH"
 # Confirmatory 8B/14B before the exploratory MoE (30B-A3B), so a time stop only costs exploratory data.
 MODELS=${MODELS:-"Qwen/Qwen3-0.6B-Base Qwen/Qwen3-1.7B-Base Qwen/Qwen3-4B-Base Qwen/Qwen3-8B-Base Qwen/Qwen3-14B-Base Qwen/Qwen3-30B-A3B-Base"}

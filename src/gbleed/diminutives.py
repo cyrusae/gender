@@ -32,11 +32,12 @@ import numpy as np
 import pandas as pd
 
 from . import activations as acts
+from . import paths
 from .models import git_state, model_slug, progress
 
 SHEET = "docs/reports/german-diminutives-review.csv"
 ITEMS = "data/stimuli/german_diminutives_v1.csv"
-KAIKKI_DE = "data/raw/kaikki/kaikki.org-dictionary-German.jsonl"
+KAIKKI_DE = "kaikki.org-dictionary-German.jsonl"  # in paths.kaikki_dir()
 MIN_ZIPF = 2.0
 SEED = 0
 N_BOOT = 1000
@@ -48,7 +49,7 @@ def _objects() -> pd.DataFrame:
     lex = pd.read_csv("data/lexicon/de_nouns.csv", keep_default_na=False).drop_duplicates("lemma")
     lex = lex.set_index("lemma")
     rows = []
-    with open(KAIKKI_DE) as f:
+    with open(paths.kaikki(KAIKKI_DE)) as f:
         for line in f:
             if '"pos": "noun"' not in line[:40]:
                 continue

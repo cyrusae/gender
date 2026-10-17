@@ -33,6 +33,7 @@ import numpy as np
 import pandas as pd
 import torch
 
+from . import paths
 from .estimators import class_betas, nuisance
 from .models import model_slug, progress, stage
 from .scoring import _head, head_dtype
@@ -733,7 +734,7 @@ def gate_unit(model_id: str, lang: str, k: int, gate_root: str = "results/phase5
 
 
 def sweep(model_id: str, k: int, lang: str, alpha_star: float, unit: float,
-          out_root: str = "results/phase5", device=None, dtype=None, nouns_filter=None,
+          out_root: str | None = None, device=None, dtype=None, nouns_filter=None,
           n_random: int = N_RANDOM, n_random_sweep: int = N_RANDOM_GATE, readouts=None,
           model_tok=None, positions: str = "noun", extras=None,
           nonce: bool = True, with_damage: bool = True, prompt_batch: int = 16,
@@ -759,7 +760,9 @@ def sweep(model_id: str, k: int, lang: str, alpha_star: float, unit: float,
     V, names = steering_vectors(model_id, lang, k, model.config.hidden_size, n_random, extras)
     n_ex = len(extras)
     out = (
-        Path(out_root) / model_slug(model_id) / f"{lang}_k{k}{'_all' if positions == 'all' else ''}"
+        Path(out_root or paths.p5_dir())
+        / model_slug(model_id)
+        / f"{lang}_k{k}{'_all' if positions == 'all' else ''}"
     )
     out.mkdir(parents=True, exist_ok=True)
     cos = {nm: float(V[0] @ V[i]) for i, nm in enumerate(names) if not nm.startswith("rand")}
@@ -1008,7 +1011,7 @@ def readout_check(model_id: str, out_root: str = "results/phase5_readoutcheck", 
 
 
 def session(model_id: str, gate_root: str = "results/phase5_gate",
-            out_root: str = "results/phase5", positions=("noun", "all"),
+            out_root: str | None = None, positions=("noun", "all"),
             framecheck_root: str = "results/phase5_framecheck", model_tok=None) -> dict:  # fmt: skip
     """Session-2 steering for one model: gate at every grid layer (Spanish; German with the
     primary frame), then the full sweep at every passing layer (PI 2026-10-09), noun-only and

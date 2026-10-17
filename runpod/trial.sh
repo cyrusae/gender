@@ -3,6 +3,7 @@
 # Run from the repo root after setup.sh. Watch with:  tail -f logs/trial.log
 set -euo pipefail
 export HF_HOME=${HF_HOME:-/root/hf}   # local disk: the global volume is object storage (slow for many small files)
+export GBLEED_STORE=${GBLEED_STORE:-local}  # no external drive on the pod: data stays in the repo (gbleed/paths.py)
 export PATH="$HOME/.local/bin:$PATH"
 M=Qwen/Qwen3-0.6B-Base
 mkdir -p logs

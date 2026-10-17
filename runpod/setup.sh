@@ -3,6 +3,7 @@
 # Keeps the Hugging Face model cache on the persistent volume so restarts don't re-download.
 set -euo pipefail
 export HF_HOME=${HF_HOME:-/root/hf}   # local disk: the global volume is object storage (slow for many small files)
+export GBLEED_STORE=${GBLEED_STORE:-local}  # no external drive on the pod: data stays in the repo (gbleed/paths.py)
 START=$(date +%s)
 if ! command -v uv >/dev/null; then
   curl -LsSf https://astral.sh/uv/install.sh | sh

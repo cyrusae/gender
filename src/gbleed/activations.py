@@ -22,10 +22,8 @@ from pathlib import Path
 import numpy as np
 import torch
 
+from . import paths
 from .models import model_slug, progress
-
-ACT_DIR = Path("activations")
-
 
 INPUT_FORMAT = "[<|endoftext|>] + tokens('\\n') + tokens(' ' + text); last token"
 
@@ -102,7 +100,7 @@ def last_token_states(model, tok, words: list[str], batch_size: int = 64, desc: 
 
 
 def save(model_id: str, name: str, X: np.ndarray, words: list[str], toks, meta: dict) -> Path:
-    d = ACT_DIR / model_slug(model_id)
+    d = paths.act_dir() / model_slug(model_id)  # GBLEED_ACT_DIR / external store (paths.py)
     d.mkdir(parents=True, exist_ok=True)
     np.save(d / f"{name}.npy", X)
     (d / f"{name}.json").write_text(
@@ -116,5 +114,5 @@ def save(model_id: str, name: str, X: np.ndarray, words: list[str], toks, meta: 
 
 
 def load(model_id: str, name: str) -> tuple[np.ndarray, dict]:
-    d = ACT_DIR / model_slug(model_id)
+    d = paths.act_dir() / model_slug(model_id)
     return np.load(d / f"{name}.npy"), json.loads((d / f"{name}.json").read_text())

@@ -10,6 +10,7 @@
 #   MODELS=Qwen/Qwen3-0.6B-Base SMALL= bash runpod/session2.sh
 set -euo pipefail
 export HF_HOME=${HF_HOME:-/root/hf}
+export GBLEED_STORE=${GBLEED_STORE:-local}  # no external drive on the pod: data stays in the repo (gbleed/paths.py)
 export PATH="$HOME/.local/bin:$PATH"
 MODELS=${MODELS:-"Qwen/Qwen3-8B-Base Qwen/Qwen3-14B-Base"}
 SMALL=${SMALL:-"Qwen/Qwen3-0.6B-Base Qwen/Qwen3-1.7B-Base Qwen/Qwen3-4B-Base"}  # wug test only

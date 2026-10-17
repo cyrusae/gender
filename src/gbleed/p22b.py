@@ -26,8 +26,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from . import paths
+
 GENDERED = "data/stimuli/p22b_es_gendered_v1.csv"
-KAIKKI_ES = "data/raw/kaikki/kaikki.org-dictionary-Spanish.jsonl"
+KAIKKI_ES = "kaikki.org-dictionary-Spanish.jsonl"  # in paths.kaikki_dir()
 
 # (feminine frame, masculine frame) pairs, fixed 2026-10-12 before any P22b output
 FRAMES = {
@@ -48,7 +50,7 @@ def build_gendered() -> pd.DataFrame:
     t = pd.read_csv(ADJ_TRANS, keep_default_na=False)
     t = t[(t.es != "") & (t.es_invariant.astype(str) != "True") & ~t.es.isin(ES_ADJ_PI_DROP)]
     want, fem = set(t.es), {}
-    with open(KAIKKI_ES) as f:
+    with open(paths.kaikki(KAIKKI_ES)) as f:
         for line in f:
             d = json.loads(line)
             if d.get("pos") != "adj" or d.get("word") not in want:

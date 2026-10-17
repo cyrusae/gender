@@ -23,8 +23,10 @@ from pathlib import Path
 
 import pandas as pd
 
-KAIKKI_EN = "data/raw/kaikki/kaikki.org-dictionary-English.jsonl"
-CACHE = "data/raw/kaikki/en_gender_pairs.json"  # Wiktionary candidates (slow to extract)
+from . import paths
+
+KAIKKI_EN = "kaikki.org-dictionary-English.jsonl"  # in paths.kaikki_dir()
+CACHE = "en_gender_pairs.json"  # Wiktionary candidates (slow to extract)
 BOLUKBASI = "data/raw/bolukbasi/equalize_pairs.json"  # github.com/tolga-b/debiaswe (MIT)
 SHEET = "docs/reports/english-gender-pairs-review.csv"
 F_WORDS = {"female", "woman", "women", "girl", "her", "she", "wife", "mother", "daughter",
@@ -45,10 +47,10 @@ def _swap(g: str) -> str:
 
 def wiktionary_candidates() -> list:
     """[(word_a, word_b, rule)] from the English dump; cached (the dump is 3.3 GB)."""
-    if Path(CACHE).exists():
-        return json.loads(Path(CACHE).read_text())
+    if paths.kaikki(CACHE).exists():
+        return json.loads(paths.kaikki(CACHE).read_text())
     first, out = {}, []
-    with open(KAIKKI_EN) as f:
+    with open(paths.kaikki(KAIKKI_EN)) as f:
         for line in f:
             if not line.startswith('{"pos": "noun"'):
                 continue
@@ -73,7 +75,7 @@ def wiktionary_candidates() -> list:
         s = _swap(g)
         if s != g:
             out += [(w, m, "Wiktionary mirror glosses") for m in by.get(s, []) if m != w]
-    Path(CACHE).write_text(json.dumps(out))
+    paths.kaikki(CACHE).write_text(json.dumps(out))
     return out
 
 

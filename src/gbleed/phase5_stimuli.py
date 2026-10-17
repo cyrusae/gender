@@ -16,6 +16,8 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
+from . import paths
+
 GLASGOW = "data/raw/glasgow/glasgow_norms_scott2019.csv"
 SCALES = ["AROU", "VAL", "DOM", "CNC", "IMAG", "FAM", "AOA", "SIZE", "GEND"]
 FAMILIES = {"qwen3": "Qwen/Qwen3-4B-Base", "eurollm": "utter-project/EuroLLM-1.7B"}
@@ -108,7 +110,7 @@ def gate_adjectives(family: str) -> list[tuple[str, str, list[int], int, int]]:
 
 
 NUMBER = "data/stimuli/phase5_number_v1.csv"
-KAIKKI = "data/raw/kaikki/kaikki.org-dictionary-{}.jsonl"
+KAIKKI = "kaikki.org-dictionary-{}.jsonl"  # in paths.kaikki_dir()
 
 
 def _headword_plurals(lang: str, lemmas: set[str]) -> dict[str, set[str]]:
@@ -117,7 +119,9 @@ def _headword_plurals(lang: str, lemmas: set[str]) -> dict[str, set[str]]:
     import json
 
     out: dict[str, set[str]] = {w: set() for w in lemmas}
-    with open(KAIKKI.format({"es": "Spanish", "de": "German"}[lang]), encoding="utf-8") as f:
+    with open(
+        paths.kaikki(KAIKKI.format({"es": "Spanish", "de": "German"}[lang])), encoding="utf-8"
+    ) as f:
         for line in f:
             d = json.loads(line)
             w = d.get("word")
@@ -228,7 +232,9 @@ def _adjectives_glossing(lang: str, english: set[str]) -> dict[str, list[dict]]:
     import json
 
     out: dict[str, list[dict]] = {}
-    with open(KAIKKI.format({"es": "Spanish", "de": "German"}[lang]), encoding="utf-8") as f:
+    with open(
+        paths.kaikki(KAIKKI.format({"es": "Spanish", "de": "German"}[lang])), encoding="utf-8"
+    ) as f:
         for line in f:
             if '"pos": "adj"' not in line:
                 continue
@@ -336,7 +342,7 @@ def build_es_pooled() -> pd.DataFrame:
     # English words with two translations)
     g = g[~g.es_m.duplicated(keep=False)].reset_index(drop=True)
     forms, other = set(g.es_m) | set(g.es_f), {}
-    with open(KAIKKI.format("Spanish")) as f:
+    with open(paths.kaikki(KAIKKI.format("Spanish"))) as f:
         for line in f:
             d = json.loads(line)
             if d.get("word") in forms and d.get("pos") in ("noun", "name"):

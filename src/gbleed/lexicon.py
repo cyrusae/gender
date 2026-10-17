@@ -30,7 +30,8 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
-RAW_DIR = Path("data/raw/kaikki")
+from . import paths
+
 NLTK_DIR = Path("data/raw/nltk_data")
 LEX_DIR = Path("data/lexicon")
 LANG_NAMES = {"de": "German", "es": "Spanish", "ru": "Russian"}
@@ -167,7 +168,7 @@ def ru_morphology(word: str, gender: str, tags: set[str], heads: list[str]) -> d
 # ---- helpers ----------------------------------------------------------------
 def dump_path(lang: str) -> Path:
     name = LANG_NAMES[lang]
-    return RAW_DIR / f"kaikki.org-dictionary-{name}.jsonl"
+    return paths.kaikki(f"kaikki.org-dictionary-{name}.jsonl")  # external store (paths.py)
 
 
 def download(lang: str, force: bool = False) -> Path:
