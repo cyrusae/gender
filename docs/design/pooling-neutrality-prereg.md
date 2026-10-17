@@ -1,6 +1,7 @@
-# P29: is the pooled adjective readout agreement-neutral? (DRAFT, awaiting PI sign-off)
+# P29: is the pooled adjective readout agreement-neutral? (ADOPTED, PI 2026-10-17)
 
-Drafted 2026-10-17. Nothing below has been run. Thresholds are fixed here, before any data,
+Drafted and adopted 2026-10-17 (M0–M3 as written, bound at half the smallest effect, the 14B
+deep-layer run kept separate). Code: `src/gbleed/p29.py`, pod script `runpod/p29.sh`. Thresholds are fixed here, before any data,
 from the R3-POOL results already on file (`results/runpod2/phase5_analysis/*/r3_pool.csv`).
 
 ## The question in plain words
@@ -24,7 +25,15 @@ ways that could happen:
    95th percentile ~0.03 vs ~0.007), but it's a reason to look.
 2. **Form availability.** Once agreement demands the feminine form, the model may favour
    lemmas whose feminine form is common in text. If those happen to be feminine-rated, the
-   score moves with no change in meaning.
+   score moves with no change in meaning. Example: *calvo* "bald" (rated 6.46 of 7, where 7 =
+   very masculine) has a feminine form, *calva*, about 6× rarer than the masculine. In text
+   counts (wordfreq) this is unlikely to drive the result: over the 116 R3-POOL lemmas,
+   ρ(rating, zipf(f) − zipf(m)) = +0.15, p = 0.12, the opposite sign from the worry. Most large
+   gaps are unrelated to gender (*nublado*, the impersonal weather word; *Atlético*, the club).
+   Text counts aren't the model's behaviour, though, so the test measures it directly. Where
+   rarity is itself social (*calva*), avoiding the form would arguably be a shallow, word-form
+   version of the association. M2 helps here too, since invariant adjectives have no form to be
+   rare.
 
 ## Design
 
@@ -56,8 +65,8 @@ test (like German Phase 5), reported as such.
 regression and covariates as R3-POOL, `all` subset) of the shift *La* minus *El*. 95% CI:
 bootstrap over stems (a stem's -e and -iz words stay together).
 - **Pass (agreement can't explain R3-POOL)** iff A's upper 95% bound < **half** of that
-  model's smallest noun-only R3-POOL effect: **8B < 0.026** (half of 0.052, k20), **14B <
-  0.019** (half of 0.038, k10).
+  model's smallest noun-only R3-POOL effect: **8B < 0.0260** (half of 0.0520, k20), **14B <
+  0.0188** (half of 0.0376, k10). Exact values are in `p29.R3_POOL_MIN_EFFECT`.
 - Why this is conservative: the article flips agreement in nearly every word (M0 checks
   this). Steering at α\* flips it in only about half the nouns, since α\* is defined as the
   dose where the median agreement margin crosses zero. So A overstates how much agreement
@@ -92,18 +101,21 @@ agreement change.
 
 ## Hardware and cost
 
+Local smoke test (0.6B, fp16, 4 stems) ran end to end on 2026-10-17. On 0.6B the article
+already moves the pooled score by ~0.07; that's a different model at n = 8, not evidence about
+8B/14B, and no rule was changed after seeing it.
+
 8B and 14B don't fit on the Mac in fp16 (8B alone is ~16 GB), and R3-POOL ran in bf16 on an
 L40S. So: one RunPod L40S session, both models, unsteered scoring only (~1,200 prompts per model
 plus ~280k whole-word continuations). Estimated well under an hour, about $1 at session 2's
 rate; the live price will be stated before creating the pod. Smoke test on 0.6B locally first.
 The code is new (`p29` step), committed before the run.
 
-## Decisions for the PI
+## Decisions (PI, 2026-10-17)
 
-1. Adopt M0–M3 as written?
-2. The pass bound at **half** the smallest R3-POOL effect. Alternatives: below the random 95th
-   percentile (stricter; likely too strict given the article flips agreement fully), or below
-   the full effect (looser).
-3. Bundle the 14B deep-layer (k28) exploratory steering run into the same pod session? Marginal
-   cost about $1–2 more. It would need its own pre-registration first, so it would slow the
-   start.
+Adopted as recommended:
+
+1. M0–M3 as written.
+2. Pass bound at **half** the smallest R3-POOL effect. Alternatives not taken: below the random
+   95th percentile (stricter), below the full effect (looser).
+3. The 14B deep-layer (k28) run stays a separate decision.
