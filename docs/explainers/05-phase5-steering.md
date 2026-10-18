@@ -243,7 +243,9 @@ gendered adjective choice in one model size, weakly, and not in the larger one.*
       differently) rather than through ideas about women;
     - sizes across sentences aren't strictly comparable;
     - it's large, ~70–78% of the shift for a real woman;
-    - it doesn't appear in the two smallest models tried, so it may need scale.
+    - it appears at every Qwen3 size tried (1.7B +0.038 and 4B +0.026 on the Mac; 8B, 14B on
+      the pod) but not on EuroLLM-1.7B, so it looks like a family difference, not a size threshold;
+    - at 1.7B it exceeds the shift for real women, which points toward the text-statistics reading.
 - **P25** (unsteered lean of English concepts toward a translation's gender): the difference is
   near zero on both, with intervals covering 0 (8B −0.03 [−0.06, 0.01]; 14B −0.03 [−0.07, 0.00]).
 

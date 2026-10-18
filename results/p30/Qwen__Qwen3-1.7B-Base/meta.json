@@ -1,0 +1,19 @@
+{
+ "meta": {
+  "git_commit": "7876ab2d0fa7057d0554c6338e254d3eebb572ba",
+  "git_dirty": false,
+  "model_id": "Qwen/Qwen3-1.7B-Base",
+  "model_revision": null,
+  "n_params": 1720574976,
+  "n_layers": 28,
+  "device": "mps",
+  "dtype": "float16",
+  "head_dtype": "model",
+  "torch": "2.14.1",
+  "transformers": "5.18.0",
+  "machine": "Darwin arm64 arm",
+  "gpu": "Apple MPS",
+  "timestamp": "2026-10-17T22:51:34+00:00"
+ },
+ "n_prompts": 6294
+}

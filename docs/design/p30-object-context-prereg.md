@@ -161,3 +161,19 @@ Removing the person reading didn't shrink the pull.
    stems), so the effect may need scale. It isn't shown to be family-general.
 5. P2 (*que conocí*) failed C1 on every model; person = P1 only.
 
+### Size curve (2026-10-17; Mac fp16, exploratory)
+
+| | Qwen3-1.7B | Qwen3-4B |
+|---|---|---|
+| valid / verdict | yes / pull survives | yes / pull survives |
+| S(object) | +0.038 [0.033, 0.044] | +0.026 [0.019, 0.033] |
+| S(neutral) | +0.009 [0.001, 0.018] | +0.019 [0.010, 0.028] |
+| S(person) | +0.025 (P1) | +0.065 (P1, P2) |
+| real person nouns N1 / person | +0.026 / +0.043 | +0.061 / +0.066 |
+
+Every Qwen3 size tested shows the object pull: 1.7B +0.038, 4B +0.026 (Mac), 8B +0.080, 14B
++0.124 (pod). It's larger at 8B/14B, but not monotone, and the hardware differs. EuroLLM-1.7B
+(+0.008) is the exception, which looks more like a family difference than a size threshold
+(limit 4 in the results above is revised accordingly). At 1.7B the object pull exceeds the
+shift for real women, which fits a distributional account better than a social one.
+

@@ -284,6 +284,8 @@ second Claude session that read along and flagged problems.*
     question.
   - **Caveat:** whether it's about *social* gender or about how feminine nouns are described in
     Spanish text isn't settled. Pod cost $0.12.
+  - **Size curve (Mac):** Qwen3 1.7B and 4B show it too (+0.038, +0.026). So it's a Qwen trait
+    across sizes, absent in EuroLLM-1.7B.
 - **Cost $0.51** (L40S, 28 min). The pod couldn't be made to stop itself (its built-in key is
   refused), so the Mac watched it; a copy loop briefly stopped early when its "done" check matched
   the wrong line, which was caught and fixed mid-run.
