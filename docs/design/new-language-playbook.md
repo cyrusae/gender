@@ -79,9 +79,20 @@ These define the cells (spelling is held constant within a cell) and the covaria
 Flag compounds, derived words, diminutives, agent/instrument nouns, nominalised verbs and
 numeral nouns, then check how they're **distributed by gender**. An imbalance is a confound even
 when each rule is sensible on its own.
-- Start from `frequency_axis.complexity_rule` (German): numeral + suffix, noun + noun, verb +
-  agent suffix, noun + verb + agent suffix. Port it per language: suffixes, linking elements,
-  numeral words.
+- **Any language, from the dictionary:** `wk_structure` (built 2026-10-22) reads Wiktionary's
+  etymology templates (`compound`, `affix`/`af`, `suffix`, `prefix`, …). A noun counts as complex
+  if some part of it is still a word of the language (*Wasser* + *Kocher*, *скорый* + *-ость*).
+  Reconstructed or older-stage parts (*Kummer* ← *\*kom-*; *Wimper* ← Old High German) don't count.
+  - On the German training nouns it finds all 12 of the hand rule's nouns, plus 8 transparent
+    derivations the hand rule misses (*Benziner* ← *Benzin*, *Stößel* "pestle" ← *stoßen*): 27% of
+    masculine vs 11% of feminine.
+  - It also gives each language's suffix inventory (Russian: *-ка*, *-ость*, *-ение*, *-ник*…),
+    which is the raw material for suffix cells.
+  - Its limit: words Wiktionary lists only as inherited (*радость* "joy") count as simple even when
+    historically derived.
+- **Hand rule where needed:** `frequency_axis.complexity_rule` (German: numeral + suffix,
+  noun + noun, verb + agent suffix, noun + verb + agent suffix) catches agent-noun structure
+  Wiktionary may not template.
 - Keep diminutives and pattern-assigned genders out (German *-chen*/*-lein* and *Ge-…-e* are
   neuter by pattern).
 
@@ -214,7 +225,14 @@ Suggested order:
     "0% feminine" is only a 0.20 departure. Now a gender that is *missing* where ≥ 2 were expected
     is flagged too. Initial letters are accent-folded (*á* = *a*).
 - **Per-language config** (built 2026-10-22, `src/gbleed/languages.py`): genders, `wordfreq`
-  code, cell rule, structure rule, notes. Frames still live in `phase0.LANG_CONFIG` (to move).
+  code, cell rule, hand structure rule, notes, whether the language has articles, and pointers
+  to its known-check frames (they stay next to their scoring code, which frozen results depend on).
+- **Wiktionary word structure** (built 2026-10-22, `src/gbleed/wk_structure.py`): see Stage 3.
+  Reported by `lang-audit` for every language, next to any hand rule.
+- **Phase 4 for N languages** (built 2026-10-22, `src/gbleed/phase4n.py`): T1 for every ordered pair, T2
+  for every unordered pair, T3 where flipped pairs exist, pooled over all languages. With
+  Spanish + German it reproduces `phase4.analyze` **exactly** (same random draws, every column).
+  Verdict rules for new pairs are left to the pre-registration that adds the language.
 - Phase 4 for N languages (pairwise T1/T2 for every pair; T3 on pairs per language pair).
 
 ## Russian: where it stands
@@ -224,7 +242,7 @@ Suggested order:
 | 0 question | **set (PI, 2026-10-22):** "Does a gender direction learned without articles align with Spanish/German's, and is German's frequency entanglement shared?" **Next step after that:** masculine person nouns with feminine-type endings (*папа*, *мужчина*: meaning overrides form); common-gender person nouns (*сирота*, *коллега*) as a social-gender yardstick; grammatical animacy as a second category alongside gender. |
 | 1 lexicon | done (provenance recorded) |
 | 2 spelling audit | lexicon-wide audit done (2026-10-22). The ending class predicts gender 97% of the time, but **within ending classes feminine nouns are far more abstract** (concreteness d = −1.38) and longer (+0.84), almost certainly the abstract-noun suffix *-ость* inside the *-ь* class. A training set needs suffix cells (as German's). |
-| 3 structure audit | to do |
+| 3 structure audit | first pass (Wiktionary templates): **32% of feminine vs 13% of masculine eligible nouns are derived/compound**, the *-ость*/*-ка* pattern. Suffix cells needed. |
 | 4 meaning filters | done for the *-ь* pool (PI reviewed) |
 | 5 frames | done (*наш/новый*, frame check passed on Qwen3-1.7B/4B and EuroLLM-1.7B) |
 | 6 sets | *-ь* list only; a training set across endings is needed for a Russian direction |
