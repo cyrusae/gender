@@ -1,4 +1,4 @@
-# Gemma 3 slim replication: pre-registration (DRAFT, awaiting PI)
+# Gemma 3 slim replication: pre-registration (ADOPTED, PI 2026-10-22, with the tweaks below)
 
 Written 2026-10-22, before any Gemma number. Plan approved by the PI 2026-10-22 ("slim + Gemma
 Scope step"); this document fixes the details. Follows `phases-3-5-plan.md` ("After the Qwen
@@ -116,6 +116,6 @@ No Qwen-Scope SAE exists for 14B.
 
 ## Decisions (PI 2026-10-22)
 
-1. Adopt as drafted: pending.
+1. Adopted 2026-10-22 with the sink-scan, 27B and Qwen3-8B-first tweaks.
 2. 27B: decided at pod time, by whether 4B/12B were interesting; default off.
 3. 30% "list not portable" threshold: accepted as a rule of thumb, fixed before any Gemma data.
