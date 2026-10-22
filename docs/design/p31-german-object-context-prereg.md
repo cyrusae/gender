@@ -122,3 +122,50 @@ Adopted (PI, 2026-10-21), with the C1 fix above and these 9 drops from the 41 pe
    (gifted person*), Ungläubige (unbeliever), Außenstehende (outsider), Gesandte (envoy),
    Heterosexuelle (heterosexual), Staatsangehörige (citizen), Bedienstete (employee),
    Begünstigte (beneficiary).
+
+## Results (2026-10-21/22; Qwen3 8B/14B on L40S bf16 at commit 0f25e03; EuroLLM-1.7B and Qwen3 1.7B/4B on the Mac fp16; `results/p31/`)
+
+Graded score of the *die* − *der* shift, made-up nouns, 95% CI.
+
+| | EuroLLM-1.7B | Qwen3-1.7B | Qwen3-4B | Qwen3-8B | Qwen3-14B |
+|---|---|---|---|---|---|
+| object wordings valid (C1) | O1, O2 | O1 (O2 fails) | O1, O2 | O1, O2 | **none** (broad probe 0.1–0.3 nat below N1) |
+| person wordings valid | none | P1, P2 | P1 | P1 | P1, P2 |
+| S(neutral) | +0.035 [0.029, 0.040] | +0.018 [0.013, 0.023] | +0.020 [0.015, 0.024] | +0.002 [−0.004, 0.006] | +0.034 [0.030, 0.039] |
+| **S(object)** | **+0.081** [0.077, 0.085] | **+0.035** [0.032, 0.039] | **+0.043** [0.039, 0.046] | +0.002 [−0.001, 0.005] | (+0.025, exploratory) |
+| S(person) | n/a | +0.042 | +0.054 | +0.081 | +0.074 |
+| real person nouns, neutral | +0.014 (CI includes 0) | +0.009 (CI includes 0) | +0.059 | +0.059 | +0.090 |
+| *das* − *der*, object | +0.045 | 0.000 | +0.001 | 0.000 | (+0.002) |
+| **verdict** | **pull survives** | **pull survives** | **pull survives** | **no neutral pull to explain** | **no valid test** |
+
+**Reading (as pre-registered):**
+- **The object pull replicates in German on three of five models.** On EuroLLM-1.7B and Qwen3
+  1.7B/4B, the made-up noun reads as a thing (narrow probe −0.8 to −2.7 nats), and *die* still
+  draws feminine-rated adjectives more than *der* does, by about twice the neutral sentence's
+  shift. That is the same "object > neutral" pattern as Spanish.
+- **Qwen3-8B shows no pull outside person sentences.** **14B** failed the probe check.
+  Descriptively, with the margin waived, it shows +0.025, below its neutral +0.034.
+- **Neuter *das* is ≈ 0 against *der* in objects** on every Qwen size, so the pull is
+  feminine-specific, not "any non-masculine article". EuroLLM is the exception (+0.045).
+
+**Compared with Spanish (P30):**
+
+| | EuroLLM-1.7B | Qwen3-1.7B | 4B | 8B | 14B |
+|---|---|---|---|---|---|
+| Spanish S(object) | +0.008 (no neutral pull) | +0.038 | +0.026 | +0.080 | +0.124 |
+| German S(object) | +0.081 | +0.035 | +0.043 | +0.002 | invalid |
+
+The small Qwen3 models agree across languages. The large ones show it in Spanish only, and
+EuroLLM in German only. It isn't a single language-general effect that grows with size.
+
+**Limits to state:**
+- **Hardware is mixed.** The Mac runs are fp16 and the pod runs bf16, so cross-size comparisons are rough.
+- **The scale check is weak on two models.** On EuroLLM and Qwen3-1.7B, real person nouns barely
+  shift in the neutral sentence (CI includes 0). So "how big is a real woman's shift" is poorly
+  measured there.
+- **Frequency-axis caveat.** The German gender *direction*
+  (`frequency-axis-prereg.md`) aligns with low frequency. P31 uses no direction, but if
+  feminine-rated adjectives differ in frequency, an article that shifts a frequency-related
+  property could mimic the pull. The confidence control (a) re-scores P31 with a baseline-
+  probability covariate.
+- **Possible routes.** First-token readout; the gender ratings are of the English glosses.
