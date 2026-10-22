@@ -98,6 +98,34 @@ features exist, or one feature with masculine nearer the default.
 Phase 5 social-overlap via SAE features (plan G2 item 4) is deferred to its own prereg, if R1
 gives a reason.
 
+### G2 implementation notes (fixed 2026-10-22, before any G2 number)
+
+The prereg left these open; fixed here before computing anything:
+
+- **Held-out nouns:** the Phase 3 `compound_test` m/f set (632 nouns; 425 f / 207 m), the only
+  sizeable German m/f set disjoint from the strat3 training nouns (the matched sets reuse strat3
+  nouns; `suffix` is 78 f / 3 m). Same covariates and cells (ending|loan) as `de_train`.
+- **Baseline validity:** the held-out set must itself show the overlap (confidence-ctl (c) rule:
+  cross term beats the permutation 95th percentile and |cos| ≥ 0.3) on the unedited activations.
+  At layers where it doesn't, that layer is "no valid test".
+- **Removal:** x' = x − Σ_{i∈set} f_i(x) · W_dec[:, i] (the SAE error term is kept, so only the
+  chosen features change). Features are computed per noun on the held-out activations.
+- **|cos|:** the (c) cross-fitted cos(f−m coefficient, Zipf coefficient) refit on the held-out
+  nouns, before and after removal (200 splits, the (c) seed).
+- **Decoding:** 5-fold stratified logistic-regression accuracy (standardised, L2, C = 1) on the
+  held-out nouns, before vs after; "drop" = percentage points.
+- **Random control:** 100 sets of 20 features; each candidate is replaced by a random feature
+  with the nearest training-noun firing count (ties broken at random; none from the candidate
+  set). Candidate effect = |cos| reduction; must exceed the random sets' 95th percentile.
+- **Pass (per layer):** |cos| at most half of baseline, decoding drop < 5 points, and beats the
+  random 95th percentile. **Reading:** "features found" if it passes at a majority of the valid
+  layers; otherwise "not found".
+- **Layers:** the four Phase 5 layers (hidden_states 9, 14, 20, 25 for 8B), i.e. SAE layers
+  8, 13, 19, 24 (SAE L = hidden_states[L + 1]); the mapping is checked by reconstruction error
+  first (`sae.alignment`) and the run stops if the +1 offset doesn't win.
+- **Sign:** the overlap is negative (feminine ↔ rarer), so candidates have
+  sign(f−m effect) ≠ sign(Zipf slope).
+
 ## Compute and logistics
 
 - One chip type for all sizes: A100 80GB (~$1.59/h at last check; price stated again at pod
