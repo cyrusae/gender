@@ -10,7 +10,8 @@ Do the Qwen3 conclusions hold in a second model family? Specifically:
 
 1. **R1 (Phases 3–5):** the same pre-registered verdicts, from the same frozen noun lists, on
    Gemma 3 4B and 12B base (`google/gemma-3-4b-pt`, `google/gemma-3-12b-pt`; 27B only if the
-   whole session is under budget and the PI agrees at pod time).
+   whole session is under budget and the PI agrees at pod time; the call rests on whether 4B/12B
+   were interesting, since 27B has no Qwen3 peer, but Qwen3's 14B behaved differently from 8B).
 2. **R2 (German frequency overlap):** does Gemma's German f−m direction also point toward
    "rarer word" (Qwen3 8B cos −0.26 to −0.69, 14B −0.19 to −0.52; Spanish ≤ 0.14)? If yes, the
    overlap is about German stimuli/German, not a Qwen quirk.
@@ -43,6 +44,7 @@ We compare **conclusions** with Qwen, never vectors.
 | loading | the text-only model loads from the multimodal 4B/12B checkpoint; next-token log-probs on 20 fixed German/Spanish prompts are finite and the top-1 continuation of "Der Hund" / "El perro" is a plausible word |
 | softcap | read `final_logit_softcapping` from the config. If set, implement `c·tanh(x/c)` in `scoring.py` (currently raises `NotImplementedError`) and unit-test against the model's own forward logits (max abs diff < 1e-2 in bf16). If unset, the guard stays and is documented |
 | BOS / sink guard | Gemma's tokenizer adds `<bos>`; confirm one BOS, then the existing newline buffer; the sink guard is quiet on measured positions |
+| sink scan (fresh) | repeat the diagnostic that found the Qwen3 sinks, not just the guard: per-position residual norm at every layer on 20 prompts in our exact format. Any position other than BOS with norm > 10× the median of its layer (as Qwen3's newline separator was on 1.7B) is a failure; fix the format before measuring. The guard alone compares measured vectors with each other, so it would miss a format that puts *every* word on a sink |
 | SAE index | Gemma Scope 2 "resid_post after layer L" ↔ our `hidden_states[L+1]`: the `sae.alignment()` check (matching index reconstructs best, by a clear margin over L and L+2) at three layers |
 
 ## G1 (R1). Frozen pipeline: what counts as "replicates"
@@ -105,8 +107,15 @@ gives a reason.
 - Activations saved and copied back; R2's A/C/D and all of R3 run on the Mac afterwards (CPU).
 - Commit this prereg, the `gemma3` Phase 5 adjective list and the G0 code before the pod starts.
 
-## Decisions for the PI
+## Qwen3-8B first (R3 on the Mac, before the pod)
 
-1. Adopt as drafted?
-2. 27B: off unless budget allows (default), or never?
-3. The 30% "list not portable" threshold OK?
+Qwen-Scope SAEs exist for Qwen3-8B Base (`Qwen/SAE-Res-Qwen3-8B-Base-W64K-L0_50`, every layer;
+`src/gbleed/sae.py`), and 8B shows the German overlap. G2 steps 1–4 run first on Qwen3-8B from the
+saved activations, same rules; Gemma then becomes the cross-family check of whatever it finds.
+No Qwen-Scope SAE exists for 14B.
+
+## Decisions (PI 2026-10-22)
+
+1. Adopt as drafted: pending.
+2. 27B: decided at pod time, by whether 4B/12B were interesting; default off.
+3. 30% "list not portable" threshold: accepted as a rule of thumb, fixed before any Gemma data.
