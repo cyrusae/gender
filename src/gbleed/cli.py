@@ -109,6 +109,10 @@ def main() -> None:
     p5.add_argument("models", nargs="+")
     cc = sub.add_parser("confidence-ctl", help="Confidence/flattening control (prereg 2026-10-21)")
     cc.add_argument("--parts", default="abc", help="any of a, b, c")
+    fa = sub.add_parser(
+        "frequency-axis", help="German frequency-axis follow-up (prereg 2026-10-21)"
+    )
+    fa.add_argument("--parts", default="acdb", help="any of a, c, d (together) and b")
 
     a = p.parse_args()
     if a.cmd == "lexicon":
@@ -127,6 +131,11 @@ def main() -> None:
         from .confidence_ctl import main as cc_main
 
         cc_main(a.parts)
+        return
+    if a.cmd == "frequency-axis":
+        from .frequency_axis import main as fa_main
+
+        fa_main(a.parts)
         return
     if a.cmd == "multi-check":
         from . import multigender
