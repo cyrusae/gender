@@ -309,8 +309,9 @@ second Claude session that read along and flagged problems.*
   pairs and dropping complex nouns. Phase 4 doesn't depend on it (test B: verdicts unchanged). An apparent transfer gain after removing it turned out to be a sample-composition effect (threads 1–2). Found on the
   way: 12 compound/derived masculine nouns in German training (none feminine). Explainer 07.
 - **Open threads:** threads 1–2 done (the transfer gain is sample composition, not cleaner
-  gender); thread 3 noun list done (beyond Zipf, the axis looks like compounding plus register:
-  needs a rule-built register label to test; SAEs a possible next step); thread 4 (steering with
+  gender); thread 3 noun list done; the register reading of it was then tested by rule (AoA of the
+  English gloss, `register-axis-prereg.md`) and not supported: the overlap stays unexplained (SAEs a
+  possible next step); thread 4 (steering with
   the cleaned direction) deprioritised. `frequency-axis-prereg.md`.
 - **Next:** write-up. Candidates: steered text generation (what the model *says* under a push), Gemma 3
   replication (full vs slim pass, PI to decide), an instruct-model follow-up.

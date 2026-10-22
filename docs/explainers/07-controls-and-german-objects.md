@@ -105,6 +105,12 @@ from pairs where the feminine noun is the commoner one, and those happen to domi
 set. Removing the axis swapped one frequency lean for its opposite, and the opposite fit this
 sample. Not reported as improved transfer.
 
+**Register (age of acquisition) doesn't explain it either.** If the axis were "technical or
+learned vocabulary", a control for when English speakers learn each noun's gloss should have
+weakened the overlap. It didn't move it (e.g. 8B −0.62 → −0.61), and nouns' positions along the
+axis don't track AoA. My earlier reading of the noun list ("compounding plus register") isn't
+supported.
+
 **What's left.** German grammatical femininity is partly encoded along the same axis as low
 frequency in these models. Why is open. One possibility is that the "frequency" axis really
 tracks something broader (how technical or dictionary-like a word is), with German feminine
