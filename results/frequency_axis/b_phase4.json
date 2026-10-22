@@ -1,0 +1,104 @@
+{
+ "Qwen/Qwen3-8B-Base": {
+  "published": {
+   "T1_transfers": false,
+   "T3_pairs_follow_gender": true,
+   "t1_es_on_de_layers_holm": 6,
+   "t1_de_on_es_layers_holm": 5,
+   "t3_es_layers_holm": 35,
+   "t3_de_layers_holm": 35,
+   "t2_cos_mean": 0.4286955506612122,
+   "t2_layers_above_null": 23,
+   "inner_layers": 35
+  },
+  "baseline": {
+   "T1_transfers": false,
+   "T3_pairs_follow_gender": true,
+   "t1_es_on_de_layers_holm": 6,
+   "t1_de_on_es_layers_holm": 5,
+   "t3_es_layers_holm": 35,
+   "t3_de_layers_holm": 35,
+   "t2_cos_mean": 0.4286955506612122,
+   "t2_layers_above_null": 23,
+   "inner_layers": 35
+  },
+  "minus_de_freq": {
+   "T1_transfers": false,
+   "T3_pairs_follow_gender": true,
+   "t1_es_on_de_layers_holm": 6,
+   "t1_de_on_es_layers_holm": 18,
+   "t3_es_layers_holm": 35,
+   "t3_de_layers_holm": 35,
+   "t2_cos_mean": 0.4192045514538378,
+   "t2_layers_above_null": 23,
+   "inner_layers": 35
+  },
+  "minus_both_freq": {
+   "T1_transfers": false,
+   "T3_pairs_follow_gender": true,
+   "t1_es_on_de_layers_holm": 7,
+   "t1_de_on_es_layers_holm": 15,
+   "t3_es_layers_holm": 35,
+   "t3_de_layers_holm": 35,
+   "t2_cos_mean": 0.4031434029883489,
+   "t2_layers_above_null": 22,
+   "inner_layers": 35
+  },
+  "reading": {
+   "verdicts_unchanged": true,
+   "t2_cos_change": -0.009490999207374395,
+   "robust": true
+  }
+ },
+ "Qwen/Qwen3-14B-Base": {
+  "published": {
+   "T1_transfers": false,
+   "T3_pairs_follow_gender": true,
+   "t1_es_on_de_layers_holm": 7,
+   "t1_de_on_es_layers_holm": 22,
+   "t3_es_layers_holm": 39,
+   "t3_de_layers_holm": 39,
+   "t2_cos_mean": 0.3517048194643017,
+   "t2_layers_above_null": 28,
+   "inner_layers": 39
+  },
+  "baseline": {
+   "T1_transfers": false,
+   "T3_pairs_follow_gender": true,
+   "t1_es_on_de_layers_holm": 7,
+   "t1_de_on_es_layers_holm": 22,
+   "t3_es_layers_holm": 39,
+   "t3_de_layers_holm": 39,
+   "t2_cos_mean": 0.3517048194643017,
+   "t2_layers_above_null": 28,
+   "inner_layers": 39
+  },
+  "minus_de_freq": {
+   "T1_transfers": false,
+   "T3_pairs_follow_gender": true,
+   "t1_es_on_de_layers_holm": 6,
+   "t1_de_on_es_layers_holm": 29,
+   "t3_es_layers_holm": 39,
+   "t3_de_layers_holm": 39,
+   "t2_cos_mean": 0.30264708550872826,
+   "t2_layers_above_null": 27,
+   "inner_layers": 39
+  },
+  "minus_both_freq": {
+   "T1_transfers": false,
+   "T3_pairs_follow_gender": true,
+   "t1_es_on_de_layers_holm": 12,
+   "t1_de_on_es_layers_holm": 29,
+   "t3_es_layers_holm": 39,
+   "t3_de_layers_holm": 39,
+   "t2_cos_mean": 0.32376659008097414,
+   "t2_layers_above_null": 26,
+   "inner_layers": 39
+  },
+  "reading": {
+   "verdicts_unchanged": true,
+   "t2_cos_change": -0.049057733955573446,
+   "robust": true
+  }
+ }
+}

@@ -89,13 +89,17 @@ for both. A cosine asks about geometry, not confounding.
 | The frequency control was too crude | curved frequency + token-count control | overlap stays |
 | The regression produces it | frequency-matched feminine/masculine pairs, no regression | overlap stays (14 pairs) |
 | Word structure: compounds, numerals | without the 12 complex nouns / with a control for them | overlap stays |
-| Does it matter for Phase 4? | remove the frequency axis, rerun Phase 4 | *pending* |
+| Does it matter for Phase 4? | remove the frequency axis, rerun Phase 4 | **no**: verdicts unchanged; overlap cosine −0.01 (8B) / −0.05 (14B) |
 
 **A stimulus problem found on the way.** Twelve of the 64 masculine German training nouns, and
 none of the 27 feminine ones, are compounds or derived words: numeral nouns (*Vierer* "a four")
 and instrument compounds (*Wasserkocher* "kettle", *Feuerlöscher* "fire extinguisher"). Phase 3's
 "single-root words only" filter missed them; its rule had a gap. They turned out not to explain
 the frequency overlap, but they're a flaw in every German direction and are logged as such.
+
+**A side effect worth noting.** With the frequency axis removed, the German direction transfers to
+Spanish nouns much better (8B: 5 → 18 of 35 layers; 14B: 22 → 29 of 39). Its frequency part
+seems to be German-only and gets in the way of the shared part.
 
 **What's left.** German grammatical femininity is partly encoded along the same axis as low
 frequency in these models. Why is open. One possibility is that the "frequency" axis really

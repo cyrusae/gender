@@ -306,7 +306,7 @@ second Claude session that read along and flagged problems.*
 - **Confidence control (Oct 21/22; after Buttigieg et al. 2026):** no steering or article result
   is a flattening artefact. The German gender direction aligns with low word frequency
   (cos −0.3 to −0.7; Spanish clean). That survives a flexible frequency control, frequency-matched
-  pairs and dropping complex nouns. Whether Phase 4 depends on it is pending (test B). Found on the
+  pairs and dropping complex nouns. Phase 4 doesn't depend on it (test B: verdicts unchanged); removing it makes the German direction transfer to Spanish better. Found on the
   way: 12 compound/derived masculine nouns in German training (none feminine). Explainer 07.
 - **Next:** write-up. Candidates: steered text generation (what the model *says* under a push), Gemma 3
   replication (full vs slim pass, PI to decide), an instruct-model follow-up.

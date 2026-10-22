@@ -135,3 +135,29 @@ Two hypotheses this leaves (not tested here):
   technical a word is), and German feminine nouns sit at one end of it.
 - **Something specific to German *die*:** the article is shared with the plural. The number
   direction's own frequency alignment is small (≤ 0.17), which argues against this.
+
+## Result B (2026-10-22; Phase 4 rerun with the frequency axis projected out, LAST)
+
+The unprojected rerun reproduces the published Phase 4 exactly on both models (same layer
+counts; T2 mean cosine 0.4287 / 0.3517), so the comparisons are like for like.
+
+| | 8B baseline | 8B − German freq | 8B − both | 14B baseline | 14B − German freq | 14B − both |
+|---|---|---|---|---|---|---|
+| T1 transfers (both directions) | no | no | no | no | no | no |
+| ES → DE layers (Holm) | 6/35 | 6 | 7 | 7/39 | 6 | 12 |
+| **DE → ES layers (Holm)** | **5/35** | **18** | 15 | **22/39** | **29** | 29 |
+| T3 pairs follow gender | yes (35/35, 35/35) | yes | yes | yes (39/39) | yes | yes |
+| T2 mean cosine | 0.429 | 0.419 | 0.403 | 0.352 | 0.303 | 0.324 |
+| T2 layers above null | 23 | 23 | 22 | 28 | 27 | 26 |
+
+**Reading (as pre-registered): robust on both models.** The T1 and T3 verdicts are unchanged
+and the T2 mean cosine moves by −0.009 (8B) and **−0.049 (14B, just inside the 0.05 bar)**.
+So the published German geometry results don't depend on the rarity axis. The 14B T2 cosine is
+the most sensitive number: about an eighth of it goes with the frequency axis.
+
+**Not predicted (reported as found):** removing the German frequency axis makes the *German*
+direction transfer to Spanish much better: 5 → 18 layers on 8B (a bare majority of 35), and
+22 → 29 on 14B. Spanish → German barely changes. A reading: the frequency component is part of
+the German direction that Spanish nouns don't share. It adds noise when that direction scores
+Spanish nouns, and removing it leaves a cleaner shared gender component. T1 as pre-registered
+still fails (it needs both directions), so this is descriptive.
