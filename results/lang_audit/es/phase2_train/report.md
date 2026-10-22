@@ -7,7 +7,7 @@
 - initial 'a' (n=17): gender mix departs by 0.20; no f ({'m': 17})
 - tokens: d_f_vs_m = -0.41 (within cells)
 - zipf: d_f_vs_m = +0.71 (within cells)
-- no word-structure rule for this language yet (playbook Stage 3)
+- no hand-written word-structure rule for this language (playbook Stage 3)
 
 ## Spelling
 
@@ -24,4 +24,5 @@
 
 ## Word structure
 
-- complex share by gender: None
+- hand rule, complex share by gender: None
+- Wiktionary templates (transparent), complex share by gender: {'f': 0.030303030303030304, 'm': 0.030303030303030304}

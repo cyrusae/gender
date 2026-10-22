@@ -238,7 +238,18 @@ def audit(lang: str, path: str | None = None, tag: str | None = None) -> dict:
             out / "complex_nouns.csv", index=False)  # fmt: skip
     else:
         res["structure_share"] = None
-        res["flags"].append("no word-structure rule for this language yet (playbook Stage 3)")
+        res["flags"].append(
+            "no hand-written word-structure rule for this language (playbook Stage 3)"
+        )
+    # Wiktionary's own structure templates (any language; transparent ones only)
+    from . import wk_structure
+
+    wk = wk_structure.rule(lang)
+    df["structure_wk"] = [wk(w) for w in words]
+    shw = df.assign(cx=df.structure_wk != "").groupby("gender").cx.mean().to_dict()
+    res["structure_wk_share"] = shw
+    if len(shw) > 1 and max(shw.values()) - min(shw.values()) >= STRUCT_FLAG:
+        res["flags"].append(f"word structure (Wiktionary): complex share by gender {shw}")
     df.assign(cell=cells).to_csv(out / "nouns.csv", index=False)
     (out / "report.md").write_text(_report(res))
     print(_report(res))
@@ -259,5 +270,7 @@ def _report(r: dict) -> str:
     for b in r["balance"]:
         rest = ", ".join(f"{k} {v:.2f}" for k, v in b.items() if k not in ("feature",))
         lines.append(f"- **{b['feature']}**: {rest}")
-    lines += ["", "## Word structure", "", f"- complex share by gender: {r['structure_share']}", ""]
+    lines += ["", "## Word structure", "",
+              f"- hand rule, complex share by gender: {r['structure_share']}",
+              f"- Wiktionary templates (transparent), complex share by gender: {r['structure_wk_share']}", ""]  # fmt: skip
     return "\n".join(lines)

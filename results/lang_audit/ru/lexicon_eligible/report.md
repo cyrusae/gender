@@ -7,7 +7,8 @@
 - length: d_f_vs_m = +0.84 (within cells)
 - aoa: d_f_vs_m = +0.49 (within cells)
 - concreteness: d_f_vs_m = -1.38 (within cells)
-- no word-structure rule for this language yet (playbook Stage 3)
+- no hand-written word-structure rule for this language (playbook Stage 3)
+- word structure (Wiktionary): complex share by gender {'f': 0.31966490299823636, 'm': 0.13070539419087138}
 
 ## Spelling
 
@@ -24,4 +25,5 @@
 
 ## Word structure
 
-- complex share by gender: None
+- hand rule, complex share by gender: None
+- Wiktionary templates (transparent), complex share by gender: {'f': 0.31966490299823636, 'm': 0.13070539419087138}

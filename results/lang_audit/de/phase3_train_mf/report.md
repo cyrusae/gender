@@ -6,6 +6,7 @@
 
 - zipf: d_f_vs_m = +0.59 (within cells)
 - word structure: complex share by gender {'f': 0.0, 'm': 0.1875}
+- word structure (Wiktionary): complex share by gender {'f': 0.1111111111111111, 'm': 0.265625}
 
 ## Spelling
 
@@ -22,4 +23,5 @@
 
 ## Word structure
 
-- complex share by gender: {'f': 0.0, 'm': 0.1875}
+- hand rule, complex share by gender: {'f': 0.0, 'm': 0.1875}
+- Wiktionary templates (transparent), complex share by gender: {'f': 0.1111111111111111, 'm': 0.265625}
