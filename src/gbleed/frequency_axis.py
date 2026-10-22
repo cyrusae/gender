@@ -256,7 +256,10 @@ def freq_axes(model_id: str, langs=("de",)) -> np.ndarray:
         vs.append(np.einsum("n,nld->ld", P, X))
     V = np.stack(vs, axis=1)  # [L, r, d]
     Q = np.stack([np.linalg.qr(v.T)[0].T for v in V])  # orthonormal rows per layer
-    return Q
+    # QR's signs are arbitrary: orient each row toward its language's Zipf coefficient
+    # ("commoner"), so positions along it are comparable across layers (projection is unaffected)
+    sgn = np.sign(np.einsum("lrd,lrd->lr", Q, V))
+    return Q * sgn[..., None]
 
 
 @contextmanager

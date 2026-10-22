@@ -306,12 +306,12 @@ second Claude session that read along and flagged problems.*
 - **Confidence control (Oct 21/22; after Buttigieg et al. 2026):** no steering or article result
   is a flattening artefact. The German gender direction aligns with low word frequency
   (cos −0.3 to −0.7; Spanish clean). That survives a flexible frequency control, frequency-matched
-  pairs and dropping complex nouns. Phase 4 doesn't depend on it (test B: verdicts unchanged); removing it makes the German direction transfer to Spanish better. Found on the
+  pairs and dropping complex nouns. Phase 4 doesn't depend on it (test B: verdicts unchanged). An apparent transfer gain after removing it turned out to be a sample-composition effect (threads 1–2). Found on the
   way: 12 compound/derived masculine nouns in German training (none feminine). Explainer 07.
-- **Open threads (noted, not run):** why removing the German frequency axis improves German→Spanish
-  transfer (score–frequency check, frequency-balanced subsets: exploratory); what that axis is
-  beyond frequency (maybe SAEs); steering with the cleaned German direction (pod).
-  `frequency-axis-prereg.md`.
+- **Open threads:** threads 1–2 done (the transfer gain is sample composition, not cleaner
+  gender); thread 3 noun list done (beyond Zipf, the axis looks like compounding plus register:
+  needs a rule-built register label to test; SAEs a possible next step); thread 4 (steering with
+  the cleaned direction) deprioritised. `frequency-axis-prereg.md`.
 - **Next:** write-up. Candidates: steered text generation (what the model *says* under a push), Gemma 3
   replication (full vs slim pass, PI to decide), an instruct-model follow-up.
 

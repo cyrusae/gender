@@ -1,0 +1,92 @@
+lemma,gender,zipf,ntok,cell,gloss,complex,resid_mean_z,resid_rank_mean
+Hebel,m,3.82,2.0,el|native,operating lever,,-2.2983551867780068,1.75
+Saft,m,4.02,2.0,ft|native,juice,,-2.176322976381283,2.5
+Stachel,m,3.16,2.0,el|native,spike,,-2.0745225767302227,2.5
+Kluft,f,3.38,3.0,ft|native,cleft,,-1.7793430717859753,3.75
+Speer,m,3.58,2.0,er|native,spear,,-1.3530376283242131,8.0
+Eichel,f,3.37,2.0,el|native,acorn,,-1.2374769464586106,8.75
+Metapher,f,3.57,3.0,er|loan,metaphor,,-1.1470292661518457,9.0
+Stiel,m,3.54,2.0,el|native,stalk,,-1.0390840000872223,12.0
+Hügel,m,4.07,2.0,el|native,hill,,-1.0111036794605037,14.25
+Böller,m,3.3,3.0,er|native,firecracker,,-1.006481563430388,14.0
+Gletscher,m,3.58,3.0,er|loan,glacier,,-0.9187889771957718,17.75
+Knöchel,m,3.44,4.0,el|native,ankle,,-0.9175700464870029,17.5
+Klinker,m,2.68,3.0,er|loan,clinker,,-0.9100070254489181,16.25
+Pickel,m,3.4,2.0,el|native,pickaxe,,-0.863579963037004,20.5
+Kittel,m,3.34,2.0,el|native,overall,,-0.8509627938999653,23.0
+Kegel,m,3.46,3.0,el|native,skittle,,-0.8288790251216618,20.75
+Nadel,f,3.77,2.0,el|native,needle,,-0.7827833825729298,23.0
+Knüppel,m,3.23,4.0,el|loan,cudgel,,-0.7807334478922789,20.75
+Kummer,m,3.78,2.0,er|native,grief,,-0.7788219254497493,21.25
+Pfeiler,m,3.48,3.0,er|native,pillar,,-0.7613630838239912,22.0
+Eifer,m,3.5,2.0,er|native,zeal,,-0.714595688047461,24.25
+Tümpel,m,2.88,4.0,el|native,shallow pond,,-0.6966879597278546,23.25
+Gruft,f,3.31,3.0,ft|native,vault,,-0.6490696129692022,27.75
+Schemel,m,2.42,3.0,el|native,footstool,,-0.6096021397446837,27.5
+Ader,f,3.29,2.0,er|native,blood vessel,,-0.6007348930600234,27.25
+Kuppel,f,3.6,3.0,el|loan,dome,,-0.5929346522645155,28.5
+Pfannenwender,m,2.02,5.0,er|native,spatula,noun+verb+er,-0.5817950329213448,27.5
+Fackel,f,3.33,3.0,el|native,torch,,-0.5727172581586596,27.25
+Senkel,m,2.45,2.0,el|native,lace,,-0.5394323207246824,30.75
+Wimper,f,2.95,3.0,er|native,eyelash,,-0.5110506525029441,31.25
+Kammer,f,4.18,2.0,er|native,chamber,,-0.47609848735183546,32.75
+Meiler,m,2.55,2.0,er|native,earth mound kiln,,-0.47327415797994055,31.75
+Wandler,m,2.8,2.0,er|native,transducer,,-0.4159054696865465,33.25
+Rohrkrepierer,m,2.49,5.0,er|native,barrel burst,noun+verb+er,-0.4045754784867872,32.5
+Auskunft,f,4.21,3.0,ft|native,enquiry,,-0.37991606479382006,35.0
+Sichel,f,3.11,2.0,el|native,sickle,,-0.36583441334285227,37.0
+Vernunft,f,4.1,2.0,ft|native,reason,,-0.3537808509761243,34.5
+Zahnstocher,m,2.82,5.0,er|native,toothpick,noun+verb+er,-0.3341489064977265,36.75
+Vierer,m,3.37,3.0,er|native,something with a number,numeral+er,-0.320400276803137,36.75
+Treber,m,2.11,2.0,er|native,residue mass from making beer or brandy,,-0.3151466537786254,38.5
+Staffel,f,4.58,2.0,el|native,season,,-0.23014378099394778,40.75
+Koffer,m,4.19,2.0,er|native,case,,-0.1691642375637759,41.5
+Wahl,f,5.19,1.0,hl|native,choice,,-0.1675910098294083,41.25
+Sockel,m,3.56,3.0,el|loan,base,,-0.16181423680179413,43.5
+Sommer,m,5.08,1.0,er|native,summer,,-0.15448445562404314,41.5
+Saison,f,5.05,2.0,on|loan,season,,-0.1289969281727047,42.75
+Gondel,f,3.08,3.0,el|loan,gondola,,-0.12078875824923355,44.25
+Waggon,m,3.16,2.0,on|loan,railway wagon,,-0.08395779153112479,43.75
+Hobel,m,2.7,2.0,el|native,anything that abrades a surface,,-0.07478539227025341,46.0
+Pfahl,m,3.14,2.0,hl|native,stake,,-0.07380958913241104,45.75
+Balkon,m,4.19,2.0,on|loan,balcony,,-0.05731641365087663,46.75
+Saat,f,3.31,2.0,at|native,seed,,-0.03416720205962803,47.0
+Grat,m,3.3,1.0,at|native,ridge,,0.03416720205963743,49.0
+Höcker,m,2.96,2.0,er|native,hump,,0.12268629188563787,53.0
+Äther,m,3.1,2.0,er|loan,ether,,0.16830785213605362,53.0
+Stichel,m,2.21,2.0,el|native,burin,,0.18828414625552709,53.5
+Duft,m,3.88,2.0,ft|native,aroma,,0.20544433503149895,54.75
+Strahl,m,3.54,2.0,hl|native,beam,,0.24140059896182164,56.0
+Beton,m,3.94,2.0,on|loan,concrete,,0.2702711333547094,58.0
+Trichter,m,3.22,3.0,er|native,funnel,,0.28974677739228893,55.75
+Fabel,f,3.02,2.0,el|native,fable,,0.3143432646604853,58.5
+Stößel,m,2.47,4.0,el|native,pestle,,0.36797401855274214,59.5
+Ärmel,m,3.64,3.0,el|native,sleeve,,0.5175201429943146,65.25
+Sechser,m,2.97,3.0,er|native,something with a number,numeral+er,0.5209503311749055,63.5
+Zehner,m,3.17,3.0,er|native,ten,numeral+er,0.5267129974521374,62.75
+Feuerlöscher,m,3.21,4.0,er|native,fire extinguisher,noun+verb+er,0.5307372435559922,62.5
+Zirkel,m,3.4,3.0,el|native,pair of compasses,,0.6007218308653884,67.0
+Oper,f,4.24,1.0,er|loan,opera,,0.6101340510280262,66.5
+Kalender,m,4.16,2.0,er|loan,calendar,,0.6140636372883785,66.75
+Pegel,m,3.33,2.0,el|loan,level,,0.709227833694789,67.75
+Luft,f,5.02,1.0,ft|native,air,,0.8443769120949933,72.25
+Körper,m,5.0,1.0,er|native,body,,0.9358528707786112,74.75
+Kartoffel,f,3.74,3.0,el|loan,potato,,0.9470432615130335,74.25
+Akkuschrauber,m,2.72,5.0,er|native,cordless drill,noun+verb+er,0.9613621528292088,75.25
+Benziner,m,3.35,2.0,er|native,car with a gasoline engine,,0.9823651199540587,75.25
+Plattenspieler,m,3.03,4.0,er|native,record player,noun+verb+er,1.010966458510161,75.5
+Zwiebel,f,3.53,3.0,el|native,onion,,1.0968285846426036,76.5
+Fünfer,m,3.04,3.0,er|native,fiver,numeral+er,1.1344823085329228,78.75
+Wiederkunft,f,2.6,4.0,ft|native,second coming,,1.1403028951661884,77.75
+Wasserkocher,m,3.01,4.0,er|native,electric kettle,noun+verb+er,1.1744734251601536,79.5
+Wasserspeier,m,2.2,4.0,er|native,gargoyle,noun+verb+er,1.1807426141065274,79.0
+Artikel,m,5.24,1.0,el|native,article,,1.1995699921970542,77.25
+Winkel,m,4.18,2.0,el|native,angle,,1.2741419075623845,78.75
+Schrift,f,4.32,2.0,ft|native,writing,,1.3667969454877675,83.0
+Scheitel,m,3.1,2.0,el|native,parting,,1.4300564136788343,82.25
+Knorpel,m,2.92,3.0,el|native,cartilage,,1.5782647343429879,85.5
+Katheter,m,2.93,2.0,er|loan,catheter,,1.5833197283440892,85.5
+Inschrift,f,3.75,2.0,ft|native,inscription,,1.781511489125973,87.25
+Speichel,m,3.1,2.0,el|native,saliva,,1.9796943494869659,87.5
+Bibel,f,4.32,2.0,el|native,bible,,2.029119827975216,88.75
+Wipfel,m,2.27,3.0,el|native,treetop,,2.4170016523814994,90.5

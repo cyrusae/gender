@@ -185,3 +185,54 @@ gender-related content too.
 4. **(later, needs a pod)** Steering with the cleaned German direction (frequency part
    removed): does it pass the Spanish gate (flip *el* → *la*) better than the original
    German direction (P26 cross-language pushes)?
+
+### Threads 1–3 results (2026-10-22; exploratory, no pre-set rules; `results/frequency_axis/threads/`)
+
+**Thread 1: does the German direction's score on Spanish nouns track Spanish frequency?**
+Spearman within Spanish ending × gender groups, mean over inner layers:
+
+| | baseline | German frequency axis removed |
+|---|---|---|
+| 8B | −0.11 (negative at 86% of layers) | **+0.08** |
+| 14B | −0.01 (negative at 59%) | **+0.19** |
+
+As the candidate explanation predicted, the original direction leans "commoner Spanish noun →
+less feminine", clearly on 8B and barely on 14B. But removing the axis doesn't just cancel that.
+It **flips** it to "commoner → more feminine".
+
+**Thread 2: transfer AUC by the frequency gap within each feminine–masculine comparison**
+(within ending groups; ΔZipf = feminine − masculine; mean over inner layers):
+
+| | feminine rarer (ΔZipf < −0.3; 50 comparisons) | balanced (\|ΔZipf\| ≤ 0.3; 40) | feminine commoner (> 0.3; 145) |
+|---|---|---|---|
+| 8B baseline → axis removed | 0.68 → **0.60** | 0.72 → 0.71 | 0.66 → **0.81** |
+| 14B baseline → axis removed | 0.73 → **0.64** | 0.78 → 0.75 | 0.77 → **0.87** |
+
+**Reading:** the transfer jump is **not** cleaner shared gender. On frequency-balanced comparisons,
+removing the axis changes nothing (or slightly lowers AUC). It helps only where the feminine noun
+is the commoner one, and hurts where it's the rarer one. Our Spanish set happens to have 145 of
+the former and 50 of the latter. In effect, removal swaps one frequency lean ("rare → feminine")
+for the opposite ("common → feminine"), and the opposite lean happens to pay off on this sample.
+So the B "side effect" should not be reported as improved transfer. It's a sample-composition
+effect. It also takes most of the appeal out of thread 4 (steering with the cleaned direction).
+Limits: 40 balanced comparisons only; exploratory. Why removal flips the lean is unexplained:
+the re-fitted German direction apparently picks up frequency structure along another direction.
+
+**Thread 3: German nouns along the frequency axis, beyond what the fit explains.** Each noun's
+position along the axis, minus what the fit's design predicts (gender, ending, Zipf, token count,
+concreteness). Standardised, averaged over the four steering layers. Stable across layers
+(rank correlations 0.55–0.95) and between 8B and 14B (0.75).
+- **Reads rarer than its Zipf** (both models): short, concrete, physical nouns, mostly
+  2 tokens. *Saft* "juice", *Hebel* "lever", *Speer* "spear", *Stachel* "spike", *Stiel* "stalk",
+  *Kluft* "cleft", *Gletscher* "glacier", *Metapher* "metaphor".
+- **Reads commoner than its Zipf:** several of the complex nouns (*Wasserkocher* "kettle",
+  *Wasserspeier* "gargoyle", *Fünfer* "fiver"), technical/medical words (*Katheter* "catheter",
+  *Knorpel* "cartilage", *Speichel* "saliva", *Wandler* "transducer"), and written/religious words
+  (*Bibel* "bible", *Inschrift* "inscription", *Schrift* "writing", *Wiederkunft* "second coming"),
+  plus *Wipfel* "treetop".
+- Claude's reading (unverified; based on English glosses): the residual looks partly like
+  compounding/word length and partly like register (technical or written words), not one
+  clean property. **Gender share at the ends is uninformative by construction**: the residual
+  is taken after the design, which includes gender.
+- Turning this into a test would need a rule-built register label (e.g. Wiktionary
+  domain/topic tags), not a reading of the list.

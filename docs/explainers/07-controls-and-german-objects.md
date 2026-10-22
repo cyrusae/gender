@@ -97,9 +97,13 @@ and instrument compounds (*Wasserkocher* "kettle", *Feuerlöscher* "fire extingu
 "single-root words only" filter missed them; its rule had a gap. They turned out not to explain
 the frequency overlap, but they're a flaw in every German direction and are logged as such.
 
-**A side effect worth noting.** With the frequency axis removed, the German direction transfers to
-Spanish nouns much better (8B: 5 → 18 of 35 layers; 14B: 22 → 29 of 39). Its frequency part
-seems to be German-only and gets in the way of the shared part.
+**A side effect that turned out not to be what it looked like.** With the frequency axis removed,
+the German direction sorts Spanish nouns by gender better (8B: 5 → 18 of 35 layers). That looked
+like a cleaner shared gender signal. But splitting the comparisons by frequency shows otherwise.
+On feminine/masculine Spanish pairs of similar frequency, nothing improves. The gain comes only
+from pairs where the feminine noun is the commoner one, and those happen to dominate our Spanish
+set. Removing the axis swapped one frequency lean for its opposite, and the opposite fit this
+sample. Not reported as improved transfer.
 
 **What's left.** German grammatical femininity is partly encoded along the same axis as low
 frequency in these models. Why is open. One possibility is that the "frequency" axis really
