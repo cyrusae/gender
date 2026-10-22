@@ -161,3 +161,27 @@ direction transfer to Spanish much better: 5 → 18 layers on 8B (a bare majorit
 the German direction that Spanish nouns don't share. It adds noise when that direction scores
 Spanish nouns, and removing it leaves a cleaner shared gender component. T1 as pre-registered
 still fails (it needs both directions), so this is descriptive.
+
+## Open threads from B's transfer jump (noted 2026-10-22, PI; none run yet)
+
+**The observation (descriptive):** removing the German frequency axis raises German → Spanish
+transfer AUC (mean over layers): 8B 0.673 → 0.749, 14B 0.765 → 0.798. Spanish → German is
+unchanged (0.720 → 0.727, 0.765 → 0.767). **Candidate explanation:** the German direction's
+frequency part says "rare → feminine", but the Spanish feminine nouns in our set are the
+commoner ones (Zipf 3.71 vs 3.13, within-ending r = +0.26), so that part votes the wrong way on
+Spanish nouns. The Spanish direction has no frequency part, so nothing changes the other way.
+**Doesn't fit:** removing a German-only part should *raise* the German–Spanish cosine (T2); it
+fell slightly (0.43 → 0.42, 0.35 → 0.30). So the German "frequency" axis carries some shared,
+gender-related content too.
+
+1. **(exploratory, CPU)** Within Spanish ending groups, do the German direction's scores on
+   Spanish nouns correlate negatively with Spanish noun frequency, and does projecting the axis
+   out remove that correlation? Directly tests the candidate explanation.
+2. **(exploratory, CPU)** The *unmodified* German direction on frequency-balanced Spanish
+   subsets: if the explanation holds, transfer already looks good there.
+3. **(later)** What the German "frequency" axis is beyond frequency: which German nouns sit at
+   each end once Zipf is accounted for (English glosses). Possibly SAE features of the axis on
+   Qwen3-8B (Qwen-Scope; see `phases-3-5-plan.md`).
+4. **(later, needs a pod)** Steering with the cleaned German direction (frequency part
+   removed): does it pass the Spanish gate (flip *el* → *la*) better than the original
+   German direction (P26 cross-language pushes)?
