@@ -221,7 +221,7 @@ Suggested order:
 
 | Stage | Status |
 |---|---|
-| 0 question | **to write:** "is German's frequency entanglement about 3-gender systems / feminine nouns?" |
+| 0 question | **set (PI, 2026-10-22):** "Does a gender direction learned without articles align with Spanish/German's, and is German's frequency entanglement shared?" **Next step after that:** masculine person nouns with feminine-type endings (*папа*, *мужчина*: meaning overrides form); common-gender person nouns (*сирота*, *коллега*) as a social-gender yardstick; grammatical animacy as a second category alongside gender. |
 | 1 lexicon | done (provenance recorded) |
 | 2 spelling audit | lexicon-wide audit done (2026-10-22). The ending class predicts gender 97% of the time, but **within ending classes feminine nouns are far more abstract** (concreteness d = −1.38) and longer (+0.84), almost certainly the abstract-noun suffix *-ость* inside the *-ь* class. A training set needs suffix cells (as German's). |
 | 3 structure audit | to do |
