@@ -79,3 +79,8 @@ data/raw/
 # ---- Full lexicons: rebuilt by `gbleed lexicon` (dump sha256 in data/lexicon/metadata.json) ----
 data/lexicon/*_nouns.csv
 data/lexicon/*_structure.csv
+
+# confidence-control per-run caches (regenerable; summaries are tracked)
+results/confidence_ctl/p29/
+results/confidence_ctl/p30/
+results/confidence_ctl/p31/

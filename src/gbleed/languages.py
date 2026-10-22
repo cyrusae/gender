@@ -80,7 +80,7 @@ SPECS: dict[str, LangSpec] = {
     "ru": LangSpec("ru", "Russian", ("m", "f", "n"), "ru", _ru_cell, None,
                    ["cells: ending class (a, o, mja, soft = -ь, cons)",
                     "no word-structure rule yet",
-                    "TO DO (Russian training set): suffix cells; -ость is 73% of feminine -ь nouns"],
+                    "training-set cells: ru:spell (-ь split by spelling; all balance d < 0.3 on the lexicon)"],
                    has_articles=False, frames=_ru_frames, known_module="ru_known"),
 }  # fmt: skip
 
@@ -105,8 +105,37 @@ def _ru_suffix_cell():
     return cell
 
 
+def _ru_spell_cell():
+    """Alternative Russian cells by spelling alone: the soft-sign (-ь) class split by what
+    precedes the -ь. -ость/-есть (abstract, nearly all feminine), other -сть, a hushing
+    consonant + ь (always feminine), -знь/-снь, -тель (mostly masculine instruments: двигатель
+    "engine"); the rest stay one mixed-gender cell. Unlike
+    ru:suffix it needs no Wiktionary structure notes, so it catches every -ость noun."""
+
+    def cell(w: str) -> str:
+        e = _ru_cell(w)
+        if e != "soft":
+            return e
+        if w.endswith(("ость", "есть")):
+            return "soft-ость"
+        if w.endswith("сть"):
+            return "soft-сть"
+        if len(w) > 1 and w[-2] in "жшчщ":
+            return "soft-hush"
+        if w.endswith(("знь", "снь")):
+            return "soft-знь"
+        if w.endswith("тель"):
+            return "soft-тель"
+        return "soft-other"
+
+    return cell
+
+
 # alternative cell rules the audit can try (`gbleed lang-audit LANG --cells NAME`)
-CELL_RULES: dict[str, Callable[[], Callable[[str], str]]] = {"ru:suffix": _ru_suffix_cell}
+CELL_RULES: dict[str, Callable[[], Callable[[str], str]]] = {
+    "ru:suffix": _ru_suffix_cell,
+    "ru:spell": _ru_spell_cell,
+}
 
 
 def spec(code: str) -> LangSpec:
