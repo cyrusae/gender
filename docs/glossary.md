@@ -294,3 +294,24 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   readouts in Spanish and German, same sign. *Language-specific*: one language only (or only one
   could be tested). *No effect*: the push moves the readouts no more than random pushes do,
   while the social push shows the readouts can move.
+- **Confidence direction** *(Buttigieg et al. 2026)*. A direction in a model's activations that
+  separates the answer it finds likely from the one it finds unlikely, regardless of content.
+  Pushing along it changes how sure the model is (flattening or sharpening its probabilities),
+  not what it prefers.
+- **Flattening** *(standard idea; project usage)*. A change that moves probability from likely
+  to unlikely options, like raising the sampling temperature. It can mimic a gender shift if
+  the gender ratings correlate with how likely the words were to begin with.
+- **Midpoint covariate** *(project usage; confidence control)*. Each adjective's log-
+  probability averaged over the two conditions being compared, added as a control to the
+  graded score. The midpoint rather than the "before" value, because a shift (after − before)
+  regressed on "before" shows a spurious negative slope (regression to the mean).
+- **Cross-fitted cosine** *(standard technique; project usage)*. The cosine of two estimated
+  directions with each estimated on a different half of the items (and lengths estimated
+  across halves). Two directions fitted on the same items share their noise, which biases a
+  plain cosine.
+- **Frequency overlap** *(project usage; confidence control (c))*. A gender direction whose
+  cross-fitted cosine with the frequency coefficient beats a permutation null and is at least
+  0.3 in size (about 9% of its squared length along frequency). Found for German, not Spanish.
+- **Complex noun** *(project usage; frequency-axis D)*. A German noun that is a compound or a
+  derived word by the rule in `frequency-axis-prereg.md` (numeral + *-er*, noun + noun,
+  verb + *-er*, noun + verb + *-er*).

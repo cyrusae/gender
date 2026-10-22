@@ -300,8 +300,16 @@ second Claude session that read along and flagged problems.*
 - **Unsteered, in-language:** a feminine article on a thing-noun pulls toward feminine-rated
   adjectives on Qwen3 8B/14B (P30). Not on EuroLLM-1.7B; mechanism (social vs distributional)
   open.
-- **Next:** write-up. Candidates: steered text generation (what the model *says* under a push), a second model
-  family (EuroLLM) to see whether 8B or 14B is the odd one out.
+- **P31 (German version of P30, Oct 21/22):** the object pull replicates on EuroLLM-1.7B and
+  Qwen3 1.7B/4B. Qwen3-8B shows none; 14B had no valid test. Which models show it differs by
+  language (large Qwen3: Spanish only; EuroLLM: German only).
+- **Confidence control (Oct 21/22; after Buttigieg et al. 2026):** no steering or article result
+  is a flattening artefact. The German gender direction aligns with low word frequency
+  (cos −0.3 to −0.7; Spanish clean). That survives a flexible frequency control, frequency-matched
+  pairs and dropping complex nouns. Whether Phase 4 depends on it is pending (test B). Found on the
+  way: 12 compound/derived masculine nouns in German training (none feminine). Explainer 07.
+- **Next:** write-up. Candidates: steered text generation (what the model *says* under a push), Gemma 3
+  replication (full vs slim pass, PI to decide), an instruct-model follow-up.
 
 ## Threads a blog post could pull on
 
