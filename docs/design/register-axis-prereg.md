@@ -1,4 +1,4 @@
-# Is the German "frequency" axis partly register? Pre-registration (DRAFT, awaiting PI sign-off)
+# Is the German "frequency" axis partly register? Pre-registration (ADOPTED, PI 2026-10-22)
 
 Drafted 2026-10-22. Diagnostic, CPU only, existing activations (Qwen3 8B/14B, LAST, the four
 Phase 5 steering layers). Follows `frequency-axis-prereg.md`: the German gender direction aligns
@@ -61,6 +61,6 @@ suggest other properties to label, each of which would then need its own rule-bu
 Code: `src/gbleed/register_axis.py`. Results go to `results/register_axis/`. Committed before it's
 run.
 
-## Decisions for the PI
+## Decisions (PI, 2026-10-22)
 
-1. Adopt as written (AoA as the register proxy, the matching rule, E2 as primary)?
+Adopted as written (AoA as the register proxy, the matching rule, E2 as primary).
