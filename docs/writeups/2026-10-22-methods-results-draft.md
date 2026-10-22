@@ -186,6 +186,12 @@ probe must read the intended referent type with a 1-nat margin).
 
 - Control (c): in German the f−m direction points toward *rarer* words (8B cos −0.34, −0.56,
   −0.62, −0.69 at the four Phase 5 layers; 14B −0.19 to −0.52); Spanish |cos| ≤ 0.14.
+- This is not a list-frequency imbalance. In both training lists the feminine nouns are the
+  *more* frequent (wordfreq Zipf, within spelling cells: Spanish d = +0.52, German d = +0.45;
+  raw d ≈ +0.7), and frequency is a covariate in the fit; yet only German shows the alignment.
+  Across the full Wiktionary lexicons the genders barely differ in frequency (Spanish f − m
+  +0.17 Zipf; German −0.05), so the imbalance is a property of our samples, not of the
+  languages.
 - It survives a flexible frequency control (A), frequency-matched pairs (C, 14 German pairs)
   and dropping or covarying the complex nouns (D): the overlap disappears at only 0–1 of 3–4
   layers, never the pre-registered majority.
