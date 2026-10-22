@@ -121,6 +121,7 @@ def main() -> None:
         "--list", default=None, help="CSV with lemma, gender (default: eligible lexicon)"
     )
     la.add_argument("--tag", default=None)
+    la.add_argument("--cells", default=None, help="alternative cell rule, e.g. suffix (ru)")
 
     a = p.parse_args()
     if a.cmd == "lexicon":
@@ -143,7 +144,7 @@ def main() -> None:
     if a.cmd == "lang-audit":
         from .lang_audit import audit
 
-        audit(a.lang, a.list, a.tag)
+        audit(a.lang, a.list, a.tag, a.cells)
         return
     if a.cmd == "frequency-axis":
         from .frequency_axis import main as fa_main

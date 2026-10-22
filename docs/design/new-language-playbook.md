@@ -246,6 +246,6 @@ Suggested order:
 | 4 meaning filters | done for the *-ь* pool (PI reviewed) |
 | 5 frames | done (*наш/новый*, frame check passed on Qwen3-1.7B/4B and EuroLLM-1.7B) |
 | 6 sets | *-ь* list only; a training set across endings is needed for a Russian direction |
-| 7 balance report | to do |
+| 7 balance report | exploratory preview (2026-10-22, `lang-audit ru --cells suffix`). Wiktionary-suffix cells cut the within-cell gaps for length (+0.84 → +0.18) and AoA (+0.49 → +0.23), but concreteness stays large (−1.38 → −0.85). Feminine abstract nouns are likely untemplated (*радость* is listed as inherited) or Russian feminines really are more abstract. **For the PI's review:** a spelling-based *-ость* cell, concreteness strata, or concrete nouns only. |
 | 8 pairs | not started |
 | 9 extraction | *-ь* nouns extracted on the pod for 8B/14B (Phase 4 T4) |

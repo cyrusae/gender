@@ -182,14 +182,20 @@ def load_list(lang: str, path: str | None) -> pd.DataFrame:
     return df
 
 
-def audit(lang: str, path: str | None = None, tag: str | None = None) -> dict:
+def audit(lang: str, path: str | None = None, tag: str | None = None,
+          cells_rule: str | None = None) -> dict:  # fmt: skip
+    from .languages import CELL_RULES
+
     s = spec(lang)
+    cell_fn = CELL_RULES[f"{lang}:{cells_rule}"]() if cells_rule else s.cell
     df = load_list(lang, path)
     tag = tag or (Path(path).stem if path else "lexicon_eligible")
+    if cells_rule:
+        tag += f"_cells-{cells_rule}"
     out = OUT / lang / tag
     out.mkdir(parents=True, exist_ok=True)
     words, gen = df.lemma.tolist(), df.gender.to_numpy()
-    cells = df.lemma.map(s.cell).to_numpy()
+    cells = df.lemma.map(cell_fn).to_numpy()
     ref = s.genders[0]
     res: dict = {"lang": lang, "list": tag, "n": len(df),
                  "counts": df.gender.value_counts().to_dict(), "flags": []}  # fmt: skip

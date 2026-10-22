@@ -85,6 +85,30 @@ SPECS: dict[str, LangSpec] = {
 }  # fmt: skip
 
 
+_RU_SUFFIX_MIN = 30  # a Wiktionary suffix gets its own cell if at least this many nouns carry it
+
+
+def _ru_suffix_cell():
+    """Alternative Russian cells (candidate, for the balance report): the noun's Wiktionary
+    suffix when it's a common one (-ость, -ка, -ение...), else the ending class."""
+    from . import wk_structure
+
+    d = wk_structure.load("ru")
+    d = d[d.wk_transparent.astype(str) == "True"]
+    suf = d.set_index("lemma").wk_suffix.str.replace("\u0301", "", regex=False)
+    common = set(suf.value_counts()[lambda v: v >= _RU_SUFFIX_MIN].index) - {""}
+    lookup = {w: x for w, x in suf.items() if x in common}
+
+    def cell(w: str) -> str:
+        return lookup.get(w) or _ru_cell(w)
+
+    return cell
+
+
+# alternative cell rules the audit can try (`gbleed lang-audit LANG --cells NAME`)
+CELL_RULES: dict[str, Callable[[], Callable[[str], str]]] = {"ru:suffix": _ru_suffix_cell}
+
+
 def spec(code: str) -> LangSpec:
     if code not in SPECS:
         raise KeyError(
