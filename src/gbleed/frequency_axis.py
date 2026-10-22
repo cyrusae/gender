@@ -320,3 +320,103 @@ def main(parts: str = "acdb") -> None:
     if "b" in parts:
         res = {m: run_b(m) for m in MODELS}
         (OUT / "b_phase4.json").write_text(json.dumps(res, indent=1, default=float))
+
+
+# ---- open threads 1-3 (exploratory, 2026-10-22; no pre-set rules) -------------------------
+def _within_spearman(s, z, groups) -> float:
+    """Spearman of s with z after removing group means of both ranks (groups = cell x gender)."""
+    from scipy.stats import rankdata
+
+    rs, rz = rankdata(s), rankdata(z)
+    g = pd.Series(groups)
+    rs = rs - pd.Series(rs).groupby(g).transform("mean").to_numpy()
+    rz = rz - pd.Series(rz).groupby(g).transform("mean").to_numpy()
+    return float(np.corrcoef(rs, rz)[0, 1])
+
+
+def _auc_by_dzipf(y, s, cells, z, edges=(-0.3, 0.3)) -> dict:
+    """Within-cell f-vs-m AUC over comparison pairs, binned by dZipf = zipf_f - zipf_m."""
+    out = {k: [0.0, 0] for k in ("f_rarer", "balanced", "f_commoner")}
+    for c in np.unique(cells):
+        k = cells == c
+        f, m = np.flatnonzero(k & (y == 1)), np.flatnonzero(k & (y == 0))
+        if not len(f) or not len(m):
+            continue
+        dz = z[f][:, None] - z[m][None, :]
+        win = (s[f][:, None] > s[m][None, :]) + 0.5 * (s[f][:, None] == s[m][None, :])
+        for key, sel in (("f_rarer", dz < edges[0]), ("balanced", (dz >= edges[0]) & (dz <= edges[1])),
+                         ("f_commoner", dz > edges[1])):  # fmt: skip
+            out[key][0] += float(win[sel].sum())
+            out[key][1] += int(sel.sum())
+    return {f"auc_{k}": (v[0] / v[1] if v[1] else np.nan) for k, v in out.items()} | {
+        f"n_{k}": v[1] for k, v in out.items()
+    }
+
+
+def threads12(model_id: str) -> pd.DataFrame:
+    """Thread 1: within Spanish cell x gender, Spearman of the German direction's score with
+    Spanish Zipf (T1's German probe direction, as Phase 4), before and after projecting out the
+    German frequency axis. Thread 2: T1 AUC binned by the Zipf gap of each f-m comparison."""
+    from .phase4 import _fit
+
+    es, de = _data(model_id, "es"), _data(model_id, "de")
+    Q = freq_axes(model_id, ("de",))
+    z = np.asarray(es["covs"][ZIPF], float)
+    grp = np.char.add(es["cells"].astype(str), es["y"].astype(str))
+    rows = []
+    for k in range(1, es["X"].shape[1] - 1):
+        Xe, Xd = es["X"][:, k].astype(np.float64), de["X"][:, k].astype(np.float64)
+        q = Q[k]
+        for tag, (A, B) in (("baseline", (Xe, Xd)),
+                            ("minus_de_freq", (Xe - (Xe @ q.T) @ q, Xd - (Xd @ q.T) @ q))):  # fmt: skip
+            d_de = _fit(B, de)
+            s = A @ d_de
+            rows.append({"model": model_id, "layer": k, "version": tag,
+                         "spearman_score_zipf_within": _within_spearman(s, z, grp),
+                         **_auc_by_dzipf(es["y"], s, es["cells"], z)})  # fmt: skip
+    return pd.DataFrame(rows)
+
+
+def thread3(model_id: str, n_show: int = 15) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """German training nouns along the German frequency axis once Zipf (and the rest of the
+    design) is accounted for: residual of x . f_hat on the fit's design, per layer. Returns the
+    per-noun table (mean residual rank over the steering layers) and the layer-to-layer
+    consistency (Spearman between steering layers)."""
+    from scipy.stats import rankdata
+
+    from .phase5 import LAYER_FRACS
+
+    d = _data(model_id, "de")
+    Q = freq_axes(model_id, ("de",))
+    M, _ = _design(d, np.asarray(d["covs"][ZIPF], float), "lin")
+    n_layers = d["X"].shape[1] - 1
+    ks = sorted({max(1, round(f * n_layers)) for f in LAYER_FRACS})
+    res = {}
+    for k in ks:
+        p = d["X"][:, k].astype(np.float64) @ Q[k, 0]
+        r = p - M @ np.linalg.lstsq(M, p, rcond=None)[0]
+        res[k] = r / r.std()
+    R = pd.DataFrame(res)
+    cons = R.corr(method="spearman")
+    lex = pd.read_csv("data/lexicon/de_nouns.csv", keep_default_na=False).drop_duplicates("lemma")
+    gl = lex.set_index("lemma")
+    why = complexity_rule()
+    t = pd.DataFrame({"lemma": d["lemma"], "gender": np.where(d["y"] == 1, "f", "m"),
+                      "zipf": np.asarray(d["covs"][ZIPF], float),
+                      "ntok": np.asarray(d["covs"][NTOK]), "cell": d["cells"],
+                      "gloss": [gl.concept_en.get(w, "") or gl.gloss.get(w, "") for w in d["lemma"]],
+                      "complex": [why(w) for w in d["lemma"]],
+                      "resid_mean_z": R.mean(1).to_numpy(),
+                      "resid_rank_mean": np.mean([rankdata(R[k]) for k in ks], axis=0)})  # fmt: skip
+    t = t.sort_values("resid_mean_z")
+    return t, cons
+
+
+def main_threads() -> None:
+    out = OUT / "threads"
+    out.mkdir(parents=True, exist_ok=True)
+    pd.concat(threads12(m) for m in MODELS).to_csv(out / "threads12_layers.csv", index=False)
+    for m in MODELS:
+        t, cons = thread3(m)
+        t.to_csv(out / f"thread3_nouns_{model_slug(m)}.csv", index=False)
+        cons.to_csv(out / f"thread3_layer_consistency_{model_slug(m)}.csv")
