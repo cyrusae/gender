@@ -1,0 +1,13 @@
+model,lang,variant,layers_with_c_overlap,overlap_gone,majority_gone
+Qwen/Qwen3-14B-Base,de,A_flex,3,0,False
+Qwen/Qwen3-14B-Base,de,C_pairs,3,1,False
+Qwen/Qwen3-14B-Base,de,D1_no_complex,3,0,False
+Qwen/Qwen3-14B-Base,de,D2_complex_cov,3,0,False
+Qwen/Qwen3-14B-Base,es,A_flex,0,0,False
+Qwen/Qwen3-14B-Base,es,C_pairs,0,0,False
+Qwen/Qwen3-8B-Base,de,A_flex,4,0,False
+Qwen/Qwen3-8B-Base,de,C_pairs,4,1,False
+Qwen/Qwen3-8B-Base,de,D1_no_complex,4,1,False
+Qwen/Qwen3-8B-Base,de,D2_complex_cov,4,1,False
+Qwen/Qwen3-8B-Base,es,A_flex,0,0,False
+Qwen/Qwen3-8B-Base,es,C_pairs,0,0,False

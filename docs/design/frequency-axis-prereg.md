@@ -108,3 +108,30 @@ four (e.g. a genuine shared feminine/rare axis in German) is what's left if none
 
 Code: `src/gbleed/frequency_axis.py`, CLI `gbleed frequency-axis`. Results go to
 `results/frequency_axis/`. Committed before it's run.
+
+## Results A, C, D (2026-10-21; Qwen3 8B/14B pod activations; `results/frequency_axis/`)
+
+Cross-fitted cos(gender, frequency) at the four steering layers (8B: 9/14/20/25; 14B:
+10/16/22/28). The (c) column is the original fit.
+
+| | (c) original | A flexible control | C matched pairs (14, ΔZipf −0.01) | D1 no complex nouns (79) | D2 complex covariate |
+|---|---|---|---|---|---|
+| 8B German | −0.34 / −0.56 / −0.62 / −0.69 | −0.31 / −0.55 / −0.54 / −0.69 | −0.37 / −0.53 / −0.47 / −0.52 | −0.26 / −0.52 / −0.57 / −0.69 | −0.27 / −0.55 / −0.57 / −0.68 |
+| 14B German | −0.26 / −0.34 / −0.46 / −0.44 | −0.19 / −0.34 / −0.43 / −0.43 | −0.20 / −0.46 / −0.52 / −0.48 | −0.22 / −0.31 / −0.39 / −0.42 | −0.22 / −0.31 / −0.41 / −0.41 |
+| 8B Spanish | ≤ 0.09 | ≤ 0.08 | too few pairs (8) | n/a | n/a |
+| 14B Spanish | ≤ 0.14 | ≤ 0.16 | too few pairs (8) | n/a | n/a |
+
+**Readings (as pre-registered):** in no variant does the overlap disappear at a majority of the
+layers where (c) found it. A: 0 of 4 (8B), 0 of 3 (14B). D1: 1 of 4, 0 of 3. C: 1 of 4, 1 of 3,
+in each case the top layer, where the cosine stays around −0.5 but the cross term misses the
+null's bar on 14 pairs. So the overlap is **not an artefact of the linear frequency control
+(A)**, **not produced by the regression (C: frequency-matched pairs with mean ΔZipf ≈ 0 give
+the same cosines)**, and **not word structure as detected by the rule (D)**. What's left is the
+residual explanation: in Qwen3 8B/14B, German grammatical femininity is encoded partly along
+the same axis as low frequency. Mechanism unknown.
+
+Two hypotheses this leaves (not tested here):
+- **The model's frequency axis isn't purely about frequency** (for example, how "dictionary-like" or
+  technical a word is), and German feminine nouns sit at one end of it.
+- **Something specific to German *die*:** the article is shared with the plural. The number
+  direction's own frequency alignment is small (≤ 0.17), which argues against this.
