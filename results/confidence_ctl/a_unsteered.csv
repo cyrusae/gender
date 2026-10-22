@@ -1,0 +1,47 @@
+exp,model,stat,orig,mid,mid_lo95,mid_hi95,verdict_orig,verdict_mid,verdict_same,keeps_half,robust
+p29,Qwen/Qwen3-14B-Base,M1_all,0.038162704313497574,0.03913767486553842,0.03403767563158893,0.044235186470731665,M1_passed=False,M1_passed=False,True,True,True
+p29,Qwen/Qwen3-14B-Base,M2_invariant,0.0818286542638678,0.08085733903528805,0.07185414556216262,0.09000949545630152,M1_passed=False,M1_passed=False,True,True,True
+p29,Qwen/Qwen3-14B-Base,M3_whole_word,0.05970056837103169,0.05486569668133816,0.04707258856181772,0.062424866757030434,M1_passed=False,M1_passed=False,True,True,True
+p29,Qwen/Qwen3-8B-Base,M1_all,0.09608786383166663,0.0953192985688133,0.08905031584745988,0.10149829885311652,M1_passed=False,M1_passed=False,True,True,True
+p29,Qwen/Qwen3-8B-Base,M2_invariant,0.0282301710719549,0.028115855891462628,0.017232724774999316,0.03923091588952608,M1_passed=False,M1_passed=False,True,True,True
+p29,Qwen/Qwen3-8B-Base,M3_whole_word,0.11998017469900157,0.12279285434112308,0.11344878792925456,0.1318983231337212,M1_passed=False,M1_passed=False,True,True,True
+p30,Qwen/Qwen3-1.7B-Base,S_object,0.03838775639201653,0.05162824348006329,0.045633404225648745,0.05754857407571952,pull survives an object reading,pull survives an object reading,True,True,True
+p30,Qwen/Qwen3-1.7B-Base,S_neutral,0.00940736787525346,0.02093070306306349,0.011701291259548734,0.030265749131583586,pull survives an object reading,pull survives an object reading,True,True,True
+p30,Qwen/Qwen3-1.7B-Base,S_person,0.025224009211115984,0.023630746388351786,0.017018495111044692,0.03042095483622421,pull survives an object reading,pull survives an object reading,True,True,True
+p30,Qwen/Qwen3-14B-Base,S_object,0.1236349462190232,0.1193371344322337,0.11067492404062,0.12802947022631087,pull survives an object reading,pull survives an object reading,True,True,True
+p30,Qwen/Qwen3-14B-Base,S_neutral,0.06793276370005988,0.06674613404982384,0.056334036193464776,0.07631387649578077,pull survives an object reading,pull survives an object reading,True,True,True
+p30,Qwen/Qwen3-14B-Base,S_person,0.18646630024320218,0.19317898057849622,0.1822698246353225,0.20437868431731138,pull survives an object reading,pull survives an object reading,True,True,True
+p30,Qwen/Qwen3-4B-Base,S_object,0.025660660574498503,0.033975382393457244,0.026005841124446927,0.04211902799813695,pull survives an object reading,pull survives an object reading,True,True,True
+p30,Qwen/Qwen3-4B-Base,S_neutral,0.019007268581820405,0.02734426506865347,0.017768015903873,0.036647584766643294,pull survives an object reading,pull survives an object reading,True,True,True
+p30,Qwen/Qwen3-4B-Base,S_person,0.06459182878810618,0.062042940190223654,0.05554997169693238,0.06842541928090981,pull survives an object reading,pull survives an object reading,True,True,True
+p30,Qwen/Qwen3-8B-Base,S_object,0.07964309137435611,0.0703048358266094,0.0632579531471407,0.07739566521890676,pull survives an object reading,pull survives an object reading,True,True,True
+p30,Qwen/Qwen3-8B-Base,S_neutral,0.019996903148701718,0.024737013887317624,0.015217106579146773,0.033932494297824065,pull survives an object reading,pull survives an object reading,True,True,True
+p30,Qwen/Qwen3-8B-Base,S_person,0.15208618193444307,0.14075580689417028,0.13119164326512384,0.15026263803291695,pull survives an object reading,pull survives an object reading,True,True,True
+p30,utter-project/EuroLLM-1.7B,S_object,0.007735411059488193,0.0068464257690804995,-0.0013268803795196123,0.015085532286160443,no neutral pull to explain (descriptive only),no neutral pull to explain (descriptive only),True,True,True
+p30,utter-project/EuroLLM-1.7B,S_neutral,-0.0004146830282667598,-0.0003466393152304344,-0.012843319712296521,0.012917720829123392,no neutral pull to explain (descriptive only),no neutral pull to explain (descriptive only),True,True,True
+p31,Qwen/Qwen3-1.7B-Base,S_object,0.035498405627643684,0.0385129659401221,0.03524306665815513,0.04161305756380698,pull survives an object reading,pull survives an object reading,True,True,True
+p31,Qwen/Qwen3-1.7B-Base,S_neutral,0.018168540766563424,0.019300136913472946,0.014096043979896559,0.024595745753079653,pull survives an object reading,pull survives an object reading,True,True,True
+p31,Qwen/Qwen3-1.7B-Base,S_person,0.04237537383563507,0.04692043447092081,0.042925438125385504,0.050619438952343075,pull survives an object reading,pull survives an object reading,True,True,True
+p31,Qwen/Qwen3-1.7B-Base,S_object_das,0.00024136251275849377,7.198103052061922e-05,-0.0033622301593311784,0.0034491806845417163,pull survives an object reading,pull survives an object reading,True,False,False
+p31,Qwen/Qwen3-1.7B-Base,S_neutral_das,0.005600789189505111,0.003847315384177699,-0.0006038044466446795,0.008457189701721055,pull survives an object reading,pull survives an object reading,True,True,True
+p31,Qwen/Qwen3-1.7B-Base,S_person_das,0.02655618764631526,0.03236934002918654,0.028443242525024448,0.03661461584070503,pull survives an object reading,pull survives an object reading,True,True,True
+p31,Qwen/Qwen3-14B-Base,S_neutral,0.03441990155416815,0.03535972451929008,0.03088243452934649,0.040024323244341325,no valid test,no valid test,True,True,True
+p31,Qwen/Qwen3-14B-Base,S_person,0.07407102048555979,0.07812275321552821,0.07287621835635677,0.08338297183361583,no valid test,no valid test,True,True,True
+p31,Qwen/Qwen3-14B-Base,S_neutral_das,0.018398795046452476,0.019357789925860486,0.014870450007720326,0.023885803508132263,no valid test,no valid test,True,True,True
+p31,Qwen/Qwen3-14B-Base,S_person_das,0.010185442032861246,0.0128524477757777,0.009211161536844849,0.016883684626258583,no valid test,no valid test,True,True,True
+p31,Qwen/Qwen3-4B-Base,S_object,0.04254557773037391,0.04312035769241807,0.03977443699125996,0.046552757781956874,pull survives an object reading,pull survives an object reading,True,True,True
+p31,Qwen/Qwen3-4B-Base,S_neutral,0.019899310456293836,0.0223669295398133,0.017648199833017415,0.026931707002012556,pull survives an object reading,pull survives an object reading,True,True,True
+p31,Qwen/Qwen3-4B-Base,S_person,0.053519822612748534,0.05545618477389649,0.05018367158304375,0.0605909681653765,pull survives an object reading,pull survives an object reading,True,True,True
+p31,Qwen/Qwen3-4B-Base,S_object_das,0.0006554210963846148,0.00021256407154267984,-0.0032283261718030897,0.0034821595982279774,pull survives an object reading,pull survives an object reading,True,False,False
+p31,Qwen/Qwen3-4B-Base,S_neutral_das,0.03214826576942023,0.0381835264501226,0.03343731368449024,0.04306772974860071,pull survives an object reading,pull survives an object reading,True,True,True
+p31,Qwen/Qwen3-4B-Base,S_person_das,0.006891379113974866,0.007762277023995705,0.003738897615971641,0.011891915952196847,pull survives an object reading,pull survives an object reading,True,True,True
+p31,Qwen/Qwen3-8B-Base,S_object,0.0019317079232405905,0.0032926835036091616,-0.0004376101585849067,0.006978882752719212,no neutral pull to explain (descriptive only),no neutral pull to explain (descriptive only),True,True,True
+p31,Qwen/Qwen3-8B-Base,S_neutral,0.0015250629101405243,0.0034717279850679725,-0.0023291830470182264,0.00888718068357204,no neutral pull to explain (descriptive only),no neutral pull to explain (descriptive only),True,True,True
+p31,Qwen/Qwen3-8B-Base,S_person,0.08057116506015409,0.08305346595274402,0.07759776002294472,0.08855268320487417,no neutral pull to explain (descriptive only),no neutral pull to explain (descriptive only),True,True,True
+p31,Qwen/Qwen3-8B-Base,S_object_das,0.0004512860906375845,-0.002815168091509691,-0.006992600353514272,0.0011655434475698935,no neutral pull to explain (descriptive only),no neutral pull to explain (descriptive only),True,False,False
+p31,Qwen/Qwen3-8B-Base,S_neutral_das,0.014007961136061961,0.018028641386769,0.012847977266596275,0.02302541572490366,no neutral pull to explain (descriptive only),no neutral pull to explain (descriptive only),True,True,True
+p31,Qwen/Qwen3-8B-Base,S_person_das,-0.008084604213907822,-0.005994788710930168,-0.010614253289088727,-0.0015487712571464944,no neutral pull to explain (descriptive only),no neutral pull to explain (descriptive only),True,True,True
+p31,utter-project/EuroLLM-1.7B,S_object,0.08085222313242285,0.07791778815477267,0.07360777605636251,0.08229124385459012,pull survives an object reading,pull survives an object reading,True,True,True
+p31,utter-project/EuroLLM-1.7B,S_neutral,0.03487171462154232,0.03982741382926064,0.03398915012369945,0.04566974912611525,pull survives an object reading,pull survives an object reading,True,True,True
+p31,utter-project/EuroLLM-1.7B,S_object_das,0.045124868775458536,0.03637867330090523,0.03271374237160874,0.04016112094007202,pull survives an object reading,pull survives an object reading,True,True,True
+p31,utter-project/EuroLLM-1.7B,S_neutral_das,0.02395779048653606,0.028466398339205532,0.022994161333675187,0.03372987597263598,pull survives an object reading,pull survives an object reading,True,True,True

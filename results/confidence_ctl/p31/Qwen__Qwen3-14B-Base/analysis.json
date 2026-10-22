@@ -1,0 +1,105 @@
+{
+ "model": "Qwen/Qwen3-14B-Base",
+ "n_adjectives": 147,
+ "n_single": 58,
+ "wordings": {
+  "O1": {
+   "context": "object",
+   "probe_median": 0.1777694018194973,
+   "probe_narrow_median": -1.48358154296875,
+   "share": 0.22661155462265015,
+   "C1": false,
+   "C2": true,
+   "valid": false
+  },
+  "O2": {
+   "context": "object",
+   "probe_median": 0.0192720442208838,
+   "probe_narrow_median": -1.1892027854919442,
+   "share": 0.2077046036720276,
+   "C1": false,
+   "C2": true,
+   "valid": false
+  },
+  "N1": {
+   "context": "neutral",
+   "probe_median": 0.3239672891761747,
+   "probe_narrow_median": 1.2023468017578143,
+   "share": 0.20409898459911346,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "P1": {
+   "context": "person",
+   "probe_median": 3.378967338358025,
+   "probe_narrow_median": 2.832921028137207,
+   "share": 0.1764494776725769,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "P2": {
+   "context": "person",
+   "probe_median": 3.03596766113646,
+   "probe_narrow_median": 1.8560962677001944,
+   "share": 0.158646821975708,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  }
+ },
+ "probe_real_person_N1": 3.5610684922350377,
+ "valid": false,
+ "S_neutral": {
+  "S": 0.03535972451929008,
+  "lo95": 0.03088243452934649,
+  "hi95": 0.040024323244341325,
+  "wordings": [
+   "N1"
+  ],
+  "n_words": 300
+ },
+ "S_neutral_single_token": 0.04220814597739853,
+ "S_neutral_das": {
+  "S": 0.019357789925860486,
+  "lo95": 0.014870450007720326,
+  "hi95": 0.023885803508132263,
+  "wordings": [
+   "N1"
+  ],
+  "n_words": 300
+ },
+ "S_real_neutral": {
+  "S": 0.09588947086839175,
+  "lo95": 0.0717023936890398,
+  "hi95": 0.12009446429189197
+ },
+ "S_person": {
+  "S": 0.07812275321552821,
+  "lo95": 0.07287621835635677,
+  "hi95": 0.08338297183361583,
+  "wordings": [
+   "P1",
+   "P2"
+  ],
+  "n_words": 300
+ },
+ "S_person_single_token": 0.05942816427611556,
+ "S_person_das": {
+  "S": 0.0128524477757777,
+  "lo95": 0.009211161536844849,
+  "hi95": 0.016883684626258583,
+  "wordings": [
+   "P1",
+   "P2"
+  ],
+  "n_words": 300
+ },
+ "S_real_person": {
+  "S": 0.09235006364117496,
+  "lo95": 0.06899078625439761,
+  "hi95": 0.11725918854948499
+ },
+ "verdict": "no valid test"
+}

@@ -1,0 +1,129 @@
+{
+ "model": "Qwen/Qwen3-4B-Base",
+ "n_adjectives": 147,
+ "n_single": 58,
+ "wordings": {
+  "O1": {
+   "context": "object",
+   "probe_median": -0.0407448743588823,
+   "probe_narrow_median": -2.45353126525879,
+   "share": 0.26382964849472046,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "O2": {
+   "context": "object",
+   "probe_median": -0.05975887054841866,
+   "probe_narrow_median": -1.535048484802246,
+   "share": 0.1755264401435852,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "N1": {
+   "context": "neutral",
+   "probe_median": 0.996851965349344,
+   "probe_narrow_median": 1.4812369346618643,
+   "share": 0.18708540499210358,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "P1": {
+   "context": "person",
+   "probe_median": 3.8415355549204016,
+   "probe_narrow_median": 2.758725881576539,
+   "share": 0.21029943227767944,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "P2": {
+   "context": "person",
+   "probe_median": 1.726735899752263,
+   "probe_narrow_median": 0.2834787368774414,
+   "share": 0.17145907878875732,
+   "C1": false,
+   "C2": true,
+   "valid": false
+  }
+ },
+ "probe_real_person_N1": 3.2760502153023823,
+ "valid": true,
+ "S_object": {
+  "S": 0.04312035769241807,
+  "lo95": 0.03977443699125996,
+  "hi95": 0.046552757781956874,
+  "wordings": [
+   "O1",
+   "O2"
+  ],
+  "n_words": 300
+ },
+ "S_object_single_token": 0.02970772361480152,
+ "S_object_das": {
+  "S": 0.00021256407154267984,
+  "lo95": -0.0032283261718030897,
+  "hi95": 0.0034821595982279774,
+  "wordings": [
+   "O1",
+   "O2"
+  ],
+  "n_words": 300
+ },
+ "S_neutral": {
+  "S": 0.0223669295398133,
+  "lo95": 0.017648199833017415,
+  "hi95": 0.026931707002012556,
+  "wordings": [
+   "N1"
+  ],
+  "n_words": 300
+ },
+ "S_neutral_single_token": 0.015785885794429255,
+ "S_neutral_das": {
+  "S": 0.0381835264501226,
+  "lo95": 0.03343731368449024,
+  "hi95": 0.04306772974860071,
+  "wordings": [
+   "N1"
+  ],
+  "n_words": 300
+ },
+ "S_real_neutral": {
+  "S": 0.06908294745203886,
+  "lo95": 0.05594500481337909,
+  "hi95": 0.08237501355126257
+ },
+ "S_person": {
+  "S": 0.05545618477389649,
+  "lo95": 0.05018367158304375,
+  "hi95": 0.0605909681653765,
+  "wordings": [
+   "P1"
+  ],
+  "n_words": 300
+ },
+ "S_person_single_token": 0.029558820199963733,
+ "S_person_das": {
+  "S": 0.007762277023995705,
+  "lo95": 0.003738897615971641,
+  "hi95": 0.011891915952196847,
+  "wordings": [
+   "P1"
+  ],
+  "n_words": 300
+ },
+ "S_real_person": {
+  "S": 0.06144865508360668,
+  "lo95": 0.04416152896832183,
+  "hi95": 0.07872711224230018
+ },
+ "ratio_object_neutral": {
+  "ratio": 1.9278621867012868,
+  "lo95": 1.6087093815575446,
+  "hi95": 2.4270719535151826
+ },
+ "verdict": "pull survives an object reading"
+}

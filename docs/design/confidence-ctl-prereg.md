@@ -101,3 +101,33 @@ is the Zipf coefficient of *that same fit*. No new stimuli or choices are needed
 Code: `src/gbleed/confidence_ctl.py`, CLI `gbleed confidence-ctl`. Reads the Phase 5 sweep arrays and the
 activations through `paths`. Results to `results/confidence_ctl/` (small tables). Committed
 before it is run.
+
+## Results (2026-10-21/22; `results/confidence_ctl/`)
+
+**(a) Midpoint log-probability covariate: every result is robust.**
+- **Phase 5 Spanish (8B, 14B; R1 and R1-EN; noun-only and every-position):** the same layers
+  pass with and without the covariate. 8B noun-only: R1 3/4, R1-EN 3/4 (majority). 14B: 0/3.
+  Effects move by < 3% (e.g. 8B noun R1, mean over layers, 0.0203 → 0.0201; random 95th
+  percentile 0.0120 → 0.0121).
+- **P29, P30, P31 (every model run):** every verdict unchanged. Every estimate keeps its sign and
+  ≥ 50% of its size (most move < 15%; P30 1.7B S(object) rises 0.038 → 0.052). The three rows
+  the rule marks "not robust" are *das* contrasts estimated at 0.000 before and after, where
+  "keeps half of zero" is meaningless.
+
+**(b) Gender rating vs baseline probability:** Spearman −0.10 to −0.32 (partial −0.04 to −0.25).
+More masculine-rated adjectives are a little less likely at baseline, most of all on the
+invariant lists that P29/P30 use. So flattening *could* have masqueraded as a gender shift
+(in the masculine direction), and sharpening as a feminine one. (a) shows that this channel
+doesn't drive any result.
+
+**(c) Gender direction vs frequency direction:**
+- **Spanish: no overlap** at any layer (|cos| ≤ 0.14; number direction ≤ 0.09).
+- **German: frequency overlap.** 8B at 4/4 layers (−0.34 to −0.69), 14B at 3/4 (−0.34 to −0.46);
+  the number direction is ≤ 0.17. By the pre-registered rule, German results built on the gender
+  direction carry the caveat. Followed up in `frequency-axis-prereg.md`.
+
+**Summary for the write-up:** the confidence/flattening concern of Buttigieg et al. doesn't
+explain any of our steering or article results. Their mechanism (a direction that mostly
+changes how confident the model is) would show up in (a), and it doesn't. Separately, the German
+gender direction is entangled with word frequency, a finding about German geometry rather than
+about confidence.
