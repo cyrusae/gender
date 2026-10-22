@@ -105,8 +105,11 @@ probe must read the intended referent type with a 1-nat margin).
 
 ### 3.1 Phase 0–1: models know the genders; spelling can't be erased
 
-- Known rates are high and rise with size **[check table: `results/phase0`]**. The article quiz
-  is diagnostic only: reordering the options flipped 18% (DE) and 44% (ES) of 0.6B answers.
+- Known rates (balanced, 257 nouns per language; `results/phase0/comparison.csv`) are high and
+  rise with Qwen3 size: German 0.89 / 0.90 / 0.94 and Spanish 0.89 / 0.92 / 0.94 at 0.6B / 1.7B /
+  4B; EuroLLM-1.7B 0.97 / 0.98. (Phase 0 was not run on 8B/14B.) The article quiz is diagnostic
+  only: reordering the options changed 20% (DE) and 45% (ES) of 0.6B answers
+  (`meta_order_agree` 0.80 / 0.55).
 - A verb-trained LEACE eraser leaves nonce endings readable at all sizes (≈ 0.99–1.00); unseen
   verbs AUC 0.68–0.81. Hence spelling control by design.
 
