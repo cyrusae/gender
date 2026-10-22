@@ -45,3 +45,9 @@ def test_initial_letters_flags_missing_gender_at_low_base_rate():
                        "gender": ["m"] * 17 + ["m"] * 58 + ["f"] * 25 + ["m"] * 25})  # fmt: skip
     t = la.initial_letters(df).set_index("initial")
     assert t.loc["a", "flag"] and t.loc["a", "missing"] == "f"
+
+
+def test_specs_point_to_frames():
+    assert spec("es").frames()["frames"][0][1]["f"] == "la"
+    ru = spec("ru").frames()
+    assert ru[0][1]["f"] == "наша" and not spec("ru").has_articles

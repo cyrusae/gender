@@ -22,6 +22,11 @@ class LangSpec:
     # () -> (word -> reason string, "" if simple); None = no rule written yet
     structure: Callable[[], Callable[[str], str]] | None = None
     notes: list[str] = field(default_factory=list)
+    has_articles: bool = True
+    # () -> the known-check frame definitions (playbook Stage 5). They stay next to the code that
+    # scores them (and the frozen results made with them); this only points there.
+    frames: Callable[[], object] | None = None
+    known_module: str = ""  # module whose score()/frame_check() run the known check
 
 
 def _es_cell(w: str) -> str:
@@ -42,6 +47,21 @@ def _ru_cell(w: str) -> str:
     return ru_morphology(w, "", set(), [])["ru_ending"]
 
 
+def _phase0_frames(code: str):
+    def get():
+        from .phase0 import LANG_CONFIG
+
+        return LANG_CONFIG[code]
+
+    return get
+
+
+def _ru_frames():
+    from .ru_known import FRAMES
+
+    return FRAMES
+
+
 def _de_structure():
     from .frequency_axis import complexity_rule
 
@@ -51,13 +71,17 @@ def _de_structure():
 SPECS: dict[str, LangSpec] = {
     "es": LangSpec("es", "Spanish", ("m", "f"), "es", _es_cell, None,
                    ["cells: final two letters or a shared suffix (-ete/-ote/-men...)",
-                    "no word-structure rule yet (compounding is rare: sacacorchos-type verb+noun)"]),
+                    "no word-structure rule yet (compounding is rare: sacacorchos-type verb+noun)"],
+                   frames=_phase0_frames("es"), known_module="phase0"),
     "de": LangSpec("de", "German", ("m", "f", "n"), "de", _de_cell, _de_structure,
                    ["cells: final two letters or a shared two-gender suffix",
-                    "structure rule: frequency_axis.complexity_rule (numeral/noun/verb + -er, noun+noun)"]),
+                    "structure rule: frequency_axis.complexity_rule (numeral/noun/verb + -er, noun+noun)"],
+                   frames=_phase0_frames("de"), known_module="phase0"),
     "ru": LangSpec("ru", "Russian", ("m", "f", "n"), "ru", _ru_cell, None,
                    ["cells: ending class (a, o, mja, soft = -ь, cons)",
-                    "no word-structure rule yet"]),
+                    "no word-structure rule yet",
+                    "TO DO (Russian training set): suffix cells; -ость is 73% of feminine -ь nouns"],
+                   has_articles=False, frames=_ru_frames, known_module="ru_known"),
 }  # fmt: skip
 
 
