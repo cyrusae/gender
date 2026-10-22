@@ -1,0 +1,735 @@
+hidden,feature,rank,noun,act,gender,gloss,set,zipf
+9,4124,0,Zwiebel,25.931922912597656,f,onion,strat3,3.53
+9,4124,1,Kartoffel,8.5690336227417,f,potato,strat3,3.74
+9,4124,2,Zahnwurzel,5.093962669372559,f,root of a tooth,compound_test,2.2
+9,4124,3,Knoblauchzehe,3.4803781509399414,f,clove of garlic,compound_test,2.38
+9,4124,4,Eichel,2.5685012340545654,f,acorn,strat3,3.37
+9,26288,0,Zwiebel,25.37323760986328,f,onion,strat3,3.53
+9,26288,1,Kürbiskernöl,2.1359190940856934,n,pumpkin seed oil,compound_test,2.01
+9,26288,2,Knoblauchzehe,1.883790135383606,f,clove of garlic,compound_test,2.38
+9,9962,0,Bassstimme,8.842491149902344,f,bass,compound_test,2.04
+9,9962,1,Kirschblüte,8.395092010498047,f,cherry blossom,compound_test,2.41
+9,9962,2,Tendenz,8.33422565460205,f,tendency,suffix,4.23
+9,9962,3,Spürnase,8.262121200561523,f,nose,compound_test,2.17
+9,9962,4,Hauptaufgabe,8.060394287109375,f,main task,compound_test,3.32
+9,9962,5,Todesfolge,7.901425361633301,f,fact that a crime results in the unintended death of the victim,compound_test,2.94
+9,9962,6,Neurochirurgie,7.758432388305664,f,neurosurgery,compound_test,2.64
+9,9962,7,Klimakatastrophe,7.7322587966918945,f,climate catastrophe,compound_test,2.65
+9,9962,8,Prügelstrafe,7.589191436767578,f,corporal punishment,compound_test,2.31
+9,9962,9,Weltwirtschaftskrise,7.587213516235352,f,global economic crisis,compound_test,3.05
+9,9962,10,Mittelachse,7.525140762329102,f,central axis,compound_test,2.52
+9,9962,11,Festplatte,7.458972930908203,f,hard disk,compound_test,3.79
+9,9962,12,Ohrmuschel,7.418760299682617,f,pinna,compound_test,2.43
+9,9962,13,Legislaturperiode,7.381278038024902,f,legislative session,compound_test,3.73
+9,9962,14,Zielgruppe,7.303942680358887,f,target group,compound_test,4.03
+9,50850,0,Kammer,17.362598419189453,f,chamber,strat3,4.18
+9,50850,1,Büroklammer,3.1144819259643555,f,paper clip,compound_test,2.45
+9,50850,2,Samenschale,2.3374085426330566,f,seed coat,compound_test,2.15
+9,47644,0,Bibel,21.734189987182617,f,bible,strat3,4.32
+9,47644,1,Gotteslästerung,4.355050563812256,f,blasphemy,compound_test,2.73
+9,47644,2,Vaterunser,2.932966709136963,n,lord's prayer,strat3,2.84
+9,47644,3,Schrift,2.7325448989868164,f,writing,strat3,4.32
+9,19547,0,Nadel,20.286630630493164,f,needle,strat3,3.77
+9,19547,1,Schraubenzieher,3.8526721000671387,m,screwdriver,compound_test,2.95
+9,19547,2,Holznagel,3.6461052894592285,m,wooden nail,compound_test,2.09
+9,19547,3,Büroklammer,3.3525750637054443,f,paper clip,compound_test,2.45
+9,19547,4,Nagelschere,3.0715081691741943,f,nail scissors,compound_test,2.1
+9,19547,5,Zahnstocher,2.8421928882598877,m,toothpick,strat3,2.82
+9,19547,6,Doppelspitze,2.627992868423462,f,dual leadership,compound_test,2.76
+9,19547,7,Knüppel,2.568694829940796,m,cudgel,strat3,3.23
+9,19547,8,Briefmarke,2.0911784172058105,f,postage stamp,compound_test,3.17
+9,19547,9,Spürnase,1.8131120204925537,f,nose,compound_test,2.17
+9,5220,0,Pegel,24.035419464111328,m,level,strat3,3.33
+9,5220,1,Meeresspiegel,9.199544906616211,m,sea level,compound_test,3.33
+9,35641,0,Bibel,21.014354705810547,f,bible,strat3,4.32
+9,5216,0,Krawall,5.361515045166016,m,riot,compound_test,3.13
+9,5216,1,Reformstau,5.3325042724609375,m,reform tie-up,compound_test,2.06
+9,5216,2,Nachthimmel,5.330107688903809,m,night sky,compound_train,2.98
+9,5216,3,Straßenrand,5.215213298797607,m,curbside,compound_test,3.44
+9,5216,4,Tatverdacht,5.164246559143066,m,suspicion,compound_test,2.85
+9,5216,5,Heuernte,5.087517738342285,f,hay harvest,compound_test,2.3
+9,5216,6,Fürsorge,5.019645690917969,f,care,compound_test,3.48
+9,5216,7,Platzwunde,5.006224632263184,f,laceration,compound_test,2.59
+9,5216,8,Hormonhaushalt,4.963561534881592,m,hormonal balance,compound_test,2.38
+9,5216,9,Zwischenablage,4.917972087860107,f,clipboard,compound_test,2.43
+9,5216,10,Objektivität,4.911947250366211,f,objectivity,suffix,3.47
+9,5216,11,Wasserversorgung,4.865283489227295,f,water supply,compound_test,3.64
+9,5216,12,Ohrmuschel,4.860152244567871,f,pinna,compound_test,2.43
+9,5216,13,Oberlippe,4.823862552642822,f,upper lip,compound_test,2.86
+9,5216,14,Tonerde,4.808850288391113,f,alumina,compound_test,2.41
+9,52001,0,Statistik,6.626254558563232,f,statistics,suffix,4.49
+9,52001,1,Mustererkennung,6.516099452972412,f,pattern recognition,compound_test,2.37
+9,52001,2,Saison,5.8874192237854,f,season,strat3,5.05
+9,52001,3,Relevanz,5.675867080688477,f,relevance,suffix,3.87
+9,52001,4,Fußnote,5.517809867858887,f,footnote,compound_test,3.08
+9,52001,5,Nationalökonomie,5.407519340515137,f,study of the economics of nations,compound_test,2.8
+9,52001,6,Wirtschaftsinformatik,5.239923477172852,f,business informatics,compound_test,3.19
+9,52001,7,Kapelle,5.195061206817627,f,chapel,compound_test,4.07
+9,52001,8,Kapitel,5.148854732513428,n,chapter,strat3,4.44
+9,52001,9,Atelier,5.096591472625732,n,studio,strat3,3.81
+9,52001,10,Sonderpädagogik,4.726263999938965,f,special education,compound_test,2.54
+9,52001,11,Randbemerkung,4.664173603057861,f,gloss,compound_test,2.26
+9,52001,12,Anfrage,4.639987945556641,f,inquiry,compound_test,4.43
+9,52001,13,Verhinderung,4.4630446434021,f,prevention,compound_test,3.56
+9,52001,14,Mindestanzahl,4.372424602508545,f,minimum amount,compound_test,2.37
+9,56003,0,Heft,14.142952919006348,n,notebook,strat3,4.33
+9,56003,1,Saft,10.637035369873047,m,juice,strat3,4.02
+9,56003,2,Duft,9.600582122802734,m,aroma,strat3,3.88
+9,56003,3,Kluft,8.687585830688477,f,cleft,strat3,3.38
+9,56003,4,Gruft,5.040139198303223,f,vault,strat3,3.31
+9,56003,5,Wiederkunft,3.7333476543426514,f,second coming,strat3,2.6
+9,56003,6,Vernunft,2.9902846813201904,f,reason,strat3,4.1
+9,56003,7,Energieverbrauch,2.7967779636383057,m,energy consumption / expenditure,compound_test,3.34
+9,56003,8,Luft,2.5247719287872314,f,air,strat3,5.02
+9,45685,0,Saat,21.227901458740234,f,seed,strat3,3.31
+9,6,0,Grat,20.56041145324707,m,ridge,strat3,3.3
+9,17363,0,Scheitel,32.26923751831055,m,parting,strat3,3.1
+9,17363,1,Krisengipfel,21.71251106262207,m,crisis summit,compound_test,2.02
+9,17363,2,Wipfel,16.90620994567871,m,treetop,strat3,2.27
+9,17363,3,Dreispitz,15.43801498413086,m,tricorn,compound_test,2.23
+9,17363,4,Doppelspitze,13.803728103637695,f,dual leadership,compound_test,2.76
+9,17363,5,Kuppel,2.381866693496704,f,dome,strat3,3.6
+9,17363,6,Drehort,1.998221516609192,m,location,compound_train,3.01
+9,52760,0,Staffel,18.544340133666992,f,season,strat3,4.58
+9,38594,0,Notbehelf,9.921916961669922,m,makeshift,compound_test,2.09
+9,38594,1,Waffenbesitz,9.849637031555176,m,possession of a weapon,compound_test,2.73
+9,38594,2,Abscheu,9.57193660736084,multi,,multi,
+9,38594,3,Verzicht,8.514472007751465,m,abstention,matched2,3.99
+9,38594,4,Spielspaß,8.129827499389648,m,fun of playing a game,compound_test,2.72
+9,38594,5,Kirchenaustritt,7.710445404052734,m,seceding from the church,compound_test,2.51
+9,38594,6,Glanz,7.379859924316406,m,gleam,suffix,4.0
+9,38594,7,Eifer,6.9348297119140625,m,zeal,strat3,3.5
+9,38594,8,Verkehrsverbund,6.934440612792969,m,public transit network,compound_test,3.06
+9,38594,9,Zeitaufwand,6.6183180809021,m,expenditure of time,compound_test,3.34
+9,38594,10,Drogenkonsum,6.537303924560547,m,drug consumption,compound_test,3.15
+9,38594,11,Menschenverstand,6.519903182983398,m,human reason,compound_test,3.44
+9,38594,12,Seitenhieb,6.324267864227295,m,sideswipe,compound_test,2.95
+9,38594,13,Anspruch,6.319120407104492,m,entitlement,compound_test,4.74
+9,38594,14,Lebensabend,6.079585552215576,m,sunset years,compound_test,3.02
+9,15667,0,Meer,8.093437194824219,n,sea,strat3,4.72
+9,15667,1,Luft,7.74144983291626,f,air,strat3,5.02
+9,15667,2,Winkel,7.695728778839111,m,angle,strat3,4.18
+9,15667,3,Draht,7.682714939117432,m,wire,matched2,3.79
+9,15667,4,Kammer,6.910699367523193,f,chamber,strat3,4.18
+9,15667,5,Kunst,6.739171504974365,f,art,matched2,5.07
+9,15667,6,Mistgabel,6.675547122955322,f,pitchfork,compound_test,2.49
+9,15667,7,Schlacht,6.405047416687012,f,battle,compound_test,4.29
+9,15667,8,Wahl,6.17357063293457,f,choice,strat3,5.19
+9,15667,9,Muskel,6.144104957580566,m,muscle,matched2,3.66
+9,15667,10,Vernunft,6.134205341339111,f,reason,strat3,4.1
+9,15667,11,Windkraft,5.743734359741211,f,wind power,compound_test,3.46
+9,15667,12,Artikel,5.631532192230225,m,article,strat3,5.24
+9,15667,13,Bibel,5.572390079498291,f,bible,strat3,4.32
+9,15667,14,Abenteuer,5.500667572021484,n,adventure,strat3,4.42
+9,2050,0,Saison,15.815763473510742,f,season,strat3,5.05
+9,16231,0,Kammer,11.393057823181152,f,chamber,strat3,4.18
+9,16231,1,Schlafzimmer,9.40342903137207,n,bedroom,compound_test,4.19
+9,16231,2,Raumstation,3.9064505100250244,f,space station,compound_test,3.37
+9,16231,3,Schlafrock,2.849947452545166,m,any robe-like garment worn before dressing,compound_test,2.43
+9,16231,4,Saal,2.1953999996185303,m,hall or large room,matched2,4.16
+9,16231,5,Wachsfigurenkabinett,2.192599296569824,n,wax museum,compound_test,2.14
+9,56276,0,Kammer,11.222909927368164,f,chamber,strat3,4.18
+9,56276,1,Abendkasse,4.8701491355896,f,ticket office,compound_test,2.86
+14,39214,0,Fußballspiel,7.371252536773682,n,football,compound_train,3.48
+14,39214,1,Hauptgrund,7.324470520019531,m,main / chief reason,compound_test,3.51
+14,39214,2,Christkind,7.256914138793945,n,representation of the christkind,compound_test,3.08
+14,39214,3,Hauswand,7.250648498535156,f,house wall,compound_test,3.1
+14,39214,4,Parkbank,7.227925777435303,f,park bench,compound_test,2.91
+14,39214,5,Hochaltar,7.195407867431641,m,high altar,compound_test,2.82
+14,39214,6,Kurtaxe,7.162283897399902,f,tourist tax,compound_test,2.43
+14,39214,7,Autofokus,7.161372184753418,m,autofocus,compound_test,2.55
+14,39214,8,Youngtimer,7.0661444664001465,m,more recent vintage car,matched3_end,2.39
+14,39214,9,Jugendwort,6.615537166595459,n,slang word used by young people,compound_train,2.7
+14,39214,10,Fitnessstudio,6.464104652404785,n,fitness centre,compound_test,3.6
+14,39214,11,Wahlrecht,6.3332953453063965,n,right to vote,compound_test,3.87
+14,39214,12,Autokino,6.331614971160889,n,drive-in theater,compound_test,2.4
+14,39214,13,Vernunft,6.241532802581787,f,reason,strat3,4.1
+14,39214,14,Grundrente,6.142905235290527,f,ground rent,compound_test,2.72
+14,57818,0,Bibel,28.984458923339844,f,bible,strat3,4.32
+14,41738,0,Saison,25.351242065429688,f,season,strat3,5.05
+14,64960,0,Marktkapitalisierung,4.886655807495117,f,market capitalization,compound_test,2.86
+14,64960,1,Lebensabend,4.743342399597168,m,sunset years,compound_test,3.02
+14,64960,2,Nationalhymne,4.596390247344971,f,national anthem,compound_test,3.43
+14,64960,3,Skipiste,4.5742878913879395,f,piste,compound_test,2.44
+14,64960,4,Kammer,4.489694118499756,f,chamber,strat3,4.18
+14,64960,5,Eichel,4.455566883087158,f,acorn,strat3,3.37
+14,64960,6,Heft,4.276752471923828,n,notebook,strat3,4.33
+14,64960,7,Speer,4.170687675476074,m,spear,strat3,3.58
+14,64960,8,Flugzeugträger,4.085115909576416,m,aircraft carrier,compound_test,3.14
+14,64960,9,Originalität,4.081995487213135,f,originality,suffix,3.09
+14,64960,10,Bibel,4.047057628631592,f,bible,strat3,4.32
+14,64960,11,Weinglas,3.9879403114318848,n,wine glass,compound_test,2.64
+14,64960,12,Bier,3.886733055114746,n,beer,strat3,4.82
+14,64960,13,Oberlippe,3.849414825439453,f,upper lip,compound_test,2.86
+14,64960,14,Vaterunser,3.8392248153686523,n,lord's prayer,strat3,2.84
+14,50705,0,Schrift,16.08092498779297,f,writing,strat3,4.32
+14,50705,1,Speer,15.587112426757812,m,spear,strat3,3.58
+14,50705,2,Mehl,15.456876754760742,n,flour,strat3,3.83
+14,50705,3,Durst,13.98878288269043,m,thirst,matched2,3.75
+14,50705,4,Beton,12.208588600158691,m,concrete,strat3,3.94
+14,50705,5,Trost,10.495609283447266,m,consolation,matched2,3.92
+14,50705,6,Saat,10.282941818237305,f,seed,strat3,3.31
+14,50705,7,Areal,9.250154495239258,n,area,matched3_end,3.88
+14,50705,8,Frist,7.925158500671387,f,term,matched2,4.1
+14,50705,9,Glanz,7.710589408874512,m,gleam,suffix,4.0
+14,50705,10,Tourismusbranche,7.5927934646606445,f,tourism industry,compound_test,2.7
+14,50705,11,Hobel,6.137105941772461,m,anything that abrades a surface,strat3,2.7
+14,50705,12,Kittel,5.429815292358398,m,overall,strat3,3.34
+14,50705,13,Kammer,4.869309425354004,f,chamber,strat3,4.18
+14,50705,14,Lizenz,4.829833030700684,f,license,suffix,4.07
+14,50862,0,Kammer,14.921745300292969,f,chamber,strat3,4.18
+14,7153,0,Militäroperation,26.843215942382812,f,military operation,compound_test,2.5
+14,7153,1,Oper,18.654691696166992,f,opera,strat3,4.24
+14,2619,0,Zwiebel,15.02839183807373,f,onion,strat3,3.53
+14,26357,0,Krempel,8.036596298217773,m,junk,matched2,2.91
+14,26357,1,Klinker,7.633425712585449,m,clinker,strat3,2.68
+14,26357,2,Knorpel,7.435849189758301,m,cartilage,strat3,2.92
+14,26357,3,Debakel,7.385916709899902,n,debacle,strat3,3.32
+14,26357,4,Gondel,7.286369323730469,f,gondola,strat3,3.08
+14,26357,5,Feldspat,7.2134552001953125,m,feldspar,compound_test,2.29
+14,26357,6,Kuppel,6.79801082611084,f,dome,strat3,3.6
+14,26357,7,Hobel,6.74167537689209,m,anything that abrades a surface,strat3,2.7
+14,26357,8,Krawall,6.624204635620117,m,riot,compound_test,3.13
+14,26357,9,Kegel,6.426386833190918,m,skittle,strat3,3.46
+14,26357,10,Sockel,6.399806022644043,m,base,strat3,3.56
+14,26357,11,Tümpel,6.3109235763549805,m,shallow pond,strat3,2.88
+14,26357,12,Trichter,6.012638092041016,m,funnel,strat3,3.22
+14,26357,13,Kluft,5.818909645080566,f,cleft,strat3,3.38
+14,26357,14,Schemel,5.77227783203125,m,footstool,strat3,2.42
+14,53065,0,Zucchini,7.157928943634033,multi,,multi,
+14,53065,1,Kartoffel,6.242311954498291,f,potato,strat3,3.74
+14,53065,2,Kokosnuss,5.755568027496338,f,coconut,compound_test,3.14
+14,53065,3,Zwiebel,4.634113788604736,f,onion,strat3,3.53
+14,53065,4,Handgranate,4.409531593322754,f,hand grenade,compound_test,2.95
+14,53065,5,Eichel,3.8796334266662598,f,acorn,strat3,3.37
+14,53065,6,Brombeere,3.8271985054016113,f,blackberry,compound_test,2.39
+14,39004,0,Heft,13.607601165771484,n,notebook,strat3,4.33
+14,39004,1,Saft,10.401266098022461,m,juice,strat3,4.02
+14,39004,2,Duft,7.062862873077393,m,aroma,strat3,3.88
+14,39004,3,Kluft,7.043393611907959,f,cleft,strat3,3.38
+14,39004,4,Gruft,6.196053981781006,f,vault,strat3,3.31
+14,39004,5,Vernunft,4.704812526702881,f,reason,strat3,4.1
+14,39004,6,Windkraft,3.1765294075012207,f,wind power,compound_test,3.46
+14,39004,7,Wiederkunft,2.9210238456726074,f,second coming,strat3,2.6
+14,39004,8,Bodenhaftung,2.3490538597106934,f,traction,compound_test,2.68
+14,34533,0,Speer,8.359676361083984,m,spear,strat3,3.58
+14,34533,1,Kunst,7.671256065368652,f,art,matched2,5.07
+14,34533,2,Wahl,6.612865447998047,f,choice,strat3,5.19
+14,34533,3,Durst,5.8537139892578125,m,thirst,matched2,3.75
+14,34533,4,Hut,5.7049407958984375,multi,,multi,
+14,34533,5,Telefonjoker,5.398778915405273,m,"""phone-a-friend"" lifeline",compound_test,2.25
+14,34533,6,Saat,5.271176338195801,f,seed,strat3,3.31
+14,34533,7,Schrift,4.811758995056152,f,writing,strat3,4.32
+14,34533,8,Triebfeder,4.569991111755371,f,mainspring,compound_test,2.62
+14,34533,9,Freilichtmuseum,4.26729679107666,n,outdoor / open-air museum,compound_test,3.06
+14,34533,10,Körper,4.017203330993652,m,body,strat3,5.0
+14,34533,11,Bibel,3.704186201095581,f,bible,strat3,4.32
+14,34533,12,Trost,3.4436986446380615,m,consolation,matched2,3.92
+14,34533,13,Mehl,3.4432342052459717,n,flour,strat3,3.83
+14,34533,14,Darmschleimhaut,3.3336503505706787,f,intestinal mucosa,compound_train,2.4
+14,49281,0,Heißluftballon,7.1407060623168945,m,hot-air balloon,compound_test,2.67
+14,49281,1,Büroklammer,7.054101943969727,f,paper clip,compound_test,2.45
+14,49281,2,Künstlerkolonie,6.929629325866699,f,artists' colony,compound_test,2.48
+14,49281,3,Heimatstadt,6.853886604309082,f,hometown,compound_test,3.86
+14,49281,4,Papierfabrik,6.693254470825195,f,paper mill,compound_test,2.83
+14,49281,5,Mülltrennung,6.537102699279785,f,waste sorting,compound_test,2.55
+14,49281,6,Musikvideo,6.416522979736328,n,music video,compound_test,3.66
+14,49281,7,Flüchtlingslager,6.412914276123047,n,refugee camp,compound_train,3.37
+14,49281,8,Müllcontainer,6.387017250061035,m,dumpster,compound_train,2.72
+14,49281,9,Wasserstoffperoxid,6.376535415649414,n,hydrogen peroxide,compound_test,2.52
+14,49281,10,Energiebedarf,6.346365928649902,m,energy requirement,compound_test,2.98
+14,49281,11,Flugzeugträger,6.342075347900391,m,aircraft carrier,compound_test,3.14
+14,49281,12,Bootsverleih,6.264458656311035,m,boat rental,compound_test,2.39
+14,49281,13,Lügendetektor,6.249295234680176,m,lie detector,compound_test,2.34
+14,49281,14,Flaschenhals,6.245491027832031,m,bottleneck,compound_test,2.74
+14,9670,0,Nadel,11.608859062194824,f,needle,strat3,3.77
+14,9540,0,Karsamstag,9.126077651977539,m,holy saturday,compound_test,2.63
+14,9540,1,Hügel,8.916162490844727,m,hill,strat3,4.07
+14,9540,2,Kniebeuge,8.573070526123047,f,squat,compound_test,2.24
+14,9540,3,Apfelessig,8.138428688049316,m,cider vinegar,compound_test,2.09
+14,9540,4,Wahlsieg,7.988273620605469,m,election victory,compound_test,3.31
+14,9540,5,Notlüge,7.096323013305664,f,harmless or trivial lie,compound_test,2.14
+14,9540,6,Bahnsteig,6.564169883728027,m,train platform,compound_test,3.64
+14,9540,7,Andrang,6.520228385925293,m,rush,compound_test,3.2
+14,9540,8,Kreissäge,6.487978935241699,f,circular saw,compound_test,2.66
+14,9540,9,Holznagel,5.864415168762207,m,wooden nail,compound_test,2.09
+14,9540,10,Asylantrag,5.821491241455078,m,asylum application,compound_test,3.11
+14,9540,11,Tennisschläger,5.759347915649414,m,tennis racket,compound_train,2.54
+14,9540,12,Redebeitrag,5.715999603271484,m,speech,compound_test,2.46
+14,9540,13,Pegel,5.539843559265137,m,level,strat3,3.33
+14,9540,14,Handfeger,5.4749603271484375,m,hand broom,compound_test,2.0
+14,47490,0,Saat,8.236711502075195,f,seed,strat3,3.31
+14,47490,1,Schweigeminute,8.060943603515625,f,moment of silence,compound_test,2.96
+14,47490,2,Pulver,6.435166358947754,n,powder,strat3,3.81
+14,47490,3,Forschungslabor,6.419511795043945,n,research laboratory,compound_test,2.52
+14,47490,4,Börsencrash,6.315400123596191,m,stock market crash,compound_test,2.26
+14,47490,5,Militäroperation,6.147513389587402,f,military operation,compound_test,2.5
+14,47490,6,Glassplitter,6.067723274230957,m,glass shard,compound_test,2.48
+14,47490,7,Aschermittwoch,6.060162544250488,m,ash wednesday,compound_test,3.24
+14,47490,8,Tourismusbranche,5.920326232910156,f,tourism industry,compound_test,2.7
+14,47490,9,Lieblingslied,5.8577470779418945,n,favorite song,compound_test,2.86
+14,47490,10,Sichtkontakt,5.799396514892578,m,visual contact,compound_test,2.43
+14,47490,11,Raumschiff,5.788110733032227,n,spaceship,compound_test,3.59
+14,47490,12,Passkontrolle,5.740215301513672,f,passport control,compound_test,2.56
+14,47490,13,Zahnmedizin,5.271116256713867,f,dentistry,compound_test,3.01
+14,47490,14,Disposition,5.125409126281738,f,disposal,compound_test,3.55
+14,46038,0,Leder,5.868220329284668,n,leather,strat3,4.1
+14,46038,1,Holzhammer,5.420697212219238,m,wooden mallet,compound_train,2.46
+14,46038,2,Medaillon,3.8031883239746094,n,medallion,strat3,3.02
+14,46038,3,Ledergürtel,3.6629371643066406,m,leather belt,compound_train,2.1
+14,46038,4,Eichel,3.274036407470703,f,acorn,strat3,3.37
+14,46038,5,Meeresspiegel,3.168903350830078,m,sea level,compound_test,3.33
+14,46038,6,Nadel,3.051422119140625,f,needle,strat3,3.77
+14,46038,7,Kegel,2.920619010925293,m,skittle,strat3,3.46
+14,46038,8,Ärmel,2.8872671127319336,m,sleeve,strat3,3.64
+14,46038,9,Kammer,2.8661680221557617,f,chamber,strat3,4.18
+14,46038,10,Knüppel,2.795948028564453,m,cudgel,strat3,3.23
+14,46038,11,Ohrmuschel,2.794588565826416,f,pinna,compound_test,2.43
+14,46038,12,Hautausschlag,2.753264904022217,m,pathological alteration of the skin,compound_test,2.55
+14,46038,13,Ader,2.7005791664123535,f,blood vessel,strat3,3.29
+14,46038,14,Mittelfinger,2.699434757232666,m,middle finger,compound_test,3.31
+14,6906,0,Weisheit,7.417479515075684,f,wisdom,suffix,4.01
+14,6906,1,Skandal,6.502303123474121,m,scandal,matched3_end,4.23
+14,6906,2,Inschrift,6.209890365600586,f,inscription,strat3,3.75
+14,6906,3,Einfachheit,6.09775447845459,f,simplicity,suffix,3.47
+14,6906,4,Verzicht,5.259624481201172,m,abstention,matched2,3.99
+14,6906,5,Blutkreislauf,5.115655899047852,m,bloodstream,compound_test,2.83
+14,6906,6,Abscheu,5.045367240905762,multi,,multi,
+14,6906,7,Originalität,5.024492263793945,f,originality,suffix,3.09
+14,6906,8,Kommandozeile,4.94976806640625,f,command line,compound_test,2.38
+14,6906,9,Elektrizität,4.947094917297363,f,electricity,suffix,3.53
+14,6906,10,Statistik,4.897028923034668,f,statistics,suffix,4.49
+14,6906,11,Rechtswissenschaft,4.890303611755371,f,jurisprudence,compound_test,3.29
+14,6906,12,Darlehen,4.855804443359375,n,loan,compound_test,3.81
+14,6906,13,Hochzeit,4.7444257736206055,f,wedding,compound_test,4.48
+14,6906,14,Anfrage,4.707996368408203,f,inquiry,compound_test,4.43
+14,11493,0,Zwiebel,11.025788307189941,f,onion,strat3,3.53
+14,12090,0,Fünfer,9.605655670166016,m,fiver,strat3,3.04
+14,12090,1,Muskel,9.437395095825195,m,muscle,matched2,3.66
+14,12090,2,Insolvenz,8.697099685668945,f,insolvency,suffix,3.81
+14,12090,3,Luftsauerstoff,8.447488784790039,m,atmospheric oxygen,compound_test,2.25
+14,12090,4,Zivilprozess,8.170839309692383,m,civil litigation,compound_test,2.84
+14,12090,5,Hexenjagd,8.14327621459961,f,witch-hunt,compound_test,3.02
+14,12090,6,Präsenz,7.805426120758057,f,presence,suffix,3.98
+14,12090,7,Vernunft,7.670413494110107,f,reason,strat3,4.1
+14,12090,8,Reparatur,7.653613567352295,f,repair,suffix,3.85
+14,12090,9,Präferenz,7.609359264373779,f,preference,suffix,3.05
+14,12090,10,Blutdruck,7.2051615715026855,m,blood pressure,compound_test,3.77
+14,12090,11,Kartoffel,7.154495716094971,f,potato,strat3,3.74
+14,12090,12,Blinddarm,7.152316570281982,m,caecum,compound_test,2.9
+14,12090,13,Herzrhythmus,6.985445499420166,m,cardiac rhythm,compound_test,2.13
+14,12090,14,Konjunktur,6.979554653167725,f,current economic situation,suffix,3.53
+20,60827,0,Saison,30.717618942260742,f,season,strat3,5.05
+20,60827,1,Vorjahresquartal,3.5672950744628906,n,same quarter of the previous year,compound_test,2.29
+20,31787,0,Militäroperation,29.7708797454834,f,military operation,compound_test,2.5
+20,31787,1,Oper,27.3925724029541,f,opera,strat3,4.24
+20,5312,0,Bibel,26.944799423217773,f,bible,strat3,4.32
+20,47313,0,Schlund,5.978262424468994,m,throat,compound_test,2.97
+20,47313,1,Schlacht,5.056156158447266,f,battle,compound_test,4.29
+20,47313,2,Kunstwerk,4.8404717445373535,n,artwork,compound_test,3.84
+20,47313,3,Turnier,4.822253227233887,n,tournament,strat3,4.43
+20,47313,4,Kittel,4.705528736114502,m,overall,strat3,3.34
+20,47313,5,Duft,4.672757148742676,m,aroma,strat3,3.88
+20,47313,6,Fürsorge,4.660645008087158,f,care,compound_test,3.48
+20,47313,7,Statur,4.60164213180542,f,build,suffix,3.16
+20,47313,8,Revier,4.599970817565918,n,defined area of land,strat3,3.77
+20,47313,9,Dominanz,4.563455104827881,f,dominance,suffix,3.74
+20,47313,10,Muskel,4.45383358001709,m,muscle,matched2,3.66
+20,47313,11,Treber,4.419768333435059,m,residue mass from making beer or brandy,strat3,2.11
+20,47313,12,Kummer,4.387300491333008,m,grief,strat3,3.78
+20,47313,13,Referenz,4.376643180847168,f,reference,suffix,3.59
+20,47313,14,Hügel,4.359602451324463,m,hill,strat3,4.07
+20,23589,0,Laserdrucker,20.018198013305664,m,laser printer,compound_train,2.59
+20,23589,1,Stabmixer,17.694419860839844,m,synonym of pürierstab,compound_test,2.19
+20,23589,2,Bolzenschneider,16.977909088134766,m,bolt cutter,compound_test,2.48
+20,23589,3,Lügendetektor,16.365251541137695,m,lie detector,compound_test,2.34
+20,23589,4,Lückenfüller,15.27518081665039,m,stopgap,compound_test,2.55
+20,23589,5,Mähdrescher,15.25611686706543,m,combine,compound_train,2.86
+20,23589,6,Konverter,15.197696685791016,m,converter,matched3_end,2.7
+20,23589,7,Glassplitter,14.948163986206055,m,glass shard,compound_test,2.48
+20,23589,8,Wärmetauscher,14.67149543762207,m,heat exchanger,compound_test,2.53
+20,23589,9,Selbstauslöser,14.605329513549805,m,self timer,compound_test,2.19
+20,23589,10,Lautsprecher,14.33622932434082,m,loudspeaker,compound_train,3.91
+20,23589,11,Wandler,14.328668594360352,m,transducer,strat3,2.8
+20,23589,12,Türöffner,14.239044189453125,m,door opener,compound_test,2.85
+20,23589,13,Sattelschlepper,13.901426315307617,m,rig,compound_train,2.57
+20,23589,14,Teilchenbeschleuniger,13.811437606811523,m,particle accelerator,compound_train,2.68
+20,58492,0,Konverter,5.637138843536377,m,converter,matched3_end,2.7
+20,58492,1,Öltanker,4.773614406585693,m,oil tanker,compound_train,2.32
+20,58492,2,Manöver,4.679694652557373,n,maneuver,strat3,3.61
+20,58492,3,Telefonjoker,4.629710674285889,m,"""phone-a-friend"" lifeline",compound_test,2.25
+20,58492,4,Vernunft,4.519758224487305,f,reason,strat3,4.1
+20,58492,5,Wärmetauscher,4.485771179199219,m,heat exchanger,compound_test,2.53
+20,58492,6,Höcker,4.4393792152404785,m,hump,strat3,2.96
+20,58492,7,Reparatur,4.330045223236084,f,repair,suffix,3.85
+20,58492,8,Massaker,4.329433917999268,n,massacre,strat3,3.78
+20,58492,9,Pegel,4.326650142669678,m,level,strat3,3.33
+20,58492,10,Werbespot,4.324057102203369,m,spot,compound_test,3.34
+20,58492,11,Prüfungsvorbereitung,4.285963535308838,f,exam preparation,compound_test,2.36
+20,58492,12,Papierflieger,4.214212417602539,m,paper airplane,compound_train,2.23
+20,58492,13,Marsch,4.179217338562012,multi,,multi,
+20,58492,14,Strahl,4.150339603424072,m,beam,strat3,3.54
+20,2925,0,Vierer,5.759504318237305,m,something with a number,strat3,3.37
+20,2925,1,Gasthaus,5.630016326904297,n,restaurant,compound_test,3.72
+20,2925,2,Kranz,5.458746910095215,m,wreath,suffix,3.53
+20,2925,3,Fachbereich,5.3147172927856445,m,faculty,compound_test,3.76
+20,2925,4,Fabrik,5.098189353942871,f,plant,suffix,4.18
+20,2925,5,Draht,4.811239242553711,m,wire,matched2,3.79
+20,2925,6,Endspurt,4.747766494750977,m,final sprint,compound_train,3.31
+20,2925,7,Korrelation,4.733485221862793,f,correlation,compound_test,3.44
+20,2925,8,Verzicht,4.696266174316406,m,abstention,matched2,3.99
+20,2925,9,Kammer,4.695993423461914,f,chamber,strat3,4.18
+20,2925,10,Relevanz,4.695896148681641,f,relevance,suffix,3.87
+20,2925,11,Integration,4.679048538208008,f,integration,compound_test,4.54
+20,2925,12,Notizblock,4.675948143005371,m,notepad,compound_test,2.64
+20,2925,13,Methodik,4.669487953186035,f,methodology,suffix,3.58
+20,2925,14,Saison,4.652889251708984,f,season,strat3,5.05
+20,1485,0,Zwiebel,15.801411628723145,f,onion,strat3,3.53
+20,5493,0,Heft,9.293015480041504,n,notebook,strat3,4.33
+20,5493,1,Saft,7.02268123626709,m,juice,strat3,4.02
+20,5493,2,Kriegsbeil,6.818277359008789,n,tomahawk,compound_test,2.2
+20,5493,3,Treber,6.795940399169922,m,residue mass from making beer or brandy,strat3,2.11
+20,5493,4,Meiler,6.696307182312012,m,earth mound kiln,strat3,2.55
+20,5493,5,Fracht,6.141654968261719,f,freight,matched2,3.52
+20,5493,6,Abschlussfeier,5.5867767333984375,f,closing ceremony,compound_test,3.08
+20,5493,7,Saal,5.424675941467285,m,hall or large room,matched2,4.16
+20,5493,8,Dunst,5.2382402420043945,m,haze,matched2,3.17
+20,5493,9,Mechanik,5.023036956787109,f,mechanics,suffix,3.67
+20,5493,10,Knoblauchzehe,5.017962455749512,f,clove of garlic,compound_test,2.38
+20,5493,11,Strahl,4.9978532791137695,m,beam,strat3,3.54
+20,5493,12,Visier,4.768699645996094,n,visor,strat3,3.79
+20,5493,13,Schwur,4.727442741394043,m,oath,suffix,3.18
+20,5493,14,Methodik,4.661811828613281,f,methodology,suffix,3.58
+20,20352,0,Schlafzimmer,16.17303466796875,n,bedroom,compound_test,4.19
+20,20352,1,Kammer,13.250724792480469,f,chamber,strat3,4.18
+20,31169,0,Kammer,12.580004692077637,f,chamber,strat3,4.18
+20,31169,1,Atelier,4.012266159057617,n,studio,strat3,3.81
+20,31169,2,Bergakademie,3.952672004699707,f,mining academy,compound_test,2.6
+20,31169,3,Handschuhfach,3.1775712966918945,n,glove compartment,compound_test,2.84
+20,26164,0,Regenguss,4.893813133239746,m,heavy shower,compound_test,2.36
+20,26164,1,Kreisel,4.6775221824646,m,top,matched3_end,3.24
+20,26164,2,Funke,4.390581130981445,m,spark,matched2,3.57
+20,26164,3,Strahl,4.365583419799805,m,beam,strat3,3.54
+20,26164,4,Grundrente,4.344229698181152,f,ground rent,compound_test,2.72
+20,26164,5,Grat,4.307102680206299,m,ridge,strat3,3.3
+20,26164,6,Fracht,4.245429039001465,f,freight,matched2,3.52
+20,26164,7,Mistgabel,4.231473445892334,f,pitchfork,compound_test,2.49
+20,26164,8,Luft,4.211129188537598,f,air,strat3,5.02
+20,26164,9,Massaker,4.146599292755127,n,massacre,strat3,3.78
+20,26164,10,Verdichtung,4.109822750091553,f,compression,compound_test,3.17
+20,26164,11,Marsch,4.059955596923828,multi,,multi,
+20,26164,12,Eichel,4.049246311187744,f,acorn,strat3,3.37
+20,26164,13,Festnahme,4.025946140289307,f,arrest,compound_test,3.8
+20,26164,14,Wärmetauscher,3.9921793937683105,m,heat exchanger,compound_test,2.53
+20,23938,0,Heimstatt,16.22399139404297,f,homeland,compound_test,2.56
+20,23938,1,Feuersbrunst,15.881307601928711,f,conflagration,compound_test,2.56
+20,23938,2,Gruft,14.711748123168945,f,vault,strat3,3.31
+20,23938,3,Gunst,14.553971290588379,f,favor,matched2,3.62
+20,23938,4,Hut,14.12456226348877,multi,,multi,
+20,23938,5,Feldspat,13.908246994018555,m,feldspar,compound_test,2.29
+20,23938,6,Tatverdacht,13.80996322631836,m,suspicion,compound_test,2.85
+20,23938,7,Saft,13.738387107849121,m,juice,strat3,4.02
+20,23938,8,Fotoapparat,13.539755821228027,m,camera,compound_test,2.87
+20,23938,9,Sturmflut,13.457344055175781,f,storm surge,compound_train,2.92
+20,23938,10,Weißglut,13.264324188232422,f,incandescence,compound_train,2.73
+20,23938,11,Dialekt,12.934516906738281,m,dialect,compound_test,3.89
+20,23938,12,Zahnbürste,12.93191909790039,f,toothbrush,compound_test,3.43
+20,23938,13,Skipiste,12.628228187561035,f,piste,compound_test,2.44
+20,23938,14,Heft,12.518452644348145,n,notebook,strat3,4.33
+20,30248,0,Mehl,17.68340301513672,n,flour,strat3,3.83
+20,30248,1,Durst,16.605525970458984,m,thirst,matched2,3.75
+20,30248,2,Speer,16.34838104248047,m,spear,strat3,3.58
+20,30248,3,Schrift,15.673069953918457,f,writing,strat3,4.32
+20,30248,4,Beton,13.955180168151855,m,concrete,strat3,3.94
+20,30248,5,Trost,13.638794898986816,m,consolation,matched2,3.92
+20,30248,6,Saat,12.474654197692871,f,seed,strat3,3.31
+20,30248,7,Tourismusbranche,9.80029296875,f,tourism industry,compound_test,2.7
+20,30248,8,Glanz,8.975321769714355,m,gleam,suffix,4.0
+20,30248,9,Frist,8.548905372619629,f,term,matched2,4.1
+20,30248,10,Areal,8.405765533447266,n,area,matched3_end,3.88
+20,30248,11,Hobel,7.90327262878418,m,anything that abrades a surface,strat3,2.7
+20,30248,12,Kammer,6.026543617248535,f,chamber,strat3,4.18
+20,30248,13,Revier,5.805987358093262,n,defined area of land,strat3,3.77
+20,30248,14,Kaffeetafel,5.081305503845215,f,coffee table,compound_train,2.25
+20,42460,0,Pfahl,4.290996551513672,m,stake,strat3,3.14
+20,42460,1,Fabrik,4.250249862670898,f,plant,suffix,4.18
+20,42460,2,Sockel,4.025235176086426,m,base,strat3,3.56
+20,42460,3,Eifer,3.975172519683838,m,zeal,strat3,3.5
+20,42460,4,Statur,3.8919663429260254,f,build,suffix,3.16
+20,42460,5,Kniebeuge,3.804378032684326,f,squat,compound_test,2.24
+20,42460,6,Pickel,3.786337375640869,m,pickaxe,strat3,3.4
+20,42460,7,Muskel,3.718228816986084,m,muscle,matched2,3.66
+20,42460,8,Schwur,3.7056236267089844,m,oath,suffix,3.18
+20,42460,9,Manöver,3.6606650352478027,n,maneuver,strat3,3.61
+20,42460,10,Draht,3.589071273803711,m,wire,matched2,3.79
+20,42460,11,Kittel,3.4929308891296387,m,overall,strat3,3.34
+20,42460,12,Krempel,3.4770145416259766,m,junk,matched2,2.91
+20,42460,13,Pegel,3.437699794769287,m,level,strat3,3.33
+20,42460,14,Stiel,3.38151216506958,m,stalk,strat3,3.54
+20,39873,0,Kunst,10.387133598327637,f,art,matched2,5.07
+20,39873,1,Speer,9.745092391967773,m,spear,strat3,3.58
+20,39873,2,Wahl,9.5167875289917,f,choice,strat3,5.19
+20,39873,3,Hut,9.341279983520508,multi,,multi,
+20,39873,4,Telefonjoker,8.137702941894531,m,"""phone-a-friend"" lifeline",compound_test,2.25
+20,39873,5,Freilichtmuseum,7.3270111083984375,n,outdoor / open-air museum,compound_test,3.06
+20,39873,6,Triebfeder,6.471920013427734,f,mainspring,compound_test,2.62
+20,39873,7,Durst,6.159960746765137,m,thirst,matched2,3.75
+20,39873,8,Schrift,6.073690414428711,f,writing,strat3,4.32
+20,39873,9,Flüchtlingslager,5.367058753967285,n,refugee camp,compound_train,3.37
+20,39873,10,Fußballspiel,4.985294342041016,n,football,compound_train,3.48
+20,39873,11,Jugendwort,4.7452850341796875,n,slang word used by young people,compound_train,2.7
+20,39873,12,Körper,4.570674896240234,m,body,strat3,5.0
+20,39873,13,Handschuhfach,4.432511329650879,n,glove compartment,compound_test,2.84
+20,39873,14,Bibel,4.405914306640625,f,bible,strat3,4.32
+20,64406,0,Nadel,12.686546325683594,f,needle,strat3,3.77
+20,64406,1,Festnahme,10.071460723876953,f,arrest,compound_test,3.8
+20,64406,2,Spürnase,10.00778579711914,f,nose,compound_test,2.17
+20,64406,3,Kokosnuss,9.76797103881836,f,coconut,compound_test,3.14
+20,64406,4,Heuernte,8.26671028137207,f,hay harvest,compound_test,2.3
+20,64406,5,Holznagel,8.12373161315918,m,wooden nail,compound_test,2.09
+20,64406,6,Dachrinne,7.789721965789795,f,gutter,compound_test,2.46
+20,64406,7,Lohnniveau,5.718980312347412,n,wage level,compound_test,2.58
+20,64406,8,Zehner,4.950097560882568,m,ten,strat3,3.17
+20,64406,9,Reifezeugnis,4.7698187828063965,n,matriculation examination,compound_test,2.14
+20,64406,10,Mülldeponie,4.677425861358643,f,landfill,compound_test,2.63
+20,64406,11,Holocaustleugnung,4.545152187347412,f,holocaust denial,compound_test,2.14
+20,64406,12,Machtübernahme,4.251974105834961,f,takeover of power,compound_test,3.21
+20,64406,13,Mülltonne,3.969775676727295,f,wheelie bin,compound_test,3.32
+20,64406,14,Asylantrag,3.7397303581237793,m,asylum application,compound_test,3.11
+20,2505,0,Reformstau,14.59416389465332,m,reform tie-up,compound_test,2.06
+20,2505,1,Boxenstopp,12.564412117004395,m,pit stop,compound_test,2.74
+20,2505,2,Bergkristall,12.302157402038574,m,rock crystal,compound_test,2.66
+20,2505,3,Minutentakt,11.687385559082031,m,minute interval,compound_test,2.82
+20,2505,4,Hirntumor,11.66961669921875,m,brain tumor,compound_test,2.75
+20,2505,5,Diskontinuität,11.19124698638916,f,discontinuity,compound_test,2.13
+20,2505,6,Gletscher,10.673867225646973,m,glacier,strat3,3.58
+20,2505,7,Zeitpunkt,10.354656219482422,m,moment,compound_test,4.86
+20,2505,8,Christmette,10.205154418945312,f,midnight mass,compound_test,2.21
+20,2505,9,Bademantel,9.613927841186523,m,bathrobe,compound_test,3.24
+20,2505,10,Zapfenstreich,9.463358879089355,m,curfew,compound_test,2.56
+20,2505,11,Volkstrauertag,9.452069282531738,m,"""people's day of mourning""",compound_test,2.58
+20,2505,12,Christkind,9.362791061401367,n,representation of the christkind,compound_test,3.08
+20,2505,13,Stiel,9.333332061767578,m,stalk,strat3,3.54
+20,2505,14,Statur,9.30008602142334,f,build,suffix,3.16
+20,64395,0,Kniebeuge,14.607150077819824,f,squat,compound_test,2.24
+20,64395,1,Karsamstag,13.26105785369873,m,holy saturday,compound_test,2.63
+20,64395,2,Andrang,13.236599922180176,m,rush,compound_test,3.2
+20,64395,3,Apfelessig,10.43589973449707,m,cider vinegar,compound_test,2.09
+20,64395,4,Bahnsteig,10.422527313232422,m,train platform,compound_test,3.64
+20,64395,5,Hügel,10.087311744689941,m,hill,strat3,4.07
+20,64395,6,Meerenge,9.97352409362793,f,strait,compound_test,2.79
+20,64395,7,Redebeitrag,9.115396499633789,m,speech,compound_test,2.46
+20,64395,8,Notlüge,8.639832496643066,f,harmless or trivial lie,compound_test,2.14
+20,64395,9,Wahlsieg,8.633934020996094,m,election victory,compound_test,3.31
+20,64395,10,Asylantrag,8.361804962158203,m,asylum application,compound_test,3.11
+20,64395,11,Entwaldung,8.117626190185547,f,deforestation,compound_test,2.17
+20,64395,12,Konzertflügel,8.08169937133789,m,concert grand,compound_test,2.32
+20,64395,13,Kreissäge,7.833005905151367,f,circular saw,compound_test,2.66
+20,64395,14,Bodenhaftung,7.442956924438477,f,traction,compound_test,2.68
+20,22894,0,Grat,17.84589195251465,m,ridge,strat3,3.3
+20,22894,1,Sicherheitsgurt,12.642804145812988,m,seat belt,compound_test,2.63
+20,22894,2,Gitter,11.946518898010254,n,lattice,strat3,3.77
+20,22894,3,Gunst,11.203205108642578,f,favor,matched2,3.62
+20,22894,4,Gatter,9.971921920776367,n,gate,strat3,2.78
+20,22894,5,Mistgabel,8.801979064941406,f,pitchfork,compound_test,2.49
+20,22894,6,Weinglas,8.783716201782227,n,wine glass,compound_test,2.64
+20,22894,7,Regenguss,7.930355072021484,m,heavy shower,compound_test,2.36
+20,22894,8,Glanz,7.691429138183594,m,gleam,suffix,4.0
+20,22894,9,Gletscher,7.147115707397461,m,glacier,strat3,3.58
+20,22894,10,Gruft,6.506775856018066,f,vault,strat3,3.31
+20,22894,11,Waggon,6.207795143127441,m,railway wagon,strat3,3.16
+20,22894,12,Handfeger,5.156440734863281,m,hand broom,compound_test,2.0
+20,22894,13,Weißglut,5.074466705322266,f,incandescence,compound_train,2.73
+20,22894,14,Gondel,4.898258209228516,f,gondola,strat3,3.08
+25,51428,0,Oper,139.65579223632812,f,opera,strat3,4.24
+25,51428,1,Militäroperation,72.48686218261719,f,military operation,compound_test,2.5
+25,65079,0,Kammer,78.63085174560547,f,chamber,strat3,4.18
+25,41939,0,Kunst,29.57552719116211,f,art,matched2,5.07
+25,41939,1,Wahl,29.046070098876953,f,choice,strat3,5.19
+25,41939,2,Hut,25.58449935913086,multi,,multi,
+25,41939,3,Schrift,22.55108642578125,f,writing,strat3,4.32
+25,41939,4,Speer,21.83551788330078,m,spear,strat3,3.58
+25,41939,5,Durst,21.612926483154297,m,thirst,matched2,3.75
+25,41939,6,Freilichtmuseum,21.306854248046875,n,outdoor / open-air museum,compound_test,3.06
+25,41939,7,Triebfeder,20.39120864868164,f,mainspring,compound_test,2.62
+25,41939,8,Lohnniveau,17.69305419921875,n,wage level,compound_test,2.58
+25,41939,9,Bibel,17.590606689453125,f,bible,strat3,4.32
+25,41939,10,Handschuhfach,16.54146957397461,n,glove compartment,compound_test,2.84
+25,41939,11,Minutentakt,16.183368682861328,m,minute interval,compound_test,2.82
+25,41939,12,Saison,15.678431510925293,f,season,strat3,5.05
+25,41939,13,Mehl,15.644133567810059,n,flour,strat3,3.83
+25,41939,14,Zylinder,15.440747261047363,m,cylinder,compound_test,3.73
+25,2540,0,Saison,74.88298034667969,f,season,strat3,5.05
+25,7849,0,Lügendetektor,46.605525970458984,m,lie detector,compound_test,2.34
+25,7849,1,Selbstauslöser,44.675193786621094,m,self timer,compound_test,2.19
+25,7849,2,Laserdrucker,43.82915115356445,m,laser printer,compound_train,2.59
+25,7849,3,Lautsprecher,43.62281799316406,m,loudspeaker,compound_train,3.91
+25,7849,4,Konverter,42.22355651855469,m,converter,matched3_end,2.7
+25,7849,5,Lückenfüller,41.22909164428711,m,stopgap,compound_test,2.55
+25,7849,6,Stabmixer,39.40119934082031,m,synonym of pürierstab,compound_test,2.19
+25,7849,7,Großrechner,38.685401916503906,m,mainframe,compound_test,2.48
+25,7849,8,Wärmetauscher,37.9640998840332,m,heat exchanger,compound_test,2.53
+25,7849,9,Glassplitter,37.31482696533203,m,glass shard,compound_test,2.48
+25,7849,10,Pfannenwender,36.95791244506836,m,spatula,strat3,2.02
+25,7849,11,Wandler,36.14738464355469,m,transducer,strat3,2.8
+25,7849,12,Lautstärkeregler,35.47272872924805,m,loudness control,compound_test,2.25
+25,7849,13,Barhocker,34.5355224609375,m,bar stool,compound_test,2.69
+25,7849,14,Bolzenschneider,34.068111419677734,m,bolt cutter,compound_test,2.48
+25,32486,0,Gitter,24.77492904663086,n,lattice,strat3,3.77
+25,32486,1,Skipiste,23.708642959594727,f,piste,compound_test,2.44
+25,32486,2,Glashütte,23.1074275970459,f,factory that produces glass,compound_test,2.9
+25,32486,3,Katheter,21.47187042236328,m,catheter,strat3,2.93
+25,32486,4,Atelier,21.12060546875,n,studio,strat3,3.81
+25,32486,5,Heuernte,18.977521896362305,f,hay harvest,compound_test,2.3
+25,32486,6,Artikel,18.00615692138672,m,article,strat3,5.24
+25,32486,7,Kritik,17.814725875854492,f,criticism,suffix,5.01
+25,32486,8,Kirchenaustritt,17.72004508972168,m,seceding from the church,compound_test,2.51
+25,32486,9,Christmette,17.322025299072266,f,midnight mass,compound_test,2.21
+25,32486,10,Beton,16.60770034790039,m,concrete,strat3,3.94
+25,32486,11,Kittel,16.024267196655273,m,overall,strat3,3.34
+25,32486,12,Fischkutter,15.353404998779297,m,fishing boat,compound_test,2.36
+25,32486,13,Hochtechnologie,15.167322158813477,f,high technology,compound_test,2.54
+25,32486,14,Reparatur,15.114238739013672,f,repair,suffix,3.85
+25,12293,0,Balkon,22.564167022705078,m,balcony,strat3,4.19
+25,12293,1,Pegel,22.3953914642334,m,level,strat3,3.33
+25,12293,2,Scheitel,20.72197723388672,m,parting,strat3,3.1
+25,12293,3,Vernunft,19.306922912597656,f,reason,strat3,4.1
+25,12293,4,Hochzeit,15.982661247253418,f,wedding,compound_test,4.48
+25,12293,5,Draht,15.357932090759277,m,wire,matched2,3.79
+25,12293,6,Literatur,15.238839149475098,f,literature,suffix,4.78
+25,12293,7,Kittel,14.1434907913208,m,overall,strat3,3.34
+25,12293,8,Wahlzettel,13.218363761901855,m,ballot paper,compound_train,3.2
+25,12293,9,Pflicht,13.085196495056152,f,duty,matched2,4.56
+25,12293,10,Klausel,12.52688980102539,f,term,matched3_end,3.54
+25,12293,11,Brisanz,12.398269653320312,f,brisance,suffix,3.06
+25,12293,12,Meerenge,11.857236862182617,f,strait,compound_test,2.79
+25,12293,13,Katheter,11.856857299804688,m,catheter,strat3,2.93
+25,12293,14,Hausarbeit,11.72887897491455,f,housework,compound_test,3.65
+25,41396,0,Bibel,51.588287353515625,f,bible,strat3,4.32
+25,64334,0,Nadel,56.37173843383789,f,needle,strat3,3.77
+25,64334,1,Dreispitz,19.140380859375,m,tricorn,compound_test,2.23
+25,64334,2,Stachel,17.045934677124023,m,spike,strat3,3.16
+25,64334,3,Mittelfinger,15.323600769042969,m,middle finger,compound_test,3.31
+25,64334,4,Kiefer,13.018400192260742,multi,,multi,
+25,64334,5,Kegel,8.195568084716797,m,skittle,strat3,3.46
+25,64334,6,Knüppel,7.070268630981445,m,cudgel,strat3,3.23
+25,29450,0,Wahl,61.07792663574219,f,choice,strat3,5.19
+25,29450,1,Themenauswahl,59.50946807861328,f,selection of topics,compound_train,2.21
+25,29450,2,Mitbringsel,10.945513725280762,n,small present brought by a guest or someone returning from a journey,matched3_end,2.86
+25,29450,3,Präferenz,10.513154029846191,f,preference,suffix,3.05
+25,29450,4,Wahlmöglichkeit,8.93362045288086,f,option,compound_test,2.61
+25,29450,5,Polarisierung,8.343083381652832,f,polarization / polarisation,compound_test,3.04
+25,29450,6,Kollektion,7.956803321838379,f,collection,compound_test,3.83
+25,29450,7,Prädestination,7.945711135864258,f,predestination,compound_test,2.02
+25,29450,8,Hervorhebung,7.829363822937012,f,highlighting,compound_test,2.92
+25,29450,9,Neuorientierung,7.482413291931152,f,career change,compound_test,3.0
+25,29450,10,Entfaltung,7.342114448547363,f,unfolding,compound_test,3.46
+25,29450,11,Arbeitseinstellung,6.549782752990723,f,walkout,compound_test,2.16
+25,26946,0,Meerbusen,30.28784942626953,m,bay,compound_test,2.46
+25,26946,1,Nordosten,30.174606323242188,m,northeast,compound_test,3.69
+25,26946,2,Putzlappen,25.519271850585938,m,cloth,compound_test,2.39
+25,26946,3,Südwesten,24.827167510986328,m,southwest,compound_test,3.83
+25,26946,4,Schwebebalken,20.190885543823242,m,balance beam,compound_test,2.5
+25,26946,5,Nebenhoden,17.91271209716797,m,epididymis,compound_test,2.01
+25,26946,6,Handelsvolumen,16.823829650878906,n,trading volume,compound_test,2.56
+25,26946,7,Weltfrieden,16.47677993774414,m,world peace,compound_test,3.15
+25,26946,8,Staffel,13.696969985961914,f,season,strat3,4.58
+25,26946,9,Möbel,12.875368118286133,n,piece of furniture,strat3,4.07
+25,26946,10,Fabel,12.636247634887695,f,fable,strat3,3.02
+25,26946,11,Kaliber,12.43625259399414,n,calibre,strat3,3.62
+25,26946,12,Eichel,12.166267395019531,f,acorn,strat3,3.37
+25,26946,13,Kapitel,12.148035049438477,n,chapter,strat3,4.44
+25,26946,14,Kuppel,12.148004531860352,f,dome,strat3,3.6
+25,57673,0,Statur,24.606985092163086,f,build,suffix,3.16
+25,57673,1,Oper,23.828126907348633,f,opera,strat3,4.24
+25,57673,2,Sparpaket,23.35979652404785,n,austerity package,compound_test,2.51
+25,57673,3,Goldrausch,22.008766174316406,m,gold rush,compound_test,2.66
+25,57673,4,Reparatur,21.772502899169922,f,repair,suffix,3.85
+25,57673,5,Parabel,20.290279388427734,f,parable,matched3_end,3.01
+25,57673,6,Leder,19.51030158996582,n,leather,strat3,4.1
+25,57673,7,Körpertemperatur,18.886198043823242,f,body temperature,compound_test,3.16
+25,57673,8,Klimawandel,17.036651611328125,m,climate change,compound_train,4.03
+25,57673,9,Vehikel,16.911211013793945,n,vehicle,strat3,3.13
+25,57673,10,Kandidatur,16.75602149963379,f,candidacy,suffix,3.7
+25,57673,11,Transaktion,16.71470069885254,f,transaction,compound_test,3.46
+25,57673,12,Hyperbel,16.544750213623047,f,hyperbole,matched2,2.66
+25,57673,13,Statistik,16.277246475219727,f,statistics,suffix,4.49
+25,57673,14,Stichel,15.965632438659668,m,burin,strat3,2.21
+25,16973,0,Pegel,41.581905364990234,m,level,strat3,3.33
+25,16973,1,Lohnniveau,38.011653900146484,n,wage level,compound_test,2.58
+25,16973,2,Kuppel,10.123706817626953,f,dome,strat3,3.6
+25,16973,3,Knöchel,10.028881072998047,m,ankle,strat3,3.44
+25,16973,4,Knüppel,9.768930435180664,m,cudgel,strat3,3.23
+25,16973,5,Debakel,5.218097686767578,n,debacle,strat3,3.32
+25,16878,0,Heft,51.993438720703125,n,notebook,strat3,4.33
+25,16878,1,Saft,25.28739356994629,m,juice,strat3,4.02
+25,16878,2,Gruft,21.938390731811523,f,vault,strat3,3.31
+25,16878,3,Duft,17.792591094970703,m,aroma,strat3,3.88
+25,16878,4,Kluft,14.61911392211914,f,cleft,strat3,3.38
+25,11229,0,Strahl,22.499439239501953,m,beam,strat3,3.54
+25,11229,1,Atelier,19.489587783813477,n,studio,strat3,3.81
+25,11229,2,Glanz,18.178348541259766,m,gleam,suffix,4.0
+25,11229,3,Heft,17.899059295654297,n,notebook,strat3,4.33
+25,11229,4,Visier,14.55767822265625,n,visor,strat3,3.79
+25,11229,5,Fracht,13.375423431396484,f,freight,matched2,3.52
+25,11229,6,Transaktion,13.266180038452148,f,transaction,compound_test,3.46
+25,11229,7,Saft,12.47808837890625,m,juice,strat3,4.02
+25,11229,8,Treber,12.389257431030273,m,residue mass from making beer or brandy,strat3,2.11
+25,11229,9,Skandal,11.812658309936523,m,scandal,matched3_end,4.23
+25,11229,10,Konverter,11.224748611450195,m,converter,matched3_end,2.7
+25,11229,11,Meiler,10.944507598876953,m,earth mound kiln,strat3,2.55
+25,11229,12,Endspurt,10.872737884521484,m,final sprint,compound_train,3.31
+25,11229,13,Revier,10.664987564086914,n,defined area of land,strat3,3.77
+25,11229,14,Parabel,10.404195785522461,f,parable,matched3_end,3.01
+25,35776,0,Grat,56.09297180175781,m,ridge,strat3,3.3
+25,35776,1,Hauptgrund,38.770225524902344,m,main / chief reason,compound_test,3.51
+25,35776,2,Gruft,20.662033081054688,f,vault,strat3,3.31
+25,35776,3,Handgranate,13.066147804260254,f,hand grenade,compound_test,2.95
+25,35776,4,Handgriff,10.27701473236084,m,handgrip,compound_test,2.94
+25,35776,5,Körpergröße,8.172356605529785,f,body size,compound_test,3.46
+25,35776,6,Eingreiftruppe,7.6681318283081055,f,intervention force,compound_test,2.6
+25,35776,7,Andrang,6.087035179138184,m,rush,compound_test,3.2
+25,50296,0,Saison,20.96946144104004,f,season,strat3,5.05
+25,50296,1,Saat,18.75917625427246,f,seed,strat3,3.31
+25,50296,2,Kreissäge,17.613618850708008,f,circular saw,compound_test,2.66
+25,50296,3,Saal,15.634637832641602,m,hall or large room,matched2,4.16
+25,56341,0,Kammer,26.106290817260742,f,chamber,strat3,4.18
+25,56341,1,Maultrommel,21.632678985595703,f,jew's harp,compound_test,2.0
+25,56341,2,Kummer,17.85395622253418,m,grief,strat3,3.78
+25,56341,3,Christmette,17.460912704467773,f,midnight mass,compound_test,2.21
+25,56341,4,Waggon,13.113107681274414,m,railway wagon,strat3,3.16
+25,56341,5,Kuppel,12.592634201049805,f,dome,strat3,3.6
+25,56341,6,Pulver,12.526819229125977,n,powder,strat3,3.81
+25,56341,7,Terrasse,11.362749099731445,f,terrace,compound_test,3.91
+25,56341,8,Dachrinne,8.299135208129883,f,gutter,compound_test,2.46
+25,56341,9,Brombeere,8.051309585571289,f,blackberry,compound_test,2.39
+25,18930,0,Schrift,39.94071578979492,f,writing,strat3,4.32
+25,18930,1,Mehl,35.2032470703125,n,flour,strat3,3.83
+25,18930,2,Beton,34.411251068115234,m,concrete,strat3,3.94
+25,18930,3,Trost,32.51333236694336,m,consolation,matched2,3.92
+25,18930,4,Speer,32.30791473388672,m,spear,strat3,3.58
+25,18930,5,Durst,31.381805419921875,m,thirst,matched2,3.75
+25,18930,6,Saat,20.854108810424805,f,seed,strat3,3.31
+25,18930,7,Frist,20.169004440307617,f,term,matched2,4.1
+25,18930,8,Tourismusbranche,19.753009796142578,f,tourism industry,compound_test,2.7
+25,18930,9,Areal,19.09075355529785,n,area,matched3_end,3.88
+25,18930,10,Kammer,17.937236785888672,f,chamber,strat3,4.18
+25,18930,11,Hobel,17.51190757751465,m,anything that abrades a surface,strat3,2.7
+25,18930,12,Glanz,17.337011337280273,m,gleam,suffix,4.0
+25,18930,13,Kittel,13.977582931518555,m,overall,strat3,3.34
+25,18930,14,Revier,13.845294952392578,n,defined area of land,strat3,3.77
+25,38676,0,Kummer,30.0535945892334,m,grief,strat3,3.78
+25,38676,1,Maultrommel,29.919330596923828,f,jew's harp,compound_test,2.0
+25,38676,2,Kammer,27.878604888916016,f,chamber,strat3,4.18
+25,38676,3,Nachthimmel,25.01180648803711,m,night sky,compound_train,2.98
+25,38676,4,Hoffnungsschimmer,21.75562858581543,m,glimmer of hope,compound_test,2.84
+25,38676,5,Wimper,20.125234603881836,f,eyelash,strat3,2.95
+25,38676,6,Schemel,17.633472442626953,m,footstool,strat3,2.42
+25,38676,7,Schramme,17.346742630004883,f,graze,compound_test,2.46
+25,38676,8,Sommer,13.39630126953125,m,summer,strat3,5.08
+25,38676,9,Ärmel,12.869829177856445,m,sleeve,strat3,3.64
+25,38676,10,Spiegelbild,11.295953750610352,n,mirror image,compound_test,3.35
+25,38676,11,Bassstimme,10.917095184326172,f,bass,compound_test,2.04
+25,38676,12,Neoliberalismus,10.670732498168945,m,neoliberalism,compound_test,3.19
+25,38676,13,Handelsmarine,10.357542037963867,f,merchant navy,compound_test,2.33
+25,38676,14,Büroklammer,9.666376113891602,f,paper clip,compound_test,2.45

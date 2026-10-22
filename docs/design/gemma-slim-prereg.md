@@ -126,6 +126,22 @@ The prereg left these open; fixed here before computing anything:
 - **Sign:** the overlap is negative (feminine ↔ rarer), so candidates have
   sign(f−m effect) ≠ sign(Zipf slope).
 
+### G2 result on Qwen3-8B (2026-10-22): no valid test
+
+| hidden layer (SAE layer) | held-out cos | after removal | decoding before → after |
+|---|---|---|---|
+| 9 (8) | +0.17 | +0.185 | 99.1% → 98.3% |
+| 14 (13) | +0.26 | +0.248 | 99.4% → 99.2% |
+| 20 (19) | +0.17 | +0.151 | 98.9% → 98.9% |
+| 25 (24) | +0.11 | +0.105 | 99.1% → 98.9% |
+
+The SAE layer mapping passed (`results/sae_freq/alignment.csv`). At every layer the held-out
+`compound_test` nouns fail the baseline-validity rule: their overlap is *positive* and below 0.3,
+so there is no feminine ↔ rarer alignment to remove (pass 0/0 valid layers). The test is therefore
+uninformative about the SAE; it does not say the features are absent. Descriptive only: the
+held-out compound nouns do not show the training-set overlap (−0.34 to −0.69), which fits the
+sample-specific reading in draft §3.7. Outputs: `results/sae_freq/`.
+
 ## Compute and logistics
 
 - One chip type for all sizes: A100 80GB (~$1.59/h at last check; price stated again at pod

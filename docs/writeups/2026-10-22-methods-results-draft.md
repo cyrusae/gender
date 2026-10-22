@@ -197,8 +197,13 @@ probe must read the intended referent type with a 1-nat margin).
   layers, never the pre-registered majority.
 - Projecting the frequency axis out (B) leaves the Phase 4 verdicts unchanged.
 - Register / age of acquisition does not explain it (8B overlap −0.62 → −0.61).
-- **Open:** what the axis encodes. The SAE-feature test (G2, Qwen3-8B, pre-registered in
-  `gemma-slim-prereg.md`) is running; Gemma 3 is the cross-family check.
+- SAE-feature test (G2, Qwen3-8B, pre-registered in `gemma-slim-prereg.md`): **no valid test.**
+  The held-out compound nouns (632) do not show the overlap (cos +0.11 to +0.26 at the four
+  layers, opposite sign and under the 0.3 bar), so there was nothing to remove. Descriptively,
+  this means the alignment does not carry over to a different German noun sample, which fits it
+  being partly sample-specific.
+- **Open:** what the axis encodes, and why it appears in the training sample but not the
+  held-out compounds. Gemma 3 is the cross-family check.
 
 ### 3.8 Claims, evidence and status
 
@@ -211,7 +216,7 @@ probe must read the intended referent type with a 1-nat margin).
 | No bleed at 14B | good null |
 | Article pull on thing-nouns (P30/P31) | descriptive; not shown to be social |
 | R3-POOL / P20-POOL | **not evidence** (P29) |
-| German direction aligned with frequency | robust; mechanism open (G2) |
+| German direction aligned with frequency | robust in training sample; absent in held-out compounds; mechanism open |
 
 ---
 
