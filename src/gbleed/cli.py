@@ -113,6 +113,8 @@ def main() -> None:
         "frequency-axis", help="German frequency-axis follow-up (prereg 2026-10-21)"
     )
     fa.add_argument("--parts", default="acdb", help="any of a, c, d (together) and b")
+    g0 = sub.add_parser("gemma-g0", help="Gemma slim prereg G0 technical gates")
+    g0.add_argument("models", nargs="*", default=None)
     la = sub.add_parser(
         "lang-audit", help="Spelling/structure/balance audit of a noun list (playbook)"
     )
@@ -145,6 +147,12 @@ def main() -> None:
         from .lang_audit import audit
 
         audit(a.lang, a.list, a.tag, a.cells)
+        return
+    if a.cmd == "gemma-g0":
+        from .gemma_g0 import MODELS
+        from .gemma_g0 import main as g0_main
+
+        g0_main(a.models or MODELS)
         return
     if a.cmd == "frequency-axis":
         from .frequency_axis import main as fa_main

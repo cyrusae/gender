@@ -47,6 +47,32 @@ We compare **conclusions** with Qwen, never vectors.
 | sink scan (fresh) | repeat the diagnostic that found the Qwen3 sinks, not just the guard: per-position residual norm at every layer on 20 prompts in our exact format. Any position other than BOS with norm > 10× the median of its layer (as Qwen3's newline separator was on 1.7B) is a failure; fix the format before measuring. The guard alone compares measured vectors with each other, so it would miss a format that puts *every* word on a sink |
 | SAE index | Gemma Scope 2 "resid_post after layer L" ↔ our `hidden_states[L+1]`: the `sae.alignment()` check (matching index reconstructs best, by a clear margin over L and L+2) at three layers |
 
+### G0 implementation notes (fixed 2026-10-22, before any Gemma result; code `src/gbleed/gemma_g0.py`, `gbleed gemma-g0`)
+
+- **Text-only model.** The 4B/12B checkpoints are multimodal (`Gemma3ForConditionalGeneration`).
+  `Gemma3ForCausalLM.from_pretrained` on them silently random-initialises the decoder (key
+  prefixes differ), so `models.load_model` wraps the loaded multimodal model's language model and
+  head in a `Gemma3ForCausalLM` (`models.text_only`, unit-tested to match the multimodal logits).
+- **Softcap.** Both checkpoints have `final_logit_softcapping: null` (and the multimodal class
+  never applies one), so `scoring.softcap` is a no-op on them; the check still compares the batch
+  scorer with the model's own forward. Comparison is on the **same input** (prompt + top-1 token,
+  read at the prompt's last position): a forward on the prompt alone differs by bf16 shape noise
+  (~0.07 nat on Qwen3-1.7B and Gemma 4B alike), which is not what the check is about. Batched vs
+  unbatched scorer difference is reported, not scored (Gemma 4B 0.13, Qwen3-1.7B 0.09 max, bf16).
+- **SAE layers.** Gemma Scope 2 publishes `resid_post` 16k SAEs at four layers only (4B: 9, 17, 22,
+  29; 12B: 12, 24, 31, 41). The index check runs at all four (the rule asked for three). G2 is
+  restricted to these layers.
+- **Adjective lists.** `gemma3` columns were *appended* to `phase5_adj_translations_v1.csv` and
+  `phase5_es_pooled_v1.csv` by the existing rules (`phase5_stimuli.add_late_family`; every existing
+  byte unchanged, checked), and `phase5_adjectives_gemma3_v1.csv` was built by `adjectives()`:
+  721 adjectives (gender-valence r = −0.48; Qwen3 656), 23 gate adjectives (Qwen3 21), 76 single-
+  token R3 invariants (Qwen3 51), pooled kinds 44 both-single / 84 shared-first / 29 excluded.
+- **Mac smoke (2026-10-22, MPS bf16, 4B):** every check passes (`results/gemma_g0/mac_smoke/`):
+  one BOS in both formats, 0 sink positions, SAE offset +1 best at all four layers (FVU 0.19–0.56;
+  margin over the next index 1.04–1.85, smallest at layer 29), scorer = forward to 4e-7. Top-1
+  continuations plausible (*Die Katze schläft auf dem* → *Sofa*; *Madrid es la capital de* →
+  *España*). The pod run is the gate of record.
+
 ## G1 (R1). Frozen pipeline: what counts as "replicates"
 
 For each primary Phase 3–5 verdict already reported for Qwen3, Gemma gets the same analysis with

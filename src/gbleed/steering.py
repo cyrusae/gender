@@ -22,17 +22,11 @@ from contextlib import contextmanager
 import torch
 from torch import nn
 
-from .scoring import _head, head_dtype
+from .scoring import _head, head_dtype, softcap
 
 
 class _Stop(Exception):
     pass
-
-
-def _check(model) -> None:
-    mt = model.config.model_type
-    if mt.startswith("gemma") or getattr(model.config, "final_logit_softcapping", None):
-        raise NotImplementedError(f"{mt}: embedding scaling / softcapping not handled")
 
 
 def _out(o):
@@ -42,7 +36,6 @@ def _out(o):
 @torch.no_grad()
 def lower(model, ids: torch.Tensor, mask: torch.Tensor, k: int) -> torch.Tensor:
     """Residual stream at boundary k for every position: [b, t, d] (layers[:k] only)."""
-    _check(model)
     body = model.get_decoder()
     if k == 0:
         return body.embed_tokens(ids)
@@ -92,7 +85,7 @@ def upper(model, h: torch.Tensor, mask: torch.Tensor, k: int, slot: torch.Tensor
     lg = hs.to(W.dtype) @ W.T
     if bias is not None:
         lg = lg + bias
-    lg = lg.float()
+    lg = softcap(model, lg.float())
     if not torch.isfinite(lg).all():
         raise FloatingPointError("Non-finite logits (fp16 overflow?). Retry with --dtype float32.")
     return torch.log_softmax(lg, dim=-1)

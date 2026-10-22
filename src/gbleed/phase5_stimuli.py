@@ -20,7 +20,11 @@ from . import paths
 
 GLASGOW = "data/raw/glasgow/glasgow_norms_scott2019.csv"
 SCALES = ["AROU", "VAL", "DOM", "CNC", "IMAG", "FAM", "AOA", "SIZE", "GEND"]
-FAMILIES = {"qwen3": "Qwen/Qwen3-4B-Base", "eurollm": "utter-project/EuroLLM-1.7B"}
+FAMILIES = {"qwen3": "Qwen/Qwen3-4B-Base", "eurollm": "utter-project/EuroLLM-1.7B",
+            "gemma3": "google/gemma-3-4b-pt"}  # fmt: skip
+# Families added after the shared lists were frozen: their columns are appended by
+# `add_late_family` (existing columns untouched), never by rebuilding those lists.
+LATE_FAMILIES = {"gemma3"}
 NOUNS = "data/stimuli/phase5_nouns_v1.csv"
 SEED = 0
 N_DE_PER_GENDER = 50  # about 100 German steering nouns (design: "about 100 per language")
@@ -263,7 +267,8 @@ def build_adj_translations() -> pd.DataFrame:
     g = pd.concat([pd.read_csv(f"data/stimuli/phase5_adjectives_{f}_v1.csv")
                    for f in ("qwen3", "eurollm")]).drop_duplicates("word")  # fmt: skip
     eng = set(g.word)
-    toks = {f: AutoTokenizer.from_pretrained(m) for f, m in FAMILIES.items()}
+    toks = {f: AutoTokenizer.from_pretrained(m) for f, m in FAMILIES.items()
+            if f not in LATE_FAMILIES}  # fmt: skip
     cols = {}
     for lang in ("es", "de"):
         cand = _adjectives_glossing(lang, eng)
@@ -332,6 +337,31 @@ def es_invariant_adjectives(fam: str | None = None) -> pd.DataFrame:
 ES_POOLED = "data/stimuli/phase5_es_pooled_v1.csv"
 
 
+def _pool_columns(g: pd.DataFrame, fam: str, tok) -> None:
+    """Add kind_{fam} / pool_ids_{fam} to the pooled table g (in place)."""
+    inv = {tok(" " + w, add_special_tokens=False)["input_ids"][0]
+           for w in es_invariant_adjectives(fam).es}  # fmt: skip
+    kinds, pools = [], []
+    for m, f in zip(g.es_m, g.es_f, strict=True):
+        im = tok(" " + m, add_special_tokens=False)["input_ids"]
+        i_f = tok(" " + f, add_special_tokens=False)["input_ids"]
+        if len(im) == 1 and len(i_f) == 1:
+            kinds.append("both_single")
+            pools.append([im[0], i_f[0]])
+        elif len(im) > 1 and len(i_f) > 1 and im[0] == i_f[0]:
+            kinds.append("shared_first")
+            pools.append([im[0]])
+        else:
+            kinds.append("excluded")
+            pools.append([])
+    count = pd.Series([i for p in pools for i in p]).value_counts()
+    for j, p in enumerate(pools):
+        if p and (any(count[i] > 1 for i in p) or any(i in inv for i in p)):
+            kinds[j], pools[j] = "excluded_collision", []
+    g[f"kind_{fam}"] = kinds
+    g[f"pool_ids_{fam}"] = [";".join(map(str, p)) for p in pools]
+
+
 def build_es_pooled() -> pd.DataFrame:
     import json
 
@@ -350,32 +380,14 @@ def build_es_pooled() -> pd.DataFrame:
     g["homograph"] = [";".join(sorted(other.get(m, set()) | other.get(f, set())))
                       for m, f in zip(g.es_m, g.es_f, strict=True)]  # fmt: skip
     for fam, mid in FAMILIES.items():
-        tok = AutoTokenizer.from_pretrained(mid)
-        inv = {tok(" " + w, add_special_tokens=False)["input_ids"][0]
-               for w in es_invariant_adjectives(fam).es}  # fmt: skip
-        kinds, pools = [], []
-        for m, f in zip(g.es_m, g.es_f, strict=True):
-            im = tok(" " + m, add_special_tokens=False)["input_ids"]
-            i_f = tok(" " + f, add_special_tokens=False)["input_ids"]
-            if len(im) == 1 and len(i_f) == 1:
-                kinds.append("both_single")
-                pools.append([im[0], i_f[0]])
-            elif len(im) > 1 and len(i_f) > 1 and im[0] == i_f[0]:
-                kinds.append("shared_first")
-                pools.append([im[0]])
-            else:
-                kinds.append("excluded")
-                pools.append([])
-        count = pd.Series([i for p in pools for i in p]).value_counts()
-        for j, p in enumerate(pools):
-            if p and (any(count[i] > 1 for i in p) or any(i in inv for i in p)):
-                kinds[j], pools[j] = "excluded_collision", []
-        g[f"kind_{fam}"] = kinds
-        g[f"pool_ids_{fam}"] = [";".join(map(str, p)) for p in pools]
+        if fam in LATE_FAMILIES:
+            continue
+        _pool_columns(g, fam, AutoTokenizer.from_pretrained(mid))
     g = g.drop(columns=["source"])
     g.to_csv(ES_POOLED, index=False)
     for fam in FAMILIES:
-        print(fam, g[f"kind_{fam}"].value_counts().to_dict())
+        if fam not in LATE_FAMILIES:
+            print(fam, g[f"kind_{fam}"].value_counts().to_dict())
     print("homographs", (g.homograph != "").sum())
     return g
 
@@ -386,3 +398,34 @@ def es_pooled(fam: str) -> pd.DataFrame:
     g = g[g[f"pool_ids_{fam}"] != ""].reset_index(drop=True)
     g["ids"] = [[int(i) for i in s.split(";")] for s in g[f"pool_ids_{fam}"]]
     return g
+
+
+def add_late_family(fam: str) -> None:
+    """Append `fam`'s columns to the frozen shared lists (translations: es/de_ntok_{fam};
+    pooled: kind/pool_ids_{fam}) by the same rules, and write its own adjective list. Every
+    existing column is checked to be unchanged (Gemma slim prereg: tokenizer-dependent sets get
+    a family entry by the existing rule, nothing else moves)."""
+    from transformers import AutoTokenizer
+
+    assert fam in LATE_FAMILIES
+    tok = AutoTokenizer.from_pretrained(FAMILIES[fam])
+    t0 = pd.read_csv(ADJ_TRANS, keep_default_na=False, dtype=str)
+    t = t0.copy()
+    for lang in ("es", "de"):
+        t[f"{lang}_ntok_{fam}"] = [
+            str(len(tok(" " + w, add_special_tokens=False)["input_ids"])) if w else "0"
+            for w in t[lang]
+        ]
+    g0 = pd.read_csv(ES_POOLED, keep_default_na=False, dtype=str)
+    g = g0.copy()
+    t.to_csv(ADJ_TRANS, index=False)  # es_invariant_adjectives(fam) reads the new column
+    try:
+        _pool_columns(g, fam, tok)
+    except Exception:
+        t0.to_csv(ADJ_TRANS, index=False)
+        raise
+    for new, old in ((t, t0), (g, g0)):
+        assert new[list(old.columns)].equals(old), "an existing column changed"
+    g.to_csv(ES_POOLED, index=False)
+    print(fam, g[f"kind_{fam}"].value_counts().to_dict())
+    adjectives(fam)

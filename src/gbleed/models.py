@@ -39,9 +39,26 @@ def pick_dtype(name: str | None, device: str) -> torch.dtype:
     return torch.bfloat16 if device == "cuda" else torch.float16
 
 
+def text_only(mm):
+    """Gemma 3 4B/12B checkpoints are multimodal (Gemma3ForConditionalGeneration, whose top-level
+    config lacks hidden_size etc.). Return the text model as a Gemma3ForCausalLM sharing mm's
+    weights (vision tower dropped). Gemma3ForCausalLM.from_pretrained on such a checkpoint
+    silently random-initializes the decoder (key prefixes differ), so it's never used."""
+    from transformers import Gemma3ForCausalLM
+
+    with torch.device("meta"):
+        txt = Gemma3ForCausalLM(mm.config.get_text_config())
+    txt.model = mm.model.language_model
+    txt.lm_head = mm.lm_head
+    txt.to(mm.dtype)
+    return txt
+
+
 def load_model(model_id: str, device: str, dtype: torch.dtype):
     tok = AutoTokenizer.from_pretrained(model_id)
     model = AutoModelForCausalLM.from_pretrained(model_id, dtype=dtype)
+    if model.config.model_type == "gemma3":
+        model = text_only(model)
     model.to(device)
     model.eval()
     return model, tok

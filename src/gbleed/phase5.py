@@ -55,7 +55,7 @@ LANG_NAME = {"es": "Spanish", "de": "German"}
 # GBLEED_SMOKE=1: local end-to-end test of the session driver (one noun per language x set x
 # gender, a few nonce words and pairs); never for real runs
 SMOKE = os.environ.get("GBLEED_SMOKE") == "1"
-FAMILY = {"Qwen/": "qwen3", "utter-project/EuroLLM": "eurollm"}
+FAMILY = {"Qwen/": "qwen3", "utter-project/EuroLLM": "eurollm", "google/gemma-3": "gemma3"}
 
 # ---- frames ----------------------------------------------------------------------
 R1 = {

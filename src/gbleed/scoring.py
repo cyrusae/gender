@@ -72,6 +72,15 @@ def head_dtype(model) -> torch.dtype:
     return torch.float32 if os.environ.get(HEAD_DTYPE_ENV) == "1" else model.dtype
 
 
+def softcap(model, lg: torch.Tensor) -> torch.Tensor:
+    """Apply final logit softcapping (cap * tanh(logits / cap)) exactly when the model's own
+    forward does: transformers reads it from the top-level config (Gemma3ForCausalLM), while the
+    multimodal Gemma3ForConditionalGeneration (the 4B/12B checkpoints) never applies it, even if
+    its text config sets one. Identity otherwise. Gemma 3 checkpoints ship with it null."""
+    cap = getattr(model.config, "final_logit_softcapping", None)
+    return lg if not cap else torch.tanh(lg / cap) * cap
+
+
 def _head(model, dtype: torch.dtype):
     """(weight, bias) of the output layer in `dtype`, cached on the model (fp32 copy made once)."""
     cache = getattr(model, "_gbleed_head", None)
@@ -100,8 +109,6 @@ def continuation_logprobs_batch(
     """
     from .models import progress
 
-    if getattr(model.config, "final_logit_softcapping", None):
-        raise NotImplementedError("logit softcapping (Gemma) isn't applied by this scorer")
     body = model.get_decoder()
     W, bias = _head(model, head_dtype(model))
     seqs, spans = [], []
@@ -132,7 +139,7 @@ def continuation_logprobs_batch(
         lg = h[rows_t, pos_t].to(W.dtype) @ W.T
         if bias is not None:
             lg = lg + bias
-        lg = lg.float()
+        lg = softcap(model, lg.float())
         if not torch.isfinite(lg).all():
             raise FloatingPointError(
                 "Non-finite logits (fp16 overflow?). Retry with --dtype float32."
