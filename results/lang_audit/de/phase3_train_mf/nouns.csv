@@ -1,0 +1,92 @@
+lang,lemma,gender,concept_en,gloss,set,de_suffix,ending,loan,zipf,n_tokens_qwen3,en_overlap,sex_assoc,head,first,first_gender,conflict,type,gloss_m,gloss_f,source,split,structure,cell
+de,Artikel,m,article,article,strat3,,el,native,5.24,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Wahl,f,choice,"choice, selection",strat3,,hl,native,5.19,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,hl
+de,Sommer,m,summer,summer,strat3,,er,native,5.08,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Saison,f,season,season (a part of a year when something particular happens),strat3,,on,loan,5.05,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,on
+de,Luft,f,air,"air, atmosphere",strat3,,ft,native,5.02,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,ft
+de,Körper,m,body,"body (of a person, animal, etc.)",strat3,,er,native,5.0,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Staffel,f,season,season,strat3,,el,native,4.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Bibel,f,bible,"Bible, bible",strat3,,el,native,4.32,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Schrift,f,writing,"writing, script",strat3,,ft,native,4.32,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,ft
+de,Oper,f,opera,"opera (theatrical work, combining drama, music, song and sometimes dance)",strat3,,er,loan,4.24,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Auskunft,f,enquiry,enquiry,strat3,,ft,native,4.21,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,ft
+de,Koffer,m,case,a case; a suitcase or briefcase,strat3,,er,native,4.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Balkon,m,balcony,"balcony (an accessible structure extending from a building, especially outside a window or overlooking a stage)",strat3,,on,loan,4.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,on
+de,Winkel,m,angle,"angle, nook; corner (seen from the inside)",strat3,,el,native,4.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Kammer,f,chamber,chamber; room,strat3,,er,native,4.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Kalender,m,calendar,"calendar (means for determining dates, including documents containing date and other time information)",strat3,,er,loan,4.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Vernunft,f,reason,"reason, good sense",strat3,,ft,native,4.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,ft
+de,Hügel,m,hill,hill,strat3,,el,native,4.07,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Saft,m,juice,juice,strat3,,ft,native,4.02,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,ft
+de,Beton,m,concrete,concrete,strat3,,on,loan,3.94,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,on
+de,Duft,m,aroma,"aroma, fragrance",strat3,,ft,native,3.88,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,ft
+de,Hebel,m,operating lever,"operating lever, hand gear",strat3,,el,native,3.82,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Kummer,m,grief,"grief, sorrow",strat3,,er,native,3.78,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Nadel,f,needle,"needle; hook (implement for sewing, knitting, or crocheting)",strat3,,el,native,3.77,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Inschrift,f,inscription,inscription,strat3,,ft,native,3.75,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,ft
+de,Kartoffel,f,potato,potato,strat3,,el,loan,3.74,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Ärmel,m,sleeve,sleeve,strat3,,el,native,3.64,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Kuppel,f,dome,dome (structural element resembling the hollow upper half of a sphere),strat3,,el,loan,3.6,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Speer,m,spear,spear; javelin (a long stick thrown as a weapon or for sport),strat3,,er,native,3.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Gletscher,m,glacier,glacier,strat3,,er,loan,3.58,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Metapher,f,metaphor,metaphor,strat3,,er,loan,3.57,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Sockel,m,base,base,strat3,,el,loan,3.56,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Stiel,m,stalk,stalk (thin stem),strat3,,el,native,3.54,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Strahl,m,beam,"beam, ray (e.g. of light)",strat3,,hl,native,3.54,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,hl
+de,Zwiebel,f,onion,"onion (typically Allium cepa, the plant or its bulb)",strat3,,el,native,3.53,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Eifer,m,zeal,"zeal, eagerness, alacrity",strat3,,er,native,3.5,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Pfeiler,m,pillar,pillar,strat3,,er,native,3.48,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Kegel,m,skittle,"skittle, ninepin, bowling pin; pin",strat3,,el,native,3.46,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Knöchel,m,ankle,ankle,strat3,,el,native,3.44,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Zirkel,m,pair of compasses,"pair of compasses, compass (device to draw circles)",strat3,,el,native,3.4,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Pickel,m,pickaxe,"pickaxe, icepick",strat3,,el,native,3.4,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Kluft,f,cleft,"cleft, fissure, joint",strat3,,ft,native,3.38,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,ft
+de,Eichel,f,acorn,acorn (fruit of an oak tree),strat3,,el,native,3.37,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Vierer,m,something with a number,"something with a number, value or size of four",strat3,,er,native,3.37,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,numeral+er,er
+de,Benziner,m,car with a gasoline engine,a car with a gasoline engine (petrol engine),strat3,,er,native,3.35,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Kittel,m,overall,"overall, smock; white coat",strat3,,el,native,3.34,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Pegel,m,level,level (measurement of how high something is filled),strat3,,el,loan,3.33,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Fackel,f,torch,torch,strat3,,el,native,3.33,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Gruft,f,vault,"a vault, tomb, masoned grave; any kind, but especially one that is underground",strat3,,ft,native,3.31,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,ft
+de,Saat,f,seed,seed,strat3,,at,native,3.31,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,at
+de,Böller,m,firecracker,firecracker,strat3,,er,native,3.3,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Grat,m,ridge,ridge,strat3,,at,native,3.3,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,at
+de,Ader,f,blood vessel,blood vessel,strat3,,er,native,3.29,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Knüppel,m,cudgel,cudgel,strat3,,el,loan,3.23,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Trichter,m,funnel,funnel,strat3,,er,native,3.22,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Feuerlöscher,m,fire extinguisher,fire extinguisher,strat3,,er,native,3.21,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,noun+verb+er,er
+de,Zehner,m,ten,"ten (the number, or something having a value of ten)",strat3,,er,native,3.17,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,numeral+er,er
+de,Waggon,m,railway wagon,"railway wagon, railroad car",strat3,,on,loan,3.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,on
+de,Stachel,m,spike,"spike, sting, barb, prick",strat3,,el,native,3.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Pfahl,m,stake,"stake, picket, pale",strat3,,hl,native,3.14,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,hl
+de,Sichel,f,sickle,sickle,strat3,,el,native,3.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Speichel,m,saliva,saliva,strat3,,el,native,3.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Äther,m,ether,ether (all senses),strat3,,er,loan,3.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Scheitel,m,parting,parting,strat3,,el,native,3.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Gondel,f,gondola,gondola,strat3,,el,loan,3.08,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Fünfer,m,fiver,"fiver, banknote with the value of five (e.g. five euro)",strat3,,er,native,3.04,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,numeral+er,er
+de,Plattenspieler,m,record player,record player,strat3,,er,native,3.03,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,noun+verb+er,er
+de,Fabel,f,fable,fable,strat3,,el,native,3.02,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Wasserkocher,m,electric kettle,electric kettle,strat3,,er,native,3.01,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,noun+verb+er,er
+de,Sechser,m,something with a number,"something with a number, value or size of six",strat3,,er,native,2.97,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,numeral+er,er
+de,Höcker,m,hump,hump (especially on a camel etc.),strat3,,er,native,2.96,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Wimper,f,eyelash,eyelash,strat3,,er,native,2.95,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Katheter,m,catheter,catheter (small tube inserted into a body cavity),strat3,,er,loan,2.93,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Knorpel,m,cartilage,cartilage,strat3,,el,native,2.92,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Tümpel,m,shallow pond,"shallow pond, pool",strat3,,el,native,2.88,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Zahnstocher,m,toothpick,toothpick,strat3,,er,native,2.82,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,noun+verb+er,er
+de,Wandler,m,transducer,transducer (device that converts energy from one form to another),strat3,,er,native,2.8,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Akkuschrauber,m,cordless drill,cordless drill,strat3,,er,native,2.72,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,noun+verb+er,er
+de,Hobel,m,anything that abrades a surface,"anything that abrades a surface, such as – particularly – a plane, a grater or slicer, a spokeshave, a safety razor",strat3,,el,native,2.7,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Klinker,m,clinker,clinker (very hard brick),strat3,,er,loan,2.68,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Wiederkunft,f,second coming,second coming,strat3,,ft,native,2.6,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,ft
+de,Meiler,m,earth mound kiln,"an earth mound kiln, a clamp (an improvised structure built by covering stacked materials with a layer of earth in order to control the combustion intensity).",strat3,,er,native,2.55,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Rohrkrepierer,m,barrel burst,barrel burst (detonation of munitions while still in the barrel of the weapon),strat3,,er,native,2.49,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,noun+verb+er,er
+de,Stößel,m,pestle,pestle,strat3,,el,native,2.47,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Senkel,m,lace,lace,strat3,,el,native,2.45,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Schemel,m,footstool,footstool,strat3,,el,native,2.42,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Wipfel,m,treetop,treetop,strat3,,el,native,2.27,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Stichel,m,burin,burin (prehistoric chisel),strat3,,el,native,2.21,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,el
+de,Wasserspeier,m,gargoyle,"gargoyle, waterspout",strat3,,er,native,2.2,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,noun+verb+er,er
+de,Treber,m,residue mass from making beer or brandy,"residue mass from making beer or brandy, draff, marc, pomace",strat3,,er,native,2.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,,er
+de,Pfannenwender,m,spatula,spatula (kitchen utensil),strat3,,er,native,2.02,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03,train,noun+verb+er,er

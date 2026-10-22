@@ -1,0 +1,166 @@
+lang,lemma,gender,concept_en,set,source,en_overlap,sex_assoc,gloss,zipf,verb,verb_frame,ending,loan,override,split,n_tokens_qwen3,cell
+es,ley,f,law,matched,wiktionary:kaikki@2026-10-03,False,,law (a well-established characteristic of nature),5.6,,,ey,native,,train,1,ey
+es,muerte,f,death,matched,wiktionary:kaikki@2026-10-03,False,,death (the cessation of life),5.43,,,te,native,,train,2,te
+es,nivel,m,level,strat,wiktionary:kaikki@2026-10-03,False,,"level, tier, height (distance relative to a given reference elevation)",5.39,,,el,loan,,train,1,el
+es,voz,f,voice,matched,wiktionary:kaikki@2026-10-03,False,,voice,5.2,,,oz,native,,train,1,oz
+es,noviembre,m,november,strat,wiktionary:kaikki@2026-10-03,False,,November,5.16,,,re,unknown,,train,2,re
+es,papel,m,paper,matched,wiktionary:kaikki@2026-10-03,False,,paper,5.16,,,el,native,,train,1,el
+es,cine,m,cinema,matched,wiktionary:kaikki@2026-10-03,False,,"cinema, moviehouse",4.96,,,ne,loan,,train,1,ne
+es,carne,f,flesh,strat,wiktionary:kaikki@2026-10-03,False,,"flesh, the soft part of a body which covers the bones",4.83,,,ne,native,,train,1,ne
+es,piel,f,skin,matched,wiktionary:kaikki@2026-10-03,False,,skin,4.8,,,el,native,,train,1,el
+es,señal,f,sign,matched,wiktionary:kaikki@2026-10-03,False,,sign,4.66,,,al,native,,train,1,al
+es,oeste,m,west,strat,wiktionary:kaikki@2026-10-03,False,,west,4.61,,,te,loan,,train,2,te
+es,desastre,m,disaster,strat,wiktionary:kaikki@2026-10-03,False,,"disaster, catastrophe, calamity",4.56,,,re,unknown,,train,3,re
+es,pared,f,wall,strat,wiktionary:kaikki@2026-10-03,False,,"wall, especially of a house or room",4.5,,,ed,native,,train,1,ed
+es,índice,m,index,strat,wiktionary:kaikki@2026-10-03,False,,index,4.46,,,ce,loan,,train,1,ce
+es,documental,m,documentary,strat,wiktionary:kaikki@2026-10-03,False,,documentary,4.45,,,al,unknown,,train,2,al
+es,arroz,m,rice,strat,wiktionary:kaikki@2026-10-03,False,,"rice (cereal plants, Oryza sativa of the grass family whose seeds are used as food)",4.39,,,oz,unknown,,train,2,oz
+es,nariz,f,nose,matched,wiktionary:kaikki@2026-10-03,False,,"nose (a protuberance on the face housing the nostrils, which are used to breathe or smell)",4.3,,,iz,native,,train,2,iz
+es,cristal,m,crystal,strat,wiktionary:kaikki@2026-10-03,False,,crystal,4.28,,,al,native,,train,2,al
+es,llave,f,key,matched,wiktionary:kaikki@2026-10-03,False,,key (to open doors),4.26,,,ve,native,,train,2,ve
+es,carnaval,m,carnival,strat,wiktionary:kaikki@2026-10-03,False,,carnival (festival held just before Lent),4.25,,,al,unknown,,train,3,al
+es,fiebre,f,fever,matched,wiktionary:kaikki@2026-10-03,False,,fever,4.23,,,re,native,,train,2,re
+es,semestre,m,semester,strat,wiktionary:kaikki@2026-10-03,False,,semester,4.19,,,re,native,,train,2,re
+es,pasaporte,m,passport,strat,wiktionary:kaikki@2026-10-03,False,,passport,4.18,,,te,unknown,,train,3,te
+es,historial,m,record,strat,wiktionary:kaikki@2026-10-03,False,,"record, history (such as a person's criminal, work, or clinical record)",4.18,,,al,unknown,,train,2,al
+es,coste,m,cost,strat,wiktionary:kaikki@2026-10-03,False,,cost,4.14,,,te,unknown,,train,2,te
+es,cuartel,m,quarters,strat,wiktionary:kaikki@2026-10-03,False,,quarters (military lodging),4.12,,,el,unknown,,train,3,el
+es,nube,f,cloud,matched,wiktionary:kaikki@2026-10-03,False,,cloud,4.08,,,be,unknown,,train,2,be
+es,horizonte,m,horizon,strat,wiktionary:kaikki@2026-10-03,False,,horizon,4.05,,,te,loan,,train,3,te
+es,trámite,m,procedure,strat,wiktionary:kaikki@2026-10-03,False,,"procedure, step",4.03,,,te,loan,,train,3,te
+es,noroeste,m,northwest,strat,wiktionary:kaikki@2026-10-03,False,,northwest,4.0,,,te,unknown,,train,3,te
+es,higiene,f,hygiene,matched,wiktionary:kaikki@2026-10-03,False,,hygiene,3.99,,,ne,loan,,train,3,ne
+es,auge,m,boom,matched,wiktionary:kaikki@2026-10-03,False,,"boom, rise, growth",3.97,,,ge,loan,,train,2,ge
+es,trimestre,m,trimester,strat,wiktionary:kaikki@2026-10-03,False,,trimester,3.97,,,re,native,,train,2,re
+es,vientre,m,abdomen,matched,wiktionary:kaikki@2026-10-03,False,,abdomen,3.94,,,re,native,,train,2,re
+es,sudeste,m,southeast,strat,wiktionary:kaikki@2026-10-03,False,,southeast,3.92,,,te,unknown,,train,3,te
+es,sureste,m,southeast,strat,wiktionary:kaikki@2026-10-03,False,,southeast,3.9,,,te,unknown,,train,2,te
+es,plantel,m,schoolhouse,strat,wiktionary:kaikki@2026-10-03,False,,schoolhouse (building where school is held),3.89,,,el,loan,,train,2,el
+es,merced,f,mercy,matched,wiktionary:kaikki@2026-10-03,False,,mercy,3.86,,,ed,unknown,,train,2,ed
+es,lote,m,lot,strat,wiktionary:kaikki@2026-10-03,False,,lot (chance assignment),3.86,,,te,unknown,,train,2,te
+es,umbral,m,doorstep,strat,wiktionary:kaikki@2026-10-03,False,,doorstep; stoop,3.84,,,al,native,,train,2,al
+es,lápiz,m,pencil,matched,wiktionary:kaikki@2026-10-03,False,,pencil,3.82,,,iz,loan,,train,3,iz
+es,interfaz,f,interface,matched,wiktionary:kaikki@2026-10-03,False,,interface (the point of interconnection between two entities),3.81,,,az,native,,train,2,az
+es,césped,m,lawn,matched,wiktionary:kaikki@2026-10-03,False,,lawn,3.79,,,ed,native,,train,3,ed
+es,catástrofe,f,catastrophe,matched,wiktionary:kaikki@2026-10-03,False,,"catastrophe, disaster",3.77,,,fe,unknown,,train,4,fe
+es,pirámide,f,pyramid,matched,wiktionary:kaikki@2026-10-03,False,,pyramid,3.76,,,de,native,,train,3,de
+es,peste,f,plague,matched,wiktionary:kaikki@2026-10-03,False,,plague,3.75,,,te,unknown,,train,2,te
+es,arce,m,maple tree,strat,wiktionary:kaikki@2026-10-03,False,,maple tree,3.64,,,ce,native,,train,2,ce
+es,poste,m,post,strat,wiktionary:kaikki@2026-10-03,False,,"post (of wood), pole",3.62,,,te,unknown,,train,1,te
+es,declive,m,decline,strat,wiktionary:kaikki@2026-10-03,False,,decline (a downward slope),3.58,,,ve,loan,,train,2,ve
+es,cauce,m,riverbed,strat,wiktionary:kaikki@2026-10-03,False,,riverbed,3.56,,,ce,unknown,,train,2,ce
+es,aval,m,endorsement,strat,wiktionary:kaikki@2026-10-03,False,,endorsement,3.51,,,al,unknown,,train,1,al
+es,cicatriz,f,scar,matched,wiktionary:kaikki@2026-10-03,False,,"scar, cicatrix",3.5,,,iz,unknown,,train,3,iz
+es,ápice,m,apex,strat,wiktionary:kaikki@2026-10-03,False,,"apex, tip",3.45,,,ce,unknown,,train,2,ce
+es,apéndice,m,appendix,matched,wiktionary:kaikki@2026-10-03,False,,appendix (text added to the end of a book),3.44,,,ce,loan,,train,4,ce
+es,contraparte,f,counterpart,matched,wiktionary:kaikki@2026-10-03,False,,counterpart,3.42,,,te,unknown,,train,3,te
+es,jarabe,m,syrup,strat,wiktionary:kaikki@2026-10-03,False,,syrup,3.4,,,be,native,,train,2,be
+es,falange,f,phalanx,strat,wiktionary:kaikki@2026-10-03,False,,phalanx (one of the bones of the finger or toe),3.4,,,ge,loan,,train,2,ge
+es,estandarte,m,flag,matched,wiktionary:kaikki@2026-10-03,False,,"flag, banner, standard, colors",3.4,,,te,loan,,train,3,te
+es,mugre,f,dirt,matched,wiktionary:kaikki@2026-10-03,False,,"dirt, filth, grease, muck",3.38,,,re,unknown,,train,2,re
+es,nordeste,m,northeast,matched,wiktionary:kaikki@2026-10-03,False,,northeast,3.37,,,te,unknown,,train,3,te
+es,escondite,m,hiding place,strat,wiktionary:kaikki@2026-10-03,False,,hiding place,3.36,,,te,loan,,train,3,te
+es,cóctel,m,cocktail,strat,wiktionary:kaikki@2026-10-03,False,,cocktail,3.36,,,el,unknown,,train,3,el
+es,yate,m,yacht,strat,wiktionary:kaikki@2026-10-03,False,,yacht,3.35,,,te,loan,,train,2,te
+es,altavoz,m,loudspeaker,matched,wiktionary:kaikki@2026-10-03,False,,"loudspeaker, speaker (an electromechanical transducer that converts an electrical signal into audible sound)",3.35,,,oz,unknown,,train,3,oz
+es,matiz,m,hue,matched,wiktionary:kaikki@2026-10-03,False,,hue,3.35,,,iz,unknown,,train,2,iz
+es,sintaxis,f,syntax,strat,wiktionary:kaikki@2026-10-03,False,,syntax,3.34,,,is,loan,,train,2,is
+es,diésel,m,diesel fuel,strat,wiktionary:kaikki@2026-10-03,False,,diesel fuel,3.33,,,el,unknown,,train,3,el
+es,cofre,m,chest,strat,wiktionary:kaikki@2026-10-03,False,,"chest, coffer, trunk",3.3,,,re,loan,,train,2,re
+es,arrecife,m,reef,matched,wiktionary:kaikki@2026-10-03,False,,reef,3.3,,,fe,native,,train,3,fe
+es,códice,m,codex,strat,wiktionary:kaikki@2026-10-03,False,,codex,3.28,,,ce,native,,train,3,ce
+es,arancel,m,tariff,strat,wiktionary:kaikki@2026-10-03,False,,tariff,3.27,,,el,loan,,train,2,el
+es,bilis,f,bile,strat,wiktionary:kaikki@2026-10-03,False,,bile,3.27,,,is,unknown,,train,2,is
+es,escorial,m,slag heap,strat,wiktionary:kaikki@2026-10-03,False,,slag heap,3.27,,,al,unknown,,train,2,al
+es,vértice,m,vertex,strat,wiktionary:kaikki@2026-10-03,False,,vertex,3.26,,,ce,native,,train,3,ce
+es,ramal,m,exit,strat,wiktionary:kaikki@2026-10-03,False,,exit (of a highway or road),3.25,,,al,unknown,,train,2,al
+es,arenal,m,sandy area or patch of ground,strat,wiktionary:kaikki@2026-10-03,False,,sandy area or patch of ground; beach,3.24,,,al,unknown,,train,2,al
+es,jengibre,m,ginger,matched,wiktionary:kaikki@2026-10-03,False,,ginger,3.23,,,re,native,,train,3,re
+es,orbe,m,orb,matched,wiktionary:kaikki@2026-10-03,False,,orb,3.22,,,be,unknown,,train,2,be
+es,desnivel,m,difference of altitude,strat,wiktionary:kaikki@2026-10-03,False,,difference of altitude,3.2,,,el,unknown,,train,2,el
+es,burdel,m,brothel,strat,wiktionary:kaikki@2026-10-03,False,,"brothel, whorehouse",3.19,,,el,loan,,train,2,el
+es,mote,m,nickname,strat,wiktionary:kaikki@2026-10-03,False,,nickname,3.18,,,te,loan,,train,1,te
+es,folclore,m,folklore,strat,wiktionary:kaikki@2026-10-03,False,,folklore,3.18,,,re,unknown,,train,3,re
+es,escaparate,m,display cabinet,strat,wiktionary:kaikki@2026-10-03,False,,display cabinet,3.18,,,te,loan,,train,3,te
+es,sífilis,f,syphilis,matched,wiktionary:kaikki@2026-10-03,False,,syphilis,3.17,,,is,unknown,,train,3,is
+es,carrusel,m,carousel,strat,wiktionary:kaikki@2026-10-03,False,,"carousel, merry-go-round",3.17,,,el,unknown,,train,3,el
+es,alarde,m,boast,strat,wiktionary:kaikki@2026-10-03,False,,"boast, boasting, brag",3.17,,,de,loan,,train,2,de
+es,pronombre,m,pronoun,strat,wiktionary:kaikki@2026-10-03,False,,pronoun,3.17,,,re,native,,train,2,re
+es,traste,m,fret,strat,wiktionary:kaikki@2026-10-03,False,,fret,3.1,,,te,unknown,,train,2,te
+es,panal,m,honeycomb,strat,wiktionary:kaikki@2026-10-03,False,,honeycomb,3.09,,,al,unknown,,train,2,al
+es,jornal,m,day's pay,strat,wiktionary:kaikki@2026-10-03,False,,a day's pay,3.07,,,al,unknown,,train,2,al
+es,hélice,f,helix,matched,wiktionary:kaikki@2026-10-03,False,,helix,3.07,,,ce,loan,,train,2,ce
+es,tapiz,m,tapestry,matched,wiktionary:kaikki@2026-10-03,False,,tapestry,3.06,,,iz,loan,,train,2,iz
+es,delantal,m,apron,strat,wiktionary:kaikki@2026-10-03,False,,apron,3.06,,,al,unknown,,train,2,al
+es,arcoíris,m,rainbow,matched,wiktionary:kaikki@2026-10-03,False,,rainbow,3.04,,,is,unknown,,train,4,is
+es,grial,m,grail,strat,wiktionary:kaikki@2026-10-03,False,,grail,3.01,,,al,loan,,train,2,al
+es,desliz,m,slip,strat,wiktionary:kaikki@2026-10-03,False,,"slip, lapse",2.97,,,iz,unknown,,train,3,iz
+es,pesebre,m,nativity scene,strat,wiktionary:kaikki@2026-10-03,False,,nativity scene,2.95,,,re,unknown,,train,3,re
+es,vorágine,f,whirlpool,matched,wiktionary:kaikki@2026-10-03,False,,"whirlpool, maelstrom",2.95,,,ne,loan,,train,3,ne
+es,riel,m,rail,strat,wiktionary:kaikki@2026-10-03,False,,"rail, track",2.95,,,el,loan,,train,2,el
+es,directriz,f,guideline,matched,wiktionary:kaikki@2026-10-03,False,,"guideline, guidance, direction",2.91,,,iz,unknown,,train,2,iz
+es,percance,m,accident,strat,wiktionary:kaikki@2026-10-03,False,,"accident, mishap",2.9,,,ce,unknown,,train,2,ce
+es,matorral,m,brush,strat,wiktionary:kaikki@2026-10-03,False,,"brush, scrub (wild vegetation)",2.9,,,al,unknown,,train,3,al
+es,cordel,m,string,strat,wiktionary:kaikki@2026-10-03,False,,string (thin thread),2.85,,,el,loan,,train,2,el
+es,vórtice,m,vortex,strat,wiktionary:kaikki@2026-10-03,False,,vortex,2.85,,,ce,unknown,,train,4,ce
+es,cañaveral,m,reed field,strat,wiktionary:kaikki@2026-10-03,False,,reed field,2.83,,,al,native,,train,4,al
+es,dineral,m,mint,strat,wiktionary:kaikki@2026-10-03,False,,"mint, bundle, (UK) packet, an arm and a leg (large amount of money)",2.83,,,al,unknown,,train,2,al
+es,pendrive,m,flash drive,strat,wiktionary:kaikki@2026-10-03,False,,"flash drive, pen drive, USB drive, memory stick, thumb drive",2.82,,,ve,unknown,,train,2,ve
+es,laringe,f,larynx,strat,wiktionary:kaikki@2026-10-03,False,,larynx,2.81,,,ge,loan,,train,3,ge
+es,dosel,m,canopy,strat,wiktionary:kaikki@2026-10-03,False,,canopy,2.8,,,el,loan,,train,2,el
+es,antifaz,m,domino mask,strat,wiktionary:kaikki@2026-10-03,False,,"domino mask, eyemask",2.8,,,az,unknown,,train,3,az
+es,croquis,m,sketch,matched,wiktionary:kaikki@2026-10-03,False,,a sketch,2.8,,,is,unknown,,train,2,is
+es,pastizal,m,grassland,strat,wiktionary:kaikki@2026-10-03,False,,"grassland, pasture (land covered with grass)",2.77,,,al,unknown,,train,3,al
+es,puntal,m,prop,strat,wiktionary:kaikki@2026-10-03,False,,"prop, support",2.77,,,al,unknown,,train,2,al
+es,morral,m,backpack,strat,wiktionary:kaikki@2026-10-03,False,,"backpack, knapsack",2.76,,,al,unknown,,train,2,al
+es,fuste,m,wood,strat,wiktionary:kaikki@2026-10-03,False,,wood,2.75,,,te,native,,train,2,te
+es,vendaval,m,windstorm,strat,wiktionary:kaikki@2026-10-03,False,,windstorm,2.74,,,al,loan,,train,2,al
+es,profilaxis,f,prophylaxis,matched,wiktionary:kaikki@2026-10-03,False,,prophylaxis,2.72,,,is,unknown,,train,2,is
+es,humedal,m,wetland,strat,wiktionary:kaikki@2026-10-03,False,,wetland,2.71,,,al,unknown,,train,3,al
+es,celuloide,m,celluloid,matched,wiktionary:kaikki@2026-10-03,False,,celluloid (variety of thermoplastics),2.7,,,de,unknown,,train,3,de
+es,ábside,m,apse,matched,wiktionary:kaikki@2026-10-03,False,,apse,2.69,,,de,unknown,,train,3,de
+es,carrizal,m,area of reeds,strat,wiktionary:kaikki@2026-10-03,False,,"area of reeds, reed field",2.69,,,al,unknown,,train,3,al
+es,basural,m,landfill,matched,wiktionary:kaikki@2026-10-03,False,,"landfill, dump (place where waste or garbage is left)",2.68,,,al,unknown,,train,2,al
+es,desbalance,m,imbalance,strat,wiktionary:kaikki@2026-10-03,False,,imbalance,2.66,,,ce,unknown,,train,2,ce
+es,tamiz,m,sieve,strat,wiktionary:kaikki@2026-10-03,False,,sieve,2.64,,,iz,loan,,train,2,iz
+es,picaporte,m,doorknob,strat,wiktionary:kaikki@2026-10-03,False,,"doorknob, door handle",2.63,,,te,unknown,,train,3,te
+es,aljibe,m,well,matched,wiktionary:kaikki@2026-10-03,False,,"well (for water), cistern, tank, reservoir",2.63,,,be,loan,,train,3,be
+es,hecatombe,f,slaughter,matched,wiktionary:kaikki@2026-10-03,False,,slaughter; bloodbath,2.63,,,be,unknown,,train,4,be
+es,pupitre,m,student desk,strat,wiktionary:kaikki@2026-10-03,False,,a student desk,2.61,,,re,unknown,,train,2,re
+es,vóley,m,volleyball,matched,wiktionary:kaikki@2026-10-03,False,,volleyball,2.6,,,ey,unknown,,train,3,ey
+es,ojal,m,buttonhole,strat,wiktionary:kaikki@2026-10-03,False,,"buttonhole, eyelet",2.59,,,al,unknown,,train,2,al
+es,cafetal,m,piece of land cultivating coffee,strat,wiktionary:kaikki@2026-10-03,False,,piece of land cultivating coffee,2.55,,,al,unknown,,train,2,al
+es,tonel,m,barrel,strat,wiktionary:kaikki@2026-10-03,False,,barrel,2.55,,,el,native,,train,2,el
+es,santoral,m,saint-day calendar,strat,wiktionary:kaikki@2026-10-03,False,,saint-day calendar,2.55,,,al,unknown,,train,2,al
+es,naranjal,m,orange grove,strat,wiktionary:kaikki@2026-10-03,False,,orange grove,2.53,,,al,unknown,,train,3,al
+es,faringe,f,pharynx,matched,wiktionary:kaikki@2026-10-03,False,,pharynx,2.5,,,ge,loan,,train,2,ge
+es,sitial,m,seat,strat,wiktionary:kaikki@2026-10-03,False,,seat (of honour),2.44,,,al,unknown,,train,2,al
+es,cigüeñal,m,crankshaft,strat,wiktionary:kaikki@2026-10-03,False,,crankshaft,2.43,,,al,unknown,,train,5,al
+es,sedal,m,thin line,strat,wiktionary:kaikki@2026-10-03,False,,"thin line, string",2.37,,,al,unknown,,train,2,al
+es,urdimbre,f,warp,matched,wiktionary:kaikki@2026-10-03,False,,warp (of the weave),2.35,,,re,unknown,,train,3,re
+es,estambre,m,stamen,matched,wiktionary:kaikki@2026-10-03,False,,stamen,2.34,,,re,unknown,,train,2,re
+es,donaire,m,gracefulness,strat,wiktionary:kaikki@2026-10-03,False,,"gracefulness, elegance",2.33,,,re,native,,train,2,re
+es,acicate,m,spur,strat,wiktionary:kaikki@2026-10-03,False,,spur (implement for prodding a horse),2.33,,,te,loan,,train,2,te
+es,dedal,m,thimble,strat,wiktionary:kaikki@2026-10-03,False,,thimble,2.31,,,al,native,,train,2,al
+es,orinal,m,chamber pot,strat,wiktionary:kaikki@2026-10-03,False,,chamber pot,2.3,,,al,unknown,,train,2,al
+es,envite,m,bet,strat,wiktionary:kaikki@2026-10-03,False,,bet; wager,2.3,,,te,unknown,,train,2,te
+es,troquel,m,die,strat,wiktionary:kaikki@2026-10-03,False,,die (mold),2.28,,,el,loan,,train,2,el
+es,empeine,m,instep,matched,wiktionary:kaikki@2026-10-03,False,,instep,2.27,,,ne,native,,train,3,ne
+es,brocal,m,parapet,strat,wiktionary:kaikki@2026-10-03,False,,parapet (of well); a puteal,2.26,,,al,native,,train,2,al
+es,matraz,m,any kind of flask,matched,wiktionary:kaikki@2026-10-03,False,,"any kind of flask, or glass container used in a chemical laboratory",2.23,,,az,unknown,,train,2,az
+es,mezquite,m,mesquite,strat,wiktionary:kaikki@2026-10-03,False,,mesquite (tree),2.22,,,te,unknown,,train,2,te
+es,pantanal,m,swamp,strat,wiktionary:kaikki@2026-10-03,False,,"swamp, marshland, wetland",2.22,,,al,unknown,,train,2,al
+es,nixtamal,m,hominy,strat,wiktionary:kaikki@2026-10-03,False,,"hominy, nixtamal",2.21,,,al,loan,,train,4,al
+es,saudade,f,feeling of missing something or someone,matched,wiktionary:kaikki@2026-10-03,False,,the feeling of missing something or someone,2.21,,,de,loan,,train,3,de
+es,oropel,m,tinsel,strat,wiktionary:kaikki@2026-10-03,False,,tinsel,2.21,,,el,loan,,train,3,el
+es,redondel,m,circle,strat,wiktionary:kaikki@2026-10-03,False,,circle,2.2,,,el,unknown,,train,3,el
+es,rosedal,m,rose garden,strat,wiktionary:kaikki@2026-10-03,False,,rose garden,2.15,,,al,unknown,,train,3,al
+es,contrafuerte,m,buttress,matched,wiktionary:kaikki@2026-10-03,False,,buttress,2.13,,,te,unknown,,train,3,te
+es,bajorrelieve,m,bas relief,matched,wiktionary:kaikki@2026-10-03,False,,bas relief,2.13,,,ve,unknown,,train,4,ve
+es,sabogal,m,type of fishing net,strat,wiktionary:kaikki@2026-10-03,False,,A type of fishing net.,2.12,,,al,unknown,,train,3,al
+es,armatoste,m,hulky thing,strat,wiktionary:kaikki@2026-10-03,False,,"hulky thing, big eyesore",2.09,,,te,unknown,,train,3,te
+es,jaral,m,thicket,strat,wiktionary:kaikki@2026-10-03,False,,thicket; clump,2.04,,,al,unknown,,train,2,al
+es,chapitel,m,spire,strat,wiktionary:kaikki@2026-10-03,False,,spire,2.04,,,el,unknown,,train,2,el
+es,nocedal,m,walnut grove or plantation,strat,wiktionary:kaikki@2026-10-03,False,,walnut grove or plantation,2.02,,,al,unknown,,train,3,al
+es,berenjenal,m,aubergine field or plantation,strat,wiktionary:kaikki@2026-10-03,False,,aubergine field or plantation,2.01,,,al,unknown,,train,4,al
+es,hiperenlace,m,link,strat,wiktionary:kaikki@2026-10-03,False,,"link, hyperlink",2.0,,,ce,unknown,,train,4,ce

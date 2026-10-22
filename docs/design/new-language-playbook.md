@@ -201,11 +201,20 @@ Suggested order:
 
 ## One-time code to make this fast
 
-- `gbleed lang-audit LANG`: Stages 2, 3 and 7 in one report (spelling table, structure flags,
-  balance by gender), generalising what's now spread over `phase3_stimuli`, `p31.ending_table`,
-  `frequency_axis.complexity_rule` and `register_axis`.
-- A per-language config (frames, agreement words, cell rule, structure rules, special filters) in
-  one place, like `phase0.LANG_CONFIG`.
+- **`gbleed lang-audit LANG [--list CSV]`** (built 2026-10-22, `src/gbleed/lang_audit.py`): Stages
+  2, 3 and 7 in one report (`results/lang_audit/<lang>/<list>/report.md` + tables).
+  - **Spelling:** leave-one-out gender accuracy from the last 1–3 letters; the residual cue within
+    cells; initial letters.
+  - **Balance:** length, tokens, Zipf, AoA and concreteness by gender within cells.
+  - **Structure:** complex-noun share by gender. Fixed flag thresholds.
+  - **Validated on our own training lists:** it flags the Spanish *a*-initial cue (17 m, 0 f), the
+    German complex-noun imbalance (19% m, 0% f) and the feminine-commoner frequency asymmetry in
+    both.
+  - **It nearly didn't.** The first version missed the *a*-initial cue: at 20% feminine overall,
+    "0% feminine" is only a 0.20 departure. Now a gender that is *missing* where ≥ 2 were expected
+    is flagged too. Initial letters are accent-folded (*á* = *a*).
+- **Per-language config** (built 2026-10-22, `src/gbleed/languages.py`): genders, `wordfreq`
+  code, cell rule, structure rule, notes. Frames still live in `phase0.LANG_CONFIG` (to move).
 - Phase 4 for N languages (pairwise T1/T2 for every pair; T3 on pairs per language pair).
 
 ## Russian: where it stands
@@ -214,7 +223,7 @@ Suggested order:
 |---|---|
 | 0 question | **to write:** "is German's frequency entanglement about 3-gender systems / feminine nouns?" |
 | 1 lexicon | done (provenance recorded) |
-| 2 spelling audit | partial (the *-ь* class chosen because its gender is unpredictable from spelling) |
+| 2 spelling audit | lexicon-wide audit done (2026-10-22). The ending class predicts gender 97% of the time, but **within ending classes feminine nouns are far more abstract** (concreteness d = −1.38) and longer (+0.84), almost certainly the abstract-noun suffix *-ость* inside the *-ь* class. A training set needs suffix cells (as German's). |
 | 3 structure audit | to do |
 | 4 meaning filters | done for the *-ь* pool (PI reviewed) |
 | 5 frames | done (*наш/новый*, frame check passed on Qwen3-1.7B/4B and EuroLLM-1.7B) |

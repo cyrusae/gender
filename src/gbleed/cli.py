@@ -113,6 +113,14 @@ def main() -> None:
         "frequency-axis", help="German frequency-axis follow-up (prereg 2026-10-21)"
     )
     fa.add_argument("--parts", default="acdb", help="any of a, c, d (together) and b")
+    la = sub.add_parser(
+        "lang-audit", help="Spelling/structure/balance audit of a noun list (playbook)"
+    )
+    la.add_argument("lang")
+    la.add_argument(
+        "--list", default=None, help="CSV with lemma, gender (default: eligible lexicon)"
+    )
+    la.add_argument("--tag", default=None)
 
     a = p.parse_args()
     if a.cmd == "lexicon":
@@ -131,6 +139,11 @@ def main() -> None:
         from .confidence_ctl import main as cc_main
 
         cc_main(a.parts)
+        return
+    if a.cmd == "lang-audit":
+        from .lang_audit import audit
+
+        audit(a.lang, a.list, a.tag)
         return
     if a.cmd == "frequency-axis":
         from .frequency_axis import main as fa_main
