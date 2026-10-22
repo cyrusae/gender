@@ -107,6 +107,8 @@ def main() -> None:
                                      "p4-known", "ru-known", "suffix-known", "p22", "p22b", "phase5-all",
                                      "diminutives-extract", "p29", "p29-analyze", "p30", "p30-analyze", "p31", "p31-analyze"])  # fmt: skip
     p5.add_argument("models", nargs="+")
+    cc = sub.add_parser("confidence-ctl", help="Confidence/flattening control (prereg 2026-10-21)")
+    cc.add_argument("--parts", default="abc", help="any of a, b, c")
 
     a = p.parse_args()
     if a.cmd == "lexicon":
@@ -120,6 +122,11 @@ def main() -> None:
         return
     if a.cmd == "p5":
         _p5(a.step, a.models)
+        return
+    if a.cmd == "confidence-ctl":
+        from .confidence_ctl import main as cc_main
+
+        cc_main(a.parts)
         return
     if a.cmd == "multi-check":
         from . import multigender

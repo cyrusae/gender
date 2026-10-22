@@ -72,7 +72,15 @@ is the Zipf coefficient of *that same fit*. No new stimuli or choices are needed
   coefficient (on the singulars' fit), and a null with Zipf permuted within cell × gender
   (200 permutations, 95th percentile of |cos|).
 - **Reading (fixed now):** **frequency overlap** at a layer if |cos| > the null's 95th percentile
-  *and* |cos| ≥ 0.3. A cosine of 0.3 means about 9% of the direction's squared length lies along
+  *and* |cos| ≥ 0.3.
+- **Amendment (2026-10-21, before the full run):** the null is computed on the **cross term**
+  (g^A · f^B + g^B · f^A)/2, and the observed cross term must exceed its 95th percentile (20
+  splits per permutation). A smoke run (8B, 10 splits, 5 permutations) gave null "cosines"
+  above 1. The permuted Zipf coefficient has squared length ≈ 0, so a cosine null divides by
+  noise. That is the same ill-conditioning as Phase 4's shuffle null (fixed the same way,
+  2026-10-10). The magnitude bar (|cos| ≥ 0.3) is unchanged. Disclosure: the smoke run's 8B
+  cosines were seen (10 splits; Spanish |cos| ≤ 0.13, German −0.35 to −0.71); no rule was
+  changed in response to them. A cosine of 0.3 means about 9% of the direction's squared length lies along
   frequency, roughly the size of the cross-language gender overlaps we have treated as real.
   Report the per-layer table. A frequency overlap at a majority of steering layers is a caveat on that
   model × language's steering results. Below the bar, report it as a clean control.
