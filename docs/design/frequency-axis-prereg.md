@@ -1,0 +1,110 @@
+# Why the German gender direction points toward "rarer": pre-registration (ADOPTED, PI 2026-10-21)
+
+Written 2026-10-21, after the confidence control's part (c) and before any of these numbers.
+Diagnostic, CPU only, existing activations (Qwen3 8B and 14B, LAST, the four Phase 5 steering
+layers). Follows `confidence-ctl-prereg.md` (c).
+
+## What (c) found, and the question
+
+The German feminine-minus-masculine direction has a cross-fitted cosine of −0.34 to −0.69 (8B)
+and −0.26 to −0.46 (14B) with the frequency (Zipf) coefficient of the same fit: it points
+substantially toward "rarer word". Spanish is ≤ 0.14. Frequency was already a covariate, and in
+both languages the *feminine* training nouns are the commoner ones (mean Zipf 3.77 vs 3.28 in
+German), so this isn't leftover confounding in the simple sense. Four candidate explanations,
+one test each:
+
+| | Explanation | Test |
+|---|---|---|
+| A | The linear frequency control is too crude (frequency's effect is curved, or interacts with token count) | refit with a flexible frequency control |
+| B | (Not an explanation: does it matter?) Do the reported German geometry results depend on this component? | remove the frequency axis, rerun Phase 4 |
+| C | The regression itself (collinearity of gender and frequency) produces it | a regression-free estimator: frequency-matched pairs |
+| D | Word structure: the masculine set contains compounds and derived words, the feminine set none | refit without them / with a structure covariate |
+
+**The word-structure imbalance (found while preparing D, by rule, not by model scores):** of the
+91 German m/f training nouns (Phase 3 `strat3`), 12 of 64 masculine and 0 of 27 feminine are
+complex by the rule below. Phase 3's "simplex only" filter missed them: its agent-noun rule
+tests the whole word minus *-er* (*Bohrer* ← *bohren*), so compounds with an agent/instrument
+head (*Wasserkocher* "kettle" ← *Wasser* + *kochen*) and numeral nouns (*Vierer* "a four") got
+through. List: *Vierer, Fünfer, Sechser, Zehner* (numeral + *-er*); *Feuerlöscher* "fire
+extinguisher", *Plattenspieler* "record player", *Wasserkocher* "kettle", *Zahnstocher*
+"toothpick", *Akkuschrauber* "cordless screwdriver", *Rohrkrepierer* "dud (shell)",
+*Wasserspeier* "gargoyle", *Pfannenwender* "spatula" (noun + verb + *-er*). This is a stimulus
+issue for every German direction (Phases 3–5) whatever D finds; it is logged in decisions.md.
+
+**Complexity rule (D), fixed now:** a German noun is *complex* if (i) it ends in *-er* and the
+rest is a cardinal number word (*eins* … *zwölf*, *zwanzig* … *fünfzig*, *hundert*, *tausend*);
+or (ii) it is noun + noun: some split at position ≥ 3 leaves a lexicon noun of ≥ 4 letters as the
+head and a lexicon noun of ≥ 3 letters as the first part (optionally plus a linking *-s/-n/-en/
+-es/-e*); or (iii) it ends in *-er* and the whole word minus *-er* plus *-en* is a verb (Phase 3's
+agent rule); or (iv) it ends in *-er* with a first part as in (ii) and a head (≥ 5 letters)
+whose stem minus *-er* plus *-en* is a verb. Lexicon = `data/lexicon/de_nouns.csv` (all
+animacies); verbs = `phase3_stimuli.german_verbs()`. Known misses: noun + *-er* derivations
+(*Benziner* ← *Benzin*). No hand edits.
+
+## Shared machinery (as (c))
+
+The fit is least squares of the activations on [gender, ending cells, covariates], with Phase 3's
+German covariates (concreteness, its missing flag, Zipf, token count) and Phase 2's Spanish ones.
+g = gender coefficient; f = Zipf coefficient. Cosines are cross-fitted (g from one half, f from
+the other, squared lengths cross-fitted too), 200 splits within cell × gender strata. A cosine
+counts as **frequency overlap** if the cross term beats the within-cell × gender permutation null
+(200 permutations × 20 splits, 95th percentile of |cross term|) *and* |cos| ≥ 0.3, as (c).
+Spanish is run alongside A and C as the comparison (it showed no overlap).
+
+## A. Flexible frequency control
+
+Replace the linear Zipf and token-count covariates with: Zipf as a cubic polynomial
+(standardised Zipf, its square and cube); token count as categories (1, 2, 3, 4+); and Zipf ×
+token count. g_flex = the gender coefficient of this fit. Report the cross-fitted cos(g_flex, f),
+with f the *linear* Zipf coefficient of the original fit on the other half. That is the same
+frequency axis as (c), so only the gender estimate changes.
+
+**Reading:** **"the overlap is an artefact of the linear control"** if it disappears (fails the overlap
+rule) at a majority of the layers where (c) found it. Otherwise **"survives a flexible frequency
+control"**.
+
+## B. Do the German geometry results depend on it?
+
+At every inner layer, f̂ = the unit Zipf coefficient of the full German fit. Project f̂ out of
+*every* activation Phase 4 uses (Spanish and German training nouns, the flipped pairs, Russian),
+x ← x − (x·f̂) f̂, and rerun `phase4.analyze` (LAST) unchanged on 8B and 14B. Compare with the
+published Phase 4 verdicts: T1 (transfer), T3 (flipped pairs, ES/DE on both), their layer counts,
+the T2 mean cosine and the T2 layers above the null.
+- Secondary: project out both languages' f̂ (the span of the two).
+- Removing one direction estimated on the same German nouns from those nouns is a mild
+  circularity (1 of ~4,000 dimensions). State it.
+
+**Reading:** **"German geometry doesn't depend on the rarity axis"** if T1's and T3's verdicts are
+unchanged and the T2 mean cosine moves by < 0.05. Otherwise report what changed. Those results
+then carry the caveat in the write-up.
+
+## C. Regression-free estimate: frequency-matched pairs
+
+Within each ending cell, pair feminine with masculine nouns 1:1, without replacement: equal
+token count and |ΔZipf| ≤ 0.3, greedy from the rarest feminine noun (nearest Zipf; ties by the
+fixed seed). g_pair = mean over pairs of (x_f − x_m). Cross-fitted cosine with f: pairs split in
+halves (both nouns of a pair in the same half; unpaired nouns assigned at random). g_pair comes
+from one half's pairs, f from the linear fit on the other half's nouns. Same overlap rule. With
+fewer than 10 pairs it's reported as **too few** (descriptive). Report the number of pairs and
+their Zipf balance.
+
+**Reading:** if the overlap persists here, the regression adjustment isn't what produces it.
+
+## D. Word structure
+
+- **D1 (primary):** refit without the complex nouns (79 German nouns remain).
+- **D2:** all nouns, with a complex indicator as one more covariate.
+Same cross-fitted cosine and overlap rule.
+
+**Reading:** **"word structure explains it"** if in D1 the overlap disappears at a majority of the
+layers where (c) found it. Otherwise **"not word structure (as detected by this rule)"**.
+
+## What this can and can't show
+
+All four are diagnostics on the model's geometry; none changes a published verdict by itself.
+B is the one that decides whether anything reported needs a caveat. A, C and D narrow down
+*why*. Several can hold at once (they aren't mutually exclusive), and an explanation outside the
+four (e.g. a genuine shared feminine/rare axis in German) is what's left if none removes it.
+
+Code: `src/gbleed/frequency_axis.py`, CLI `gbleed frequency-axis`. Results go to
+`results/frequency_axis/`. Committed before it's run.
