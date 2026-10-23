@@ -126,7 +126,8 @@ These are the nouns that pose the original question: the same object has opposit
 1. All eligible German and Spanish nouns with Zipf ≥ 2.5 were paired through their English gloss: German *Brücke* "bridge" with Spanish *puente* "bridge". Where several nouns shared a gloss, the most frequent was taken.
 2. Pairs with opposite genders were kept (519 of 2,217 pairs).
 3. Pairing by gloss is error-prone, because a gloss can name a different sense of the word. A spot check found that about 1 in 10 pairs do not really mean the same thing. Pairs were dropped by rule (people, animals, groups, sex-associated meanings, nouns too close to English, and nouns already used in training), and the PI dropped 51 more for wrong meanings. That left **389 pairs**: 239 feminine in German and masculine in Spanish, and 150 the other way round.
-4. Separately, **19 classic examples** from the human literature (*Brücke/puente*, *Mond/luna* "moon", *Sonne/sol* "sun", …) were included. These are the one hand-picked set, chosen because readers will ask about them. They are always reported separately.
+4. **Known by the models.** Each pair is kept only if Qwen3-1.7B *and* 4B both know the gender of *both* its nouns (the known-check of §2.7.1). That leaves **271 pairs** (166 feminine in German, 105 masculine), the set used in every Phase 4 and Phase 5 analysis and frozen for all models.
+5. Separately, **19 classic examples** from the human literature (*Brücke/puente*, *Mond/luna* "moon", *Sonne/sol* "sun", …) were included. These are the one hand-picked set, chosen because readers will ask about them. They are always reported separately.
 
 #### 2.4.5 Russian (prepared, not yet run)
 
@@ -539,14 +540,15 @@ The question is whether the object pull survives. If the pull came only from the
 | Qwen3-4B | +0.026 | +0.019 | +0.065 | +0.066 | pull survives an object reading |
 | Qwen3-8B | +0.080 | +0.020 | +0.152 | +0.130 | pull survives an object reading |
 | Qwen3-14B | +0.124 | +0.068 | +0.186 | +0.192 | pull survives an object reading |
-| EuroLLM-1.7B | +0.008 | −0.000 | – | – | no neutral pull to explain |
+| EuroLLM-1.7B | +0.008 | −0.000 | – | +0.052 | no neutral pull to explain |
+| EuroLLM-1.7B, with `<s>` (see below) | +0.009 | −0.002 | – | −0.000 | no neutral pull to explain |
 
 *Source: `results/p30/<model>/analysis.json`; the object pull's 95% interval is above 0 for every Qwen3 model. "Real person nouns" are words like* el/la presidente*, where the article really does mark a man or a woman: the yardstick of a genuine social effect.*
 
 - In every Qwen3 model a feminine article pulls toward feminine-rated adjectives **even when the noun is clearly a thing**. The pull is larger in the object sentences than in the neutral one. So the "maybe a woman" guess does not explain it.
 - The person sentences pull more, about as much as real person nouns. That is expected: there the article does say something about a person.
 - **What this does and does not show.** The object pull is not the "a woman" guess, but it is not yet shown to be *social*. Feminine-rated adjectives could, for example, simply be the ones that co-occur with feminine articles in Spanish text. The design does not separate those. P30 is therefore reported descriptively, not as evidence of bleed.
-- EuroLLM shows no pull in the neutral sentence, so there was nothing for the object sentences to explain.
+- EuroLLM shows no pull in the neutral sentence, so there was nothing for the object sentences to explain. Rerun with its start-of-text token (below), it also shows no pull for *real* person nouns. So EuroLLM's Spanish readout detects nothing at all, and its Spanish null says little.
 
 **P31, German.** The same design with *die* versus *der*. Neuter *das* is reported alongside. German predicate adjectives never change form (*die Flitt ist schön*, *der Flitt ist schön*), so every rated adjective can be used.
 
@@ -557,13 +559,20 @@ The question is whether the object pull survives. If the pull came only from the
 | Qwen3-8B | no object pull | 0.002 | (neutral 0.002; person 0.081) |
 | Qwen3-14B | no valid test (C1 margin) | 0.025 *(exploratory)* | 0.73 [0.63, 0.85] |
 | EuroLLM-1.7B | pull survives object reading | 0.081 | 2.32 |
+| EuroLLM-1.7B, with `<s>` | pull survives object reading | 0.073 | 1.29 [1.22, 1.37] |
 
 *Source: `results/p31/<model>/analysis.json`. "object / neutral" is the object pull divided by the neutral pull.*
 
 - In the three smaller models the object pull survives and is about twice the neutral pull: as in Spanish.
 - **Qwen3-8B behaves differently.** There is no object pull and no neutral pull (both 0.002). There is a clear person pull (0.081). In German, 8B's article pull appears only when the noun is a person.
 - **Qwen3-14B: no valid test.** Its object sentences did not lean toward "thing" by the required 1 nat (check C1, §2.8.3). A descriptive look with that rule waived (labelled exploratory) shows an object pull smaller than the neutral pull (ratio 0.73).
-- The *das* − *der* object effect is about 0 on every Qwen3 model (at most 0.001) but not on EuroLLM (+0.045).
+- The *das* − *der* object effect is about 0 on every Qwen3 model (at most 0.001) but not on EuroLLM (+0.045; +0.026 with `<s>`).
+
+**A correction for EuroLLM: the missing start token.** Most models are trained with a special token at the start of every text (EuroLLM's is `<s>`). Qwen3 has none. The P30/P31 prompts were built without one, which is right for Qwen3 but means EuroLLM saw slightly malformed input. We found this while preparing the Gemma replication, where the same omission broke Gemma badly. We reran EuroLLM's P30 and P31 with `<s>` as a labelled check (`results/p30_bos/`, `results/p31_bos/`). No Qwen3 result is affected.
+- **The verdicts don't change** in either language.
+- **German, the sizes do.** With `<s>`, the object pull (0.073) is about the same as the neutral pull (0.057), not twice it (ratio 1.29 instead of 2.32). Real person nouns now pull most (0.074), as a working readout should; without `<s>` they pulled *least* (0.014).
+- **Spanish:** the real-person yardstick vanishes (+0.052 → 0).
+- **What this does to the cross-model picture.** "Large Qwen3 show the object pull in Spanish only, EuroLLM in German only" still holds in letter. But EuroLLM's German object pull is no bigger than its neutral pull, and its Spanish readout can't detect anything, so the EuroLLM side of the contrast is weak. We describe EuroLLM by the `<s>` runs; the original numbers stay in the record as pre-registered.
 
 ### 3.7 The German gender direction is aligned with word frequency
 
@@ -608,3 +617,4 @@ This finding came out of a control (§2.9), not a planned test. The question was
 - Position dependence: the effects are read at the noun's own token.
 - The German training list's complex-noun imbalance (tested, not fixed).
 - Concreteness norms for German/Russian are English-gloss approximations.
+- EuroLLM's P30/P31 prompts lacked its start token (`<s>`); a rerun with it is reported (§3.6). EuroLLM numbers also fed the 2026-10-09 choice of German gate frame, which was otherwise made on Qwen3 numbers.
