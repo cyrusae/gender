@@ -521,18 +521,46 @@ These exploratory tests check the two ends that steering is supposed to connect:
 
 ### 3.6 Unsteered article pull (P30 Spanish, P31 German)
 
-- **P30:** a feminine article on a nonce noun read as a *thing* pulls toward feminine-rated adjectives in every Qwen3 size (1.7B +0.038, 4B +0.026, 8B +0.080, 14B +0.124; verified against `results/p30/*/analysis.json`); EuroLLM's object pull is small (+0.008) and it shows no neutral pull (−0.000). Neutral and person wordings pull too, so a social reading of the object effect is not established. ==Needs more context; "object pull" and "neutral pull" aren't easily derived from reading==
-- **P31 (German, *die* vs *der*, *das* reported alongside):**
+These tests use no steering. Recall the setup of §2.8.3: an invented noun is given a feminine or a masculine article, and we read which adjectives the model expects next. The score **S** is the bleed score applied to that article swap. It measures how much the feminine article (*la*, *die*) raises feminine-rated adjectives relative to masculine-rated ones, compared with the masculine article. S = 0 means the article doesn't matter for social meaning. Its units are "change in log-probability per point of gender rating"; only comparisons between S values matter here. Each context gets its own S:
+- **object pull** is S in the sentences that make the noun a thing (*the N I bought yesterday*);
+- **neutral pull** is S in the bare sentence (*the N is very ___*);
+- **person pull** is S in the sentences that make it a person (*the N I met yesterday*).
 
-  | Model | Verdict | S_object | object / neutral |
-  |---|---|---|---|
-  | Qwen3-1.7B | pull survives object reading | 0.035 | 1.95 |
-  | Qwen3-4B | pull survives object reading | 0.043 | 2.14 |
-  | Qwen3-8B | no object pull | 0.002 | (neutral 0.002; person 0.081) |
-  | Qwen3-14B | no valid test (C1 margin) | 0.025 *(exploratory)* | 0.73 [0.63, 0.85] |
-  | EuroLLM-1.7B | pull survives object reading | 0.081 | 2.32 |
+The question is whether the object pull survives. If the pull came only from the model guessing that a *la*-noun may be a woman, it should vanish once the noun is clearly a thing.
 
-  Verified against `results/p31/*/analysis.json`. The *das* object effect is ≈ 0 on Qwen3 (≤ 0.001) but not on EuroLLM (+0.045).
+**P30, Spanish.** All five models passed the checks (C1, C2).
+
+| model | object | neutral | person | real person nouns | verdict |
+|---|---|---|---|---|---|
+| Qwen3-1.7B | +0.038 | +0.009 | +0.025 | +0.043 | pull survives an object reading |
+| Qwen3-4B | +0.026 | +0.019 | +0.065 | +0.066 | pull survives an object reading |
+| Qwen3-8B | +0.080 | +0.020 | +0.152 | +0.130 | pull survives an object reading |
+| Qwen3-14B | +0.124 | +0.068 | +0.186 | +0.192 | pull survives an object reading |
+| EuroLLM-1.7B | +0.008 | −0.000 | – | – | no neutral pull to explain |
+
+*Source: `results/p30/<model>/analysis.json`; the object pull's 95% interval is above 0 for every Qwen3 model. "Real person nouns" are words like* el/la presidente*, where the article really does mark a man or a woman: the yardstick of a genuine social effect.*
+
+- In every Qwen3 model a feminine article pulls toward feminine-rated adjectives **even when the noun is clearly a thing**. The pull is larger in the object sentences than in the neutral one. So the "maybe a woman" guess does not explain it.
+- The person sentences pull more, about as much as real person nouns. That is expected: there the article does say something about a person.
+- **What this does and does not show.** The object pull is not the "a woman" guess, but it is not yet shown to be *social*. Feminine-rated adjectives could, for example, simply be the ones that co-occur with feminine articles in Spanish text. The design does not separate those. P30 is therefore reported descriptively, not as evidence of bleed.
+- EuroLLM shows no pull in the neutral sentence, so there was nothing for the object sentences to explain.
+
+**P31, German.** The same design with *die* versus *der*. Neuter *das* is reported alongside. German predicate adjectives never change form (*die Flitt ist schön*, *der Flitt ist schön*), so every rated adjective can be used.
+
+| Model | Verdict | S_object | object / neutral |
+|---|---|---|---|
+| Qwen3-1.7B | pull survives object reading | 0.035 | 1.95 |
+| Qwen3-4B | pull survives object reading | 0.043 | 2.14 |
+| Qwen3-8B | no object pull | 0.002 | (neutral 0.002; person 0.081) |
+| Qwen3-14B | no valid test (C1 margin) | 0.025 *(exploratory)* | 0.73 [0.63, 0.85] |
+| EuroLLM-1.7B | pull survives object reading | 0.081 | 2.32 |
+
+*Source: `results/p31/<model>/analysis.json`. "object / neutral" is the object pull divided by the neutral pull.*
+
+- In the three smaller models the object pull survives and is about twice the neutral pull: as in Spanish.
+- **Qwen3-8B behaves differently.** There is no object pull and no neutral pull (both 0.002). There is a clear person pull (0.081). In German, 8B's article pull appears only when the noun is a person.
+- **Qwen3-14B: no valid test.** Its object sentences did not lean toward "thing" by the required 1 nat (check C1, §2.8.3). A descriptive look with that rule waived (labelled exploratory) shows an object pull smaller than the neutral pull (ratio 0.73).
+- The *das* − *der* object effect is about 0 on every Qwen3 model (at most 0.001) but not on EuroLLM (+0.045).
 
 ### 3.7 The German gender direction is aligned with word frequency
 
