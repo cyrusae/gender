@@ -564,15 +564,23 @@ The question is whether the object pull survives. If the pull came only from the
 
 ### 3.7 The German gender direction is aligned with word frequency
 
-- Control (c): in German the f−m direction points toward *rarer* words (8B cos −0.34, −0.56, −0.62, −0.69 at the four Phase 5 layers; 14B −0.19 to −0.52); Spanish |cos| ≤ 0.14.
-- This is not a list-frequency imbalance. In both training lists the feminine nouns are the *more* frequent (wordfreq Zipf, within spelling cells: Spanish d = +0.52, German d = +0.45; raw d ≈ +0.7), and frequency is a covariate in the fit; yet only German shows the alignment. Across the full Wiktionary lexicons the genders barely differ in frequency (Spanish f − m +0.17 Zipf; German −0.05), so the imbalance is a property of our samples, not of the
-  languages.
-- It survives a flexible frequency control (A), frequency-matched pairs (C, 14 German pairs) and dropping or covarying the complex nouns (D): the overlap disappears at only 0–1 of 3–4 layers, never the pre-registered majority.
-- Projecting the frequency axis out (B) leaves the Phase 4 verdicts unchanged.
-- Register / age of acquisition does not explain it (8B overlap −0.62 → −0.61).
-- SAE-feature test (G2, Qwen3-8B, pre-registered in `gemma-slim-prereg.md`): **no valid test.** The held-out compound nouns (632) do not show the overlap (cos +0.11 to +0.26 at the four layers, opposite sign and under the 0.3 bar), so there was nothing to remove. Descriptively,
-  this means the alignment does not carry over to a different German noun sample, which fits it being partly sample-specific. 
-- **Open:** what the axis encodes, and why it appears in the training sample but not the held-out compounds. Gemma 3 is the cross-family check.
+This finding came out of a control (§2.9), not a planned test. The question was whether the steering results could be explained by the model simply growing more or less confident. To check, we also estimated the direction along which the hidden states change with word **frequency**, and measured its angle with the gender direction, using the two-halves cosine of §2.6.3. A cosine of 0 means unrelated, and −1 means opposite.
+
+- **Spanish:** the gender and frequency directions are unrelated (|cos| ≤ 0.14 at every layer).
+- **German:** the feminine-minus-masculine direction points toward *rarer* words. On 8B the cosine is −0.34, −0.56, −0.62 and −0.69 at the four Phase 5 layers; on 14B it runs from −0.19 to −0.52. By the pre-registered rule (beyond the shuffle null *and* |cos| ≥ 0.3) this counts as an overlap.
+
+**This is not because the feminine nouns are rarer.** In both training lists the feminine nouns are actually the *more* frequent ones (within spelling cells: Spanish by d = +0.52 standard deviations, German by +0.45). And frequency is removed before the direction is found (§2.6.2). Yet only German shows the alignment. Across the whole dictionary the genders barely differ in frequency (Spanish f − m +0.17 Zipf points, German −0.05), so the imbalance in our lists comes from how the samples were drawn, not from the languages.
+
+**What we tried, each pre-registered** (§2.9):
+- **A, a more flexible frequency control** (curved rather than straight-line, plus token count): the overlap stays.
+- **B, remove the frequency direction** from every hidden state and rerun Phase 4: all Phase 4 verdicts are unchanged (§3.3). So nothing reported in §3.3 depends on it.
+- **C, matched pairs**: 14 feminine/masculine German pairs with almost identical frequency, compared without any regression. The overlap stays.
+- **D, the complex nouns** (§2.9): dropping them, or controlling for them, leaves the overlap.
+- Across A, C and D the overlap disappears at no more than 1 of the 3–4 layers, never at the majority the pre-registered rule needs to call it "explained".
+- **Register / age of acquisition** (are the feminine nouns the later-learned, more "written" words?): an age-of-acquisition control barely changes the overlap (8B −0.62 → −0.61 at the 55% layer).
+- **SAE features (G2, Qwen3-8B).** A sparse autoencoder (SAE) splits a hidden state into many interpretable "features". The plan was to find the features carrying frequency and remove them from the direction. Result: **no valid test.** On the held-out German compounds (632 nouns) the overlap wasn't there to begin with (cos +0.11 to +0.26: the opposite sign, and under the 0.3 bar), so there was nothing to remove.
+
+**Where this leaves it.** In the German training sample the gender direction is genuinely aligned with "rarer" in Qwen3 8B and 14B. No frequency control, pairing, word-structure or register explanation accounts for it. But it does not carry over to a different German noun sample (the compounds), which suggests it is at least partly a property of this sample. What the axis encodes is open. A new, pre-registered test on fresh single-root German nouns (rarity held-out, not yet run) and the Gemma 3 replication are the next checks.
 
 ### 3.8 Claims, evidence and status
 
