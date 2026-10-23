@@ -364,9 +364,38 @@ None of the 27 feminine nouns are. The compound filter (§2.4.3) only checked wh
 
 ### 2.10 Table of experiments
 
-==Some of my "...this means nothing out of context" notes presumably remedied by building this, but I feel like the structure should also be meaningfully introduced earlier.==
+This is the index to everything above. §2.1 gives the overall plan; this table lists each test by its label. The labels are only numbering: **T** = a Phase 4 cross-language test, **R** = a Phase 5 readout (what we read after steering), **P** = a follow-up project, numbered in the order it was proposed, **C** = a check that a prompt means what we intend, **G** = the Gemma 3 replication. "Confirmatory" means the test and its pass rule were written down and approved before the data existed and it counts toward the conclusions. "Exploratory" means it was also written down first, but it is reported descriptively and never used to rescue a failed confirmatory test. Numbers marked [check] are still to be re-verified against the result files.
 
-*(To build from `docs/glossary.md`: phase/P-number, question, prereg status, verdict.)*
+| Label | Phase | Question in plain words | Status | Outcome | Results |
+|---|---|---|---|---|---|
+| Phase 0 | 0 | Does the model know each noun's gender (article quiz)? | gate | yes, 0.89–0.98 of nouns at every size | §3.1 |
+| Phase 1 | 1 | Can spelling information be erased from the model's states? | exploratory | no; so spelling is controlled by design | §3.1 |
+| Phase 2 | 2 | Is there a Spanish gender direction that is not just spelling? | confirmatory | yes, at the noun's own token | §3.2 |
+| Phase 3 | 3 | Do German compounds follow their head's gender? Is masculine the "default"? | confirmatory | head: yes; default: no | §3.2 |
+| T1 | 4 | Does a Spanish direction read German gender, and vice versa? | confirmatory | fails | §3.3 |
+| T2 | 4 | Do the Spanish and German directions point the same way? | confirmatory | partly (cos 0.43 / 0.35) | §3.3 |
+| T3 | 4 | On "bridge" pairs, does each language's direction follow its own grammar? | confirmatory | passes | §3.3 |
+| T4 | 4 | Does the Spanish direction read Russian soft-sign nouns? | confirmatory | passes | §3.3 |
+| R1, R1-EN | 5 | Does pushing a noun toward feminine make feminine-rated English adjectives likelier? | confirmatory (co-primary, Holm) | small at 8B, none at 14B | §3.4 |
+| R2 | 5 | Same, read as a woman/man choice | secondary | moves, but can't separate routes | §3.4 |
+| R3 | 5 | Same, with Spanish gender-invariant adjectives | secondary | [check] | §3.4 |
+| P19 | 5 | Do invented words get the gender their ending suggests? | exploratory | yes, every model | §2.4.6 |
+| P20, P28 (R3-POOL, P20-POOL) | 5 | Read gendered Spanish adjectives with both forms pooled | exploratory | looked positive; ruled out by P29 | §3.4 |
+| P22, P22b | 5 | Does the model's own woman/man axis match the human ratings? | exploratory | yes in English; weaker in German | §3.5 |
+| P23, P24, P24b | 5 | Does the grammatical direction also sort English person words and names by sex? | exploratory | Spanish yes; German weaker; overlap shrinks with size | §3.5 |
+| P25 | 5 | Unsteered: do "bridge" concepts lean by grammatical gender in English? | exploratory | [check] | – |
+| P26 | 5 | Does steering with the *other* language's direction do the same? | exploratory | [check] | – |
+| P27 | 5 | German neuter diminutives (*das Schwesterchen*): does sex or grammar drive the person effect? | exploratory | persons, not sex | §3.5 |
+| P29 | 5 | Is pooling agreement-neutral? | confirmatory check | no, so R3-POOL/P20-POOL aren't evidence | §3.4 |
+| P30 | 5 | Spanish: does *la* on a "thing" invented noun pull toward feminine adjectives? | pre-registered, descriptive | yes, all Qwen3 sizes; not shown to be social | §3.6 |
+| P31 | 5 | Same in German, with *das* alongside | pre-registered, descriptive | mixed by size | §3.6 |
+| confidence (a)–(c) | late | Is any steering result just the model being more or less confident? | pre-registered control | no; German direction aligns with frequency | §3.7 |
+| frequency A–D | late | Does the German frequency alignment come from how we controlled frequency, or from the compounds? | pre-registered control | no; it survives all four | §3.7 |
+| register (E1–E4) | late | Is it age of acquisition / register? | pre-registered control | no | §3.7 |
+| G2 | late | Can SAE features carrying frequency be removed from the German direction? | pre-registered | no valid test | §3.7 |
+| G0, G1 | replication | Gemma 3: technical gates; do the Phase 3–5 conclusions replicate? | pre-registered | running | – |
+| rarity held-out | late | Does the rarity lean appear in new, simple German nouns? | pre-registered | not yet run | – |
+| Russian | new language | Does an article-free language's direction line up with Spanish and German? | prepared | not yet run | – |
 
 ---
 
