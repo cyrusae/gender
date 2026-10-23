@@ -2,7 +2,7 @@
 
 *Status: draft for the PI. Framing, introduction and discussion wait on the literature review. Assembled from `docs/methods-summary.md`, `docs/explainers/00–07`, the preregistrations in `docs/design/` and `docs/decisions.md`. Numbers marked **[check]** were carried over from summaries and must be re-read from `results/` before anything leaves the repo.*
 
-*Rewritten 2026-10-22/23 for a reader new to the project, following the PI's comments: what was done, in order, with the real prompts and word lists. Formula boxes can be skipped.*
+*Rewritten 2026-10-22/23 for a reader new to the project: what was done, in order, with the real prompts and word lists. Formula boxes can be skipped.*
 
 ---
 
@@ -147,12 +147,12 @@ To measure bleed we need words with known *social* gender associations, scored b
 - **Spanish adjectives.** For one readout (R3) we used Spanish adjectives with the same form in both genders (*fuerte* "strong", *elegante* "elegant"), so that the grammar of the sentence cannot favour one of them.
 - **Invented words** (*the robedo*, *the sianta*) were built from Spanish- or English-like syllables and checked to exist in no dictionary. They were used where we need nouns with no meaning at all (P30, P31; details in `docs/screening/07`).
 
-### 2.5 Two kinds of measurement, and how the noun is shown to the model
+### 2.5 Two kinds of measurement
 
-The study measures two different things, and it helps to keep them apart:
+The study measures two different things:
 
-1. **What the model represents (Phases 1–4).** No sentence and no adjectives are involved here. We show the model a single noun and record the numbers it computes internally for that noun, its **hidden state**. Then we ask whether those numbers contain a consistent "gender direction" (§2.6). This is like scanning a brain while a person reads one word, without asking them to do anything.
-2. **What the model does (Phase 0, Phase 5 and P22–P31).** Here the model reads a sentence, and we look at which next word it predicts, and how strongly. This is like asking a person to finish a sentence. The adjectives from §2.4.6 come in only here, as the possible next words we score. The prompts are given in §2.7 and §2.8.
+1. **What the model represents (Phases 1–4).** No sentence and no adjectives are involved here. We show the model a single noun and record the numbers it computes internally for that noun, its **hidden state**. Then we ask whether those numbers contain a consistent "gender direction" (§2.6). 
+2. **What the model does (Phase 0, Phase 5 and P22–P31).** Here the model reads a sentence, and we look at which next word it predicts, and how strongly. The adjectives from §2.4.6 come in only here, as the possible next words we score. The prompts are given in §2.7 and §2.8.
 
 **How the noun is shown, for kind 1.** Each noun is shown on its own, with no sentence around it ("bare"). The exact input is three pieces:
 
@@ -160,7 +160,7 @@ The study measures two different things, and it helps to keep them apart:
 <|endoftext|>   ⏎   ␣Brücke
 ```
 
-That is the model's "start of a new document" marker, a line break, then the noun with a leading space, exactly as it would appear in running text. The marker and line break are always the same, so they cannot differ between feminine and masculine nouns. The line break is there because of a quirk of these models. The very first word after the document marker can become an **attention sink**: a position where the model parks attention it does not need, giving it huge, unrepresentative values. We found this the hard way (§2.9); the line break absorbs it. A check in the code stops the run if any noun's vector is more than 10 times the typical size.
+That is the model's "start of a new document" marker, a line break, then the noun with a leading space, exactly as it would appear in running text. The marker and line break are always the same, so they cannot differ between feminine and masculine nouns. The line break is there because the first word after the document marker can become an **attention sink**: a position where the model parks attention it does not need, giving it huge, unrepresentative values. We found this the hard way (§2.9); the line break absorbs it. A check in the code stops the run if any noun's vector is more than 10 times the typical size.
 
 **Where the hidden state is read.** A model splits text into pieces called *tokens*; *Brücke* might be one token or two (*Br* + *ücke*). It also computes one hidden state per token at every **layer**, its successive stages of processing (28 layers for Qwen3-1.7B, 40 for 14B). We read every layer, at one of two positions:
 
@@ -169,7 +169,7 @@ That is the model's "start of a new document" marker, a line break, then the nou
 
 We chose between them *before* looking at any gender result, by a pre-registered rule that used no gender labels. AFTER would win only if it both kept words distinguishable from each other (checked by whether a word's vector could be matched to the same word in another context, *Beispiel: Brücke* "Example: bridge") and depended less on how the word was split into tokens. On Qwen3-1.7B and 4B, AFTER met the rule in only 1 of 4 model × language combinations, so **LAST is the primary position** throughout. AFTER is reported as a robustness check.
 
-### 2.6 Finding a gender direction, and measuring it fairly
+### 2.6 Finding a gender direction
 
 #### 2.6.1 What a "direction" is
 
@@ -190,11 +190,11 @@ The properties removed were:
 - **Spelling cell.** This is done with **dummy variables**: one yes/no column per cell ("does this noun end in *-te*?", "does it end in *-al*?", …). Removing them subtracts each cell's own average, so feminine and masculine nouns are compared only against other nouns in the same cell.
 - **Frequency** (Zipf), **token count**, and **concreteness**.
 
-These were chosen *before* the gender results, for one reason each: they are the properties already known to differ between the genders in these lists (the counts are in `docs/screening/`), and each one could plausibly change a hidden state. A few were added later by the same rule when a check found a new imbalance, for example a word-initial *a-* in Spanish (§2.4.2). Each such addition is logged in `docs/decisions.md`.
+These were chosen *before* the gender results; they are the properties already known to differ between the genders in these lists (the counts are in `docs/screening/`), and each one could plausibly change a hidden state. A few were added later by the same rule when a check found a new imbalance, for example a word-initial *a-* in Spanish (§2.4.2). Each such addition is logged in `docs/decisions.md`.
 
 > **Formula box.** Put the nuisance columns side by side in a matrix Z (one row per noun). Put the hidden states in a matrix X. The residuals are X − Z Z⁺ X, where Z⁺ is the pseudo-inverse of Z, so Z Z⁺ X is the least-squares prediction of X from Z. Written compactly: X ↦ (I − Z Z⁺) X.
 
-#### 2.6.3 Why we measure lengths and angles with two halves (the estimator problem)
+#### 2.6.3 The estimator problem
 
 Several of our questions are about the *size* of an arrow, or the *angle* between two arrows:
 - **Markedness:** is the masculine noun average closer to the overall average, as if masculine were the "default"?
@@ -206,7 +206,7 @@ The fix is to split the nouns at random into two halves, A and B, keeping each s
 
 > **Formula box.** If v̂ is the estimated arrow and v the true one, the plug-in length satisfies E‖v̂‖² = ‖v‖² + tr Σ (1/n_g + 1/n_ref). Here Σ is the noise in the hidden states and n_g, n_ref are the numbers of nouns in the two averages; the second term is pure bias, and it grows as n shrinks. With independent halves, E[v̂_A · v̂_B] = ‖v‖² exactly, with no bias term. Cosines (angles) are built from the same pieces. The 200 splits are computed exactly and cheaply through the **Gram matrix**: the table of dot products between every pair of nouns (about 120 × 120, instead of working with 5,000-number arrows).
 
-#### 2.6.4 How sure we are: the null and the bootstrap
+#### 2.6.4 The null and the bootstrap
 
 Two further tools tell us whether a number is bigger than chance and how precise it is:
 
@@ -234,9 +234,9 @@ The difference in log-probability between the two versions is the **margin**, me
 
 We also tried a quiz format, *Bestimmter Artikel:* "definite article:" followed by four worked examples (*Teppich: der*, *Tasche: die*, …) and then *X:*. The answers changed with the order of the examples, so the quiz was used only as a diagnostic and gates nothing (§3.1).
 
-#### 2.7.2 Does a sentence frame work before we steer in it? (Phase 5 frame checks)
+#### 2.7.2 Phase 5 frame checks
 
-In Phase 5 we push nouns along the gender arrow (§2.8) and watch whether article agreement changes. That only makes sense in a frame where the unmodified model already gets the gender right. A **frame check** tests exactly that. It uses the model's known, common nouns (Zipf ≥ 4), and the frame passes only if at least 70% of nouns *of each gender* come out right. The German candidates, fixed in advance, were:
+In Phase 5 we push nouns along the gender arrow (§2.8) and watch whether article agreement changes. That only makes sense in a frame where the unmodified model already gets the gender right. A **frame check** tests that. It uses the model's known, common nouns (Zipf ≥ 4), and the frame passes only if at least 70% of nouns *of each gender* come out right. The German candidates, fixed in advance, were:
 
 - C1 *Wörterbuch:\n X,* "Dictionary: X," followed by *der* or *die*;
 - C2 *Thema: X. Was macht man mit* "Topic: X. What does one do with" followed by *ihm* "it (m)" or *ihr* "it (f)";
@@ -246,7 +246,7 @@ For Spanish, the frame is *Mi X es muy* "My X is very". The check reads whether 
 
 #### 2.7.3 Is the push strong enough to matter, but no stronger? (the agreement-flip dose)
 
-Before reading social adjectives, each layer has to pass a dose check. The push is made larger in steps (0.05 to 3 times the typical length of a hidden state). Feminine nouns are pushed toward masculine and masculine nouns toward feminine. The **dose** α\* is the smallest step at which agreement flips for the *median* noun of both genders (a feminine noun now takes the masculine form, and vice versa). There is one condition: pushes of the same size along 20 *random* directions must flip, on average, fewer than 10% of nouns. A layer where this never happens drops out of the test. This makes sure that a later "no effect on social adjectives" cannot just mean the push was too weak to do anything, and that a positive effect is not something any large push would cause.
+Before reading social adjectives, each layer has to pass a dose check. The push is made larger in steps (0.05 to 3 times the typical length of a hidden state). Feminine nouns are pushed toward masculine and masculine nouns toward feminine. The **dose** α\* is the smallest step at which agreement flips for the *median* noun of both genders (a feminine noun now takes the masculine form, and vice versa). Pushes of the same size along 20 *random* directions must flip, on average, fewer than 10% of nouns. A layer where this never happens drops out of the test. This makes sure that a later "no effect on social adjectives" cannot just mean the push was too weak to do anything, and that a positive effect is not something any large push would cause.
 
 #### 2.7.4 Does the sentence make the model think of the thing we intend? (the C1 check in P30/P31)
 
@@ -256,7 +256,7 @@ P30 and P31 ask whether an article biases adjectives *even when the noun is clea
 - A **person wording** must favour the person word by at least 1 nat more than neutral.
 - Real person nouns (*la doctora* "the (female) doctor") are scored the same way, as a reference for what a genuine person reading looks like.
 
-Why trust it: the check reads the model's own expectations about what kind of thing comes next. It was fixed before any adjective result was computed, and it fails openly. Qwen3-14B's German object sentences failed it, and that test is reported as "no valid test" (§3.6) rather than rescued. It is still an indirect measure of what the model "thinks", and §5 lists it as a limitation.
+The check reads the model's own expectations about what kind of thing comes next. It was fixed before any adjective result was computed, and it fails openly. Qwen3-14B's German object sentences failed it, and that test is reported as "no valid test" (§3.6) rather than rescued. It is still an indirect measure of what the model "thinks", and §5 lists it as a limitation.
 
 ### 2.8 Steering and readouts (Phase 5, P29–P31)
 
