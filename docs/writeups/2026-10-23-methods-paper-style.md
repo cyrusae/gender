@@ -355,3 +355,170 @@ A precondition is that the held-out overlap itself meets the |cos| ≥ 0.3 bar; 
   - EuroLLM's P30/P31 prompts lacked its default `<s>`. A labelled sensitivity rerun with `<s>` is reported alongside the original. EuroLLM's contribution to the 2026-10-09 German gate-frame selection carries the same caveat.
   - Known-check scoring and activation extraction used each model's BOS convention throughout.
 - **Not run.** Phase 0 was not part of the original Gemma driver (added before measured runs). P29–P31 and Russian are out of scope for the Gemma slim replication.
+
+---
+
+## 3. Results
+
+Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap intervals, verdicts by the rules of §2.7–2.10. Layer counts for co-primary tests are Holm-corrected. Confirmatory models are Qwen3-8B and 14B (bf16, pod); smaller sizes and EuroLLM are development or exploratory.
+
+### 3.1 Known-check and spelling erasure (Phases 0–1)
+
+**Table 1.** Phase 0 balanced known rate (257 nouns per language).
+
+| Model | German | Spanish |
+|---|---|---|
+| Qwen3-0.6B | 0.89 | 0.89 |
+| Qwen3-1.7B | 0.90 | 0.92 |
+| Qwen3-4B | 0.94 | 0.94 |
+| Qwen3-8B | 0.97 | 0.94 |
+| Qwen3-14B | 0.95 | 0.95 |
+| Qwen3-30B-A3B | 0.98 | 0.97 |
+| EuroLLM-1.7B | 0.97 | 0.98 |
+
+- Confidently wrong items are ≤ 1.2% for every model; nearly all non-known items are "unsure".
+- Mac (fp16) and pod (bf16) runs of the same model differ by ≤ 0.01.
+- The few-shot quiz was order-sensitive: reordering changed 20% (DE) and 45% (ES) of 0.6B's answers, so it is diagnostic only.
+- **LEACE erasure**, fitted on Spanish verb person endings (*hablo/habla*), did not erase the ending as a form. Nonce *-o/-a* words stayed linearly separable after erasure (accuracy 0.99–1.00 at every size), and erasure on held-out verbs was partial (AUC 0.68–0.81). Spelling is therefore controlled by stimulus design (§2.3) rather than by erasure.
+
+### 3.2 Grammatical gender directions (Phases 2–3)
+
+**Table 2.** Layers at which the stratified direction reads gender rather than spelling (Spanish masculine *-a* exceptions; §2.7).
+
+| Model | LAST | AFTER |
+|---|---|---|
+| 0.6B | 24/27 | 0/27 |
+| 1.7B | 22/27 | 2/27 |
+| 4B | 26/35 | 0/35 |
+| 8B | 28/35 | 3/35 |
+| 14B | 26/39 | 0/39 |
+| 30B-A3B | 45/47 | 38/47 |
+
+- **German.** On the 219 conflict compounds, the direction trained on single-root nouns sorts by head gender at every layer of every size (AUC 0.76–0.87). It sorts by first-constituent gender at no layer.
+- **Markedness** is supported at 0 layers by the split-half estimator. The plug-in estimator supported it at 25/27 (1.7B) and 31/35 (4B) layers, which is an artefact of the bias in §2.6.3.
+- **Position.** Both gender effects are LAST-position effects and largely vanish at AFTER, except in the 30B-A3B mixture-of-experts model.
+
+### 3.3 Cross-language sharing (Phase 4)
+
+**Table 3.** Phase 4 tests (271 flipped pairs; layer-averaged AUC and cosine).
+
+| Test | 8B | 14B | Verdict |
+|---|---|---|---|
+| T1 ES→DE | 6/35 layers | 7/39 | fails |
+| T1 DE→ES | 5/35 | 22/39 | 14B only |
+| T2 cosine (split-half) | 0.43 | 0.35 | above shuffle null |
+| T3 flipped pairs, ES / DE direction | 0.93 / 0.83 | 0.91 / 0.89 | passes, all layers |
+| T4 Russian (ES direction) | 0.82 | 0.85 | passes |
+
+- T1 requires transfer in both directions and fails on both models.
+- T3 and T4 pass. The reading is **partial sharing**: a common component sorts flipped pairs by each language's own gender and generalises to Russian, but does not give full Spanish↔German transfer.
+- Every test fails at AFTER.
+- Projecting out the German frequency axis (§2.11.2, B) leaves all T1/T3 verdicts unchanged, and T2 moves by < 0.05. An apparent DE→ES transfer gain under projection was traced to a change in sample composition, and the claim was retracted.
+
+### 3.4 Steering (Phase 5)
+
+**German: no valid test.**
+- 8B: frame C4 failed its frame check (feminine 0.62 < 0.70).
+- 14B: C4 passed the frame check but failed the gate at every layer. Feminine medians flipped while masculine medians did not, so the push collapsed both genders toward zero rather than swapping them.
+- By rule, no substitute frame was used. All Phase 5 verdicts are Spanish-only and therefore at most "language-specific".
+
+**Table 4.** Spanish R1 bleed score at α\*, averaged over passing layers (noun-position push).
+
+| | 8B | 14B |
+|---|---|---|
+| Grammatical push | +0.020 (3/4 layers) | +0.000 (0/3) |
+| Random, 95th pct | 0.012 | 0.008 |
+| Number push | −0.003 | +0.002 |
+| Social push (positive control) | +0.064 | +0.047 |
+| R1-EN, layers passing | 3/4 | 0/3 |
+
+- **8B:** R1 and R1-EN pass at a majority of layers. The verdict is **language-specific** (Spanish only). The effect is about one third of the social control's.
+- **14B:** **no effect.** The positive control moves the readout, so the null is informative.
+- **P26 (exploratory, 14B).** The German direction applied to the Spanish nouns moves R1 above random at 2 of 3 layers (k10, k16). The 14B null therefore holds for the Spanish direction only.
+- **R2** passes at every layer (8B 4/4, 14B 3/3). It is non-diagnostic because agreement and social meaning are confounded in that prompt (§2.9.5).
+- **R3** had no valid test on 8B: its readout check failed (median share 0.029 < 0.05).
+- **R3-POOL and P20-POOL** are not evidence. P29 found an article-only shift in the pooled readout of +0.096 (8B) and +0.038 (14B), against failure bounds of 0.026 and 0.019. Agreement leaks into the pooled readout.
+- **Confidence control (a)/(b)** changes no Phase 5 verdict and no P29–P31 verdict.
+
+### 3.5 English social gender (exploratory)
+
+- **P22b.** The in-context woman/man lean correlates with the Glasgow gender rating:
+  - English ρ = 0.51–0.59 across sizes (partial on valence: similar);
+  - German 0.28–0.43;
+  - in Spanish (4B), the lean is largely explained by valence.
+- **P23/P24, Table 5.** Grammatical directions on English person words and names (AUC; layers passing in parentheses).
+
+| | 8B | 14B |
+|---|---|---|
+| ES direction, person words | 0.87 (31) | 0.85 (35) |
+| DE direction, person words | 0.67 (9) | 0.72 (20) |
+| ES direction, names (within final letter) | 0.75 (31) | 0.70 (34) |
+| Social direction, person words | 0.93 | 0.85 |
+| Split-half cos with social: ES / DE / number | 0.44 / 0.18 / −0.01 | 0.22 / 0.08 / 0.00 |
+
+  The grammatical–social overlap roughly halves from 8B to 14B, in line with the steering null at 14B.
+- **P27 (1.7B, 4B).** The German grammatical direction does not separate female from male neuter diminutives (AUC 0.38–0.39; no layer passes). It does separate persons from inanimate diminutives. The social direction separates female from male diminutives (0.89–0.95).
+
+### 3.6 Unsteered article pull (P30, P31)
+
+**Table 6.** P30 (Spanish): S by context. All models pass C1/C2 on at least one object wording; the *que conocí* person wording failed C1 on most models.
+
+| Model | Object | Neutral | Person | Real person nouns | Verdict |
+|---|---|---|---|---|---|
+| Qwen3-1.7B | +0.038 | +0.009 | +0.025 | +0.043 | survives |
+| Qwen3-4B | +0.026 | +0.019 | +0.065 | +0.066 | survives |
+| Qwen3-8B | +0.080 | +0.020 | +0.152 | +0.130 | survives |
+| Qwen3-14B | +0.124 | +0.068 | +0.186 | +0.192 | survives |
+| EuroLLM-1.7B | +0.008 | −0.000 | – | – | no neutral pull |
+
+**Table 7.** P31 (German, *die* − *der*).
+
+| Model | Verdict | S(object) | Object / neutral |
+|---|---|---|---|
+| Qwen3-1.7B | survives | 0.035 | 1.95 |
+| Qwen3-4B | survives | 0.043 | 2.14 |
+| Qwen3-8B | no neutral pull | 0.002 | (neutral 0.002; person 0.081) |
+| Qwen3-14B | no valid test (C1) | 0.025 (exploratory, C1 waived) | 0.73 [0.63, 0.85] |
+| EuroLLM-1.7B | survives | 0.081 | 2.32 |
+
+- *das* − *der* object effects are ≈ 0 on Qwen3 (≤ 0.001) and +0.045 on EuroLLM.
+- The cross-language pattern is model-specific:
+  - large Qwen3: object pull in Spanish only;
+  - small Qwen3: in both languages;
+  - EuroLLM: in German only.
+- EuroLLM's P30/P31 prompts lacked its default `<s>` (§2.13). A sensitivity rerun is pending, and the EuroLLM rows are provisional until it is reported.
+- The design rules out the "a woman" inference as the source of the object pull. It does not establish that the pull is social rather than distributional (article–adjective co-occurrence).
+
+### 3.7 German gender–frequency alignment
+
+- **Confidence control (c).** The cross-fitted cosine between the f−m and Zipf coefficients:
+  - Spanish: |cos| ≤ 0.14 at all layers (no overlap);
+  - German: overlap on both models, 8B −0.34 / −0.56 / −0.62 / −0.69 at the four Phase 5 layers, 14B −0.19 to −0.52.
+
+  The sign means "feminine ↔ rarer". In both training lists the feminine nouns are in fact the *more* frequent ones within cells (Spanish d = +0.52, German +0.45). Across each lexicon the gender difference in frequency is small (Spanish +0.17 Zipf, German −0.05).
+- **Follow-ups (Table 8).**
+
+| Test | Result |
+|---|---|
+| A flexible frequency control | overlap persists |
+| B axis projected out, Phase 4 rerun | all Phase 4 verdicts unchanged; T2 moves < 0.05 |
+| C matched pairs (14 German pairs; Spanish 8, "too few") | overlap persists |
+| D1/D2 complex nouns dropped / covariate | overlap persists |
+| Register (AoA covariate, 80 nouns) | 8B −0.62 → −0.61 at 55% depth; 14B unchanged; E1 no AoA difference by gender |
+| G2 SAE (Qwen3-8B, 632 held-out compounds) | no valid test: held-out overlap absent (cos +0.11 to +0.26) |
+
+  Under A, C and D, the overlap disappears at ≤ 1 of 3–4 layers, never the majority required for "explained".
+- **Status.** The alignment is robust in the German training sample of Qwen3 8B/14B and absent in the held-out compound sample. Its mechanism is unexplained. A pre-registered held-out test on new simplex German nouns (`rarity-lean-heldout-prereg.md`) and the Gemma replication (R2) are pending.
+
+### 3.8 Summary of claims
+
+| Claim | Evidence | Status |
+|---|---|---|
+| Directions encode grammatical gender, not spelling | Tables 2, 3; compound conflicts | strong |
+| Encoded at the noun's own token | LAST vs AFTER throughout | strong (scope condition) |
+| Partly shared across Spanish and German | T2, T3, T4 pass; T1 fails | moderate |
+| Steering moves social readouts (8B) | R1, R1-EN 3/4 layers | small; Spanish-only; survives confidence control |
+| No steering effect (14B) | R1 0/3, control works | null for the Spanish direction (P26 caveat) |
+| Unsteered object pull (P30/P31) | Tables 6–7 | descriptive; not shown social; EuroLLM provisional |
+| Pooled readouts | P29 | not evidence |
+| German direction aligned with low frequency | §3.7 | robust in training sample only; mechanism open |
