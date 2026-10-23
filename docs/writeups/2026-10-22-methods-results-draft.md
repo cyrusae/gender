@@ -384,7 +384,7 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 | P22, P22b | 5 | Does the model's own woman/man axis match the human ratings? | exploratory | yes in English; weaker in German | §3.5 |
 | P23, P24, P24b | 5 | Does the grammatical direction also sort English person words and names by sex? | exploratory | Spanish yes; German weaker; overlap shrinks with size | §3.5 |
 | P25 | 5 | Unsteered: do "bridge" concepts lean by grammatical gender in English? | exploratory | no lean (intervals include 0, 8B and 14B) | – |
-| P26 | 5 | Does steering with the *other* language's direction do the same? | exploratory | 14B: above random at 2 of 3 layers (not a majority) | – |
+| P26 | 5 | Does steering with the *other* language's direction do the same? | exploratory | 14B: the German direction, pushed on Spanish nouns, moves R1 above random at 2 of 3 layers (a majority; exploratory, so outside the verdicts) | – |
 | P27 | 5 | German neuter diminutives (*das Schwesterchen*): does sex or grammar drive the person effect? | exploratory | persons, not sex | §3.5 |
 | P29 | 5 | Is pooling agreement-neutral? | confirmatory check | no, so R3-POOL/P20-POOL aren't evidence | §3.4 |
 | P30 | 5 | Spanish: does *la* on a "thing" invented noun pull toward feminine adjectives? | pre-registered, descriptive | yes, all Qwen3 sizes; not shown to be social | §3.6 |
