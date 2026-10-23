@@ -1,6 +1,6 @@
 # Grammatical gender in nouns and language models: EDA dataset
 
-Three small tables from a study of how language models represent grammatical gender
+Four small tables from a study of how language models represent grammatical gender
 (Spanish *el/la*, German *der/die/das*). Released under **CC0 1.0**.
 
 **What's not included, and why.** There are no words, dictionary definitions, word frequencies
@@ -25,6 +25,17 @@ or rating norms, because those come from sources that aren't CC0 (Wiktionary is 
 
 The last step keeps nouns that a test model reliably knows the gender of, in spelling groups that
 contain more than one gender. That step is what makes the training set unreadable from spelling alone.
+
+### `filters.csv`: which filters exist for which language
+
+| column | meaning |
+|---|---|
+| `step`, `lang` | a filter name from the funnel, crossed with both languages |
+| `filter_applies` | `TRUE` if that language's pipeline has this filter |
+
+The funnel lists only steps that removed something. Joining it to this table is how you tell
+"this filter removed 0" apart from "this language has no such filter" (Spanish has no compound
+filter; German has no *-o/-a* ending filter).
 
 ### `nouns.csv`: one row per dictionary noun (106,465 rows), with no words
 
@@ -65,6 +76,26 @@ first transformation.
 
 **Caveat:** the exceptions test has only about 27 nouns, so its intervals are wide. That is worth showing,
 not hiding.
+
+## Episodes: questions, transformations, checks, outputs
+
+Each episode is one kind of analytical move. In each, the choice changes the *conclusion*, not only
+the look. The suggested charts are in the next section.
+
+| # | kind | question | the move | what changes |
+|---|---|---|---|---|
+| E1 | **missingness** | Is a blank a zero, or not applicable? | `count(lang, step)` wide, then `complete(..., fill = list(n = 0))` vs a `left_join` to `filters.csv` | Filling with 0 claims Spanish ran a compound filter that removed nothing. The join shows every blank is "no such filter". Spanish neuter is structurally absent too. |
+| E2 | **missingness** | Do the models line up on a shared depth axis? | `count(model)` on `layers_wide`; bin `depth` with `cut_width(depth, .1)` and `count(model, bin)` | The models have 29–49 layer readings (embeddings + each layer), so bins hold unequal numbers of points per model. Averaging per bin weights models unevenly. |
+| E3 | **aggregation** | What share of nouns is feminine; did a filter hit one gender harder? | the same `count(gender)`, with and without `lang` (and `drop_reason`) in the grouping | Pooled shares mix two languages with different gender systems and different filters. The per-language answer can differ from the pooled one. |
+| E4 | **aggregation** | Which model reads German compound gender best? | three summaries per model: `mean(auc_last)`, `max(auc_last)`, `sum(lo_last > .5)` | The rankings can disagree. The last summary (the number of layers reliably above chance) is the one the study used for verdicts. Say why. |
+| E5 | **transformation** | How destructive was each filter? | `n_removed / first(n_left)` (share of the dictionary) vs `n_removed / lag(n_left)` (share of what was left) | Same counts, different story. Spanish's ending filter removes about 14% of the dictionary but 89% of the nouns still in play. |
+| E6 | **check** | Does the funnel add up? | the last `n_left` equals `sum(nouns$in_training_set)` per language; `sum(n_removed)` + final = start | A 30-second assert before any chart. A mismatch means a step is double-counted or missing. |
+| E7 | **check** | Which lines are too thin to read? | `mutate(width = hi_last - lo_last)`, then a boxplot of `width` by `test` | The Spanish exceptions test (about 27 nouns) has much wider intervals, so its layer-to-layer wiggles are noise. |
+| E8 | **check** | How much does "first reason only" shape the funnel? | narrate it; the export records one reason per noun | Reordering the filters would move counts between steps (animacy before frequency, for example). A limit of the summary, stated, not plotted. |
+| E9 | **output** | What is the right form for the funnel finding? | a chart; a table (`slice_max(n_removed, n = 5)` per language); one sentence | "German keeps 0.23% of its dictionary": the same fact for three audiences. |
+
+**A balanced set** for one session: E1, E3, E4, E6. That is one missingness check, one
+aggregation, one choice of summary statistic and one sanity check.
 
 ## Questions, with alternative charts
 

@@ -1,0 +1,53 @@
+step,lang,filter_applies
+start,Spanish,True
+start,German,True
+not single-gender,Spanish,True
+not single-gender,German,True
+animate (person/animal),Spanish,True
+animate (person/animal),German,True
+marked (slang or archaic),Spanish,True
+marked (slang or archaic),German,True
+regional only,Spanish,True
+regional only,German,True
+also another part of speech,Spanish,True
+also another part of speech,German,True
+also a form of another word,Spanish,True
+also a form of another word,German,True
+commoner in English,Spanish,True
+commoner in English,German,True
+too rare,Spanish,True
+too rare,German,True
+gender-predicting suffix,Spanish,False
+gender-predicting suffix,German,True
+Ge- collective prefix,Spanish,False
+Ge- collective prefix,German,True
+agent noun,Spanish,False
+agent noun,German,True
+animate (WordNet),Spanish,False
+animate (WordNet),German,True
+animate (from definition),Spanish,False
+animate (from definition),German,True
+chemical,Spanish,False
+chemical,German,True
+compound (gender = last part),Spanish,False
+compound (gender = last part),German,True
+diminutive,Spanish,False
+diminutive,German,True
+group noun (WordNet),Spanish,False
+group noun (WordNet),German,True
+nominalised verb,Spanish,False
+nominalised verb,German,True
+proper name,Spanish,False
+proper name,German,True
+reserved for a later test,Spanish,False
+reserved for a later test,German,True
+sex-typed garment,Spanish,False
+sex-typed garment,German,True
+used as a quiz example,Spanish,False
+used as a quiz example,German,True
+final training set (model knows it; cell has both genders),Spanish,True
+final training set (model knows it; cell has both genders),German,True
+gender-predicting ending,Spanish,True
+gender-predicting ending,German,False
+feminine with initial stressed a-,Spanish,True
+feminine with initial stressed a-,German,False

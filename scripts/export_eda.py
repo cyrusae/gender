@@ -1,6 +1,6 @@
 """Export a small, word-free, CC0-safe dataset for exploratory data visualisation.
 
-Writes eda/: noun_funnel.csv, nouns.csv, layers_wide.csv (+ README.md, written by hand).
+Writes eda/: noun_funnel.csv, filters.csv, nouns.csv, layers_wide.csv (+ README.md, written by hand).
 Only values computed in this project are exported: no words, glosses, frequencies (wordfreq is
 CC BY-SA) or rating norms. Grammatical gender, animacy and loan status are labels; endings are
 spelling facts; token counts come from the Qwen3 tokenizer.
@@ -158,11 +158,30 @@ def layers() -> pd.DataFrame:
     return pd.concat(rows, ignore_index=True).round(4)
 
 
+SPANISH_ONLY = {"gender-predicting ending", "feminine with initial stressed a-"}
+SHARED_EXTRA = {"start", "final training set (model knows it; cell has both genders)"}
+
+
+def filters(f: pd.DataFrame) -> pd.DataFrame:
+    """Which filters exist for which language: tells a true zero (filter ran, removed nothing)
+    from 'not applicable' (no such filter for that language). The funnel lists only steps that
+    removed something, so joining against this table is how the zeros come back."""
+    shared = {s for s, _ in STEPS} | SHARED_EXTRA
+    rows = []
+    for step in dict.fromkeys(f.step):
+        for lang in ("Spanish", "German"):
+            applies = step in shared or (step in SPANISH_ONLY) == (lang == "Spanish")
+            rows.append((step, lang, applies))
+    return pd.DataFrame(rows, columns=["step", "lang", "filter_applies"])
+
+
 def main() -> None:
     OUT.mkdir(exist_ok=True)
     n = nouns()
     n.to_csv(OUT / "nouns.csv", index=False)
-    funnel(n).to_csv(OUT / "noun_funnel.csv", index=False)
+    f = funnel(n)
+    f.to_csv(OUT / "noun_funnel.csv", index=False)
+    filters(f).to_csv(OUT / "filters.csv", index=False)
     layers().to_csv(OUT / "layers_wide.csv", index=False)
     for f in sorted(OUT.glob("*.csv")):
         print(f, len(pd.read_csv(f)), "rows")
