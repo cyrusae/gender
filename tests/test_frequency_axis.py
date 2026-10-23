@@ -1,8 +1,16 @@
+from pathlib import Path
+
 import numpy as np
+import pytest
 
 from gbleed import frequency_axis as fa
+from gbleed import paths
 
 
+@pytest.mark.skipif(
+    not Path(paths.kaikki("kaikki.org-dictionary-German.jsonl")).exists(),
+    reason="needs the Wiktionary German dump (not bundled to pods)",
+)
 def test_complexity_rule_examples():
     why = fa.complexity_rule()
     assert "numeral+er" in why("Vierer")
