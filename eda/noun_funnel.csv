@@ -1,0 +1,37 @@
+lang,step_order,step,n_left,n_removed
+German,1,start,51957,0
+German,2,not single-gender,50976,981
+German,3,animate (person/animal),35549,15427
+German,4,marked (slang or archaic),33442,2107
+German,5,regional only,32774,668
+German,6,also another part of speech,32202,572
+German,7,also a form of another word,31416,786
+German,8,commoner in English,23966,7450
+German,9,too rare,16078,7888
+German,10,gender-predicting suffix,14511,1567
+German,11,Ge- collective prefix,14325,186
+German,12,agent noun,14273,52
+German,13,animate (WordNet),14184,89
+German,14,animate (from definition),14135,49
+German,15,chemical,14022,113
+German,16,compound (gender = last part),2750,11272
+German,17,diminutive,2691,59
+German,18,group noun (WordNet),2576,115
+German,19,nominalised verb,2522,54
+German,20,proper name,2443,79
+German,21,reserved for a later test,2209,234
+German,22,sex-typed garment,2207,2
+German,23,used as a quiz example,2205,2
+German,24,final training set (model knows it; cell has both genders),122,2083
+Spanish,1,start,54508,0
+Spanish,2,not single-gender,50103,4405
+Spanish,3,animate (person/animal),27177,22926
+Spanish,4,marked (slang or archaic),25631,1546
+Spanish,5,regional only,23983,1648
+Spanish,6,also another part of speech,22652,1331
+Spanish,7,also a form of another word,19899,2753
+Spanish,8,commoner in English,14179,5720
+Spanish,9,too rare,8457,5722
+Spanish,10,gender-predicting ending,921,7536
+Spanish,11,feminine with initial stressed a-,915,6
+Spanish,12,final training set (model knows it; cell has both genders),111,804
