@@ -142,7 +142,7 @@ To measure bleed we need words with known *social* gender associations, scored b
   - **arousal**: how exciting or calming;
   - **size**: how big the thing it describes is.
 
-  We kept words that are mainly adjectives (at least half their WordNet senses), common (Zipf ≥ 3), and a single token for the model, so each one is a single next-word prediction. That leaves several hundred adjectives per model family [check: Qwen3 count] (721 for Gemma 3).
+  We kept words that are mainly adjectives (at least half their WordNet senses), common (Zipf ≥ 3), and a single token for the model, so each one is a single next-word prediction. That leaves 656 adjectives for Qwen3 (721 for Gemma 3).
 - **Why the other ratings matter.** In these ratings, feminine-rated words are also rated more pleasant (correlation −0.47). Any test that sees "more feminine adjectives" could therefore really be seeing "more pleasant adjectives". So valence, arousal, size and frequency are always included as variables to separate out (§2.8).
 - **Spanish adjectives.** For one readout (R3) we used Spanish adjectives with the same form in both genders (*fuerte* "strong", *elegante* "elegant"), so that the grammar of the sentence cannot favour one of them.
 - **Invented words** (*the robedo*, *the sianta*) were built from Spanish- or English-like syllables and checked to exist in no dictionary. They were used where we need nouns with no meaning at all (P30, P31; details in `docs/screening/07`).
@@ -378,13 +378,13 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 | T4 | 4 | Does the Spanish direction read Russian soft-sign nouns? | confirmatory | passes | §3.3 |
 | R1, R1-EN | 5 | Does pushing a noun toward feminine make feminine-rated English adjectives likelier? | confirmatory (co-primary, Holm) | small at 8B, none at 14B | §3.4 |
 | R2 | 5 | Same, read as a woman/man choice | secondary | moves, but can't separate routes | §3.4 |
-| R3 | 5 | Same, with Spanish gender-invariant adjectives | secondary | [check] | §3.4 |
+| R3 | 5 | Same, with Spanish gender-invariant adjectives | secondary | no valid test on 8B: the adjectives get under 5% of the probability (C2-style check) | §3.4 |
 | P19 | 5 | Do invented words get the gender their ending suggests? | exploratory | yes, every model | §2.4.6 |
 | P20, P28 (R3-POOL, P20-POOL) | 5 | Read gendered Spanish adjectives with both forms pooled | exploratory | looked positive; ruled out by P29 | §3.4 |
 | P22, P22b | 5 | Does the model's own woman/man axis match the human ratings? | exploratory | yes in English; weaker in German | §3.5 |
 | P23, P24, P24b | 5 | Does the grammatical direction also sort English person words and names by sex? | exploratory | Spanish yes; German weaker; overlap shrinks with size | §3.5 |
-| P25 | 5 | Unsteered: do "bridge" concepts lean by grammatical gender in English? | exploratory | [check] | – |
-| P26 | 5 | Does steering with the *other* language's direction do the same? | exploratory | [check] | – |
+| P25 | 5 | Unsteered: do "bridge" concepts lean by grammatical gender in English? | exploratory | no lean (intervals include 0, 8B and 14B) | – |
+| P26 | 5 | Does steering with the *other* language's direction do the same? | exploratory | 14B: above random at 2 of 3 layers (not a majority) | – |
 | P27 | 5 | German neuter diminutives (*das Schwesterchen*): does sex or grammar drive the person effect? | exploratory | persons, not sex | §3.5 |
 | P29 | 5 | Is pooling agreement-neutral? | confirmatory check | no, so R3-POOL/P20-POOL aren't evidence | §3.4 |
 | P30 | 5 | Spanish: does *la* on a "thing" invented noun pull toward feminine adjectives? | pre-registered, descriptive | yes, all Qwen3 sizes; not shown to be social | §3.6 |
@@ -410,13 +410,15 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 | Qwen3-0.6B | 0.89 | 0.89 |
 | Qwen3-1.7B | 0.90 | 0.92 |
 | Qwen3-4B | 0.94 | 0.94 |
+| Qwen3-8B | 0.97 | 0.94 |
+| Qwen3-14B | 0.95 | 0.95 |
+| Qwen3-30B-A3B | 0.98 | 0.97 |
 | EuroLLM-1.7B | 0.97 | 0.98 |
 
-*Source: `results/phase0/comparison.csv`.*
+*Source: `results/phase0/comparison.csv`. 0.6B–4B and EuroLLM were run on the Mac (fp16); 8B, 14B and 30B on the pod (bf16, `worktrees/gender-pod`). Where the small models were run both ways, the two differ by at most 0.01.*
 
-- Confidently **wrong** answers were rare (at most 0.8% of nouns). Almost all the rest were near-ties ("unsure"), not errors. So when a model doesn't pass a noun, it is usually unsure rather than mistaken.
-- Knowledge rises with Qwen3's size. EuroLLM, a small model built specifically for European languages, knows the most.
-- Phase 0 was not rerun on Qwen3-8B and 14B. For those models, each later list's own known-check (§2.7.1) is used instead [check].
+- Confidently **wrong** answers were rare (at most 1.2% of nouns). Almost all the rest were near-ties ("unsure"), not errors. So when a model doesn't pass a noun, it is usually unsure rather than mistaken.
+- Knowledge rises with Qwen3's size up to 8B and then levels off. EuroLLM, a small model built specifically for European languages, knows the most.
 - The quiz format (§2.7.1: *definite article:* followed by worked examples) gave answers that depended on the order of the examples. Reordering them changed 20% of 0.6B's German answers and 45% of its Spanish ones. This is why the quiz gates nothing and only the sentence frames count.
 
 **Phase 1: can spelling be erased?** The cleanest way to stop a gender direction from reading spelling would be to delete the spelling information from the hidden states first. We tried this with **LEACE**, a published method that makes the smallest change to the states that leaves a property undetectable by any straight-line (linear) classifier. The trick was to learn what "-o versus -a" looks like where it has nothing to do with gender: in Spanish verbs, where *hablo* "I speak" and *habla* "she speaks" differ only in the ending. If the eraser learned the ending *as a form*, it should also erase it from invented words like *flitro/flitra*.
@@ -427,7 +429,7 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 
 ### 3.2 Phases 2–3: a gender direction exists, at the noun's own token
 
-**How a result is scored.** Most results below are **AUCs** (area under the ROC curve). Take one noun from each of two groups at random and ask whether the direction scores the feminine one higher. The AUC is how often it does: 0.5 is a coin flip, 1.0 is perfect sorting. Every model has many layers (28 to 48), and each layer gets its own verdict. A layer counts as reading **gender** when its 95% interval (§2.6.4) clears 0.5 on the test that tells gender apart from spelling, and does *not* clear it on the test that would favour spelling [check: confirmatory rule wording]. The tables report how many layers pass. "LAST" and "AFTER" are the two places the hidden state is read (§2.5): on the noun's own last token, or on the neutral token after it.
+**How a result is scored.** Most results below are **AUCs** (area under the ROC curve). Take one noun from each of two groups at random and ask whether the direction scores the feminine one higher. The AUC is how often it does: 0.5 is a coin flip, 1.0 is perfect sorting. Every model has many layers (28 to 48), and each layer gets its own verdict. A layer counts as reading **gender** when its 95% interval (§2.6.4) clears 0.5 on the test that tells gender apart from spelling, and does *not* clear it on the test that would favour spelling. The tables report how many layers pass. "LAST" and "AFTER" are the two places the hidden state is read (§2.5): on the noun's own last token, or on the neutral token after it.
 
 **Spanish (Phase 2).** The key test nouns are the exceptions of §2.4.2: masculine nouns ending in *-a* (*el día*, *el problema*). A direction that reads *gender* should put them with the masculine nouns. A direction that reads *spelling* should put them with the feminine *-a* nouns.
 
@@ -482,7 +484,7 @@ Results:
 
 **German first: no valid test.** Steering only means something in a sentence where the unmodified model already gets the grammar right (the frame check, §2.7.2) and where a push can switch the article (the gate, §2.8.1 step 4). Neither held for German:
 - **8B:** in the best of the pre-registered German frames, the model got only 62% of nouns of one gender right without any push, below the 70% bar.
-- **14B:** the German check failed as well [check: frame check or gate, and which numbers].
+- **14B:** the frame passed, but the push failed the gate at every steering layer. It pushed the feminine nouns' article to switch but left the masculine ones unswitched, so it moved both genders toward the middle rather than swapping them.
 
 By the rule that a failed check is never replaced by a better-looking frame, German has no Phase 5 verdict. **All Phase 5 verdicts are for Spanish only.**
 
@@ -496,7 +498,7 @@ By the rule that a failed check is never replaced by a better-looking frame, Ger
 
 - **8B: a small effect.** The grammatical push moves the adjectives in the social direction (+0.020) at 3 of 4 layers, above what random pushes do (95th percentile +0.012). R1-EN, the all-English readout, passes at 3 of 4 layers too. The German direction can't be tested (above), so by the labels of §2.8.4 this is **language-specific** bleed. It is also small: the push toward *woman* moves the same readout three times as much (+0.064).
 - **14B: no effect.** The grammatical push moves R1 by about 0, inside the range of random pushes, at all 3 layers. The positive control still works: the push toward *woman* moves the readout (+0.047). So the 14B readout *could* have detected an effect and didn't. That is what makes "no effect" a real null rather than a broken test.
-- **R2** (*would it be a man or a woman?*) moved above random (14B: all 3 layers; 8B [check]). But in that prompt the noun itself is the thing being asked about, so a push on the noun's grammar can change the answer just by making *la puente* sound like a feminine noun, which is grammar, not social meaning. R2 cannot tell those two routes apart, so it is reported but gives no verdict.
+- **R2** (*would it be a man or a woman?*) moved above random at every layer in both models (8B: 4 of 4, 14B: 3 of 3). But in that prompt the noun itself is the thing being asked about, so a push on the noun's grammar can change the answer just by making *la puente* sound like a feminine noun, which is grammar, not social meaning. R2 cannot tell those two routes apart, so it is reported but gives no verdict.
 - **R3 and the "pooled" readouts.** R3 uses only adjectives with one form for both genders, which leaves few words. To use more, a later idea (P28) read the many adjectives that do have two forms (*blanco/blanca* "white") by adding up both forms' probabilities, hoping the sum would ignore agreement (R3-POOL steered, P20-POOL unsteered). These looked positive. P29 then tested the hoped-for property directly. Take the plain sentence, with no push at all, and swap only the article, *el* → *la*. If pooling really ignored agreement, the pooled score should not move. It moved by +0.096 on 8B, as much as or more than steering had moved it. Agreement leaks into the pooled sum, so these readouts cannot separate social meaning from grammar and are **not evidence**. They are reported in full as a cautionary result.
 - **Confidence control** (§2.9): adding the model's overall confidence as a covariate, and using rank correlation instead of the regression, changes no Phase 5 verdict (nor any P29–P31 verdict).
 
@@ -510,9 +512,9 @@ These exploratory tests check the two ends that steering is supposed to connect:
 - In Spanish, the lean is largely explained by pleasantness (valence) rather than the gender rating, at least on 4B. This is one more reason the Spanish-adjective readouts (R3 and the pooled ones) are treated cautiously.
 
 **Does the grammatical direction sort people? (P23, P24)** The Spanish and German gender directions, found on *inanimate* nouns, were used to score English person words with a sex (*aunt/uncle*, *actress/actor*) and common first names (spelling matched by final letter):
-- **The Spanish direction** sorts English person words by sex well (AUC 0.87 and 0.85 [check: which two models]).
-- **The German direction** does so less well (0.67 and 0.72, same models). It was trained on fewer nouns (§2.4.3), so it is noisier, and that alone could make it weaker [interpretation, not tested].
-- Each direction was also compared with a "social gender" direction built from English person pairs (*woman/man*, *mother/father*, …), using the two-halves cosine of §2.6.3. The overlap **shrinks with model size**: Spanish 0.44 → 0.22, German 0.18 → 0.08, from smaller to larger model [check: which sizes]. Larger models keep grammatical and social gender more apart, which fits the absence of bleed at 14B in §3.4.
+- **The Spanish direction** sorts English person words by sex well (AUC 0.87 on 8B, 0.85 on 14B).
+- **The German direction** does so less well (0.67 and 0.72). It was trained on fewer nouns (§2.4.3), so it is noisier, and that alone could make it weaker [interpretation, not tested].
+- Each direction was also compared with a "social gender" direction built from English person pairs (*woman/man*, *mother/father*, …), using the two-halves cosine of §2.6.3. The overlap **shrinks with model size**: Spanish 0.44 → 0.22, German 0.18 → 0.08, from 8B to 14B (`docs/explainers/06-english-social-gender.md`). Larger models keep grammatical and social gender more apart, which fits the absence of bleed at 14B in §3.4.
 
 **Grammar or sex? German neuter diminutives (P27).** German diminutives in *-chen/-lein* are always neuter, whatever the person's sex: *das Schwesterchen* "little sister", *das Brüderchen* "little brother". That separates grammatical gender from sex, because both nouns have the same grammatical gender but people of different sex. (The test also controls for the original noun's gender, *die Schwester*, since that might linger.) Results (Qwen3-1.7B and 4B):
 - The German grammatical direction does **not** sort female from male diminutives (AUC 0.38–0.39, with no layer passing).
