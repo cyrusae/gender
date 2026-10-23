@@ -34,6 +34,10 @@ def pick_device(pref: str | None = None) -> str:
 def pick_dtype(name: str | None, device: str) -> torch.dtype:
     if name:
         return DTYPES[name]
+    # Opt-in override for callers that pass no dtype (the Gemma driver sets bfloat16: Gemma
+    # overflows in fp16, and the MPS default is fp16). Unset -> defaults below, unchanged.
+    if os.environ.get("GBLEED_DTYPE"):
+        return DTYPES[os.environ["GBLEED_DTYPE"]]
     # M1/M2 have no native bf16; fp16 is the safe half-precision default on MPS.
     # Note: some models (notably Gemma) overflow in fp16 -> pass --dtype float32.
     return torch.bfloat16 if device == "cuda" else torch.float16

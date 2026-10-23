@@ -9,6 +9,7 @@
 # Resume: FROM="<model> <step name>" MODELS="..." bash runpod/session_gemma.sh
 set -Eeuo pipefail
 export HF_HOME=${HF_HOME:-/root/hf}
+export GBLEED_DTYPE=${GBLEED_DTYPE:-bfloat16}  # Gemma: bf16 everywhere (prereg); MPS default fp16 overflows
 export GBLEED_STORE=${GBLEED_STORE:-local}  # no external drive on the pod (gbleed/paths.py)
 export PATH="$HOME/.local/bin:$PATH"
 MODELS=${MODELS:-"google/gemma-3-4b-pt google/gemma-3-12b-pt"}
