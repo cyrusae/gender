@@ -111,6 +111,10 @@ def main() -> None:
     cc.add_argument("--parts", default="abc", help="any of a, b, c")
     cc.add_argument("--models", nargs="+", default=None, help="default: Qwen3 8B and 14B")
     cc.add_argument("--out", default=None, help="default: results/confidence_ctl")
+    ns = sub.add_parser("noun-sense", help="noun-sense adjective sensitivity check (gemma prereg)")
+    ns.add_argument("--models", nargs="+", default=["Qwen/Qwen3-8B-Base", "Qwen/Qwen3-14B-Base"])
+    ns.add_argument("--root", default=None, help="Phase 5 sweep root (default: paths.p5_dir())")
+    ns.add_argument("--rc", default=None, help="readout-check root")
     fa = sub.add_parser(
         "frequency-axis", help="German frequency-axis follow-up (prereg 2026-10-21)"
     )
@@ -181,6 +185,11 @@ def main() -> None:
         from .gemma_g0 import main as g0_main
 
         g0_main(a.models or MODELS)
+        return
+    if a.cmd == "noun-sense":
+        from .noun_sense import main as ns_main
+
+        ns_main(a.models, a.root, a.rc)
         return
     if a.cmd == "frequency-axis":
         from .frequency_axis import C_REF, MODELS, OUT

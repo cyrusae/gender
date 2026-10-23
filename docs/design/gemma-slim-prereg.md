@@ -189,3 +189,19 @@ No Qwen-Scope SAE exists for 14B.
 1. Adopted 2026-10-22 with the sink-scan, 27B and Qwen3-8B-first tweaks.
 2. 27B: decided at pod time, by whether 4B/12B were interesting; default off.
 3. 30% "list not portable" threshold: accepted as a rule of thumb, fixed before any Gemma data.
+
+## Addendum (PI 2026-10-22): noun-sense sensitivity check
+
+Fixed before any Gemma Phase 5 result. Some English readout adjectives are mostly nouns
+(*expert*, *assistant*, *consonant*), so their Glasgow gender rating may describe the noun.
+
+- **Rule:** drop a word when its dominant part of speech in SUBTLEX-US (Brysbaert, New &
+  Keuleers 2012, `Dom_PoS_SUBTLEX`) is *Noun*; words SUBTLEX lacks fall back to WordNet SemCor
+  counts (noun uses > adjective uses). The same rule on every family's list. Mechanical: genuine
+  adjectives with noun homographs (*firm*, *stern*, *kind*, *light*) are dropped too; accepted.
+- **Check:** rerun the Phase 5 analysis with those words removed from the English graded
+  readouts (R1, R1-EN, RN-R1); compare each verdict (majority of passing layers) with the
+  primary one. Primary verdicts stay those on the full approved list.
+- **Reading:** *robust* if no verdict changes on that model; otherwise each change is reported.
+- **Status:** pre-registered for Gemma 3; **exploratory** on Qwen3 (its results already exist).
+- Code: `src/gbleed/noun_sense.py`, CLI `gbleed noun-sense`; output `results/noun_sense/`.
