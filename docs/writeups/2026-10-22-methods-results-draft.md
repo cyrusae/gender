@@ -260,10 +260,71 @@ Why trust it: the check reads the model's own expectations about what kind of th
 
 ### 2.8 Steering and readouts (Phase 5, P29–P31)
 
-- **Steering:** push the noun's state along the grammatical gender direction (dose in units of the state norm) and measure the shift in English (R1) or Spanish (R1-ES/R2/R3) adjective log-probabilities, regressed on the adjectives' gender ratings with the covariates above. ==Units of the state norm?==
-- **Controls:** 100 random directions (rank test), a number direction, a social-gender direction, damage (KL) matching.
-- **Unsteered article tests (P30 Spanish, P31 German):** nonce nouns given a feminine vs masculine article in a sentence that makes them a *thing* (object reading) vs neutral vs a *person*; S = slope of the die−der (la−el) shift on gender rating. ==Add detail here because it's neat!==
-- **Verdict rules:** a majority of the pre-registered layers; Holm across co-primary tests. ==more context on Holm==
+This is the stage that asks the actual question. If grammatical gender and social gender share machinery inside the model, then pushing a noun's internal state toward "grammatically feminine" should also make the model treat it a little more like something *socially* feminine.
+
+#### 2.8.1 Steering: the push
+
+1. Run the model on a prompt containing a noun, for example *puente* "bridge" (masculine in Spanish).
+2. At one layer, at the noun's own token(s), add a multiple of the grammatical gender direction from §2.6 to the hidden state: *state + α × direction*. A positive α pushes toward feminine, a negative one toward masculine. This is called **steering**.
+3. **How big a push.** Hidden states at different layers have very different typical sizes (their *norm*, i.e. length). A fixed push would be huge at one layer and invisible at another. So α is measured in multiples of the layer's typical state length: the median length of the hidden state at noun positions. α = 0.1 means "a push one tenth as long as a typical state at this layer".
+4. **Which α.** For each layer we use α\*, the smallest push at which the model, asked for the noun's article, switches it for the median noun (*el puente* → *la puente*). So α\* is "just enough to change the grammar". As a check that this isn't simply damage, pushes of the same size along random directions must switch the article for fewer than 10% of nouns. A layer where the gender push never switches the article drops out.
+5. Then let the model run on and read what it predicts next (the readouts below), with and without the push.
+
+#### 2.8.2 Readouts: what we measure after the push
+
+Each readout is a sentence that ends just where the model must pick a word, and we compare probabilities of human-rated words in that slot.
+
+| | prompt (the push is at the noun) | what is compared |
+|---|---|---|
+| **R1** | *The Spanish word "puente" means bridge. Described in one word, it is very ___* | the ~600 English adjectives of §2.4.6 |
+| **R1-EN** | *The bridge is very ___* (the push is applied to the English word, using the Spanish or German direction) | the same adjectives |
+| **R2** | *If the bridge (puente) were a person, would it be a man or a woman? It would be a ___* | *man* versus *woman*; also *male/female* and *boy/girl*, each in both orders, averaged over the six |
+| **R3** | *Mi puente es muy ___* "My bridge is very ___" | Spanish adjectives that look the same in both genders (*fuerte* "strong", *elegante* "elegant", *frágil* "fragile") |
+
+The word *very* forces the next word to be an adjective. R3 uses only adjectives with one form for both genders, so the sentence's grammar cannot prefer one; the only thing that could favour *elegante* over *fuerte* is meaning.
+
+**From readout to a single number.** For R1, the push changes the log-probability of every adjective a little. We then ask whether the change *lines up with the adjectives' gender ratings*: does pushing toward feminine raise feminine-rated words (*gentle*) and lower masculine-rated ones (*rugged*)? Concretely, the change for each adjective is regressed on its Glasgow gender rating, with valence, arousal, size and frequency as additional predictors. The coefficient on the gender rating is the **bleed score**.
+
+> *Formula box (skippable).* For adjective *j*, let Δ*_j* = log P(*j* | pushed) − log P(*j* | not pushed). Fit Δ*_j* = *b*₀ + *b*_g · gender*_j* + *b*_v · valence*_j* + *b*_a · arousal*_j* + *b*_s · size*_j* + *b*_f · Zipf*_j* + error. The bleed score is *b*_g. The other predictors are there so that *b*_g can only reflect gender, not "pleasantness" (which correlates with gender at −0.47).
+
+Each bleed score is compared with the same score from three other pushes:
+- **Random directions** (20 or 100, same length). The gender push must beat the 95th percentile of the random pushes; otherwise any push "does" this.
+- **A number direction** (singular versus plural, same length), as a second grammar-but-not-gender comparison.
+- **A social-gender direction** (pushing *bridge* toward *woman*). This is a **positive control**: it must move the readouts, or the readouts can't detect gender at all and a null means nothing.
+- For R1-EN, the push's **damage** to the model's predictions on ordinary English text (measured as KL divergence) is also capped, so that an effect cannot come from a broken model.
+
+#### 2.8.3 No push at all: does the article itself carry social gender? (P29–P31)
+
+The steering tests found little (§3.4), but one unsteered observation stood out (P29): in *La sianta es muy ___*, with an invented noun, the feminine article *la* (versus *el*) made feminine-rated adjectives a little more likely, even among adjectives that look identical in both genders. Two explanations are possible:
+- the article's grammatical gender itself carries some social gender ("bleed"); or
+- the model guesses that an unknown *la*-noun may be **a woman**: *la sianta* could be a female person, like *la presidenta*. That would be ordinary meaning, not bleed.
+
+P30 (Spanish) and P31 (German) separate these by placing the same invented noun in sentences that make it clearly a **thing**, clearly a **person**, or neither:
+
+| context | Spanish (P30) | German (P31) | gloss |
+|---|---|---|---|
+| object | *La sianta que compré ayer es muy ___* | *Die Flitt, die ich gestern gekauft habe, ist sehr ___* | "The N I bought yesterday is very ___" |
+| object | *La sianta que guardé en el cajón es muy ___* | *…, die ich in die Schublade gelegt habe, …* | "…that I put away in the drawer…" |
+| neutral | *La sianta es muy ___* | *Die Flitt ist sehr ___* | "The N is very ___" |
+| person | *La sianta con quien hablé ayer es muy ___* | *…, mit der ich gestern gesprochen habe, …* | "…that I talked with yesterday…" (Spanish *quien* is used only for people) |
+| person | *La sianta que conocí ayer es muy ___* | *…, die ich gestern kennengelernt habe, …* | "…that I met yesterday…" |
+
+Every sentence is run with both articles (German also with neuter *das*), over 600 (Spanish) or 300 (German) invented nouns. The score **S** for each context is the bleed score of §2.8.2 applied to the *la* − *el* (*die* − *der*) difference, using gender-invariant adjectives in Spanish and, in German, predicate adjectives (which never change form there).
+
+The logic: if the pull is the "a woman" guess, it should vanish when the noun is clearly a thing. If it survives in the object sentences, it is not about people.
+
+Two checks must pass first, or there is no valid test:
+- **C1, do the sentences really change the reading?** In the same sentence ending in *es …* "is …", we compare the model's probability of *una persona* "a person" versus *una cosa* "a thing" (German: *Mensch/Person/Mann/Frau* versus *Ding/Gegenstand/Objekt/Sache*). Object sentences must lean "thing" by at least 1 nat (a factor of e ≈ 2.7 in odds) more than the neutral sentence. Person sentences must lean "person" by at least 1 nat more. A wording that fails is dropped; if every object wording fails, there is no valid test.
+- **C2, are the measured words actually likely there?** The adjectives read must together get at least 5% of the probability in that slot. Otherwise we would be measuring words the model wasn't going to say.
+- Real person nouns that take either article (*el/la presidente*) are run too, as a yardstick: here the article really does mark a man or a woman.
+
+Verdict (Spanish; German alike): **"the pull survives an object reading"** if S(object)'s 95% interval is above 0; **"mostly the 'a woman' guess"** if its upper end is below half of S(neutral).
+
+#### 2.8.4 How verdicts are reached
+
+- **Across layers.** Every test is run at the pre-registered layers (four per model in Phase 5). A result counts only if it holds at **a majority** of them. One striking layer is not enough.
+- **Two main tests at once (Holm correction).** Where two tests are both "primary" (Phase 4: T1 and T3; Phase 5: R1 and R1-EN), testing both at the usual 95% level doubles the chance that one passes by luck. The Holm procedure fixes this cheaply: the stronger result must pass a stricter bar (a 97.5% interval excluding zero); only if it does is the second judged at the ordinary 95%. That keeps the overall chance of a false "yes" at 5%.
+- **Verdict labels for Phase 5:** **bleed** (Spanish and German pushes both move social readouts the same way and beat random), **language-specific** (only one does), **no effect** (no more than random, while the social-gender push does move the readouts, so the test could have seen it).
 
 ### 2.9 Controls added late
 
