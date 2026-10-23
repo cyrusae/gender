@@ -328,10 +328,39 @@ Verdict (Spanish; German alike): **"the pull survives an object reading"** if S(
 
 ### 2.9 Controls added late
 
-- **Confidence control** (prereg `confidence-ctl-prereg.md`): (a) midpoint log-prob covariate, (b) Spearman rank check, (c) cross-fitted cosine between the f−m coefficient and the Zipf coefficient with a within-cell × gender permutation null; "overlap" = cross term beyond the null's 95th percentile **and** |cos| ≥ 0.3. ==What are the covariate and rank check actually measuring here? Not clear at a glance as written==
-- **Frequency axis** (prereg `frequency-axis-prereg.md`): A flexible frequency control, B frequency axis projected out and Phase 4 rerun, C frequency-matched pairs, D complex-noun drop/covariate. ==This is too dense.==
-- **Register / age of acquisition** (prereg `register-axis-prereg.md`).
-- **Stimulus flaw found late:** 12/64 masculine German training nouns are complex (numerals such as *Vierer*, compounds such as *Feuerlöscher*), 0/27 feminine; the simplex filter only checked whole-word *-er* agent nouns. Lists frozen; tested by frequency-axis D.
+These were added after the main results, in response to specific worries. Each has its own pre-registration in `docs/design/`.
+
+#### 2.9.1 Is it really confidence, not gender? (`confidence-ctl-prereg.md`)
+
+**The worry.** A push of any kind might just make the model less sure of itself, spreading probability from words it was going to say toward words it wasn't (like raising the "temperature"). Call this **flattening**. If feminine-rated adjectives happen to be the *less likely* ones in our prompts, flattening alone would raise them and look like a feminine shift. Gender would play no role.
+
+Three checks, each aimed at one way this could happen:
+- **(a) Control for how likely each word already was.** We add one more predictor to the bleed regression of §2.8.2: each adjective's log-probability, averaged over the two conditions being compared (the *midpoint*). If the "gender" effect were flattening, it would be absorbed by this predictor and the gender coefficient would shrink toward zero. (The midpoint is used rather than the "before" value, because regressing a change on its own starting point produces a spurious negative slope through regression to the mean.)
+- **(b) Use ranks instead of values.** We repeat the test with a rank correlation (Spearman) between the shift and the gender rating. This asks only whether feminine-rated words tend to move up more, not by how much. A few extreme words can't drive it.
+- **(c) Is the gender direction itself a frequency direction?** In the noun representations, we fit one direction for feminine versus masculine and one for frequency (the Zipf score), on separate halves of the nouns, and take the cosine between them (+1 = same direction, 0 = unrelated, −1 = opposite). The two directions are said to **overlap** if the cosine is at least 0.3 in size *and* is larger than 95% of cosines obtained after shuffling gender labels within spelling cells. (A cosine of 0.3 means about 9% of one direction's variation is shared with the other.)
+
+#### 2.9.2 Following up the German frequency overlap (`frequency-axis-prereg.md`)
+
+Check (c) found an overlap in German but not in Spanish (§3.7): the German feminine-minus-masculine direction points toward *rarer* words. Four follow-ups asked where this comes from:
+
+| | test | the question it answers | what would count as "explained" |
+|---|---|---|---|
+| **A** | redo (c) with a flexible frequency control (curved, and allowing for token count) | Was the straight-line frequency control too crude? | the overlap disappears at most layers |
+| **B** | remove the frequency direction from the hidden states, then rerun the cross-language tests of Phase 4 | Do any earlier German results depend on this overlap? | (here we hope for *no change*: same verdicts, cosine moves < 0.05) |
+| **C** | compare only feminine/masculine pairs of nearly equal frequency (Zipf within 0.3), no regression at all | Is the overlap an artefact of the regression? | the overlap disappears |
+| **D** | drop the 12 complex masculine nouns (below), or add a "complex" predictor | Is it word structure, not frequency? | the overlap disappears at most layers |
+
+Two later tests went further:
+- **Register / age of acquisition** (`register-axis-prereg.md`). Perhaps the "frequency" direction really encodes how technical or late-learned a word is. Controlled with age-of-acquisition norms.
+- **Sparse-autoencoder check, G2** (`gemma-slim-prereg.md`). Sparse autoencoders break a hidden state into many interpretable "features". We asked whether removing the few features most tied to frequency removes the overlap, on held-out German compounds.
+
+#### 2.9.3 A flaw in the German training list, found late
+
+While running D, we found that 12 of the 64 masculine German training nouns are not single roots after all:
+- number-words: *Vierer* "a four", *Fünfer*, *Sechser*, *Zehner*;
+- compounds with a tool-noun head: *Wasserkocher* "kettle", *Feuerlöscher* "fire extinguisher", *Plattenspieler* "record player", *Zahnstocher* "toothpick", and four more.
+
+None of the 27 feminine nouns are. The compound filter (§2.4.3) only checked whether the *whole* word was an *-er* agent noun made from a verb. It missed compounds whose *head* is one, and it missed numerals. Because results had already been reported on this list, it was not edited. Its effect was tested directly by D, and the miss is logged in `docs/decisions.md`.
 
 ### 2.10 Table of experiments
 
