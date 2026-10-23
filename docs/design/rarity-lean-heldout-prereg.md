@@ -60,10 +60,21 @@ effect on hundreds of nouns doesn't count.
 direction, whose own frequency alignment is ≤ 0.17. If the number direction shows the same ρ,
 the result is about frequency in all directions, not gender.
 
+**Sensitivity (stated in advance).** With 190 masculine nouns the standard error of a rank
+correlation is about 0.07, so passing the one-sided null needs roughly ρ_m ≤ −0.14. The
+masculine test can detect a moderate lean, not a weak one; a "training-set property" reading
+rules out only |ρ| of about 0.14 or more, not the 0.1 floor.
+
+**Feminine robustness row (*-ie*).** *-ie* loanwords are 211 of the 502 feminine nouns. Ending
+fixed effects stop *-ie* as a group from differing in mean, but ρ_f is still mostly *-ie*. So
+ρ_f is also computed without the *-ie* nouns (same null, same floor).
+
 ## Readings (per model)
 
 - **Lean generalises:** ρ_m and ρ_f both pass (null and floor) at a majority of the four layers,
-  and the number-direction control does not pass at that majority.
+  ρ_f without *-ie* also passes at that majority, and the number-direction control does not
+  pass at that majority. If ρ_f passes only with the *-ie* nouns included, the reading is
+  **mixed**, not "lean generalises".
 - **Training-set property:** neither passes at a majority of layers.
 - **Mixed:** anything else; reported descriptively, no conclusion drawn.
 - **No valid test:** fewer than 100 masculine nouns remain after the complexity rule.
