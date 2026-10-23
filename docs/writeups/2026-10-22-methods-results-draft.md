@@ -169,16 +169,94 @@ That is the model's "start of a new document" marker, a line break, then the nou
 
 We chose between them *before* looking at any gender result, by a pre-registered rule that used no gender labels. AFTER would win only if it both kept words distinguishable from each other (checked by whether a word's vector could be matched to the same word in another context, *Beispiel: Brücke* "Example: bridge") and depended less on how the word was split into tokens. On Qwen3-1.7B and 4B, AFTER met the rule in only 1 of 4 model × language combinations, so **LAST is the primary position** throughout. AFTER is reported as a robustness check.
 
-### 2.6 Directions and the estimator
+### 2.6 Finding a gender direction, and measuring it fairly
 
-- A gender direction is a difference of class means or an L2 logistic probe, fitted after residualising nuisance variables (cell dummies, Zipf, token count, concreteness): X ↦ (I − Z Z⁺) X, so only within-cell variation is used. ==I'm going to need more detail on the math here (residualising nuisance variables? brief note on how we determined what nuisance variables were? "cell dummies" not clear. "difference of class means or an L2 logistic probe" is just me needing to understand the math more)==
-- **Split-half (cross-fitted) estimator.** Plug-in squared lengths and cosines are biased upwards (E‖v̂‖² = ‖v‖² + tr Σ (1/n_g + 1/n_ref)), worst for the smaller class. We split the nouns into halves within strata and use E[v̂_A · v̂_B] = ‖v‖², averaged over 200 splits and computed exactly through the Gram matrix. Inference uses a **within-cell label-shuffle null** and a bootstrap in which copies of a resampled item stay in one half. ==Also here (the formula, shuffle null, Gram matrix, "plug-in squared lengths", bootstrap, lost track of how they're stratified due to density==
-- This matters: the plug-in estimator supported "masculine is the shorter, default vector" in 25/27 and 31/35 layers; the split-half estimator supported it in 0.
+#### 2.6.1 What a "direction" is
 
-### 2.7 Behavioural gates
+For each noun and each layer, the model gives us a list of a few thousand numbers (its *hidden state*, §2.5). Think of it as a point in a space with a few thousand axes. A **gender direction** is an arrow in that space that points from where masculine nouns tend to sit toward where feminine nouns tend to sit. If such an arrow exists, you can take any noun's point, measure how far along the arrow it lies, and guess its gender from that one number. We found arrows in two ways:
 
-Phase 0 "known" checks (balanced article-choice rate; cross-size comparisons only on nouns every model knows), frame checks on two families, and in Phase 5 an agreement-flip gate (a dose α* must flip article agreement beyond a random-direction limit) plus readout frame checks (C1: the
-probe must read the intended referent type with a 1-nat margin). ==Include the actual prompts used/more explanation of what the action being taken here is. "Frame check" sounds like something the reader is expected to know by reading our mind, among other things. "the probe must read the intended referent type": how, when do we know it's doing so, why can people trust us when we say we know==
+- **Difference of means.** Average the points of all feminine training nouns, average the points of all masculine ones, and draw the arrow from the second average to the first. This is the simplest possible method and makes no choices of its own.
+- **Probe.** A *logistic regression* is a standard statistical model that learns a weighted sum of the inputs and turns it into a probability ("feminine with probability 0.8"). Its weights are an arrow too: the direction it found most useful for telling the genders apart. "L2" means a penalty that keeps the weights small, which stops the probe from latching onto a handful of the thousands of axes by chance when there are only about a hundred training nouns. The probe can ignore axes that vary a lot for reasons unrelated to gender, which a difference of means cannot, so it usually separates the genders better. Both were used. Where they agree, the result does not depend on the method.
+
+> **Formula box (skippable).** Write x for a noun's hidden state and μ_f, μ_m for the feminine and masculine averages. The difference-of-means direction is v = μ_f − μ_m. A noun's score along it is the dot product v · x. The probe chooses w to minimise Σ_i log(1 + exp(−y_i w · x_i)) + λ‖w‖², where y_i is +1 for feminine and −1 for masculine; λ sets the size of the L2 penalty. With about 100 nouns and about 5,000 axes, there are far more axes than nouns. The fit is therefore done in the much smaller space spanned by the training nouns themselves, which gives exactly the same answer far faster.
+
+#### 2.6.2 Removing nuisance variables ("residualising")
+
+Even with the word lists of §2.4, feminine and masculine nouns may still differ on average in other ways: in frequency, in length, in spelling cell. An arrow could pick up those differences instead of gender. So before finding any direction, the part of each hidden state that is predictable from those other properties is removed.
+
+The idea is the same as "controlling for" a variable in an ordinary regression. Suppose frequency affects the hidden states. Fit, across all the training nouns, the best straight-line prediction of the hidden state from frequency. Subtract that prediction from every noun. What is left (the **residual**) is the part of each hidden state that frequency cannot explain. A gender arrow found in the residuals cannot be using frequency, because there is no frequency information left in them. (In statistics this is the Frisch–Waugh–Lovell result: controlling for a variable in a regression is the same as removing it first and then fitting.)
+
+The properties removed were:
+- **Spelling cell.** This is done with **dummy variables**: one yes/no column per cell ("does this noun end in *-te*?", "does it end in *-al*?", …). Removing them subtracts each cell's own average, so feminine and masculine nouns are compared only against other nouns in the same cell.
+- **Frequency** (Zipf), **token count**, and **concreteness**.
+
+These were chosen *before* the gender results, for one reason each: they are the properties already known to differ between the genders in these lists (the counts are in `docs/screening/`), and each one could plausibly change a hidden state. A few were added later by the same rule when a check found a new imbalance, for example a word-initial *a-* in Spanish (§2.4.2). Each such addition is logged in `docs/decisions.md`.
+
+> **Formula box.** Put the nuisance columns side by side in a matrix Z (one row per noun). Put the hidden states in a matrix X. The residuals are X − Z Z⁺ X, where Z⁺ is the pseudo-inverse of Z, so Z Z⁺ X is the least-squares prediction of X from Z. Written compactly: X ↦ (I − Z Z⁺) X.
+
+#### 2.6.3 Why we measure lengths and angles with two halves (the estimator problem)
+
+Several of our questions are about the *size* of an arrow, or the *angle* between two arrows:
+- **Markedness:** is the masculine noun average closer to the overall average, as if masculine were the "default"?
+- **Sharing:** does the Spanish gender arrow point the same way as the German one?
+
+There is a trap here that we fell into at first. An arrow estimated from data contains noise, and noise always adds length: a noisy arrow is on average *longer* than the true one. The noise is bigger when fewer nouns go into an average. Here the feminine lists are the smaller ones, so the feminine arrow came out artificially long. That looked exactly like the "masculine is the default" result. This simple way of measuring (computing the length straight from the estimated arrow) is called the **plug-in** estimate. It supported markedness in 25 of 27 layers in one model and 31 of 35 in the other.
+
+The fix is to split the nouns at random into two halves, A and B, keeping each spelling cell evenly divided between them. Estimate the arrow separately from each half, then multiply the two together (the dot product) instead of multiplying one arrow by itself. The true arrow is the same in both halves, but the noise in A and the noise in B are independent, so they do not reinforce each other: on average the noise cancels instead of adding. Different random splits give slightly different answers, so we average over 200 splits. With this **split-half** estimate, markedness was supported in **0** layers. The earlier effect was entirely noise.
+
+> **Formula box.** If v̂ is the estimated arrow and v the true one, the plug-in length satisfies E‖v̂‖² = ‖v‖² + tr Σ (1/n_g + 1/n_ref). Here Σ is the noise in the hidden states and n_g, n_ref are the numbers of nouns in the two averages; the second term is pure bias, and it grows as n shrinks. With independent halves, E[v̂_A · v̂_B] = ‖v‖² exactly, with no bias term. Cosines (angles) are built from the same pieces. The 200 splits are computed exactly and cheaply through the **Gram matrix**: the table of dot products between every pair of nouns (about 120 × 120, instead of working with 5,000-number arrows).
+
+#### 2.6.4 How sure we are: the null and the bootstrap
+
+Two further tools tell us whether a number is bigger than chance and how precise it is:
+
+- **Shuffle null** (what the number looks like with no real effect). Shuffle the gender labels at random, *within each spelling cell*, so each cell keeps its counts of feminine and masculine. Then compute the same number again, and repeat many times. This gives the range the number takes when gender means nothing. A real result has to beat about 95% of the shuffled values.
+- **Bootstrap** (how much the number would change with a different sample of nouns). Draw a new sample of nouns of the same size *with replacement* from the original list, again within each cell, so that some nouns appear twice and some not at all. Redo the whole analysis, including refitting the arrow, and repeat about 1,000 times. The middle 95% of the results is the reported interval. One subtlety we found the hard way: when a noun is drawn twice, both copies must go into the *same* half in §2.6.3. Otherwise the two halves share that noun's noise, and the bias creeps back in. (It showed up as an interval that did not contain its own estimate.)
+
+When several tests answer the same question, the significance threshold is tightened (the **Holm** correction), so that running more tests does not make a false positive more likely.
+
+### 2.7 Checks that the model can do the task before we test it
+
+Every experiment begins with checks run on the unmodified model, before any result of interest is looked at. If a check fails, that test is reported as "no valid test" rather than run on a model that cannot do the task. These are called **gates**. When a gate fails, we do not swap in a different sentence frame until one passes, because that would amount to choosing the test after seeing the data.
+
+#### 2.7.1 Does the model know each noun's gender? (Phase 0)
+
+The model reads a sentence once with the masculine article and once with the feminine one, and we compare how probable it finds the rest of the sentence (the noun and what follows) after each. The probability of the article itself is excluded, because some articles, such as German *ein*, also serve other genders, which would tilt the comparison. The frames are:
+
+| language | frame 1 | frame 2 |
+|---|---|---|
+| German | *Das hat etwas mit **dem/der** X zu tun.* "That has something to do with the X." | *Hier ist **ein/eine** X.* "Here is a(n) X." |
+| Spanish | *Esto tiene que ver con **el/la** X.* "This has to do with the X." | *Aquí hay **un/una** X.* "Here there is a(n) X." |
+
+The frames were chosen so that no other reading is possible. A plural reading, for instance, would need a different article or noun form. Two early German frames were dropped for exactly this reason (*Ich weiß, dass der/die X hier ist*, where *die X* can be plural).
+
+The difference in log-probability between the two versions is the **margin**, measured in *nats*. One nat means one version is about 2.7 times as probable as the other; 2.3 nats is ten times. A noun counts as **known** if the correct gender wins by at least 1 nat in *both* frames. If the model gets it confidently wrong, the noun is "wrong". If it is right in one frame and confidently wrong in the other, it is "conflict". Near-ties are "unsure". Only known nouns are used later. (Phase 3 used the same idea with three articles, *Hier ist der/die/das X* and *Dort gibt es einen/eine/ein X*.)
+
+We also tried a quiz format, *Bestimmter Artikel:* "definite article:" followed by four worked examples (*Teppich: der*, *Tasche: die*, …) and then *X:*. The answers changed with the order of the examples, so the quiz was used only as a diagnostic and gates nothing (§3.1).
+
+#### 2.7.2 Does a sentence frame work before we steer in it? (Phase 5 frame checks)
+
+In Phase 5 we push nouns along the gender arrow (§2.8) and watch whether article agreement changes. That only makes sense in a frame where the unmodified model already gets the gender right. A **frame check** tests exactly that. It uses the model's known, common nouns (Zipf ≥ 4), and the frame passes only if at least 70% of nouns *of each gender* come out right. The German candidates, fixed in advance, were:
+
+- C1 *Wörterbuch:\n X,* "Dictionary: X," followed by *der* or *die*;
+- C2 *Thema: X. Was macht man mit* "Topic: X. What does one do with" followed by *ihm* "it (m)" or *ihr* "it (f)";
+- C3 *Wörterbuch:\n X, mit* "Dictionary: X, with" followed by *dem* or *der*.
+
+For Spanish, the frame is *Mi X es muy* "My X is very". The check reads whether the masculine or feminine form of the following adjectives is preferred (*rojo/roja* "red").
+
+#### 2.7.3 Is the push strong enough to matter, but no stronger? (the agreement-flip dose)
+
+Before reading social adjectives, each layer has to pass a dose check. The push is made larger in steps (0.05 to 3 times the typical length of a hidden state). Feminine nouns are pushed toward masculine and masculine nouns toward feminine. The **dose** α\* is the smallest step at which agreement flips for the *median* noun of both genders (a feminine noun now takes the masculine form, and vice versa). There is one condition: pushes of the same size along 20 *random* directions must flip, on average, fewer than 10% of nouns. A layer where this never happens drops out of the test. This makes sure that a later "no effect on social adjectives" cannot just mean the push was too weak to do anything, and that a positive effect is not something any large push would cause.
+
+#### 2.7.4 Does the sentence make the model think of the thing we intend? (the C1 check in P30/P31)
+
+P30 and P31 ask whether an article biases adjectives *even when the noun is clearly an object*. That claim needs evidence that the model actually reads the noun as an object in our "object" sentences, and as a person in our "person" sentences. So, in the same sentence with the adjective slot removed, we compare how probable the model finds a person word against a thing word coming next: Spanish *una persona* "a person" versus *una cosa* "a thing"; German *Mensch/Person/Mann/Frau* versus *Ding/Gegenstand/Objekt/Sache* (the German set was broadened by the PI before the run).
+
+- An **object wording** passes only if the thing word wins on the median noun, *and* wins by at least 1 nat more than in the neutral wording.
+- A **person wording** must favour the person word by at least 1 nat more than neutral.
+- Real person nouns (*la doctora* "the (female) doctor") are scored the same way, as a reference for what a genuine person reading looks like.
+
+Why trust it: the check reads the model's own expectations about what kind of thing comes next. It was fixed before any adjective result was computed, and it fails openly. Qwen3-14B's German object sentences failed it, and that test is reported as "no valid test" (§3.6) rather than rescued. It is still an indirect measure of what the model "thinks", and §5 lists it as a limitation.
 
 ### 2.8 Steering and readouts (Phase 5, P29–P31)
 
