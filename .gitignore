@@ -84,3 +84,6 @@ data/lexicon/*_structure.csv
 results/confidence_ctl/p29/
 results/confidence_ctl/p30/
 results/confidence_ctl/p31/
+
+# ---- Parallel git worktrees (git worktree list) ----
+worktrees/
