@@ -1,0 +1,105 @@
+{
+ "model": "utter-project/EuroLLM-1.7B",
+ "n_adjectives": 177,
+ "n_single": 67,
+ "wordings": {
+  "O1": {
+   "context": "object",
+   "probe_median": 0.15863931865897207,
+   "probe_narrow_median": -2.4936466217041016,
+   "share": 0.3131357431411743,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "O2": {
+   "context": "object",
+   "probe_median": 0.09780424084130557,
+   "probe_narrow_median": -0.8266768455505371,
+   "share": 0.1868250072002411,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "N1": {
+   "context": "neutral",
+   "probe_median": 4.155884566124131,
+   "probe_narrow_median": 6.430207014083863,
+   "share": 0.14705967903137207,
+   "C1": true,
+   "C2": true,
+   "valid": true
+  },
+  "P1": {
+   "context": "person",
+   "probe_median": 0.490465494874631,
+   "probe_narrow_median": 0.1955699920654297,
+   "share": 0.1921388804912567,
+   "C1": false,
+   "C2": true,
+   "valid": false
+  },
+  "P2": {
+   "context": "person",
+   "probe_median": 1.4866867891791937,
+   "probe_narrow_median": -0.09479236602783114,
+   "share": 0.1617184579372406,
+   "C1": false,
+   "C2": true,
+   "valid": false
+  }
+ },
+ "probe_real_person_N1": 5.034627244680738,
+ "valid": true,
+ "S_object": {
+  "S": 0.07337995070923203,
+  "lo95": 0.07044301290732338,
+  "hi95": 0.07613592044258718,
+  "wordings": [
+   "O1",
+   "O2"
+  ],
+  "n_words": 300
+ },
+ "S_object_single_token": 0.04997456960065797,
+ "S_object_das": {
+  "S": 0.02611206011642907,
+  "lo95": 0.023322808852941718,
+  "hi95": 0.028955305068275653,
+  "wordings": [
+   "O1",
+   "O2"
+  ],
+  "n_words": 300
+ },
+ "S_neutral": {
+  "S": 0.0567755020365531,
+  "lo95": 0.052792711956352774,
+  "hi95": 0.0606851872862355,
+  "wordings": [
+   "N1"
+  ],
+  "n_words": 300
+ },
+ "S_neutral_single_token": 0.05864082469981566,
+ "S_neutral_das": {
+  "S": 0.046546643149199256,
+  "lo95": 0.04195066519030359,
+  "hi95": 0.05099027146869671,
+  "wordings": [
+   "N1"
+  ],
+  "n_words": 300
+ },
+ "S_real_neutral": {
+  "S": 0.07378552363606433,
+  "lo95": 0.04829074543592143,
+  "hi95": 0.09914866276046125
+ },
+ "ratio_object_neutral": {
+  "ratio": 1.2924579805915004,
+  "lo95": 1.2219608634817636,
+  "hi95": 1.3690638081083124
+ },
+ "verdict": "pull survives an object reading"
+}

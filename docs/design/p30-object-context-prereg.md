@@ -177,3 +177,7 @@ Every Qwen3 size tested shows the object pull: 1.7B +0.038, 4B +0.026 (Mac), 8B 
 (limit 4 in the results above is revised accordingly). At 1.7B the object pull exceeds the
 shift for real women, which fits a distributional account better than a social one.
 
+
+## Sensitivity (2026-10-23): EuroLLM with its `<s>` BOS token
+
+Rerun with `GBLEED_BOS_ALL=1` (`results/p30_bos/`). The verdict is unchanged ("no neutral pull to explain"): S(object) +0.008 → +0.009, S(neutral) −0.000 → −0.002. The real-person-noun yardstick (*el/la presidente*, neutral sentence) falls from +0.052 to −0.000. So with well-formed input EuroLLM shows no Spanish article pull at all, not even for real person nouns. Its Spanish readout is therefore not a sensitive instrument, and its P30 null says little.

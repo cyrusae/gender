@@ -169,3 +169,17 @@ EuroLLM in German only. It isn't a single language-general effect that grows wit
   property could mimic the pull. The confidence control (a) re-scores P31 with a baseline-
   probability covariate.
 - **Possible routes.** First-token readout; the gender ratings are of the English glosses.
+
+## Sensitivity (2026-10-23): EuroLLM with its `<s>` BOS token
+
+P30/P31 prompts were built without special tokens, which is correct for Qwen3 (no BOS) but drops EuroLLM's default `<s>`. Rerun with `GBLEED_BOS_ALL=1`, same code and lists (`results/p31_bos/`). The verdict is unchanged ("pull survives an object reading"), but its size moves:
+
+| EuroLLM-1.7B | without `<s>` (as run) | with `<s>` |
+|---|---|---|
+| S(object) | 0.081 | 0.073 |
+| S(neutral) | 0.035 | 0.057 |
+| object / neutral | 2.32 [2.06, 2.69] | 1.29 [1.22, 1.37] |
+| *das* − *der*, object | 0.045 | 0.026 |
+| real person nouns, neutral | 0.014 | 0.074 |
+
+With `<s>`, the object pull is about as large as the neutral pull, not twice it. The real-person yardstick also becomes clearly larger than either, which is the pattern a working social readout should show. The as-run numbers remain the pre-registered result; the `<s>` version is the more trustworthy description of EuroLLM.

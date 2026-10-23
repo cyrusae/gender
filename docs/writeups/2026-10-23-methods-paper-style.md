@@ -352,7 +352,7 @@ A precondition is that the held-out overlap itself meets the |cos| ≥ 0.3 bar; 
 - **Prompt BOS.** Phase 5–style prompts (Phase 5, P29–P31) were built without special tokens.
   - This is correct for Qwen3, which has no BOS.
   - It was caught for Gemma before any measured run: one `<bos>` is now added, and G0 checks this path.
-  - EuroLLM's P30/P31 prompts lacked its default `<s>`. A labelled sensitivity rerun with `<s>` is reported alongside the original. EuroLLM's contribution to the 2026-10-09 German gate-frame selection carries the same caveat.
+  - EuroLLM's P30/P31 prompts lacked its default `<s>`. A labelled sensitivity rerun with `<s>` (`GBLEED_BOS_ALL=1`) is reported alongside the original (§3.6). EuroLLM's contribution to the 2026-10-09 German gate-frame selection carries the same caveat.
   - Known-check scoring and activation extraction used each model's BOS convention throughout.
 - **Not run.** Phase 0 was not part of the original Gemma driver (added before measured runs). P29–P31 and Russian are out of scope for the Gemma slim replication.
 
@@ -469,7 +469,7 @@ Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap i
 | Qwen3-4B | +0.026 | +0.019 | +0.065 | +0.066 | survives |
 | Qwen3-8B | +0.080 | +0.020 | +0.152 | +0.130 | survives |
 | Qwen3-14B | +0.124 | +0.068 | +0.186 | +0.192 | survives |
-| EuroLLM-1.7B | +0.008 | −0.000 | – | – | no neutral pull |
+| EuroLLM-1.7B | +0.008 (with `<s>`: +0.009) | −0.000 (−0.002) | – | +0.052 (−0.000) | no neutral pull |
 
 **Table 7.** P31 (German, *die* − *der*).
 
@@ -479,14 +479,18 @@ Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap i
 | Qwen3-4B | survives | 0.043 | 2.14 |
 | Qwen3-8B | no neutral pull | 0.002 | (neutral 0.002; person 0.081) |
 | Qwen3-14B | no valid test (C1) | 0.025 (exploratory, C1 waived) | 0.73 [0.63, 0.85] |
-| EuroLLM-1.7B | survives | 0.081 | 2.32 |
+| EuroLLM-1.7B | survives | 0.081 (with `<s>`: 0.073) | 2.32 (with `<s>`: 1.29 [1.22, 1.37]) |
 
-- *das* − *der* object effects are ≈ 0 on Qwen3 (≤ 0.001) and +0.045 on EuroLLM.
+- *das* − *der* object effects are ≈ 0 on Qwen3 (≤ 0.001) and +0.045 on EuroLLM (+0.026 with `<s>`).
 - The cross-language pattern is model-specific:
   - large Qwen3: object pull in Spanish only;
   - small Qwen3: in both languages;
   - EuroLLM: in German only.
-- EuroLLM's P30/P31 prompts lacked its default `<s>` (§2.13). A sensitivity rerun is pending, and the EuroLLM rows are provisional until it is reported.
+- EuroLLM's P30/P31 prompts lacked its default `<s>` (§2.13). With `<s>` the verdicts are unchanged, but:
+  - in Spanish the real-person yardstick vanishes (+0.052 → −0.000), so EuroLLM's Spanish readout detects nothing;
+  - in German the object pull falls to about the size of the neutral pull (ratio 1.29), and real person nouns now show the largest pull (0.074).
+
+  The "EuroLLM: German only" contrast therefore rests on a German object pull that is real but not larger than the neutral one.
 - The design rules out the "a woman" inference as the source of the object pull. It does not establish that the pull is social rather than distributional (article–adjective co-occurrence).
 
 ### 3.7 German gender–frequency alignment
@@ -519,6 +523,6 @@ Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap i
 | Partly shared across Spanish and German | T2, T3, T4 pass; T1 fails | moderate |
 | Steering moves social readouts (8B) | R1, R1-EN 3/4 layers | small; Spanish-only; survives confidence control |
 | No steering effect (14B) | R1 0/3, control works | null for the Spanish direction (P26 caveat) |
-| Unsteered object pull (P30/P31) | Tables 6–7 | descriptive; not shown social; EuroLLM provisional |
+| Unsteered object pull (P30/P31) | Tables 6–7 | descriptive; not shown social; EuroLLM verdicts robust to `<s>`, sizes not |
 | Pooled readouts | P29 | not evidence |
 | German direction aligned with low frequency | §3.7 | robust in training sample only; mechanism open |
