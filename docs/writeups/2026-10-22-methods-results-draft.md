@@ -415,8 +415,8 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 *Source: `results/phase0/comparison.csv`.*
 
 - Confidently **wrong** answers were rare (at most 0.8% of nouns). Almost all the rest were near-ties ("unsure"), not errors. So when a model doesn't pass a noun, it is usually unsure rather than mistaken.
-- Knowledge rises with Qwen3's size. EuroLLM, a smaller model trained with much more European-language text, knows the most.
-- Phase 0 was not rerun on Qwen3-8B and 14B. For those models, each later list's own known-check (§2.7.1) is used instead.
+- Knowledge rises with Qwen3's size. EuroLLM, a small model built specifically for European languages, knows the most.
+- Phase 0 was not rerun on Qwen3-8B and 14B. For those models, each later list's own known-check (§2.7.1) is used instead [check].
 - The quiz format (§2.7.1: *definite article:* followed by worked examples) gave answers that depended on the order of the examples. Reordering them changed 20% of 0.6B's German answers and 45% of its Spanish ones. This is why the quiz gates nothing and only the sentence frames count.
 
 **Phase 1: can spelling be erased?** The cleanest way to stop a gender direction from reading spelling would be to delete the spelling information from the hidden states first. We tried this with **LEACE**, a published method that makes the smallest change to the states that leaves a property undetectable by any straight-line (linear) classifier. The trick was to learn what "-o versus -a" looks like where it has nothing to do with gender: in Spanish verbs, where *hablo* "I speak" and *habla* "she speaks" differ only in the ending. If the eraser learned the ending *as a form*, it should also erase it from invented words like *flitro/flitra*.
