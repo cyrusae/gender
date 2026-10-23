@@ -8,58 +8,83 @@
 
 ## 2. Methods
 
-### 2.1 Ground rules
+### 2.1 What we did, in order
 
-==Good place for general context on overall experiments design? Introduce phases before using them, somewhere. I feel like that would go a long way towards helping with the "reader is dropped in media res" issue. I know some of this goes in section 1 but. I don't know, maybe I want too much of "the literal word 'methods'".==
+**The question.** In German *die Brücke* "the bridge" is feminine; in Spanish *el puente* "the bridge" is masculine. For an object like a bridge, the gender is pure grammar: nothing about bridges is female or male. Humans have been claimed (contestedly) to carry a little of the grammar over into how they think about objects, describing German bridges as "elegant" and Spanish ones as "strong". We ask the language-model version of the question. When a model learns which nouns are grammatically feminine or masculine, does that knowledge sit in the same place inside the model as its knowledge of *social* gender (women and men, and the words people associate with them)? If it does, pushing on the grammar should move the social side too. We call that leakage **bleed**.
 
-- **Pre-registration.** Every confirmatory analysis was written down and committed before its data were produced (`docs/design/*-prereg.md`; deviations logged in `docs/decisions.md`). Exploratory analyses are labelled as such wherever they appear.
-- **Gold labels** come from Wiktionary (via kaikki.org dumps), never from a language model. ==Add/expand section on stimulus selection for the words==
-- **Drop, don't review.** Items failing an automatic filter are dropped; nobody hand-edits a list to rescue items. Lists that have produced results are frozen; flaws found later are logged and tested, not patched (e.g. §2.8, complex German training nouns). ==Would like to document item selection meaningfully==
-- **Held-out sets** are fixed before the analyses that use them and asserted in code.
-- **Same chip** for any comparison across runs.
+**Two kinds of evidence.** We look at the model two ways throughout:
 
-### 2.2 Models
+- **Inside the model ("representational").** A language model turns each word into a long list of numbers, its *hidden state*, at each of its layers. We look for a consistent direction in that space that separates feminine from masculine nouns, and ask what else it lines up with.
+- **What the model does ("behavioural").** We give the model a prompt and read the probabilities it assigns to possible next words, for example whether it expects *la* or *el*, or "gentle" or "rugged". Behavioural tests are used both to check that the model knows what we assume it knows (§2.7) and to measure bleed (§2.8). We never ask the model to judge anything about itself; we only read its next-word probabilities.
 
-Qwen3 base models, 0.6B–14B dense plus Qwen3-30B-A3B (mixture of experts); EuroLLM-1.7B as a second family for the behavioural tests. Base models only (instruct-tuned models are a planned follow-up). Confirmatory runs in bf16 on a single A100/L40S; small models also on an M-series Mac.
-==Define behavioural tests for our purposes briefly here and/or explicitly reference the behavioural section below, please==
+**The phases.** The study ran in phases. Each one answers a question that the next phase depends on.
 
-### 2.3 Stimuli
+| Phase | Question | What it hands on |
+|---|---|---|
+| 0 | Does the model know each noun's gender? (an article-choice quiz, §2.7) | lists of nouns the model demonstrably knows |
+| 1 | Can we just erase spelling cues (*-a* / *-o*) from the hidden states? | no: so spelling is controlled by how the nouns are chosen instead (§2.4) |
+| 2 | Spanish: is there a direction that reads *gender* rather than *spelling*? | a Spanish gender direction |
+| 3 | German: same question, plus compound nouns as a stress test | a German gender direction |
+| 4 | Is the Spanish direction the same as the German one? (tests T1–T4) | evidence on whether there is one shared "grammatical gender" direction |
+| 5 | If we push a noun along that direction, does the model's choice of socially gendered adjectives shift? (readouts R1–R3) | the main bleed result |
+| P-numbered tests (P22b–P31) | follow-ups, each with its own pre-registration: English social gender, the pooled-readout check, unsteered article tests | refinements and robustness |
+| late controls | does word frequency or the model's confidence explain any of the above? | caveats |
+
+The labels T, R, P and C (and G for the Gemma replication) are just numbering schemes: T for Phase 4 tests, R for Phase 5 readouts, P for follow-up projects, C for the checks that a prompt really means what we intend (§2.7). Section 2.10 lists every test with its question and verdict.
+
+### 2.2 Ground rules
+
+- **Pre-registration.** Every confirmatory analysis was written down and committed to the repository before its data existed (`docs/design/*-prereg.md`). This covers the hypothesis, the test, and the rule that turns numbers into a verdict. Changes were logged with reasons in `docs/decisions.md`. Analyses decided after seeing data are labelled *exploratory* wherever they appear.
+- **Gold labels never come from a model.** Every noun's gender comes from Wiktionary, the crowd-edited dictionary, via machine-readable dumps (kaikki.org). How the word lists were built is described step by step in §2.4.
+- **Drop, don't review.** Nouns are kept or dropped by written, automatic rules. Nobody hand-picks words or rescues a word that a rule rejected, because hand-picking lets the experimenter's expectations into the stimuli. Once a list has produced results it is frozen. If a flaw turns up later, it is logged and its effect is tested rather than silently fixed (an example is in §2.9).
+- **Held-out words stay held out.** Words used to test a direction are fixed before the analysis and never used to build it. The code checks this.
+- **Same hardware for any comparison.** Numbers compared with each other come from the same type of chip, because tiny numerical differences between chips can otherwise masquerade as effects.
+
+### 2.3 Models
+
+- **Main family: Qwen3**, an open family released in several sizes: 0.6B, 1.7B, 4B, 8B and 14B parameters (roughly, the number of adjustable numbers in the model), plus Qwen3-30B-A3B, a *mixture of experts* model that routes each word through only part of its network.
+- **Second family: EuroLLM-1.7B**, trained with more European-language text. It is used for the behavioural tests, as a check that a result isn't a Qwen quirk.
+- **Third family, in progress: Gemma 3** (4B and 12B), a slimmed-down replication of the key results (the "slim" design, `docs/design/gemma-slim-prereg.md`).
+- **Base models only.** These are models trained only to predict the next word, before any chat or instruction tuning. Instruction-tuned models are a planned follow-up.
+- **Hardware and number format.** Confirmatory runs used bf16 numbers (a compact 16-bit format) on rented single-GPU servers (A100 or L40S). Small models were also run on an Apple-silicon Mac.
+
+### 2.4 Stimuli
 
 - **Lexicons** built from Wiktionary nouns with a single gender, frequency from `wordfreq` (Zipf), concreteness from published norms (English-gloss norms where no native norms exist).
 - **Spelling control by design.** Phase 1 showed that erasing spelling information with LEACE does not generalise (nonce endings stay readable, accuracy ≈ 0.99–1.00), so spelling is controlled by stratifying nouns into ending × loan-status cells and comparing genders *within* cells.
 - **Test sets:** Spanish exceptions (*el día*), noun/verb homographs, German compounds whose first part and head differ in gender, Spanish–German flipped pairs (*die Brücke* / *el puente*; ≈10% gloss-error caveat), Russian soft-sign nouns, English person words and names. ==Exceptions to what? (You know and I know, but does a reader?) Soft-sign nouns? "gloss-error caveat" also reads jargon-y (again: both of us know, but it means nothing to a reader)==
 - **Phase 5 readouts** use English adjectives rated for gender association in the Glasgow Norms (and Spanish invariant adjectives); gender ratings correlate with valence (r ≈ −0.47), so valence, arousal, size and frequency are covariates throughout. ==Want how each were determined to be legible==
 
-### 2.4 Extraction
+### 2.5 Extraction
 
 Each noun is fed bare after a fixed prefix (`<|endoftext|>\n `, which keeps the first content token from becoming an attention sink). Hidden states are read at every layer either at the noun's last token (LAST) or at a following neutral token (AFTER). Which position is primary was decided by a **gender-blind** pre-registered check, before any gender result was seen. ==More explicitly articulate what we're looking for in the hidden state (i.e., searching for pre-registered adjectives) and at what ratios; "Each noun is fed bare" here is confusing given the extensive frames elsewhere, more sign that "what stimuli are we applying and in what order" needs to be more explicit==
 
-### 2.5 Directions and the estimator
+### 2.6 Directions and the estimator
 
 - A gender direction is a difference of class means or an L2 logistic probe, fitted after residualising nuisance variables (cell dummies, Zipf, token count, concreteness): X ↦ (I − Z Z⁺) X, so only within-cell variation is used. ==I'm going to need more detail on the math here (residualising nuisance variables? brief note on how we determined what nuisance variables were? "cell dummies" not clear. "difference of class means or an L2 logistic probe" is just me needing to understand the math more)==
 - **Split-half (cross-fitted) estimator.** Plug-in squared lengths and cosines are biased upwards (E‖v̂‖² = ‖v‖² + tr Σ (1/n_g + 1/n_ref)), worst for the smaller class. We split the nouns into halves within strata and use E[v̂_A · v̂_B] = ‖v‖², averaged over 200 splits and computed exactly through the Gram matrix. Inference uses a **within-cell label-shuffle null** and a bootstrap in which copies of a resampled item stay in one half. ==Also here (the formula, shuffle null, Gram matrix, "plug-in squared lengths", bootstrap, lost track of how they're stratified due to density==
 - This matters: the plug-in estimator supported "masculine is the shorter, default vector" in 25/27 and 31/35 layers; the split-half estimator supported it in 0.
 
-### 2.6 Behavioural gates
+### 2.7 Behavioural gates
 
 Phase 0 "known" checks (balanced article-choice rate; cross-size comparisons only on nouns every model knows), frame checks on two families, and in Phase 5 an agreement-flip gate (a dose α* must flip article agreement beyond a random-direction limit) plus readout frame checks (C1: the
 probe must read the intended referent type with a 1-nat margin). ==Include the actual prompts used/more explanation of what the action being taken here is. "Frame check" sounds like something the reader is expected to know by reading our mind, among other things. "the probe must read the intended referent type": how, when do we know it's doing so, why can people trust us when we say we know==
 
-### 2.7 Steering and readouts (Phase 5, P29–P31)
+### 2.8 Steering and readouts (Phase 5, P29–P31)
 
 - **Steering:** push the noun's state along the grammatical gender direction (dose in units of the state norm) and measure the shift in English (R1) or Spanish (R1-ES/R2/R3) adjective log-probabilities, regressed on the adjectives' gender ratings with the covariates above. ==Units of the state norm?==
 - **Controls:** 100 random directions (rank test), a number direction, a social-gender direction, damage (KL) matching.
 - **Unsteered article tests (P30 Spanish, P31 German):** nonce nouns given a feminine vs masculine article in a sentence that makes them a *thing* (object reading) vs neutral vs a *person*; S = slope of the die−der (la−el) shift on gender rating. ==Add detail here because it's neat!==
 - **Verdict rules:** a majority of the pre-registered layers; Holm across co-primary tests. ==more context on Holm==
 
-### 2.8 Controls added late
+### 2.9 Controls added late
 
 - **Confidence control** (prereg `confidence-ctl-prereg.md`): (a) midpoint log-prob covariate, (b) Spearman rank check, (c) cross-fitted cosine between the f−m coefficient and the Zipf coefficient with a within-cell × gender permutation null; "overlap" = cross term beyond the null's 95th percentile **and** |cos| ≥ 0.3. ==What are the covariate and rank check actually measuring here? Not clear at a glance as written==
 - **Frequency axis** (prereg `frequency-axis-prereg.md`): A flexible frequency control, B frequency axis projected out and Phase 4 rerun, C frequency-matched pairs, D complex-noun drop/covariate. ==This is too dense.==
 - **Register / age of acquisition** (prereg `register-axis-prereg.md`).
 - **Stimulus flaw found late:** 12/64 masculine German training nouns are complex (numerals such as *Vierer*, compounds such as *Feuerlöscher*), 0/27 feminine; the simplex filter only checked whole-word *-er* agent nouns. Lists frozen; tested by frequency-axis D.
 
-### 2.9 Table of experiments
+### 2.10 Table of experiments
 
 ==Some of my "...this means nothing out of context" notes presumably remedied by building this, but I feel like the structure should also be meaningfully introduced earlier.==
 
