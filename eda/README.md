@@ -58,7 +58,7 @@ AUC 0.5 = chance; 1.0 = perfect.
 | `lang`, `test` | which test |
 | `layer`, `depth` | layer index; `depth` = layer / last layer (0–1), so models of different size line up |
 | `auc_last`, `lo_last`, `hi_last` | AUC read at the noun's own last token, with a 95% bootstrap interval |
-| `auc_after` etc. | the same, read one token *after* the noun (missing for some models/tests) |
+| `auc_after` etc. | the same, read one token *after* the noun |
 
 The file is deliberately **wide**, with `last`/`after` as separate columns. Reshaping it is the
 first transformation.
