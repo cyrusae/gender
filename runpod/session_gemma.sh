@@ -54,8 +54,10 @@ drop() { uv run python -c "from huggingface_hub import scan_cache_dir as s; c=s(
     step "$M phase4 extract"      uv run gbleed phase4 "$M" --extract-only
     step "$M english extract"     uv run gbleed p5 english-extract "$M"
     step "$M number extract"      uv run gbleed p5 number-extract "$M"
+    # Phase 0 quiz on the frozen v3 list: input to the Phase 5 frame check (as in session.sh)
+    step "$M phase0 v3"           uv run gbleed phase0 "$M" --stimuli data/stimuli/phase0_v3.csv
     # Phase 5 gate frame check, readout check, gate + sweeps (one model load)
-    step "$M phase5"              uv run gbleed p5 phase5-all "$M"
+    step "$M phase5"             uv run gbleed p5 phase5-all "$M"
     step "$M save archive" tar cf "$OUT/$S.tar.part" activations/"$S" results BUNDLE_COMMIT.txt logs
     mv "$OUT/$S.tar.part" "$OUT/$S.tar"
     if [ -z "${KEEP_MODELS:-}" ]; then rm -rf activations/"$S"; drop "$M"; fi
