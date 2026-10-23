@@ -198,10 +198,13 @@ def pairs_variant(d, X, rng, n_splits=N_SPLITS, n_perm=N_PERM) -> dict:
 
 
 # ---- A, C, D per layer ---------------------------------------------------------------------
-def run_acd(model_id: str, n_splits=N_SPLITS, n_perm=N_PERM) -> pd.DataFrame:
+C_REF = "results/confidence_ctl/c_frequency_cosine.csv"
+
+
+def run_acd(model_id: str, n_splits=N_SPLITS, n_perm=N_PERM, c_ref_path=C_REF) -> pd.DataFrame:
     from .phase5 import LAYER_FRACS
 
-    c_ref = pd.read_csv("results/confidence_ctl/c_frequency_cosine.csv")
+    c_ref = pd.read_csv(c_ref_path)
     why = complexity_rule()
     rng = np.random.default_rng(SEED)
     rows = []
@@ -314,15 +317,16 @@ def run_b(model_id: str) -> dict:
     return tab
 
 
-def main(parts: str = "acdb") -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
+def main(parts: str = "acdb", models=MODELS, out: Path = OUT, c_ref_path=C_REF) -> None:
+    out = Path(out)
+    out.mkdir(parents=True, exist_ok=True)
     if any(p in parts for p in "acd"):
-        acd = pd.concat(run_acd(m) for m in MODELS)
-        acd.to_csv(OUT / "acd_layers.csv", index=False)
-        readings(acd).to_csv(OUT / "acd_readings.csv", index=False)
+        acd = pd.concat(run_acd(m, c_ref_path=c_ref_path) for m in models)
+        acd.to_csv(out / "acd_layers.csv", index=False)
+        readings(acd).to_csv(out / "acd_readings.csv", index=False)
     if "b" in parts:
-        res = {m: run_b(m) for m in MODELS}
-        (OUT / "b_phase4.json").write_text(json.dumps(res, indent=1, default=float))
+        res = {m: run_b(m) for m in models}
+        (out / "b_phase4.json").write_text(json.dumps(res, indent=1, default=float))
 
 
 # ---- open threads 1-3 (exploratory, 2026-10-22; no pre-set rules) -------------------------

@@ -109,10 +109,22 @@ def main() -> None:
     p5.add_argument("models", nargs="+")
     cc = sub.add_parser("confidence-ctl", help="Confidence/flattening control (prereg 2026-10-21)")
     cc.add_argument("--parts", default="abc", help="any of a, b, c")
+    cc.add_argument("--models", nargs="+", default=None, help="default: Qwen3 8B and 14B")
+    cc.add_argument("--out", default=None, help="default: results/confidence_ctl")
     fa = sub.add_parser(
         "frequency-axis", help="German frequency-axis follow-up (prereg 2026-10-21)"
     )
     fa.add_argument("--parts", default="acdb", help="any of a, c, d (together) and b")
+    fa.add_argument("--models", nargs="+", default=None, help="default: Qwen3 8B and 14B")
+    fa.add_argument("--out", default=None, help="default: results/frequency_axis")
+    fa.add_argument(
+        "--c-ref", default=None, help="(c) cosine file the overlap reference comes from"
+    )
+    gk = sub.add_parser(
+        "gemma-known", help="Gemma slim: known-checks on the frozen lists + portability"
+    )
+    gk.add_argument("models", nargs="+")
+    gk.add_argument("--report-only", action="store_true")
     g0 = sub.add_parser("gemma-g0", help="Gemma slim prereg G0 technical gates")
     g0.add_argument("models", nargs="*", default=None)
     la = sub.add_parser(
@@ -139,14 +151,30 @@ def main() -> None:
         _p5(a.step, a.models)
         return
     if a.cmd == "confidence-ctl":
+        from .confidence_ctl import OUT, P5_MODELS
         from .confidence_ctl import main as cc_main
 
-        cc_main(a.parts)
+        cc_main(a.parts, a.models or P5_MODELS, a.out or OUT)
         return
     if a.cmd == "lang-audit":
         from .lang_audit import audit
 
         audit(a.lang, a.list, a.tag, a.cells)
+        return
+    if a.cmd == "gemma-known":
+        from . import known_filter, phase0, phase2, phase3_known
+
+        if not a.report_only:
+            for m in a.models:
+                phase0.run(
+                    m,
+                    phase2.POOL,
+                    out_root=known_filter.ROOTS["es"],
+                    dtype="bfloat16",
+                    langs=["es"],
+                )
+                phase3_known.score(m, dtype="bfloat16", out_root=known_filter.ROOTS["de"])
+        known_filter.report(a.models)
         return
     if a.cmd == "gemma-g0":
         from .gemma_g0 import MODELS
@@ -155,9 +183,10 @@ def main() -> None:
         g0_main(a.models or MODELS)
         return
     if a.cmd == "frequency-axis":
+        from .frequency_axis import C_REF, MODELS, OUT
         from .frequency_axis import main as fa_main
 
-        fa_main(a.parts)
+        fa_main(a.parts, a.models or MODELS, a.out or OUT, a.c_ref or C_REF)
         return
     if a.cmd == "multi-check":
         from . import multigender

@@ -384,14 +384,15 @@ def run_c(model_id: str) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def main(parts: str = "abc") -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
+def main(parts: str = "abc", models=P5_MODELS, out: Path = OUT) -> None:
+    out = Path(out)
+    out.mkdir(parents=True, exist_ok=True)
     if "a" in parts:
-        run_a_small().to_csv(OUT / "a_unsteered.csv", index=False)
-        vs, per = zip(*(run_a_phase5(m) for m in P5_MODELS), strict=True)
-        pd.concat(vs).to_csv(OUT / "a_phase5_verdicts.csv", index=False)
-        pd.concat(per).to_csv(OUT / "a_phase5_layers.csv", index=False)
+        run_a_small().to_csv(out / "a_unsteered.csv", index=False)
+        vs, per = zip(*(run_a_phase5(m) for m in models), strict=True)
+        pd.concat(vs).to_csv(out / "a_phase5_verdicts.csv", index=False)
+        pd.concat(per).to_csv(out / "a_phase5_layers.csv", index=False)
     if "b" in parts:
-        run_b().to_csv(OUT / "b_rating_vs_baseline.csv", index=False)
+        run_b().to_csv(out / "b_rating_vs_baseline.csv", index=False)
     if "c" in parts:
-        pd.concat(run_c(m) for m in P5_MODELS).to_csv(OUT / "c_frequency_cosine.csv", index=False)
+        pd.concat(run_c(m) for m in models).to_csv(out / "c_frequency_cosine.csv", index=False)
