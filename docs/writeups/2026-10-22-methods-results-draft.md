@@ -427,6 +427,10 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 
 ### 3.2 Phases 2–3: a gender direction exists, at the noun's own token
 
+**How a result is scored.** Most results below are **AUCs** (area under the ROC curve). Take one noun from each of two groups at random and ask whether the direction scores the feminine one higher. The AUC is how often it does: 0.5 is a coin flip, 1.0 is perfect sorting. Every model has many layers (28 to 48), and each layer gets its own verdict. A layer counts as reading **gender** when its 95% interval (§2.6.4) clears 0.5 on the test that tells gender apart from spelling, and does *not* clear it on the test that would favour spelling [check: confirmatory rule wording]. The tables report how many layers pass. "LAST" and "AFTER" are the two places the hidden state is read (§2.5): on the noun's own last token, or on the neutral token after it.
+
+**Spanish (Phase 2).** The key test nouns are the exceptions of §2.4.2: masculine nouns ending in *-a* (*el día*, *el problema*). A direction that reads *gender* should put them with the masculine nouns. A direction that reads *spelling* should put them with the feminine *-a* nouns.
+
 | Model | Spanish LAST | Spanish AFTER |
 |---|---|---|
 | 0.6B | 24/27 | 0/27 |
@@ -436,10 +440,17 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 | 14B | 26/39 | 0/39 |
 | 30B-A3B | 45/47 | 38/47 |
 
-*Layers where the stratified direction reads gender (confirmatory, bf16).*
+*Layers where the stratified direction reads gender, out of the model's inner layers (confirmatory runs, bf16 precision). 30B-A3B is a mixture-of-experts model, included once for comparison.*
 
-- German compounds follow their **head's** gender at LAST in every layer at every size (AUC 0.76–0.87); the first part's gender: 0 layers. Markedness: 0 layers once the estimator bias is removed. ==For my sake as the non-German speaker, note what the alternative would be/what it means? I don't actually know if German compounds *grammatically* follow their head anyway, or if the head is *overriding* something.==
-- Both effects are **position-dependent**: at AFTER they largely vanish (except 30B-A3B).
+- At LAST, every size reads gender rather than spelling in most layers.
+- At AFTER, the signal is almost gone, except in the 30B model. Gender is carried on the noun's own token and is not passed on to the next, neutral token. This matters for Phase 5, where steering is applied at the noun (§2.8).
+
+**German (Phase 3).** The test set is the compounds whose first part and head disagree in gender (§2.4.3), like *der Türrahmen* "door frame": feminine first part (*die Tür*), masculine head (*der Rahmen*). In German grammar the head always wins, so the right answer is never in doubt. The question is what the *model's direction* follows. A direction that tracks the grammatical gender of the whole word should follow the head. A direction that tracks something else should not: for instance the first part, the word's first tokens (models split long words into pieces, and the first piece is often the first part), or general word shape. The test therefore asks whether the direction learned on single-root nouns sorts these conflict compounds by their head's gender or by their first part's.
+
+- **The head's gender** was read at LAST in every layer of every model size (AUC 0.76–0.87).
+- **The first part's gender** was read in no layer.
+- **Markedness** ("masculine is the default", §2.6.3) was supported in 0 layers once the estimator problem was fixed. The plug-in estimate had shown it in 25 of 27 and 31 of 35 layers, entirely through noise.
+- As in Spanish, this is a LAST-position result; at AFTER it largely vanishes (except 30B).
 
 ### 3.3 Phase 4: partly shared across languages (8B, 14B)
 
