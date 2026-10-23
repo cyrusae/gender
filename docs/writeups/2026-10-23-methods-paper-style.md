@@ -1,6 +1,6 @@
 # Methods (paper-style draft, 2026-10-23)
 
-*Adjunct to `2026-10-22-methods-results-draft.md`, not a replacement. That draft explains each step for a reader new to the field. This one follows a conventional methods layout and assumes a reader who knows what a residual stream, a linear probe and a bootstrap are. It still states every procedure, stimulus and decision rule we actually used. Example prompts are given in full; full lists are cited by file. Numbers marked [check] are still to be verified against result files.*
+*Adjunct to `2026-10-22-methods-results-draft.md`, not a replacement. That draft explains each step for a reader new to the field. This one follows a conventional methods layout and assumes a reader who knows what a residual stream, a linear probe and a bootstrap are. It still states every procedure, stimulus and decision rule we actually used. Example prompts are given in full; full lists are cited by file.*
 
 ---
 
@@ -96,7 +96,7 @@ German compounds are right-headed: the final constituent determines both the gen
 
 - German and Spanish eligible nouns with Zipf ≥ 2.5 were paired via a shared English gloss, keeping the most frequent noun per gloss on each side. This gave 2,217 pairs, of which 519 have opposite genders.
 - Rule-based exclusions were then applied: animates, sex-associated meanings, English-near forms, and training-set overlap. The PI also excluded 51 pairs for sense mismatches; a spot check had estimated a ~10% gloss-mismatch rate.
-- Adopted list: 389 pairs (239 de-f/es-m, 150 de-m/es-f) in `data/stimuli/phase4_pairs_final_v1.csv`. 271 pairs enter the Phase 4 analyses after the per-model known filter [check: which filter takes 389 → 271].
+- Adopted list: 389 pairs (239 de-f/es-m, 150 de-m/es-f) in `data/stimuli/phase4_pairs_pool_v1.csv`. The analysed set is the 271 pairs whose German and Spanish nouns are both known by Qwen3-1.7B *and* 4B (`phase4.finalize`; 166 de-f / 105 de-m), frozen for every model (`data/stimuli/phase4_pairs_final_v1.csv`).
 - The 19 classic literature pairs (*Brücke/puente*, *Mond/luna*, *Sonne/sol*, …) are reported separately.
 
 #### 2.3.5 Russian (prepared; T4 run, main Russian study not yet run)
@@ -243,7 +243,7 @@ Under the bootstrap, duplicated items are constrained to fall in the same half; 
 - α is swept over 0.05–3 in the gate frame, with each noun pushed toward the opposite gender.
 - α\* is the smallest α at which the median noun of *both* genders flips agreement.
 - **Specificity:** 20 random directions of equal norm must flip < 10% of nouns at α\*.
-- Layers without a valid α\* drop out. Readouts are evaluated at α\* (the "working dose") and over a window of α\* × {−0.5, −0.25, 0, 0.25, 0.5} for slopes.
+- Layers without a valid α\* drop out. Readouts are evaluated at +α\* (the "working dose"). A descriptive dose–response slope is fitted over the doses whose median damage (below) does not exceed the random directions' median damage at α\*.
 
 #### 2.9.3 Readouts
 
@@ -262,7 +262,7 @@ For each adjective j, Δ_j = log P(j | steered) − log P(j | unsteered). We fit
 
 Δ_j = b₀ + b_g·gender_j + b_v·valence_j + b_a·arousal_j + b_s·size_j + b_f·Zipf_j + ε,
 
-and b_g, oriented so that positive means toward feminine-rated words, is the **bleed score**. It is averaged over nouns, with each noun's push directed toward the opposite gender and signed accordingly [check: sign convention wording].
+and b_g, oriented so that positive means toward feminine-rated words, is the **bleed score**. Every noun is pushed toward feminine (+α\* along u, whatever its own gender), and the sign is flipped so that b_g > 0 means a shift toward feminine-rated adjectives (Glasgow GEND runs 1 = feminine to 7 = masculine). Row scores are averaged per noun over the primary wordings, then over nouns.
 
 #### 2.9.5 Comparison vectors and decision rule
 
@@ -272,9 +272,9 @@ At the same norm, the bleed score is compared with:
 - a social-gender direction (positive control: DoM over 9 fixed English female/male person pairs, WordNet-checked);
 - for exploratory P26, the other language's grammatical direction.
 
-R1-EN additionally uses damage matching: random directions are rescaled to match the KL divergence the gender push causes on the next-token distribution over 20 tokens of neutral text [check: damage text].
+R1-EN additionally uses damage matching: random directions are rescaled to match the KL divergence the gender push causes, measured as mean KL(unsteered ‖ steered) over the 20 positions after the noun in a fixed neutral sentence per language (English: *Yesterday we talked about the N over dinner with some family friends, and then we drove home.*; Spanish and German equivalents in `phase5.NEUTRAL`).
 
-A layer **passes** if the bleed score exceeds the random 95th percentile and its bootstrap interval excludes 0. A readout **passes** at a majority of the valid layers. R1 and R1-EN are co-primary (Holm). The verdict labels are:
+A layer **passes** if the real direction's mean noun score beats the 100 random directions (one-sided rank test toward feminine) and the noun-bootstrap interval of (real − mean random) excludes 0. A readout **passes** at a majority of the valid layers. R1 and R1-EN are co-primary (Holm). The verdict labels are:
 
 | Verdict | Condition |
 |---|---|
