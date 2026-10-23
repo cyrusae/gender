@@ -92,6 +92,9 @@ NEUTRAL = {
 }
 ES_GATE = "Mi {N} es muy"
 BOS_PREFIXES = ("google/gemma",)  # families whose Phase 5 prompts start with <bos>
+# GBLEED_BOS_ALL=1: sensitivity runs only (EuroLLM P30/P31, 2026-10-23): also prepend <bos> for any
+# other tokenizer that adds one by default. Off by default, so frozen results are reproduced as run.
+BOS_ALL = os.environ.get("GBLEED_BOS_ALL") == "1"
 KL_TOKENS = 20
 
 
@@ -121,13 +124,17 @@ def _encode(tok, p: Prompt) -> tuple[list[int], list[int]]:
 
 def _bos(tok) -> list[int]:
     """[bos] for Gemma (its tokenizer prepends one by default and the Gemma prereg requires
-    exactly one); [] for every other family, so Qwen3 and EuroLLM prompts stay as they were run."""
+    exactly one); [] for every other family, so Qwen3 and EuroLLM prompts stay as they were run.
+    With GBLEED_BOS_ALL=1, also [bos] for any tokenizer that prepends one by default (EuroLLM)."""
     gemma = str(tok.name_or_path).startswith(BOS_PREFIXES) or "gemma" in type(tok).__name__.lower()
-    if not gemma:
+    if not (gemma or BOS_ALL):
         return []
-    ids = tok("a", add_special_tokens=True)["input_ids"]
-    assert tok.bos_token_id is not None and ids[0] == tok.bos_token_id, tok.name_or_path
-    return [tok.bos_token_id]
+    adds = (
+        tok.bos_token_id is not None
+        and tok("a", add_special_tokens=True)["input_ids"][0] == tok.bos_token_id
+    )
+    assert adds or not gemma, tok.name_or_path
+    return [tok.bos_token_id] if adds else []
 
 
 def _pad(tok, seqs):

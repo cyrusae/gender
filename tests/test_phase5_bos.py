@@ -38,3 +38,13 @@ def test_other_families_unchanged_even_if_tokenizer_adds_bos():
         ids, pos = _encode(tok, P)
         assert ids == [100, 101, 102, 103, 7]
         assert pos == [1]
+
+
+def test_bos_all_flag_adds_bos_only_where_the_tokenizer_would(monkeypatch):
+    import gbleed.phase5 as p5
+
+    monkeypatch.setattr(p5, "BOS_ALL", True)
+    ids, pos = _encode(FakeTok("utter-project/EuroLLM-1.7B", 1, True), P)
+    assert ids == [1, 100, 101, 102, 103, 7] and pos == [2]
+    ids, pos = _encode(FakeTok("Qwen/Qwen3-8B-Base", None, False), P)
+    assert ids == [100, 101, 102, 103, 7] and pos == [1]
