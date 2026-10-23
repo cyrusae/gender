@@ -147,9 +147,27 @@ To measure bleed we need words with known *social* gender associations, scored b
 - **Spanish adjectives.** For one readout (R3) we used Spanish adjectives with the same form in both genders (*fuerte* "strong", *elegante* "elegant"), so that the grammar of the sentence cannot favour one of them.
 - **Invented words** (*the robedo*, *the sianta*) were built from Spanish- or English-like syllables and checked to exist in no dictionary. They were used where we need nouns with no meaning at all (P30, P31; details in `docs/screening/07`).
 
-### 2.5 Extraction
+### 2.5 Two kinds of measurement, and how the noun is shown to the model
 
-Each noun is fed bare after a fixed prefix (`<|endoftext|>\n `, which keeps the first content token from becoming an attention sink). Hidden states are read at every layer either at the noun's last token (LAST) or at a following neutral token (AFTER). Which position is primary was decided by a **gender-blind** pre-registered check, before any gender result was seen. ==More explicitly articulate what we're looking for in the hidden state (i.e., searching for pre-registered adjectives) and at what ratios; "Each noun is fed bare" here is confusing given the extensive frames elsewhere, more sign that "what stimuli are we applying and in what order" needs to be more explicit==
+The study measures two different things, and it helps to keep them apart:
+
+1. **What the model represents (Phases 1–4).** No sentence and no adjectives are involved here. We show the model a single noun and record the numbers it computes internally for that noun, its **hidden state**. Then we ask whether those numbers contain a consistent "gender direction" (§2.6). This is like scanning a brain while a person reads one word, without asking them to do anything.
+2. **What the model does (Phase 0, Phase 5 and P22–P31).** Here the model reads a sentence, and we look at which next word it predicts, and how strongly. This is like asking a person to finish a sentence. The adjectives from §2.4.6 come in only here, as the possible next words we score. The prompts are given in §2.7 and §2.8.
+
+**How the noun is shown, for kind 1.** Each noun is shown on its own, with no sentence around it ("bare"). The exact input is three pieces:
+
+```
+<|endoftext|>   ⏎   ␣Brücke
+```
+
+That is the model's "start of a new document" marker, a line break, then the noun with a leading space, exactly as it would appear in running text. The marker and line break are always the same, so they cannot differ between feminine and masculine nouns. The line break is there because of a quirk of these models. The very first word after the document marker can become an **attention sink**: a position where the model parks attention it does not need, giving it huge, unrepresentative values. We found this the hard way (§2.9); the line break absorbs it. A check in the code stops the run if any noun's vector is more than 10 times the typical size.
+
+**Where the hidden state is read.** A model splits text into pieces called *tokens*; *Brücke* might be one token or two (*Br* + *ücke*). It also computes one hidden state per token at every **layer**, its successive stages of processing (28 layers for Qwen3-1.7B, 40 for 14B). We read every layer, at one of two positions:
+
+- **LAST**: the noun's last token. Models are known to assemble a whole-word meaning at a word's last token.
+- **AFTER**: a line-break token added after the noun. This is the same token for every noun, so token-shape differences between nouns might matter less there. Because the model reads strictly left to right, adding it does not change the LAST reading.
+
+We chose between them *before* looking at any gender result, by a pre-registered rule that used no gender labels. AFTER would win only if it both kept words distinguishable from each other (checked by whether a word's vector could be matched to the same word in another context, *Beispiel: Brücke* "Example: bridge") and depended less on how the word was split into tokens. On Qwen3-1.7B and 4B, AFTER met the rule in only 1 of 4 model × language combinations, so **LAST is the primary position** throughout. AFTER is reported as a robustness check.
 
 ### 2.6 Directions and the estimator
 
