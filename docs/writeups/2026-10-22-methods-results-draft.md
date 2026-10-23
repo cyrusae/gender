@@ -50,10 +50,102 @@ The labels T, R, P and C (and G for the Gemma replication) are just numbering sc
 
 ### 2.4 Stimuli
 
-- **Lexicons** built from Wiktionary nouns with a single gender, frequency from `wordfreq` (Zipf), concreteness from published norms (English-gloss norms where no native norms exist).
-- **Spelling control by design.** Phase 1 showed that erasing spelling information with LEACE does not generalise (nonce endings stay readable, accuracy ≈ 0.99–1.00), so spelling is controlled by stratifying nouns into ending × loan-status cells and comparing genders *within* cells.
-- **Test sets:** Spanish exceptions (*el día*), noun/verb homographs, German compounds whose first part and head differ in gender, Spanish–German flipped pairs (*die Brücke* / *el puente*; ≈10% gloss-error caveat), Russian soft-sign nouns, English person words and names. ==Exceptions to what? (You know and I know, but does a reader?) Soft-sign nouns? "gloss-error caveat" also reads jargon-y (again: both of us know, but it means nothing to a reader)==
-- **Phase 5 readouts** use English adjectives rated for gender association in the Glasgow Norms (and Spanish invariant adjectives); gender ratings correlate with valence (r ≈ −0.47), so valence, arousal, size and frequency are covariates throughout. ==Want how each were determined to be legible==
+Choosing the words is most of the work in a study like this. Think of Labov's department-store study: the result depended on choosing stores and a question ("fourth floor") so that everything except the variable of interest was held fixed. Here, the variable of interest is a noun's grammatical gender. The danger is that some *other* property of the noun travels with its gender and gives the model a shortcut. The obvious shortcut is spelling: Spanish nouns ending in *-a* are usually feminine, and those ending in *-o* usually masculine. A direction that "reads gender" might really just read the last letter. Others are frequency, meaning (people versus things), being a loanword, and being a compound. This section walks through how each list was built, in the order it happened. Full step-by-step records, with counts at every filter, are in `docs/screening/01`–`07`.
+
+#### 2.4.1 The dictionary everything starts from
+
+1. **Source.** All nouns come from Wiktionary, via the machine-readable dumps at kaikki.org. Each entry gives the word, its grammatical gender, English translations ("glosses"), and often its etymology. Gender is taken *only* from the dictionary, never from a model.
+2. **Eligibility.** A noun is kept only if:
+   - it has exactly one gender (so not Spanish *el/la mar* "the sea", which takes either);
+   - it is not marked archaic, slang or regional;
+   - it is not mainly some other part of speech, or an inflected form of another word;
+   - it is inanimate: not a person, animal, group of people, or other living thing (how that is judged is explained in step 4);
+   - it is not more common as an English word. Otherwise its frequency would come from English text (*van*, *arcade*).
+3. **Measures attached to every noun.** Each one is computed automatically from a published resource:
+   - **Frequency** is the *Zipf* score from the `wordfreq` library: log₁₀ of how many times the word occurs per billion words of text. Zipf 3 is about one in a million words, and each extra point is ten times commoner. Frequency matters because models know common words better.
+   - **Token count** is how many pieces the model's tokenizer splits the word into.
+   - **Concreteness** asks whether the word's main dictionary sense is a physical thing, using the WordNet lexical database, reached through the English gloss. For Russian, where this check was too coarse, we also used published human ratings of how concrete the English translation is (Brysbaert norms).
+   - **Loanword status** records whether Wiktionary's etymology says the word was borrowed (German *Büro* "office", from French). Loans differ from native words in spelling patterns and in which gender they get.
+4. **Animacy, checked more than once.** Deciding "is this a living thing" from an English gloss misses cases. German *Wachtel* means "quail" but the gloss judge missed it; *Heer* "army" is a group of people. So every list gets a second, independent check of the meanings in WordNet (a person, animal or group in the first two senses means the noun is dropped). For Russian a third check uses the grammar itself: Russian marks animate nouns differently in some cases.
+
+#### 2.4.2 Spanish (Phases 2 and 4–5)
+
+The goal was nouns whose spelling gives away nothing about their gender.
+
+1. **Drop every ending that predicts gender.** This removes nouns in *-o* and *-a*, and also in *-ción*, *-dad*, *-umbre*, *-ez*, *-itis*, *-or*, *-aje*, *-ón*, *-ista*, *-ante*, *-ud* and a few others. Each of these goes almost entirely one way. What remains are nouns like *el puente* "bridge", *la llave* "key", *el árbol* "tree" and *la cárcel* "prison", whose endings are shared by both genders.
+2. **Drop nouns too close to English** (spelling nearly identical to the gloss, or common as English words). Otherwise the model might be reading an English word.
+3. **Drop nouns whose meaning is tied to sex**, such as clothing, jewellery, cosmetics and body parts. Their gender could have a social reason rather than being arbitrary.
+4. **Second meaning check:** drop people, animals, groups, places and chemicals. Chemical names are almost all masculine, so they would be a shortcut.
+5. **Frequency floor:** Zipf ≥ 2, so the model has a fair chance to know the word.
+6. **The model must know the gender** (the article quiz in §2.7).
+7. **Group what is left into spelling cells.** A cell is the last two letters, plus loan status. *-te* nouns go together, *-al* nouns together, and so on. Feminine and masculine nouns are only ever compared *within* a cell. A difference that survives cannot be the ending, because the ending is the same on both sides.
+
+The resulting sets:
+
+| set | what it is | size |
+|---|---|---|
+| **stratified training set** ("strat") | the nouns from step 7, used to *find* the gender direction | 33 f, 132 m |
+| **matched training set** | a stricter subset with equal numbers of each gender in each cell | 27 f, 27 m |
+| **regular test nouns** | more nouns of the same kind, never used for training | 247 |
+| **exceptions** | nouns whose gender goes *against* their ending: *el día* "day" (masculine despite *-a*), *la mano* "hand" (feminine despite *-o*), plus Greek-origin *el problema* "problem" and shortened words like *la foto* "photo". If a direction followed spelling, it would get these wrong. | 7 true exceptions, 20 *-ma*, 2 shortenings |
+| **noun/verb homographs** | nouns that are also verb forms: *camino* is "path" (masculine noun) and "I walk". These test whether the direction follows the noun reading. | 72 |
+
+Two weaknesses turned up and were handled by rule, not by hand:
+- Words beginning with *a-* were slightly more often masculine in the training set (0 of 33 feminine, 17 of 132 masculine). This was added as a variable to remove (§2.6).
+- 37 nouns that were later chosen as flipped-pair nouns (§2.4.4) had also been in training. They were removed from the later tests.
+
+#### 2.4.3 German (Phases 3 and 4–5)
+
+German has three genders, *der* (masculine), *die* (feminine) and *das* (neuter), and its spelling traps are different:
+
+- **Compounds.** German writes compound nouns as one word. A compound always takes the gender of its *last* part, which is called its **head**, because the last part is what the thing is. *Die Tür* "door" + *der Rahmen* "frame" gives *der Türrahmen* "door frame", a kind of frame. So a compound's gender is visible from its last part, which is a shortcut. Compounds were removed from training, and saved for a test (below).
+- **Suffixes that fix gender.** Every *-ung* noun is feminine, and every *-chen* noun is neuter. These were removed.
+- **Loans are more often neuter** (44% versus 28% of native nouns). Loan status is part of the cells.
+- **Agent nouns.** Nouns in *-er* made from verbs (*Bohrer* "drill", from *bohren* "to drill") are nearly all masculine. These were removed.
+
+The filters, in order:
+1. Drop compounds. Any noun whose last three or more letters, following at least three letters, form another noun is treated as a compound. This alone removes about 11,000 nouns.
+2. Drop proper names, diminutives, chemicals, and *Ge-* collective nouns.
+3. Drop living things and groups, as in §2.4.1.
+4. Drop agent nouns, nouns made from verbs, and sex-typed clothing.
+5. The model must know the gender (§2.7).
+6. Group into cells: last two letters × loan status, with extra cells for shared suffixes such as *-nis* and *-tum*.
+
+| set | what it is | size |
+|---|---|---|
+| **stratified training set** | single-root nouns from the steps above | 64 m, 27 f, 31 n |
+| **matched training set** | equal numbers per gender within cells | 14 each |
+| **compound test set** | compounds never seen in training. 219 of them are **conflict** items, where the first part and the head have different genders: *Türrahmen* has a feminine first part (*Tür*) and a masculine head (*Rahmen*). A direction that follows the head gets these right. One that follows the start of the word or the general look of the word does not. | 720 (219 conflict) |
+
+A known flaw is described in §2.9: 12 of the 64 masculine training nouns turned out to be compounds or number-words the compound filter missed (*Wasserkocher* "kettle", *Vierer* "a four"). None of the feminine ones were.
+
+#### 2.4.4 Flipped pairs: the "bridge" nouns (Phase 4–5)
+
+These are the nouns that pose the original question: the same object has opposite genders in German and Spanish. *Die Brücke* "bridge" is feminine; *el puente* is masculine.
+
+1. All eligible German and Spanish nouns with Zipf ≥ 2.5 were paired through their English gloss: German *Brücke* "bridge" with Spanish *puente* "bridge". Where several nouns shared a gloss, the most frequent was taken.
+2. Pairs with opposite genders were kept (519 of 2,217 pairs).
+3. Pairing by gloss is error-prone, because a gloss can name a different sense of the word. A spot check found that about 1 in 10 pairs do not really mean the same thing. Pairs were dropped by rule (people, animals, groups, sex-associated meanings, nouns too close to English, and nouns already used in training), and the PI dropped 51 more for wrong meanings. That left **389 pairs**: 239 feminine in German and masculine in Spanish, and 150 the other way round.
+4. Separately, **19 classic examples** from the human literature (*Brücke/puente*, *Mond/luna* "moon", *Sonne/sol* "sun", …) were included. These are the one hand-picked set, chosen because readers will ask about them. They are always reported separately.
+
+#### 2.4.5 Russian (prepared, not yet run)
+
+Most Russian endings fix gender almost perfectly. The exception is the **soft sign** *-ь*, a letter that is not pronounced itself but softens the consonant before it. Nouns ending in *-ь* can be masculine (*день* "day") or feminine (*дверь* "door"). Our Russian test therefore uses only *-ь* nouns, so the ending cannot give the gender away. After the same kinds of filters as above (and a few Russian-specific ones, such as suffixes that do fix gender within *-ь*), 245 nouns remain (123 m, 122 f) in 10 spelling cells.
+
+#### 2.4.6 Words read out in the behavioural tests (Phase 5 and later)
+
+To measure bleed we need words with known *social* gender associations, scored by humans:
+
+- **English adjectives** come from the **Glasgow Norms** (Scott et al., 2019). In that published study, UK participants rated thousands of English words on several 1–7 scales, including:
+  - **gender association**: how strongly the word is associated with women versus men ("gentle" scores toward feminine, "rugged" toward masculine);
+  - **valence**: how pleasant;
+  - **arousal**: how exciting or calming;
+  - **size**: how big the thing it describes is.
+
+  We kept words that are mainly adjectives (at least half their WordNet senses), common (Zipf ≥ 3), and a single token for the model, so each one is a single next-word prediction. That leaves several hundred adjectives per model family [check: Qwen3 count] (721 for Gemma 3).
+- **Why the other ratings matter.** In these ratings, feminine-rated words are also rated more pleasant (correlation −0.47). Any test that sees "more feminine adjectives" could therefore really be seeing "more pleasant adjectives". So valence, arousal, size and frequency are always included as variables to separate out (§2.8).
+- **Spanish adjectives.** For one readout (R3) we used Spanish adjectives with the same form in both genders (*fuerte* "strong", *elegante* "elegant"), so that the grammar of the sentence cannot favour one of them.
+- **Invented words** (*the robedo*, *the sianta*) were built from Spanish- or English-like syllables and checked to exist in no dictionary. They were used where we need nouns with no meaning at all (P30, P31; details in `docs/screening/07`).
 
 ### 2.5 Extraction
 
