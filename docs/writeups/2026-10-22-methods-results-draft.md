@@ -480,17 +480,25 @@ Results:
 
 ### 3.4 Phase 5: steering grammar into social readouts
 
+**German first: no valid test.** Steering only means something in a sentence where the unmodified model already gets the grammar right (the frame check, §2.7.2) and where a push can switch the article (the gate, §2.8.1 step 4). Neither held for German:
+- **8B:** in the best of the pre-registered German frames, the model got only 62% of nouns of one gender right without any push, below the 70% bar.
+- **14B:** the German check failed as well [check: frame check or gate, and which numbers].
+
+By the rule that a failed check is never replaced by a better-looking frame, German has no Phase 5 verdict. **All Phase 5 verdicts are for Spanish only.**
+
+**Spanish, R1 (the main readout).** The bleed score (§2.8.2) at α\*, averaged over the steering layers that passed:
+
 | | 8B | 14B |
 |---|---|---|
 | R1 grammatical push | +0.020 (3/4 layers) | 0.000 (0/3) |
 | R1 random 95th pct | 0.012 | 0.008 |
 | R1 social push (control) | 0.064 | 0.047 |
 
-- German: **no valid test** (8B frame 62% < 70%; 14B gate failed); verdicts are Spanish only. ==Parenthetical reads like technobabble==
-- 8B: small, language-specific bleed; 14B: none, with a sensitive readout (the social control moves). =="the social control moves"? Not parsing this==
-- R2 moves both readouts but the noun is visible, so it can't separate routes. ==What==
-- R3-POOL / P20-POOL looked positive, but **P29** shows an article-only flip moves the pooled readout by +0.096 on 8B, at least as much as steering: pooling is not agreement-neutral, so these readouts are not evidence. Reported in full as a cautionary result. ==This doesn't make sense out of context==
-- Confidence control (a)–(c): every P29–P31 and Phase 5 verdict is unchanged.
+- **8B: a small effect.** The grammatical push moves the adjectives in the social direction (+0.020) at 3 of 4 layers, above what random pushes do (95th percentile +0.012). R1-EN, the all-English readout, passes at 3 of 4 layers too. The German direction can't be tested (above), so by the labels of §2.8.4 this is **language-specific** bleed. It is also small: the push toward *woman* moves the same readout three times as much (+0.064).
+- **14B: no effect.** The grammatical push moves R1 by about 0, inside the range of random pushes, at all 3 layers. The positive control still works: the push toward *woman* moves the readout (+0.047). So the 14B readout *could* have detected an effect and didn't. That is what makes "no effect" a real null rather than a broken test.
+- **R2** (*would it be a man or a woman?*) moved above random (14B: all 3 layers; 8B [check]). But in that prompt the noun itself is the thing being asked about, so a push on the noun's grammar can change the answer just by making *la puente* sound like a feminine noun, which is grammar, not social meaning. R2 cannot tell those two routes apart, so it is reported but gives no verdict.
+- **R3 and the "pooled" readouts.** R3 uses only adjectives with one form for both genders, which leaves few words. To use more, a later idea (P28) read the many adjectives that do have two forms (*blanco/blanca* "white") by adding up both forms' probabilities, hoping the sum would ignore agreement (R3-POOL steered, P20-POOL unsteered). These looked positive. P29 then tested the hoped-for property directly. Take the plain sentence, with no push at all, and swap only the article, *el* → *la*. If pooling really ignored agreement, the pooled score should not move. It moved by +0.096 on 8B, as much as or more than steering had moved it. Agreement leaks into the pooled sum, so these readouts cannot separate social meaning from grammar and are **not evidence**. They are reported in full as a cautionary result.
+- **Confidence control** (§2.9): adding the model's overall confidence as a covariate, and using rank correlation instead of the regression, changes no Phase 5 verdict (nor any P29–P31 verdict).
 
 ### 3.5 English social gender (P22b, P23, P24, P27)
 
