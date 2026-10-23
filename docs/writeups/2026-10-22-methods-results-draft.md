@@ -456,7 +456,7 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 
 Phase 4 asks whether Spanish and German gender sit in the *same* place in the model or in two separate places. If they share a direction, then pushing on Spanish grammar could plausibly move anything that direction touches, including social gender in English. That is why this phase comes before the steering tests. It was run on the two largest dense models, Qwen3-8B and 14B, with four pre-registered tests:
 
-- **T1, transfer.** Find the direction on Spanish nouns and use it to sort *German* nouns by gender, and the reverse. Sorting is scored within the test language's spelling cells, so spelling can't help. "Transfers" means the interval clears 0.5 in a majority of layers. T1 needs both directions to transfer.
+- **T1, transfer.** Find the direction on Spanish nouns and use it to sort *German* nouns by gender, and the reverse. Sorting is scored within the test language's spelling cells, so spelling can't help. "Transfers" means the interval clears 0.5 in a majority of layers. T1 needs both directions to transfer. Layer counts use a Holm correction (§2.8) because T1 and T3 are tested together.
 - **T2, angle.** How closely do the two directions point the same way? Measured as a cosine (1 = identical, 0 = unrelated), using the two-halves method of §2.6.3, against the shuffle null of §2.6.4.
 - **T3, flipped pairs.** This is the test closest to the original question. Each "bridge" pair (§2.4.4) is the same object with opposite genders in the two languages: *die Brücke* is feminine, *el puente* masculine. Use *one* direction to score *both* nouns of a pair. If it sorts the German noun by German gender and the Spanish noun by Spanish gender, then it is following grammar, which the two languages disagree on, and not meaning, which they share. (Using each language's own direction on its own noun would prove nothing: it would only repeat Phases 2–3.)
 - **T4, Russian.** Use the Spanish direction to sort Russian soft-sign nouns (§2.4.5), a language and alphabet the direction never saw, with spelling matched by construction.
@@ -465,11 +465,15 @@ Results:
 
 | test | 8B | 14B | verdict |
 |---|---|---|---|
-| T1 transfer | German→Spanish in 5 of 35 layers [check] | German→Spanish in 22 of 39 layers [check] | fails: Spanish→German does not transfer in either model |
+| T1 transfer, Spanish→German | 6 of 35 layers | 7 of 39 layers | does not transfer |
+| T1 transfer, German→Spanish | 5 of 35 layers | 22 of 39 layers | transfers in 14B only |
 | T2 angle | cos 0.43 | cos 0.35 | above the shuffle null: the directions overlap, but far from identical |
-| T3 flipped pairs | AUC 0.83–0.93 [check: per model] | | passes: one direction follows each language's own grammar |
+| T3 flipped pairs | AUC 0.93 (Spanish direction), 0.83 (German) | AUC 0.91, 0.89 | passes in every layer: one direction follows each language's own grammar |
 | T4 Russian | AUC 0.82 | AUC 0.85 | the Spanish direction sorts Russian gender |
 
+*AUCs and cosines are averages over layers; layer counts are Holm-corrected. Source: `results/phase4/<model>/summary.json` (session-2 worktree).*
+
+- **T1 fails**, because transfer must work both ways and Spanish→German never does.
 - **Reading: partly shared.** There is a common component strong enough to sort the flipped pairs by grammar and to carry over to Russian, but not strong enough to give full transfer between Spanish and German.
 - As in Phases 2–3, these are LAST-position results. At AFTER, every test fails.
 - Removing the German frequency axis (§3.7, test B) leaves all four verdicts unchanged. An apparent *gain* in German→Spanish transfer after the removal turned out to come from a change in which nouns entered the comparison, not from the removal itself, and that claim was retracted.
