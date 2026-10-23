@@ -593,7 +593,7 @@ This finding came out of a control (§2.9), not a planned test. The question was
 | Gender is read at the noun's own token | strong; must be stated |
 | Partly shared across languages | strong-ish ("partly") |
 | Steering bleeds grammar into social readouts at 8B | small; survives confidence control |
-| No bleed at 14B | good null |
+| No bleed at 14B | good null for the Spanish direction; the German direction on Spanish nouns moves R1 (P26, exploratory) |
 | Article pull on thing-nouns (P30/P31) | descriptive; not shown to be social |
 | R3-POOL / P20-POOL | **not evidence** (P29) |
 | German direction aligned with frequency | robust in training sample; absent in held-out compounds; mechanism open |
