@@ -1,0 +1,889 @@
+lang,lemma,gender,concept_en,gloss,set,de_suffix,ending,loan,zipf,n_tokens_qwen3,en_overlap,sex_assoc,head,first,first_gender,conflict,type,gloss_m,gloss_f,source
+de,Agonie,f,agony,"agony, (death) throes",simplex,,ie,unknown,2.37,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ahle,f,awl,awl,simplex,,le,native,2.45,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Akquise,f,synonym of akquisition,synonym of Akquisition,simplex,,se,loan,2.86,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Akribie,f,meticulousness,meticulousness,simplex,,ie,loan,2.69,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Alchemie,f,alchemy,alchemy,simplex,,ie,loan,2.91,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Allergie,f,allergy,allergy,simplex,,ie,native,3.45,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Allergologie,f,allergology,allergology,simplex,,ie,unknown,2.32,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Amnesie,f,amnesia,amnesia,simplex,,ie,loan,2.89,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Amnestie,f,amnesty,amnesty,simplex,,ie,loan,3.17,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ampulle,f,ampoule,ampoule (small glass vial),simplex,,le,loan,2.67,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Analogie,f,analogy,analogy (similar example as explanation),simplex,,ie,loan,3.46,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Anamnese,f,anamnesis,anamnesis (medical history of a patient),simplex,,se,loan,2.96,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Anarchie,f,anarchy,anarchy,simplex,,ie,loan,3.4,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Anatomie,f,anatomy,"Anatomy, study of the structure of living beings.",simplex,,ie,loan,3.7,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ankunft,f,arrival,arrival,simplex,,ft,unknown,4.23,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Annonce,f,classified ad,classified ad,simplex,,ce,loan,2.69,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Anorexie,f,anorexia,anorexia,simplex,,ie,unknown,2.29,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Anthologie,f,anthology,anthology,simplex,,ie,loan,3.12,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Anthropologie,f,anthropology,anthropology,simplex,,ie,native,3.43,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Anthroposophie,f,anthroposophy,anthroposophy,simplex,,ie,native,2.64,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Anämie,f,anemia,anemia,simplex,,ie,unknown,2.85,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Anästhesie,f,anesthesia,anesthesia,simplex,,ie,unknown,3.17,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Anästhesiologie,f,anesthesiology,anesthesiology,simplex,,ie,unknown,2.61,6.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Aphasie,f,aphasia,aphasia (pathological speech disorder),simplex,,ie,unknown,2.32,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Apnoe,f,apnea,apnea,simplex,,oe,loan,2.21,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Apostasie,f,apostasy,apostasy,simplex,,ie,unknown,2.19,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Arbeit,f,toil,"toil, regularly performed work, regularly pursued economic activity, labor, job, employment, occupation",simplex,,it,native,5.57,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Arche,f,ark,ark (Noah’s ship),simplex,,he,native,3.55,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Archäologie,f,archaeology / archeology,archaeology / archeology,simplex,,ie,loan,3.56,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Arie,f,aria,"aria (solo singing piece, notably in operatic genres)",simplex,,ie,loan,3.3,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Armut,f,poverty,poverty,simplex,,ut,native,4.27,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Arterie,f,artery,artery,simplex,,ie,unknown,2.92,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Asche,f,ash,ash; ashes,simplex,,he,native,4.0,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Askese,f,asceticism,asceticism,simplex,,se,unknown,2.67,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Astrologie,f,astrology,astrology,simplex,,ie,loan,3.29,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Astronomie,f,astronomy,astronomy,simplex,,ie,loan,3.52,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Asymmetrie,f,asymmetry,asymmetry,simplex,,ie,native,2.7,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Atrophie,f,atrophy,atrophy (reduced functionality of an organ),simplex,,ie,unknown,2.24,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Aula,f,auditorium of a school or university,the auditorium of a school or university,simplex,,la,loan,3.48,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Autarkie,f,self-sufficiency,"self-sufficiency, autarky",simplex,,ie,loan,2.45,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Autonomie,f,autonomy,autonomy,simplex,,ie,unknown,3.68,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Autopsie,f,autopsy,autopsy (post-mortem examination involving dissection of the body),simplex,,ie,loan,3.01,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Axt,f,axe,axe,simplex,,xt,native,3.72,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bahre,f,bier,bier,simplex,,re,native,2.8,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bakteriologie,f,bacteriology,bacteriology (the scientific study of bacteria),simplex,,ie,native,2.41,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Baracke,f,shack,"shack, barrack",simplex,,ke,loan,3.02,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Beere,f,berry,berry,simplex,,re,native,2.71,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Befugnis,f,permission,"permission, authorization",simplex,,-nis,native,3.3,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Beule,f,any large,"any large, roundish swelling on the body, e.g. a bump on the forehead or a bubo",simplex,,le,native,3.23,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bibliographie,f,bibliography,bibliography,simplex,,ie,loan,3.49,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bibliothek,f,library,library,simplex,,ek,loan,4.4,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Biografie,f,biography,biography,simplex,,ie,unknown,3.7,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Biologie,f,biology,biology,simplex,,ie,native,3.97,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Biometrie,f,biometrics,biometrics,simplex,,ie,unknown,2.49,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Biopsie,f,biopsy,biopsy,simplex,,ie,unknown,2.65,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Birne,f,pear,pear,simplex,,ne,native,3.6,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Blässe,f,paleness,paleness,simplex,,se,unknown,2.51,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Blöße,f,nudity,nudity,simplex,,ße,native,2.92,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Blüte,f,blossom,"blossom, flower (reproductive structure on plants, often scented and/or colourful)",simplex,,te,native,3.82,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bohle,f,thick board or plank,thick board or plank,simplex,,le,native,2.47,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bohne,f,bean,bean,simplex,,ne,native,3.21,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bordüre,f,border,"border, edging, trim",simplex,,re,loan,2.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Borte,f,border,"border, edging",simplex,,te,native,2.22,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Branche,f,sector,"sector, a specific trade or industry",simplex,,he,loan,4.34,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bresche,f,breach,breach (gap or opening made by breaking or battering),simplex,,he,loan,2.93,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Brille,f,glasses,"glasses, spectacles (frames bearing two lenses worn in front of the eyes to correct vision)",simplex,,le,native,4.23,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Brise,f,breeze,breeze,simplex,,se,loan,3.26,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bräune,f,brownness,"brownness, the quality of being brown",simplex,,ne,native,2.7,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bude,f,booth,"booth, stall",simplex,,de,native,3.82,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Buhne,f,groyne,"groyne, breakwater (dam extending perpendicularly into the water to protect the shore)",simplex,,ne,native,2.19,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bulimie,f,bulimia,bulimia,simplex,,ie,loan,2.59,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Börde,f,fertile plain,fertile plain (usually one within the North European Plain),simplex,,de,native,3.12,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Börse,f,stock market,"stock market, stock exchange, bourse",simplex,,se,loan,4.24,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bühne,f,stage,"stage (typically elevated space in front of a room for concerts, theater and other performances)",simplex,,ne,native,4.62,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Chemie,f,chemistry,chemistry,simplex,,ie,unknown,4.41,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Chemikalie,f,chemical produced industrially or in a laboratory,chemical (chemical substance) produced industrially or in a laboratory,simplex,,ie,unknown,2.79,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Chirurgie,f,surgery,surgery (field of study),simplex,,ie,loan,3.8,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Choreografie,f,choreography,choreography,simplex,,ie,unknown,2.99,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Christologie,f,christology,Christology,simplex,,ie,unknown,2.36,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Chromatographie,f,chromatography,chromatography,simplex,,ie,unknown,2.21,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Chronologie,f,chronology,chronology,simplex,,ie,unknown,3.36,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Delle,f,dent,dent,simplex,,le,native,3.42,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Demagogie,f,demagogy,demagogy,simplex,,ie,loan,2.4,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Demografie,f,demography,demography (study of human populations),simplex,,ie,unknown,3.1,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Demontage,f,dismantling,dismantling,simplex,,ge,loan,3.09,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dermatologie,f,dermatology,dermatology,simplex,,ie,unknown,2.83,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Destillerie,f,distillery,distillery,simplex,,ie,unknown,2.45,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dialektologie,f,dialectology,dialectology,simplex,,ie,native,2.43,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dialyse,f,dialysis,dialysis,simplex,,se,unknown,3.04,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dichotomie,f,dichotomy,dichotomy,simplex,,ie,loan,2.6,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Diplomatie,f,diplomacy,diplomacy,simplex,,ie,loan,3.56,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Diskothek,f,discotheque,"discotheque, nightclub",simplex,,ek,loan,3.07,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Disziplin,f,discipline,discipline,simplex,,in,loan,4.09,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Domäne,f,estate,"estate, seigneurie",simplex,,ne,loan,3.32,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dosis,f,dose,dose,simplex,,is,loan,3.91,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Drachme,f,drachma,drachma,simplex,,me,loan,2.17,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dramaturgie,f,dramaturgy,dramaturgy,simplex,,ie,unknown,3.24,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Drogerie,f,retail store selling beauty,"a retail store selling beauty, hygiene and household related products as well as certain non-prescription medications, roughly equivalent to a drugstore/chemist",simplex,,ie,loan,3.26,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Drüse,f,gland,gland,simplex,,se,native,2.49,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dyskalkulie,f,dyscalculia,dyscalculia,simplex,,ie,unknown,2.19,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dysplasie,f,dysplasia,dysplasia (abnormal development of cells or tissue),simplex,,ie,unknown,2.16,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dystopie,f,dystopia,dystopia (all senses),simplex,,ie,unknown,2.81,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Elegie,f,elegy,elegy (mournful or plaintive poem or song),simplex,,ie,loan,2.56,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Elektrolyse,f,electrolysis,electrolysis,simplex,,se,unknown,2.76,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Elektrophorese,f,electrophoresis,electrophoresis,simplex,,se,unknown,2.06,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Embolie,f,embolism,embolism (obstruction or occlusion of a blood vessel by an embolus),simplex,,ie,unknown,2.37,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Empirie,f,empirical knowledge,empirical knowledge; knowledge based on testing and experience,simplex,,ie,loan,2.87,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Endokrinologie,f,endocrinology,endocrinology,simplex,,ie,unknown,2.52,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Energie,f,energy,energy,simplex,,ie,loan,4.81,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Entomologie,f,entomology,entomology (study of insects),simplex,,ie,unknown,2.47,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Entropie,f,entropy,entropy,simplex,,ie,loan,2.89,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Enzyklopädie,f,encyclopedia,encyclopedia (comprehensive reference work with articles on a wide range of topics),simplex,,ie,loan,3.31,6.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Epidemie,f,epidemic,epidemic (widespread disease),simplex,,ie,unknown,3.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Epidemiologie,f,epidemiology,epidemiology (branch of medicine dealing with transmission and control of disease in populations),simplex,,ie,unknown,2.87,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Epilepsie,f,epilepsy,epilepsy,simplex,,ie,unknown,3.2,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Epiphanie,f,epiphany,epiphany,simplex,,ie,loan,2.26,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Epistemologie,f,epistemology,epistemology,simplex,,ie,loan,2.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Erbse,f,pea,pea,simplex,,se,native,2.89,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ergonomie,f,ergonomics,ergonomics,simplex,,ie,loan,2.62,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Erlaubnis,f,permission,permission (authorisation),simplex,,-nis,native,4.12,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Esche,f,ash,ash (tree),simplex,,he,native,3.0,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Etage,f,floor,floor; storey,simplex,,ge,loan,3.81,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Etappe,f,stage,"stage, leg (of a journey or development, also (sports) of a cycle race or rally)",simplex,,pe,loan,3.81,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ethnie,f,ethnicity,"ethnicity, ethnic group",simplex,,ie,native,3.38,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ethnographie,f,ethnography,ethnography,simplex,,ie,native,2.46,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ethnologie,f,ethnology,ethnology (branch of anthropology),simplex,,ie,unknown,3.08,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Etymologie,f,etymology,etymology,simplex,,ie,loan,3.0,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Facette,f,facet,facet,simplex,,te,loan,2.88,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fahne,f,flag,"flag, banner (any cloth or fabric used as a symbol)",simplex,,ne,native,4.04,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fantasie,f,imagination,imagination,simplex,,ie,native,4.06,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Farbe,f,colour,colour,simplex,,be,native,4.73,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fichte,f,spruce,a spruce; the common tree (Picea),simplex,,te,native,3.47,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Finsternis,f,eclipse,eclipse (astronomy),simplex,,-nis,native,3.63,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Finte,f,feint,feint,simplex,,te,loan,2.65,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Flasche,f,bottle,bottle; flask; flagon,simplex,,he,native,4.41,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Flinte,f,shotgun,shotgun,simplex,,te,loan,3.05,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fläche,f,surface,surface,simplex,,he,native,4.56,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Folie,f,piece of very thinly spread-out material,a piece of very thinly spread-out material,simplex,,ie,loan,3.63,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Formalie,f,formality,formality,simplex,,ie,unknown,2.03,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fotografie,f,photography,photography (the art of making photographs),simplex,,ie,loan,4.12,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Freude,f,joy,"joy, delight, glee",simplex,,de,native,4.87,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fritteuse,f,deep fryer,deep fryer,simplex,,se,loan,2.63,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Frucht,f,fruit,fruit (seed-bearing part of a plant),simplex,,ht,native,3.84,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fuge,f,joint,joint (of bricks/tiles),simplex,,ge,loan,3.17,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fuhre,f,cartload,"cartload, wagonload",simplex,,re,native,2.61,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Furche,f,furrow,furrow,simplex,,he,native,2.8,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Furcht,f,fear,fear; fright; anxiety,simplex,,ht,native,3.93,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fäule,f,rot,rot,simplex,,le,native,2.09,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fäulnis,f,rot,rot,simplex,,-nis,native,2.78,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Galaxie,f,galaxy,galaxy (huge gravitationally bound system of stars),simplex,,ie,unknown,3.51,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Galeere,f,galley,galley (large vessel for war),simplex,,re,loan,2.62,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Galle,f,bile,"bile, gall",simplex,,le,native,3.14,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Garantie,f,guarantee,guarantee,simplex,,ie,loan,4.04,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Gastronomie,f,food service industry,"food service industry, catering trade",simplex,,ie,loan,3.92,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Girlande,f,festoon,festoon (ornament),simplex,,de,loan,2.24,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Gitarre,f,guitar,guitar,simplex,,re,loan,4.21,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Glocke,f,bell,bell (percussive instrument),simplex,,ke,native,3.87,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Glosse,f,column,"column, squib (short, witty and often satirical piece of newspaper writing regarding current events)",simplex,,se,native,2.8,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Glykolyse,f,glycolysis,glycolysis,simplex,,se,loan,2.14,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Granate,f,grenade,a grenade (weapon),simplex,,te,loan,3.26,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Grippe,f,flu,flu; influenza; grippe.,simplex,,pe,loan,3.73,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Grotte,f,grotto,grotto,simplex,,te,loan,3.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Grube,f,pit,"pit, excavation (man- or animal-made hole in the ground)",simplex,,be,native,3.89,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Größe,f,size,"size, height",simplex,,ße,native,4.85,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Gynäkologie,f,gynecology,gynecology (no plural),simplex,,ie,unknown,3.12,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Gülle,f,liquid manure,liquid manure,simplex,,le,native,3.24,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Güte,f,kindness,"kindness, clemency",simplex,,te,native,4.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Harmonie,f,harmony,harmony,simplex,,ie,loan,3.87,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hefe,f,yeast,yeast,simplex,,fe,native,3.44,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hierarchie,f,hierarchy,hierarchy (body of ruling officials),simplex,,ie,loan,3.53,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Histologie,f,histology,histology,simplex,,ie,unknown,2.67,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Historie,f,history,history (historical narrative),simplex,,ie,loan,3.82,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hitze,f,heat,heat,simplex,,ze,native,4.33,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Homologie,f,homology,homology,simplex,,ie,loan,2.22,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hydrologie,f,hydrology,hydrology,simplex,,ie,unknown,2.25,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hydrolyse,f,hydrolysis,hydrolysis,simplex,,se,unknown,2.65,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hymne,f,anthem,anthem (solemn secular song),simplex,,ne,loan,3.69,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hypnose,f,hypnosis,hypnosis,simplex,,se,loan,3.45,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hypothek,f,mortgage,mortgage,simplex,,ek,loan,3.34,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hypothyreose,f,hypothyroidism,hypothyroidism,simplex,,se,native,2.16,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hypoxie,f,hypoxia,hypoxia,simplex,,ie,unknown,2.18,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hysterie,f,hysteria,hysteria,simplex,,ie,unknown,3.43,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hälfte,f,half,half; fifty percent of something,simplex,,te,native,4.98,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hämatologie,f,haematology,"haematology, hematology",simplex,,ie,native,2.58,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hämolyse,f,hemolysis,hemolysis,simplex,,se,unknown,2.02,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Häresie,f,heresy,heresy,simplex,,ie,loan,2.73,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Höhe,f,height,"height, altitude",simplex,,he,native,5.08,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hüfte,f,hip,hip; hips,simplex,,te,native,3.69,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hütte,f,hut,"hut, cabin, shack, cottage (small house, typically built of light materials rather than stone)",simplex,,te,native,4.22,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Idee,f,idea,idea,simplex,,ee,loan,5.2,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ideologie,f,ideology,ideology,simplex,,ie,unknown,4.04,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Idiotie,f,idiocy,idiocy,simplex,,ie,unknown,2.95,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Immobilie,f,real estate,"real estate, property which cannot be moved",simplex,,ie,unknown,3.84,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Immunologie,f,immunology,immunology,simplex,,ie,unknown,2.53,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ironie,f,irony,irony,simplex,,ie,unknown,4.06,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ischämie,f,ischemia,ischemia,simplex,,ie,native,2.12,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Jalousie,f,roller blind,"roller blind, window blind, Venetian blind (indoor blind consisting of parallel stripes or slats)",simplex,,ie,loan,2.54,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kabine,f,cabin,"cabin, cubicle",simplex,,ne,loan,3.85,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kakophonie,f,cacophony,cacophony,simplex,,ie,native,2.17,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kalligraphie,f,calligraphy,calligraphy (art of writing with decorative strokes),simplex,,ie,loan,2.57,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kamera,f,camera,camera (device for taking photographs or filming),simplex,,ra,loan,4.76,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kampagne,f,campaign,campaign,simplex,,ne,loan,4.34,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kanne,f,jug,"jug, pitcher, pot, can (container for pouring fluids, especially beverages, often having spout and handle)",simplex,,ne,native,3.36,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kanone,f,cannon,cannon,simplex,,ne,loan,3.44,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kantate,f,cantata,cantata (a vocal composition in several movements accompanied by instruments),simplex,,te,loan,2.97,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kante,f,edge,"edge (sharp boundary line), border",simplex,,te,loan,3.76,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kantine,f,canteen,canteen,simplex,,ne,loan,3.49,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kanüle,f,hypodermic needle,hypodermic needle,simplex,,le,loan,2.48,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Karawane,f,caravan,"caravan (convoy of travellers, especially on camels)",simplex,,ne,loan,3.05,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kardiologie,f,cardiology,cardiology,simplex,,ie,unknown,3.04,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Karotte,f,carrot,carrot,simplex,,te,loan,3.01,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Karriere,f,career,career (occupational path),simplex,,re,loan,4.7,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Karte,f,card,"card (flat, normally rectangular piece of stiff paper, plastic etc.)",simplex,,te,native,4.85,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kartografie,f,cartography,cartography,simplex,,ie,unknown,2.12,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kasse,f,cash register,"cash register, cash box",simplex,,se,loan,4.28,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kastanie,f,chestnut,chestnut,simplex,,ie,native,2.79,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Katalyse,f,catalysis,catalysis (chemistry: the increase of the rate of a chemical reaction induced by a catalyst),simplex,,se,loan,2.5,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kategorie,f,category,category,simplex,,ie,loan,4.59,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Katharsis,f,catharsis,"catharsis (in drama, a release of emotional tension)",simplex,,is,unknown,2.49,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kehle,f,throat,throat (front of the neck),simplex,,le,native,3.75,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kelle,f,ladle,ladle (kitchen utensil),simplex,,le,native,3.05,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kerbe,f,dent,"dent, groove, nick, notch",simplex,,be,native,3.05,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kette,f,chain,"chain (series of interconnected rings, usually of metal)",simplex,,te,native,4.26,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kirsche,f,cherry,cherry,simplex,,he,native,3.19,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kiste,f,chest,"chest, box",simplex,,te,native,3.98,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Klarinette,f,clarinet,clarinet,simplex,,te,unknown,3.37,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Klimatologie,f,climatology,climatology,simplex,,ie,native,2.37,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Klippe,f,rock that is partly covered by water,rock that is partly covered by (sea) water,simplex,,pe,native,3.25,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kneipe,f,pub,"pub, bar",simplex,,pe,unknown,3.83,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kolonne,f,column,"column (group of military vehicles or troops, especially on a road)",simplex,,ne,loan,3.32,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Komödie,f,comedy,comedy,simplex,,ie,loan,3.98,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Konserve,f,preserved food,preserved food,simplex,,ve,unknown,2.65,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kopie,f,copy,"a copy, the result of copying something, a duplicate",simplex,,ie,unknown,4.06,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Korona,f,corona,corona,simplex,,na,loan,2.36,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Korvette,f,corvette,corvette,simplex,,te,loan,2.09,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kosmologie,f,cosmology,cosmology,simplex,,ie,unknown,2.76,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kreide,f,chalk,a chalk (a piece of chalk used for drawing and on a blackboard),simplex,,de,native,3.45,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Krempe,f,brim,brim,simplex,,pe,loan,2.46,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kriminologie,f,criminology,criminology,simplex,,ie,native,2.78,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Krippe,f,crib,"crib (feeding trough for animals), manger",simplex,,pe,native,3.3,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Krise,f,crisis,crisis (unstable situation),simplex,,se,loan,4.51,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kristallographie,f,crystallography,crystallography,simplex,,ie,loan,2.17,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Krone,f,crown,crown,simplex,,ne,native,4.34,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kruppe,f,croup,croup (top of the rump of a horse or other quadruped),simplex,,pe,loan,2.12,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kruste,f,crust,crust,simplex,,te,native,3.21,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kryptographie,f,cryptography,cryptography,simplex,,ie,unknown,2.62,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kuppe,f,hilltop,hilltop,simplex,,pe,native,2.99,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kur,f,treatment at a health resort,treatment at a health resort,simplex,,ur,loan,3.75,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kurve,f,bend,bend (curve),simplex,,ve,loan,4.08,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kutte,f,habit,habit (a long piece of clothing worn by monks and nuns),simplex,,te,native,2.78,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kuvertüre,f,couverture,couverture,simplex,,re,loan,2.08,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kälte,f,coldness,coldness; cold,simplex,,te,native,4.09,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Küche,f,kitchen,kitchen (room),simplex,,he,native,4.67,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Küste,f,coast,coast,simplex,,te,loan,4.3,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lage,f,location,"location, position",simplex,,ge,native,5.17,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lampe,f,lamp,"lamp, light (piece of furniture, or fixture mounted on a wall or ceiling, holding one or more electric light sockets)",simplex,,pe,native,3.99,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lappalie,f,bagatelle,"bagatelle, trifle, minor thing",simplex,,ie,loan,2.45,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Laune,f,mood,"mood, humor",simplex,,ne,native,4.28,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Leiche,f,dead body,"dead body, corpse, cadaver, carcass",simplex,,he,unknown,4.15,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lektüre,f,reading,reading (act of having read a book or other written material),simplex,,re,loan,3.84,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Leukämie,f,leukemia,leukemia,simplex,,ie,native,3.38,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lexikographie,f,lexicography,lexicography (art or craft of writing dictionaries),simplex,,ie,loan,2.17,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Linie,f,line,line,simplex,,ie,native,4.94,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lithografie,f,lithography,lithography,simplex,,ie,native,2.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Liturgie,f,liturgy,liturgy,simplex,,ie,unknown,3.4,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Logopädie,f,speech therapy,speech therapy,simplex,,ie,unknown,2.42,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lotterie,f,lottery,lottery,simplex,,ie,loan,3.25,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lunte,f,fuse,fuse,simplex,,te,unknown,2.71,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lupe,f,magnifying glass,magnifying glass,simplex,,pe,loan,3.76,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Länge,f,length,length,simplex,,ge,native,4.64,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lünette,f,bezel,bezel (rim and flange which encompasses and fastens a jewel or other object),simplex,,te,loan,2.25,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Magie,f,magic,magic,simplex,,ie,loan,3.98,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Magnolie,f,magnolia,magnolia,simplex,,ie,loan,2.29,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mammographie,f,mammography,mammography,simplex,,ie,unknown,2.25,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Maniküre,f,manicure,manicure,simplex,,re,loan,2.82,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Marotte,f,quirk,"quirk, idiosyncrasy",simplex,,te,loan,2.42,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Masche,f,stitch,stitch,simplex,,he,native,3.52,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Maschinerie,f,machinery,machinery,simplex,,ie,unknown,2.94,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Maske,f,mask,mask,simplex,,ke,loan,4.12,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Materie,f,matter,matter,simplex,,ie,loan,3.98,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Matrize,f,mold,mold (hollow form or matrix for shaping a fluid or plastic substance),simplex,,ze,loan,2.22,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Medaille,f,medal,medal,simplex,,le,loan,4.02,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Melasse,f,molasses,"molasses, treacle",simplex,,se,loan,2.47,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Melodie,f,melody,"melody, tune (sequence of notes that makes up a musical phrase)",simplex,,ie,native,3.99,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Menge,f,quantity,quantity,simplex,,ge,native,5.06,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mensa,f,cafeteria,"cafeteria (at a university), student canteen",simplex,,sa,loan,3.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Metallurgie,f,metallurgy,metallurgy (science of metals),simplex,,ie,unknown,2.7,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Meteorologie,f,meteorology,meteorology,simplex,,ie,loan,3.13,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Methodologie,f,methodology,"methodology (a collection of methods, practices, procedures and rules used by those who work in some field)",simplex,,ie,unknown,2.63,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mineralogie,f,mineralogy,mineralogy,simplex,,ie,native,3.05,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Misere,f,misery,misery,simplex,,re,loan,3.38,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Misogynie,f,misogyny,misogyny,simplex,,ie,loan,2.15,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mitose,f,mitosis,mitosis (division of a cell nucleus),simplex,,se,loan,2.26,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mitte,f,middle,middle,simplex,,te,native,5.12,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Molke,f,whey,whey,simplex,,ke,native,2.7,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Morphologie,f,morphology,morphology (a scientific study of form and structure),simplex,,ie,loan,3.09,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Moschee,f,mosque,mosque,simplex,,ee,loan,4.01,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mulde,f,hollow,hollow (lowered area on a surface),simplex,,de,native,3.24,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mykologie,f,mycology,mycology (study of fungi),simplex,,ie,native,2.17,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mythologie,f,mythology,mythology,simplex,,ie,unknown,3.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mühe,f,effort,"effort, difficulty",simplex,,he,native,4.55,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mütze,f,cap,cap,simplex,,ze,native,3.86,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Nachricht,f,news,"news, piece of news, notification",simplex,,ht,native,4.8,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Nacht,f,night,night,simplex,,ht,unknown,5.36,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Narbe,f,scar,scar,simplex,,be,native,3.51,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Narkolepsie,f,narcolepsy,narcolepsy,simplex,,ie,unknown,2.18,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Narkose,f,general anesthesia,general anesthesia,simplex,,se,unknown,3.19,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Nase,f,nose,nose,simplex,,se,native,4.63,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Nekrophilie,f,necrophilia,necrophilia,simplex,,ie,unknown,2.2,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Neonatologie,f,neonatology,neonatology (branch of medicine that deals with newborn infants),simplex,,ie,unknown,2.05,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Neurologie,f,neurology,neurology (branch of medicine that deals with the nervous system and its disorders),simplex,,ie,unknown,3.27,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Niederkunft,f,birth,"birth, childbirth, confinement, childbed, accouchement, travail, delivery",simplex,,ft,unknown,2.31,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Nostalgie,f,nostalgia,nostalgia (yearning for the past),simplex,,ie,loan,3.46,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Notiz,f,note,note (memorandum),simplex,,iz,loan,3.65,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Numerologie,f,numerology,numerology,simplex,,ie,unknown,2.02,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Nässe,f,wetness,wetness,simplex,,se,native,3.27,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Onkologie,f,oncology,oncology (branch of medicine),simplex,,ie,unknown,3.11,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Operette,f,operetta,operetta,simplex,,te,loan,3.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ophthalmologie,f,ophthalmology,ophthalmology,simplex,,ie,native,2.18,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Orgie,f,orgy,orgy,simplex,,ie,unknown,3.26,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ornithologie,f,ornithology,ornithology (scientific study of birds),simplex,,ie,unknown,2.43,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Orthodoxie,f,orthodoxy,orthodoxy,simplex,,ie,loan,2.89,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Orthopädie,f,orthopaedics,orthopaedics,simplex,,ie,loan,3.22,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Osmose,f,osmosis,osmosis,simplex,,se,unknown,2.51,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ostalgie,f,nostalgia for east germany,nostalgia for East Germany; Eastalgia,simplex,,ie,unknown,2.32,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pacht,f,lease,lease,simplex,,ht,native,3.2,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Paläographie,f,paleography,paleography,simplex,,ie,native,2.11,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pandemie,f,pandemic,pandemic (pandemic disease),simplex,,ie,loan,3.56,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Panne,f,breakdown,breakdown,simplex,,ne,loan,3.56,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pappe,f,paperboard,"paperboard, cardboard",simplex,,pe,native,3.39,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Paradoxie,f,paradox,paradox,simplex,,ie,loan,2.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Paralyse,f,paralysis,paralysis (loss of muscle control),simplex,,se,loan,2.38,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Parodie,f,parody,parody (expression making fun of something else),simplex,,ie,unknown,3.6,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Parodontitis,f,periodontitis,periodontitis (any of a number of inflammatory diseases affecting the periodontium),simplex,,is,unknown,2.25,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Partie,f,match,"match, game",simplex,,ie,loan,4.29,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pathologie,f,pathology,pathology,simplex,,ie,unknown,3.27,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pediküre,f,pedicure,pedicure,simplex,,re,loan,2.71,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Perücke,f,wig,wig; periwig; peruke,simplex,,ke,loan,3.42,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pfanne,f,frying pan,frying pan,simplex,,ne,native,3.79,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pharmakologie,f,pharmacology,pharmacology,simplex,,ie,native,2.83,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pharmazie,f,pharmacy,pharmacy (branch of medicine),simplex,,ie,unknown,3.12,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Philanthropie,f,philanthropy,philanthropy,simplex,,ie,unknown,2.22,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Philatelie,f,philately,philately (stamp collecting),simplex,,ie,loan,2.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Philologie,f,philology,philology,simplex,,ie,unknown,3.46,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Philosophie,f,philosophy,philosophy (study of thought),simplex,,ie,native,4.57,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Phiole,f,vial,vial,simplex,,le,native,2.17,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Phobie,f,phobia,phobia,simplex,,ie,loan,2.99,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Physiognomie,f,physiognomy,physiognomy,simplex,,ie,unknown,2.34,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Physiologie,f,physiology,physiology,simplex,,ie,loan,3.39,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pille,f,pill,"pill, tablet",simplex,,le,native,3.84,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Piraterie,f,piracy,piracy,simplex,,ie,loan,2.97,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Platine,f,printed circuit board,"printed circuit board, PCB",simplex,,ne,loan,2.6,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pneumonie,f,pneumonia,pneumonia,simplex,,ie,unknown,2.49,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Poesie,f,poetry,poetry,simplex,,ie,loan,3.8,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Politologie,f,political science,political science,simplex,,ie,unknown,2.38,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Polygamie,f,polygamy,polygamy,simplex,,ie,unknown,2.75,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pornografie,f,pornography,pornography,simplex,,ie,unknown,3.07,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pracht,f,splendor,"splendor, resplendence, magnificence, pomp",simplex,,ht,native,3.56,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Prognose,f,prognosis,"prognosis, projection, forecast (educated, fact-based prediction)",simplex,,se,loan,4.03,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Prophetie,f,prophecy,prophecy (something prophesied),simplex,,ie,native,2.47,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Prophylaxe,f,prophylaxis,prophylaxis,simplex,,xe,unknown,3.16,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Prostata,f,prostate,prostate,simplex,,ta,loan,3.22,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Prämie,f,bonus,bonus (extra earnings),simplex,,ie,loan,3.6,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Prämisse,f,premise,premise,simplex,,se,unknown,3.28,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Prüderie,f,prudery,"prudery, prudishness",simplex,,ie,loan,2.38,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Psychiatrie,f,psychiatry,psychiatry,simplex,,ie,unknown,3.93,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Psychologie,f,psychology,psychology,simplex,,ie,native,4.25,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pyrolyse,f,pyrolysis,pyrolysis,simplex,,se,unknown,2.23,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Raffinerie,f,refinery,refinery,simplex,,ie,loan,3.04,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rakete,f,rocket,"rocket, missile",simplex,,te,loan,3.89,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rampe,f,ramp,ramp,simplex,,pe,loan,3.47,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rasse,f,race,"race (subspecies), breed",simplex,,se,loan,4.06,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Recherche,f,research,"research, investigation (many contexts, but especially journalism)",simplex,,he,loan,4.0,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Regie,f,direction,direction (work of the director in cinema or theater),simplex,,ie,loan,4.23,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Reliquie,f,relic,relic,simplex,,ie,unknown,2.82,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rente,f,pension,"pension, retirement pay",simplex,,te,loan,4.38,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Retoure,f,return,(product) return,simplex,,re,native,2.37,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Reue,f,repentance,"repentance; remorse, regret",simplex,,ue,native,3.59,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Revanche,f,payback,"payback, revenge (generally playful or in minor matters, unlike Rache)",simplex,,he,loan,3.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rhapsodie,f,rhapsody,rhapsody,simplex,,ie,unknown,2.33,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rille,f,groove,groove (narrow channel; often one of several parallel ones),simplex,,le,loan,2.66,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rinde,f,bark of a tree,bark of a tree,simplex,,de,native,3.39,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rosine,f,raisin,raisin,simplex,,ne,native,2.47,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ruhr,f,dysentery,dysentery,simplex,,hr,loan,3.95,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ruine,f,ruin,"ruin, ruins",simplex,,ne,loan,3.53,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Röte,f,redness,redness,simplex,,te,native,2.28,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rübe,f,cover term for a variety of root vegetables including,a cover term for a variety of root vegetables including:,simplex,,be,native,3.09,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sache,f,matter,"matter, affair, case, question, issue",simplex,,he,native,5.24,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Saite,f,string,string (of a musical stringed instrument),simplex,,te,native,3.0,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Salbe,f,ointment,"ointment, salve",simplex,,be,native,3.35,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Savanne,f,savanna,savanna,simplex,,ne,loan,2.73,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schanze,f,entrenchment,"entrenchment, redoubt",simplex,,ze,unknown,3.43,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Scharte,f,notch,"notch, cut, cleft",simplex,,te,native,2.81,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Scheune,f,barn,barn,simplex,,ne,native,3.74,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schippe,f,shovel,shovel,simplex,,pe,native,3.07,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schlaufe,f,loop,"loop, noose (string formed into a ring)",simplex,,fe,unknown,2.61,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schleuse,f,sluice,sluice,simplex,,se,loan,3.54,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schneise,f,path cut into a location,a path cut into a location,simplex,,se,native,2.67,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schwemme,f,glut,glut,simplex,,me,unknown,2.44,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Seide,f,silk,silk,simplex,,de,native,3.61,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sekunde,f,unit of time,A unit of time; a second.,simplex,,de,loan,4.3,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Serviette,f,napkin,"napkin, serviette",simplex,,te,loan,2.81,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sicht,f,view,view,simplex,,ht,native,4.86,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sinfonie,f,symphony,symphony,simplex,,ie,loan,3.39,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sitte,f,custom,"custom, tradition, common practice, rite",simplex,,te,native,3.39,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Skala,f,scale,"scale, gamut (ordered numerical sequence)",simplex,,la,loan,3.86,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sodomie,f,form of sexual intercourse considered perverse and unnatural,a form of sexual intercourse considered perverse and unnatural; sodomy,simplex,,ie,loan,2.61,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sonde,f,probe,"probe (device used to explore, investigate or measure)",simplex,,de,loan,3.62,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sorte,f,sort,"a sort, variety, grade of a good produced for sale or consumption",simplex,,te,loan,4.05,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Soziologie,f,sociology,sociology,simplex,,ie,unknown,3.9,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Spule,f,spool,spool,simplex,,le,native,3.14,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Standarte,f,standard,standard (flag at the apex of a vertical pole),simplex,,te,native,2.63,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Strategie,f,strategy,strategy,simplex,,ie,loan,4.44,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Straße,f,street,"street; road (a way wide enough to be passable for vehicles, generally paved, in or outside a settlement)",simplex,,ße,native,5.27,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Strophe,f,stanza,stanza (a unit of a poem),simplex,,he,loan,3.55,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Stätte,f,venue,"venue, place, spot, site",simplex,,te,native,3.44,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Suppe,f,soup,soup,simplex,,pe,loan,3.99,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Symbiose,f,symbiosis,"symbiosis, mutualism",simplex,,se,loan,3.22,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Symmetrie,f,symmetry,symmetry,simplex,,ie,loan,3.09,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Symphonie,f,symphony,symphony,simplex,,ie,loan,3.41,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Synergie,f,synergy,synergy,simplex,,ie,unknown,2.69,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Synästhesie,f,synaesthesia,synaesthesia,simplex,,ie,unknown,2.09,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Szene,f,scene,scene; tableau,simplex,,ne,loan,4.76,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Säule,f,column,"column, pillar",simplex,,le,native,3.83,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Säure,f,sourness,"sourness, tartness, acidity",simplex,,re,native,3.72,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sünde,f,sin,sin,simplex,,de,native,3.94,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Taille,f,waist,"waist, waistline, midriff",simplex,,le,loan,3.28,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tasse,f,cup,"cup, mug (drinking vessel)",simplex,,se,native,4.06,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tautologie,f,tautology,tautology,simplex,,ie,loan,2.48,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Taverne,f,mediterranean wine bar and/or simple restaurant,"a Mediterranean wine bar and/or simple restaurant, especially an Italian or Greek one; a taverna",simplex,,ne,native,3.11,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Taxonomie,f,taxonomy,"taxonomy (science of finding, describing, classifying and naming organisms)",simplex,,ie,unknown,2.51,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Technologie,f,technology,technology,simplex,,ie,unknown,4.32,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Telefonie,f,telephony,telephony,simplex,,ie,unknown,3.04,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Telegraphie,f,telegraphy,telegraphy,simplex,,ie,loan,2.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Telekom,f,telecommunications company,telecommunications company,simplex,,om,unknown,4.38,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Terminologie,f,terminology,terminology,simplex,,ie,native,3.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Theologie,f,theology,theology,simplex,,ie,loan,4.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Theorie,f,theory,theory,simplex,,ie,unknown,4.61,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Therapie,f,therapy,therapy,simplex,,ie,loan,4.45,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Thora,f,torah,Torah,simplex,,ra,loan,2.73,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Thrombose,f,thrombosis,"thrombosis (formation of thrombi, causing obstruction of circulation)",simplex,,se,loan,2.93,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tinte,f,ink,ink,simplex,,te,native,3.55,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tomate,f,tomato,"tomato (plant, fruit of this plant)",simplex,,te,loan,3.36,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tombola,f,raffle,"raffle (small-scale lottery, usually for fundraising)",simplex,,la,loan,2.91,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tomographie,f,tomography,tomography,simplex,,ie,unknown,2.38,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Topologie,f,topology,topology,simplex,,ie,loan,2.59,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tournee,f,tour,tour,simplex,,ee,loan,3.66,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Toxikologie,f,toxicology,toxicology,simplex,,ie,unknown,2.62,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tragödie,f,tragedy,tragedy,simplex,,ie,loan,3.95,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Trasse,f,line,line,simplex,,se,loan,3.56,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Traube,f,grape,grape,simplex,,be,native,3.25,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Traufe,f,eaves,eaves,simplex,,fe,native,2.57,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Treppe,f,stairs,stairs,simplex,,pe,native,4.19,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Trigonometrie,f,trigonometry,trigonometry,simplex,,ie,loan,2.44,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Truhe,f,chest,chest (large box with a hinged lid),simplex,,he,native,3.17,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tuberkulose,f,tuberculosis,tuberculosis,simplex,,se,unknown,3.42,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Typographie,f,typography,typography,simplex,,ie,loan,2.5,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tücke,f,malice,"malice, spite, deceit, guile, trickery",simplex,,ke,native,2.51,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tür,f,door,door (rigid plane on a hinge),simplex,,ür,native,4.9,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tüte,f,small to medium-sized bag,"a small to medium-sized bag, usually of paper or plastic (sometimes also of fabric, for which more properly Beutel is used)",simplex,,te,loan,3.85,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Urne,f,urn,urn,simplex,,ne,loan,3.46,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Urologie,f,urology,urology,simplex,,ie,native,2.87,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Utopie,f,utopia,utopia,simplex,,ie,loan,3.58,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Vene,f,vein,vein,simplex,,ne,loan,2.95,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Virologie,f,virology,virology,simplex,,ie,unknown,2.52,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Vitrine,f,display case,"display case, display cabinet, vitrine",simplex,,ne,loan,3.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Voliere,f,aviary,aviary,simplex,,re,loan,2.44,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Volte,f,volt,"volt, volte",simplex,,te,loan,2.47,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Waffe,f,weapon,"weapon, arm",simplex,,fe,native,4.41,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wanne,f,tub,"tub, flat-bottomed vessel",simplex,,ne,native,3.69,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Warze,f,wart,wart,simplex,,ze,native,2.66,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wippe,f,seesaw,seesaw,simplex,,pe,loan,2.71,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Woche,f,week,"week (period of seven days counting from Monday to Sunday, or from Sunday to Saturday)",simplex,,he,native,5.38,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wolke,f,cloud,cloud (a visible mass of water droplets suspended in the air),simplex,,ke,native,3.79,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wonne,f,bliss,"bliss, joy; delight",simplex,,ne,native,2.95,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wunde,f,sore,"sore, wound",simplex,,de,native,3.95,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wäsche,f,wash,"wash, washing, laundry (the act of cleaning with water; an instance thereof)",simplex,,he,native,4.04,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zange,f,pair of pincers,"a pair of pincers, pliers, tongs, forceps",simplex,,ge,native,3.29,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zarge,f,frame of a door or a window,frame of a door or (less often) a window,simplex,,ge,native,2.07,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zeile,f,line,"line, row",simplex,,le,native,3.97,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zelle,f,cell,cell (segregated room),simplex,,le,native,4.14,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zeremonie,f,ceremony,ceremony,simplex,,ie,native,3.66,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zierde,f,ornament,ornament; adornment,simplex,,de,native,2.77,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zinne,f,merlon,merlon,simplex,,ne,native,2.2,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zitrone,f,lemon,lemon (fruit),simplex,,ne,loan,3.56,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zoologie,f,zoology,zoology,simplex,,ie,unknown,3.15,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zoophilie,f,zoophilia,zoophilia,simplex,,ie,unknown,2.02,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zucht,f,breeding,breeding (act of growing plants or animals),simplex,,ht,native,3.66,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zunge,f,tongue,tongue (organ in the mouth),simplex,,ge,native,4.25,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zyanose,f,cyanosis,cyanosis,simplex,,se,unknown,2.02,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zöliakie,f,celiac disease,"celiac disease (US), coeliac disease (UK)",simplex,,ie,loan,2.55,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ägide,f,aegis,"aegis (endorsement, sponsorship)",simplex,,de,loan,2.77,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ägyptologie,f,egyptology,Egyptology,simplex,,ie,unknown,2.25,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ähre,f,ear,ear (of corn),simplex,,re,native,2.58,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ära,f,era,era,simplex,,ra,unknown,4.0,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ätiologie,f,aetiology,aetiology (study of causes or origins),simplex,,ie,loan,2.46,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ökologie,f,ecology,ecology,simplex,,ie,native,3.57,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ökonometrie,f,econometrics,econometrics (branch of economics),simplex,,ie,unknown,2.14,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ökonomie,f,economy,economy,simplex,,ie,loan,3.82,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ölfarbe,f,oil paint,oil paint,simplex,,be,native,2.41,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Öllampe,f,oil lamp,oil lamp,simplex,,pe,unknown,2.33,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Übereinkunft,f,agreement,"agreement, accord",simplex,,ft,unknown,3.2,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Affekt,m,affect,affect (strong emotional experience),simplex,,kt,unknown,3.02,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Akku,m,rechargeable battery,rechargeable battery,simplex,,ku,unknown,4.14,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Akt,m,act,"act, deed",simplex,,kt,loan,4.16,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Akzent,m,accent,accent (modulation of the voice),simplex,,nt,loan,3.89,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Alkohol,m,alcohol,"alcohol, ethanol (substance)",simplex,,ol,loan,4.65,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Antrag,m,application,"application, request",simplex,,ag,native,4.62,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Appell,m,parade,"parade, muster",simplex,,ll,loan,3.68,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Aspekt,m,aspect,aspect,simplex,,kt,loan,4.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Atem,m,breath,breath,simplex,,em,native,4.07,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Auftrag,m,assignment,"assignment, job, mission",simplex,,ag,unknown,4.74,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Balken,m,beam,"beam, crossbeam",simplex,,en,native,3.84,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Befund,m,findings,"findings, results",simplex,,nd,native,3.51,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Beginn,m,start,"start, beginning",simplex,,nn,native,4.99,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Beleg,m,piece of evidence,"piece of evidence, a supporting fact",simplex,,eg,unknown,3.87,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Besatz,m,edging,"edging, trimming, lining",simplex,,tz,unknown,2.59,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Beschluss,m,decision,"decision (choice, judgement)",simplex,,ss,unknown,4.31,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Beschuss,m,bombardment,"bombardment, fire",simplex,,ss,unknown,3.51,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bezug,m,reference,reference,simplex,,ug,unknown,4.72,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bodden,m,shallow bay,shallow bay,simplex,,en,loan,2.71,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Boden,m,ground,"ground, soil",simplex,,en,native,5.01,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Brunnen,m,well,"well, fountain",simplex,,en,native,4.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Chaot,m,chaotic person,chaotic person,simplex,,ot,unknown,2.23,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Darm,m,intestine,"intestine, gut",simplex,,rm,native,3.89,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Daumen,m,thumb,thumb,simplex,,en,native,4.2,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Degen,m,rapier,"rapier, smallsword",simplex,,en,loan,3.43,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dezember,m,december,"December (the twelfth and last month of the Gregorian calendar, following November and preceding the January of the following year, containing the southern solstice)",simplex,,er,unknown,5.04,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Duden,m,dictionary of the german language,"A dictionary of the German language, first published by Konrad Duden in 1880.",simplex,,en,unknown,3.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Effekt,m,effect,effect,simplex,,kt,loan,4.42,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Eintrag,m,entry,"entry (in dictionary, record in log)",simplex,,ag,unknown,4.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Elektrolyt,m,electrolyte,electrolyte,simplex,,yt,unknown,2.48,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Etat,m,budget,budget,simplex,,at,loan,3.52,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fels,m,rock,rock,simplex,,ls,native,3.72,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fiskus,m,treasury,"treasury, exchequer",simplex,,us,loan,3.19,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Flansch,m,flange to fasten to or anchor with other parts,"flange (projecting edge at the end of component (esp. of metal) to fasten to or anchor with other parts, now especially of pipes)",simplex,,ch,native,2.24,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fleck,m,stain,"stain, spot, blot, fleck, smear",simplex,,ck,native,3.94,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fluch,m,curse,"curse, malediction, bane",simplex,,ch,native,3.86,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Flug,m,flight,flight (in the air),simplex,,ug,native,4.49,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fokus,m,focus,focus,simplex,,us,loan,4.36,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Frieden,m,peace,peace,simplex,,en,native,4.69,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Grieß,m,semolina,semolina,simplex,,eß,native,2.61,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Gruß,m,greeting,greeting,simplex,,uß,native,4.03,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Gurt,m,strap,"strap; belt (tough band, used for purposes other than being worn around the waist)",simplex,,rt,native,3.29,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Guss,m,instance noun of gießen,"instance noun of gießen: a pour, pouring",simplex,,ss,native,3.27,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Halm,m,stalk,stalk,simplex,,lm,native,2.83,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hals,m,neck,neck,simplex,,ls,native,4.46,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hass,m,hatred,"hatred, hate",simplex,,ss,native,4.5,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Haufen,m,heap,"heap, hive, pile",simplex,,en,native,4.35,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Herbst,m,autumn,"autumn, fall",simplex,,st,native,4.74,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Horizont,m,horizon range of someone’s thinking or insight),horizon (line where the sky appears to meet the earth; (figurative) range of someone’s thinking or insight),simplex,,nt,loan,3.97,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Humpen,m,tankard,"tankard (massy container, usually for beer)",simplex,,en,native,2.26,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Infekt,m,infection,"infection, infectious disease",simplex,,kt,unknown,2.99,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Instinkt,m,instinct,instinct,simplex,,kt,loan,3.4,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Irrtum,m,error,"error, mistake",simplex,,-tum,native,3.87,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Juli,m,july,"July (the seventh month of the Gregorian calendar, following June and preceding August)",simplex,,li,unknown,5.1,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Juni,m,june,"June (the sixth month of the Gregorian calendar, following May and preceding July, containing the northern solstice)",simplex,,ni,loan,5.1,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kakao,m,cocoa,"cocoa (unsweetened brown powder made from roasted, ground cocoa beans)",simplex,,ao,loan,3.66,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kampf,m,struggle,"struggle, battle, campaign, fight",simplex,,pf,native,4.97,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kanal,m,canal,canal (man-made watercourse),simplex,,al,loan,4.48,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kelch,m,chalice,"chalice (large, often precious drinking cup with a stem)",simplex,,ch,native,3.45,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kessel,m,solid metal container or pot,"a solid metal container or pot, often large, used to boil liquids: a kettle, cauldron, boiler, etc.",simplex,,-sel,native,3.77,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Klatsch,m,smacking/slapping sound,"a smacking/slapping sound, made (for example) by hitting, palm down, a flat, wet surface.",simplex,,ch,unknown,3.36,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Knacks,m,click,"click, crack (brief cracking sound)",simplex,,ks,unknown,2.61,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Knauf,m,knob,"knob, doorknob, stud",simplex,,uf,native,3.05,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Knopf,m,button,button (fastener),simplex,,pf,native,4.0,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kommentar,m,comment,comment,simplex,,ar,loan,4.71,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kompressor,m,supercharger,a supercharger,simplex,,or,unknown,2.97,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Konflikt,m,conflict,conflict,simplex,,kt,loan,4.4,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Konsonant,m,consonant,consonant,simplex,,nt,loan,2.48,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Konsum,m,consumption,"consumption, intake (the act of eating, drinking or using)",simplex,,um,loan,4.01,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kontinent,m,continent,continent,simplex,,nt,loan,3.86,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Konvoi,m,convoy,convoy (vehicles travelling together for safety),simplex,,oi,loan,3.32,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Korridor,m,corridor,corridor,simplex,,or,loan,3.39,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kosmos,m,cosmos,cosmos,simplex,,os,loan,3.68,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kot,m,feces,feces,simplex,,ot,native,3.51,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kotau,m,kowtow,kowtow (act of showing obeisance),simplex,,au,loan,2.08,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Krach,m,crash,crash,simplex,,ch,native,3.53,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Krampf,m,cramp,cramp,simplex,,pf,native,3.38,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Krater,m,crater,crater,simplex,,er,unknown,3.34,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kreis,m,circle,circle,simplex,,is,native,5.0,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kubus,m,cube,cube,simplex,,us,loan,2.92,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kurs,m,course,course (direction),simplex,,rs,loan,4.65,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kursus,m,synonym of kurs,synonym of Kurs (“[learning] course”),simplex,,us,loan,2.74,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kuss,m,kiss,kiss,simplex,,ss,native,4.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Leichnam,m,corpse,corpse (dead human body),simplex,,am,native,3.6,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Limes,m,limit,limit,simplex,,es,loan,3.05,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lohn,m,wage,wage,simplex,,hn,native,4.25,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Luxus,m,luxury,luxury,simplex,,us,loan,4.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Magen,m,stomach,"stomach, maw",simplex,,en,native,4.23,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Marmor,m,marble,marble,simplex,,or,loan,3.67,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Matsch,m,mud,mud,simplex,,ch,unknown,3.22,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mittwoch,m,wednesday,Wednesday,simplex,,ch,native,4.69,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Modus,m,mode,mode (predesigned set of states or rules),simplex,,us,loan,4.24,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Monsun,m,monsoon,monsoon,simplex,,un,loan,2.78,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mucks,m,noise,"noise, peep",simplex,,ks,unknown,2.47,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mythos,m,myth,"myth, mythos (narrative of importance to a particular group or culture)",simplex,,os,unknown,4.03,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Müll,m,rubbish,"rubbish, refuse, waste, junk, trash (US), garbage (US)",simplex,,ll,loan,4.41,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Nacken,m,nape of the neck,nape of the neck,simplex,,en,native,3.97,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Napf,m,small bowl,small bowl; cup; now chiefly to hold fodder for animals,simplex,,pf,native,2.76,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Neid,m,envy,"envy, jealousy",simplex,,id,native,3.84,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Nerv,m,nerve,nerve,simplex,,rv,loan,3.71,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Norden,m,north,north (direction),simplex,,en,unknown,4.65,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Nukleus,m,nucleus,nucleus,simplex,,us,loan,2.2,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Orden,m,order,order (awarded decoration),simplex,,en,loan,4.03,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Osten,m,east,East,simplex,,en,native,4.75,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ozean,m,ocean,ocean,simplex,,an,loan,3.91,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pakt,m,pact,"pact, agreement",simplex,,kt,loan,3.64,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pelz,m,fur,fur,simplex,,lz,native,3.47,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pfosten,m,post,"post; pillar (long, fairly thick piece of wood or metal used to stabilise something)",simplex,,en,native,3.95,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pinsel,m,paintbrush,paintbrush,simplex,,-sel,native,3.54,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pokal,m,goblet,"goblet, chalice",simplex,,al,loan,4.28,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Prozess,m,lawsuit,lawsuit,simplex,,ss,native,4.77,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Puls,m,pulse,pulse,simplex,,ls,native,3.93,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Punkt,m,dot,dot (marking an abbreviation),simplex,,kt,native,5.0,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Putz,m,plaster,"plaster, render applied to buildings (mixture for coating walls and ceilings)",simplex,,tz,unknown,3.6,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rausch,m,high,"high, flush, intoxication",simplex,,ch,native,3.75,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Reim,m,rhyme,rhyme (poetic device),simplex,,im,native,3.42,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rekord,m,record,record (most extreme known value of some achievement),simplex,,rd,unknown,4.14,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rekurs,m,recourse,recourse,simplex,,rs,loan,2.37,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Riemen,m,strap,"strap (long, narrow, pliable strip of leather, cloth, or the like)",simplex,,en,native,3.38,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rumpf,m,trunk,trunk; torso (body excluding the head and limbs),simplex,,pf,native,3.61,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rutsch,m,trip,trip; slip,simplex,,ch,unknown,3.45,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Satz,m,sentence,sentence,simplex,,tz,native,4.93,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Saum,m,hem,hem (sewn edge of a garment or cloth),simplex,,um,native,3.3,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schatz,m,treasure,treasure,simplex,,tz,native,4.37,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schaum,m,foam,"foam, lather, froth",simplex,,um,native,3.55,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schimpf,m,insult,"insult, affront, scolding",simplex,,pf,native,2.96,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schirm,m,screen,screen (movable protective cover),simplex,,rm,native,3.85,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schlick,m,silt,silt (very fine kind of mud found at the ground and shore of some waters),simplex,,ck,native,2.89,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schlitz,m,slit,"slit, slash",simplex,,tz,native,3.36,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schlupf,m,slip,slip,simplex,,pf,unknown,2.61,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schluss,m,end,"end, ending, conclusion, finish",simplex,,ss,native,4.92,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schmand,m,thick,"thick, fermented (soured) cream; smetana, sour cream (with a high fat content)",simplex,,nd,loan,2.6,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schmutz,m,dirt,dirt,simplex,,tz,native,3.71,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schnatz,m,chignon,"chignon, topknot",simplex,,tz,unknown,2.12,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schnee,m,snow,snow,simplex,,ee,native,4.45,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schub,m,thrust,thrust,simplex,,ub,native,3.5,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schuh,m,shoe,shoe,simplex,,uh,native,4.06,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schuss,m,shot,shot,simplex,,ss,native,4.42,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schutt,m,rubbish,"rubbish, rubble",simplex,,tt,native,3.46,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sexus,m,sex,sex,simplex,,us,loan,2.28,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sieg,m,victory,victory,simplex,,eg,native,4.9,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Skalar,m,scalar,"scalar (physics, mathematics)",simplex,,ar,loan,2.01,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Spaten,m,spade,spade,simplex,,en,native,3.24,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Splitt,m,grit,grit; stone chips (fine gravel),simplex,,tt,loan,2.36,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sporn,m,spur,spur,simplex,,rn,native,2.68,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Spott,m,mockery,"mockery, ridicule, derision, scorn",simplex,,tt,native,3.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Spruch,m,short saying,"short saying, expression or dictum that is remembered or is meaningful in itself",simplex,,ch,native,4.22,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Stamm,m,tree trunk,"tree trunk, main stem of a plant (but never used of thin stalks or twigs)",simplex,,mm,native,4.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Staub,m,dust,dust,simplex,,ub,native,4.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Steg,m,path,"A path, footbridge, or catwalk, usually made of wooden planks, often over water or wet or muddy ground; a jetty; a gangplank; duckboards.",simplex,,eg,native,3.5,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Steiß,m,backside,backside,simplex,,iß,native,2.11,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Stil,m,style,style,simplex,,il,loan,4.64,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Stoff,m,stuff,"stuff, matter, substance",simplex,,ff,loan,4.45,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Stopp,m,stop,"stop, stoppage (interruption or halt of anything)",simplex,,pp,unknown,3.87,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Stoß,m,push,"push, shove, bump",simplex,,oß,native,3.53,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Striemen,m,stripe,"stripe, weal, wale, a linear pattern on skin, as resulting from a violent lash",simplex,,en,native,2.28,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Strunk,m,thick,"the thick, woody stalk found in some plants, especially cabbages",simplex,,nk,native,2.76,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sturz,m,fall,fall,simplex,,rz,native,4.01,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sumpf,m,swamp,"swamp, marsh",simplex,,pf,native,3.68,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sund,m,sound,"sound, strait (especially near islands of the Baltic Sea)",simplex,,nd,native,2.82,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tacker,m,stapler,stapler,simplex,,er,unknown,2.4,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tangens,m,tangent,tangent,simplex,,ns,loan,2.08,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tarif,m,fee,"fee, price, rate",simplex,,if,loan,3.85,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tausch,m,exchange,"exchange, barter (an exchange of one item for another of equal value)",simplex,,ch,unknown,3.8,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Teig,m,dough,"dough, paste, pastry, batter (soft, at least partially cohesive mixture of ingredients, often including flour, intended to be baked, fried or cooked)",simplex,,ig,native,3.68,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tipp,m,tip,"tip, hint",simplex,,pp,loan,4.51,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tisch,m,table,table (a piece of furniture with a relatively deep surface at roughly waist or knee level); specific uses include:,simplex,,ch,native,4.83,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tratsch,m,gossip,gossip,simplex,,ch,unknown,2.87,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Traum,m,dream,dream,simplex,,um,native,4.72,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tresen,m,counter,"counter, bar",simplex,,en,native,3.38,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tresor,m,safe,"safe, vault",simplex,,or,loan,3.51,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tross,m,baggage train,baggage train (a unit’s supply vehicles and the troops resonsible for them),simplex,,ss,native,2.95,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Trott,m,jog,"jog, trot",simplex,,tt,unknown,2.84,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Turm,m,tower,"tower, spire (very tall building or structure, especially with a tapering top)",simplex,,rm,native,4.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Typhus,m,typhoid fever,"typhoid fever, abdominal typhus (disease)",simplex,,us,loan,3.03,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Verdruss,m,displeasure,"displeasure, chagrin",simplex,,ss,native,2.76,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Vers,m,line,line (of a poem or song),simplex,,rs,native,3.74,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Vorstoss,m,advance,advance,simplex,,ss,unknown,3.59,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Vortrag,m,talk,"talk, lecture",simplex,,ag,unknown,4.47,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wald,m,forest,forest; woods; woodland,simplex,,ld,native,4.81,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wodka,m,vodka,vodka,simplex,,ka,loan,3.58,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wunsch,m,wish,wish (an act of wishing),simplex,,ch,native,4.74,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wurf,m,throw,throw,simplex,,rf,native,3.75,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zaum,m,bridle,bridle (headgear to steer a horse),simplex,,um,native,3.15,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zeh,m,toe,toe,simplex,,eh,native,3.44,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zins,m,interest,interest,simplex,,ns,native,3.56,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zopf,m,plait,"plait; pigtail; ponytail (any long bundle of hair, braided or not)",simplex,,pf,native,3.19,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zweck,m,purpose,purpose,simplex,,ck,native,4.64,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zyklus,m,cycle,cycle,simplex,,us,loan,3.74,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ölberg,m,olive grove,olive grove,simplex,,rg,native,2.45,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Abonnement,n,subscription,subscription,simplex,,-ment,loan,3.25,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Adjektiv,n,adjective,adjective,simplex,,iv,unknown,3.38,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Aggregat,n,system,a system (set of devices or mechanisms designed to perform a single task),simplex,,at,unknown,2.94,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Anhängsel,n,appendage,"appendage, attachment",simplex,,-sel,native,2.94,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Antibiotikum,n,antibiotic,antibiotic,simplex,,um,unknown,2.89,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Antidepressivum,n,antidepressant,antidepressant,simplex,,um,native,2.49,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Aquarell,n,watercolour,watercolour,simplex,,ll,loan,3.14,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Asyl,n,asylum,"asylum (shelter, refuge)",simplex,,yl,loan,4.15,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Auge,n,eye,eye,simplex,,ge,native,4.82,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Begräbnis,n,funeral,"funeral, burial",simplex,,-nis,native,3.32,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Behältnis,n,container,"container, vessel, vat",simplex,,-nis,native,2.73,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Beil,n,axe,"axe, hatchet",simplex,,il,native,3.29,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bekenntnis,n,confession,confession,simplex,,-nis,native,3.81,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bett,n,bed,"bed (piece of furniture, usually flat and soft, for resting or sleeping on; one's place of sleep or rest)",simplex,,tt,native,4.94,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bild,n,depiction,"depiction, image, picture",simplex,,ld,native,5.4,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bildnis,n,image,"image, portrait",simplex,,-nis,native,3.31,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Blatt,n,leaf,leaf (green and flat organ of a plant),simplex,,tt,native,4.38,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Blech,n,sheet,sheet (of metal),simplex,,ch,native,3.61,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Blut,n,blood,blood,simplex,,ut,native,4.73,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Brot,n,bread,bread,simplex,,ot,native,4.5,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Bündnis,n,alliance,"alliance, confederation",simplex,,-nis,native,4.18,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Büro,n,office,office (room for working),simplex,,ro,loan,4.73,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Cabrio,n,cabriolet,cabriolet (an automobile with a retractable top),simplex,,io,unknown,3.51,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Charakteristikum,n,feature,"feature, characteristic (of a person or thing)",simplex,,um,loan,2.64,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Credo,n,creed,creed; credo,simplex,,do,loan,3.26,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dach,n,roof,roof,simplex,,ch,native,4.57,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Defizit,n,deficit,deficit,simplex,,it,loan,3.51,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dekret,n,decree,decree,simplex,,et,native,3.45,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Delikt,n,crime,"crime, offense",simplex,,kt,loan,2.96,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Diktum,n,dictum,dictum,simplex,,-tum,loan,2.32,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Dokument,n,document,document,simplex,,-ment,loan,4.16,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Domizil,n,domicile,domicile,simplex,,il,loan,3.13,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Duell,n,duel,duel (combat between two persons),simplex,,ll,loan,4.09,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Duett,n,duet,duet,simplex,,tt,loan,3.37,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Eigentum,n,ownership,ownership,simplex,,-tum,native,4.29,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ekzem,n,eczema,eczema (acute or chronic inflammation of the skin),simplex,,em,unknown,2.68,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Elektron,n,electron,electron,simplex,,on,unknown,3.03,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Entgelt,n,charge,"charge, paid money",simplex,,lt,unknown,3.4,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Epos,n,epic,epic,simplex,,os,loan,3.35,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ereignis,n,event,event (occurrence of social or personal importance),simplex,,-nis,native,4.24,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ergebnis,n,result,"result, outcome, conclusion, finding, fruit, consequence, upshot, answer",simplex,,-nis,native,4.99,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Erlebnis,n,experience,experience (event of which one is cognizant),simplex,,-nis,native,4.2,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Erzeugnis,n,product,"product, manufacture, commodity, produce",simplex,,-nis,native,2.64,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Etablissement,n,establishment,establishment,simplex,,-ment,loan,2.92,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Etikett,n,label,"label, tag",simplex,,tt,loan,3.38,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Examen,n,exam,exam (particularly at the end of university studies e.g. Final Exam),simplex,,en,loan,3.49,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fass,n,barrel,"barrel, keg, cask",simplex,,ss,native,3.96,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Feld,n,field,"field (plot of open land, especially one used to grow crops)",simplex,,ld,native,4.63,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fleisch,n,flesh,flesh,simplex,,ch,native,4.66,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Formular,n,form,form (document to be filled),simplex,,ar,unknown,3.74,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Fundament,n,foundation,foundation,simplex,,-ment,native,3.84,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Garn,n,yarn,"yarn: a thread, typically in a ball/skein or on a spool; (often) such balls and/or spools collectively",simplex,,rn,native,3.16,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Glas,n,glass,glass,simplex,,as,native,4.61,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Glied,n,external body part,external body part,simplex,,ed,native,3.54,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Heidentum,n,paganism,paganism,simplex,,-tum,native,2.41,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Heiligtum,n,sacred site,sacred site; sanctuary; shrine,simplex,,-tum,native,3.33,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Heldentum,n,heroism,heroism,simplex,,-tum,unknown,2.62,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Heu,n,hay,hay,simplex,,eu,native,3.5,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hindernis,n,obstacle,obstacle,simplex,,-nis,native,3.8,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Hirn,n,brain,brain (organ),simplex,,rn,native,4.18,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Holz,n,wood,wood (material),simplex,,lz,native,4.64,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Honorar,n,honorarium,honorarium,simplex,,ar,loan,3.46,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Imperium,n,empire,empire,simplex,,um,loan,3.65,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Impressum,n,imprint,imprint,simplex,,um,loan,3.4,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Inventar,n,inventory,inventory,simplex,,ar,unknown,3.56,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Jahr,n,year,"year (solar year, the time it takes the Earth to complete one orbit of the Sun)",simplex,,hr,native,5.84,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Joch,n,yoke,yoke,simplex,,ch,native,3.29,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Jubiläum,n,anniversary,"an anniversary, a jubilee",simplex,,um,loan,4.05,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kabarett,n,cabaret,cabaret; review (satirical),simplex,,tt,loan,3.6,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kabinett,n,cabinet,"cabinet, ministry",simplex,,tt,loan,3.92,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kaleidoskop,n,kaleidoscope,kaleidoscope,simplex,,op,loan,2.71,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kanu,n,light,"a light, narrow boat propelled with paddles: a canoe or kayak",simplex,,nu,loan,3.47,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Karussell,n,carousel,"carousel (US), merry-go-round (UK) (amusement ride)",simplex,,ll,loan,3.25,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kasino,n,casino,casino,simplex,,no,loan,3.04,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kernöl,n,seed oil,seed oil,simplex,,öl,native,2.14,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kinn,n,chin,chin,simplex,,nn,native,3.6,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kino,n,cinema,cinema,simplex,,no,unknown,4.63,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kissen,n,cushion,cushion; pillow (bag filled with soft material used to sit or rest one’s head on),simplex,,en,native,3.95,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kleingedrucktes,n,fine print,fine print,simplex,,es,unknown,2.01,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Klima,n,climate,climate,simplex,,ma,loan,4.44,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kollegium,n,governing or overseeing board,a governing or overseeing board,simplex,,um,loan,3.36,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Koma,n,coma,coma,simplex,,ma,loan,3.73,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kommando,n,command,command,simplex,,do,loan,4.06,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kommissariat,n,office of a commissar,office of a commissar,simplex,,at,loan,2.72,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kompositum,n,compound,"compound, compound word",simplex,,-tum,loan,2.24,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kontinuum,n,continuum,continuum,simplex,,um,unknown,2.88,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Konto,n,account,account,simplex,,to,loan,4.44,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Konzept,n,blueprint,"blueprint, draft",simplex,,pt,unknown,4.74,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Konzert,n,concert,concert (musical event),simplex,,rt,loan,4.61,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Krad,n,motorcycle,motorcycle,simplex,,ad,unknown,2.35,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kreuz,n,cross,cross,simplex,,uz,native,4.5,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kriterium,n,criterion,criterion,simplex,,um,loan,3.82,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Kuriosum,n,curiosity,curiosity (unique or extraordinary object which arouses interest),simplex,,um,loan,2.61,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Laub,n,foliage,"foliage, greenery, leaves (on a tree or fallen onto the ground, but particularly the latter)",simplex,,ub,native,3.63,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lehen,n,feud or fief,feud or fief (estate granted to a vassal by a feudal lord),simplex,,en,native,3.41,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Lexikon,n,reference book,"reference book (a book, usually alphabetically ordered, in which definitions and facts can be looked up, such as an encyclopaedia, dictionary, etc.)",simplex,,on,unknown,3.79,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Luthertum,n,lutheranism,Lutheranism,simplex,,-tum,native,2.19,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Makro,n,macro,macro,simplex,,ro,unknown,3.17,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Maul,n,mouth of an animal,mouth of an animal,simplex,,ul,native,4.23,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Medikament,n,drug,"drug, medicine",simplex,,-ment,loan,3.77,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Menü,n,set of dishes with few choices to be made,"a set of dishes with few choices to be made, usually consisting of two or more courses",simplex,,nü,loan,3.86,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mikroskop,n,microscope,microscope,simplex,,op,native,3.25,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mobbing,n,bullying,bullying,simplex,,ng,loan,3.74,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Modell,n,model of an object,A model of an object,simplex,,ll,loan,4.71,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Molekül,n,molecule,molecule,simplex,,ül,loan,3.18,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Morphium,n,morphine,morphine,simplex,,um,native,2.95,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Mysterium,n,mystery,"mystery, enigma",simplex,,um,loan,3.32,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Netz,n,net,"net; web; mesh (construction of interwoven fibres, e.g. that of a fisher, a spider, etc.)",simplex,,tz,native,4.77,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Niveau,n,level,level (the physical elevation at which something is located or constructed),simplex,,au,loan,4.57,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Nomen,n,any declinable part of speech,"any declinable part of speech, i.e. substantive, adjective, numeral, article, pronoun",simplex,,en,loan,3.33,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Novum,n,novelty,novelty (something that has not been seen before),simplex,,um,loan,3.34,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Objekt,n,object,"object (inanimate being, thing)",simplex,,kt,native,4.31,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Observatorium,n,observatory,observatory,simplex,,um,unknown,2.96,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ohr,n,ear,ear (the auditory organ),simplex,,hr,native,4.35,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Oratorium,n,oratorio,oratorio,simplex,,um,unknown,2.99,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Paradies,n,paradise,paradise,simplex,,es,native,4.1,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Parfüm,n,perfume,"perfume (generally only in the sense of “odorous substance”, not “pleasant smell”)",simplex,,üm,loan,3.42,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Parkett,n,parquet,parquet (kind of floor),simplex,,tt,loan,3.5,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pech,n,pitch,pitch (sticky substance),simplex,,ch,native,4.23,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pensum,n,allotted task,An allotted task.,simplex,,um,loan,2.88,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pergament,n,parchment,parchment (material),simplex,,-ment,loan,2.92,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Pissoir,n,urinal,urinal,simplex,,ir,loan,2.24,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Politikum,n,political issue,political issue,simplex,,um,loan,2.78,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Polynom,n,polynomial,a polynomial,simplex,,om,native,2.34,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Porzellan,n,porcelain,porcelain,simplex,,an,loan,3.65,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Potenzial,n,potential,potential,simplex,,al,loan,4.0,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Praktikum,n,internship,"internship (job taken by a student), apprenticeship",simplex,,um,unknown,4.03,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Prinzip,n,principle,principle,simplex,,ip,loan,4.63,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Probeabo,n,trial subscription,trial subscription,simplex,,bo,native,2.19,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Produkt,n,product,product,simplex,,kt,loan,4.54,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Projekt,n,project,project,simplex,,kt,loan,4.97,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Projektil,n,projectile,"projectile, bullet",simplex,,il,unknown,2.76,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Protokoll,n,protocol,protocol,simplex,,ll,unknown,4.12,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Provisorium,n,provisional solution,provisional solution,simplex,,um,unknown,2.88,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Prozedere,n,procedure,procedure,simplex,,re,loan,3.0,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Prozent,n,percent,percent,simplex,,nt,loan,5.22,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Präfix,n,prefix,prefix,simplex,,ix,loan,2.96,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Präsens,n,present tense,present tense,simplex,,ns,loan,2.94,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Präteritum,n,preterite,preterite (preterite tense; past tense),simplex,,-tum,loan,2.74,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Reglement,n,regulation,"regulation, regulations",simplex,,-ment,loan,3.3,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Relikt,n,relic,relic,simplex,,kt,loan,3.13,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rezept,n,recipe,"recipe, formula, guidance",simplex,,pt,loan,4.36,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Risiko,n,risk,risk,simplex,,ko,loan,4.64,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Rohr,n,duct,"duct, pipe, tube",simplex,,hr,native,3.99,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sakrament,n,sacrament,sacrament,simplex,,-ment,native,3.18,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sakrileg,n,sacrilege,sacrilege,simplex,,eg,unknown,2.64,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sammelsurium,n,hodgepodge,hodgepodge,simplex,,um,unknown,2.86,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Schweröl,n,heavy oil,heavy (fuel) oil,simplex,,öl,native,2.52,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Seil,n,rope,"rope, line, cord",simplex,,il,native,3.77,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sekret,n,secretion,secretion (substance that has been secreted),simplex,,et,unknown,2.73,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sekretariat,n,central office in any business or institution,"a central office in any business or institution (or a department thereof), responsible for correspondence, making appointments, and general administrative support",simplex,,at,loan,3.37,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Skelett,n,skeleton,skeleton,simplex,,tt,loan,3.46,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Skript,n,script,"script, notes, transcript (a writing or written document, particularly of a topic dealt with in university)",simplex,,pt,loan,3.54,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sortiment,n,range,range (the entirety or a particular grouping of the articles produced by a company or sold by a shop),simplex,,-ment,loan,3.81,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Stativ,n,tripod,tripod,simplex,,iv,unknown,3.03,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Stipendium,n,scholarship,scholarship (grant-in-aid to a student),simplex,,um,loan,3.61,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Studium,n,study,study (the act of studying in general),simplex,,um,loan,4.84,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Stück,n,one,"one, item, piece, unit(of something countable; often untranslated in English)",simplex,,ck,native,5.09,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Subjekt,n,subject,subject,simplex,,kt,loan,3.55,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Substantiv,n,noun,"noun, substantive",simplex,,iv,loan,3.21,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Sujet,n,subject,subject,simplex,,et,loan,2.96,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Suspensorium,n,jockstrap,jockstrap,simplex,,um,unknown,2.1,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Szenario,n,scenario,"scenario (all senses, literal and figurative)",simplex,,io,unknown,3.85,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tablett,n,tray,tray (object on which things are carried),simplex,,tt,loan,3.27,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Telefon,n,telephone,telephone,simplex,,on,unknown,4.76,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Teleskop,n,telescope,telescope,simplex,,op,unknown,3.3,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Territorium,n,territory,territory,simplex,,um,loan,3.75,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Thema,n,topic,"topic, subject, issue",simplex,,ma,native,5.36,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tuch,n,cloth,"cloth; piece of fabric or tissue of any kind: scarf, kerchief, blanket, towel, etc.",simplex,,ch,native,3.81,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Tutorium,n,tutorial,a tutorial,simplex,,um,loan,2.25,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Universum,n,universe,universe,simplex,,um,loan,4.13,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Vakuum,n,vacuum,vacuum,simplex,,um,loan,3.55,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ventil,n,valve,valve,simplex,,il,loan,3.47,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Verhältnis,n,relation,"relation, ratio",simplex,,-nis,native,4.66,5.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Verhängnis,n,fatality,"fatality, fate",simplex,,-nis,native,3.32,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Vermächtnis,n,testamentary gift,"testamentary gift: bequest, devise, legacy",simplex,,-nis,native,3.49,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Verständnis,n,understanding,"understanding, comprehension",simplex,,-nis,native,4.61,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Verzeichnis,n,index,index,simplex,,-nis,native,3.95,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Vlies,n,fleece,"fleece (wool of a sheep or similar animal, with or without the skin)",simplex,,es,loan,3.01,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Vokabular,n,vocabulary,vocabulary (stock of words),simplex,,ar,loan,3.21,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Volontariat,n,traineeship,traineeship,simplex,,at,unknown,2.73,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Vorkommnis,n,incident,incident (anything noteworthy happening that goes beyond pure routine),simplex,,-nis,native,2.67,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Votum,n,say,say,simplex,,-tum,unknown,3.47,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wachstum,n,growth,growth,simplex,,-tum,native,4.41,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wagnis,n,risky adventure,risky adventure,simplex,,-nis,native,3.04,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Werk,n,work,"work, achievement (the result of working)",simplex,,rk,native,4.89,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wildbret,n,meat from game,meat from game; venison,simplex,,et,native,2.39,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wort,n,word as an isolated unit,word as an isolated unit,simplex,,rt,native,5.22,1.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Wrack,n,wreck,"wreck (damaged remains of a ship, airplane, etc.)",simplex,,ck,native,3.56,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zelt,n,tent,"tent, marquee",simplex,,lt,native,4.04,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zeug,n,stuff,"stuff, gear, equipment",simplex,,ug,native,4.56,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zeugnis,n,testimony,"testimony, witness declaration",simplex,,-nis,native,3.92,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Zitat,n,quotation,quotation,simplex,,at,loan,4.35,2.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ölbild,n,synonym of ölgemälde,synonym of Ölgemälde,simplex,,ld,native,2.37,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Ölfeld,n,oil field,oil field,simplex,,ld,native,2.41,3.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03
+de,Überbleibsel,n,remnant,"remnant, relic, relict",simplex,,-sel,native,3.17,4.0,False,,,,,,,,,wiktionary:kaikki@2026-10-03

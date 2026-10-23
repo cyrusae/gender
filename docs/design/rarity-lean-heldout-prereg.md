@@ -1,4 +1,4 @@
-# Does the German "rarer = more feminine" lean reach new simple nouns? Pre-registration (DRAFT, awaiting PI)
+# Does the German "rarer = more feminine" lean reach new simple nouns? Pre-registration (ADOPTED, PI 2026-10-22)
 
 Written 2026-10-22. No activations have been extracted for any noun in the held-out set, and no
 number below comes from it. This follows `frequency-axis-prereg.md` (A–D: the overlap survives
@@ -34,8 +34,9 @@ Every noun in the Phase 3 pool (`phase3_known.POOL`) with set = simplex, known t
 sex association), not in `phase3_final_v3.csv`, and **not complex** by the frequency-axis
 complexity rule (D). Counts: f 502, m 190, n 196 (the rule removes 5 masculine nouns:
 *Hubschrauber* "helicopter", *Rauchmelder* "smoke detector", *Zweisitzer* "two-seater",
-*Gaskocher* "gas stove", *Pfefferstreuer* "pepper shaker"). Frozen to
-`data/stimuli/rarity_heldout_v1.csv` with a hash in this file before any extraction. Neuter is
+*Gaskocher* "gas stove", *Pfefferstreuer* "pepper shaker"). Frozen 2026-10-22 (after PI adoption, before any extraction) by
+`rarity_heldout.build()` to `data/stimuli/rarity_heldout_v1.csv` (888 nouns), sha256
+`122307e1d6315a8a2be429ea17ae82af79395696f89c79e9721d5bae0a67d03a`. Neuter is
 kept for a descriptive check only. A list the PI wants to review gets an English review sheet.
 
 ## Measure
