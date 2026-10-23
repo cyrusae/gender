@@ -1,0 +1,9 @@
+model,lang,positions,readout,passed,layers,majority,effect,passed_dropped,majority_dropped,effect_dropped,verdict_changed
+Qwen/Qwen3-8B-Base,es,all,R1,3,4,True,0.06486862512705933,3,True,0.06451938859827826,False
+Qwen/Qwen3-8B-Base,es,all,R1-EN,2,4,False,0.03391771691607594,2,False,0.03401215353502962,False
+Qwen/Qwen3-8B-Base,es,noun,R1,3,4,True,0.02027137322021779,3,True,0.020415347342664907,False
+Qwen/Qwen3-8B-Base,es,noun,R1-EN,3,4,True,0.010902520052521021,3,True,0.011191110009232052,False
+Qwen/Qwen3-14B-Base,es,all,R1,0,3,False,0.000767812453975958,0,False,0.0040964396238218365,False
+Qwen/Qwen3-14B-Base,es,all,R1-EN,0,3,False,0.0012760096510967924,0,False,0.004042693019763489,False
+Qwen/Qwen3-14B-Base,es,noun,R1,0,3,False,1.3403654967965653e-05,0,False,0.0006552264357250988,False
+Qwen/Qwen3-14B-Base,es,noun,R1-EN,0,3,False,-0.001496026176429359,0,False,-0.0007062297106812915,False

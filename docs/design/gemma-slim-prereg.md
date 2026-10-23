@@ -205,3 +205,6 @@ Fixed before any Gemma Phase 5 result. Some English readout adjectives are mostl
 - **Reading:** *robust* if no verdict changes on that model; otherwise each change is reported.
 - **Status:** pre-registered for Gemma 3; **exploratory** on Qwen3 (its results already exist).
 - Code: `src/gbleed/noun_sense.py`, CLI `gbleed noun-sense`; output `results/noun_sense/`.
+- **Qwen3 result (exploratory, 2026-10-22):** *robust* — 0 of 8 English graded verdicts change
+  on 8B or 14B (8B es/all R1 3/4 layers both ways, effect 0.0649 → 0.0645; 14B stays 0/3).
+  The unmodified rerun reproduces the published verdicts exactly. `results/noun_sense/compare.csv`.
