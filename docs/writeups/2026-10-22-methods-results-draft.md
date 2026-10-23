@@ -502,9 +502,22 @@ By the rule that a failed check is never replaced by a better-looking frame, Ger
 
 ### 3.5 English social gender (P22b, P23, P24, P27)
 
-- Glasgow gender ratings predict model behaviour (EN ρ 0.51–0.59, DE 0.28–0.43), so the readout is meaningful. ==Note how we established this==
-- The Spanish grammatical direction separates English person words by sex (0.87 / 0.85; German direction weaker, 0.67 / 0.72). Its overlap with a social direction falls with size (ES 0.44 → 0.22; DE 0.18 → 0.08). =="German direction weaker" needs its own sentence or bullet point. "Its overlap with a social direction" unclear whether Spanish direction or both.==
-- German neuter diminutives show no sex signal: the person effect tracks persons, not sex. ==Articulate how we know this.==
+These exploratory tests check the two ends that steering is supposed to connect: does the model's behaviour reflect the human gender ratings at all, and does the *grammatical* direction already sort people by sex?
+
+**Do the human ratings match the model? (P22b)** We compared *The woman is very ___* with *The man is very ___*, and *My mother is very ___* with *My father is very ___*, and took the difference in each adjective's log-probability (the model's own "woman versus man" lean for that word). We then ranked the adjectives by that lean and correlated the ranking with the Glasgow gender ratings (Spearman ρ, where 0 is no relation and 1 is the same order). The same was done in German with *Die Frau / Der Mann ist sehr ___*, using the English ratings of the translated adjectives.
+- English: ρ = 0.51–0.59 across model sizes. German: 0.28–0.43.
+- So the ratings capture something the model does. A readout built from them can detect social gender, and the positive controls in §3.4 confirm this.
+- In Spanish, the lean is largely explained by pleasantness (valence) rather than the gender rating, at least on 4B. This is one more reason the Spanish-adjective readouts (R3 and the pooled ones) are treated cautiously.
+
+**Does the grammatical direction sort people? (P23, P24)** The Spanish and German gender directions, found on *inanimate* nouns, were used to score English person words with a sex (*aunt/uncle*, *actress/actor*) and common first names (spelling matched by final letter):
+- **The Spanish direction** sorts English person words by sex well (AUC 0.87 on 8B, 0.85 on 14B).
+- **The German direction** does so less well (0.67 and 0.72). It was trained on fewer nouns (§2.4.3), so it is noisier, and that alone could make it weaker [interpretation, not tested].
+- Each direction was also compared with a "social gender" direction built from English person pairs (*woman/man*, *mother/father*, …), using the two-halves cosine of §2.6.3. The overlap **shrinks with model size**: Spanish 0.44 → 0.22, German 0.18 → 0.08 (8B → 14B). Larger models keep grammatical and social gender more apart, which fits the absence of bleed at 14B in §3.4.
+
+**Grammar or sex? German neuter diminutives (P27).** German diminutives in *-chen/-lein* are always neuter, whatever the person's sex: *das Schwesterchen* "little sister", *das Brüderchen* "little brother". That separates grammatical gender from sex, because both nouns have the same grammatical gender but people of different sex. (The test also controls for the original noun's gender, *die Schwester*, since that might linger.) Results:
+- The German grammatical direction does **not** sort female from male diminutives (AUC 0.38–0.39, with no layer passing).
+- It does score person diminutives above thing diminutives, whether the person is female or sex-neutral. So it reacts to "is a person", not to sex.
+- Control: the English *social* direction sorts the same female and male diminutives easily (0.89–0.95). So sex information is there in those hidden states; the grammatical direction just doesn't read it.
 
 ### 3.6 Unsteered article pull (P30 Spanish, P31 German)
 
