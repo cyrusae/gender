@@ -435,6 +435,7 @@ Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap i
 - **8B:** R1 and R1-EN pass at a majority of layers. The verdict is **language-specific** (Spanish only). The effect is about one third of the social control's.
 - **14B:** **no effect.** The positive control moves the readout, so the null is informative.
 - **P26 (exploratory, 14B).** The German direction applied to the Spanish nouns moves R1 above random at 2 of 3 layers (k10, k16). The 14B null therefore holds for the Spanish direction only.
+- **P14, all-positions steering (secondary; vector-level overlap).** The same vector added at every prompt position, readout included. 8B: R1 passes at 3/4 layers (effect +0.065, about three times the noun-position effect), R1-EN at 2/4 (+0.034; not a majority). 14B: 0/3 for both (R1 +0.001). The confound specific to P14 (the push acts directly on next-token prediction) is addressed by the same random- and number-direction comparisons; the number direction moves R1 by −0.004 on 8B.
 - **R2** passes at every layer (8B 4/4, 14B 3/3). It is non-diagnostic because agreement and social meaning are confounded in that prompt (§2.9.5).
 - **R3** had no valid test on 8B: its readout check failed (median share 0.029 < 0.05).
 - **R3-POOL and P20-POOL** are not evidence. P29 found an article-only shift in the pooled readout of +0.096 (8B) and +0.038 (14B), against failure bounds of 0.026 and 0.019. Agreement leaks into the pooled readout.
