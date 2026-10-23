@@ -190,7 +190,7 @@ def es_train(model_id: str, position: str) -> dict:
     sel = df.set.isin(["strat", "matched"]).to_numpy()
     known = known_lemmas(model_id, "es")  # Gemma slim: known-check filter; None for Qwen
     if known is not None:
-        sel &= df.lemma.isin(known).to_numpy()
+        sel = sel & df.lemma.isin(known).to_numpy()
     loan = df.loan.to_numpy()
     a_init = df.lemma.str.lower().str.match(r"^[aá]").to_numpy().astype(float)
     covs = [conc, miss.astype(float), pd.to_numeric(df.zipf).to_numpy(), ntok,
@@ -215,7 +215,7 @@ def de_train(model_id: str, position: str, genders=("m", "f")) -> dict:
     sel = s3.gender.isin(genders).to_numpy()
     known = known_lemmas(model_id, "de")  # Gemma slim: known-check filter; None for Qwen
     if known is not None:
-        sel &= s3.lemma.isin(known).to_numpy()
+        sel = sel & s3.lemma.isin(known).to_numpy()
     idx = np.array([row[w] for w in s3.lemma])
     return {"X": X[idx][sel], "y": (s3.gender[sel] == "f").to_numpy(int),
             "g": s3.gender[sel].to_numpy(), "cells": (s3.ending + "|" + s3.loan)[sel].to_numpy(),
