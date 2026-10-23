@@ -208,3 +208,15 @@ Fixed before any Gemma Phase 5 result. Some English readout adjectives are mostl
 - **Qwen3 result (exploratory, 2026-10-22):** *robust* — 0 of 8 English graded verdicts change
   on 8B or 14B (8B es/all R1 3/4 layers both ways, effect 0.0649 → 0.0645; 14B stays 0/3).
   The unmodified rerun reproduces the published verdicts exactly. `results/noun_sense/compare.csv`.
+
+## Bug fix before any measured Gemma data (2026-10-23): Phase 5 prompts had no `<bos>`
+
+The Mac smoke run (Gemma-3-4B, not a measured run) failed every Phase 5 frame check, Spanish
+included (feminine nouns right 0.61 in the adjective frame). Cause: Phase 5 builds its prompts
+with `add_special_tokens=False` (`phase5._encode`), so Gemma saw no `<bos>`. G0's BOS check
+covered the activation format and the Phase 0/known-check scorer, not this path. The G0 rule
+above ("exactly one `<bos>`") already applies, so this is a code fix, not a design change:
+`phase5._encode` now prepends one `<bos>` for Gemma only (noun positions shifted by one), and G0's
+BOS and sink checks now include a Phase 5 prompt. Qwen3 and EuroLLM prompts are unchanged
+(tested), so no frozen result moves. The smoke frame-check numbers above are void; the pod run
+remains the gate of record.

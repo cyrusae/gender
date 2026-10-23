@@ -91,6 +91,7 @@ NEUTRAL = {
     "en": "Yesterday we talked about the {N} over dinner with some family friends, and then we drove home.",
 }
 ES_GATE = "Mi {N} es muy"
+BOS_PREFIXES = ("google/gemma",)  # families whose Phase 5 prompts start with <bos>
 KL_TOKENS = 20
 
 
@@ -114,7 +115,19 @@ def _encode(tok, p: Prompt) -> tuple[list[int], list[int]]:
     end = start + len(p.noun)
     pos = [i for i, (a, b) in enumerate(enc["offset_mapping"]) if a < end and b > start]
     assert pos, (p.text, p.noun)
-    return enc["input_ids"] + list(p.extra), pos
+    bos = _bos(tok)  # Gemma: one <bos> (prereg G0); others: none, unchanged
+    return bos + enc["input_ids"] + list(p.extra), [i + len(bos) for i in pos]
+
+
+def _bos(tok) -> list[int]:
+    """[bos] for Gemma (its tokenizer prepends one by default and the Gemma prereg requires
+    exactly one); [] for every other family, so Qwen3 and EuroLLM prompts stay as they were run."""
+    gemma = str(tok.name_or_path).startswith(BOS_PREFIXES) or "gemma" in type(tok).__name__.lower()
+    if not gemma:
+        return []
+    ids = tok("a", add_special_tokens=True)["input_ids"]
+    assert tok.bos_token_id is not None and ids[0] == tok.bos_token_id, tok.name_or_path
+    return [tok.bos_token_id]
 
 
 def _pad(tok, seqs):

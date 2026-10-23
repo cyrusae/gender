@@ -5,7 +5,7 @@ Per model (`docs/design/gemma-slim-prereg.md`, G0 table):
   loading   20 fixed German/Spanish prompts give finite next-token log-probs; top-1 continuations
             of "Der Hund" / "El perro" are recorded for a plausibility read
   softcap   the batch scorer equals the model's own forward log-softmax (max abs diff < 1e-2)
-  bos       exactly one <bos> in both the activation format and the scorer's prompts
+  bos       exactly one <bos> in the activation format, the scorer's prompts and Phase 5's prompts
   sink      per-position residual norm at every layer, 20 prompts in our exact formats: any
             non-BOS position > 10x its layer's median fails
   sae       Gemma Scope 2 layer L reconstructs our hidden_states[L + 1] best, at every published
@@ -89,13 +89,19 @@ def run(model_id: str) -> dict:
     # bos
     act = prefix_ids(tok) + _ids(tok, " Hund", special=False)
     sc = _ids(tok, PROMPTS[0], special=True)
-    n_act, n_sc = act.count(bos), sc.count(bos)
-    r["bos"] = {"activation_format": n_act, "scorer": n_sc, "act_first": act[0] == bos,
-                "pass": n_act == 1 and n_sc == 1 and act[0] == bos and sc[0] == bos}  # fmt: skip
+    from .phase5 import ES_GATE, Prompt, _encode
+
+    p5, _ = _encode(tok, Prompt(ES_GATE.format(N="casa"), "casa"))  # Phase 5 prompt path
+    n_act, n_sc, n_p5 = act.count(bos), sc.count(bos), p5.count(bos)
+    r["bos"] = {"activation_format": n_act, "scorer": n_sc, "phase5": n_p5,
+                "act_first": act[0] == bos,
+                "pass": n_act == 1 and n_sc == 1 and n_p5 == 1
+                and act[0] == bos and sc[0] == bos and p5[0] == bos}  # fmt: skip
 
     # sink scan: activation format (10 words) and scorer format (10 prompts)
     seqs = [prefix_ids(tok) + _ids(tok, " " + w, special=False) for w in _words(10)]
     seqs += [_ids(tok, p, special=True) for p in PROMPTS[::2]]
+    seqs += [_encode(tok, Prompt(ES_GATE.format(N=w), w))[0] for w in ("casa", "puente")]
     norms = [torch.stack([h[0].float().norm(dim=-1) for h in _forward(model, s).hidden_states])
              for s in seqs]  # each [L+1, t]  # fmt: skip
     worst = []
