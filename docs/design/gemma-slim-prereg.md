@@ -281,3 +281,38 @@ Gemma's residual squared lengths are about 10³ times Qwen's (outlier dimensions
 small relative to the noise the estimator removes. **Pending PI decision:** recommended reading
 is "R2 = no valid test on Gemma" (a factual report under the existing rules; A/C/D not run, since
 their overlap reference is this cosine), rather than a post-hoc rescaling.
+
+## Amendment: outlier-dimension fix with a validity gate (PI, 2026-10-24; before any rerun)
+
+**Why.** The cross-fitted cosines (R2, Phase 4 T2) gave impossible values on Gemma (outside
+[−1, 1], or undefined). Outcome-blind diagnostics (`docs/design/gemma-outlier-dimension.md`;
+`scripts/outlier_fix_diagnostics.py`, `results/outlier_fix/diagnostics.csv`) traced it to one
+residual dimension carrying 59–92% of the variance across nouns (dimension 443 in 4B, 2339 in
+12B, at every layer from 3 on; Qwen3 ≤ 1.6%). The fix was chosen on those diagnostics only, with
+no frequency or cross-language quantity computed under any candidate.
+
+**Fix (B).** Per model and layer, zero every dimension with more than 10% of the variance across
+all Phase 3 bare nouns (`src/gbleed/outlier_dims.py`; reference file `phase3_bare`). Rejected:
+per-dimension standardisation (damages Qwen: lower gender AUC and split-half agreement, invalid
+Qwen cosines); top-PC removal and RMS normalisation performed the same as B in the diagnostics
+but are less direct. On Qwen3 no dimension qualifies, so Qwen results are unchanged by
+construction; R2 is rerun on all four models anyway as the check.
+
+**Validity gate.** A layer whose cross-fitted cosine is non-finite or outside [−1, 1] is
+**invalid** and shows no overlap. Per model × language over the four Phase 5 layers:
+- **no valid test** if 2 or more layers are invalid;
+- **overlap** if at least 3 valid layers show the overlap (cross term beats the null's 95th
+  percentile and |cos| ≥ 0.3, unchanged);
+- **no overlap** if at least 3 valid layers do not;
+- **mixed** otherwise.
+
+The R2 readings across sizes (German-general / Qwen-specific / mixed) are unchanged, applied to
+these verdicts. The Spanish control must not show "overlap" for "German-general".
+
+**Frequency-axis A/C/D** are run only on a Gemma size whose German verdict is "overlap", with the
+same fix. A variant layer whose cosine fails the gate counts as "overlap not gone" (conservative).
+
+**Phase 4 T2.** Rerun with the fix for its cosine values; reported only at valid layers. T1/T3
+verdicts stay those of the unfixed run (primary); the fixed run's T1/T3 are descriptive.
+
+**No second fix.** If the gate leaves "no valid test", that is the result.
