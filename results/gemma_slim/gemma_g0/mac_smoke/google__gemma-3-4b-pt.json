@@ -1,0 +1,99 @@
+{
+ "model": "google/gemma-3-4b-pt",
+ "softcap_config": null,
+ "dtype": {
+  "dtypes": [
+   "torch.bfloat16"
+  ],
+  "pass": true
+ },
+ "loading": {
+  "finite": true,
+  "top1": {
+   "Der Hund": " ist",
+   "Die Katze schl\u00e4ft auf dem": " Sofa",
+   "Ich gehe morgen in die": " ",
+   "Das Wetter ist heute": " nicht",
+   "Berlin ist die Hauptstadt von": " Deutschland",
+   "Er trinkt jeden Morgen einen": " Kaffee",
+   "Die Kinder spielen im": " Garten",
+   "Wir fahren mit dem Zug nach": " Berlin",
+   "Das Buch liegt auf dem": " Tisch",
+   "Sie hat eine neue": " Liebe",
+   "El perro": " de",
+   "La casa est\u00e1 en la": " calle",
+   "Ma\u00f1ana voy a la": " farm",
+   "El tiempo hoy es muy": " importante",
+   "Madrid es la capital de": " Espa\u00f1a",
+   "Ella bebe cada ma\u00f1ana un": " vaso",
+   "Los ni\u00f1os juegan en el": " parque",
+   "Vamos en tren a": " la",
+   "El libro est\u00e1 sobre la": " mesa",
+   "\u00c9l tiene una nueva": " novia"
+  },
+  "pass": true
+ },
+ "softcap": {
+  "n_compared": 20,
+  "max_abs_diff": 3.5762786865234375e-07,
+  "batched_vs_unbatched_max": 0.12845897674560547,
+  "pass": true
+ },
+ "bos": {
+  "activation_format": 1,
+  "scorer": 1,
+  "act_first": true,
+  "pass": true
+ },
+ "sink": {
+  "n_flagged": 0,
+  "flagged": [],
+  "pass": true
+ },
+ "sae": {
+  "layers": {
+   "9": {
+    "fvu": {
+     "-1": 59.03935241699219,
+     "0": 0.3535282015800476,
+     "1": 0.19089002907276154,
+     "2": 0.5189240574836731
+    },
+    "best_offset": 1,
+    "margin": 1.8519993071261638
+   },
+   "17": {
+    "fvu": {
+     "-1": 2.2110259532928467,
+     "0": 0.7992037534713745,
+     "1": 0.1947339028120041,
+     "2": 0.310789555311203
+    },
+    "best_offset": 1,
+    "margin": 1.595970454159895
+   },
+   "22": {
+    "fvu": {
+     "-1": 1.2374231815338135,
+     "0": 0.8421778678894043,
+     "1": 0.5340860486030579,
+     "2": 0.6082308292388916
+    },
+    "best_offset": 1,
+    "margin": 1.138825533506754
+   },
+   "29": {
+    "fvu": {
+     "-1": 1.4619691371917725,
+     "0": 0.6818102598190308,
+     "1": 0.5559097528457642,
+     "2": 0.5776388049125671
+    },
+    "best_offset": 1,
+    "margin": 1.0390873733651362
+   }
+  },
+  "pass": true
+ },
+ "passed": true
+}

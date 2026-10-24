@@ -242,3 +242,42 @@ This is recorded as a deviation, not corrected.
 
 **Phase 2 is outside R1's scope** ("Phases 3–5"). Its Spanish probe would also need Phase 1
 activations, which the Gemma driver did not extract.
+
+## G1 results (2026-10-24)
+
+Pod runs: 4B commit 88cc069, 12B commit ecbbeea (both L40S, bf16). Analysis on the Mac at commits
+1cd5d6e + c66819f (known-check filter wiring; P20 pair fix). Tables: `results/gemma_slim/`.
+Raw archives: `/Volumes/Lexar/gbleed/gemma-pod{,-12b}/`.
+
+**R1 verdict table (Qwen × Gemma), primary position (LAST)**
+
+| verdict | Qwen3-8B | Qwen3-14B | Gemma-4B | Gemma-12B | outcome |
+|---|---|---|---|---|---|
+| known-check portability | (lists built on Qwen) | | es f .03/m .06, de f .11/m .09 | es f .12/m .08, de f .04/m .06 | portable |
+| Phase 3: compounds follow the head | yes (all layers) | yes | yes, 33/33 | yes, 47/47 | **replicates** |
+| Phase 3: markedness | not supported | not supported | not supported (0) | not supported (0) | **replicates** |
+| Phase 4 T1: direction transfers ES↔DE | no (6/35, 5/35) | no (7/39, 22/39) | no (7/33, 26/33) | no (11/47, 27/47) | **replicates** |
+| Phase 4 T3: pairs follow each language's gender | yes | yes | yes (33/33) | yes (47/47) | **replicates** |
+| Phase 4 T2: cosine above null | 0 layers | 0 layers | 0 layers | 0 layers | replicates (rule); cosine values not interpretable, see below |
+| Phase 5 Spanish, noun push, R1 majority | yes (3/4, +0.020) | no (0/3) | no (0/3, −0.004) | no (1/3, +0.029) | **does not replicate** the 8B positive; matches 14B |
+| Phase 5 Spanish, all positions (P14), R1 | yes (3/4, +0.065) | no (0/3) | no (0/3, +0.035) | no (0/3, +0.100) | **does not replicate** the 8B positive; matches 14B |
+| Phase 5 German | no valid test (frame) | no valid test | no valid test (C4 frame m 0.67) | no valid test (C4 frame passes; gate fails: random directions flip 0–50%) | no valid test |
+
+The 12B all-position push moves R1 by +0.100 (more than Qwen3-8B's passing +0.065), but random
+directions pushed the same way move it about as much, so it fails at every layer. The social
+direction (positive control) moves R1 +0.29 to +0.34 on both sizes, so the readout can detect
+a gender push. Noun-sense check: 0/8 Gemma verdicts change (`results/gemma_slim/noun_sense/`).
+
+**Robustness (AFTER position).** Phase 3 at AFTER: compounds "neither" (4B 6/33, 12B 18/47
+layers), as on Qwen (8B 7/35): gender sits on the noun's own token in Gemma too. **Phase 4 at AFTER
+was not run:** the pod extracted Spanish training activations at LAST only
+(`phase2_bare_after` missing). This is an extraction gap, not a result.
+
+**Cross-fitted cosines are not interpretable on Gemma (R2, Phase 4 T2).** The split-half cosine
+estimator gives values outside [−1, 1] (−3.97 to +1.11) or none (negative squared-length estimate)
+at about half of the Gemma layers. The Spanish control and the number direction are affected too
+(number cos up to +1.51), and Phase 3's own interpretability check finds 0 interpretable layers.
+Gemma's residual squared lengths are about 10³ times Qwen's (outlier dimensions), so the signal is
+small relative to the noise the estimator removes. **Pending PI decision:** recommended reading
+is "R2 = no valid test on Gemma" (a factual report under the existing rules; A/C/D not run, since
+their overlap reference is this cosine), rather than a post-hoc rescaling.

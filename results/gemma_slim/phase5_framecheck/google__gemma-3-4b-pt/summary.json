@@ -1,0 +1,55 @@
+{
+ "meta": {
+  "git_commit": "88cc069926475cbb711208c34c86a17ae57346f9",
+  "git_dirty": null,
+  "git_source": "bundle",
+  "model_id": "google/gemma-3-4b-pt",
+  "model_revision": null,
+  "n_params": 3880263168,
+  "n_layers": 34,
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "head_dtype": "model",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.18.0",
+  "machine": "Linux x86_64 x86_64",
+  "gpu": "NVIDIA L40S",
+  "cuda": "13.0"
+ },
+ "es_adj": {
+  "m": 1.0,
+  "f": 1.0
+ },
+ "de_C1": {
+  "m": 0.8837209302325582,
+  "f": 0.9459459459459459
+ },
+ "de_C2": {
+  "m": 1.0,
+  "f": 0.3783783783783784
+ },
+ "de_C2p": {
+  "m": 1.0,
+  "f": 0.24324324324324326
+ },
+ "de_C3": {
+  "m": 0.9767441860465116,
+  "f": 0.6486486486486487
+ },
+ "de_C4": {
+  "m": 0.6744186046511628,
+  "f": 0.972972972972973
+ },
+ "n": {
+  "de": 80,
+  "es": 78
+ },
+ "passes": {
+  "es_adj": true,
+  "de_C1": true,
+  "de_C2": false,
+  "de_C2p": false,
+  "de_C3": false,
+  "de_C4": false
+ }
+}

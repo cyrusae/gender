@@ -1,0 +1,9 @@
+model,lang,positions,readout,passed,layers,majority,effect,passed_dropped,majority_dropped,effect_dropped,verdict_changed
+google/gemma-3-4b-pt,es,all,R1,0,3,False,0.0347756757741491,0,False,0.04190704456881452,False
+google/gemma-3-4b-pt,es,all,R1-EN,0,3,False,0.02861453836655341,0,False,0.03652356375451241,False
+google/gemma-3-4b-pt,es,noun,R1,0,3,False,-0.003804486767879669,0,False,-0.0016752984160565163,False
+google/gemma-3-4b-pt,es,noun,R1-EN,0,3,False,0.006916553349786594,0,False,0.00934218217179452,False
+google/gemma-3-12b-pt,es,all,R1,0,3,False,0.10022587223641799,0,False,0.10982810143115009,False
+google/gemma-3-12b-pt,es,all,R1-EN,0,3,False,0.060071519918954784,0,False,0.06816492702448824,False
+google/gemma-3-12b-pt,es,noun,R1,1,3,False,0.02854080002419666,1,False,0.03145670568133803,False
+google/gemma-3-12b-pt,es,noun,R1-EN,1,3,False,0.017945093246670294,1,False,0.020501063296487577,False
