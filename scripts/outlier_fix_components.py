@@ -8,9 +8,8 @@ term and both squared lengths, the mean over 200 split-halves and its standard e
 """
 
 import numpy as np
-import pandas as pd
-
 import outlier_fix_diagnostics as od
+import pandas as pd
 
 rows = []
 for m, (actdir, layers) in od.MODELS.items():

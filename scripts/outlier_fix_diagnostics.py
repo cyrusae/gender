@@ -4,7 +4,8 @@ Run before choosing a fix for the cross-fitted cosines (R2, Phase 4 T2). Nothing
 frequency (Zipf) or any cross-language quantity: only the f−m training directions themselves.
 
 Per model × language × Phase 5 layer × method, on the training nouns (German strat3 m/f/n, Spanish
-strat; Gemma: known-check filtered), after residualising on spelling cells:
+strat; Gemma: known-check filtered); halves split within cell x gender, each half
+residualised on its own spelling cells (as the production estimator):
   top1_share   variance share of the largest dimension after the transform
   len2_neg     share of 200 split-halves where vA·vB ≤ 0 for the f−m direction (true length > 0)
   reliab       mean cos(vA, vB): agreement of the two halves' f−m directions
@@ -90,30 +91,36 @@ def transform(x: np.ndarray, method: str) -> np.ndarray:
     raise ValueError(method)
 
 
-def diag(x: np.ndarray, g: np.ndarray, rng) -> dict:
+def diag(x: np.ndarray, g: np.ndarray, cells: np.ndarray, rng) -> dict:
     v = x.var(0)
     out = {"top1_share": float(v.max() / v.sum()), "dims": x.shape[1]}
     fm = np.isin(g, ["m", "f"])
     neg, rel, aucs, cos_n = [], [], [], []
     for _ in range(N_SPLIT):
+        # halves within cell x gender strata, each half residualised on its own cells (as the
+        # production estimator, which refits the cell design per half): residualising all nouns
+        # first couples the halves and biases every cross-half product
         a = np.zeros(len(g), bool)
-        for lab in np.unique(g):
-            i = np.flatnonzero(g == lab)
+        key = np.char.add(np.char.add(cells.astype(str), "|"), g.astype(str))
+        for k in np.unique(key):
+            i = np.flatnonzero(key == k)
             a[rng.choice(i, len(i) // 2, replace=False)] = True
         b = ~a
+        xr = np.empty_like(x)
+        xr[a], xr[b] = resid(x[a], cells[a]), resid(x[b], cells[b])
 
         def fmdir(h):
-            return x[h & (g == "f")].mean(0) - x[h & (g == "m")].mean(0)
+            return xr[h & (g == "f")].mean(0) - xr[h & (g == "m")].mean(0)
 
         va, vb = fmdir(a), fmdir(b)
         neg.append(va @ vb <= 0)
         rel.append(va @ vb / np.linalg.norm(va) / np.linalg.norm(vb))
-        s = x[b & fm] @ va
+        s = xr[b & fm] @ va
         aucs.append(roc_auc_score(g[b & fm] == "f", s))
         if "n" in g:
 
             def ndir(h):
-                return (x[h & (g == "f")].mean(0) + x[h & (g == "m")].mean(0)) / 2 - x[
+                return (xr[h & (g == "f")].mean(0) + xr[h & (g == "m")].mean(0)) / 2 - xr[
                     h & (g == "n")
                 ].mean(0)
 
@@ -134,14 +141,12 @@ def main() -> None:
         for lang in ("de", "es"):
             X, g, cells = nouns(actdir, m, lang)
             for L in layers:
-                x0 = resid(X[:, L, :].astype(np.float64), cells)
+                x0 = X[:, L, :].astype(np.float64)
                 for meth in ("raw", "A", "B", "C", "D0"):
                     rng = np.random.default_rng(0)
-                    x = transform(x0 if meth != "D0" else X[:, L, :].astype(np.float64), meth)
-                    if meth == "D0":
-                        x = resid(x, cells)
+                    x = transform(x0, meth)
                     rows.append({"model": m.split("/")[1], "lang": lang, "layer": L,
-                                 "method": meth, "n": len(g), **diag(x, g, rng)})  # fmt: skip
+                                 "method": meth, "n": len(g), **diag(x, g, cells, rng)})  # fmt: skip
                 print(m, lang, L, flush=True)
     d = pd.DataFrame(rows)
     os.makedirs("results/outlier_fix", exist_ok=True)
