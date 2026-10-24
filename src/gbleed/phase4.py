@@ -44,7 +44,7 @@ from .estimators import (
     shuffle_within,
     split_half_geometry,
 )
-from .known_filter import known_lemmas
+from .known_filter import known_lemmas, pair_mask
 from .models import git_state, model_slug, progress, stage
 
 PAIRS_SRC = "data/lexicon/pairs_de_es.csv"
@@ -277,6 +277,9 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
     de3 = de_train(model_id, position, ("m", "f", "n"))
     po = pooled(es, de)
     pairs = pd.read_csv(pairs_path, keep_default_na=False)
+    pm = pair_mask(model_id, pairs)  # Gemma slim: both nouns known; None for Qwen
+    if pm is not None:
+        pairs = pairs[pm].reset_index(drop=True)
     pool = pd.read_csv(PAIRS_POOL, keep_default_na=False)
     Xp_de, _ = acts.load(model_id, "phase4_pairs_de" + sx)
     Xp_es, _ = acts.load(model_id, "phase4_pairs_es" + sx)

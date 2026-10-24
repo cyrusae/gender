@@ -34,6 +34,7 @@ import numpy as np
 import pandas as pd
 
 from . import paths
+from .known_filter import pair_mask
 
 SEED = 0
 N_BOOT = 2000
@@ -57,10 +58,28 @@ def failed_wordings(model_id: str, root: str = "results/phase5_readoutcheck") ->
     return {k for k, v in med.items() if v < SHARE_MIN[k[1]]}
 
 
+def _unknown_rows(model_id: str, keys: pd.DataFrame) -> np.ndarray | None:
+    """Gemma slim: rows of a Phase 5 noun the model doesn't know on its list's check (nonce
+    nouns and other non-list words are kept); None = no filter (Qwen)."""
+    from .known_filter import phase5_lemmas
+
+    kept = phase5_lemmas(model_id)
+    if kept is None:
+        return None
+    n = pd.read_csv("data/stimuli/phase5_nouns_v1.csv", keep_default_na=False)
+    listed = set(zip(n.lang, n.lemma, strict=True))
+    pairs = zip(keys.lang, keys.lemma, strict=True)
+    return np.array([(lg, w) in listed and w not in kept[lg] for lg, w in pairs])
+
+
 def load(run_dir: Path, name: str) -> tuple[pd.DataFrame, np.ndarray, np.ndarray]:
     k = pd.read_csv(run_dir / f"{name}_conds.csv.gz", keep_default_na=False)
     z = np.load(run_dir / f"{name}.npz")
-    return k, z["lp"], z["read"]
+    lp = z["lp"]
+    drop = _unknown_rows(Path(run_dir).parent.name.replace("__", "/", 1), k)
+    if drop is not None and drop.any():
+        k, lp = k[~drop].reset_index(drop=True), lp[~drop]
+    return k, lp, z["read"]
 
 
 def ratings_for(name: str, fam: str, read: np.ndarray) -> pd.DataFrame:
@@ -383,6 +402,9 @@ def p20(model_id: str, root: str = "results/phase5_p20", rng=None) -> dict:
     ok = {k for k, v in shares.items() if v >= P20_SHARE_MIN}
     scores = scores[[f"{lg}/{w}" in ok for lg, w in zip(scores.lang, scores.wording, strict=True)]]
     pairs = pd.read_csv(PAIRS_FINAL, keep_default_na=False)
+    pm = pair_mask(model_id, pairs)  # Gemma slim: both nouns known; None for Qwen
+    if pm is not None:
+        pairs = pairs[pm]
     pairs = pairs[pairs.pair_id.isin(scores.pair_id)]
     nocog = set(pairs[pairs.en_cognate.astype(str) != "True"].pair_id)
     res = {"median_share": shares, "frame_check_passed": sorted(ok)}
@@ -487,6 +509,9 @@ def p25(run_dir: str | Path, fam: str, rng=None, n_boot: int = N_BOOT) -> dict:
     k["score"], _ = graded(lp[base.to_numpy()], ratings_for("R1-EN", fam, read))
     per = k.groupby("lemma").score.mean()
     pairs = pd.read_csv(PAIRS_FINAL, keep_default_na=False)
+    pm = pair_mask(Path(run_dir).parent.name.replace("__", "/", 1), pairs)  # Gemma slim
+    if pm is not None:
+        pairs = pairs[pm]
     pairs = pairs[pairs.concept_en.isin(per.index)].drop_duplicates("concept_en")
     out = {}
     for nm, p in (("all", pairs), ("no_cognates", pairs[pairs.en_cognate.astype(str) != "True"])):

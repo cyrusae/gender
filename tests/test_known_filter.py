@@ -29,3 +29,23 @@ def test_gemma_filter_and_portability(tmp_path, monkeypatch):
     assert loss == {"f": 1.0, "m": 0.5}
     assert not kf.portable(loss)
     assert kf.portable({"m": 0.3, "f": 0.1})
+
+
+def test_pair_mask_and_phase5_lemmas(tmp_path, monkeypatch):
+    m = "google/gemma-3-4b-pt"
+    assert kf.pair_mask("Qwen/Qwen3-8B-Base", pd.DataFrame()) is None
+    assert kf.phase5_lemmas("Qwen/Qwen3-8B-Base") is None
+    es, de = tmp_path / "pes" / model_slug(m), tmp_path / "pde" / model_slug(m)
+    es.mkdir(parents=True)
+    de.mkdir(parents=True)
+    pd.DataFrame({"lemma": ["puente", "mesa"], "passed": [True, True]}).to_csv(
+        es / "items.csv", index=False
+    )
+    pd.DataFrame({"lemma": ["Brücke", "Tisch"], "status": ["known", "unsure"]}).to_csv(
+        de / "scores.csv", index=False
+    )
+    monkeypatch.setattr(
+        kf, "PAIR_ROOTS", {"es": str(tmp_path / "pes"), "de": str(tmp_path / "pde")}
+    )
+    pairs = pd.DataFrame({"es_lemma": ["puente", "mesa"], "de_lemma": ["Brücke", "Tisch"]})
+    assert list(kf.pair_mask(m, pairs)) == [True, False]  # Tisch unknown drops the whole pair

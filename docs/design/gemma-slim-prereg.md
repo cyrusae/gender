@@ -220,3 +220,25 @@ above ("exactly one `<bos>`") already applies, so this is a code fix, not a desi
 BOS and sink checks now include a Phase 5 prompt. Qwen3 and EuroLLM prompts are unchanged
 (tested), so no frozen result moves. The smoke frame-check numbers above are void; the pod run
 remains the gate of record.
+
+## Known-check filter: wiring completed before any Gemma analysis (2026-10-24)
+
+Found before any Gemma Phase 3–5 analysis was run or looked at: the rule above ("analyses use the
+nouns Gemma knows") had been wired into the Phase 4 training sets and the R2 code (confidence
+control, frequency axis) only. Now also applied, each list filtered by its own check, identity for
+Qwen (`known_filter.py`, tests in `tests/test_known_filter.py`):
+
+- **Phase 3** analysis: every set of `phase3_final_v3` by `phase3_known` (`multi`, both-gender
+  items with no known-check, kept).
+- **Phase 4** test pairs: a pair is kept only if both nouns are known on the Phase 4 pair checks,
+  the rule `phase4.finalize` applied to Qwen3 1.7B/4B.
+- **Phase 5** analysis: steering rows of steer_es / steer_de nouns by the Phase 2 / Phase 3
+  checks, pair nouns by the pair rule, classics kept (no known-check existed for them); P20 and
+  P25 pairs by the pair rule. Nonce (R-NONCE) rows are untouched.
+
+**Not re-run:** the Phase 5 gate and frame check ran on the pod over the unfiltered noun list.
+They are pass/fail checks on behaviour, and the filtered nouns are a small share of each list.
+This is recorded as a deviation, not corrected.
+
+**Phase 2 is outside R1's scope** ("Phases 3–5"). Its Spanish probe would also need Phase 1
+activations, which the Gemma driver did not extract.

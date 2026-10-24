@@ -46,6 +46,7 @@ from .estimators import (
     shuffle_within,
     split_half_geometry,
 )
+from .known_filter import known_lemmas
 from .models import (
     git_state,
     load_model,
@@ -118,6 +119,9 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None) 
     from .norms import rate
 
     df = _final()
+    known = known_lemmas(model_id, "de")  # Gemma slim: known-check filter; None for Qwen
+    if known is not None:
+        df = df[(df.set == "multi") | df.lemma.isin(known)]
     out_root = out_root or f"results/phase3{_suffix(position)}"
     Xall, meta = acts.load(model_id, "phase3_bare" + _suffix(position))
     row = {w: i for i, w in enumerate(meta["words"])}

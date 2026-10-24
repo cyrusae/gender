@@ -37,6 +37,45 @@ def known_lemmas(model_id: str, lang: str) -> set[str] | None:
     return set(s[s.status == "known"].lemma)
 
 
+PAIR_ROOTS = {"es": "results/phase4_known_es", "de": "results/phase4_known_de"}
+
+
+def pair_mask(model_id: str, pairs: pd.DataFrame):
+    """Pairs whose Spanish and German nouns the model both knows on the Phase 4 pair checks (the
+    rule `phase4.finalize` applied to Qwen3 1.7B/4B); None = no filter (Qwen)."""
+    if not applies(model_id):
+        return None
+    slug = model_slug(model_id)
+    de = pd.read_csv(Path(PAIR_ROOTS["de"]) / slug / "scores.csv", keep_default_na=False)
+    es = pd.read_csv(Path(PAIR_ROOTS["es"]) / slug / "items.csv", keep_default_na=False)
+    kde = set(de[de.status == "known"].lemma)
+    kes = set(es[es.passed.astype(str) == "True"].lemma)
+    return (pairs.de_lemma.isin(kde) & pairs.es_lemma.isin(kes)).to_numpy()
+
+
+def phase5_lemmas(model_id: str) -> dict[str, set[str]] | None:
+    """Phase 5 nouns kept per language: each set filtered by its own list's check (steer_es by
+    the Phase 2 check, steer_de by `phase3_known`, pair nouns only if both of the pair are known).
+    Classics had no known-check in the Qwen pipeline and are kept. None = no filter (Qwen)."""
+    if not applies(model_id):
+        return None
+    from .phase4 import PAIRS_FINAL
+
+    n = pd.read_csv("data/stimuli/phase5_nouns_v1.csv", keep_default_na=False)
+    pairs = pd.read_csv(PAIRS_FINAL, keep_default_na=False)
+    kept = pairs[pair_mask(model_id, pairs)]
+    out = {}
+    for lang in ("es", "de"):
+        d = n[n.lang == lang]
+        k = known_lemmas(model_id, lang)
+        keep = set(d[d.set == "classic"].lemma) | set(
+            d[(d.set == f"steer_{lang}") & d.lemma.isin(k)].lemma
+        )
+        keep |= set(kept[f"{lang}_lemma"])
+        out[lang] = keep
+    return out
+
+
 def loss_by_gender(model_id: str, lang: str, lemmas, genders) -> dict[str, float]:
     k = known_lemmas(model_id, lang)
     df = pd.DataFrame({"lemma": list(lemmas), "g": list(genders)})
