@@ -1,0 +1,9 @@
+model,lang,verdict
+Qwen/Qwen3-14B-Base,de,overlap
+Qwen/Qwen3-14B-Base,es,no overlap
+Qwen/Qwen3-8B-Base,de,overlap
+Qwen/Qwen3-8B-Base,es,no overlap
+google/gemma-3-12b-pt,de,no overlap
+google/gemma-3-12b-pt,es,mixed
+google/gemma-3-4b-pt,de,no overlap
+google/gemma-3-4b-pt,es,no overlap

@@ -119,7 +119,31 @@ Pre-registered as an amendment to `gemma-slim-prereg.md`, before any rerun:
 
 ## 6. Results under the fix
 
-*(Filled in after the run; see §7 of the prereg's results section.)*
+Run 2026-10-24 (`scripts/run_outlier_fix.py`; `results/outlier_fix/`). **Every layer passed the
+validity gate on all four models** (R2: 32/32 rows in [−1, 1]; T2: 4B 33/33 layers, 12B 44/47).
+
+**R2, German cos(f−m, Zipf) at the four Phase 5 layers:**
+
+| model | dims zeroed | German | verdict | Spanish control |
+|---|---|---|---|---|
+| Qwen3-8B | 0 | −0.33, −0.59, −0.63, −0.68 | overlap (4/4) | no overlap |
+| Qwen3-14B | 0 | −0.25, −0.35, −0.46, −0.45 | overlap (3/4) | no overlap |
+| Gemma-4B | 1 | +0.34, +0.19, −0.12, −0.02 | **no overlap** (1/4, and that layer points the other way) | no overlap |
+| Gemma-12B | 1 | +0.15, +0.17, −0.05, −0.32 | **no overlap** (0/4) | mixed (2/4: +0.41, +0.39) |
+
+Pre-registered reading: **Qwen-specific** (no overlap on either Gemma size). The German
+feminine↔rare alignment is a property of Qwen3's representations, not of the German stimulus
+lists. Frequency-axis A/C/D not run (no Gemma German overlap, as the amendment specifies).
+
+**Phase 4 T2 with the fix:** mean cosine 4B 0.47, 12B 0.55 (raw: 1.13, 0.61), in Qwen's range
+(0.43, 0.35). The rule-based verdict is unchanged: 0 layers above the cosine null on every model.
+T1/T3 under the fix are identical to the primary run (descriptive check).
+
+**Reproducibility note.** Qwen's cosines differ from the originally reported ones by up to about 0.03
+between runs of the same code. No dimension is zeroed on Qwen, and the splits are seeded and
+deterministic, so this is run-to-run numerical variation; the cause is not yet identified (float32
+summation order under multithreaded BLAS is a candidate). Overlap verdicts were identical across
+the original run, a current unfixed rerun and the fixed run.
 
 ## 7. What this may mean for future Gemma work
 

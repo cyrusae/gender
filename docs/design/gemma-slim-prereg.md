@@ -278,9 +278,8 @@ estimator gives values outside [−1, 1] (−3.97 to +1.11) or none (negative sq
 at about half of the Gemma layers. The Spanish control and the number direction are affected too
 (number cos up to +1.51), and Phase 3's own interpretability check finds 0 interpretable layers.
 Gemma's residual squared lengths are about 10³ times Qwen's (outlier dimensions), so the signal is
-small relative to the noise the estimator removes. **Pending PI decision:** recommended reading
-is "R2 = no valid test on Gemma" (a factual report under the existing rules; A/C/D not run, since
-their overlap reference is this cosine), rather than a post-hoc rescaling.
+small relative to the noise the estimator removes. **Resolved by the amendment below** (outlier
+fix + validity gate): see "Amendment results".
 
 ## Amendment: outlier-dimension fix with a validity gate (PI, 2026-10-24; before any rerun)
 
@@ -316,3 +315,10 @@ same fix. A variant layer whose cosine fails the gate counts as "overlap not gon
 verdicts stay those of the unfixed run (primary); the fixed run's T1/T3 are descriptive.
 
 **No second fix.** If the gate leaves "no valid test", that is the result.
+
+### Amendment results (2026-10-24)
+
+All layers valid on all four models. **R2: Qwen-specific.** German overlap on Qwen3-8B (4/4) and
+14B (3/4), reproduced under the fix; **no overlap on Gemma-4B (1/4) or 12B (0/4)**. Spanish:
+no overlap except Gemma-12B "mixed" (2/4). A/C/D not run. Phase 4 T2 mean cosine 4B 0.47, 12B
+0.55; T2 verdict unchanged (0 layers on all models). Details: `gemma-outlier-dimension.md` §6.

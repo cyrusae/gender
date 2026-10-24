@@ -1,0 +1,14 @@
+{
+  "google/gemma-3-4b-pt": {
+    "t2_cos_mean": 0.46957776984227895,
+    "t2_layers_cos_above_cos_null": 0,
+    "t2_layers_valid": 33,
+    "layers": 33
+  },
+  "google/gemma-3-12b-pt": {
+    "t2_cos_mean": 0.5473762875027127,
+    "t2_layers_cos_above_cos_null": 0,
+    "t2_layers_valid": 44,
+    "layers": 47
+  }
+}
