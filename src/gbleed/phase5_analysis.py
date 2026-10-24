@@ -405,6 +405,7 @@ def p20(model_id: str, root: str = "results/phase5_p20", rng=None) -> dict:
     pm = pair_mask(model_id, pairs)  # Gemma slim: both nouns known; None for Qwen
     if pm is not None:
         pairs = pairs[pm]
+        scores = scores[scores.pair_id.isin(pairs.pair_id)]
     pairs = pairs[pairs.pair_id.isin(scores.pair_id)]
     nocog = set(pairs[pairs.en_cognate.astype(str) != "True"].pair_id)
     res = {"median_share": shares, "frame_check_passed": sorted(ok)}
