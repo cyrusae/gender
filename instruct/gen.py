@@ -19,10 +19,11 @@ import json
 import os
 import random
 import subprocess
+import threading
 import time
 import urllib.error
 import urllib.request
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from code_outputs import split_think
@@ -167,11 +168,14 @@ def or_call(body: dict, key: str, tries: int = 9) -> dict:
     return {"error": err}
 
 
-def run_openrouter(ocfg: dict, prompts: list[str], sp: dict, n: int, seed: int, thinking: bool):
-    """One request per sample (n>1 is not portable across providers). Returns rows of
-    (text, finish_reason, n_tokens, extra) with extra = provider, usage, reasoning, error."""
+def run_openrouter(ocfg: dict, prompts: list[str], sp: dict, n: int, seed: int, thinking: bool,
+                   skip=frozenset(), on_result=None):  # fmt: skip
+    """One request per sample (n>1 is not portable across providers). Each result
+    (text, finish_reason, n_tokens, extra), extra = provider, usage, reasoning, error, is passed to
+    on_result(i, j, result) as soon as it arrives (so an interrupted run keeps what it has);
+    (i, j) pairs in `skip` are not requested (resume)."""
     key = or_key()
-    jobs = [(i, j) for i in range(len(prompts)) for j in range(n)]
+    jobs = [(i, j) for i in range(len(prompts)) for j in range(n) if (i, j) not in skip]
 
     def one(ij):
         i, j = ij
@@ -196,11 +200,13 @@ def run_openrouter(ocfg: dict, prompts: list[str], sp: dict, n: int, seed: int, 
                  ch.get("native_finish_reason"), "service_tier": d.get("service_tier")})  # fmt: skip
 
     with ThreadPoolExecutor(max_workers=8) as ex:
-        flat = list(ex.map(one, jobs))
-    out = [[] for _ in prompts]
-    for (i, _), r in zip(jobs, flat):
-        out[i].append(r)
-    return out
+        futs = {ex.submit(one, ij): ij for ij in jobs}
+        for f in as_completed(futs):
+            on_result(*futs[f], f.result())
+
+
+def row_key(r: dict) -> tuple:
+    return (r.get("name_condition"), r["noun"], r["modifier"], bool(r["thinking"]), r["sample"])
 
 
 def main() -> None:
@@ -217,6 +223,7 @@ def main() -> None:
     ap.add_argument("--only-mods")
     ap.add_argument("--only-conds", help="comma-separated name conditions")
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--fresh", action="store_true", help="overwrite --out instead of resuming")
     args = ap.parse_args()
 
     cfg = json.loads(args.config.read_text())
@@ -246,38 +253,58 @@ def main() -> None:
         meta["openrouter"] = mcfg["openrouter"]
     tot = {"cost": 0.0, "errors": 0}
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    with args.out.open("w") as fh:
-        for th in thinks:
-            sk = sampling_key(family, th)
-            if th and f"{family}_thinking" in cfg["sampling"]:
-                sk = f"{family}_thinking"
-            sp = cfg["sampling"][sk]
-            t0 = time.time()
-            if args.backend == "openrouter":
-                res = run_openrouter(
-                    mcfg["openrouter"], [it["prompt"] for it in items], sp, n, args.seed, th
-                )
-            else:
-                texts = [render(tok, it["prompt"], th, family) for it in items]
-                res = (run_vllm if args.backend == "vllm" else run_hf)(
-                    args.model, texts, sp, n, args.seed
-                )
-            print(
-                f"thinking={th}: {len(items)} prompts x {n} in {time.time() - t0:.0f} s", flush=True
+    # Resume: rows already in --out that are not errors are kept and not re-requested.
+    done = set()
+    if args.out.exists() and not args.fresh:
+        for ln in args.out.read_text().splitlines():
+            try:
+                r = json.loads(ln)
+            except json.JSONDecodeError:  # half-written last line from an interruption
+                continue
+            if r.get("finish_reason") != "error":
+                done.add(row_key(r))
+        print(f"resume: {len(done)} completed rows in {args.out}", flush=True)
+    fh = args.out.open("w" if args.fresh else "a")
+    lock = threading.Lock()
+
+    def write(it, th, sp, i, res):
+        raw, fin, ntok, *ex = res
+        extra = ex[0] if ex else {}
+        think, ans, closed = split_think(raw.replace("<end_of_turn>", "").replace("<|im_end|>", ""))
+        if extra.get("reasoning") and think is None:
+            think = extra["reasoning"]
+        row = meta | it | {"thinking": th, "sampling": sp, "sample": i, "raw": raw, "think": think,
+               "answer": ans, "think_closed": closed, "finish_reason": fin, "n_tokens": ntok} | extra  # fmt: skip
+        with lock:
+            tot["cost"] += float((extra.get("usage") or {}).get("cost") or 0)
+            tot["errors"] += fin == "error"
+            fh.write(json.dumps(row) + "\n")
+            fh.flush()
+
+    for th in thinks:
+        sk = sampling_key(family, th)
+        if th and f"{family}_thinking" in cfg["sampling"]:
+            sk = f"{family}_thinking"
+        sp = cfg["sampling"][sk]
+        t0 = time.time()
+        skip = {(i, j) for i, it in enumerate(items) for j in range(n)
+                if row_key(it | {"thinking": th, "sample": j}) in done}  # fmt: skip
+        todo = len(items) * n - len(skip)
+        if args.backend == "openrouter":
+            run_openrouter(mcfg["openrouter"], [it["prompt"] for it in items], sp, n, args.seed, th,
+                           skip, lambda i, j, r, th=th, sp=sp: write(items[i], th, sp, j, r))  # fmt: skip
+        elif todo:
+            texts = [render(tok, it["prompt"], th, family) for it in items]
+            res = (run_vllm if args.backend == "vllm" else run_hf)(
+                args.model, texts, sp, n, args.seed
             )
-            for it, outs in zip(items, res):
-                for i, (raw, fin, ntok, *ex) in enumerate(outs):
-                    extra = ex[0] if ex else {}
-                    think, ans, closed = split_think(
-                        raw.replace("<end_of_turn>", "").replace("<|im_end|>", "")
-                    )
-                    if extra.get("reasoning") and think is None:
-                        think = extra["reasoning"]
-                    tot["cost"] += float((extra.get("usage") or {}).get("cost") or 0)
-                    tot["errors"] += fin == "error"
-                    fh.write(json.dumps(meta | it | {"thinking": th, "sampling": sp, "sample": i,
-                             "raw": raw, "think": think, "answer": ans, "think_closed": closed,
-                             "finish_reason": fin, "n_tokens": ntok} | extra) + "\n")  # fmt: skip
+            for i, outs in enumerate(res):
+                for j, r in enumerate(outs):
+                    if (i, j) not in skip:
+                        write(items[i], th, sp, j, r)
+        print(f"thinking={th}: {todo} of {len(items) * n} requested in {time.time() - t0:.0f} s",
+              flush=True)  # fmt: skip
+    fh.close()
     if args.backend == "openrouter":
         print(f"OpenRouter cost ${tot['cost']:.4f}, errors {tot['errors']}", flush=True)
     print(f"=== GEN DONE {args.model} ===", flush=True)

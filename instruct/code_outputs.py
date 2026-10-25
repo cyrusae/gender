@@ -254,7 +254,8 @@ def main() -> None:
     for fp in args.files:
         for line in fp.read_text().splitlines():
             r = json.loads(line)
-            th = r.get("think") if r["thinking"] else None
+            # reasoning text: thinking runs, or summaries a closed model returns unasked (GPT)
+            th = (r.get("think") or None) if (r["thinking"] or r.get("reasoning")) else None
             pos = r.get("name_condition") or ("after" if "Name:" in r["prompt"] else None)
             if pos:
                 c = code_v2(r["answer"], r["noun"], r["finish_reason"], th, pos)
@@ -264,6 +265,13 @@ def main() -> None:
                     "finish_reason", "provider")  # fmt: skip
             rows.append({k: r.get(k) for k in keep} | c)
     d = pd.DataFrame(rows)
+    # resumed runs append: per completion keep the last non-error row (errors only if no retry won)
+    kc = [
+        k for k in ("model", "name_condition", "noun", "modifier", "thinking", "sample") if k in d
+    ]
+    d["_err"] = d["finish_reason"] == "error"
+    d = d.iloc[d.reset_index().sort_values(["_err", "index"], ascending=[False, True]).index]
+    d = d.drop_duplicates(kc, keep="last").sort_index().drop(columns="_err")
     coded = args.out.with_name(args.out.stem + "_coded.csv")
     d.to_csv(coded, index=False)
     if d["name_condition"].isna().all():
