@@ -269,9 +269,7 @@ direction (positive control) moves R1 +0.29 to +0.34 on both sizes, so the reado
 a gender push. Noun-sense check: 0/8 Gemma verdicts change (`results/gemma_slim/noun_sense/`).
 
 **Robustness (AFTER position).** Phase 3 at AFTER: compounds "neither" (4B 6/33, 12B 18/47
-layers), as on Qwen (8B 7/35): gender sits on the noun's own token in Gemma too. **Phase 4 at AFTER
-was not run:** the pod extracted Spanish training activations at LAST only
-(`phase2_bare_after` missing). This is an extraction gap, not a result.
+layers), as on Qwen (8B 7/35): gender sits on the noun's own token in Gemma too. **Phase 4 at AFTER**: the pod extracted Spanish training activations at LAST only; for 4B they were extracted afterwards on the Mac (MPS, bf16, 2026-10-25). Result as on Qwen3-8B: T1 0/33 both directions, T3 not met. 12B not run (weights not cached; would need a new download).
 
 **Cross-fitted cosines are not interpretable on Gemma (R2, Phase 4 T2).** The split-half cosine
 estimator gives values outside [−1, 1] (−3.97 to +1.11) or none (negative squared-length estimate)
