@@ -142,28 +142,55 @@ def code_name(name: str | None) -> dict:
             "name_f_share": sh}  # fmt: skip
 
 
+CAP_WORD = re.compile(r"[A-Z][a-z'\u2019\-]+")
+
+
+def spot_names(text: str) -> list[str]:
+    """'free' condition: candidate names = capitalised words that don't start a sentence and
+    aren't 'I' (rule fixed with the PI 2026-10-25). Catches word-names ('Threshold') mid-sentence;
+    also catches other proper nouns ('Earth'), so hits are listed for reading."""
+    hits = []
+    for sent in re.split(r"(?<=[.!?])\s+|\n+", text or ""):
+        words = re.findall(r"[\"'\u201c\u2018(]*[A-Za-z][A-Za-z'\u2019\-]*", sent)
+        for w in words[1:]:
+            w = w.lstrip("\"'\u201c\u2018(")
+            if w != "I" and CAP_WORD.fullmatch(w):
+                hits.append(w)
+    return hits
+
+
 def code_v2(
     answer: str, noun: str, finish_reason: str, think: str | None = None, name_pos: str = "after"
 ) -> dict:
-    """name_pos: 'after' / 'before' (Name line required there) or 'none' (no name asked for)."""
-    para, name = (
-        split_name(answer, name_pos) if name_pos != "none" else ((answer or "").strip(), None)
-    )
+    """name_pos: 'after' / 'before' (Name line required there), 'none' (told not to name),
+    'free' (no name instruction; names spotted in the text)."""
+    if name_pos in ("none", "free"):
+        para, name = (answer or "").strip(), None
+    else:
+        para, name = split_name(answer, name_pos)
+    spotted = spot_names(para) if name_pos == "free" else []
+    if spotted:
+        name = spotted[0]
     hit = re.search(rf"\b({re.escape(noun)}|{re.escape(plural(noun))})\b", para, re.IGNORECASE)
     gates = {
         "noun_hit": bool(hit),
-        "name_ok": name is not None or name_pos == "none",
+        "name_ok": name is not None or name_pos in ("none", "free"),
         "truncated": finish_reason == "length",
         "error": finish_reason == "error",
     }
     nm = code_name(name)
     parts = [nm["given"]] + re.findall(r"[A-Za-z][A-Za-z'\-]*", name or "")
     parts = [p for p in parts if p and p.lower().rstrip(".") not in TITLES]
-    gates["name_in_para"] = any(re.search(rf"\b{re.escape(p)}\b", para) for p in parts)
+    gates["name_in_para"] = name_pos != "free" and any(
+        re.search(rf"\b{re.escape(p)}\b", para) for p in parts
+    )
     gates["valid"] = gates["name_ok"] and not (
         gates["noun_hit"] or gates["name_in_para"] or gates["truncated"] or gates["error"]
     )
     n_par = len([b for b in re.split(r"\n\s*\n", para) if b.strip()])
+    if name_pos == "free":
+        nm |= {"named": bool(spotted), "spotted": "|".join(dict.fromkeys(spotted)),
+               "n_name_mentions": spotted.count(spotted[0]) if spotted else 0}  # fmt: skip
     nm["noun_in_name"] = bool(name and re.search(rf"\b{re.escape(noun)}", name, re.IGNORECASE))
     return gates | {"n_paragraphs": n_par} | nm | code(para, think)
 

@@ -80,3 +80,19 @@ def test_v3_conditions_render():
     p = build_prompts(cfg, ["pot"], ["plain"])
     assert [x["name_condition"] for x in p] == ["after", "before", "none"]
     assert all("{" not in x["prompt"] for x in p)
+
+
+def test_free_name_spotting():
+    from code_outputs import code_v2, spot_names
+
+    assert spot_names("He walked. They called him Silas, and Silas smiled. I know.") == [
+        "Silas",
+        "Silas",
+    ]
+    assert spot_names("Silas walked to the Threshold.") == ["Threshold"]
+    c = code_v2(
+        "He stood. People knew him as Silas; Silas never spoke.", "pot", "stop", name_pos="free"
+    )
+    assert c["valid"] and c["named"] and c["given"] == "Silas" and c["n_name_mentions"] == 2
+    c = code_v2("She hums softly.", "pot", "stop", name_pos="free")
+    assert c["valid"] and not c["named"] and c["pron"] == "she"
