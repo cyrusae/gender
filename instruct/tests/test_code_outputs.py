@@ -98,3 +98,16 @@ def test_free_name_spotting():
     assert c["valid"] and c["named"] and c["given"] == "Silas" and c["n_name_mentions"] == 2
     c = code_v2("She hums softly.", "pot", "stop", name_pos="free")
     assert c["valid"] and not c["named"] and c["pron"] == "she"
+
+
+def test_free_noted_and_plan():
+    from code_outputs import code_v2
+
+    c = code_v2(
+        "Silas stood; Silas hummed. He waited.\nName: Silas", "pot", "stop", name_pos="free_noted"
+    )
+    assert c["valid"] and c["name_used_in_para"] and c["n_name_mentions"] == 2
+    assert c["para_name_matches"] and c["pron"] == "he"
+    c = code_v2("Elara stood.\nName: Silas", "pot", "stop", name_pos="free_noted")
+    assert c["valid"] and not c["para_name_matches"]
+    assert not code_v2("Silas hums.\nName: Silas", "pot", "stop", name_pos="plan")["valid"]

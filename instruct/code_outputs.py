@@ -193,11 +193,12 @@ def code_v2(
     answer: str, noun: str, finish_reason: str, think: str | None = None, name_pos: str = "after"
 ) -> dict:
     """name_pos: 'after' / 'before' (Name line required there), 'none' (told not to name),
-    'free' (no name instruction; names spotted in the text)."""
+    'free' (no name instruction; names spotted in the text), 'plan' (= after + "decide on a name
+    first"), 'free_noted' (Name line last, but the name MAY appear in the paragraph: not gated)."""
     if name_pos in ("none", "free"):
         para, name = (answer or "").strip(), None
     else:
-        para, name = split_name(answer, name_pos)
+        para, name = split_name(answer, "before" if name_pos == "before" else "after")
     spotted = spot_names(para) if name_pos == "free" else []
     if spotted:
         name = spotted[0]
@@ -214,6 +215,13 @@ def code_v2(
     gates["name_in_para"] = name_pos != "free" and any(
         re.search(rf"\b{re.escape(p)}\b", para) for p in parts
     )
+    if name_pos == "free_noted":  # outcome, not a gate
+        n_ment = len(re.findall(rf"\b{re.escape(nm['given'])}\b", para)) if nm["given"] else 0
+        sp = spot_names(para)
+        nm |= {"name_used_in_para": gates.pop("name_in_para"), "n_name_mentions": n_ment,
+               "para_first_name": sp[0] if sp else "",
+               "para_name_matches": bool(sp) and sp[0] == nm["given"]}  # fmt: skip
+        gates["name_in_para"] = False
     gates["valid"] = gates["name_ok"] and not (
         gates["noun_hit"] or gates["name_in_para"] or gates["truncated"] or gates["error"]
     )
