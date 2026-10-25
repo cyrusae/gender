@@ -96,3 +96,26 @@ the Gemma pod; about 10 minutes). CPU analysis afterwards. Code: `src/gbleed/rar
 - Feminine dominates H (about 2.5 : 1). The within-gender design doesn't need balance, but the
   masculine estimate is the noisier one.
 - Zipf is from wordfreq. It measures the word's corpus frequency, not the model's exposure.
+
+## Clarifications before extraction (2026-10-25)
+
+Written after the code and before any activation of H exists. None changes a reading.
+
+- **Device.** The "Cost and order" line above ("8B on the Mac, as Phase 3 was") was wrong: the
+  Qwen3-8B and 14B Phase 3 training activations, which define d, were extracted on the pod
+  (CUDA L40S, bf16, commit 482430e). By the one-device rule, H is extracted on the same kind of
+  pod for **both** models, in bf16. Qwen isn't gated, so no token is needed.
+- **The direction d.** This is the f−m coefficient of the full-sample regression of the strat3 m/f activations on
+  [gender, ending × loan cell dummies, the Phase 3 covariates (concreteness, its missing flag,
+  Zipf, token count)], the design (c) uses. It is unit-normalised, with no splitting (H is held
+  out, so no cross-fitting is needed). The number direction is the German singular→plural mean
+  difference from the Phase 5 number pairs, unit-normalised.
+- **Partial Spearman.** Rank-transform p and Zipf within the gender group, residualise both
+  ranks on [intercept, token count, ending dummies], then take the Pearson correlation of the
+  residuals. The null permutes Zipf within ending cells of that gender group. Token count comes
+  from the extraction tokenizer.
+- **"Near chance" for the decoding sanity check.** AUC of p for f vs m on H below 0.60 at a
+  majority of layers. The midpoint-threshold accuracy (threshold = midpoint of the training m
+  and f mean projections) is reported alongside.
+- **Code:** `src/gbleed/rarity_heldout.py` (`extract`, `analyze`, `reading`), CLI
+  `gbleed rarity-heldout`, tests `tests/test_rarity_heldout.py`.

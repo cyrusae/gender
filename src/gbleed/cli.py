@@ -128,6 +128,13 @@ def main() -> None:
     fa.add_argument(
         "--c-ref", default=None, help="(c) cosine file the overlap reference comes from"
     )
+    rh = sub.add_parser(
+        "rarity-heldout", help="German rarity-lean held-out test (prereg 2026-10-22)"
+    )
+    rh.add_argument(
+        "--extract", metavar="MODEL", default=None, help="extract H for one model (GPU)"
+    )
+    rh.add_argument("--models", nargs="+", default=None, help="analyze: default Qwen3 8B and 14B")
     gk = sub.add_parser(
         "gemma-known", help="Gemma slim: known-checks on the frozen lists + portability"
     )
@@ -194,6 +201,14 @@ def main() -> None:
         from .noun_sense import main as ns_main
 
         ns_main(a.models, a.root, a.rc)
+        return
+    if a.cmd == "rarity-heldout":
+        from . import rarity_heldout as rho
+
+        if a.extract:
+            rho.extract(a.extract)
+        else:
+            rho.main(a.models or rho.MODELS)
         return
     if a.cmd == "frequency-axis":
         from .frequency_axis import C_REF, MODELS, OUT
