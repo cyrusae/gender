@@ -51,3 +51,14 @@ def test_specs_point_to_frames():
     assert spec("es").frames()["frames"][0][1]["f"] == "la"
     ru = spec("ru").frames()
     assert ru[0][1]["f"] == "наша" and not spec("ru").has_articles
+
+
+def test_semantic_class_from_gloss():
+    from gbleed.lang_audit import semantic_class
+
+    assert semantic_class("March") == "month"
+    assert semantic_class("the Monday") == "weekday"
+    assert semantic_class("winter") == "season"
+    assert semantic_class("the number four") == "number"
+    assert semantic_class("bridge") == ""
+    assert semantic_class("marching band") == ""

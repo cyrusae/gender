@@ -107,12 +107,18 @@ across the set.
 Inanimate nouns only, so there is no natural sex. Also out:
 - proper names, including glosses naming one specific thing;
 - sex-typed items (garments);
-- semantic classes that take one gender by convention (German chemicals);
+- semantic classes that take one gender by convention (German chemicals; Spanish and German
+  months, weekdays and seasons; numbers used as nouns). `gbleed lang-audit` flags months,
+  weekdays, seasons and numbers from the English gloss (`lang_audit.semantic_class`);
 - the held-out sets of every phase.
 
 **Learned from:**
 - **"The FIFA World Cup"** is a gloss naming one thing: it counts as a proper name (PI review,
   Russian).
+- **Months are masculine in Spanish by meaning, not form** (*marzo*, *noviembre*). Two slipped
+  into the Spanish lists (one training noun of 132 masculine, one test/steering noun); found by
+  the PI from the word-level export, 2026-10-25. Negligible for the results, but a cue spelling
+  controls can't remove.
 - **Glosses can encode a viewpoint.** Dictionaries written from one sex's perspective
   (*boyfriend* "the lover of a girl") are why gold labels never come from a model and glosses are
   checked.

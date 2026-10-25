@@ -14,6 +14,7 @@ the list (Stage 7) decides what to do about them.
 
 from __future__ import annotations
 
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -69,6 +70,29 @@ def loo_cell_majority(cells, genders) -> list[str]:
         t = +t
         out.append(min(k for k, v in t.items() if v == max(t.values())) if t else overall)
     return out
+
+
+# Semantic classes whose members take one gender by convention, not by form (Spanish months and
+# weekdays are masculine; German months, weekdays and seasons too; numbers as nouns differ by
+# language). Matched on the English gloss, so the check is language-independent.
+SEMANTIC_CLASSES = {
+    "month": {"january", "february", "march", "april", "may", "june", "july", "august",
+              "september", "october", "november", "december"},
+    "weekday": {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"},
+    "season": {"spring", "summer", "autumn", "fall", "winter"},
+    "number": {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+               "ten", "eleven", "twelve", "hundred", "thousand", "million", "billion"},
+}  # fmt: skip
+NUMBER_GLOSS = re.compile(r"(?i)\b(numeral|digit|the number|playing card|banknote)\b")
+
+
+def semantic_class(gloss: str) -> str:
+    """The fixed-gender semantic class a noun's English gloss names, or ""."""
+    g = re.sub(r"(?i)^(the|a|an)\s+", "", str(gloss).strip()).lower()
+    for cls, words in SEMANTIC_CLASSES.items():
+        if g in words:
+            return cls
+    return "number" if NUMBER_GLOSS.search(str(gloss)) else ""
 
 
 def _initial(w: str) -> str:
@@ -247,6 +271,15 @@ def audit(lang: str, path: str | None = None, tag: str | None = None,
         res["flags"].append(
             "no hand-written word-structure rule for this language (playbook Stage 3)"
         )
+    # semantic classes with a conventional gender (a gender cue spelling controls don't remove)
+    if "concept_en" in df:
+        df["semantic_class"] = [semantic_class(g) for g in df.concept_en]
+        hit = df[df.semantic_class != ""]
+        res["semantic_classes"] = {c: g.gender.value_counts().to_dict()
+                                   for c, g in hit.groupby("semantic_class")}  # fmt: skip
+        for c, g in hit.groupby("semantic_class"):
+            ex = ", ".join(f"{w} ({gd})" for w, gd in zip(g.lemma[:6], g.gender[:6], strict=True))
+            res["flags"].append(f"fixed-gender semantic class '{c}': {len(g)} nouns ({ex})")
     # Wiktionary's own structure templates (any language; transparent ones only)
     from . import wk_structure
 
