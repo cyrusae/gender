@@ -32,6 +32,17 @@ file overrides it**. Status of these overrides: **DRAFT, awaiting PI sign-off** 
   and the write-up says which pilot results informed it. Results on pilot nouns are never
   reported as findings.
 
+- **Serving precision.** Any run on our own GPUs, and any result that feeds activation or
+  steering work: full precision (or the model's training precision) only. API completions:
+  full or training precision is strongly preferred. Every call pins one provider with no
+  fallbacks and records the provider and its stated precision. A quantized or unknown-precision
+  endpoint may be used for a finding only when no full-precision endpoint exists for that model
+  (e.g. closed models from major labs). The model and its precision tier must be named in the
+  pre-registration before any non-pilot noun is run. Those results carry a caveat (unknown
+  precision, possible hidden system layers, possible silent updates), use a dated model version
+  where one exists, and are labelled by tier in every comparison. Pilot runs on reserved nouns
+  may use any endpoint, labelled "variety tier".
+
 ## Unchanged and especially important here
 
 - Don't tune prompts on outcomes. Prompt wording is fixed on design grounds before a run; a

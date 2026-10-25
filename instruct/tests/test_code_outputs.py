@@ -123,3 +123,15 @@ def test_possessive_counts_as_name_use():
         name_pos="free_noted",
     )
     assert c["para_name_matches"] and c["n_name_mentions"] == 1
+
+
+def test_v6_conditions_match_earlier_wording():
+    import json
+
+    root = Path(__file__).resolve().parents[1] / "configs"
+    v3, v5, v6 = (json.loads((root / f"pilot0_v{k}.json").read_text()) for k in (3, 5, 6))
+    assert v6["template"] == v3["template"] == v5["template"]
+    nc = v6["name_conditions"]
+    assert nc["free_noted"] == v5["name_conditions"]["free_noted"]
+    for k in ("none", "before", "after"):
+        assert nc[k] == v3["name_conditions"][k]

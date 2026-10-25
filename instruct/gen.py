@@ -175,11 +175,14 @@ def run_openrouter(ocfg: dict, prompts: list[str], sp: dict, n: int, seed: int, 
     def one(ij):
         i, j = ij
         body = {"model": ocfg["id"], "messages": [{"role": "user", "content": prompts[i]}],
-                "temperature": sp["temperature"], "top_p": sp["top_p"], "top_k": sp["top_k"],
-                "min_p": sp["min_p"], "max_tokens": sp["max_tokens"], "seed": seed * 1000 + j,
+                "max_tokens": sp["max_tokens"], "seed": seed * 1000 + j,
                 "provider": ocfg["provider"], "usage": {"include": True}}  # fmt: skip
+        # only the sampling settings the vendor specifies (closed reasoning models take none)
+        body |= {k: sp[k] for k in ("temperature", "top_p", "top_k", "min_p") if k in sp}
         if ocfg.get("reasoning_param"):
             body["reasoning"] = {"enabled": thinking}
+        if ocfg.get("service_tier"):
+            body["service_tier"] = ocfg["service_tier"]
         d = or_call(body, key)
         if "error" in d:
             return ("", "error", 0, {"error": d["error"]})
@@ -189,7 +192,7 @@ def run_openrouter(ocfg: dict, prompts: list[str], sp: dict, n: int, seed: int, 
         return (msg.get("content") or "", ch.get("finish_reason"), u.get("completion_tokens", 0),
                 {"provider": d.get("provider"), "or_model": d.get("model"), "usage": u,
                  "reasoning": msg.get("reasoning"), "native_finish_reason":
-                 ch.get("native_finish_reason")})  # fmt: skip
+                 ch.get("native_finish_reason"), "service_tier": d.get("service_tier")})  # fmt: skip
 
     with ThreadPoolExecutor(max_workers=8) as ex:
         flat = list(ex.map(one, jobs))
