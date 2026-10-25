@@ -207,6 +207,25 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   stereotypically feminine?"). Standard term: "LLM-as-a-judge". Allowed only for outputs, under
   the conditions in `instruct/CLAUDE.md`.
 - **vLLM.** A fast inference server for batched sampling on a GPU. *(tool: vLLM)*
+- **Name condition.** How the prompt handles the character's name: *after* (Name line last,
+  name banned from the paragraph), *before* (Name line first), *told no name*, *free* (nothing
+  said), *free_noted* (nothing said except a final Name line), *plan* (after + "decide on a name
+  first"). *(instruct study)*
+- **Validity gate.** A fixed rule that throws an output out (noun used, Name line missing, cut
+  off…). Rates are reported per cell. *(instruct/code_outputs.py)*
+- **Stock name.** A name a model reuses across unrelated prompts (Gemma 3: Silas, Elara,
+  Bartholomew). *(instruct study; informal)*
+- **Exploratory vs confirmatory.** Standard terms: an exploratory phase may try things and look
+  at outcomes; a confirmatory phase runs a design frozen in advance on fresh items. Burned pilot
+  nouns make the instruct pilot exploratory. *(general research design)*
+- **Serving precision / variety tier.** The number format an API provider runs a model in (bf16 =
+  full; fp8/fp4/int4 = quantized; "unknown" for closed models). Pilot runs on any precision are
+  labelled "variety tier". *(OpenRouter)*
+- **Service tier (flex) / Batch API.** Cheaper ways to buy API completions: *flex* = lower
+  priority, about half price, same model; *batch* = submit many requests at once, results within
+  24 h, about half price. *(OpenRouter / OpenAI)*
+- **Rate limit (HTTP 429).** A provider refusing requests because too many arrived; our code
+  waits and retries. *(APIs)*
 - **Glasgow Norms.** Human ratings of ~5,500 English words on nine scales, including gender
   association (1 = very feminine, 7 = very masculine). Scott et al. 2019.
 

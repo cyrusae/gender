@@ -296,6 +296,11 @@ second Claude session that read along and flagged problems.*
   to turn a thing into a character. Pilot 0 is a workflow test only: 7 burned nouns, the PI's
   prompt × 5 modifiers, Qwen3-8B (thinking on/off) and Gemma-3-12B-it; pronouns coded by regex.
   `instruct/docs/design.md`.
+- Pilot 0 v2–v5 (Oct 25, Gemma-3-12B-it via OpenRouter, bf16, $0.16 total): the workflow works
+  (≈100% valid). The name instruction drives the answer: left alone, Gemma opens with a stock
+  name (Silas/Elara) and the pronoun follows it; writing the name last produces "they"; a
+  "plan the name" sentence broke the format. `free_noted` adopted as primary (provisional).
+  Pilot-iteration and serving-precision rules added. Explainer `I0-instruct-pilot0.md`.
 
 ## Where things stand (Oct 17)
 
