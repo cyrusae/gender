@@ -1,0 +1,24 @@
+{
+  "Qwen/Qwen3-8B-Base": {
+    "layers": 4,
+    "n_m": 190,
+    "layers_m_pass": 0,
+    "layers_f_pass": 3,
+    "layers_both_pass": 0,
+    "layers_f_no_ie_pass": 4,
+    "layers_number_both_pass": 1,
+    "layers_auc_below_chance_bar": 0,
+    "reading": "mixed"
+  },
+  "Qwen/Qwen3-14B-Base": {
+    "layers": 4,
+    "n_m": 190,
+    "layers_m_pass": 0,
+    "layers_f_pass": 0,
+    "layers_both_pass": 0,
+    "layers_f_no_ie_pass": 3,
+    "layers_number_both_pass": 2,
+    "layers_auc_below_chance_bar": 3,
+    "reading": "no valid test"
+  }
+}

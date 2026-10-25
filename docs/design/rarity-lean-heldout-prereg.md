@@ -119,3 +119,24 @@ Written after the code and before any activation of H exists. None changes a rea
   and f mean projections) is reported alongside.
 - **Code:** `src/gbleed/rarity_heldout.py` (`extract`, `analyze`, `reading`), CLI
   `gbleed rarity-heldout`, tests `tests/test_rarity_heldout.py`.
+
+## Results (2026-10-25)
+
+H extracted on the pod (L40S CUDA bf16, commit b90ae83; archive sha256 fc3b92f3…fb70 on
+`/Volumes/Lexar/gbleed/rarity-pod/`), analysed on the Mac (`gbleed rarity-heldout`,
+`results/rarity_heldout/`). n = 190 m, 502 f (291 without *-ie*), 196 n.
+
+**Qwen3-8B: mixed.** ρ_f passes at 3/4 layers (−0.24, −0.18, −0.11) and ρ_f without *-ie* at
+4/4 (−0.16 to −0.36), but **ρ_m passes at none** (+0.02, −0.12, −0.07, −0.13; the detectable
+size was about −0.14). The number-direction control passes at 1/4. Decoding AUC 0.61–0.73.
+
+**Qwen3-14B: no valid test.** Decoding AUC below 0.60 at 3/4 layers (0.68, 0.56, 0.43, 0.46):
+the training direction doesn't read gender on these nouns at most layers. (ρ_f without *-ie*
+passes at 3/4; the number control also shows strong negative ρ, −0.45 to −0.51 at layer 10.)
+
+**Reading.** The lean is not shown to generalise. On 8B rarer *feminine* nouns do project
+further toward feminine, including without the *-ie* loans, but masculine nouns don't show it,
+which is what a model-wide "rare = feminine" property predicts. With the masculine test
+powered only for |ρ| ≳ 0.14, a weak masculine lean isn't ruled out. Together with Gemma (no
+overlap at all), the German frequency alignment is best described as a Qwen3 training-sample
+property with, at most, a feminine-only echo on 8B.
