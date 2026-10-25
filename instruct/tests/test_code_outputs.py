@@ -111,3 +111,15 @@ def test_free_noted_and_plan():
     c = code_v2("Elara stood.\nName: Silas", "pot", "stop", name_pos="free_noted")
     assert c["valid"] and not c["para_name_matches"]
     assert not code_v2("Silas hums.\nName: Silas", "pot", "stop", name_pos="plan")["valid"]
+
+
+def test_possessive_counts_as_name_use():
+    from code_outputs import code_v2
+
+    c = code_v2(
+        "Silas\u2019s hands were rough. He hummed.\nName: Silas",
+        "pot",
+        "stop",
+        name_pos="free_noted",
+    )
+    assert c["para_name_matches"] and c["n_name_mentions"] == 1

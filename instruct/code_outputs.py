@@ -181,7 +181,7 @@ def spot_names(text: str) -> list[str]:
     for sent in re.split(r"(?<=[.!?])\s+|\n+", text or ""):
         words = re.findall(r"[\"'\u201c\u2018(]*[A-Za-z][A-Za-z'\u2019\-]*", sent)
         for k, w in enumerate(words):
-            w = w.lstrip("\"'\u201c\u2018(")
+            w = re.sub(r"['\u2019]s?$", "", w.lstrip("\"'\u201c\u2018("))  # possessive = a use
             if w == "I" or not CAP_WORD.fullmatch(w):
                 continue
             if k > 0 or (w in ssa_table() and not is_common_word(w)):
