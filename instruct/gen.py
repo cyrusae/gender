@@ -45,14 +45,20 @@ def check_reserved(nouns: list[str], cfg_name: str) -> None:
 
 
 def build_prompts(cfg: dict, nouns: list[str], mods: list[str] | None) -> list[dict]:
+    """noun x modifier (x name_condition when the config has them: the template's {NAME_INSTR}
+    is filled per condition)."""
+    conds = cfg.get("name_conditions") or {None: ""}
     out = []
-    for noun in nouns:
-        for mk, mt in cfg["modifiers"].items():
-            if mods and mk not in mods:
-                continue
-            mod_noun = mt.format(a=article(noun), noun=noun)
-            out.append({"noun": noun, "modifier": mk, "mod_noun": mod_noun,
-                        "prompt": cfg["template"].replace("{MOD_NOUN}", mod_noun).replace("{NOUN}", noun)})  # fmt: skip
+    for nc, instr in conds.items():
+        for noun in nouns:
+            for mk, mt in cfg["modifiers"].items():
+                if mods and mk not in mods:
+                    continue
+                mod_noun = mt.format(a=article(noun), noun=noun)
+                p = cfg["template"].replace("{NAME_INSTR}", instr)
+                p = p.replace("{MOD_NOUN}", mod_noun).replace("{NOUN}", noun)
+                out.append({"noun": noun, "modifier": mk, "mod_noun": mod_noun, "prompt": p}
+                       | ({"name_condition": nc} if nc else {}))  # fmt: skip
     return out
 
 

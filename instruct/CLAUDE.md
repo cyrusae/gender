@@ -27,6 +27,11 @@ file overrides it**. Status of these overrides: **DRAFT, awaiting PI sign-off** 
 - **Sampling, not log-probs, is the default measure.** Sampling settings come from each model's
   published recommended defaults (`configs/`), never tuned on outcomes.
 
+- **Pilot iteration.** On reserved pilot nouns only, prompts may be revised on any grounds,
+  including outcomes. Before any non-pilot noun is run, the prompt is frozen and pre-registered,
+  and the write-up says which pilot results informed it. Results on pilot nouns are never
+  reported as findings.
+
 ## Unchanged and especially important here
 
 - Don't tune prompts on outcomes. Prompt wording is fixed on design grounds before a run; a

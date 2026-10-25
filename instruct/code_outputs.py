@@ -96,11 +96,14 @@ def plural(noun: str) -> str:
     return noun + "s"
 
 
-def split_name(answer: str) -> tuple[str, str | None]:
-    """(paragraph, name or None). The name must be the last non-empty line."""
-    lines = (answer or "").rstrip().splitlines()
-    if lines and (m := NAME_LINE.match(lines[-1].strip())):
-        return "\n".join(lines[:-1]).strip(), m.group(1).strip().strip("*_\"'")
+def split_name(answer: str, pos: str = "after") -> tuple[str, str | None]:
+    """(paragraph, name or None). The Name line must be the last (pos='after') or first
+    (pos='before') non-empty line."""
+    lines = [ln for ln in (answer or "").strip().splitlines()]
+    i = -1 if pos == "after" else 0
+    if lines and (m := NAME_LINE.match(lines[i].strip())):
+        rest = lines[:-1] if pos == "after" else lines[1:]
+        return "\n".join(rest).strip(), m.group(1).strip().strip("*_\"'")
     return (answer or "").strip(), None
 
 
@@ -139,20 +142,28 @@ def code_name(name: str | None) -> dict:
             "name_f_share": sh}  # fmt: skip
 
 
-def code_v2(answer: str, noun: str, finish_reason: str, think: str | None = None) -> dict:
-    para, name = split_name(answer)
+def code_v2(
+    answer: str, noun: str, finish_reason: str, think: str | None = None, name_pos: str = "after"
+) -> dict:
+    """name_pos: 'after' / 'before' (Name line required there) or 'none' (no name asked for)."""
+    para, name = (
+        split_name(answer, name_pos) if name_pos != "none" else ((answer or "").strip(), None)
+    )
     hit = re.search(rf"\b({re.escape(noun)}|{re.escape(plural(noun))})\b", para, re.IGNORECASE)
     gates = {
         "noun_hit": bool(hit),
-        "name_ok": name is not None,
+        "name_ok": name is not None or name_pos == "none",
         "truncated": finish_reason == "length",
         "error": finish_reason == "error",
     }
+    nm = code_name(name)
+    parts = [nm["given"]] + re.findall(r"[A-Za-z][A-Za-z'\-]*", name or "")
+    parts = [p for p in parts if p and p.lower().rstrip(".") not in TITLES]
+    gates["name_in_para"] = any(re.search(rf"\b{re.escape(p)}\b", para) for p in parts)
     gates["valid"] = gates["name_ok"] and not (
-        gates["noun_hit"] or gates["truncated"] or gates["error"]
+        gates["noun_hit"] or gates["name_in_para"] or gates["truncated"] or gates["error"]
     )
     n_par = len([b for b in re.split(r"\n\s*\n", para) if b.strip()])
-    nm = code_name(name)
     nm["noun_in_name"] = bool(name and re.search(rf"\b{re.escape(noun)}", name, re.IGNORECASE))
     return gates | {"n_paragraphs": n_par} | nm | code(para, think)
 
@@ -179,20 +190,24 @@ def main() -> None:
         for line in fp.read_text().splitlines():
             r = json.loads(line)
             th = r.get("think") if r["thinking"] else None
-            if "Name:" in r["prompt"]:
-                c = code_v2(r["answer"], r["noun"], r["finish_reason"], th)
+            pos = r.get("name_condition") or ("after" if "Name:" in r["prompt"] else None)
+            if pos:
+                c = code_v2(r["answer"], r["noun"], r["finish_reason"], th, pos)
             else:
                 c = code(r["answer"], th)
-            keep = ("model", "noun", "modifier", "thinking", "sample", "finish_reason", "provider")
+            keep = ("model", "name_condition", "noun", "modifier", "thinking", "sample",
+                    "finish_reason", "provider")  # fmt: skip
             rows.append({k: r.get(k) for k in keep} | c)
     d = pd.DataFrame(rows)
     coded = args.out.with_name(args.out.stem + "_coded.csv")
     d.to_csv(coded, index=False)
-    keys = ["model", "thinking", "noun", "modifier"]
+    if d["name_condition"].isna().all():
+        d = d.drop(columns="name_condition")
+    keys = [k for k in ("model", "name_condition", "thinking", "noun", "modifier") if k in d]
     s = d.groupby(keys).size().rename("n").to_frame()
     if "valid" in d:
         g0 = d.groupby(keys)
-        for c in ("valid", "noun_hit", "name_ok", "truncated", "error"):
+        for c in ("valid", "noun_hit", "name_ok", "name_in_para", "truncated", "error"):
             s[c] = g0[c].mean()
         s["mean_paragraphs"] = g0["n_paragraphs"].mean()
         d = d[d["valid"]]  # outcome shares below are among valid outputs only

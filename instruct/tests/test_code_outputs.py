@@ -57,3 +57,26 @@ def test_v2_gates_and_name():
     assert not code_v2("He hums.\nName: Bob\nThe end.", "pot", "stop")["name_ok"]
     assert not code_v2("He hums.\nName: Bob", "pot", "length")["valid"]
     assert code_v2("He.\n\nHe again.\nName: Bob", "pot", "stop")["n_paragraphs"] == 2
+
+
+def test_name_positions():
+    from code_outputs import code_v2
+
+    c = code_v2(
+        "Name: Silas Thorne\n\nHe stands, grey and still.", "pot", "stop", name_pos="before"
+    )
+    assert c["valid"] and c["given"] == "Silas" and c["pron"] == "he"
+    assert not code_v2("He stands.\nName: Silas", "pot", "stop", name_pos="before")["name_ok"]
+    c = code_v2("Name: Silas\n\nSilas stands; he hums.", "pot", "stop", name_pos="before")
+    assert c["name_in_para"] and not c["valid"]
+    c = code_v2("She hums softly.", "pot", "stop", name_pos="none")
+    assert c["valid"] and c["pron"] == "she" and c["name"] == ""
+
+
+def test_v3_conditions_render():
+    import json
+
+    cfg = json.loads((Path(__file__).resolve().parents[1] / "configs/pilot0_v3.json").read_text())
+    p = build_prompts(cfg, ["pot"], ["plain"])
+    assert [x["name_condition"] for x in p] == ["after", "before", "none"]
+    assert all("{" not in x["prompt"] for x in p)
