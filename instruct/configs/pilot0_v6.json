@@ -17,7 +17,7 @@
     "after": "Do not mention the character's name in the paragraph. After the paragraph, write one final line in the form \"Name: <the character's name>\". Respond with only the paragraph and the name line."
   },
   "sampling": {
-    "_source": "model cards / generation_config.json recommended defaults; not tuned. max_tokens generous: Qwen3 card recommends 32768 for thinking. Llama 3.3: generation_config.json (T 0.6, top-p 0.9, no top-k). Gemma 4: generation_config.json + card (T 1.0, top-p 0.95, top-k 64). GPT-6-Luna: reasoning model, takes no sampling parameters; max_tokens covers hidden reasoning too.",
+    "_source": "model cards / generation_config.json recommended defaults; not tuned. max_tokens generous: Qwen3 card recommends 32768 for thinking. Llama 3.3: generation_config.json (T 0.6, top-p 0.9, no top-k). Gemma 4: generation_config.json + card (T 1.0, top-p 0.95, top-k 64). GPT-6-Luna: reasoning model, takes no sampling parameters; max_tokens covers hidden reasoning too. Gemma 4 thinking: same sampling, max_tokens 32768 (room for reasoning).",
     "qwen3_thinking": {
       "temperature": 0.6,
       "top_p": 0.95,
@@ -52,6 +52,12 @@
     },
     "gpt6": {
       "max_tokens": 16384
+    },
+    "gemma4_thinking": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 64,
+      "max_tokens": 32768
     }
   },
   "models": {

@@ -214,6 +214,7 @@ def main() -> None:
     ap.add_argument("--thinking", choices=["config", "on", "off"], default="config")
     ap.add_argument("--only-nouns")
     ap.add_argument("--only-mods")
+    ap.add_argument("--only-conds", help="comma-separated name conditions")
     ap.add_argument("--seed", type=int, default=0)
     args = ap.parse_args()
 
@@ -226,6 +227,8 @@ def main() -> None:
         nouns = [x for x in nouns if x in args.only_nouns.split(",")]
     check_reserved(nouns, cfg["name"])
     items = build_prompts(cfg, nouns, args.only_mods.split(",") if args.only_mods else None)
+    if args.only_conds:
+        items = [x for x in items if x.get("name_condition") in args.only_conds.split(",")]
     n = args.n or cfg["samples_per_cell"]
     if args.backend != "openrouter":
         from transformers import AutoTokenizer
@@ -244,7 +247,10 @@ def main() -> None:
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with args.out.open("w") as fh:
         for th in thinks:
-            sp = cfg["sampling"][sampling_key(family, th)]
+            sk = sampling_key(family, th)
+            if th and f"{family}_thinking" in cfg["sampling"]:
+                sk = f"{family}_thinking"
+            sp = cfg["sampling"][sk]
             t0 = time.time()
             if args.backend == "openrouter":
                 res = run_openrouter(
