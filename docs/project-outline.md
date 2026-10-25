@@ -290,6 +290,13 @@ second Claude session that read along and flagged problems.*
   refused), so the Mac watched it; a copy loop briefly stopped early when its "done" check matched
   the wrong line, which was caught and fixed mid-run.
 
+## 17. Instruct-model study begins (Oct 25; branch `instruct`)
+
+- New study in `instruct/` with its own scoped rules (draft): what chat models *say* when asked
+  to turn a thing into a character. Pilot 0 is a workflow test only: 7 burned nouns, the PI's
+  prompt × 5 modifiers, Qwen3-8B (thinking on/off) and Gemma-3-12B-it; pronouns coded by regex.
+  `instruct/docs/design.md`.
+
 ## Where things stand (Oct 17)
 
 - **Done:** Phases 0–4 confirmed on the target sizes; Phase 5 confirmatory for Spanish (8B:

@@ -1,0 +1,41 @@
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from code_outputs import code, split_think
+from gen import article, build_prompts
+
+
+def test_pronoun_labels():
+    assert code("She walks. Her hands are rough.")["pron"] == "she"
+    assert code("He walks; his coat is grey.")["pron"] == "he"
+    assert code("They walk; their eyes shine.")["pron"] == "they"
+    assert code("She met him at dawn.")["pron"] == "mixed"
+    assert code("It stands tall. Its bark is old.")["pron"] == "none"
+    # no substring hits: 'there', 'the', 'shell', 'hero' as pronouns
+    assert code("There the shell lay.")["pron"] == "none"
+    assert code("Tall and quiet, he hums.")["first_pron"] == "he"
+
+
+def test_split_think():
+    assert split_think("<think>hmm she</think>\n\nHe stood.") == ("hmm she", "He stood.", True)
+    assert split_think("<think>still going") == ("still going", "", False)
+    assert split_think("He stood.") == (None, "He stood.", True)
+    assert split_think("<think>\n\n</think>\n\nHe stood.")[1] == "He stood."
+
+
+def test_cot_flags():
+    c = code("He.", think="Ships are traditionally called she. In German it's die Brücke.")
+    assert c["cot_ship_she"] and c["cot_lang"]
+    assert not code("He.", think="The door is old.")["cot_lang"]
+
+
+def test_prompts():
+    cfg = {
+        "template": "Consider {MOD_NOUN}.",
+        "modifiers": {"plain": "{a} {noun}", "u": "an unusual {noun}"},
+    }
+    p = build_prompts(cfg, ["ship", "oak"], None)
+    assert [x["prompt"] for x in p] == ["Consider a ship.", "Consider an unusual ship.",
+                                        "Consider an oak.", "Consider an unusual oak."]  # fmt: skip
+    assert article("umbrella") == "an"

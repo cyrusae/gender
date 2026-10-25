@@ -191,6 +191,25 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
 - **Positive control** *(standard)*. A condition where the effect is known to be present, used
   as a yardstick. P30: real nouns like *el/la periodista*, where *la* really means a woman.
 
+## Instruct study (`instruct/`)
+
+- **Chat template.** The fixed wrapper (role markers like `<|im_start|>user`) an instruct model
+  expects around a conversation. *(transformers `apply_chat_template`)*
+- **Thinking mode / chain of thought (CoT).** Qwen3 instruct models can write private reasoning
+  inside `<think>…</think>` before answering; it can be switched on or off per prompt
+  (`enable_thinking`). Gemma 3 has no such mode.
+- **Sampling (temperature, top-p, top-k).** Generating text by drawing each next token at random
+  from the model's probabilities. Temperature flattens (>1) or sharpens (<1) them; top-p/top-k
+  restrict the draw to the most likely tokens. We use each vendor's recommended values.
+- **Pronoun class.** Our primary pilot outcome: whether a generated paragraph uses only she-forms,
+  only he-forms, only they-forms, both ("mixed"), or none. Coded by regex. *(instruct/code_outputs.py)*
+- **Model judge / LLM classifier.** A language model used to code outputs (e.g. "is this trait
+  stereotypically feminine?"). Standard term: "LLM-as-a-judge". Allowed only for outputs, under
+  the conditions in `instruct/CLAUDE.md`.
+- **vLLM.** A fast inference server for batched sampling on a GPU. *(tool: vLLM)*
+- **Glasgow Norms.** Human ratings of ~5,500 English words on nine scales, including gender
+  association (1 = very feminine, 7 = very masculine). Scott et al. 2019.
+
 ## Hardware and precision
 
 - **fp16 / bf16 / fp32.** Number formats. fp32 = full precision (4 bytes/parameter); fp16 and bf16

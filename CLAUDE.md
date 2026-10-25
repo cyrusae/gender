@@ -19,7 +19,7 @@ Research project: does an LLM's representation of grammatical gender (learned fr
 - **Gold linguistic labels never come from a language model**, including Claude. Genders come from Wiktionary (kaikki.org dumps) via `gbleed lexicon`. Hand-written labels must be marked unverified (`source = claude-unverified`).
 - **Don't tune measurement choices on a model's scores** (frames, thresholds, prompts). Fix them on linguistic/grammatical grounds, then *check* on at least two model families (currently Qwen3 + EuroLLM). If a check reveals a flaw, fix the flaw on principle and say so.
 - **One device and precision per model** for activations; never compare activations across hardware. Final cross-size runs all go on RunPod (CUDA, bf16); the Mac (M1, 16 GB, MPS, fp16) is for development.
-- Base (pretrained) models only; no 4-bit/8-bit quantization.
+- Base (pretrained) models only; no 4-bit/8-bit quantization. (Exception: the instruct study in `instruct/`, branch `instruct`, has its own scoped rules in `instruct/CLAUDE.md`.)
 - Stimulus lists are versioned (`data/stimuli/phase0_vN.csv`). Don't edit a list that has results; sample a new version and rerun.
 - Cross-model comparisons use the **shared set** (items known by every model compared).
 - **Held-out test sets are frozen before training and never trained on.** Every stimulus file for
