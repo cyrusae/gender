@@ -11,7 +11,8 @@ def test_pronoun_labels():
     assert code("He walks; his coat is grey.")["pron"] == "he"
     assert code("They walk; their eyes shine.")["pron"] == "they"
     assert code("She met him at dawn.")["pron"] == "mixed"
-    assert code("It stands tall. Its bark is old.")["pron"] == "none"
+    assert code("It stands tall. Its bark is old.")["pron"] == "it"
+    assert code("A figure stands. It is tall.")["pron"] == "none"
     # no substring hits: 'there', 'the', 'shell', 'hero' as pronouns
     assert code("There the shell lay.")["pron"] == "none"
     assert code("Tall and quiet, he hums.")["first_pron"] == "he"

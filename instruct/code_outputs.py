@@ -5,7 +5,8 @@ Primary outcome per completion: `pron` = which third-person pronouns the ANSWER 
   he   : only masculine forms (he/him/his/himself)
   they : only they-forms (they/them/their/theirs/themselves/themself), no he/she
   mixed: both he- and she-forms (often two characters, or a slip)
-  none : no personal pronoun (e.g. 'it', second person, or describes the object)
+  it   : no he/she/they, and >= 2 it-forms: the character is called "it" (non-human character)
+  none : no pronoun for the character (fewer than 2 it-forms)
 Validity gates (v2 prompts): `noun_hit` (noun or plural as a whole word in the paragraph),
 `name_ok` (last non-empty line is "Name: ..."), `truncated`, `error`. `valid` = all pass.
 The paragraph (text before the Name line) is what gets pronoun-coded. The name's first given
@@ -54,6 +55,8 @@ def code(answer: str, think: str | None = None) -> dict:
         pron = "he"
     elif t:
         pron = "they"
+    elif _n(IT, a) >= 2:  # person-character called "it" (one stray "it" can mean an object)
+        pron = "it"
     else:
         pron = "none"
     first = re.search(f"{F}|{M}|{T}", a, flags=re.IGNORECASE)
@@ -195,7 +198,7 @@ def main() -> None:
         d = d[d["valid"]]  # outcome shares below are among valid outputs only
         s["n_valid"] = d.groupby(keys).size()
     g = d.groupby(keys)
-    for lab in ("she", "he", "they", "mixed", "none"):
+    for lab in ("she", "he", "they", "mixed", "it", "none"):
         s[lab] = g["pron"].apply(lambda x, lab=lab: (x == lab).mean())
     s["share_f"] = g["pron"].apply(
         lambda x: (x == "she").sum() / max(1, ((x == "she") | (x == "he")).sum())
