@@ -1,0 +1,2 @@
+model,thinking,noun,modifier,n,valid,noun_hit,name_ok,truncated,error,mean_paragraphs,n_valid,she,he,they,mixed,none,share_f,name_f,name_m,name_ambiguous,name_notfound
+google/gemma-3-12b-it,False,pot,plain,3,1.0,0.0,1.0,0.0,0.0,1.0,3,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.0,0.0,0.5,1.0,0.0,0.0,0.0

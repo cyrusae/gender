@@ -247,7 +247,7 @@ def main() -> None:
                     args.model, texts, sp, n, args.seed
                 )
             print(
-                f"thinking={th}: {len(texts)} prompts x {n} in {time.time() - t0:.0f} s", flush=True
+                f"thinking={th}: {len(items)} prompts x {n} in {time.time() - t0:.0f} s", flush=True
             )
             for it, outs in zip(items, res):
                 for i, (raw, fin, ntok, *ex) in enumerate(outs):
