@@ -145,16 +145,46 @@ def code_name(name: str | None) -> dict:
 CAP_WORD = re.compile(r"[A-Z][a-z'\u2019\-]+")
 
 
+CLOSED_CLASS = {"she", "her", "hers", "he", "him", "his", "they", "them", "their", "it", "its",
+                "the", "an", "a", "this", "that", "these", "those", "there", "then", "when",
+                "while", "though", "although", "even", "yet", "but", "and", "or", "so", "if",
+                "as", "at", "in", "on", "with", "without", "from", "to", "for", "of", "by",
+                "every", "each", "any", "all", "some", "no", "not", "one", "most", "more"}  # fmt: skip
+
+
+@functools.cache
+def _wn():
+    from gbleed.lexicon import _wordnet
+
+    return _wordnet()
+
+
+@functools.cache
+def is_common_word(w: str) -> bool:
+    """True if the lowercase form (or its base form) is a lowercase WordNet lemma or a closed-class
+    word. WordNet stores proper nouns capitalised ('Arthur'), so names don't count as words."""
+    lw = w.lower()
+    if lw in CLOSED_CLASS:
+        return True
+    wn = _wn()
+    bases = {lw, *(b for pos in "nvar" if (b := wn.morphy(lw, pos)))}
+    return any(n == b for b in bases for syn in wn.synsets(b) for n in syn.lemma_names())
+
+
 def spot_names(text: str) -> list[str]:
-    """'free' condition: candidate names = capitalised words that don't start a sentence and
-    aren't 'I' (rule fixed with the PI 2026-10-25). Catches word-names ('Threshold') mid-sentence;
-    also catches other proper nouns ('Earth'), so hits are listed for reading."""
+    """'free' condition, in text order. A capitalised word counts as a name if (a) it does not
+    start a sentence and isn't 'I' (rule fixed with the PI 2026-10-25), or (b) it starts a sentence,
+    is in the SSA name list, and is not a common English word (fix 2026-10-25: Gemma opens the
+    paragraph with the name, which (a) alone missed). (a) also catches other proper nouns
+    ('Earth'); (b) misses names that are also words ('Rose') unless they recur mid-sentence."""
     hits = []
     for sent in re.split(r"(?<=[.!?])\s+|\n+", text or ""):
         words = re.findall(r"[\"'\u201c\u2018(]*[A-Za-z][A-Za-z'\u2019\-]*", sent)
-        for w in words[1:]:
+        for k, w in enumerate(words):
             w = w.lstrip("\"'\u201c\u2018(")
-            if w != "I" and CAP_WORD.fullmatch(w):
+            if w == "I" or not CAP_WORD.fullmatch(w):
+                continue
+            if k > 0 or (w in ssa_table() and not is_common_word(w)):
                 hits.append(w)
     return hits
 

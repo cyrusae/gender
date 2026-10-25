@@ -89,7 +89,9 @@ def test_free_name_spotting():
         "Silas",
         "Silas",
     ]
-    assert spot_names("Silas walked to the Threshold.") == ["Threshold"]
+    assert spot_names("Silas walked to the Threshold.") == ["Silas", "Threshold"]
+    txt = "Elara hums. She is kind. Patience is her gift. Her eyes shine."
+    assert spot_names(txt) == ["Elara"]
     c = code_v2(
         "He stood. People knew him as Silas; Silas never spoke.", "pot", "stop", name_pos="free"
     )
