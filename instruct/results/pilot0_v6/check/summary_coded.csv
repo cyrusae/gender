@@ -1,0 +1,13 @@
+model,name_condition,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,name_in_para,valid,n_paragraphs,name,given,title,name_sex,name_f_share,name_used_in_para,n_name_mentions,para_first_name,para_name_matches,noun_in_name,pron,n_f,n_m,n_they,n_it,first_pron,n_fnoun,n_mnoun,answer_words,cot_words,cot_gender,cot_lang,cot_ship_she
+google/gemma-4-31b-it,free_noted,pot,plain,True,0,stop,Crusoe,False,True,False,False,False,True,1,Callum,Callum,,m,0.002361862141836037,False,0,,False,False,he,0,9,1,1,he,0,1,110,600.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,plain,True,1,stop,Crusoe,False,True,False,False,False,True,1,Terrance,Terrance,,m,0.010589247190535948,False,0,,False,False,he,0,6,1,1,he,0,1,96,600.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,plain,True,2,stop,Crusoe,False,True,False,False,False,True,1,Silas,Silas,,m,0.0024322859522267312,True,1,Silas,True,False,he,0,5,0,0,he,0,0,89,578.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,Clayburn,Clayburn,,m,0.0,False,0,,False,False,he,0,10,0,0,he,0,1,113,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,Barnaby Clay,Barnaby,,m,0.0,False,0,,False,False,he,0,9,0,0,he,0,1,105,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,Clay,Clay,,m,0.006736582356570019,False,0,,False,False,he,0,7,0,0,he,0,1,93,,,,
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,plain,False,0,stop,Novita,False,True,False,False,False,True,1,Terraka,Terraka,,notfound,,False,0,,False,False,she,15,0,0,0,she,0,0,150,,,,
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,plain,False,1,stop,Novita,False,True,False,False,False,True,1,Terraka,Terraka,,notfound,,False,0,,False,False,she,15,0,0,0,she,0,0,146,,,,
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,plain,False,2,stop,Novita,False,True,False,False,False,True,1,Terraka,Terraka,,notfound,,False,0,,False,False,she,14,0,0,0,she,0,0,146,,,,
+openai/gpt-6-luna,free_noted,pot,plain,False,0,stop,OpenAI,False,True,False,False,False,True,1,Mara,Mara,,f,0.99933482996591,True,1,,False,False,she,9,0,2,0,her,0,0,84,,,,
+openai/gpt-6-luna,free_noted,pot,plain,False,1,stop,OpenAI,False,True,False,False,False,True,1,Mara,Mara,,f,0.99933482996591,True,1,,False,False,she,5,0,1,0,she,0,0,73,,,,
+openai/gpt-6-luna,free_noted,pot,plain,False,2,stop,OpenAI,False,True,False,False,False,True,1,Mara,Mara,,f,0.99933482996591,True,1,,False,False,she,7,0,1,0,she,0,0,86,,,,

@@ -17,6 +17,7 @@ import csv
 import hashlib
 import json
 import os
+import random
 import subprocess
 import time
 import urllib.error
@@ -144,7 +145,7 @@ def or_key() -> str:
     return k
 
 
-def or_call(body: dict, key: str, tries: int = 5) -> dict:
+def or_call(body: dict, key: str, tries: int = 9) -> dict:
     data = json.dumps(body).encode()
     req = urllib.request.Request(OR_URL, data=data, headers={
         "Authorization": f"Bearer {key}", "Content-Type": "application/json"})  # fmt: skip
@@ -162,7 +163,7 @@ def or_call(body: dict, key: str, tries: int = 5) -> dict:
                 break
         except (urllib.error.URLError, TimeoutError) as e:
             err = repr(e)
-        time.sleep(2**i)
+        time.sleep(min(60, 2**i) + random.random() * 2)
     return {"error": err}
 
 
