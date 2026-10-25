@@ -27,7 +27,7 @@ Follow-up studies are numbered P*n* in order of proposal. Each was pre-registere
 
 - **Primary family:** Qwen3 base models at 0.6B, 1.7B, 4B, 8B and 14B parameters (28–40 layers, hidden width 1,024–5,120). Also Qwen3-30B-A3B-Base, a mixture-of-experts model (48 layers, width 2,048, ~3B active parameters), run once as exploratory. 8B and 14B are the confirmatory models. Smaller sizes were used for development and to check size trends.
 - **Second family (behavioural tests):** EuroLLM-1.7B.
-- **Replication (in progress):** Gemma 3 4B and 12B pretrained, under a separate "slim" pre-registration (frozen lists, known-check filter only; `docs/design/gemma-slim-prereg.md`).
+- **Replication:** Gemma 3 4B and 12B pretrained, under a separate "slim" pre-registration (frozen lists, known-check filter only, loss ≤ 12% per gender; `docs/design/gemma-slim-prereg.md`). Results in §3.9.
 - Base (pretrained-only) checkpoints throughout; no instruction-tuned models.
 - **Compute:** confirmatory runs in bf16 on single A100 80GB or L40S GPUs (RunPod). Development on Apple-silicon MPS in fp16. Quantities that are compared with each other always come from the same hardware and precision.
 
@@ -513,7 +513,30 @@ Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap i
 | G2 SAE (Qwen3-8B, 632 held-out compounds) | no valid test: held-out overlap absent (cos +0.11 to +0.26) |
 
   Under A, C and D, the overlap disappears at ≤ 1 of 3–4 layers, never the majority required for "explained".
-- **Status.** The alignment is robust in the German training sample of Qwen3 8B/14B and absent in the held-out compound sample. Its mechanism is unexplained. A pre-registered held-out test on new simplex German nouns (`rarity-lean-heldout-prereg.md`) and the Gemma replication (R2) are pending.
+- **Status.** The alignment is robust in the German training sample of Qwen3 8B/14B and absent in the held-out compound sample. Its mechanism is unexplained. A pre-registered held-out test on new simplex German nouns (`rarity-lean-heldout-prereg.md`) is pending. The Gemma replication (R2, §3.9) finds no overlap on either size, so the alignment is Qwen-specific.
+
+### 3.9 Replication in Gemma 3 (G1)
+
+Gemma 3 4B and 12B pretrained were run in bf16 (L40S; commits 88cc069 and ecbbeea) on the frozen Qwen-derived lists, filtered by each list's own known-check. Known-check loss was ≤ 0.12 per gender per list, so every list is portable. Analysis code was unchanged except for wiring in the known filter (1cd5d6e), which was done before any Gemma analysis.
+
+**Table 9.** Primary verdicts, LAST position.
+
+| Verdict | Qwen3-8B | Qwen3-14B | Gemma-4B | Gemma-12B | Outcome |
+|---|---|---|---|---|---|
+| Compounds follow the head | 35/35 | 39/39 | 33/33 | 47/47 | replicates |
+| Markedness | not supported | not supported | not supported | not supported | replicates |
+| T1 transfer (ES→DE, DE→ES; Holm) | no (6, 5/35) | no (7, 22/39) | no (7, 26/33) | no (11, 27/47) | replicates |
+| T3 pairs follow gender | yes | yes | yes | yes | replicates |
+| T2 cosine above null | 0 | 0 | 0 | 0 | replicates |
+| Phase 5 ES noun-position R1 | 3/4 (+0.020) | 0/3 | 0/3 (−0.004) | 1/3 (+0.029) | 8B positive not replicated |
+| Phase 5 ES all-position R1 (P14) | 3/4 (+0.065) | 0/3 | 0/3 (+0.035) | 0/3 (+0.100) | 8B positive not replicated |
+| Phase 5 DE | no valid test | no valid test | no valid test (C4 m 0.67) | no valid test (gate: random flip ≤ 0.50) | – |
+| R2 German f−m × Zipf overlap | 4/4 | 3/4 | 1/4 (opposite sign) | 0/4 | Qwen-specific |
+
+- **Phase 5 controls.** The social direction moves R1 by +0.29 / +0.34, so the readout is sensitive. On 12B the all-position effect (+0.100) does not exceed the random directions at any layer, and the number direction is +0.006. The noun-sense sensitivity check changes 0/8 verdicts.
+- **AFTER position.** Compounds "neither" (4B 6/33, 12B 18/47 layers), as for Qwen3-8B (7/35). Phase 4 at AFTER is pending for 4B and not run for 12B, because the Spanish AFTER activations were not extracted on the pod.
+- **Outlier dimension (amendment; `docs/design/gemma-outlier-dimension.md`).** A single residual channel (index 443 in 4B, 2339 in 12B) carries 59–92% of the variance across nouns at the tested layers; for Qwen3 the figure is ≤ 1.6%. On raw activations the cross-fitted cosines left [−1, 1] at about half the layers. After outcome-blind diagnostics, we pre-registered two things: zero any dimension above 10% of variance (1 per Gemma model, 0 per Qwen), and a validity gate that counts invalid layers against overlap. Under the fix all layers are valid. Qwen verdicts reproduce, with cosines within about 0.03 of the originals. T2 means are 0.47 (4B) and 0.55 (12B), against 1.13 and 0.61 raw. Raw-activation gender AUC on Gemma training nouns rises from about 0.58 to about 0.70 once the channel is removed. Raw Gemma probes therefore understate decodability; the Phase 3–4 verdicts replicated despite this.
+- **Not run.** Phase 2, P29–P31 and Russian were out of scope. Frequency-axis A/C/D were not run, because no German overlap was found on Gemma.
 
 ### 3.8 Summary of claims
 
@@ -522,8 +545,9 @@ Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap i
 | Directions encode grammatical gender, not spelling | Tables 2, 3; compound conflicts | strong |
 | Encoded at the noun's own token | LAST vs AFTER throughout | strong (scope condition) |
 | Partly shared across Spanish and German | T2, T3, T4 pass; T1 fails | moderate |
-| Steering moves social readouts (8B) | R1, R1-EN 3/4 layers | small; Spanish-only; survives confidence control |
+| Steering moves social readouts (8B) | R1, R1-EN 3/4 layers | small; Spanish-only; survives confidence control; absent in Qwen3-14B and Gemma 3 4B/12B |
 | No steering effect (14B) | R1 0/3, control works | null for the Spanish direction (P26 caveat) |
 | Unsteered object pull (P30/P31) | Tables 6–7 | descriptive; not shown social; EuroLLM verdicts robust to `<s>`, sizes not |
 | Pooled readouts | P29 | not evidence |
-| German direction aligned with low frequency | §3.7 | robust in training sample only; mechanism open |
+| German direction aligned with low frequency | §3.7, §3.9 | Qwen3 only (absent in Gemma 3 and held-out compounds); mechanism open |
+| Representation results generalise across families | §3.9, Table 9 | replicate on Gemma 3 4B and 12B |
