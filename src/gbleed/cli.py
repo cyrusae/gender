@@ -128,6 +128,10 @@ def main() -> None:
     fa.add_argument(
         "--c-ref", default=None, help="(c) cosine file the overlap reference comes from"
     )
+    rd = sub.add_parser(
+        "russian-dir", help="Russian direction: alignment + frequency (prereg 2026-10-25)"
+    )
+    rd.add_argument("--models", nargs="+", default=None)
     rh = sub.add_parser(
         "rarity-heldout", help="German rarity-lean held-out test (prereg 2026-10-22)"
     )
@@ -201,6 +205,11 @@ def main() -> None:
         from .noun_sense import main as ns_main
 
         ns_main(a.models, a.root, a.rc)
+        return
+    if a.cmd == "russian-dir":
+        from . import russian_dir
+
+        russian_dir.main(a.models or russian_dir.MODELS)
         return
     if a.cmd == "rarity-heldout":
         from . import rarity_heldout as rho

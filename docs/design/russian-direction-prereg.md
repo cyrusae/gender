@@ -1,4 +1,4 @@
-# Russian gender direction: does it align with Spanish/German, and does it share German's frequency lean? Pre-registration (DRAFT for PI sign-off, 2026-10-25)
+# Russian gender direction: does it align with Spanish/German, and does it share German's frequency lean? Pre-registration (ADOPTED, PI 2026-10-25)
 
 Written 2026-10-25, before any Russian-direction number exists. The Russian activations
 (`phase4_ru`, Qwen3-8B/14B, pod CUDA bf16) were used so far only as test nouns for the Spanish and
@@ -75,3 +75,12 @@ No new list, no extraction, no steering. CPU only. Code `src/gbleed/russian_dir.
 - One spelling class (*-ь*): 174 nouns, as many as Spanish (165) or more than German (91), but
   all in one ending family, so the direction is learned from a narrower slice of Russian.
 - Glosses for concreteness are English; concreteness is about the concept, not the Russian word.
+
+## Implementation note (before any run, 2026-10-25)
+
+Concreteness is computed as in Phase 3 (`phase4._conc`: Brysbaert rating of the Wiktionary
+gloss, falling back to the concept), for the covariate and the matching alike. The pair count
+above was made with the concept only; with the Phase 3 rule there are **8 unrated nouns** (not
+11) and **37 matched pairs in 8 cells, mean Δ −0.01** (not 36 in 9). Counted before any
+activation was used; rule unchanged. Code `src/gbleed/russian_dir.py`, tests
+`tests/test_russian_dir.py`. Seed 25.
