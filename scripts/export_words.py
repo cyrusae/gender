@@ -38,15 +38,15 @@ from gbleed.phase5_analysis import (
     shifts,
 )
 
-G = "worktrees/gender-gemma/results"
-Q = "worktrees/gender-s2/results"
+G = "results"  # Gemma known-check/readout-check results (copied from the Gemma worktree)
+Q = "results"
 MODELS = {  # model: (sweep root, readout-check root, family)
     "Qwen/Qwen3-8B-Base": ("/Volumes/Lexar/gbleed/gender-s2/results/phase5",
                            f"{Q}/phase5_readoutcheck", "qwen3"),
     "Qwen/Qwen3-14B-Base": ("/Volumes/Lexar/gbleed/gender-s2/results/phase5",
                             f"{Q}/phase5_readoutcheck", "qwen3"),
-    "google/gemma-3-4b-pt": (f"{G}/phase5", f"{G}/phase5_readoutcheck", "gemma3"),
-    "google/gemma-3-12b-pt": (f"{G}/phase5", f"{G}/phase5_readoutcheck", "gemma3"),
+    "google/gemma-3-4b-pt": ("/Volumes/Lexar/gbleed/gemma-pod/extract/results/phase5", f"{G}/phase5_readoutcheck", "gemma3"),
+    "google/gemma-3-12b-pt": ("/Volumes/Lexar/gbleed/gemma-pod-12b/extract/results/phase5", f"{G}/phase5_readoutcheck", "gemma3"),
 }  # fmt: skip
 READOUTS = ("R1", "R1-EN")
 OUT = Path("results/word_level")

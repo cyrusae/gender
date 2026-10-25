@@ -27,12 +27,12 @@ import pandas as pd
 from sklearn.metrics import roc_auc_score
 
 MODELS = {
-    "google/gemma-3-4b-pt": ("worktrees/gender-gemma/activations", [8, 14, 19, 24]),
-    "google/gemma-3-12b-pt": ("worktrees/gender-gemma/activations", [12, 19, 26, 34]),
+    "google/gemma-3-4b-pt": ("/Volumes/Lexar/gbleed/gemma-pod/extract/activations", [8, 14, 19, 24]),
+    "google/gemma-3-12b-pt": ("/Volumes/Lexar/gbleed/gemma-pod-12b/extract/activations", [12, 19, 26, 34]),
     "Qwen/Qwen3-8B-Base": ("/Volumes/Lexar/gbleed/gender-s2/activations", [9, 14, 20, 25]),
     "Qwen/Qwen3-14B-Base": ("/Volumes/Lexar/gbleed/gender-s2/activations", [10, 16, 22, 28]),
 }
-ROOT = "worktrees/gender-gemma"  # Gemma known-check results live here
+ROOT = "."  # Gemma known-check results (in results/)
 N_SPLIT = 200
 
 
@@ -109,7 +109,7 @@ def diag(x: np.ndarray, g: np.ndarray, cells: np.ndarray, rng) -> dict:
         xr = np.empty_like(x)
         xr[a], xr[b] = resid(x[a], cells[a]), resid(x[b], cells[b])
 
-        def fmdir(h):
+        def fmdir(h, xr=xr):
             return xr[h & (g == "f")].mean(0) - xr[h & (g == "m")].mean(0)
 
         va, vb = fmdir(a), fmdir(b)
@@ -119,7 +119,7 @@ def diag(x: np.ndarray, g: np.ndarray, cells: np.ndarray, rng) -> dict:
         aucs.append(roc_auc_score(g[b & fm] == "f", s))
         if "n" in g:
 
-            def ndir(h):
+            def ndir(h, xr=xr):
                 return (xr[h & (g == "f")].mean(0) + xr[h & (g == "m")].mean(0)) / 2 - xr[
                     h & (g == "n")
                 ].mean(0)
