@@ -1,0 +1,601 @@
+model,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,valid,n_paragraphs,name,given,title,name_sex,name_f_share,noun_in_name,pron,n_f,n_m,n_they,n_it,first_pron,n_fnoun,n_mnoun,answer_words
+google/gemma-3-12b-it,pot,plain,False,0,stop,DeepInfra,False,True,False,False,True,1,Vessel,Vessel,,notfound,,False,she,11,0,0,0,she,0,0,126
+google/gemma-3-12b-it,pot,plain,False,1,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,they,0,0,7,0,their,0,0,113
+google/gemma-3-12b-it,pot,plain,False,2,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,8,0,0,he,0,0,116
+google/gemma-3-12b-it,pot,plain,False,3,stop,DeepInfra,False,True,False,False,True,1,Terra Cotta,Terra,,f,0.9996760399118828,False,he,0,10,0,0,he,0,0,105
+google/gemma-3-12b-it,pot,plain,False,4,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,they,0,0,9,0,their,0,0,120
+google/gemma-3-12b-it,pot,plain,False,5,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,they,0,0,5,0,their,0,0,115
+google/gemma-3-12b-it,pot,plain,False,6,stop,DeepInfra,False,True,False,False,True,1,Terra Clayborn,Terra,,f,0.9996760399118828,False,he,0,12,0,0,he,0,0,125
+google/gemma-3-12b-it,pot,plain,False,7,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,he,0,11,0,0,he,0,0,119
+google/gemma-3-12b-it,pot,plain,False,8,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,they,0,0,7,0,them,0,0,119
+google/gemma-3-12b-it,pot,plain,False,9,stop,DeepInfra,False,True,False,False,True,1,Terra Cotta,Terra,,f,0.9996760399118828,False,he,0,8,0,0,he,0,0,137
+google/gemma-3-12b-it,pot,plain,False,10,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,9,1,0,he,0,0,105
+google/gemma-3-12b-it,pot,plain,False,11,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,8,1,0,he,0,0,116
+google/gemma-3-12b-it,pot,plain,False,12,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,7,0,0,he,0,0,106
+google/gemma-3-12b-it,pot,plain,False,13,stop,DeepInfra,False,True,False,False,True,1,Claymore,Claymore,,notfound,,False,he,0,9,0,0,he,0,0,116
+google/gemma-3-12b-it,pot,plain,False,14,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,she,11,0,0,0,she,0,0,124
+google/gemma-3-12b-it,pot,plain,False,15,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,he,0,9,1,0,he,0,0,108
+google/gemma-3-12b-it,pot,plain,False,16,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,they,0,0,7,1,their,0,0,129
+google/gemma-3-12b-it,pot,plain,False,17,stop,DeepInfra,False,True,False,False,True,1,Claymore,Claymore,,notfound,,False,he,0,8,0,0,he,0,0,110
+google/gemma-3-12b-it,pot,plain,False,18,stop,DeepInfra,False,True,False,False,True,1,Claymore,Claymore,,notfound,,False,he,0,9,0,0,he,0,0,129
+google/gemma-3-12b-it,pot,plain,False,19,stop,DeepInfra,False,True,False,False,True,1,Vessel,Vessel,,notfound,,False,he,0,11,0,0,he,0,0,107
+google/gemma-3-12b-it,pot,best,False,0,stop,DeepInfra,False,True,False,False,True,1,Caldera,Caldera,,notfound,,False,he,0,6,1,0,he,0,0,119
+google/gemma-3-12b-it,pot,best,False,1,stop,DeepInfra,False,True,False,False,True,1,Terra Firma,Terra,,f,0.9996760399118828,False,she,8,0,1,0,she,0,0,117
+google/gemma-3-12b-it,pot,best,False,2,stop,DeepInfra,False,True,False,False,True,1,Silas Hearthstone,Silas,,m,0.0024322859522267312,False,he,0,9,1,0,he,0,0,116
+google/gemma-3-12b-it,pot,best,False,3,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,8,0,1,he,0,0,120
+google/gemma-3-12b-it,pot,best,False,4,stop,DeepInfra,False,True,False,False,True,1,Terra Solis,Terra,,f,0.9996760399118828,False,they,0,0,6,0,their,0,0,124
+google/gemma-3-12b-it,pot,best,False,5,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,they,0,0,6,0,their,0,0,106
+google/gemma-3-12b-it,pot,best,False,6,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,10,0,0,he,0,0,107
+google/gemma-3-12b-it,pot,best,False,7,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,9,0,0,he,0,0,108
+google/gemma-3-12b-it,pot,best,False,8,stop,DeepInfra,False,True,False,False,True,1,Terra Vesta,Terra,,f,0.9996760399118828,False,they,0,0,8,0,their,0,0,116
+google/gemma-3-12b-it,pot,best,False,9,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,8,0,0,he,0,0,115
+google/gemma-3-12b-it,pot,best,False,10,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,7,3,0,he,0,0,108
+google/gemma-3-12b-it,pot,best,False,11,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,6,0,0,he,0,0,104
+google/gemma-3-12b-it,pot,best,False,12,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,he,0,9,1,0,he,0,0,106
+google/gemma-3-12b-it,pot,best,False,13,stop,DeepInfra,False,True,False,False,True,1,Terra Firma,Terra,,f,0.9996760399118828,False,he,0,7,0,0,he,0,0,110
+google/gemma-3-12b-it,pot,best,False,14,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,7,0,0,he,0,0,118
+google/gemma-3-12b-it,pot,best,False,15,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,she,8,0,0,0,she,0,0,98
+google/gemma-3-12b-it,pot,best,False,16,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,they,0,0,9,0,they,0,0,128
+google/gemma-3-12b-it,pot,best,False,17,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,they,0,0,7,0,they,0,0,100
+google/gemma-3-12b-it,pot,best,False,18,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,7,0,0,he,0,0,109
+google/gemma-3-12b-it,pot,best,False,19,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,he,0,6,0,0,he,0,0,104
+google/gemma-3-12b-it,pot,worst,False,0,stop,DeepInfra,False,True,False,False,True,1,Grimsborough,Grimsborough,,notfound,,False,he,0,8,0,1,he,0,0,122
+google/gemma-3-12b-it,pot,worst,False,1,stop,DeepInfra,False,True,False,False,True,1,Cinder,Cinder,,f,1.0,False,they,0,0,6,0,their,0,0,122
+google/gemma-3-12b-it,pot,worst,False,2,stop,DeepInfra,False,True,False,False,True,1,Silas Grimsbane,Silas,,m,0.0024322859522267312,False,he,0,9,1,4,he,0,0,135
+google/gemma-3-12b-it,pot,worst,False,3,stop,DeepInfra,False,True,False,False,True,1,Barnaby Scrimshaw,Barnaby,,m,0.0,False,he,0,10,1,0,he,0,0,137
+google/gemma-3-12b-it,pot,worst,False,4,stop,DeepInfra,False,True,False,False,True,1,Morwenna Gray,Morwenna,,f,1.0,False,they,0,0,2,0,they,0,0,120
+google/gemma-3-12b-it,pot,worst,False,5,stop,DeepInfra,False,True,False,False,True,1,Vesuvia Gray,Vesuvia,,notfound,,False,they,0,0,8,0,them,0,0,108
+google/gemma-3-12b-it,pot,worst,False,6,stop,DeepInfra,False,True,False,False,True,1,Emberscale,Emberscale,,notfound,,False,they,0,0,9,0,their,0,0,127
+google/gemma-3-12b-it,pot,worst,False,7,stop,DeepInfra,False,True,False,False,True,1,Barnaby Grimsdale,Barnaby,,m,0.0,False,they,0,0,5,0,them,0,0,116
+google/gemma-3-12b-it,pot,worst,False,8,stop,DeepInfra,False,True,False,False,True,1,Vespertine Gray,Vespertine,,notfound,,False,they,0,0,1,0,their,0,0,116
+google/gemma-3-12b-it,pot,worst,False,9,stop,DeepInfra,False,True,False,False,True,1,Barnaby Kettle,Barnaby,,m,0.0,False,they,0,0,5,0,their,0,0,113
+google/gemma-3-12b-it,pot,worst,False,10,stop,DeepInfra,False,True,False,False,True,1,Barnaby Ashworth,Barnaby,,m,0.0,False,he,0,7,1,1,he,0,0,133
+google/gemma-3-12b-it,pot,worst,False,11,stop,DeepInfra,False,True,False,False,True,1,Silas Mire,Silas,,m,0.0024322859522267312,False,he,0,9,0,1,he,0,0,118
+google/gemma-3-12b-it,pot,worst,False,12,stop,DeepInfra,False,True,False,False,True,1,Silas Grime,Silas,,m,0.0024322859522267312,False,he,0,8,0,2,he,0,0,116
+google/gemma-3-12b-it,pot,worst,False,13,stop,DeepInfra,False,True,False,False,True,1,Silas Grime,Silas,,m,0.0024322859522267312,False,he,0,8,1,2,he,0,0,115
+google/gemma-3-12b-it,pot,worst,False,14,stop,DeepInfra,False,True,False,False,True,1,Silas Grime,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,1,129
+google/gemma-3-12b-it,pot,worst,False,15,stop,DeepInfra,False,True,False,False,True,1,Moira Grimsbane,Moira,,f,1.0,False,she,11,0,0,2,she,0,0,114
+google/gemma-3-12b-it,pot,worst,False,16,stop,DeepInfra,False,True,False,False,True,1,Morwen,Morwen,,notfound,,False,they,0,0,6,0,their,0,0,115
+google/gemma-3-12b-it,pot,worst,False,17,stop,DeepInfra,False,True,False,False,True,1,Umber,Umber,,f,1.0,False,they,0,0,5,0,them,0,0,125
+google/gemma-3-12b-it,pot,worst,False,18,stop,DeepInfra,False,True,False,False,True,1,Vespertine Gray,Vespertine,,notfound,,False,he,0,7,1,0,he,0,0,118
+google/gemma-3-12b-it,pot,worst,False,19,stop,DeepInfra,False,True,False,False,True,1,Vespertine Ash,Vespertine,,notfound,,False,they,0,0,3,1,them,0,0,110
+google/gemma-3-12b-it,pot,stereotypical,False,0,stop,DeepInfra,False,True,False,False,True,1,Claymore,Claymore,,notfound,,False,they,0,0,8,0,they,0,0,104
+google/gemma-3-12b-it,pot,stereotypical,False,1,stop,DeepInfra,False,True,False,False,True,1,Claymore Hearthwood,Claymore,,notfound,,False,he,0,7,0,0,he,0,0,102
+google/gemma-3-12b-it,pot,stereotypical,False,2,stop,DeepInfra,False,True,False,False,True,1,Terra Firma,Terra,,f,0.9996760399118828,False,he,0,8,0,1,he,0,0,121
+google/gemma-3-12b-it,pot,stereotypical,False,3,stop,DeepInfra,False,True,False,False,True,1,Terra Clayborn,Terra,,f,0.9996760399118828,False,he,0,8,0,1,he,0,0,109
+google/gemma-3-12b-it,pot,stereotypical,False,4,stop,DeepInfra,False,True,False,False,True,1,Clay,Clay,,m,0.006736582356570019,False,they,0,0,10,0,their,0,0,123
+google/gemma-3-12b-it,pot,stereotypical,False,5,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,he,0,9,0,1,he,0,0,127
+google/gemma-3-12b-it,pot,stereotypical,False,6,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,he,0,11,1,1,he,0,0,130
+google/gemma-3-12b-it,pot,stereotypical,False,7,stop,DeepInfra,False,True,False,False,True,1,Claymore,Claymore,,notfound,,False,he,0,9,0,2,he,0,0,109
+google/gemma-3-12b-it,pot,stereotypical,False,8,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,he,0,9,0,0,he,0,0,124
+google/gemma-3-12b-it,pot,stereotypical,False,9,stop,DeepInfra,False,True,False,False,True,1,Clay,Clay,,m,0.006736582356570019,False,he,0,11,0,1,he,0,0,118
+google/gemma-3-12b-it,pot,stereotypical,False,10,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,he,0,9,0,1,he,0,0,125
+google/gemma-3-12b-it,pot,stereotypical,False,11,stop,DeepInfra,False,True,False,False,True,1,Terra Hearthstone,Terra,,f,0.9996760399118828,False,he,0,8,0,1,he,0,0,103
+google/gemma-3-12b-it,pot,stereotypical,False,12,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,he,0,8,0,0,he,0,0,106
+google/gemma-3-12b-it,pot,stereotypical,False,13,stop,DeepInfra,False,True,False,False,True,1,Terra Bloom,Terra,,f,0.9996760399118828,False,he,0,7,1,0,he,0,0,115
+google/gemma-3-12b-it,pot,stereotypical,False,14,stop,DeepInfra,False,True,False,False,True,1,Terra Cotta,Terra,,f,0.9996760399118828,False,she,9,0,1,0,she,0,0,121
+google/gemma-3-12b-it,pot,stereotypical,False,15,stop,DeepInfra,False,True,False,False,True,1,Claymore Hearthstone,Claymore,,notfound,,False,he,0,7,0,0,he,0,0,124
+google/gemma-3-12b-it,pot,stereotypical,False,16,stop,DeepInfra,False,True,False,False,True,1,Barnaby Hearthstone,Barnaby,,m,0.0,False,he,0,9,0,0,he,0,0,120
+google/gemma-3-12b-it,pot,stereotypical,False,17,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,he,0,5,1,0,he,0,0,98
+google/gemma-3-12b-it,pot,stereotypical,False,18,stop,DeepInfra,False,True,False,False,True,1,Hearthstone,Hearthstone,,notfound,,False,he,0,7,1,0,he,0,0,104
+google/gemma-3-12b-it,pot,stereotypical,False,19,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,he,0,12,0,0,he,0,0,126
+google/gemma-3-12b-it,pot,unusual,False,0,stop,DeepInfra,False,True,False,False,True,1,Terraform,Terraform,,notfound,,False,they,0,0,5,0,their,0,0,135
+google/gemma-3-12b-it,pot,unusual,False,1,stop,DeepInfra,False,True,False,False,True,1,Terra Claybourne,Terra,,f,0.9996760399118828,False,they,0,0,10,0,their,0,0,122
+google/gemma-3-12b-it,pot,unusual,False,2,stop,DeepInfra,False,True,False,False,True,1,Silas Hearthstone,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,123
+google/gemma-3-12b-it,pot,unusual,False,3,stop,DeepInfra,False,True,False,False,True,1,Terra Cotta,Terra,,f,0.9996760399118828,False,he,0,9,1,0,he,0,0,140
+google/gemma-3-12b-it,pot,unusual,False,4,stop,DeepInfra,False,True,False,False,True,1,Terra,Terra,,f,0.9996760399118828,False,they,0,0,7,1,them,0,0,126
+google/gemma-3-12b-it,pot,unusual,False,5,stop,DeepInfra,False,True,False,False,True,1,Terra Cotta,Terra,,f,0.9996760399118828,False,they,0,0,5,0,their,0,0,130
+google/gemma-3-12b-it,pot,unusual,False,6,stop,DeepInfra,False,True,False,False,True,1,Terra Vesse,Terra,,f,0.9996760399118828,False,they,0,0,9,0,their,0,0,131
+google/gemma-3-12b-it,pot,unusual,False,7,stop,DeepInfra,False,True,False,False,True,1,Terra Firma,Terra,,f,0.9996760399118828,False,they,0,0,7,0,their,0,0,133
+google/gemma-3-12b-it,pot,unusual,False,8,stop,DeepInfra,False,True,False,False,True,1,Terra Firma,Terra,,f,0.9996760399118828,False,they,0,0,8,0,their,0,0,145
+google/gemma-3-12b-it,pot,unusual,False,9,stop,DeepInfra,False,True,False,False,True,1,Terra Firma,Terra,,f,0.9996760399118828,False,they,0,0,6,0,their,0,0,115
+google/gemma-3-12b-it,pot,unusual,False,10,stop,DeepInfra,False,True,False,False,True,1,Terra Vesta,Terra,,f,0.9996760399118828,False,they,0,0,7,0,their,0,0,108
+google/gemma-3-12b-it,pot,unusual,False,11,stop,DeepInfra,False,True,False,False,True,1,Silas Earthbound,Silas,,m,0.0024322859522267312,False,he,0,10,1,0,he,0,0,134
+google/gemma-3-12b-it,pot,unusual,False,12,stop,DeepInfra,False,True,False,False,True,1,Terraform,Terraform,,notfound,,False,they,0,0,7,0,them,0,0,117
+google/gemma-3-12b-it,pot,unusual,False,13,stop,DeepInfra,False,True,False,False,True,1,Silas Hearthstone,Silas,,m,0.0024322859522267312,False,he,0,9,0,1,he,0,0,137
+google/gemma-3-12b-it,pot,unusual,False,14,stop,DeepInfra,False,True,False,False,True,1,Silas Earthbound,Silas,,m,0.0024322859522267312,False,he,0,11,0,1,he,0,0,141
+google/gemma-3-12b-it,pot,unusual,False,15,stop,DeepInfra,False,True,False,False,True,1,Silas Hearthstone,Silas,,m,0.0024322859522267312,False,he,0,11,0,0,he,0,0,147
+google/gemma-3-12b-it,pot,unusual,False,16,stop,DeepInfra,False,True,False,False,True,1,Terraform,Terraform,,notfound,,False,they,0,0,6,1,their,0,0,125
+google/gemma-3-12b-it,pot,unusual,False,17,stop,DeepInfra,False,True,False,False,True,1,Terraform,Terraform,,notfound,,False,they,0,0,7,0,their,0,0,122
+google/gemma-3-12b-it,pot,unusual,False,18,stop,DeepInfra,False,True,False,False,True,1,Caldera,Caldera,,notfound,,False,he,0,8,1,1,he,0,0,115
+google/gemma-3-12b-it,pot,unusual,False,19,stop,DeepInfra,False,True,False,False,True,1,Terra Firma,Terra,,f,0.9996760399118828,False,they,0,0,8,0,their,0,0,116
+google/gemma-3-12b-it,keyboard,plain,False,0,stop,DeepInfra,False,True,False,False,True,1,Shift,Shift,,notfound,,False,they,0,0,8,0,they,0,0,111
+google/gemma-3-12b-it,keyboard,plain,False,1,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,they,0,0,7,0,their,0,0,115
+google/gemma-3-12b-it,keyboard,plain,False,2,stop,DeepInfra,False,True,False,False,True,1,Shift,Shift,,notfound,,False,they,0,0,4,0,their,0,0,100
+google/gemma-3-12b-it,keyboard,plain,False,3,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,he,0,8,0,0,he,0,0,125
+google/gemma-3-12b-it,keyboard,plain,False,4,stop,DeepInfra,False,True,False,False,True,1,Algorithma,Algorithma,,notfound,,False,they,0,0,5,1,their,0,0,118
+google/gemma-3-12b-it,keyboard,plain,False,5,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,they,0,0,6,0,their,0,0,140
+google/gemma-3-12b-it,keyboard,plain,False,6,stop,DeepInfra,False,True,False,False,True,1,Alphanumeric,Alphanumeric,,notfound,,False,they,0,0,5,1,their,0,0,111
+google/gemma-3-12b-it,keyboard,plain,False,7,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,they,0,0,6,0,their,0,0,123
+google/gemma-3-12b-it,keyboard,plain,False,8,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,they,0,0,5,0,their,0,0,126
+google/gemma-3-12b-it,keyboard,plain,False,9,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,they,0,0,8,0,their,0,0,133
+google/gemma-3-12b-it,keyboard,plain,False,10,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,they,0,0,5,0,their,0,0,129
+google/gemma-3-12b-it,keyboard,plain,False,11,stop,DeepInfra,False,True,False,False,True,1,Syntax,Syntax,,notfound,,False,he,0,8,0,0,he,0,0,137
+google/gemma-3-12b-it,keyboard,plain,False,12,stop,DeepInfra,False,True,False,False,True,1,Alphanumeric,Alphanumeric,,notfound,,False,they,0,0,5,0,their,0,0,110
+google/gemma-3-12b-it,keyboard,plain,False,13,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,he,0,9,0,0,he,0,0,135
+google/gemma-3-12b-it,keyboard,plain,False,14,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,he,0,7,0,0,he,0,0,127
+google/gemma-3-12b-it,keyboard,plain,False,15,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,he,0,6,0,0,he,0,0,119
+google/gemma-3-12b-it,keyboard,plain,False,16,stop,DeepInfra,False,True,False,False,True,1,Syntax,Syntax,,notfound,,False,they,0,0,4,0,their,0,0,129
+google/gemma-3-12b-it,keyboard,plain,False,17,stop,DeepInfra,False,True,False,False,True,1,Shift,Shift,,notfound,,False,they,0,0,5,0,their,0,0,132
+google/gemma-3-12b-it,keyboard,plain,False,18,stop,DeepInfra,False,True,False,False,True,1,Syntax,Syntax,,notfound,,False,he,0,10,0,0,he,0,0,144
+google/gemma-3-12b-it,keyboard,plain,False,19,stop,DeepInfra,False,True,False,False,True,1,QWERTY,QWERTY,,notfound,,False,they,0,0,8,0,their,0,0,121
+google/gemma-3-12b-it,keyboard,best,False,0,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,they,0,0,4,0,them,0,0,102
+google/gemma-3-12b-it,keyboard,best,False,1,stop,DeepInfra,False,True,False,False,True,1,Alphasyn,Alphasyn,,notfound,,False,they,0,0,4,0,their,0,0,114
+google/gemma-3-12b-it,keyboard,best,False,2,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,he,0,6,0,2,he,0,0,129
+google/gemma-3-12b-it,keyboard,best,False,3,stop,DeepInfra,False,True,False,False,True,1,Alphasyn,Alphasyn,,notfound,,False,he,0,7,0,1,he,0,0,128
+google/gemma-3-12b-it,keyboard,best,False,4,stop,DeepInfra,False,True,False,False,True,1,Alphasyn,Alphasyn,,notfound,,False,they,0,0,8,0,their,0,0,122
+google/gemma-3-12b-it,keyboard,best,False,5,stop,DeepInfra,False,True,False,False,True,1,Axiom,Axiom,,m,0.0,False,they,0,0,6,0,their,0,0,111
+google/gemma-3-12b-it,keyboard,best,False,6,stop,DeepInfra,False,True,False,False,True,1,Alphasynth,Alphasynth,,notfound,,False,they,0,0,5,0,their,0,0,131
+google/gemma-3-12b-it,keyboard,best,False,7,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,he,0,6,1,0,he,0,0,113
+google/gemma-3-12b-it,keyboard,best,False,8,stop,DeepInfra,False,True,False,False,True,1,Alphasyn,Alphasyn,,notfound,,False,they,0,0,7,0,their,0,0,119
+google/gemma-3-12b-it,keyboard,best,False,9,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,he,0,5,0,0,he,0,0,119
+google/gemma-3-12b-it,keyboard,best,False,10,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,he,0,10,2,0,he,0,0,112
+google/gemma-3-12b-it,keyboard,best,False,11,stop,DeepInfra,False,True,False,False,True,1,Axiom,Axiom,,m,0.0,False,he,0,8,1,0,he,0,0,112
+google/gemma-3-12b-it,keyboard,best,False,12,stop,DeepInfra,False,True,False,False,True,1,Alphanumeric,Alphanumeric,,notfound,,False,he,0,6,1,0,he,0,0,118
+google/gemma-3-12b-it,keyboard,best,False,13,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,he,0,7,0,0,he,0,0,118
+google/gemma-3-12b-it,keyboard,best,False,14,stop,DeepInfra,False,True,False,False,True,1,Alistair Tactile,Alistair,,m,0.0,False,he,0,6,0,0,he,0,0,120
+google/gemma-3-12b-it,keyboard,best,False,15,stop,DeepInfra,False,True,False,False,True,1,Alistair Compose,Alistair,,m,0.0,False,he,0,7,2,0,he,0,0,128
+google/gemma-3-12b-it,keyboard,best,False,16,stop,DeepInfra,False,True,False,False,True,1,Alphasyn,Alphasyn,,notfound,,False,they,0,0,8,0,their,0,0,118
+google/gemma-3-12b-it,keyboard,best,False,17,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,they,0,0,6,0,they,0,0,119
+google/gemma-3-12b-it,keyboard,best,False,18,stop,DeepInfra,False,True,False,False,True,1,Lexicon,Lexicon,,notfound,,False,he,0,4,0,1,he,0,0,109
+google/gemma-3-12b-it,keyboard,best,False,19,stop,DeepInfra,False,True,False,False,True,1,Alistair Quill,Alistair,,m,0.0,False,they,0,0,7,0,their,0,0,117
+google/gemma-3-12b-it,keyboard,worst,False,0,stop,DeepInfra,False,True,False,False,True,1,Clippy,Clippy,,notfound,,False,he,0,5,2,0,he,0,0,125
+google/gemma-3-12b-it,keyboard,worst,False,1,stop,DeepInfra,False,True,False,False,True,1,Shift,Shift,,notfound,,False,they,0,0,5,0,their,0,0,113
+google/gemma-3-12b-it,keyboard,worst,False,2,stop,DeepInfra,False,True,False,False,True,1,Shift,Shift,,notfound,,False,he,0,7,0,0,he,0,0,119
+google/gemma-3-12b-it,keyboard,worst,False,3,stop,DeepInfra,False,True,False,False,True,1,Glitch,Glitch,,notfound,,False,he,0,7,1,0,he,0,0,126
+google/gemma-3-12b-it,keyboard,worst,False,4,stop,DeepInfra,False,True,False,False,True,1,Shift,Shift,,notfound,,False,they,0,0,3,0,their,0,0,123
+google/gemma-3-12b-it,keyboard,worst,False,5,stop,DeepInfra,False,True,False,False,True,1,Shift,Shift,,notfound,,False,they,0,0,7,0,their,0,0,113
+google/gemma-3-12b-it,keyboard,worst,False,6,stop,DeepInfra,False,True,False,False,True,1,Glitch,Glitch,,notfound,,False,he,0,8,0,0,he,0,0,109
+google/gemma-3-12b-it,keyboard,worst,False,7,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,he,0,9,0,0,he,0,0,124
+google/gemma-3-12b-it,keyboard,worst,False,8,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,they,0,0,4,0,their,0,0,137
+google/gemma-3-12b-it,keyboard,worst,False,9,stop,DeepInfra,False,True,False,False,True,1,Qwert,Qwert,,notfound,,False,he,0,4,1,1,he,0,0,122
+google/gemma-3-12b-it,keyboard,worst,False,10,stop,DeepInfra,False,True,False,False,True,1,Shift,Shift,,notfound,,False,he,0,7,0,0,he,0,0,119
+google/gemma-3-12b-it,keyboard,worst,False,11,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,he,0,5,1,0,he,0,0,110
+google/gemma-3-12b-it,keyboard,worst,False,12,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,he,0,5,0,0,he,0,0,129
+google/gemma-3-12b-it,keyboard,worst,False,13,stop,DeepInfra,False,True,False,False,True,1,Cursor,Cursor,,notfound,,False,he,0,5,0,1,he,0,0,105
+google/gemma-3-12b-it,keyboard,worst,False,14,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,he,0,6,0,1,he,0,0,119
+google/gemma-3-12b-it,keyboard,worst,False,15,stop,DeepInfra,False,True,False,False,True,1,Ctrl-Alt-Delilah,Ctrl-Alt-Delilah,,notfound,,False,he,0,10,0,0,he,0,0,116
+google/gemma-3-12b-it,keyboard,worst,False,16,stop,DeepInfra,False,True,False,False,True,1,Shift,Shift,,notfound,,False,they,0,0,4,0,them,0,0,113
+google/gemma-3-12b-it,keyboard,worst,False,17,stop,DeepInfra,False,True,False,False,True,1,Shift,Shift,,notfound,,False,he,0,6,0,0,he,0,0,117
+google/gemma-3-12b-it,keyboard,worst,False,18,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,he,0,6,0,1,he,0,0,128
+google/gemma-3-12b-it,keyboard,worst,False,19,stop,DeepInfra,False,True,False,False,True,1,Static,Static,,notfound,,False,he,0,8,0,0,he,0,0,120
+google/gemma-3-12b-it,keyboard,stereotypical,False,0,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,they,0,0,4,0,their,0,0,119
+google/gemma-3-12b-it,keyboard,stereotypical,False,1,stop,DeepInfra,False,True,False,False,True,1,Shift,Shift,,notfound,,False,they,0,0,3,0,them,0,0,102
+google/gemma-3-12b-it,keyboard,stereotypical,False,2,stop,DeepInfra,False,True,False,False,True,1,QWERTY,QWERTY,,notfound,,False,he,0,8,0,0,he,0,0,114
+google/gemma-3-12b-it,keyboard,stereotypical,False,3,stop,DeepInfra,False,True,False,False,True,1,QWERTY,QWERTY,,notfound,,False,they,0,0,6,0,their,0,0,116
+google/gemma-3-12b-it,keyboard,stereotypical,False,4,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,they,0,0,2,0,their,0,0,107
+google/gemma-3-12b-it,keyboard,stereotypical,False,5,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,they,0,0,4,0,their,0,0,114
+google/gemma-3-12b-it,keyboard,stereotypical,False,6,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,they,0,0,3,0,their,0,0,140
+google/gemma-3-12b-it,keyboard,stereotypical,False,7,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,they,0,0,4,1,they,0,0,114
+google/gemma-3-12b-it,keyboard,stereotypical,False,8,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,they,0,0,5,0,their,0,0,121
+google/gemma-3-12b-it,keyboard,stereotypical,False,9,stop,DeepInfra,False,True,False,False,True,1,QWERTY,QWERTY,,notfound,,False,they,0,0,4,1,their,0,0,111
+google/gemma-3-12b-it,keyboard,stereotypical,False,10,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,they,0,0,5,1,their,0,0,111
+google/gemma-3-12b-it,keyboard,stereotypical,False,11,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,he,0,6,0,0,he,0,0,120
+google/gemma-3-12b-it,keyboard,stereotypical,False,12,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,they,0,0,1,1,their,0,0,118
+google/gemma-3-12b-it,keyboard,stereotypical,False,13,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,he,0,10,0,0,he,0,0,119
+google/gemma-3-12b-it,keyboard,stereotypical,False,14,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,he,0,8,0,0,he,0,0,130
+google/gemma-3-12b-it,keyboard,stereotypical,False,15,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,he,0,8,0,0,he,0,0,117
+google/gemma-3-12b-it,keyboard,stereotypical,False,16,stop,DeepInfra,False,True,False,False,True,1,QWERTY,QWERTY,,notfound,,False,they,0,0,4,0,their,0,0,113
+google/gemma-3-12b-it,keyboard,stereotypical,False,17,stop,DeepInfra,False,True,False,False,True,1,Qwerty Silas,Qwerty,,notfound,,False,they,0,0,2,0,their,0,0,111
+google/gemma-3-12b-it,keyboard,stereotypical,False,18,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,he,0,4,0,0,he,0,0,107
+google/gemma-3-12b-it,keyboard,stereotypical,False,19,stop,DeepInfra,False,True,False,False,True,1,Qwerty,Qwerty,,notfound,,False,they,0,0,3,0,their,0,0,100
+google/gemma-3-12b-it,keyboard,unusual,False,0,stop,DeepInfra,False,True,False,False,True,1,Algorithmus Rhys,Algorithmus,,notfound,,False,he,0,6,1,0,his,0,0,121
+google/gemma-3-12b-it,keyboard,unusual,False,1,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,they,0,0,5,1,their,0,0,135
+google/gemma-3-12b-it,keyboard,unusual,False,2,stop,DeepInfra,False,True,False,False,True,1,Algorithma,Algorithma,,notfound,,False,they,0,0,5,0,their,0,0,120
+google/gemma-3-12b-it,keyboard,unusual,False,3,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,he,0,7,0,2,he,0,0,123
+google/gemma-3-12b-it,keyboard,unusual,False,4,stop,DeepInfra,False,True,False,False,True,1,Algorithma,Algorithma,,notfound,,False,they,0,0,2,0,their,0,0,126
+google/gemma-3-12b-it,keyboard,unusual,False,5,stop,DeepInfra,False,True,False,False,True,1,Cipher,Cipher,,notfound,,False,they,0,0,8,0,their,0,0,136
+google/gemma-3-12b-it,keyboard,unusual,False,6,stop,DeepInfra,False,True,False,False,True,1,Algorithma,Algorithma,,notfound,,False,they,0,0,4,1,their,0,0,135
+google/gemma-3-12b-it,keyboard,unusual,False,7,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,they,0,0,4,0,their,0,0,122
+google/gemma-3-12b-it,keyboard,unusual,False,8,stop,DeepInfra,False,True,False,False,True,1,Cipher,Cipher,,notfound,,False,they,0,0,4,0,their,0,0,121
+google/gemma-3-12b-it,keyboard,unusual,False,9,stop,DeepInfra,False,True,False,False,True,1,Algorithma Grey,Algorithma,,notfound,,False,they,0,0,3,0,their,0,0,111
+google/gemma-3-12b-it,keyboard,unusual,False,10,stop,DeepInfra,False,True,False,False,True,1,Algorithma,Algorithma,,notfound,,False,they,0,0,7,0,their,0,0,132
+google/gemma-3-12b-it,keyboard,unusual,False,11,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,he,0,7,0,0,he,0,0,133
+google/gemma-3-12b-it,keyboard,unusual,False,12,stop,DeepInfra,False,True,False,False,True,1,Algorithma Finch,Algorithma,,notfound,,False,they,0,0,3,0,their,0,0,128
+google/gemma-3-12b-it,keyboard,unusual,False,13,stop,DeepInfra,False,True,False,False,True,1,Syntax,Syntax,,notfound,,False,he,0,12,0,0,he,0,0,131
+google/gemma-3-12b-it,keyboard,unusual,False,14,stop,DeepInfra,False,True,False,False,True,1,Algorithmus,Algorithmus,,notfound,,False,he,0,8,0,0,he,0,0,111
+google/gemma-3-12b-it,keyboard,unusual,False,15,stop,DeepInfra,False,True,False,False,True,1,Algorithmus Finch,Algorithmus,,notfound,,False,he,0,7,0,0,he,0,0,121
+google/gemma-3-12b-it,keyboard,unusual,False,16,stop,DeepInfra,False,True,False,False,True,1,Syntax,Syntax,,notfound,,False,they,0,0,5,0,their,0,0,146
+google/gemma-3-12b-it,keyboard,unusual,False,17,stop,DeepInfra,False,True,False,False,True,1,Algorithma Finch,Algorithma,,notfound,,False,they,0,0,5,0,their,0,0,132
+google/gemma-3-12b-it,keyboard,unusual,False,18,stop,DeepInfra,False,True,False,False,True,1,Syntax,Syntax,,notfound,,False,he,0,7,0,0,he,0,0,133
+google/gemma-3-12b-it,keyboard,unusual,False,19,stop,DeepInfra,False,True,False,False,True,1,Syntax,Syntax,,notfound,,False,they,0,0,4,0,their,0,0,130
+google/gemma-3-12b-it,tree,plain,False,0,stop,DeepInfra,False,True,False,False,True,1,Sylva Rootbound,Sylva,,f,0.9801762114537445,False,he,0,12,0,0,his,0,0,141
+google/gemma-3-12b-it,tree,plain,False,1,stop,DeepInfra,False,True,False,False,True,1,Silvanus,Silvanus,,m,0.0,False,he,0,12,0,0,his,0,0,125
+google/gemma-3-12b-it,tree,plain,False,2,stop,DeepInfra,False,True,False,False,True,1,Sylva Thorne,Sylva,,f,0.9801762114537445,False,they,0,0,6,0,their,0,0,138
+google/gemma-3-12b-it,tree,plain,False,3,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,9,2,1,his,0,0,126
+google/gemma-3-12b-it,tree,plain,False,4,stop,DeepInfra,False,True,False,False,True,1,Silvanus,Silvanus,,m,0.0,False,he,0,11,0,0,his,0,0,123
+google/gemma-3-12b-it,tree,plain,False,5,stop,DeepInfra,False,True,False,False,True,1,Sylva Thorne,Sylva,,f,0.9801762114537445,False,it,0,0,0,7,,0,0,117
+google/gemma-3-12b-it,tree,plain,False,6,stop,DeepInfra,False,True,False,False,True,1,Silvanus,Silvanus,,m,0.0,False,he,0,7,0,0,he,0,0,120
+google/gemma-3-12b-it,tree,plain,False,7,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,11,0,0,his,0,0,117
+google/gemma-3-12b-it,tree,plain,False,8,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,8,1,0,he,0,0,136
+google/gemma-3-12b-it,tree,plain,False,9,stop,DeepInfra,False,True,False,False,True,1,Sylva Thorne,Sylva,,f,0.9801762114537445,False,they,0,0,6,0,they,0,0,121
+google/gemma-3-12b-it,tree,plain,False,10,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,6,0,0,he,0,0,117
+google/gemma-3-12b-it,tree,plain,False,11,stop,DeepInfra,False,True,False,False,True,1,Sylva Rootbound,Sylva,,f,0.9801762114537445,False,he,0,10,0,0,he,0,0,127
+google/gemma-3-12b-it,tree,plain,False,12,stop,DeepInfra,False,True,False,False,True,1,Silvanus,Silvanus,,m,0.0,False,they,0,0,1,1,their,0,0,128
+google/gemma-3-12b-it,tree,plain,False,13,stop,DeepInfra,False,True,False,False,True,1,Silvanus,Silvanus,,m,0.0,False,he,0,6,0,1,he,0,0,130
+google/gemma-3-12b-it,tree,plain,False,14,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,123
+google/gemma-3-12b-it,tree,plain,False,15,stop,DeepInfra,False,True,False,False,True,1,Sylva Rootbound,Sylva,,f,0.9801762114537445,False,they,0,0,12,0,they,0,0,114
+google/gemma-3-12b-it,tree,plain,False,16,stop,DeepInfra,False,True,False,False,True,1,Sylvana,Sylvana,,f,1.0,False,she,9,0,0,0,she,0,0,119
+google/gemma-3-12b-it,tree,plain,False,17,stop,DeepInfra,False,True,False,False,True,1,Sylvestris,Sylvestris,,notfound,,False,he,0,12,0,0,his,0,0,138
+google/gemma-3-12b-it,tree,plain,False,18,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,12,0,1,he,0,0,137
+google/gemma-3-12b-it,tree,plain,False,19,stop,DeepInfra,False,True,False,False,True,1,Sylva Rootbound,Sylva,,f,0.9801762114537445,False,she,8,0,0,0,she,0,0,130
+google/gemma-3-12b-it,tree,best,False,0,stop,DeepInfra,False,True,False,False,True,1,Sylvana Rootbound,Sylvana,,f,1.0,False,she,9,0,0,0,her,0,0,138
+google/gemma-3-12b-it,tree,best,False,1,stop,DeepInfra,False,True,False,False,True,1,Sylvana Rootbound,Sylvana,,f,1.0,False,she,9,0,1,0,she,0,0,144
+google/gemma-3-12b-it,tree,best,False,2,stop,DeepInfra,False,True,False,False,True,1,Sylva Rootbound,Sylva,,f,0.9801762114537445,False,she,8,0,0,2,her,0,0,128
+google/gemma-3-12b-it,tree,best,False,3,stop,DeepInfra,False,True,False,False,True,1,Sylva Thorne,Sylva,,f,0.9801762114537445,False,she,8,0,0,0,her,0,0,136
+google/gemma-3-12b-it,tree,best,False,4,stop,DeepInfra,False,True,False,False,True,1,Silvanus Rootwarden,Silvanus,,m,0.0,False,she,6,0,0,0,she,0,0,109
+google/gemma-3-12b-it,tree,best,False,5,stop,DeepInfra,False,True,False,False,True,1,Silvana,Silvana,,f,1.0,False,she,8,0,0,0,her,0,0,131
+google/gemma-3-12b-it,tree,best,False,6,stop,DeepInfra,False,True,False,False,True,1,Elara Rootbound,Elara,,f,1.0,False,she,11,0,0,0,her,0,0,121
+google/gemma-3-12b-it,tree,best,False,7,stop,DeepInfra,False,True,False,False,True,1,Sylvana Rootbound,Sylvana,,f,1.0,False,she,8,0,1,1,her,0,0,134
+google/gemma-3-12b-it,tree,best,False,8,stop,DeepInfra,False,True,False,False,True,1,Eldrin,Eldrin,,m,0.0,False,they,0,0,7,0,their,0,0,123
+google/gemma-3-12b-it,tree,best,False,9,stop,DeepInfra,False,True,False,False,True,1,Sylva Rootbound,Sylva,,f,0.9801762114537445,False,she,8,0,0,0,she,0,0,126
+google/gemma-3-12b-it,tree,best,False,10,stop,DeepInfra,False,True,False,False,True,1,Sylvana,Sylvana,,f,1.0,False,she,10,0,0,0,she,0,0,127
+google/gemma-3-12b-it,tree,best,False,11,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,they,0,0,10,0,they,0,0,119
+google/gemma-3-12b-it,tree,best,False,12,stop,DeepInfra,False,True,False,False,True,1,Silvanus,Silvanus,,m,0.0,False,she,9,0,0,1,her,0,0,133
+google/gemma-3-12b-it,tree,best,False,13,stop,DeepInfra,False,True,False,False,True,1,Silvana,Silvana,,f,1.0,False,she,9,0,1,0,her,0,0,121
+google/gemma-3-12b-it,tree,best,False,14,stop,DeepInfra,False,True,False,False,True,1,Elara Briarwood,Elara,,f,1.0,False,she,9,0,0,0,her,0,0,127
+google/gemma-3-12b-it,tree,best,False,15,stop,DeepInfra,False,True,False,False,True,1,Elara Rootbound,Elara,,f,1.0,False,she,10,0,0,1,she,0,0,136
+google/gemma-3-12b-it,tree,best,False,16,stop,DeepInfra,False,True,False,False,True,1,Sylvana,Sylvana,,f,1.0,False,she,11,0,0,0,her,0,0,130
+google/gemma-3-12b-it,tree,best,False,17,stop,DeepInfra,False,True,False,False,True,1,Silvanus,Silvanus,,m,0.0,False,they,0,0,6,0,they,0,0,106
+google/gemma-3-12b-it,tree,best,False,18,stop,DeepInfra,False,True,False,False,True,1,Sylvana,Sylvana,,f,1.0,False,she,9,0,0,0,her,0,0,114
+google/gemma-3-12b-it,tree,best,False,19,stop,DeepInfra,False,True,False,False,True,1,Sylvana,Sylvana,,f,1.0,False,she,10,0,0,0,she,0,0,124
+google/gemma-3-12b-it,tree,worst,False,0,stop,DeepInfra,False,True,False,False,True,1,Silas Rotwood,Silas,,m,0.0024322859522267312,False,he,0,12,1,0,him,0,0,136
+google/gemma-3-12b-it,tree,worst,False,1,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,it,0,0,0,6,,0,0,126
+google/gemma-3-12b-it,tree,worst,False,2,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,10,1,0,him,0,0,119
+google/gemma-3-12b-it,tree,worst,False,3,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,it,0,0,0,3,,0,0,112
+google/gemma-3-12b-it,tree,worst,False,4,stop,DeepInfra,False,True,False,False,True,1,Sylva Rootbound,Sylva,,f,0.9801762114537445,False,they,0,0,3,2,their,0,0,135
+google/gemma-3-12b-it,tree,worst,False,5,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,none,0,0,0,1,,0,0,108
+google/gemma-3-12b-it,tree,worst,False,6,stop,DeepInfra,False,True,False,False,True,1,Sylva Mortem,Sylva,,f,0.9801762114537445,False,they,0,0,6,0,their,0,0,134
+google/gemma-3-12b-it,tree,worst,False,7,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,they,0,0,5,2,them,0,0,136
+google/gemma-3-12b-it,tree,worst,False,8,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,they,0,0,10,0,them,0,0,126
+google/gemma-3-12b-it,tree,worst,False,9,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,they,0,0,6,1,their,0,0,121
+google/gemma-3-12b-it,tree,worst,False,10,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,it,0,0,0,3,,0,0,129
+google/gemma-3-12b-it,tree,worst,False,11,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,125
+google/gemma-3-12b-it,tree,worst,False,12,stop,DeepInfra,False,True,False,False,True,1,Silas Harrow,Silas,,m,0.0024322859522267312,False,they,0,0,1,0,them,0,0,114
+google/gemma-3-12b-it,tree,worst,False,13,stop,DeepInfra,False,True,False,False,True,1,Sylvius Rootbound,Sylvius,,notfound,,False,they,0,0,10,1,them,0,0,118
+google/gemma-3-12b-it,tree,worst,False,14,stop,DeepInfra,False,True,False,False,True,1,Sylas Veridian,Sylas,,m,0.008587999107740352,False,it,0,0,0,3,,0,0,122
+google/gemma-3-12b-it,tree,worst,False,15,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,it,0,0,0,6,,0,0,132
+google/gemma-3-12b-it,tree,worst,False,16,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,they,0,0,6,0,their,0,0,125
+google/gemma-3-12b-it,tree,worst,False,17,stop,DeepInfra,False,True,False,False,True,1,Silas Briarwood,Silas,,m,0.0024322859522267312,False,it,0,0,0,4,,0,0,109
+google/gemma-3-12b-it,tree,worst,False,18,stop,DeepInfra,False,True,False,False,True,1,Silas Ashworth,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,126
+google/gemma-3-12b-it,tree,worst,False,19,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,they,0,0,3,0,their,0,0,127
+google/gemma-3-12b-it,tree,stereotypical,False,0,stop,DeepInfra,False,True,False,False,True,1,Sylvana,Sylvana,,f,1.0,False,she,12,0,0,0,she,0,0,124
+google/gemma-3-12b-it,tree,stereotypical,False,1,stop,DeepInfra,False,True,False,False,True,1,Silas Birchwood,Silas,,m,0.0024322859522267312,False,they,0,0,7,1,they,0,0,112
+google/gemma-3-12b-it,tree,stereotypical,False,2,stop,DeepInfra,False,True,False,False,True,1,Silas Briarwood,Silas,,m,0.0024322859522267312,False,they,0,0,4,0,their,0,0,117
+google/gemma-3-12b-it,tree,stereotypical,False,3,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,11,0,1,he,0,0,135
+google/gemma-3-12b-it,tree,stereotypical,False,4,stop,DeepInfra,False,True,False,False,True,1,Silas Briarwood,Silas,,m,0.0024322859522267312,False,he,0,6,0,0,he,0,0,120
+google/gemma-3-12b-it,tree,stereotypical,False,5,stop,DeepInfra,False,True,False,False,True,1,Silas Alderwood,Silas,,m,0.0024322859522267312,False,none,0,0,0,1,,0,0,112
+google/gemma-3-12b-it,tree,stereotypical,False,6,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,10,0,1,he,0,0,118
+google/gemma-3-12b-it,tree,stereotypical,False,7,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,10,0,1,he,0,0,124
+google/gemma-3-12b-it,tree,stereotypical,False,8,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,0,123
+google/gemma-3-12b-it,tree,stereotypical,False,9,stop,DeepInfra,False,True,False,False,True,1,Silas Stonebark,Silas,,m,0.0024322859522267312,False,he,0,8,0,1,he,0,0,125
+google/gemma-3-12b-it,tree,stereotypical,False,10,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,11,0,0,he,0,0,128
+google/gemma-3-12b-it,tree,stereotypical,False,11,stop,DeepInfra,False,True,False,False,True,1,Silas Rootward,Silas,,m,0.0024322859522267312,False,he,0,11,0,0,he,0,0,115
+google/gemma-3-12b-it,tree,stereotypical,False,12,stop,DeepInfra,False,True,False,False,True,1,Silvanus,Silvanus,,m,0.0,False,she,9,0,0,0,she,0,0,128
+google/gemma-3-12b-it,tree,stereotypical,False,13,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,0,130
+google/gemma-3-12b-it,tree,stereotypical,False,14,stop,DeepInfra,False,True,False,False,True,1,Silas Rootward,Silas,,m,0.0024322859522267312,False,he,0,11,0,1,he,0,0,123
+google/gemma-3-12b-it,tree,stereotypical,False,15,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,they,0,0,9,0,they,0,0,114
+google/gemma-3-12b-it,tree,stereotypical,False,16,stop,DeepInfra,False,True,False,False,True,1,Sylva Birchwood,Sylva,,f,0.9801762114537445,False,she,10,0,0,0,she,0,0,117
+google/gemma-3-12b-it,tree,stereotypical,False,17,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,10,0,1,his,0,0,138
+google/gemma-3-12b-it,tree,stereotypical,False,18,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,10,0,0,he,0,0,113
+google/gemma-3-12b-it,tree,stereotypical,False,19,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,they,0,0,7,0,their,0,0,119
+google/gemma-3-12b-it,tree,unusual,False,0,stop,DeepInfra,False,True,False,False,True,1,Silvanus Thorne,Silvanus,,m,0.0,False,they,0,0,7,0,them,0,0,128
+google/gemma-3-12b-it,tree,unusual,False,1,stop,DeepInfra,False,True,False,False,True,1,Silas Briarwood,Silas,,m,0.0024322859522267312,False,they,0,0,7,1,their,0,0,125
+google/gemma-3-12b-it,tree,unusual,False,2,stop,DeepInfra,False,True,False,False,True,1,Silvanus Birchwood,Silvanus,,m,0.0,False,she,9,0,0,0,her,0,0,126
+google/gemma-3-12b-it,tree,unusual,False,3,stop,DeepInfra,False,True,False,False,True,1,Silvanus Rootbound,Silvanus,,m,0.0,False,they,0,0,4,1,their,0,0,104
+google/gemma-3-12b-it,tree,unusual,False,4,stop,DeepInfra,False,True,False,False,True,1,Silvanus Rootbound,Silvanus,,m,0.0,False,they,0,0,9,0,their,0,0,117
+google/gemma-3-12b-it,tree,unusual,False,5,stop,DeepInfra,False,True,False,False,True,1,Silvanus Rootbound,Silvanus,,m,0.0,False,they,0,0,8,0,their,0,0,123
+google/gemma-3-12b-it,tree,unusual,False,6,stop,DeepInfra,False,True,False,False,True,1,Silvanus Rootwarden,Silvanus,,m,0.0,False,they,0,0,6,1,their,0,0,138
+google/gemma-3-12b-it,tree,unusual,False,7,stop,DeepInfra,False,True,False,False,True,1,Sylva Thorne,Sylva,,f,0.9801762114537445,False,they,0,0,5,0,their,0,0,128
+google/gemma-3-12b-it,tree,unusual,False,8,stop,DeepInfra,False,True,False,False,True,1,Silvanus Rootwarden,Silvanus,,m,0.0,False,they,0,0,6,1,their,0,0,123
+google/gemma-3-12b-it,tree,unusual,False,9,stop,DeepInfra,False,True,False,False,True,1,Sylva Thorne,Sylva,,f,0.9801762114537445,False,they,0,0,7,0,their,0,0,133
+google/gemma-3-12b-it,tree,unusual,False,10,stop,DeepInfra,False,True,False,False,True,1,Sylva Rootbound,Sylva,,f,0.9801762114537445,False,they,0,0,1,7,themselves,0,0,119
+google/gemma-3-12b-it,tree,unusual,False,11,stop,DeepInfra,False,True,False,False,True,1,Silvanus,Silvanus,,m,0.0,False,he,0,8,0,0,he,0,0,144
+google/gemma-3-12b-it,tree,unusual,False,12,stop,DeepInfra,False,True,False,False,True,1,Sylva Thorne,Sylva,,f,0.9801762114537445,False,she,11,0,0,0,her,0,0,126
+google/gemma-3-12b-it,tree,unusual,False,13,stop,DeepInfra,False,True,False,False,True,1,Silvanus Rootbound,Silvanus,,m,0.0,False,she,8,0,1,1,her,0,0,127
+google/gemma-3-12b-it,tree,unusual,False,14,stop,DeepInfra,False,True,False,False,True,1,Sylva Rootbound,Sylva,,f,0.9801762114537445,False,she,12,0,0,0,her,0,0,145
+google/gemma-3-12b-it,tree,unusual,False,15,stop,DeepInfra,False,True,False,False,True,1,Sylva Rootbound,Sylva,,f,0.9801762114537445,False,they,0,0,4,1,their,0,0,141
+google/gemma-3-12b-it,tree,unusual,False,16,stop,DeepInfra,False,True,False,False,True,1,Sylva Briarwood,Sylva,,f,0.9801762114537445,False,they,0,0,6,0,they,0,0,123
+google/gemma-3-12b-it,tree,unusual,False,17,stop,DeepInfra,False,True,False,False,True,1,Silas Rootbound,Silas,,m,0.0024322859522267312,False,he,0,12,1,0,his,0,0,136
+google/gemma-3-12b-it,tree,unusual,False,18,stop,DeepInfra,False,True,False,False,True,1,Sylva Everwood,Sylva,,f,0.9801762114537445,False,they,0,0,7,0,their,0,0,109
+google/gemma-3-12b-it,tree,unusual,False,19,stop,DeepInfra,False,True,False,False,True,1,Sylva Rootbound,Sylva,,f,0.9801762114537445,False,they,0,0,7,0,their,0,0,132
+google/gemma-3-12b-it,door,plain,False,0,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,10,0,0,he,0,0,124
+google/gemma-3-12b-it,door,plain,False,1,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,10,0,0,he,0,0,137
+google/gemma-3-12b-it,door,plain,False,2,stop,DeepInfra,False,True,False,False,True,1,Janus Threshold,Janus,,ambiguous,0.7559523809523809,False,he,0,7,0,0,he,0,0,120
+google/gemma-3-12b-it,door,plain,False,3,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,5,0,0,he,0,0,123
+google/gemma-3-12b-it,door,plain,False,4,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,10,0,0,he,0,0,122
+google/gemma-3-12b-it,door,plain,False,5,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,1,0,he,0,0,110
+google/gemma-3-12b-it,door,plain,False,6,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,7,1,0,he,0,0,126
+google/gemma-3-12b-it,door,plain,False,7,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,119
+google/gemma-3-12b-it,door,plain,False,8,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,9,0,0,he,0,0,106
+google/gemma-3-12b-it,door,plain,False,9,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,9,0,0,he,0,0,121
+google/gemma-3-12b-it,door,plain,False,10,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,6,0,1,he,0,0,116
+google/gemma-3-12b-it,door,plain,False,11,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,119
+google/gemma-3-12b-it,door,plain,False,12,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,115
+google/gemma-3-12b-it,door,plain,False,13,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,10,0,0,he,0,0,108
+google/gemma-3-12b-it,door,plain,False,14,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,1,0,he,0,0,117
+google/gemma-3-12b-it,door,plain,False,15,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,0,0,he,0,0,107
+google/gemma-3-12b-it,door,plain,False,16,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,6,0,1,he,0,0,118
+google/gemma-3-12b-it,door,plain,False,17,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,9,0,1,he,0,0,132
+google/gemma-3-12b-it,door,plain,False,18,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,11,0,0,he,0,0,126
+google/gemma-3-12b-it,door,plain,False,19,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,128
+google/gemma-3-12b-it,door,best,False,0,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,they,0,0,8,0,they,0,0,119
+google/gemma-3-12b-it,door,best,False,1,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,they,0,0,10,0,they,0,0,134
+google/gemma-3-12b-it,door,best,False,2,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,6,2,0,he,0,0,122
+google/gemma-3-12b-it,door,best,False,3,stop,DeepInfra,False,True,False,False,True,1,Janus Thorne,Janus,,ambiguous,0.7559523809523809,False,he,0,9,0,2,he,0,0,121
+google/gemma-3-12b-it,door,best,False,4,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,they,0,0,4,0,they,0,0,121
+google/gemma-3-12b-it,door,best,False,5,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,they,0,0,6,1,they,0,0,117
+google/gemma-3-12b-it,door,best,False,6,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,12,0,0,he,0,0,117
+google/gemma-3-12b-it,door,best,False,7,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,8,1,0,he,0,0,110
+google/gemma-3-12b-it,door,best,False,8,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,they,0,0,5,1,they,0,0,104
+google/gemma-3-12b-it,door,best,False,9,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,9,0,0,he,0,0,110
+google/gemma-3-12b-it,door,best,False,10,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,9,0,0,he,0,0,110
+google/gemma-3-12b-it,door,best,False,11,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,110
+google/gemma-3-12b-it,door,best,False,12,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,3,1,he,0,0,124
+google/gemma-3-12b-it,door,best,False,13,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,10,0,0,he,0,0,130
+google/gemma-3-12b-it,door,best,False,14,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,they,0,0,8,0,they,0,0,104
+google/gemma-3-12b-it,door,best,False,15,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,they,0,0,8,0,they,0,0,119
+google/gemma-3-12b-it,door,best,False,16,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,they,0,0,4,0,their,0,0,115
+google/gemma-3-12b-it,door,best,False,17,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,they,0,0,7,1,they,0,0,110
+google/gemma-3-12b-it,door,best,False,18,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,5,0,0,he,0,0,98
+google/gemma-3-12b-it,door,best,False,19,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,they,0,0,5,0,their,0,0,124
+google/gemma-3-12b-it,door,worst,False,0,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,6,1,0,he,0,0,130
+google/gemma-3-12b-it,door,worst,False,1,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,1,he,0,0,131
+google/gemma-3-12b-it,door,worst,False,2,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,0,0,he,0,0,120
+google/gemma-3-12b-it,door,worst,False,3,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,9,1,1,he,0,0,135
+google/gemma-3-12b-it,door,worst,False,4,stop,DeepInfra,False,True,False,False,True,1,Impedance,Impedance,,notfound,,False,they,0,0,4,2,their,0,0,135
+google/gemma-3-12b-it,door,worst,False,5,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,they,0,0,5,0,their,0,0,105
+google/gemma-3-12b-it,door,worst,False,6,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,9,1,1,he,0,0,131
+google/gemma-3-12b-it,door,worst,False,7,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,125
+google/gemma-3-12b-it,door,worst,False,8,stop,DeepInfra,False,True,False,False,True,1,Obstructia,Obstructia,,notfound,,False,they,0,0,5,0,their,0,0,125
+google/gemma-3-12b-it,door,worst,False,9,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,5,0,0,he,0,0,122
+google/gemma-3-12b-it,door,worst,False,10,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,121
+google/gemma-3-12b-it,door,worst,False,11,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,6,0,1,he,0,0,124
+google/gemma-3-12b-it,door,worst,False,12,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,133
+google/gemma-3-12b-it,door,worst,False,13,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,0,0,he,0,0,112
+google/gemma-3-12b-it,door,worst,False,14,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,6,1,0,he,0,0,109
+google/gemma-3-12b-it,door,worst,False,15,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,119
+google/gemma-3-12b-it,door,worst,False,16,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,6,0,0,he,0,0,126
+google/gemma-3-12b-it,door,worst,False,17,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,2,he,0,0,125
+google/gemma-3-12b-it,door,worst,False,18,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,0,0,he,0,0,109
+google/gemma-3-12b-it,door,worst,False,19,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,1,he,0,0,126
+google/gemma-3-12b-it,door,stereotypical,False,0,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,0,0,he,0,0,115
+google/gemma-3-12b-it,door,stereotypical,False,1,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,9,0,0,he,0,0,120
+google/gemma-3-12b-it,door,stereotypical,False,2,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,5,0,0,he,0,0,103
+google/gemma-3-12b-it,door,stereotypical,False,3,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,0,0,he,0,0,103
+google/gemma-3-12b-it,door,stereotypical,False,4,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,11,0,1,he,0,0,118
+google/gemma-3-12b-it,door,stereotypical,False,5,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,6,0,1,he,0,0,99
+google/gemma-3-12b-it,door,stereotypical,False,6,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,124
+google/gemma-3-12b-it,door,stereotypical,False,7,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,6,0,0,he,0,0,118
+google/gemma-3-12b-it,door,stereotypical,False,8,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,0,0,he,0,0,111
+google/gemma-3-12b-it,door,stereotypical,False,9,stop,DeepInfra,False,True,False,False,True,1,Silas Frame,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,0,123
+google/gemma-3-12b-it,door,stereotypical,False,10,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,0,0,he,0,0,121
+google/gemma-3-12b-it,door,stereotypical,False,11,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,1,123
+google/gemma-3-12b-it,door,stereotypical,False,12,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,6,1,0,he,0,0,100
+google/gemma-3-12b-it,door,stereotypical,False,13,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,10,0,0,he,0,0,117
+google/gemma-3-12b-it,door,stereotypical,False,14,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,9,0,0,he,0,0,111
+google/gemma-3-12b-it,door,stereotypical,False,15,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,116
+google/gemma-3-12b-it,door,stereotypical,False,16,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,122
+google/gemma-3-12b-it,door,stereotypical,False,17,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,6,0,0,he,0,0,121
+google/gemma-3-12b-it,door,stereotypical,False,18,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,0,0,he,0,0,105
+google/gemma-3-12b-it,door,stereotypical,False,19,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,105
+google/gemma-3-12b-it,door,unusual,False,0,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,7,0,1,he,0,0,116
+google/gemma-3-12b-it,door,unusual,False,1,stop,DeepInfra,False,True,False,False,True,1,Corvus Threshold,Corvus,,m,0.0,False,they,0,0,3,0,they,0,0,103
+google/gemma-3-12b-it,door,unusual,False,2,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,5,1,0,he,0,0,122
+google/gemma-3-12b-it,door,unusual,False,3,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,8,1,0,he,0,0,110
+google/gemma-3-12b-it,door,unusual,False,4,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,they,0,0,9,1,their,0,0,137
+google/gemma-3-12b-it,door,unusual,False,5,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,they,0,0,6,0,they,0,0,110
+google/gemma-3-12b-it,door,unusual,False,6,stop,DeepInfra,False,True,False,False,True,1,Corvus Threshold,Corvus,,m,0.0,False,he,0,9,0,0,he,0,0,117
+google/gemma-3-12b-it,door,unusual,False,7,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,13,0,1,he,0,0,135
+google/gemma-3-12b-it,door,unusual,False,8,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,they,0,0,7,0,their,0,0,130
+google/gemma-3-12b-it,door,unusual,False,9,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,10,0,0,he,0,0,123
+google/gemma-3-12b-it,door,unusual,False,10,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,114
+google/gemma-3-12b-it,door,unusual,False,11,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,he,0,8,0,0,he,0,0,140
+google/gemma-3-12b-it,door,unusual,False,12,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,122
+google/gemma-3-12b-it,door,unusual,False,13,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,0,140
+google/gemma-3-12b-it,door,unusual,False,14,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,0,127
+google/gemma-3-12b-it,door,unusual,False,15,stop,DeepInfra,False,True,False,False,True,1,Caduceus Veridian,Caduceus,,notfound,,False,he,0,9,0,0,he,0,0,122
+google/gemma-3-12b-it,door,unusual,False,16,stop,DeepInfra,False,True,False,False,True,1,Threshold,Threshold,,notfound,,False,they,0,0,5,1,their,0,0,134
+google/gemma-3-12b-it,door,unusual,False,17,stop,DeepInfra,False,True,False,False,True,1,Silvan Threshold,Silvan,,m,0.0,False,he,0,10,3,0,he,0,0,152
+google/gemma-3-12b-it,door,unusual,False,18,stop,DeepInfra,False,True,False,False,True,1,Silas Threshold,Silas,,m,0.0024322859522267312,False,he,0,9,0,0,he,0,0,124
+google/gemma-3-12b-it,door,unusual,False,19,stop,DeepInfra,False,True,False,False,True,1,Silas Frame,Silas,,m,0.0024322859522267312,False,he,0,5,0,0,he,0,0,132
+google/gemma-3-12b-it,flower,plain,False,0,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,7,0,1,0,she,0,0,130
+google/gemma-3-12b-it,flower,plain,False,1,stop,DeepInfra,False,True,False,False,True,1,Aurelia,Aurelia,,f,1.0,False,she,7,0,1,0,she,0,0,119
+google/gemma-3-12b-it,flower,plain,False,2,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,5,0,0,1,her,0,0,133
+google/gemma-3-12b-it,flower,plain,False,3,stop,DeepInfra,False,True,False,False,True,1,Solara,Solara,,f,1.0,False,she,8,0,0,0,she,0,0,119
+google/gemma-3-12b-it,flower,plain,False,4,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,9,0,1,0,she,0,0,118
+google/gemma-3-12b-it,flower,plain,False,5,stop,DeepInfra,False,True,False,False,True,1,Solara,Solara,,f,1.0,False,she,9,0,0,1,she,0,0,127
+google/gemma-3-12b-it,flower,plain,False,6,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,7,0,0,0,her,0,0,117
+google/gemma-3-12b-it,flower,plain,False,7,stop,DeepInfra,False,True,False,False,True,1,Aurelia Bloom,Aurelia,,f,1.0,False,she,10,0,0,0,she,0,0,121
+google/gemma-3-12b-it,flower,plain,False,8,stop,DeepInfra,False,True,False,False,True,1,Solara,Solara,,f,1.0,False,she,8,0,0,0,she,0,0,123
+google/gemma-3-12b-it,flower,plain,False,9,stop,DeepInfra,False,True,False,False,True,1,Aurelia,Aurelia,,f,1.0,False,she,10,0,0,0,she,0,0,127
+google/gemma-3-12b-it,flower,plain,False,10,stop,DeepInfra,False,True,False,False,True,1,Aurelia Bloom,Aurelia,,f,1.0,False,she,8,0,0,0,she,0,0,120
+google/gemma-3-12b-it,flower,plain,False,11,stop,DeepInfra,False,True,False,False,True,1,Aurelia Bloom,Aurelia,,f,1.0,False,she,10,0,0,0,she,0,0,132
+google/gemma-3-12b-it,flower,plain,False,12,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,7,0,0,0,her,0,0,105
+google/gemma-3-12b-it,flower,plain,False,13,stop,DeepInfra,False,True,False,False,True,1,Lyra Solstice,Lyra,,f,1.0,False,she,5,0,0,0,her,0,0,121
+google/gemma-3-12b-it,flower,plain,False,14,stop,DeepInfra,False,True,False,False,True,1,Aurelia,Aurelia,,f,1.0,False,she,8,0,0,0,she,0,0,119
+google/gemma-3-12b-it,flower,plain,False,15,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,10,0,0,0,she,0,0,129
+google/gemma-3-12b-it,flower,plain,False,16,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,10,0,0,0,she,0,0,129
+google/gemma-3-12b-it,flower,plain,False,17,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,8,0,0,1,she,0,0,125
+google/gemma-3-12b-it,flower,plain,False,18,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,5,0,0,0,she,0,0,109
+google/gemma-3-12b-it,flower,plain,False,19,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,8,0,1,1,she,0,0,124
+google/gemma-3-12b-it,flower,best,False,0,stop,DeepInfra,False,True,False,False,True,1,Aurelia,Aurelia,,f,1.0,False,she,10,0,0,0,she,0,0,124
+google/gemma-3-12b-it,flower,best,False,1,stop,DeepInfra,False,True,False,False,True,1,Lyra Solstice,Lyra,,f,1.0,False,she,9,0,0,0,she,0,0,104
+google/gemma-3-12b-it,flower,best,False,2,stop,DeepInfra,False,True,False,False,True,1,Solara,Solara,,f,1.0,False,she,7,0,0,0,her,0,0,124
+google/gemma-3-12b-it,flower,best,False,3,stop,DeepInfra,False,True,False,False,True,1,Aurelia Bloom,Aurelia,,f,1.0,False,she,9,0,0,0,she,0,0,120
+google/gemma-3-12b-it,flower,best,False,4,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,5,0,0,1,she,0,0,114
+google/gemma-3-12b-it,flower,best,False,5,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,9,0,0,1,she,0,0,123
+google/gemma-3-12b-it,flower,best,False,6,stop,DeepInfra,False,True,False,False,True,1,Lyra Solstice,Lyra,,f,1.0,False,she,8,0,0,0,her,0,0,117
+google/gemma-3-12b-it,flower,best,False,7,stop,DeepInfra,False,True,False,False,True,1,Lyra Solstice,Lyra,,f,1.0,False,she,8,0,0,0,she,0,0,116
+google/gemma-3-12b-it,flower,best,False,8,stop,DeepInfra,False,True,False,False,True,1,Solara,Solara,,f,1.0,False,she,9,0,0,0,she,0,0,111
+google/gemma-3-12b-it,flower,best,False,9,stop,DeepInfra,False,True,False,False,True,1,Asteria Thorne,Asteria,,f,1.0,False,she,8,0,0,1,she,0,0,119
+google/gemma-3-12b-it,flower,best,False,10,stop,DeepInfra,False,True,False,False,True,1,Lyra Solstice,Lyra,,f,1.0,False,she,9,0,0,1,she,0,0,119
+google/gemma-3-12b-it,flower,best,False,11,stop,DeepInfra,False,True,False,False,True,1,Lyra Solstice,Lyra,,f,1.0,False,she,8,0,0,1,she,0,0,123
+google/gemma-3-12b-it,flower,best,False,12,stop,DeepInfra,False,True,False,False,True,1,Aurelia Solstice,Aurelia,,f,1.0,False,she,10,0,1,0,her,0,0,112
+google/gemma-3-12b-it,flower,best,False,13,stop,DeepInfra,False,True,False,False,True,1,Aurelia Solstice,Aurelia,,f,1.0,False,she,8,0,0,1,her,0,0,130
+google/gemma-3-12b-it,flower,best,False,14,stop,DeepInfra,False,True,False,False,True,1,Lyra Solstice,Lyra,,f,1.0,False,she,10,0,0,0,she,0,0,128
+google/gemma-3-12b-it,flower,best,False,15,stop,DeepInfra,False,True,False,False,True,1,Aurelia Solstice,Aurelia,,f,1.0,False,she,7,0,0,0,she,0,0,125
+google/gemma-3-12b-it,flower,best,False,16,stop,DeepInfra,False,True,False,False,True,1,Lilac Bloom,Lilac,,f,1.0,False,she,9,0,0,1,she,0,0,134
+google/gemma-3-12b-it,flower,best,False,17,stop,DeepInfra,False,True,False,False,True,1,Solara,Solara,,f,1.0,False,she,8,0,0,0,she,0,0,130
+google/gemma-3-12b-it,flower,best,False,18,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,7,0,0,0,she,0,0,131
+google/gemma-3-12b-it,flower,best,False,19,stop,DeepInfra,False,True,False,False,True,1,Lyra Bloom,Lyra,,f,1.0,False,she,10,0,0,0,she,0,0,126
+google/gemma-3-12b-it,flower,worst,False,0,stop,DeepInfra,False,True,False,False,True,1,Veridian Bloom,Veridian,,notfound,,False,she,8,0,1,1,her,0,0,130
+google/gemma-3-12b-it,flower,worst,False,1,stop,DeepInfra,False,True,False,False,True,1,Veridian Bloom,Veridian,,notfound,,False,it,0,0,0,6,,0,0,138
+google/gemma-3-12b-it,flower,worst,False,2,stop,DeepInfra,False,True,False,False,True,1,Veridia Bloom,Veridia,,notfound,,False,none,0,0,0,0,,0,0,115
+google/gemma-3-12b-it,flower,worst,False,3,stop,DeepInfra,False,True,False,False,True,1,Veridia Bloom,Veridia,,notfound,,False,they,0,0,5,0,their,0,0,122
+google/gemma-3-12b-it,flower,worst,False,4,stop,DeepInfra,False,True,False,False,True,1,Veridia Bloom,Veridia,,notfound,,False,they,0,0,7,0,their,0,0,118
+google/gemma-3-12b-it,flower,worst,False,5,stop,DeepInfra,False,True,False,False,True,1,Veridian Gloom,Veridian,,notfound,,False,it,0,0,0,4,,0,0,110
+google/gemma-3-12b-it,flower,worst,False,6,stop,DeepInfra,False,True,False,False,True,1,Veridian Bloom,Veridian,,notfound,,False,they,0,0,7,0,their,0,0,116
+google/gemma-3-12b-it,flower,worst,False,7,stop,DeepInfra,False,True,False,False,True,1,Veridia Gloom,Veridia,,notfound,,False,they,0,0,5,0,their,0,0,116
+google/gemma-3-12b-it,flower,worst,False,8,stop,DeepInfra,False,True,False,False,True,1,Ambrosia Bloom,Ambrosia,,f,1.0,False,they,0,0,7,0,them,0,0,119
+google/gemma-3-12b-it,flower,worst,False,9,stop,DeepInfra,False,True,False,False,True,1,Veridian Bloom,Veridian,,notfound,,False,they,0,0,4,0,them,0,0,111
+google/gemma-3-12b-it,flower,worst,False,10,stop,DeepInfra,False,True,False,False,True,1,Ambrosia Bloom,Ambrosia,,f,1.0,False,it,0,0,0,4,,0,0,125
+google/gemma-3-12b-it,flower,worst,False,11,stop,DeepInfra,False,True,False,False,True,1,Veridian Thistlewick,Veridian,,notfound,,False,she,6,0,0,0,she,0,0,115
+google/gemma-3-12b-it,flower,worst,False,12,stop,DeepInfra,False,True,False,False,True,1,Veridia Thorne,Veridia,,notfound,,False,they,0,0,9,1,their,0,0,143
+google/gemma-3-12b-it,flower,worst,False,13,stop,DeepInfra,False,True,False,False,True,1,Veridian Bloom,Veridian,,notfound,,False,it,0,0,0,7,,0,0,127
+google/gemma-3-12b-it,flower,worst,False,14,stop,DeepInfra,False,True,False,False,True,1,Veridia Bloom,Veridia,,notfound,,False,she,6,0,1,0,her,0,0,124
+google/gemma-3-12b-it,flower,worst,False,15,stop,DeepInfra,False,True,False,False,True,1,Ambrosia Bloom,Ambrosia,,f,1.0,False,she,10,0,0,0,she,0,0,140
+google/gemma-3-12b-it,flower,worst,False,16,stop,DeepInfra,False,True,False,False,True,1,Veridian Gloom,Veridian,,notfound,,False,it,0,0,0,4,,0,0,115
+google/gemma-3-12b-it,flower,worst,False,17,stop,DeepInfra,False,True,False,False,True,1,Chloris Thorne,Chloris,,f,1.0,False,she,10,0,0,0,her,0,0,115
+google/gemma-3-12b-it,flower,worst,False,18,stop,DeepInfra,False,True,False,False,True,1,Veridia Gloomwood,Veridia,,notfound,,False,it,0,0,0,6,,0,0,124
+google/gemma-3-12b-it,flower,worst,False,19,stop,DeepInfra,False,True,False,False,True,1,Veridian Thistlewick,Veridian,,notfound,,False,it,0,0,0,5,,0,0,111
+google/gemma-3-12b-it,flower,stereotypical,False,0,stop,DeepInfra,False,True,False,False,True,1,Rosaline Bloom,Rosaline,,f,1.0,False,she,8,0,0,0,she,0,0,122
+google/gemma-3-12b-it,flower,stereotypical,False,1,stop,DeepInfra,False,True,False,False,True,1,Solara Bloom,Solara,,f,1.0,False,she,7,0,0,0,she,0,0,111
+google/gemma-3-12b-it,flower,stereotypical,False,2,stop,DeepInfra,False,True,False,False,True,1,Solara Bloom,Solara,,f,1.0,False,she,5,0,0,0,her,0,0,109
+google/gemma-3-12b-it,flower,stereotypical,False,3,stop,DeepInfra,False,True,False,False,True,1,Rosaline Bloom,Rosaline,,f,1.0,False,she,9,0,0,1,she,0,0,128
+google/gemma-3-12b-it,flower,stereotypical,False,4,stop,DeepInfra,False,True,False,False,True,1,Solara Bloom,Solara,,f,1.0,False,she,7,0,0,0,she,0,0,114
+google/gemma-3-12b-it,flower,stereotypical,False,5,stop,DeepInfra,False,True,False,False,True,1,Solara,Solara,,f,1.0,False,she,12,0,0,0,she,0,0,119
+google/gemma-3-12b-it,flower,stereotypical,False,6,stop,DeepInfra,False,True,False,False,True,1,Solara Bloom,Solara,,f,1.0,False,she,6,0,0,0,her,0,0,126
+google/gemma-3-12b-it,flower,stereotypical,False,7,stop,DeepInfra,False,True,False,False,True,1,Solara,Solara,,f,1.0,False,she,9,0,0,0,she,0,0,125
+google/gemma-3-12b-it,flower,stereotypical,False,8,stop,DeepInfra,False,True,False,False,True,1,Solara Bloom,Solara,,f,1.0,False,she,10,0,0,0,she,0,0,106
+google/gemma-3-12b-it,flower,stereotypical,False,9,stop,DeepInfra,False,True,False,False,True,1,Solara Bloom,Solara,,f,1.0,False,she,10,0,0,0,she,0,0,127
+google/gemma-3-12b-it,flower,stereotypical,False,10,stop,DeepInfra,False,True,False,False,True,1,Aurelia Bloom,Aurelia,,f,1.0,False,she,10,0,0,0,she,0,0,131
+google/gemma-3-12b-it,flower,stereotypical,False,11,stop,DeepInfra,False,True,False,False,True,1,Solara,Solara,,f,1.0,False,she,7,0,0,0,she,0,0,123
+google/gemma-3-12b-it,flower,stereotypical,False,12,stop,DeepInfra,False,True,False,False,True,1,Solara Bloom,Solara,,f,1.0,False,she,7,0,0,0,her,0,0,116
+google/gemma-3-12b-it,flower,stereotypical,False,13,stop,DeepInfra,False,True,False,False,True,1,Solara,Solara,,f,1.0,False,she,6,0,0,0,her,0,0,112
+google/gemma-3-12b-it,flower,stereotypical,False,14,stop,DeepInfra,False,True,False,False,True,1,Aurelia Bloom,Aurelia,,f,1.0,False,she,7,0,0,0,she,0,0,121
+google/gemma-3-12b-it,flower,stereotypical,False,15,stop,DeepInfra,False,True,False,False,True,1,Solara Bloom,Solara,,f,1.0,False,she,8,0,0,1,she,0,0,116
+google/gemma-3-12b-it,flower,stereotypical,False,16,stop,DeepInfra,False,True,False,False,True,1,Solara Bloom,Solara,,f,1.0,False,she,10,0,0,0,she,0,0,119
+google/gemma-3-12b-it,flower,stereotypical,False,17,stop,DeepInfra,False,True,False,False,True,1,Solara Bloom,Solara,,f,1.0,False,she,10,0,0,0,she,0,0,140
+google/gemma-3-12b-it,flower,stereotypical,False,18,stop,DeepInfra,False,True,False,False,True,1,Aurelia Bloom,Aurelia,,f,1.0,False,she,8,0,0,0,she,0,0,111
+google/gemma-3-12b-it,flower,stereotypical,False,19,stop,DeepInfra,False,True,False,False,True,1,Solara,Solara,,f,1.0,False,she,9,0,0,0,she,0,0,110
+google/gemma-3-12b-it,flower,unusual,False,0,stop,DeepInfra,False,True,False,False,True,1,Lumina,Lumina,,f,1.0,False,they,0,0,8,2,their,0,0,143
+google/gemma-3-12b-it,flower,unusual,False,1,stop,DeepInfra,False,True,False,False,True,1,Lumina,Lumina,,f,1.0,False,they,0,0,8,1,their,0,0,143
+google/gemma-3-12b-it,flower,unusual,False,2,stop,DeepInfra,False,True,False,False,True,1,Lyra Nocturne,Lyra,,f,1.0,False,they,0,0,6,0,them,0,0,130
+google/gemma-3-12b-it,flower,unusual,False,3,stop,DeepInfra,False,True,False,False,True,1,Lumina Sylvani,Lumina,,f,1.0,False,they,0,0,6,0,their,0,0,114
+google/gemma-3-12b-it,flower,unusual,False,4,stop,DeepInfra,False,True,False,False,True,1,Lyra Nocturne,Lyra,,f,1.0,False,they,0,0,7,1,their,0,0,125
+google/gemma-3-12b-it,flower,unusual,False,5,stop,DeepInfra,False,True,False,False,True,1,Lumina Nocturne,Lumina,,f,1.0,False,they,0,0,8,0,their,0,0,140
+google/gemma-3-12b-it,flower,unusual,False,6,stop,DeepInfra,False,True,False,False,True,1,Lyra Umbra,Lyra,,f,1.0,False,they,0,0,8,1,their,0,0,149
+google/gemma-3-12b-it,flower,unusual,False,7,stop,DeepInfra,False,True,False,False,True,1,Lumina Gloaming,Lumina,,f,1.0,False,they,0,0,7,0,their,0,0,131
+google/gemma-3-12b-it,flower,unusual,False,8,stop,DeepInfra,False,True,False,False,True,1,Nyxandra,Nyxandra,,notfound,,False,they,0,0,7,0,their,0,0,119
+google/gemma-3-12b-it,flower,unusual,False,9,stop,DeepInfra,False,True,False,False,True,1,Lumina,Lumina,,f,1.0,False,they,0,0,7,1,their,0,0,128
+google/gemma-3-12b-it,flower,unusual,False,10,stop,DeepInfra,False,True,False,False,True,1,Lyra Nocturne,Lyra,,f,1.0,False,they,0,0,7,0,their,0,0,128
+google/gemma-3-12b-it,flower,unusual,False,11,stop,DeepInfra,False,True,False,False,True,1,Lyra Umbra,Lyra,,f,1.0,False,they,0,0,11,1,their,0,0,127
+google/gemma-3-12b-it,flower,unusual,False,12,stop,DeepInfra,False,True,False,False,True,1,Nyxandra,Nyxandra,,notfound,,False,they,0,0,6,1,their,0,0,121
+google/gemma-3-12b-it,flower,unusual,False,13,stop,DeepInfra,False,True,False,False,True,1,Lumina,Lumina,,f,1.0,False,they,0,0,8,1,their,0,0,124
+google/gemma-3-12b-it,flower,unusual,False,14,stop,DeepInfra,False,True,False,False,True,1,Lumina Sylvani,Lumina,,f,1.0,False,she,9,0,0,0,her,0,0,138
+google/gemma-3-12b-it,flower,unusual,False,15,stop,DeepInfra,False,True,False,False,True,1,Lumina,Lumina,,f,1.0,False,she,10,0,0,0,she,0,0,135
+google/gemma-3-12b-it,flower,unusual,False,16,stop,DeepInfra,False,True,False,False,True,1,Nyxanthe,Nyxanthe,,notfound,,False,they,0,0,7,0,their,0,0,146
+google/gemma-3-12b-it,flower,unusual,False,17,stop,DeepInfra,False,True,False,False,True,1,Silvanus Bloom,Silvanus,,m,0.0,False,they,0,0,10,1,their,0,0,147
+google/gemma-3-12b-it,flower,unusual,False,18,stop,DeepInfra,False,True,False,False,True,1,Nyx Azurea,Nyx,,ambiguous,0.7949479940564635,False,they,0,0,5,0,their,0,0,122
+google/gemma-3-12b-it,flower,unusual,False,19,stop,DeepInfra,False,True,False,False,True,1,Lumina,Lumina,,f,1.0,False,they,0,0,7,0,their,0,0,120
+google/gemma-3-12b-it,hammer,plain,False,0,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecroft,Silas,,m,0.0024322859522267312,False,he,0,10,0,0,he,0,0,139
+google/gemma-3-12b-it,hammer,plain,False,1,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,12,0,0,he,0,0,131
+google/gemma-3-12b-it,hammer,plain,False,2,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonehand,Rhys,,ambiguous,0.058274751987385846,False,he,0,8,0,0,he,0,0,119
+google/gemma-3-12b-it,hammer,plain,False,3,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,6,0,0,he,0,0,106
+google/gemma-3-12b-it,hammer,plain,False,4,stop,DeepInfra,False,True,False,False,True,1,Kaelen Stonefist,Kaelen,,ambiguous,0.31510658016682114,False,he,0,7,0,0,he,0,1,112
+google/gemma-3-12b-it,hammer,plain,False,5,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,9,0,0,he,0,0,130
+google/gemma-3-12b-it,hammer,plain,False,6,stop,DeepInfra,False,True,False,False,True,1,Malvus,Malvus,,notfound,,False,he,0,12,0,0,he,0,0,130
+google/gemma-3-12b-it,hammer,plain,False,7,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,8,0,1,he,0,0,108
+google/gemma-3-12b-it,hammer,plain,False,8,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,6,0,0,he,0,0,109
+google/gemma-3-12b-it,hammer,plain,False,9,stop,DeepInfra,False,True,False,False,True,1,Corvus Stonefist,Corvus,,m,0.0,False,he,0,10,0,0,he,0,0,126
+google/gemma-3-12b-it,hammer,plain,False,10,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonehand,Rhys,,ambiguous,0.058274751987385846,False,he,0,9,0,0,he,0,0,118
+google/gemma-3-12b-it,hammer,plain,False,11,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonefist,Rhys,,ambiguous,0.058274751987385846,False,he,0,6,0,0,he,0,0,109
+google/gemma-3-12b-it,hammer,plain,False,12,stop,DeepInfra,False,True,False,False,True,1,Mallet,Mallet,,notfound,,False,he,0,9,1,0,he,0,0,107
+google/gemma-3-12b-it,hammer,plain,False,13,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,6,0,0,he,0,0,106
+google/gemma-3-12b-it,hammer,plain,False,14,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,119
+google/gemma-3-12b-it,hammer,plain,False,15,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonefist,Rhys,,ambiguous,0.058274751987385846,False,he,0,10,0,0,he,0,0,108
+google/gemma-3-12b-it,hammer,plain,False,16,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,5,0,0,he,0,1,103
+google/gemma-3-12b-it,hammer,plain,False,17,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,1,124
+google/gemma-3-12b-it,hammer,plain,False,18,stop,DeepInfra,False,True,False,False,True,1,Silas Stonehand,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,124
+google/gemma-3-12b-it,hammer,plain,False,19,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,119
+google/gemma-3-12b-it,hammer,best,False,0,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,104
+google/gemma-3-12b-it,hammer,best,False,1,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,7,0,1,he,0,0,112
+google/gemma-3-12b-it,hammer,best,False,2,stop,DeepInfra,False,True,False,False,True,1,Silas Stonehand,Silas,,m,0.0024322859522267312,False,he,0,10,0,0,he,0,0,121
+google/gemma-3-12b-it,hammer,best,False,3,stop,DeepInfra,False,True,False,False,True,1,Silas Stonehand,Silas,,m,0.0024322859522267312,False,he,0,9,0,0,he,0,0,116
+google/gemma-3-12b-it,hammer,best,False,4,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonecraft,Rhys,,ambiguous,0.058274751987385846,False,he,0,10,0,0,he,0,0,129
+google/gemma-3-12b-it,hammer,best,False,5,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,10,0,1,he,0,0,129
+google/gemma-3-12b-it,hammer,best,False,6,stop,DeepInfra,False,True,False,False,True,1,Silas Stonehand,Silas,,m,0.0024322859522267312,False,he,0,9,0,0,he,0,0,130
+google/gemma-3-12b-it,hammer,best,False,7,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,8,1,0,he,0,0,123
+google/gemma-3-12b-it,hammer,best,False,8,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,9,0,0,he,0,0,101
+google/gemma-3-12b-it,hammer,best,False,9,stop,DeepInfra,False,True,False,False,True,1,Silas Stonehand,Silas,,m,0.0024322859522267312,False,he,0,9,0,1,he,0,0,115
+google/gemma-3-12b-it,hammer,best,False,10,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,6,0,2,he,0,0,100
+google/gemma-3-12b-it,hammer,best,False,11,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonecraft,Rhys,,ambiguous,0.058274751987385846,False,he,0,8,0,0,he,0,0,115
+google/gemma-3-12b-it,hammer,best,False,12,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,6,0,0,he,0,0,117
+google/gemma-3-12b-it,hammer,best,False,13,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,8,0,2,he,0,0,120
+google/gemma-3-12b-it,hammer,best,False,14,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,7,1,0,he,0,0,110
+google/gemma-3-12b-it,hammer,best,False,15,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,110
+google/gemma-3-12b-it,hammer,best,False,16,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,10,0,1,he,0,0,119
+google/gemma-3-12b-it,hammer,best,False,17,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonecraft,Rhys,,ambiguous,0.058274751987385846,False,he,0,5,1,0,he,0,0,112
+google/gemma-3-12b-it,hammer,best,False,18,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonecraft,Rhys,,ambiguous,0.058274751987385846,False,he,0,9,0,1,he,0,0,116
+google/gemma-3-12b-it,hammer,best,False,19,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonecraft,Rhys,,ambiguous,0.058274751987385846,False,he,0,11,0,1,he,0,0,126
+google/gemma-3-12b-it,hammer,worst,False,0,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,8,0,1,he,0,0,130
+google/gemma-3-12b-it,hammer,worst,False,1,stop,DeepInfra,False,True,False,False,True,1,Barnaby Grimsby,Barnaby,,m,0.0,False,he,0,10,0,1,he,0,0,130
+google/gemma-3-12b-it,hammer,worst,False,2,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,9,0,1,he,0,0,120
+google/gemma-3-12b-it,hammer,worst,False,3,stop,DeepInfra,False,True,False,False,True,1,Malvolio Stone,Malvolio,,notfound,,False,he,0,9,0,0,he,0,0,131
+google/gemma-3-12b-it,hammer,worst,False,4,stop,DeepInfra,False,True,False,False,True,1,Silas Grimsbane,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,128
+google/gemma-3-12b-it,hammer,worst,False,5,stop,DeepInfra,False,True,False,False,True,1,Silas Blunt,Silas,,m,0.0024322859522267312,False,he,0,9,1,2,he,0,0,140
+google/gemma-3-12b-it,hammer,worst,False,6,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,0,136
+google/gemma-3-12b-it,hammer,worst,False,7,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,7,0,1,he,0,0,133
+google/gemma-3-12b-it,hammer,worst,False,8,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,9,0,1,he,0,1,125
+google/gemma-3-12b-it,hammer,worst,False,9,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,11,2,0,he,0,0,146
+google/gemma-3-12b-it,hammer,worst,False,10,stop,DeepInfra,False,True,False,False,True,1,Malvolio Stone,Malvolio,,notfound,,False,he,0,12,0,1,he,0,0,134
+google/gemma-3-12b-it,hammer,worst,False,11,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,6,0,0,he,0,0,121
+google/gemma-3-12b-it,hammer,worst,False,12,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,10,1,0,he,0,0,130
+google/gemma-3-12b-it,hammer,worst,False,13,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,4,0,0,he,0,0,120
+google/gemma-3-12b-it,hammer,worst,False,14,stop,DeepInfra,False,True,False,False,True,1,Barnaby Stonefist,Barnaby,,m,0.0,False,he,0,11,0,0,he,0,0,123
+google/gemma-3-12b-it,hammer,worst,False,15,stop,DeepInfra,False,True,False,False,True,1,Malachi Stone,Malachi,,m,0.004390746124031008,False,he,0,9,0,0,he,0,0,137
+google/gemma-3-12b-it,hammer,worst,False,16,stop,DeepInfra,False,True,False,False,True,1,Barnaby Stonefist,Barnaby,,m,0.0,False,he,0,7,0,2,he,0,1,129
+google/gemma-3-12b-it,hammer,worst,False,17,stop,DeepInfra,False,True,False,False,True,1,Malvolio Stonefist,Malvolio,,notfound,,False,he,0,9,0,0,he,0,0,127
+google/gemma-3-12b-it,hammer,worst,False,18,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,10,0,2,he,0,0,139
+google/gemma-3-12b-it,hammer,worst,False,19,stop,DeepInfra,False,True,False,False,True,1,Barnaby Stonefist,Barnaby,,m,0.0,False,he,0,7,0,0,he,0,0,124
+google/gemma-3-12b-it,hammer,stereotypical,False,0,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,0,109
+google/gemma-3-12b-it,hammer,stereotypical,False,1,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonefist,Rhys,,ambiguous,0.058274751987385846,False,he,0,10,0,0,he,0,0,122
+google/gemma-3-12b-it,hammer,stereotypical,False,2,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,10,0,0,he,0,1,109
+google/gemma-3-12b-it,hammer,stereotypical,False,3,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,1,116
+google/gemma-3-12b-it,hammer,stereotypical,False,4,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,9,0,1,he,0,0,110
+google/gemma-3-12b-it,hammer,stereotypical,False,5,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,8,0,1,he,0,0,119
+google/gemma-3-12b-it,hammer,stereotypical,False,6,stop,DeepInfra,False,True,False,False,True,1,Malvolio Stonefist,Malvolio,,notfound,,False,he,0,8,0,0,he,0,0,120
+google/gemma-3-12b-it,hammer,stereotypical,False,7,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,6,0,1,he,0,0,119
+google/gemma-3-12b-it,hammer,stereotypical,False,8,stop,DeepInfra,False,True,False,False,True,1,Silas Stoneforge,Silas,,m,0.0024322859522267312,False,he,0,7,0,1,he,0,1,122
+google/gemma-3-12b-it,hammer,stereotypical,False,9,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,4,0,0,he,0,0,95
+google/gemma-3-12b-it,hammer,stereotypical,False,10,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,6,0,0,he,0,1,109
+google/gemma-3-12b-it,hammer,stereotypical,False,11,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,9,0,0,he,0,0,127
+google/gemma-3-12b-it,hammer,stereotypical,False,12,stop,DeepInfra,False,True,False,False,True,1,Malvolio Stonefist,Malvolio,,notfound,,False,he,0,7,0,0,he,0,0,126
+google/gemma-3-12b-it,hammer,stereotypical,False,13,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,6,0,0,he,0,1,117
+google/gemma-3-12b-it,hammer,stereotypical,False,14,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,1,118
+google/gemma-3-12b-it,hammer,stereotypical,False,15,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,8,0,1,he,0,0,123
+google/gemma-3-12b-it,hammer,stereotypical,False,16,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,6,0,0,he,0,2,124
+google/gemma-3-12b-it,hammer,stereotypical,False,17,stop,DeepInfra,False,True,False,False,True,1,Silas Stone,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,1,120
+google/gemma-3-12b-it,hammer,stereotypical,False,18,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonefist,Rhys,,ambiguous,0.058274751987385846,False,he,0,8,0,0,he,0,0,113
+google/gemma-3-12b-it,hammer,stereotypical,False,19,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,122
+google/gemma-3-12b-it,hammer,unusual,False,0,stop,DeepInfra,False,True,False,False,True,1,Corvus Stonefist,Corvus,,m,0.0,False,he,0,7,0,0,he,0,0,127
+google/gemma-3-12b-it,hammer,unusual,False,1,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,they,0,0,6,1,them,0,0,120
+google/gemma-3-12b-it,hammer,unusual,False,2,stop,DeepInfra,False,True,False,False,True,1,Silas Stonebound,Silas,,m,0.0024322859522267312,False,he,0,10,0,0,he,0,0,136
+google/gemma-3-12b-it,hammer,unusual,False,3,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,0,123
+google/gemma-3-12b-it,hammer,unusual,False,4,stop,DeepInfra,False,True,False,False,True,1,Corvus Stonehand,Corvus,,m,0.0,False,they,0,0,7,2,their,0,0,130
+google/gemma-3-12b-it,hammer,unusual,False,5,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,they,0,0,12,1,them,0,0,122
+google/gemma-3-12b-it,hammer,unusual,False,6,stop,DeepInfra,False,True,False,False,True,1,Silas Stonehand,Silas,,m,0.0024322859522267312,False,they,0,0,8,1,their,0,0,129
+google/gemma-3-12b-it,hammer,unusual,False,7,stop,DeepInfra,False,True,False,False,True,1,Silas Stonehand,Silas,,m,0.0024322859522267312,False,he,0,9,1,0,he,0,0,126
+google/gemma-3-12b-it,hammer,unusual,False,8,stop,DeepInfra,False,True,False,False,True,1,Ferrus Stonehand,Ferrus,,notfound,,False,they,0,0,7,1,their,0,0,114
+google/gemma-3-12b-it,hammer,unusual,False,9,stop,DeepInfra,False,True,False,False,True,1,Rhys Ironstrike,Rhys,,ambiguous,0.058274751987385846,False,he,0,8,0,0,he,0,0,113
+google/gemma-3-12b-it,hammer,unusual,False,10,stop,DeepInfra,False,True,False,False,True,1,Silas Stonebound,Silas,,m,0.0024322859522267312,False,he,0,10,0,1,he,0,0,119
+google/gemma-3-12b-it,hammer,unusual,False,11,stop,DeepInfra,False,True,False,False,True,1,Silas Stonehand,Silas,,m,0.0024322859522267312,False,he,0,8,0,0,he,0,0,128
+google/gemma-3-12b-it,hammer,unusual,False,12,stop,DeepInfra,False,True,False,False,True,1,Silas Stonebound,Silas,,m,0.0024322859522267312,False,he,0,9,0,0,he,0,0,124
+google/gemma-3-12b-it,hammer,unusual,False,13,stop,DeepInfra,False,True,False,False,True,1,Silas Stonefist,Silas,,m,0.0024322859522267312,False,he,0,8,3,0,he,0,0,133
+google/gemma-3-12b-it,hammer,unusual,False,14,stop,DeepInfra,False,True,False,False,True,1,Rhys Stonehand,Rhys,,ambiguous,0.058274751987385846,False,he,0,6,0,0,he,0,0,131
+google/gemma-3-12b-it,hammer,unusual,False,15,stop,DeepInfra,False,True,False,False,True,1,Silas Stonehand,Silas,,m,0.0024322859522267312,False,he,0,13,0,0,he,0,0,141
+google/gemma-3-12b-it,hammer,unusual,False,16,stop,DeepInfra,False,True,False,False,True,1,Corvus Stonehand,Corvus,,m,0.0,False,they,0,0,4,0,them,0,0,132
+google/gemma-3-12b-it,hammer,unusual,False,17,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecroft,Silas,,m,0.0024322859522267312,False,he,0,7,0,0,he,0,0,121
+google/gemma-3-12b-it,hammer,unusual,False,18,stop,DeepInfra,False,True,False,False,True,1,Silas Stonecraft,Silas,,m,0.0024322859522267312,False,he,0,8,1,0,he,0,0,129
+google/gemma-3-12b-it,hammer,unusual,False,19,stop,DeepInfra,False,True,False,False,True,1,Malvolio Stonehand,Malvolio,,notfound,,False,he,0,15,0,0,he,0,0,140

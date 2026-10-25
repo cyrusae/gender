@@ -1,0 +1,5 @@
+model,thinking,noun,modifier,n,she,he,they,mixed,none,share_f,truncated,cot_gender,cot_lang,cot_ship_she
+Qwen/Qwen3-0.6B,False,ship,best,2,0.0,0.0,1.0,0.0,0.0,0.0,0.0,,,
+Qwen/Qwen3-0.6B,False,ship,plain,2,0.0,0.0,0.5,0.0,0.5,0.0,0.0,,,
+Qwen/Qwen3-0.6B,True,ship,best,2,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Qwen/Qwen3-0.6B,True,ship,plain,2,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0

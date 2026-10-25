@@ -1,0 +1,22 @@
+{
+  "name": "pilot0_v1",
+  "template": "Consider {MOD_NOUN}: what makes it recognizable, what is most characteristic of it, and how people experience it. Now invent a character for a short story who is the human embodiment of {MOD_NOUN}. Write in the third person; write one paragraph describing the character's appearance, behavior, traits, and personality. Do not give the character a name. Respond with only the paragraph.",
+  "modifiers": {
+    "plain": "{a} {noun}",
+    "best": "the best {noun}",
+    "worst": "the worst {noun}",
+    "stereotypical": "a stereotypical {noun}",
+    "unusual": "an unusual {noun}"
+  },
+  "samples_per_cell": 20,
+  "sampling": {
+    "_source": "model cards / generation_config.json recommended defaults; not tuned",
+    "qwen3_thinking": {"temperature": 0.6, "top_p": 0.95, "top_k": 20, "min_p": 0.0, "max_tokens": 4096},
+    "qwen3_nothinking": {"temperature": 0.7, "top_p": 0.8, "top_k": 20, "min_p": 0.0, "max_tokens": 1024},
+    "gemma3": {"temperature": 1.0, "top_p": 0.95, "top_k": 64, "min_p": 0.0, "max_tokens": 1024}
+  },
+  "models": {
+    "Qwen/Qwen3-8B": {"family": "qwen3", "thinking": [true, false]},
+    "google/gemma-3-12b-it": {"family": "gemma3", "thinking": [false]}
+  }
+}
