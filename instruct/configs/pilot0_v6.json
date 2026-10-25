@@ -110,14 +110,15 @@
         "reasoning_param": true,
         "provider": {
           "order": [
-            "novita"
+            "crusoe"
           ],
           "quantizations": [
             "bf16"
           ],
           "allow_fallbacks": false
         }
-      }
+      },
+      "_note": "Pinned to Crusoe bf16: Novita bf16 returned upstream 429s on the check run (2026-10-25)."
     },
     "openai/gpt-6-luna": {
       "family": "gpt6",
