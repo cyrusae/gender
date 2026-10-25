@@ -1,0 +1,11 @@
+# Pilot 0 nouns v2 (burned: see reserved_nouns.csv). v1 minus ship (PI 2026-10-25: keep ship for the
+# real study; the Mac smoke test on Qwen3-0.6B, 8 outputs, does not count as use).
+# Genders copied from data/lexicon/{de,es}_nouns.csv (Wiktionary, kaikki dump 2026-10-03).
+# glasgow_gend = Scott et al. 2019 GEND mean, 1 = very feminine, 7 = very masculine (4 = neutral).
+noun,de_lemma,de_gender,es_lemma,es_gender,glasgow_gend,role
+pot,Topf,m,olla,f,3.91,flipped de-m/es-f
+keyboard,Tastatur,f,teclado,m,4.31,flipped de-f/es-m (also a Phase 4 pair; not a classic)
+tree,Baum,m,árbol,m,3.89,agree m
+door,Tür,f,puerta,f,4.27,agree f
+flower,Blume,f,flor,f,1.66,English feminine association (positive control)
+hammer,Hammer,m,martillo,m,5.97,English masculine association (positive control)

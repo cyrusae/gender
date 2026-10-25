@@ -4,6 +4,8 @@
       --nouns instruct/stimuli/pilot0_nouns_v1.csv --model Qwen/Qwen3-8B --backend vllm \
       --out instruct/results/pilot0/Qwen__Qwen3-8B.jsonl
 Smoke (Mac): --backend hf --model Qwen/Qwen3-0.6B --n 2 --only-nouns pot --only-mods plain,best
+OpenRouter: --backend openrouter (model needs an "openrouter" block in the config: id + provider pin;
+  key from $OPENROUTER_API_KEY or ~/.config/openrouter/gender-key)
 
 One jsonl row per completion with full provenance. Reasoning ('<think>') is split from the answer.
 """
@@ -14,8 +16,12 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import subprocess
 import time
+import urllib.error
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from code_outputs import split_think
@@ -46,7 +52,7 @@ def build_prompts(cfg: dict, nouns: list[str], mods: list[str] | None) -> list[d
                 continue
             mod_noun = mt.format(a=article(noun), noun=noun)
             out.append({"noun": noun, "modifier": mk, "mod_noun": mod_noun,
-                        "prompt": cfg["template"].replace("{MOD_NOUN}", mod_noun)})  # fmt: skip
+                        "prompt": cfg["template"].replace("{MOD_NOUN}", mod_noun).replace("{NOUN}", noun)})  # fmt: skip
     return out
 
 
@@ -72,7 +78,7 @@ def render(tok, prompt: str, thinking: bool, family: str) -> str:
 def run_vllm(model, texts, sp, n, seed):
     from vllm import LLM, SamplingParams
 
-    llm = LLM(model=model, dtype="bfloat16", seed=seed, max_model_len=8192)
+    llm = LLM(model=model, dtype="bfloat16", seed=seed, max_model_len=sp["max_tokens"] + 2048)
     params = SamplingParams(n=n, temperature=sp["temperature"], top_p=sp["top_p"],
                             top_k=sp["top_k"], min_p=sp["min_p"], max_tokens=sp["max_tokens"],
                             seed=seed, skip_special_tokens=False)  # fmt: skip
@@ -117,13 +123,83 @@ def run_hf(model, texts, sp, n, seed):
     return out
 
 
+OR_URL = "https://openrouter.ai/api/v1/chat/completions"
+
+
+def or_key() -> str:
+    k = os.environ.get("OPENROUTER_API_KEY")
+    if not k:
+        f = Path.home() / ".config" / "openrouter" / "gender-key"
+        k = f.read_text().strip() if f.exists() else ""
+    if not k:
+        raise SystemExit(
+            "no OpenRouter key: set OPENROUTER_API_KEY or ~/.config/openrouter/gender-key"
+        )
+    return k
+
+
+def or_call(body: dict, key: str, tries: int = 5) -> dict:
+    data = json.dumps(body).encode()
+    req = urllib.request.Request(OR_URL, data=data, headers={
+        "Authorization": f"Bearer {key}", "Content-Type": "application/json"})  # fmt: skip
+    err = ""
+    for i in range(tries):
+        try:
+            with urllib.request.urlopen(req, timeout=600) as r:
+                d = json.loads(r.read())
+            if "choices" in d:
+                return d
+            err = json.dumps(d.get("error", d))[:500]
+        except urllib.error.HTTPError as e:
+            err = f"HTTP {e.code}: {e.read()[:500]!r}"
+            if e.code not in (408, 429, 500, 502, 503, 504):
+                break
+        except (urllib.error.URLError, TimeoutError) as e:
+            err = repr(e)
+        time.sleep(2**i)
+    return {"error": err}
+
+
+def run_openrouter(ocfg: dict, prompts: list[str], sp: dict, n: int, seed: int, thinking: bool):
+    """One request per sample (n>1 is not portable across providers). Returns rows of
+    (text, finish_reason, n_tokens, extra) with extra = provider, usage, reasoning, error."""
+    key = or_key()
+    jobs = [(i, j) for i in range(len(prompts)) for j in range(n)]
+
+    def one(ij):
+        i, j = ij
+        body = {"model": ocfg["id"], "messages": [{"role": "user", "content": prompts[i]}],
+                "temperature": sp["temperature"], "top_p": sp["top_p"], "top_k": sp["top_k"],
+                "min_p": sp["min_p"], "max_tokens": sp["max_tokens"], "seed": seed * 1000 + j,
+                "provider": ocfg["provider"], "usage": {"include": True}}  # fmt: skip
+        if ocfg.get("reasoning_param"):
+            body["reasoning"] = {"enabled": thinking}
+        d = or_call(body, key)
+        if "error" in d:
+            return ("", "error", 0, {"error": d["error"]})
+        ch = d["choices"][0]
+        msg = ch.get("message") or {}
+        u = d.get("usage") or {}
+        return (msg.get("content") or "", ch.get("finish_reason"), u.get("completion_tokens", 0),
+                {"provider": d.get("provider"), "or_model": d.get("model"), "usage": u,
+                 "reasoning": msg.get("reasoning"), "native_finish_reason":
+                 ch.get("native_finish_reason")})  # fmt: skip
+
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        flat = list(ex.map(one, jobs))
+    out = [[] for _ in prompts]
+    for (i, _), r in zip(jobs, flat):
+        out[i].append(r)
+    return out
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", type=Path, required=True)
     ap.add_argument("--nouns", type=Path, required=True)
     ap.add_argument("--model", required=True)
     ap.add_argument("--family", help="override (qwen3|gemma3); else from config")
-    ap.add_argument("--backend", choices=["vllm", "hf"], default="vllm")
+    ap.add_argument("--backend", choices=["vllm", "hf", "openrouter"], default="vllm")
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--n", type=int, help="samples per cell (default: config)")
     ap.add_argument("--thinking", choices=["config", "on", "off"], default="config")
@@ -131,8 +207,6 @@ def main() -> None:
     ap.add_argument("--only-mods")
     ap.add_argument("--seed", type=int, default=0)
     args = ap.parse_args()
-
-    from transformers import AutoTokenizer
 
     cfg = json.loads(args.config.read_text())
     mcfg = cfg["models"].get(args.model, {})
@@ -144,7 +218,10 @@ def main() -> None:
     check_reserved(nouns, cfg["name"])
     items = build_prompts(cfg, nouns, args.only_mods.split(",") if args.only_mods else None)
     n = args.n or cfg["samples_per_cell"]
-    tok = AutoTokenizer.from_pretrained(args.model)
+    if args.backend != "openrouter":
+        from transformers import AutoTokenizer
+
+        tok = AutoTokenizer.from_pretrained(args.model)
     meta = {"model": args.model, "backend": args.backend, "config": cfg["name"],
             "config_sha": hashlib.sha256(args.config.read_bytes()).hexdigest()[:12],
             "git_commit": git_commit(), "seed": args.seed}  # fmt: skip
@@ -152,26 +229,41 @@ def main() -> None:
         import vllm
 
         meta["backend_version"] = vllm.__version__
+    if args.backend == "openrouter":
+        meta["openrouter"] = mcfg["openrouter"]
+    tot = {"cost": 0.0, "errors": 0}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with args.out.open("w") as fh:
         for th in thinks:
             sp = cfg["sampling"][sampling_key(family, th)]
-            texts = [render(tok, it["prompt"], th, family) for it in items]
             t0 = time.time()
-            res = (run_vllm if args.backend == "vllm" else run_hf)(
-                args.model, texts, sp, n, args.seed
-            )
+            if args.backend == "openrouter":
+                res = run_openrouter(
+                    mcfg["openrouter"], [it["prompt"] for it in items], sp, n, args.seed, th
+                )
+            else:
+                texts = [render(tok, it["prompt"], th, family) for it in items]
+                res = (run_vllm if args.backend == "vllm" else run_hf)(
+                    args.model, texts, sp, n, args.seed
+                )
             print(
                 f"thinking={th}: {len(texts)} prompts x {n} in {time.time() - t0:.0f} s", flush=True
             )
             for it, outs in zip(items, res):
-                for i, (raw, fin, ntok) in enumerate(outs):
+                for i, (raw, fin, ntok, *ex) in enumerate(outs):
+                    extra = ex[0] if ex else {}
                     think, ans, closed = split_think(
                         raw.replace("<end_of_turn>", "").replace("<|im_end|>", "")
                     )
+                    if extra.get("reasoning") and think is None:
+                        think = extra["reasoning"]
+                    tot["cost"] += float((extra.get("usage") or {}).get("cost") or 0)
+                    tot["errors"] += fin == "error"
                     fh.write(json.dumps(meta | it | {"thinking": th, "sampling": sp, "sample": i,
                              "raw": raw, "think": think, "answer": ans, "think_closed": closed,
-                             "finish_reason": fin, "n_tokens": ntok}) + "\n")  # fmt: skip
+                             "finish_reason": fin, "n_tokens": ntok} | extra) + "\n")  # fmt: skip
+    if args.backend == "openrouter":
+        print(f"OpenRouter cost ${tot['cost']:.4f}, errors {tot['errors']}", flush=True)
     print(f"=== GEN DONE {args.model} ===", flush=True)
 
 

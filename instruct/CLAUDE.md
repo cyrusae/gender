@@ -19,7 +19,10 @@ file overrides it**. Status of these overrides: **DRAFT, awaiting PI sign-off** 
      data are coded;
   3. it is validated against a human-coded English sample (the PI can code English outputs) and
      agreement is reported;
-  4. it is blind to condition (it sees the paragraph only, never the noun or prompt).
+  4. what it sees is fixed in its pre-registration. The default is blind to condition (the
+     paragraph only). A judge that also sees the noun or the prompt (e.g. "how well does this
+     fulfil the prompt?") must say why in its pre-registration, and its scores are reported as
+     unblinded.
   Its gender biases are a known confound: never use it for the primary gender outcome.
 - **Sampling, not log-probs, is the default measure.** Sampling settings come from each model's
   published recommended defaults (`configs/`), never tuned on outcomes.

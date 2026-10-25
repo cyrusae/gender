@@ -60,6 +60,23 @@ thinking mode closes its `<think>` block within budget, and how variable outputs
    it must never decide the primary gender outcome (pronouns stay regex).
 3. Sampling settings fixed to vendor defaults.
 
+## Pilot 0 v2 (adopted 2026-10-25)
+
+- Prompt `configs/pilot0_v2.json`: v1 + `Do not use the word "{noun}" in the paragraph.` + no name in
+  the paragraph + a final `Name: <name>` line. Pronouns are written before the name exists.
+- Nouns `stimuli/pilot0_nouns_v2.csv`: 6 (ship dropped, kept for the real study).
+- Gates (`code_outputs.code_v2`): noun/plural as whole word in the paragraph; Name line missing or
+  not last; truncated; API error → invalid. Rates per cell are reported. Paragraph count recorded,
+  not gated.
+- Names: first given name (after titles/descriptors such as Mrs, Old, Man) looked up in SSA US
+  baby names, all years: f/m if ≥ 95% one sex, else ambiguous, or not found. Expect many invented
+  fantasy names (not found). Origin coding (Wiktionary given-name entries, Behind the Name) later.
+- Venue: OpenRouter for prompt-format iteration on Gemma-3-12B-it pinned to bf16 (DeepInfra, no
+  fallbacks); Qwen3 is only served in fp8/int4 there, so Qwen (and thinking) waits for the pod.
+  Every row records the serving provider and cost.
+- Limits of API runs: unknown serving stack; frontier models return reasoning *summaries*, not raw
+  CoT; reasoning models may ignore temperature; models change without notice (pin dated ids).
+
 ## Later (not built)
 
 - Gender-flipped version (John/Jane/Jamie × role × genre; "do not mention the noun") — the

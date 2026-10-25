@@ -39,3 +39,20 @@ def test_prompts():
     assert [x["prompt"] for x in p] == ["Consider a ship.", "Consider an unusual ship.",
                                         "Consider an oak.", "Consider an unusual oak."]  # fmt: skip
     assert article("umbrella") == "an"
+
+
+def test_v2_gates_and_name():
+    from code_outputs import code_v2, plural, split_name
+
+    assert plural("door") == "doors" and plural("brush") == "brushes"
+    txt = "She stands tall, her bark-brown coat creased.\n\n**Name:** Mrs. Elspeth Rowan"
+    para, name = split_name(txt)
+    assert para.startswith("She") and name == "Mrs. Elspeth Rowan"
+    c = code_v2(txt, "tree", "stop")
+    assert c["valid"] and c["pron"] == "she" and c["given"] == "Elspeth" and c["title"] == "Mrs"
+    assert code_v2("He is a pot of a man.\nName: Bob", "pot", "stop")["noun_hit"]
+    assert not code_v2("He is a potter.\nName: Bob", "pot", "stop")["noun_hit"]
+    assert code_v2("Trees love him.\nName: Bob", "tree", "stop")["noun_hit"]
+    assert not code_v2("He hums.\nName: Bob\nThe end.", "pot", "stop")["name_ok"]
+    assert not code_v2("He hums.\nName: Bob", "pot", "length")["valid"]
+    assert code_v2("He.\n\nHe again.\nName: Bob", "pot", "stop")["n_paragraphs"] == 2
