@@ -119,3 +119,31 @@ German is the weaker partner in both models (one direction misses the majority e
 Spanish–Russian alignment is the strongest pair. Russian does not share German's frequency
 lean. Neither statement survives the concreteness-matched refit cleanly, so both carry a
 concreteness caveat.
+
+## Follow-up S: size-matched control (DRAFT for PI sign-off, 2026-10-25; not run)
+
+**Question.** The concreteness-matched refit (74 nouns) lost passing layers mainly in the tests
+that fit a direction on Russian (RU→ES 29→14 / 33→21, RU→DE 25→8 / 18→12). Is that drop what any
+74-noun Russian training set gives (sample size), or specific to concreteness matching?
+
+**Design.** For each model (Qwen3-8B, 14B): draw 200 random subsets of the 174-noun list, each
+with exactly the matched set's composition (the same number of f and m nouns in each of the same
+8 cells: 37 f + 37 m), seed 26. For each subset refit the Russian direction (same probe,
+covariates, LAST) and compute the **point** within-cell AUCs RU→ES and RU→DE at every inner layer
+(no bootstrap per subset, for cost), and their mean over inner layers.
+
+**Statistic.** For RU→ES and RU→DE separately: the matched set's layer-mean point AUC (from the
+main run's `r_a_layers.csv`, `set = matched`) against the distribution of the 200 random subsets.
+
+**Readings (per model, per test):**
+- **Size explains it:** the matched AUC lies inside the random subsets' central 95%.
+- **Concreteness matters:** the matched AUC is below the random subsets' 2.5th percentile.
+- **Matched is better than random:** above the 97.5th percentile (reported; would mean matching helps).
+
+Overall: "size explains the drop" if that holds for both tests on both models; "concreteness
+matters" if it holds for at least one test on both models; otherwise mixed. ES→RU / DE→RU and
+R-B are not repeated (their directions don't depend on the Russian sample size, or need the
+permutation machinery per subset).
+
+**Cost.** CPU only, about 200 × layers probe fits per model (minutes to an hour). Code would be
+`russian_dir.size_control`; output `results/russian_dir/size_control.csv`.
