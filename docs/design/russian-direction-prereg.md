@@ -84,3 +84,38 @@ above was made with the concept only; with the Phase 3 rule there are **8 unrate
 11) and **37 matched pairs in 8 cells, mean Δ −0.01** (not 36 in 9). Counted before any
 activation was used; rule unchanged. Code `src/gbleed/russian_dir.py`, tests
 `tests/test_russian_dir.py`. Seed 25.
+
+## Results (2026-10-25)
+
+`gbleed russian-dir` at commit ddcf1f8; `results/russian_dir/` (`readings.json`, `r_a_layers.csv`,
+`r_b_layers.csv`). Matched set: 37 pairs (74 nouns), mean Δconcreteness −0.01.
+
+**R-A, layers passing (Bonferroni 98.75% lower bound > 0.5; majority = 18/35 for 8B, 20/39 for 14B):**
+
+| | RU→ES | RU→DE | ES→RU | DE→RU | reading |
+|---|---|---|---|---|---|
+| Qwen3-8B, full list | 29 | 25 | 30 | **9** | one-way (out of Russian) |
+| Qwen3-8B, matched | 14 | 8 | 26 | 16 | partial |
+| Qwen3-14B, full list | 33 | **18** | 34 | 28 | one-way (into Russian) |
+| Qwen3-14B, matched | 21 | 12 | 26 | 13 | partial |
+
+Median point AUCs (full list): 8B 0.88 / 0.84 / 0.84 / 0.66; 14B 0.91 / 0.75 / 0.86 / 0.74.
+Descriptive cross-fitted cosines (all layers valid): RU–ES median 0.74 (8B), 0.65 (14B); RU–DE
+0.53, 0.44.
+
+**R-B (frequency):** full list **no overlap** on both models (cos −0.08 to −0.25) → **German-only**.
+Matched: 8B mixed (overlap at 2/4 layers, cos −0.49, −0.33), 14B no overlap → mixed across models.
+
+**Concreteness sensitivity: not robust** (R-A one-way → partial on both models; R-B German-only →
+mixed). Per the prereg the matched reading is the one interpreted for concreteness. Note for
+interpretation (not a reading): the drop is concentrated in the tests that *fit* a direction on
+the 74 matched Russian nouns (RU→ES/DE); ES→RU, whose direction is fitted on the full Spanish
+set and only scored on the matched nouns, holds (30→26, 34→26). Smaller-sample fitting and
+concreteness confounding are not separated by this design.
+
+**Summary.** On the full list, a Russian gender direction learned without articles scores
+Spanish nouns by gender at most layers and is scored by the Spanish direction at most layers;
+German is the weaker partner in both models (one direction misses the majority each time).
+Spanish–Russian alignment is the strongest pair. Russian does not share German's frequency
+lean. Neither statement survives the concreteness-matched refit cleanly, so both carry a
+concreteness caveat.
