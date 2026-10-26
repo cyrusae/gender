@@ -1,0 +1,168 @@
+{
+  "name": "pilot0_v7",
+  "_changes_from_v6": "PI 2026-10-25: model fishing. Conditions free_noted + none only (v6 wording), plain modifier only. Selection rule (fixed before results): keep a model if its she-share among valid outputs is within 25-75% in BOTH free_noted and none. Thinking: vendor default (no reasoning parameter sent). Sampling: only vendor-published defaults (OpenRouter default_parameters or HF generation_config); none sent otherwise.",
+  "template": "Consider {MOD_NOUN}: what makes it recognizable, what is most characteristic of it, and how people experience it. Now invent a character for a short story who is the human embodiment of {MOD_NOUN}. Write one paragraph in the third person describing the character's appearance, behavior, traits, and personality. Do not use the word \"{NOUN}\" in the paragraph. {NAME_INSTR}",
+  "name_conditions": {
+    "free_noted": "After the paragraph, write one final line in the form \"Name: <the character's name>\". Respond with only the paragraph and the name line.",
+    "none": "Do not give the character a name. Respond with only the paragraph."
+  },
+  "modifiers": {
+    "plain": "{a} {noun}"
+  },
+  "samples_per_cell": 20,
+  "sampling": {
+    "_source": "vendor-published defaults only; max_tokens 16384 covers hidden reasoning",
+    "deepseek41": {
+      "max_tokens": 16384
+    },
+    "qwen38": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "max_tokens": 16384
+    },
+    "qwen38flash": {
+      "max_tokens": 16384
+    },
+    "mistral2603": {
+      "max_tokens": 16384
+    },
+    "gptoss": {
+      "max_tokens": 16384
+    },
+    "haiku55": {
+      "max_tokens": 16384
+    },
+    "glm53flash": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "max_tokens": 16384
+    }
+  },
+  "models": {
+    "deepseek/deepseek-v4.1-flash": {
+      "family": "deepseek41",
+      "thinking": [
+        false
+      ],
+      "tier": "trained precision (probably fp8)",
+      "openrouter": {
+        "id": "deepseek/deepseek-v4.1-flash",
+        "provider": {
+          "order": [
+            "crusoe"
+          ],
+          "allow_fallbacks": false,
+          "quantizations": [
+            "fp8"
+          ]
+        }
+      }
+    },
+    "qwen/qwen3.8-27b": {
+      "family": "qwen38",
+      "thinking": [
+        false
+      ],
+      "tier": "full",
+      "openrouter": {
+        "id": "qwen/qwen3.8-27b",
+        "provider": {
+          "order": [
+            "deepinfra"
+          ],
+          "allow_fallbacks": false,
+          "quantizations": [
+            "bf16"
+          ]
+        }
+      }
+    },
+    "qwen/qwen3.8-flash": {
+      "family": "qwen38flash",
+      "thinking": [
+        false
+      ],
+      "tier": "unknown (closed-like)",
+      "openrouter": {
+        "id": "qwen/qwen3.8-flash",
+        "provider": {
+          "order": [
+            "alibaba"
+          ],
+          "allow_fallbacks": false
+        }
+      }
+    },
+    "mistralai/mistral-small-2603": {
+      "family": "mistral2603",
+      "thinking": [
+        false
+      ],
+      "tier": "unknown",
+      "openrouter": {
+        "id": "mistralai/mistral-small-2603",
+        "provider": {
+          "order": [
+            "mistral"
+          ],
+          "allow_fallbacks": false
+        }
+      }
+    },
+    "openai/gpt-oss-120b": {
+      "family": "gptoss",
+      "thinking": [
+        false
+      ],
+      "tier": "trained precision",
+      "openrouter": {
+        "id": "openai/gpt-oss-120b",
+        "provider": {
+          "order": [
+            "deepinfra"
+          ],
+          "allow_fallbacks": false,
+          "quantizations": [
+            "bf16"
+          ]
+        }
+      }
+    },
+    "anthropic/claude-haiku-5.5": {
+      "family": "haiku55",
+      "thinking": [
+        false
+      ],
+      "tier": "unknown (closed)",
+      "openrouter": {
+        "id": "anthropic/claude-haiku-5.5",
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      }
+    },
+    "z-ai/glm-5.3-flash": {
+      "family": "glm53flash",
+      "thinking": [
+        false
+      ],
+      "tier": "variety (fp8)",
+      "openrouter": {
+        "id": "z-ai/glm-5.3-flash",
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false,
+          "quantizations": [
+            "fp8"
+          ]
+        }
+      }
+    }
+  }
+}
