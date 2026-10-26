@@ -72,6 +72,11 @@ uv run gbleed phase0-compare [--by freq_bin|set|de_suffix|es_exception]
 - **Data on the external drive: never hard-code `activations/` or `results/phase5/`**; use `paths.act_dir()` / `paths.p5_dir()` / `paths.kaikki()`. The drive is exFAT: macOS writes a `._<name>` sidecar beside every file (provenance xattr), so wrap directory listings there in `paths.visible(...)`. A "not mounted" warning followed by file-not-found means the drive is unplugged.
 - **End markers must be unique strings, matched as whole lines**: a copy loop grepping `P29 done` also matched the Python line `... P29 done: 2400 prompts` and quit early. Match `^=== .* P29 done$`.
 - **Don't create pods from the PyTorch template as-is**: `runpod-torch-v280` attaches a 50 GB persistent `/workspace` volume, and on 2026-10-23 two such pods (US-MO-1, EUR-IS-2) hung at "Initializing" (storage "provisioned · usage unavailable", no container, empty logs). Pass `image` directly with only a container disk (`mounts: {}`), and exclude US-MO-1 (a third pod, no volume, hung there too); OC-AU-1 worked twice. Readiness = a command's output from inside the container, not status RUNNING.
+- **Match the pod's host CUDA to the pinned stack before creating it**: vLLM 0.27–0.31 require
+  torch 2.13, which exists only for CUDA 12.9/13.0, so a host whose driver tops out at 12.8 fails at
+  CUDA init (2026-10-26: H100 NVL pod terminated after ~18 min, ~$0.80). Set `gpu.minCudaVersion`
+  from the stack, and make the setup's CUDA check fatal (`set -uo` without `-e` let the script
+  run on). Check capacity at that CUDA version, not just the GPU type.
 - **A pod can't stop itself**: the pod's injected `RUNPOD_API_KEY` (in `/proc/1/environ`, not in ssh sessions) is rejected by `runpodctl` ("Unauthorized"). Stopping is the Mac side's job; keep this session attended while a pod bills.
 - **A local `pgrep -f PATTERN` inside a Monitor script matches the script itself** (its command line contains PATTERN): wait on an output file or log marker instead.
 - **German `strat3` simplex filter gap:** compounds with an agent/instrument head (*Wasserkocher*) and numeral nouns (*Vierer*) passed Phase 3's "simplex" rule; `frequency_axis.complexity_rule` catches them. Any new German set should apply it.

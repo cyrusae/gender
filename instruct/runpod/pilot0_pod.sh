@@ -11,7 +11,10 @@ command -v uv >/dev/null || { curl -LsSf https://astral.sh/uv/install.sh | sh; e
 [ -d .venv-vllm ] || uv venv -q .venv-vllm
 source .venv-vllm/bin/activate
 uv pip install -q "vllm==0.31.0" pandas
-python -c "import vllm, torch; print('vllm', vllm.__version__, '| torch', torch.__version__, '| GPU', torch.cuda.get_device_name(0))"
+# vLLM 0.27-0.31 need torch 2.13, built only for CUDA 12.9/13.0: create the pod with
+# gpu.minCudaVersion "13.0" (a 12.8 host fails at CUDA init). Abort here, before any job or download.
+python -c "import vllm, torch; torch.zeros(1).cuda(); print('vllm', vllm.__version__, '| torch', torch.__version__, '| GPU', torch.cuda.get_device_name(0))" \
+  || { echo "=== ABORT: CUDA init failed (host driver too old for this torch build)"; exit 1; }
 cd instruct
 OUT=results/pilot0_v6_pod; mkdir -p $OUT
 run() {  # name model thinking [extra args]
