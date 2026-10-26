@@ -1,34 +1,34 @@
-key,text,article_type,pair,dimension_proposed,glasgow_word,glasgow_gend,glasgow_val,crawford_gend_5pt_NJ
-plain,{a} {noun},indefinite,,baseline,,,,
-interesting,an interesting {noun},indefinite,boring,value,interesting,3.429,7.829,
-boring,a boring {noun},indefinite,interesting,value,boring,4.471,2.486,
-best,the best {noun},definite,worst,value,best,4.088,8.147,
-worst,the worst {noun},definite,best,value,worst,4.529,1.829,
-favorite,your favorite {noun},possessive,least_favorite,value-personal,favorite,,,
-least_favorite,your least favorite {noun},possessive,favorite,value-personal,favorite,,,
-ideal,an ideal {noun},indefinite,,value,ideal,3.485,7.387,2.84
-stereotypical,a stereotypical {noun},indefinite,,typicality,stereotypical,,,
-ordinary,an ordinary {noun},indefinite,,typicality,ordinary,4.030,4.727,
-unusual,an unusual {noun},indefinite,,typicality,unusual,4.171,5.029,
-unique,a unique {noun},indefinite,,typicality,unique,3.533,7.484,
-bizarre,a bizarre {noun},indefinite,,typicality,bizarre,4.414,4.758,
-traditional,a traditional {noun},indefinite,modern,style,traditional,,,
-modern,a modern {noun},indefinite,traditional,style,modern,,,2.836
-large,a large {noun},indefinite,small,size,large,5.167,6.031,
-small,a small {noun},indefinite,large,size,small,3.029,4.886,
-new,a new {noun},indefinite,old,age,new,3.667,7.063,
-old,an old {noun},indefinite,new,age,old,,,
-deliberate,a deliberate {noun},indefinite,accidental,intention,deliberate,,,3.101
-accidental,an accidental {noun},indefinite,deliberate,intention,accidental,3.939,3.941,
-popular,a popular {noun},indefinite,unpopular,fame,popular,,,
-unpopular,an unpopular {noun},indefinite,popular,fame,unpopular,,,
-famous,a famous {noun},indefinite,,fame,famous,3.700,5.879,
-best_known,the best-known {noun},definite,,fame,famous,3.700,5.879,
-random,a random {noun},indefinite,specific,selection,random,3.903,4.970,
-specific,a specific {noun},indefinite,random,selection,specific,,,
-real,a real {noun},indefinite,imaginary,reality,real,3.941,6.371,
-imaginary,an imaginary {noun},indefinite,real,reality,imaginary,,,
-familiar,a familiar {noun},indefinite,unfamiliar,familiarity,familiar,,,
-unfamiliar,an unfamiliar {noun},indefinite,familiar,familiarity,unfamiliar,,,
-rough,a rough {noun},indefinite,smooth,texture,rough,5.429,3.581,3.745
-smooth,a smooth {noun},indefinite,rough,texture,smooth,2.455,6.939,
+key,text,article_type,pair,dimension_1,dimension_2,glasgow_word,glasgow_gend,glasgow_val,crawford_gend_5pt_NJ,cryan_silver
+plain,{a} {noun},indefinite,,baseline,,,,,,
+interesting,an interesting {noun},indefinite,boring,value-personal,,interesting,3.429,7.829,,
+boring,a boring {noun},indefinite,interesting,value-personal,,boring,4.471,2.486,,
+best,the best {noun},definite,worst,value,,best,4.088,8.147,,
+worst,the worst {noun},definite,best,value,,worst,4.529,1.829,,
+favorite,your favorite {noun},possessive,least_favorite,value-personal,,favorite,,,,-4.757
+least_favorite,your least favorite {noun},possessive,favorite,value-personal,,favorite,,,,-4.757
+ideal,an ideal {noun},indefinite,,value,,ideal,3.485,7.387,2.84,
+stereotypical,a stereotypical {noun},indefinite,,typicality,,stereotypical,,,,
+ordinary,an ordinary {noun},indefinite,,typicality,,ordinary,4.030,4.727,,
+unusual,an unusual {noun},indefinite,,typicality,,unusual,4.171,5.029,,
+unique,a unique {noun},indefinite,,typicality,,unique,3.533,7.484,,
+bizarre,a bizarre {noun},indefinite,,typicality,,bizarre,4.414,4.758,,-1.299
+traditional,a traditional {noun},indefinite,modern,style,,traditional,,,,
+modern,a modern {noun},indefinite,traditional,style,,modern,,,2.836,
+large,a large {noun},indefinite,small,size,,large,5.167,6.031,,
+small,a small {noun},indefinite,large,size,,small,3.029,4.886,,
+new,a new {noun},indefinite,old,age,,new,3.667,7.063,,0.662
+old,an old {noun},indefinite,new,age,,old,,,,
+deliberate,a deliberate {noun},indefinite,accidental,intention,,deliberate,,,3.101,-0.043
+accidental,an accidental {noun},indefinite,deliberate,intention,,accidental,3.939,3.941,,2.281
+popular,a popular {noun},indefinite,unpopular,fame,value-social,popular,,,,
+unpopular,an unpopular {noun},indefinite,popular,fame,value-social,unpopular,,,,
+famous,a famous {noun},indefinite,,fame,,famous,3.700,5.879,,
+best_known,the best-known {noun},definite,,fame,,famous,3.700,5.879,,
+random,a random {noun},indefinite,specific,selection,,random,3.903,4.970,,-2.243
+specific,a specific {noun},indefinite,random,selection,,specific,,,,
+real,a real {noun},indefinite,imaginary,reality,,real,3.941,6.371,,-0.266
+imaginary,an imaginary {noun},indefinite,real,reality,,imaginary,,,,
+familiar,a familiar {noun},indefinite,unfamiliar,value-personal,typicality,familiar,,,,
+unfamiliar,an unfamiliar {noun},indefinite,familiar,value-personal,typicality,unfamiliar,,,,2.299
+rough,a rough {noun},indefinite,smooth,texture,,rough,5.429,3.581,3.745,
+smooth,a smooth {noun},indefinite,rough,texture,,smooth,2.455,6.939,,-1.881
