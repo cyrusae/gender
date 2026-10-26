@@ -29,6 +29,7 @@ import json
 import re
 import subprocess
 import sys
+import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -59,20 +60,31 @@ SETS = {
     "core4": ["de", "ru", "es", "hi"],
     "core6": ["de", "ru", "es", "hi", "fi", "ja"],
     "core7": ["de", "ru", "es", "hi", "fi", "ja", "tr"],
+    "core8": ["de", "ru", "es", "hi", "ar", "fi", "ja", "tr"],
 }
 BAD_TAGS = {"dated", "rare", "regional", "obsolete", "plural", "archaic", "dialectal", "colloquial",
             "slang", "vulgar", "informal", "humorous", "literary", "poetic", "diminutive",
             "derogatory", "figuratively", "uncommon"}  # fmt: skip
 GTAG = {"masculine": "m", "feminine": "f", "neuter": "n", "common": "c"}
-NO_FREQ = {"ja"}
+NO_FREQ: set[str] = set()  # Japanese works with wordfreq[cjk] (MeCab), added 2026-10-25
+
+
+def norm(w: str, lang: str) -> str:
+    """Spelling for lookups: Wiktionary marks Russian stress (ло́жка) and Arabic short vowels
+    (بَاب); wordfreq and dictionary headwords may not. Other scripts are left alone (Hindi vowel
+    signs are combining marks too, but part of the spelling)."""
+    w = unicodedata.normalize("NFC", w)
+    if lang == "ru":  # stress accents only (stripping all marks would turn й into и)
+        w = w.replace("\u0301", "").replace("\u0300", "")
+    elif lang == "ar":  # harakat, tanween, shadda, sukun, superscript alef
+        w = re.sub("[\u064b-\u065f\u0670]", "", w)
+    return w
 
 
 def zipf(w: str, lang: str) -> float | None:
     if lang in NO_FREQ:
         return None
-    if lang == "ru":  # Wiktionary marks stress (ло́жка); wordfreq needs the plain spelling
-        w = w.replace("\u0301", "").replace("\u0300", "")
-    return zipf_frequency(w, lang)
+    return zipf_frequency(norm(w, lang), lang)
 
 
 def main_sense_tables(dump: Path, keep: set[str]) -> dict[str, dict]:
@@ -214,9 +226,9 @@ def main() -> None:
         rep.append(f"| {nm} | {' '.join(langs)} | {len(u)} | {cb.get('abstract', 0)} | "
                    f"{cb.get('mid', 0)} | {cb.get('concrete', 0)} | {u['val'].notna().sum()} |")  # fmt: skip
 
-    u = usable(SETS["core7"])
-    g = [lg for lg in SETS["core7"] if lg in GENDERED]
-    rep.append(f"\n## Gender patterns on the core7 set ({len(u)} nouns)\n")
+    u = usable(SETS["core8"])
+    g = [lg for lg in SETS["core8"] if lg in GENDERED]
+    rep.append(f"\n## Gender patterns on the core8 set ({len(u)} nouns)\n")
     pat = u[[f"{lg}_g" for lg in g]].agg("".join, axis=1).value_counts()
     rep.append(f"{len(pat)} distinct patterns (order {' '.join(g)}). Most common:\n")
     rep.append("| pattern | n |\n|---|---|")

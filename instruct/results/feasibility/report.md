@@ -22,7 +22,7 @@ English pool 8289; with a translation table 7474.
 | sv | Swedish | 951 | 1884 | 790 | 0 | 3849 | n 948 / m 2 / f 1 |
 | fi | Finnish | 5393 | 628 | 1453 | 0 | 0 |  |
 | tr | Turkish | 3837 | 3075 | 562 | 0 | 0 |  |
-| ja | Japanese | 5506 | 1968 | 0 | 0 | 0 |  |
+| ja | Japanese | 5241 | 1968 | 265 | 0 | 0 |  |
 | hu | Hungarian | 3843 | 2182 | 1449 | 0 | 0 |  |
 
 ## Nouns usable in every language of a set, by concreteness
@@ -30,41 +30,42 @@ English pool 8289; with a translation table 7474.
 | set | languages | total | abstract (<2.5) | mid | concrete (>=3.5) | with Glasgow valence |
 |---|---|---|---|---|---|---|
 | core4 | de ru es hi | 809 | 178 | 182 | 449 | 418 |
-| core6 | de ru es hi fi ja | 714 | 153 | 155 | 406 | 387 |
-| core7 | de ru es hi fi ja tr | 619 | 118 | 130 | 371 | 354 |
-| core7+fr | de ru es hi fi ja tr fr | 563 | 110 | 122 | 331 | 324 |
-| core7+it | de ru es hi fi ja tr it | 528 | 99 | 111 | 318 | 312 |
-| core7+pt | de ru es hi fi ja tr pt | 555 | 108 | 115 | 332 | 322 |
-| core7+pl | de ru es hi fi ja tr pl | 516 | 94 | 106 | 316 | 299 |
-| core7+el | de ru es hi fi ja tr el | 491 | 96 | 106 | 289 | 279 |
-| core7+ar | de ru es hi fi ja tr ar | 468 | 86 | 95 | 287 | 265 |
-| core7+he | de ru es hi fi ja tr he | 425 | 73 | 90 | 262 | 253 |
-| core7+nl | de ru es hi fi ja tr nl | 488 | 89 | 105 | 294 | 281 |
-| core7+cs | de ru es hi fi ja tr cs | 548 | 101 | 114 | 333 | 315 |
-| core7+sv | de ru es hi fi ja tr sv | 138 | 19 | 34 | 85 | 80 |
-| core7+hu | de ru es hi fi ja tr hu | 547 | 99 | 112 | 336 | 331 |
+| core6 | de ru es hi fi ja | 704 | 149 | 154 | 401 | 384 |
+| core7 | de ru es hi fi ja tr | 613 | 116 | 129 | 368 | 352 |
+| core8 | de ru es hi ar fi ja tr | 465 | 86 | 94 | 285 | 264 |
+| core7+fr | de ru es hi fi ja tr fr | 559 | 109 | 121 | 329 | 322 |
+| core7+it | de ru es hi fi ja tr it | 524 | 97 | 110 | 317 | 311 |
+| core7+pt | de ru es hi fi ja tr pt | 552 | 108 | 114 | 330 | 321 |
+| core7+pl | de ru es hi fi ja tr pl | 512 | 93 | 105 | 314 | 297 |
+| core7+el | de ru es hi fi ja tr el | 487 | 95 | 105 | 287 | 278 |
+| core7+ar | de ru es hi fi ja tr ar | 465 | 86 | 94 | 285 | 264 |
+| core7+he | de ru es hi fi ja tr he | 424 | 73 | 90 | 261 | 253 |
+| core7+nl | de ru es hi fi ja tr nl | 485 | 89 | 104 | 292 | 280 |
+| core7+cs | de ru es hi fi ja tr cs | 545 | 101 | 113 | 331 | 314 |
+| core7+sv | de ru es hi fi ja tr sv | 137 | 18 | 34 | 85 | 79 |
+| core7+hu | de ru es hi fi ja tr hu | 543 | 99 | 111 | 333 | 330 |
 
-## Gender patterns on the core7 set (619 nouns)
+## Gender patterns on the core8 set (465 nouns)
 
-36 distinct patterns (order de ru es hi). Most common:
+66 distinct patterns (order de ru es hi ar). Most common:
 
 | pattern | n |
 |---|---|
-| mmmm | 90 |
-| ffff | 73 |
-| fffm | 72 |
-| nmmm | 40 |
-| fnff | 24 |
-| fnfm | 23 |
-| fmfm | 22 |
-| mmmf | 21 |
-| fmmm | 16 |
-| mfmm | 16 |
-| nfmm | 16 |
-| nnmm | 14 |
-| nmmf | 13 |
-| fnmm | 13 |
-| fmmf | 13 |
+| mmmmm | 49 |
+| ffffm | 30 |
+| fffmf | 28 |
+| nmmmm | 25 |
+| fffff | 25 |
+| fffmm | 21 |
+| mmmmf | 21 |
+| fnfmm | 14 |
+| fnffm | 10 |
+| mfmmm | 10 |
+| mmmfm | 10 |
+| nnmmm | 9 |
+| nmmfm | 8 |
+| fmmmm | 8 |
+| fmffm | 8 |
 
 ## Pairwise gender agreement (share of nouns with the same gender), all usable pairs
 
