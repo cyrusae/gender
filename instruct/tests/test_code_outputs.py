@@ -143,3 +143,16 @@ def test_inline_name_after_paragraph():
     para, name = split_name("She waited quietly. Name: Mira")
     assert name == "Mira" and para == "She waited quietly."
     assert split_name("She gave it a name: Mira.")[1] is None
+
+
+def test_neopronouns_and_traps():
+    from code_outputs import code, neo_count
+
+    assert code("Xe walked in. Xyr coat was red; people liked xem.")["pron"] == "neo"
+    assert code("Zie smiled, and hir eyes shone.")["neo_sets"] == "ze_zie_sie"
+    assert code("Ey laughed; eir voice carried. Others followed em.")["n_neo"] == 3
+    assert code("Thon was quiet; thons hands were rough.")["pron"] == "neo"
+    # traps: contractions, slang, fairies, German, Latin
+    assert neo_count("They've seen 'em before, vis-a-vis the fae folk. Sie kommt, e.g. es.")[0] == 0
+    assert code("They've told 'em. They left.")["pron"] == "they"
+    assert code("She met the fae queen.")["pron"] == "she"
