@@ -566,7 +566,7 @@ The training set is the reviewed *-ь* list: 174 nouns, 100 f / 74 m, cells = la
 
 - **Cosines.** Cross-fitted cosines were valid at every layer: RU–ES median 0.74 / 0.65 (8B / 14B), RU–DE 0.53 / 0.44.
 - **R-B frequency.** No overlap on either model (cos −0.08 to −0.25), so the lean is German-only. The concreteness-matched refit was mixed: 8B overlapped at 2/4 layers.
-- **Concreteness sensitivity.** The matched set was 37 pairs with mean Δ −0.01. It was **not robust**. The loss is concentrated in the tests that fit on the 74 matched Russian nouns. A size-matched random-subset control is pre-registered as a draft (follow-up S).
+- **Concreteness sensitivity.** The matched set was 37 pairs with mean Δ −0.01. It was **not robust**. The loss is concentrated in the tests that fit on the 74 matched Russian nouns. Follow-up S (200 random 74-noun subsets, same cell × gender composition) attributes the loss to sample size: matched layer-mean AUCs lie at the random medians on both models (8B RU→ES 0.781 vs 0.783 [0.686, 0.855]; RU→DE 0.725 vs 0.749; 14B 0.824 vs 0.841; 0.731 vs 0.746). Bootstrapped pass counts on 8B (50 subsets, descriptive): matched 14 and 8 vs random medians 20 and 8.
 
 ### 3.8 Summary of claims
 
@@ -580,5 +580,5 @@ The training set is the reviewed *-ь* list: 174 nouns, 100 f / 74 m, cells = la
 | Unsteered object pull (P30/P31) | Tables 6–7 | descriptive; not shown social; EuroLLM verdicts robust to `<s>`, sizes not |
 | Pooled readouts | P29 | not evidence |
 | German direction aligned with low frequency | §3.7, §3.9, §3.10 | Qwen3 training-sample property: absent in Gemma 3, held-out compounds and held-out simplex masculines (8B feminine-only echo) |
-| Russian direction aligns with Spanish/German | §3.11 | one-way (ES strong, DE weaker) on Qwen3 8B/14B; not robust to concreteness matching |
+| Russian direction aligns with Spanish/German | §3.11 | one-way (ES strong, DE weaker) on Qwen3 8B/14B; matched-refit drop explained by sample size (follow-up S) |
 | Representation results generalise across families | §3.9, Table 9 | replicate on Gemma 3 4B and 12B |

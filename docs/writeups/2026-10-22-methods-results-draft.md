@@ -396,7 +396,7 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 | G2 | late | Can SAE features carrying frequency be removed from the German direction? | pre-registered | no valid test | §3.7 |
 | G0, G1 | replication | Gemma 3: technical gates; do the Phase 3–5 conclusions replicate? | pre-registered | representation results replicate; no bleed on either size; German frequency lean absent | §3.9 |
 | rarity held-out | late | Does the rarity lean appear in new, simple German nouns? | pre-registered | 8B mixed (feminine only); 14B no valid test | §3.10 |
-| Russian | new language | Does an article-free language's direction line up with Spanish and German? | pre-registered | one-way on both sizes (Spanish strong, German weaker); no frequency lean; not robust to concreteness matching | §3.11 |
+| Russian | new language | Does an article-free language's direction line up with Spanish and German? | pre-registered | one-way on both sizes (Spanish strong, German weaker); no frequency lean; the concreteness-matched drop is explained by sample size | §3.11 |
 
 ---
 
@@ -644,7 +644,7 @@ Russian has no articles, and gender mostly follows the ending. Only the soft-sig
 - **Spanish and Russian line up in both directions on both models.** The angle between their directions confirms this (cosine about 0.7).
 - **German is the weaker partner.** It misses the majority in one direction on each model.
 - **Russian shows no German-style frequency lean** on either model.
-- **Caveat.** Feminine *-ь* nouns are more abstract than masculine ones. When the direction was refitted on 37 concreteness-matched pairs, both conclusions weakened: alignment became "partial", and the frequency test became "mixed". The weakening is concentrated in the tests that *fit* a direction on the smaller Russian set. A pre-registered follow-up (random subsets of the same size) will separate the effect of a smaller sample from that of concreteness.
+- **Caveat.** Feminine *-ь* nouns are more abstract than masculine ones. When the direction was refitted on 37 concreteness-matched pairs, both conclusions weakened: alignment became "partial", and the frequency test became "mixed". The weakening is concentrated in the tests that *fit* a direction on the smaller Russian set. A pre-registered follow-up settled it: 200 random sets of 74 nouns, with the same mix of spelling groups and genders, score exactly like the concreteness-matched set (for example 0.78 against a random median of 0.78 on 8B). So the weakening comes from fitting on fewer nouns, not from concreteness, and the full-list conclusions stand.
 
 ### 3.8 Claims, evidence and status
 

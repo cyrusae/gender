@@ -153,3 +153,22 @@ random subsets (the first 50 draws), each with the main run's bootstrap (1,000 r
 × gender, Bonferroni 98.75%, Russian refit per round; Spanish/German test rows resampled) giving
 RU→ES and RU→DE layers passing; reported as where the matched set's 14 and 8 fall in those 50
 counts. Output `results/russian_dir/size_control_boot.csv`.
+
+### Follow-up S results (2026-10-26)
+
+`gbleed russian-dir --size-control` at 964499d; `results/russian_dir/size_control{.json,.csv,_boot.csv}`.
+Layer-mean point AUC of the Russian direction refitted on 74 nouns:
+
+| | matched | random 74 (median, central 95%) | reading |
+|---|---|---|---|
+| 8B RU→ES | 0.781 | 0.783 [0.686, 0.855] | size explains it |
+| 8B RU→DE | 0.725 | 0.749 [0.676, 0.820] | size explains it |
+| 14B RU→ES | 0.824 | 0.841 [0.751, 0.897] | size explains it |
+| 14B RU→DE | 0.731 | 0.746 [0.667, 0.808] | size explains it |
+
+**Overall: size explains the drop.** Concreteness-matched nouns score like random nouns of the same
+number and cell makeup, so the matched refit's weaker readings come from fitting on 74 nouns,
+not from concreteness. **S2 (descriptive, 8B, 50 subsets bootstrapped):** layers passing RU→ES
+median 20 (range 5–29), matched 14 (22% of random subsets at or below); RU→DE median 8
+(0–21), matched 8 (56%). The full-list readings (one-way alignment; German-only frequency lean)
+stand, without a concreteness caveat beyond the usual small-sample one.
