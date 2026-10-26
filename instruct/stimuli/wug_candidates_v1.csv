@@ -1,0 +1,21 @@
+wug,template,len,score,side,source
+gorrood,worried,7,-1.0,hard,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+pituat,mutual,6,-1.0,hard,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+dandop,random,6,-1.0,hard,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+shutul,brutal,6,-1.0,hard,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+popual,sexual,6,-1.0,hard,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+pubual,sexual,6,-1.0,hard,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+boostal,coastal,7,-0.917,hard,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+boustal,coastal,7,-0.917,hard,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+skubal,global,6,-0.75,hard,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+vasuth,valued,6,-0.75,hard,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+vilil,vital,5,1.667,soft,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+rameel,racial,6,1.667,soft,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+wenble,gentle,6,1.5,soft,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+fismel,fiscal,6,1.5,soft,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+pelewn,select,6,1.5,soft,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+rannim,random,6,1.5,soft,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+narel,naval,5,1.5,soft,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+shrenic,chronic,7,1.4,soft,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+warear,linear,6,1.333,soft,wuggy orthographic_english; filters in instruct/scripts/wugs.py
+narear,linear,6,1.333,soft,wuggy orthographic_english; filters in instruct/scripts/wugs.py
