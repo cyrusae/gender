@@ -565,7 +565,7 @@ The training set is the reviewed *-ь* list: 174 nouns, 100 f / 74 m, cells = la
 | 14B, conc.-matched | 21 | 12 | 26 | 13 | partial |
 
 - **Cosines.** Cross-fitted cosines were valid at every layer: RU–ES median 0.74 / 0.65 (8B / 14B), RU–DE 0.53 / 0.44.
-- **R-B frequency.** No overlap on either model (cos −0.08 to −0.25), so the lean is German-only. The concreteness-matched refit was mixed: 8B overlapped at 2/4 layers.
+- **R-B frequency.** No overlap on either model (cos −0.08 to −0.25), so the lean is German-only. The concreteness-matched refit was mixed across models: 8B sits at the overlap boundary (2/4 layers in the first run, 3/4 after the strata-order fix; one layer's cosine within Monte Carlo error of the 0.30 bar), 14B no overlap.
 - **Concreteness sensitivity.** The matched set was 37 pairs with mean Δ −0.01. It was **not robust**. The loss is concentrated in the tests that fit on the 74 matched Russian nouns. Follow-up S (200 random 74-noun subsets, same cell × gender composition) attributes the loss to sample size: matched layer-mean AUCs lie at the random medians on both models (8B RU→ES 0.781 vs 0.783 [0.686, 0.855]; RU→DE 0.725 vs 0.749; 14B 0.824 vs 0.841; 0.731 vs 0.746). Bootstrapped pass counts on 8B (50 subsets, descriptive): matched 14 and 8 vs random medians 20 and 8.
 
 ### 3.8 Summary of claims

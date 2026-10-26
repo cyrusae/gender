@@ -140,3 +140,7 @@ which is what a model-wide "rare = feminine" property predicts. With the masculi
 powered only for |ρ| ≳ 0.14, a weak masculine lean isn't ruled out. Together with Gemma (no
 overlap at all), the German frequency alignment is best described as a Qwen3 training-sample
 property with, at most, a feminine-only echo on 8B.
+
+**Rerun with deterministic strata (2026-10-26, after c4b0fd1):** identical ρ values, identical
+pass/fail at every layer and group; readings unchanged (8B mixed, 14B no valid test).
+`results/rarity_heldout_rerun/`.

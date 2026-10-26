@@ -173,3 +173,11 @@ median 20 (range 5–29), matched 14 (22% of random subsets at or below); RU→D
 (0–21), matched 8 (56%). The full-list **alignment** reading (one-way) stands. Follow-up S tested only the alignment
 scores; the frequency test's matched result (8B mixed, 2/4 layers) was not part of it, so the
 "German-only" frequency reading keeps a small caveat.
+
+### Rerun with deterministic strata (2026-10-26)
+
+After the hash-order fix (c4b0fd1), R-B was rerun (`results/russian_dir_rerun/`). Full list: no
+overlap on both models (unchanged); 14B matched: no overlap (unchanged); **8B matched: mixed →
+overlap** (layer 25 cos −0.295 → −0.305 against the 0.30 bar, Monte Carlo SD ≈ 0.01). Across
+models the matched reading is "mixed" either way. The 8B matched frequency result sits at the
+overlap boundary; the full-list "German-only" reading is unchanged.
