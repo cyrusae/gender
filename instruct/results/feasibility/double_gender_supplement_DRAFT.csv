@@ -1,9 +1,12 @@
-en,double_in,de,ru,es,hi,ar,conc
-north,ar,Norden (m),се́вер (m),norte (m),उत्तर (m),شَمَال (fm),4.14
-finger,ar,Finger (m),па́лец (m),dedo (m),उंगली (f),إِصْبَع (fm),5.0
-metal,hi,Metall (n),мета́лл (m),metal (m),धातु (fm),مَعْدِن (m),4.87
-urine,de,Urin (mn),моча́ (f),orina (f),मूत्र (m),بَوْل (m),4.93
-tsunami,de,Tsunami (fm),цуна́ми (n),tsunami (m),सुनामी (f),تْسُونَامِي (m),4.33
-embryo,de,Embryo (mn),эмбрио́н (m),embrión (m),भ्रूण (m),جَنِين (m),4.61
-module,de,Modul (mn),мо́дуль (m),módulo (m),मॉड्यूल (m),وَحْدَة (f),3.93
-orchestra,ar,Orchester (n),орке́стр (m),orquesta (f),बाजा (m),أُورْكِسْتْرَا (fm),4.79
+en,double_in,conc,route,de_g,ru_g,es_g,hi_g,ar_g
+north,ar,4.14,dump_only,m,m,m,m,fm
+finger,ar,5.0,dump_only,m,m,m,f,fm
+metal,hi,4.87,dump_only,n,m,m,fm,m
+urine,de,4.93,dump_only,mn,f,f,m,m
+tsunami,de,4.33,dump_only,fm,n,m,f,m
+embryo,de,4.61,dump_only,mn,m,m,m,m
+module,de,3.93,dump_only,mn,m,m,m,f
+orchestra,ar,4.79,dump_only,n,m,f,m,fm
+month,de,4.2,table_and_dump,mn,m,m,m,m
+tongue,ar,4.93,table_and_dump,f,m,f,f,fm
+yoga,de,4.53,table_and_dump,mn,f,m,m,f
