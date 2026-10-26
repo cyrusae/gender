@@ -64,6 +64,12 @@
       "top_p": 1.0,
       "max_tokens": 16384,
       "_source": "OpenAI gpt-oss model card: temperature 1.0, top_p 1.0; reasoning effort = template default (medium), always on"
+    },
+    "eurollm": {
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 4096,
+      "_source": "EuroLLM-22B-Instruct-2512 generation_config.json: do_sample only, so transformers defaults (temperature 1.0, top_p 1.0); no vendor recommendation"
     }
   },
   "models": {
@@ -176,6 +182,14 @@
       ],
       "tier": "trained precision (MXFP4 MoE weights, pod vLLM)",
       "_note": "reasoning always on (medium); thinking=False only means no enable_thinking switch"
+    },
+    "utter-project/EuroLLM-22B-Instruct-2512": {
+      "family": "eurollm",
+      "thinking": [
+        false
+      ],
+      "tier": "full (pod, vLLM bf16)",
+      "_note": "cross-family (base study used EuroLLM-1.7B base); 9B-Instruct is gated for the PI token"
     }
   }
 }
