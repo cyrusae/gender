@@ -1,241 +1,241 @@
-model,name_condition,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,name_in_para,valid,n_paragraphs,name,given,title,name_sex,name_f_share,name_used_in_para,n_name_mentions,para_first_name,para_name_matches,noun_in_name,pron,n_f,n_m,n_they,n_it,first_pron,n_fnoun,n_mnoun,answer_words
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,Gerta Hollow,Gerta,,f,1.0,True,1.0,Gerta,True,False,she,19,0,0,1,she,0,0,216
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,Agnes Hale,Agnes,,f,0.9970934230100886,True,2.0,Agnes,True,False,she,20,0,1,3,she,0,0,213
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,Ottilie Vane,Ottilie,,f,1.0,True,1.0,Ottilie,True,False,she,19,0,3,0,her,1,0,186
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,Ottilie Brandt,Ottilie,,f,1.0,True,2.0,Ottilie,True,False,she,19,0,3,0,she,0,0,187
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,Wenna Holloway,Wenna,,notfound,,True,1.0,Holloway,False,False,she,17,0,3,0,her,0,0,166
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,Marguerite Vell,Marguerite,,f,0.9989269360305133,True,1.0,Vell,False,False,she,17,0,1,0,she,1,0,186
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,Ilse Verrow,Ilse,,f,1.0,True,2.0,Ilse,True,False,she,20,0,2,1,her,0,0,194
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,Agnes Tallow,Agnes,,f,0.9970934230100886,True,2.0,Agnes,True,False,she,21,0,2,0,she,0,0,212
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,Ottilie Brandt,Ottilie,,f,1.0,True,1.0,Ottilie,True,False,she,14,0,3,0,her,0,0,171
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,Odile Varn,Odile,,f,1.0,True,2.0,Odile,True,False,she,18,0,2,0,her,1,0,159
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,Marisol Greaves,Marisol,,f,0.9910906211109854,True,1.0,Marisol,True,False,she,23,0,1,3,her,0,0,221
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,Ilse Marrow,Ilse,,f,1.0,True,1.0,Ilse,True,False,she,12,0,1,4,her,0,0,195
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,Marisol Brenning,Marisol,,f,0.9910906211109854,True,1.0,Marisol,True,False,she,18,0,0,1,her,0,0,189
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,Ottilie Brandt,Ottilie,,f,1.0,True,1.0,Ottilie,True,False,she,18,0,1,1,her,1,0,161
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,Marguerite Tallow,Marguerite,,f,0.9989269360305133,True,1.0,Tallow,False,False,she,13,0,0,1,her,0,0,171
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,Ada Brimley,Ada,,f,0.9974063051043542,True,2.0,Ada,True,False,she,12,0,1,0,her,1,0,175
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,Ada Brindle,Ada,,f,0.9974063051043542,True,1.0,Ada,True,False,she,21,0,2,2,she,0,0,217
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,Odile Vane,Odile,,f,1.0,True,1.0,Odile,True,False,she,21,0,4,2,her,0,0,178
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,Marisol Clack,Marisol,,f,0.9910906211109854,True,1.0,Marisol,True,False,she,27,0,2,1,her,0,0,222
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,Wren Hollowell,Wren,,ambiguous,0.8578166268393913,True,1.0,Hollowell,False,False,she,15,0,1,0,she,0,0,174
-anthropic/claude-haiku-5.5,free_noted,pot,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,Ondine Marrow,Ondine,,f,1.0,True,2.0,Ondine,True,False,she,17,0,2,1,she,0,0,162
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,Rowena Shiftley,Rowena,,f,1.0,True,1.0,Rowena,True,False,she,21,0,0,1,her,0,0,192
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,Vessa Quill,Vessa,,notfound,,True,2.0,Quill,False,False,she,21,0,3,0,her,1,0,200
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,Hollis Tapwright,Hollis,,ambiguous,0.25557828188917814,True,1.0,Hollis,True,False,she,16,0,0,0,her,1,0,173
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,Thessaly Vane,Thessaly,,f,1.0,True,2.0,Thessaly,True,False,she,25,0,1,2,her,0,0,211
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,Mireille Varga,Mireille,,f,1.0,True,1.0,Mireille,True,False,she,21,0,3,1,she,0,0,228
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,Tamsin Qwertley,Tamsin,,f,1.0,True,2.0,Tamsin,True,False,she,27,0,4,2,she,0,0,230
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,Ondine Clatter,Ondine,,f,1.0,True,2.0,Ondine,True,False,she,18,0,1,0,her,1,0,208
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,Ivy Homerow,Ivy,,f,0.9598482123170831,True,2.0,Homerow,False,False,she,20,0,1,1,her,0,0,164
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,Juno Vellum,Juno,,ambiguous,0.8019936565473493,True,2.0,Juno,True,False,she,19,0,0,1,her,0,0,189
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,Quentin Rowe,Quentin,,m,0.004351610095735422,True,2.0,Quentin,True,False,he,0,15,5,0,his,0,1,195
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,Vera Tapwright,Vera,,f,0.9973440815727308,True,1.0,Vera,True,False,she,14,0,1,2,her,1,0,170
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,Hollis Tapwell,Hollis,,ambiguous,0.25557828188917814,True,2.0,Hollis,True,False,she,20,0,2,0,her,0,0,184
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,Rowan Tapley,Rowan,,ambiguous,0.30506636651888047,True,2.0,Tapley,False,False,she,17,0,3,1,her,1,0,223
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,Marisol Qwerty,Marisol,,f,0.9910906211109854,True,2.0,Marisol,True,False,she,11,0,0,0,she,0,0,182
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,Qwendolyn Rowe,Qwendolyn,,f,1.0,True,1.0,Qwendolyn,True,False,she,18,0,2,0,her,0,0,200
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,Hollis Varga,Hollis,,ambiguous,0.25557828188917814,True,2.0,Hollis,True,False,she,22,0,3,0,her,0,0,210
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,Tilda Marrow,Tilda,,f,1.0,True,1.0,Tilda,True,False,she,23,0,0,1,her,0,0,218
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,Rowan Hollis,Rowan,,ambiguous,0.30506636651888047,True,2.0,Hollis,False,False,she,18,0,1,1,her,0,0,227
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,Rowena Tapps,Rowena,,f,1.0,True,1.0,Rowena,True,False,she,16,0,8,1,her,0,0,174
-anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,Rhea Homerow,Rhea,,f,0.979746835443038,True,2.0,Homerow,False,False,she,25,0,4,1,her,0,0,228
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,Ila Merrow,Ila,,f,0.9976114649681529,True,1.0,Ila,True,False,she,15,0,0,2,her,0,0,169
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,Hesper Ashgrove,Hesper,,f,1.0,True,2.0,Hesper,True,False,she,17,0,0,1,her,1,0,202
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,Orla Vance,Orla,,ambiguous,0.8074074074074075,True,2.0,Orla,True,False,she,21,0,1,0,her,0,0,217
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,Hollis Ashgrove,Hollis,,ambiguous,0.25557828188917814,True,2.0,Hollis,True,False,he,0,18,0,0,his,0,1,192
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,Corwin Ashgrove,Corwin,,m,0.0,True,2.0,Corwin,True,False,he,0,13,0,0,he,0,0,173
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,Hollis Ashgrove,Hollis,,ambiguous,0.25557828188917814,True,1.0,Hollis,True,False,he,0,14,1,1,he,0,0,171
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,Silas Verrin,Silas,,m,0.0024322859522267312,True,2.0,Silas,True,False,he,0,15,1,0,his,0,0,200
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,Marrow Ashby,Marrow,,notfound,,True,2.0,Ashby,False,False,she,20,0,1,0,her,1,0,205
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,Corwin Ashgrove,Corwin,,m,0.0,True,2.0,Corwin,True,False,he,0,15,0,0,he,0,0,196
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,Ansel Marrow,Ansel,,m,0.0020785699438786117,True,1.0,Ansel,True,False,he,0,15,2,2,his,0,1,198
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,Bram Ashdown,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,20,0,2,his,0,0,212
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,Ansel Coppice,Ansel,,m,0.0020785699438786117,True,1.0,Ansel,True,False,he,0,19,2,1,he,0,0,175
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,Orla Wend,Orla,,ambiguous,0.8074074074074075,True,2.0,Orla,True,False,she,23,0,0,2,her,0,0,239
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,Eamon Barkley,Eamon,,m,0.0,True,1.0,Eamon,True,False,he,0,21,3,0,him,0,0,173
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,Ansel Greyhollow,Ansel,,m,0.0020785699438786117,True,2.0,Ansel,True,False,he,0,20,1,2,him,0,0,190
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,Ilse Varrow,Ilse,,f,1.0,True,1.0,Ilse,True,False,she,19,0,1,1,her,0,0,201
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,Wren Alder,Wren,,ambiguous,0.8578166268393913,True,2.0,Alder,False,False,she,14,0,0,0,she,0,0,167
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,Wren Ashgrove,Wren,,ambiguous,0.8578166268393913,True,1.0,Ashgrove,False,False,she,17,0,2,1,her,0,0,167
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,Orla Barkwell,Orla,,ambiguous,0.8074074074074075,True,1.0,Orla,True,False,she,30,0,2,2,she,0,0,238
-anthropic/claude-haiku-5.5,free_noted,tree,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,Orla Vance,Orla,,ambiguous,0.8074074074074075,True,1.0,Orla,True,False,she,19,0,1,1,her,0,0,221
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,Elsbeth Latch,Elsbeth,,f,1.0,True,1.0,Elsbeth,True,False,she,14,0,0,0,her,0,0,165
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,Hesper Lintel,Hesper,,f,1.0,True,1.0,Hesper,True,False,she,17,0,2,0,her,0,0,168
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,Hester Latch,Hester,,f,0.9636277431590355,True,1.0,Hester,True,False,she,16,0,1,1,her,0,0,187
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,Wren Latchley,Wren,,ambiguous,0.8578166268393913,True,1.0,Latchley,False,False,he,0,17,1,0,him,0,0,225
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,Ansel Marrow,Ansel,,m,0.0020785699438786117,True,1.0,Ansel,True,False,he,0,27,0,0,his,0,0,208
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,Wren Hallward,Wren,,ambiguous,0.8578166268393913,True,2.0,Hallward,False,False,she,15,0,0,0,her,0,0,187
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,Tobias Vell,Tobias,,m,0.0,True,1.0,Tobias,True,False,he,0,16,1,0,his,0,0,176
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,Calloway Latch,Calloway,,ambiguous,0.16102683780630106,True,2.0,Calloway,True,False,he,0,22,1,1,himself,0,0,219
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,Tobias Latchmere,Tobias,,m,0.0,True,1.0,Tobias,True,False,he,0,23,3,0,he,0,0,232
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,Ottoline Vance,Ottoline,,notfound,,True,1.0,Vance,False,False,she,21,0,1,2,her,0,0,200
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,Ansel Latch,Ansel,,m,0.0020785699438786117,True,1.0,Ansel,True,False,he,0,24,2,1,he,0,0,185
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,Ansel Lintel,Ansel,,m,0.0020785699438786117,True,2.0,Ansel,True,False,he,0,11,1,1,his,0,0,188
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,Ione Vell,Ione,,f,1.0,True,2.0,Ione,True,False,she,18,0,1,0,she,0,0,186
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,Ansel Jamb,Ansel,,m,0.0020785699438786117,True,2.0,Ansel,True,False,he,0,15,0,1,he,0,0,155
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,Calder Jamb,Calder,,m,0.016795279164775308,True,2.0,Calder,True,False,he,0,16,2,0,he,0,0,209
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,Marisol Jamb,Marisol,,f,0.9910906211109854,True,2.0,Marisol,True,False,she,16,0,3,1,she,0,1,187
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,Ansel Latch,Ansel,,m,0.0020785699438786117,True,2.0,Ansel,True,False,he,0,18,6,0,his,0,1,238
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,Hollis Latch,Hollis,,ambiguous,0.25557828188917814,True,2.0,Hollis,True,False,he,0,19,3,0,his,0,0,167
-anthropic/claude-haiku-5.5,free_noted,door,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,Ansel Latch,Ansel,,m,0.0020785699438786117,True,1.0,Ansel,True,False,he,0,19,3,0,his,0,0,158
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,Ione Marrow,Ione,,f,1.0,True,2.0,Ione,True,False,she,16,0,0,2,she,0,0,231
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,Mirel Dunsany,Mirel,,f,1.0,True,1.0,Mirel,True,False,she,19,0,0,2,herself,0,0,193
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,Clementine Hale,Clementine,,f,1.0,True,2.0,Hale,False,False,she,14,0,1,1,she,0,0,184
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,Juniper Hale,Juniper,,f,0.988199122846679,True,2.0,Hale,False,False,she,22,0,3,0,her,0,0,198
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,Imogen Halloway,Imogen,,f,1.0,True,1.0,Imogen,True,False,she,17,0,1,0,herself,0,0,171
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,Jessamy Vale,Jessamy,,f,1.0,True,1.0,Jessamy,True,False,she,22,0,4,2,she,0,0,181
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,Calla Venn,Calla,,f,1.0,True,2.0,Venn,False,False,she,18,0,1,2,she,0,0,187
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,Marisol Vane,Marisol,,f,0.9910906211109854,True,1.0,Marisol,True,False,she,17,0,1,1,she,0,0,197
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,Wren Halloway,Wren,,ambiguous,0.8578166268393913,True,1.0,Halloway,False,False,she,14,0,1,2,they,0,0,199
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,Odessa Pell,Odessa,,f,0.9917726252804787,True,1.0,Odessa,True,False,she,16,0,0,0,her,0,0,211
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,Odile Marrow,Odile,,f,1.0,True,2.0,Odile,True,False,she,20,0,1,1,her,0,0,206
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,Ines Carmine,Ines,,ambiguous,0.9441958041958042,True,2.0,Ines,True,False,she,21,0,0,1,her,0,0,209
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,Vesper Harrow,Vesper,,ambiguous,0.9264413518886679,True,2.0,Harrow,False,False,she,20,0,1,0,she,0,0,204
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,Wren Calloway,Wren,,ambiguous,0.8578166268393913,True,1.0,Calloway,False,False,she,20,0,1,1,she,0,0,213
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,Imogen Halloran,Imogen,,f,1.0,True,1.0,Imogen,True,False,she,14,0,1,0,herself,0,0,157
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,Clementine Vale,Clementine,,f,1.0,True,1.0,Vale,False,False,she,16,0,0,1,her,0,0,166
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,Wren Ardell,Wren,,ambiguous,0.8578166268393913,True,1.0,Ardell,False,False,she,19,0,2,0,they,0,0,215
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,Camille Ashgrove,Camille,,f,0.9818724066390041,True,1.0,Camille,True,False,she,18,0,2,0,she,0,0,185
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,Dell Marrow,Dell,,ambiguous,0.3882783882783883,True,1.0,Marrow,False,False,he,0,15,2,3,him,0,0,180
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,Odile Varga,Odile,,f,1.0,True,1.0,Odile,True,False,she,18,0,1,0,her,0,0,175
-anthropic/claude-haiku-5.5,free_noted,flower,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,Marisol Vance,Marisol,,f,0.9910906211109854,True,1.0,Marisol,True,False,she,24,0,1,3,herself,0,0,203
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,Dorian Vale,Dorian,,ambiguous,0.15806878306878308,True,2.0,Dorian,True,False,he,0,22,1,0,he,0,1,216
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,Ilse Brandt,Ilse,,f,1.0,True,1.0,Ilse,True,False,she,18,0,2,2,she,1,0,176
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,Ruth Calloway,Ruth,,f,0.9966873325934764,True,1.0,Calloway,False,False,she,15,0,0,0,her,0,0,175
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,Ruth Dacey,Ruth,,f,0.9966873325934764,True,2.0,Dacey,False,False,she,15,0,0,3,she,0,0,194
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,Dorrin Vane,Dorrin,,notfound,,True,1.0,Vane,False,False,he,0,13,0,5,his,0,1,158
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,Ruth Ashgrove,Ruth,,f,0.9966873325934764,True,1.0,Ashgrove,False,False,she,18,0,0,1,her,0,0,201
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,Dell Ostrander,Dell,,ambiguous,0.3882783882783883,True,1.0,Ostrander,False,False,he,0,14,0,5,his,0,2,220
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,Tobias Grainger,Tobias,,m,0.0,True,1.0,Tobias,True,False,he,0,18,0,5,his,0,1,205
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,Bram Ironwright,Bram,,m,0.0,True,2.0,Bram,True,False,he,0,16,2,0,his,0,1,189
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,Ruth Vance,Ruth,,f,0.9966873325934764,True,1.0,Vance,False,False,she,19,0,0,3,herself,0,0,209
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,Tobias Clench,Tobias,,m,0.0,True,1.0,Tobias,True,False,he,0,15,1,2,himself,0,1,178
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,Bram Keller,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,18,1,3,his,0,0,218
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,Bram Ostrow,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,17,0,0,his,0,1,167
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,Bram Tolliver,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,16,1,2,his,0,0,204
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,Ada Brisk,Ada,,f,0.9974063051043542,True,1.0,Ada,True,False,she,20,0,1,1,her,0,0,192
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,Mara Quell,Mara,,f,0.99933482996591,True,1.0,Quell,False,False,she,21,0,2,0,her,1,0,182
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,Tobin Vance,Tobin,,m,0.029109290569984313,True,1.0,Tobin,True,False,he,0,14,1,1,his,0,0,151
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,Bram Keel,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,14,0,1,his,0,0,164
-anthropic/claude-haiku-5.5,none,pot,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,3,1,she,0,0,188
-anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,Gideon Strand,Gideon,,m,0.0014348488924760111,True,1.0,Gideon,True,False,he,0,15,2,1,his,0,0,167
-anthropic/claude-haiku-5.5,none,pot,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,1,3,she,0,0,209
-anthropic/claude-haiku-5.5,none,pot,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,21,0,2,1,she,0,0,185
-anthropic/claude-haiku-5.5,none,pot,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,2,she,0,0,212
-anthropic/claude-haiku-5.5,none,pot,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,2,4,she,0,0,208
-anthropic/claude-haiku-5.5,none,pot,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,26,0,7,0,she,0,0,231
-anthropic/claude-haiku-5.5,none,pot,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,4,she,0,0,224
-anthropic/claude-haiku-5.5,none,pot,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,2,1,she,0,0,228
-anthropic/claude-haiku-5.5,none,pot,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,25,0,4,1,she,0,0,205
-anthropic/claude-haiku-5.5,none,pot,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,she,0,0,212
-anthropic/claude-haiku-5.5,none,pot,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,4,0,she,0,0,216
-anthropic/claude-haiku-5.5,none,pot,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,28,0,1,1,she,0,0,206
-anthropic/claude-haiku-5.5,none,pot,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,2,1,she,0,0,206
-anthropic/claude-haiku-5.5,none,pot,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,0,3,she,0,0,191
-anthropic/claude-haiku-5.5,none,pot,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,3,their,0,0,215
-anthropic/claude-haiku-5.5,none,pot,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,21,0,1,2,she,0,0,229
-anthropic/claude-haiku-5.5,none,pot,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,1,2,she,0,0,213
-anthropic/claude-haiku-5.5,none,pot,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,17,1,them,0,0,226
-anthropic/claude-haiku-5.5,none,pot,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,0,2,she,0,0,235
-anthropic/claude-haiku-5.5,none,pot,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,4,0,she,0,0,198
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,3,2,she,0,0,246
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,26,0,2,0,she,0,0,223
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,25,0,2,0,she,0,0,255
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,24,0,2,0,she,0,0,205
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,16,3,their,0,0,206
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,1,she,0,0,187
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,21,0,2,1,she,0,0,235
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,24,0,1,1,she,0,0,250
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,25,0,3,0,she,0,0,219
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,5,1,her,0,0,204
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,0,she,0,0,228
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,2,1,she,0,0,249
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,4,0,she,0,0,214
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,she,0,0,215
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,4,1,she,0,0,212
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,1,0,she,0,0,198
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,6,0,her,0,0,219
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,27,0,3,1,she,0,0,234
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,27,0,1,0,she,0,0,222
-anthropic/claude-haiku-5.5,none,tree,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,2,2,she,0,0,189
-anthropic/claude-haiku-5.5,none,keyboard,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,she,0,0,237
-anthropic/claude-haiku-5.5,none,tree,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,0,1,she,0,0,202
-anthropic/claude-haiku-5.5,none,tree,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,3,1,she,0,0,258
-anthropic/claude-haiku-5.5,none,tree,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,30,0,3,1,she,0,0,225
-anthropic/claude-haiku-5.5,none,tree,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,21,0,1,0,she,0,0,209
-anthropic/claude-haiku-5.5,none,tree,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,15,0,1,3,she,0,0,181
-anthropic/claude-haiku-5.5,none,tree,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,1,0,she,0,0,249
-anthropic/claude-haiku-5.5,none,tree,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,5,1,she,0,0,211
-anthropic/claude-haiku-5.5,none,tree,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,26,0,1,1,she,0,0,265
-anthropic/claude-haiku-5.5,none,tree,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,25,0,0,2,she,0,0,216
-anthropic/claude-haiku-5.5,none,tree,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,21,0,2,1,she,0,0,221
-anthropic/claude-haiku-5.5,none,tree,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,0,2,she,0,0,207
-anthropic/claude-haiku-5.5,none,tree,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,2,0,she,0,0,266
-anthropic/claude-haiku-5.5,none,tree,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,27,0,1,1,she,0,0,233
-anthropic/claude-haiku-5.5,none,tree,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,25,0,3,4,she,0,0,252
-anthropic/claude-haiku-5.5,none,tree,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,27,0,2,0,she,0,0,247
-anthropic/claude-haiku-5.5,none,tree,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,1,5,she,0,0,240
-anthropic/claude-haiku-5.5,none,tree,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,26,0,2,1,she,0,0,263
-anthropic/claude-haiku-5.5,none,tree,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,21,0,0,2,she,0,0,223
-anthropic/claude-haiku-5.5,none,door,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,24,0,0,5,she,0,0,226
-anthropic/claude-haiku-5.5,none,tree,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,5,she,0,0,246
-anthropic/claude-haiku-5.5,none,door,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,2,0,she,0,0,204
-anthropic/claude-haiku-5.5,none,door,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,3,0,she,0,0,210
-anthropic/claude-haiku-5.5,none,door,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,19,1,they,0,0,223
-anthropic/claude-haiku-5.5,none,door,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,1,2,she,0,0,213
-anthropic/claude-haiku-5.5,none,door,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,1,1,she,0,0,223
-anthropic/claude-haiku-5.5,none,door,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,24,0,3,2,she,0,0,217
-anthropic/claude-haiku-5.5,none,door,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,24,0,2,2,she,0,0,238
-anthropic/claude-haiku-5.5,none,door,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,13,0,2,0,she,0,0,190
-anthropic/claude-haiku-5.5,none,door,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,18,1,they,0,0,230
-anthropic/claude-haiku-5.5,none,door,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,0,0,she,0,0,230
-anthropic/claude-haiku-5.5,none,door,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,0,1,she,0,0,234
-anthropic/claude-haiku-5.5,none,door,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,0,1,she,0,0,222
-anthropic/claude-haiku-5.5,none,door,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,25,0,1,1,she,0,0,199
-anthropic/claude-haiku-5.5,none,door,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,0,2,she,0,0,221
-anthropic/claude-haiku-5.5,none,door,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,0,1,she,0,0,213
-anthropic/claude-haiku-5.5,none,door,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,18,1,they,0,0,230
-anthropic/claude-haiku-5.5,none,door,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,3,1,she,0,0,223
-anthropic/claude-haiku-5.5,none,door,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,1,9,they,0,0,185
-anthropic/claude-haiku-5.5,none,flower,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,0,3,she,0,0,182
-anthropic/claude-haiku-5.5,none,door,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,2,their,0,0,234
-anthropic/claude-haiku-5.5,none,flower,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,she,0,0,205
-anthropic/claude-haiku-5.5,none,flower,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,17,2,they,0,0,196
-anthropic/claude-haiku-5.5,none,flower,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,24,0,2,3,she,0,0,266
-anthropic/claude-haiku-5.5,none,flower,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,1,she,0,0,207
-anthropic/claude-haiku-5.5,none,flower,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,3,0,she,0,0,186
-anthropic/claude-haiku-5.5,none,flower,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,0,1,she,0,0,193
-anthropic/claude-haiku-5.5,none,flower,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,24,2,they,0,0,227
-anthropic/claude-haiku-5.5,none,flower,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,4,2,she,0,0,178
-anthropic/claude-haiku-5.5,none,flower,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,she,0,0,227
-anthropic/claude-haiku-5.5,none,flower,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,3,she,0,0,240
-anthropic/claude-haiku-5.5,none,flower,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,20,0,they,0,0,215
-anthropic/claude-haiku-5.5,none,flower,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,4,0,she,0,0,214
-anthropic/claude-haiku-5.5,none,flower,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,2,0,she,0,0,200
-anthropic/claude-haiku-5.5,none,flower,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,2,2,she,0,0,191
-anthropic/claude-haiku-5.5,none,flower,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,0,she,0,0,201
-anthropic/claude-haiku-5.5,none,hammer,plain,False,0,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,0,their,0,0,178
-anthropic/claude-haiku-5.5,none,flower,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,24,0,2,1,she,0,0,216
-anthropic/claude-haiku-5.5,none,flower,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,1,1,she,0,0,192
-anthropic/claude-haiku-5.5,none,flower,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,25,0,3,2,she,0,0,214
-anthropic/claude-haiku-5.5,none,flower,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,21,0,0,0,she,0,0,202
-anthropic/claude-haiku-5.5,none,hammer,plain,False,1,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,24,0,0,3,she,0,0,246
-anthropic/claude-haiku-5.5,none,hammer,plain,False,2,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,26,0,0,3,she,0,0,249
-anthropic/claude-haiku-5.5,none,hammer,plain,False,3,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,2,1,she,0,0,237
-anthropic/claude-haiku-5.5,none,hammer,plain,False,4,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,2,they,0,0,215
-anthropic/claude-haiku-5.5,none,hammer,plain,False,5,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,20,2,they,0,0,224
-anthropic/claude-haiku-5.5,none,hammer,plain,False,6,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,3,she,0,0,224
-anthropic/claude-haiku-5.5,none,hammer,plain,False,7,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,1,they,0,0,194
-anthropic/claude-haiku-5.5,none,hammer,plain,False,8,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,0,1,she,0,0,206
-anthropic/claude-haiku-5.5,none,hammer,plain,False,9,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,21,0,2,3,she,0,0,195
-anthropic/claude-haiku-5.5,none,hammer,plain,False,10,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,21,0,0,1,she,0,0,251
-anthropic/claude-haiku-5.5,none,hammer,plain,False,11,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,1,2,she,0,0,227
-anthropic/claude-haiku-5.5,none,hammer,plain,False,12,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,1,2,she,0,0,222
-anthropic/claude-haiku-5.5,none,hammer,plain,False,13,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,24,0,2,4,she,1,0,243
-anthropic/claude-haiku-5.5,none,hammer,plain,False,14,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,1,she,0,0,223
-anthropic/claude-haiku-5.5,none,hammer,plain,False,16,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,1,they,0,0,190
-anthropic/claude-haiku-5.5,none,hammer,plain,False,17,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,10,1,they,0,0,182
-anthropic/claude-haiku-5.5,none,hammer,plain,False,15,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,15,1,their,0,0,235
-anthropic/claude-haiku-5.5,none,hammer,plain,False,18,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,13,2,their,0,0,253
-anthropic/claude-haiku-5.5,none,hammer,plain,False,19,stop,Anthropic,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,1,0,she,0,0,206
+model,name_condition,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,no_paragraph,name_in_para,valid,n_paragraphs,name,given,title,name_sex,name_f_share,name_used_in_para,n_name_mentions,para_first_name,para_name_matches,noun_in_name,pron,n_f,n_m,n_they,n_it,n_neo,neo_sets,first_pron,n_fnoun,n_mnoun,answer_words
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,Gerta Hollow,Gerta,,f,1.0,True,1.0,Gerta,True,False,she,19,0,0,1,0,,she,0,0,216
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,Agnes Hale,Agnes,,f,0.9970934230100886,True,2.0,Agnes,True,False,she,20,0,1,3,0,,she,0,0,213
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,Ottilie Vane,Ottilie,,f,1.0,True,1.0,Ottilie,True,False,she,19,0,3,0,0,,her,1,0,186
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,Ottilie Brandt,Ottilie,,f,1.0,True,2.0,Ottilie,True,False,she,19,0,3,0,0,,she,0,0,187
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,Wenna Holloway,Wenna,,notfound,,True,1.0,Holloway,False,False,she,17,0,3,0,0,,her,0,0,166
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,Marguerite Vell,Marguerite,,f,0.9989269360305133,True,1.0,Vell,False,False,she,17,0,1,0,0,,she,1,0,186
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,Ilse Verrow,Ilse,,f,1.0,True,2.0,Ilse,True,False,she,20,0,2,1,0,,her,0,0,194
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,Agnes Tallow,Agnes,,f,0.9970934230100886,True,2.0,Agnes,True,False,she,21,0,2,0,0,,she,0,0,212
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,Ottilie Brandt,Ottilie,,f,1.0,True,1.0,Ottilie,True,False,she,14,0,3,0,0,,her,0,0,171
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,Odile Varn,Odile,,f,1.0,True,2.0,Odile,True,False,she,18,0,2,0,0,,her,1,0,159
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,Marisol Greaves,Marisol,,f,0.9910906211109854,True,1.0,Marisol,True,False,she,23,0,1,3,0,,her,0,0,221
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,Ilse Marrow,Ilse,,f,1.0,True,1.0,Ilse,True,False,she,12,0,1,4,0,,her,0,0,195
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,Marisol Brenning,Marisol,,f,0.9910906211109854,True,1.0,Marisol,True,False,she,18,0,0,1,0,,her,0,0,189
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,Ottilie Brandt,Ottilie,,f,1.0,True,1.0,Ottilie,True,False,she,18,0,1,1,0,,her,1,0,161
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,Marguerite Tallow,Marguerite,,f,0.9989269360305133,True,1.0,Tallow,False,False,she,13,0,0,1,0,,her,0,0,171
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,Ada Brimley,Ada,,f,0.9974063051043542,True,2.0,Ada,True,False,she,12,0,1,0,0,,her,1,0,175
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,Ada Brindle,Ada,,f,0.9974063051043542,True,1.0,Ada,True,False,she,21,0,2,2,0,,she,0,0,217
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,Odile Vane,Odile,,f,1.0,True,1.0,Odile,True,False,she,21,0,4,2,0,,her,0,0,178
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,Marisol Clack,Marisol,,f,0.9910906211109854,True,1.0,Marisol,True,False,she,27,0,2,1,0,,her,0,0,222
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,Wren Hollowell,Wren,,ambiguous,0.8578166268393913,True,1.0,Hollowell,False,False,she,15,0,1,0,0,,she,0,0,174
+anthropic/claude-haiku-5.5,free_noted,pot,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,Ondine Marrow,Ondine,,f,1.0,True,2.0,Ondine,True,False,she,17,0,2,1,0,,she,0,0,162
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,Rowena Shiftley,Rowena,,f,1.0,True,1.0,Rowena,True,False,she,21,0,0,1,0,,her,0,0,192
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,Vessa Quill,Vessa,,notfound,,True,2.0,Quill,False,False,she,21,0,3,0,0,,her,1,0,200
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,Hollis Tapwright,Hollis,,ambiguous,0.25557828188917814,True,1.0,Hollis,True,False,she,16,0,0,0,0,,her,1,0,173
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,Thessaly Vane,Thessaly,,f,1.0,True,2.0,Thessaly,True,False,she,25,0,1,2,0,,her,0,0,211
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,Mireille Varga,Mireille,,f,1.0,True,1.0,Mireille,True,False,she,21,0,3,1,0,,she,0,0,228
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,Tamsin Qwertley,Tamsin,,f,1.0,True,2.0,Tamsin,True,False,she,27,0,4,2,0,,she,0,0,230
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,Ondine Clatter,Ondine,,f,1.0,True,2.0,Ondine,True,False,she,18,0,1,0,0,,her,1,0,208
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,Ivy Homerow,Ivy,,f,0.9598482123170831,True,2.0,Homerow,False,False,she,20,0,1,1,0,,her,0,0,164
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,Juno Vellum,Juno,,ambiguous,0.8019936565473493,True,2.0,Juno,True,False,she,19,0,0,1,0,,her,0,0,189
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,Quentin Rowe,Quentin,,m,0.004351610095735422,True,2.0,Quentin,True,False,he,0,15,5,0,0,,his,0,1,195
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,Vera Tapwright,Vera,,f,0.9973440815727308,True,1.0,Vera,True,False,she,14,0,1,2,0,,her,1,0,170
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,Hollis Tapwell,Hollis,,ambiguous,0.25557828188917814,True,2.0,Hollis,True,False,she,20,0,2,0,0,,her,0,0,184
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,Rowan Tapley,Rowan,,ambiguous,0.30506636651888047,True,2.0,Tapley,False,False,she,17,0,3,1,0,,her,1,0,223
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,Marisol Qwerty,Marisol,,f,0.9910906211109854,True,2.0,Marisol,True,False,she,11,0,0,0,0,,she,0,0,182
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,Qwendolyn Rowe,Qwendolyn,,f,1.0,True,1.0,Qwendolyn,True,False,she,18,0,2,0,0,,her,0,0,200
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,Hollis Varga,Hollis,,ambiguous,0.25557828188917814,True,2.0,Hollis,True,False,she,22,0,3,0,0,,her,0,0,210
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,Tilda Marrow,Tilda,,f,1.0,True,1.0,Tilda,True,False,she,23,0,0,1,0,,her,0,0,218
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,Rowan Hollis,Rowan,,ambiguous,0.30506636651888047,True,2.0,Hollis,False,False,she,18,0,1,1,0,,her,0,0,227
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,Rowena Tapps,Rowena,,f,1.0,True,1.0,Rowena,True,False,she,16,0,8,1,0,,her,0,0,174
+anthropic/claude-haiku-5.5,free_noted,keyboard,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,Rhea Homerow,Rhea,,f,0.979746835443038,True,2.0,Homerow,False,False,she,25,0,4,1,0,,her,0,0,228
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,Ila Merrow,Ila,,f,0.9976114649681529,True,1.0,Ila,True,False,she,15,0,0,2,0,,her,0,0,169
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,Hesper Ashgrove,Hesper,,f,1.0,True,2.0,Hesper,True,False,she,17,0,0,1,0,,her,1,0,202
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,Orla Vance,Orla,,ambiguous,0.8074074074074075,True,2.0,Orla,True,False,she,21,0,1,0,0,,her,0,0,217
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,Hollis Ashgrove,Hollis,,ambiguous,0.25557828188917814,True,2.0,Hollis,True,False,he,0,18,0,0,0,,his,0,1,192
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,Corwin Ashgrove,Corwin,,m,0.0,True,2.0,Corwin,True,False,he,0,13,0,0,0,,he,0,0,173
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,Hollis Ashgrove,Hollis,,ambiguous,0.25557828188917814,True,1.0,Hollis,True,False,he,0,14,1,1,0,,he,0,0,171
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,Silas Verrin,Silas,,m,0.0024322859522267312,True,2.0,Silas,True,False,he,0,15,1,0,0,,his,0,0,200
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,Marrow Ashby,Marrow,,notfound,,True,2.0,Ashby,False,False,she,20,0,1,0,0,,her,1,0,205
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,Corwin Ashgrove,Corwin,,m,0.0,True,2.0,Corwin,True,False,he,0,15,0,0,0,,he,0,0,196
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,Ansel Marrow,Ansel,,m,0.0020785699438786117,True,1.0,Ansel,True,False,he,0,15,2,2,0,,his,0,1,198
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,Bram Ashdown,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,20,0,2,0,,his,0,0,212
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,Ansel Coppice,Ansel,,m,0.0020785699438786117,True,1.0,Ansel,True,False,he,0,19,2,1,0,,he,0,0,175
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,Orla Wend,Orla,,ambiguous,0.8074074074074075,True,2.0,Orla,True,False,she,23,0,0,2,0,,her,0,0,239
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,Eamon Barkley,Eamon,,m,0.0,True,1.0,Eamon,True,False,he,0,21,3,0,0,,him,0,0,173
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,Ansel Greyhollow,Ansel,,m,0.0020785699438786117,True,2.0,Ansel,True,False,he,0,20,1,2,0,,him,0,0,190
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,Ilse Varrow,Ilse,,f,1.0,True,1.0,Ilse,True,False,she,19,0,1,1,0,,her,0,0,201
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,Wren Alder,Wren,,ambiguous,0.8578166268393913,True,2.0,Alder,False,False,she,14,0,0,0,0,,she,0,0,167
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,Wren Ashgrove,Wren,,ambiguous,0.8578166268393913,True,1.0,Ashgrove,False,False,she,17,0,2,1,0,,her,0,0,167
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,Orla Barkwell,Orla,,ambiguous,0.8074074074074075,True,1.0,Orla,True,False,she,30,0,2,2,0,,she,0,0,238
+anthropic/claude-haiku-5.5,free_noted,tree,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,Orla Vance,Orla,,ambiguous,0.8074074074074075,True,1.0,Orla,True,False,she,19,0,1,1,0,,her,0,0,221
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,Elsbeth Latch,Elsbeth,,f,1.0,True,1.0,Elsbeth,True,False,she,14,0,0,0,0,,her,0,0,165
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,Hesper Lintel,Hesper,,f,1.0,True,1.0,Hesper,True,False,she,17,0,2,0,0,,her,0,0,168
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,Hester Latch,Hester,,f,0.9636277431590355,True,1.0,Hester,True,False,she,16,0,1,1,0,,her,0,0,187
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,Wren Latchley,Wren,,ambiguous,0.8578166268393913,True,1.0,Latchley,False,False,he,0,17,1,0,0,,him,0,0,225
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,Ansel Marrow,Ansel,,m,0.0020785699438786117,True,1.0,Ansel,True,False,he,0,27,0,0,0,,his,0,0,208
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,Wren Hallward,Wren,,ambiguous,0.8578166268393913,True,2.0,Hallward,False,False,she,15,0,0,0,0,,her,0,0,187
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,Tobias Vell,Tobias,,m,0.0,True,1.0,Tobias,True,False,he,0,16,1,0,0,,his,0,0,176
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,Calloway Latch,Calloway,,ambiguous,0.16102683780630106,True,2.0,Calloway,True,False,he,0,22,1,1,0,,himself,0,0,219
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,Tobias Latchmere,Tobias,,m,0.0,True,1.0,Tobias,True,False,he,0,23,3,0,0,,he,0,0,232
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,Ottoline Vance,Ottoline,,notfound,,True,1.0,Vance,False,False,she,21,0,1,2,0,,her,0,0,200
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,Ansel Latch,Ansel,,m,0.0020785699438786117,True,1.0,Ansel,True,False,he,0,24,2,1,0,,he,0,0,185
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,Ansel Lintel,Ansel,,m,0.0020785699438786117,True,2.0,Ansel,True,False,he,0,11,1,1,0,,his,0,0,188
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,Ione Vell,Ione,,f,1.0,True,2.0,Ione,True,False,she,18,0,1,0,0,,she,0,0,186
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,Ansel Jamb,Ansel,,m,0.0020785699438786117,True,2.0,Ansel,True,False,he,0,15,0,1,0,,he,0,0,155
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,Calder Jamb,Calder,,m,0.016795279164775308,True,2.0,Calder,True,False,he,0,16,2,0,0,,he,0,0,209
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,Marisol Jamb,Marisol,,f,0.9910906211109854,True,2.0,Marisol,True,False,she,16,0,3,1,0,,she,0,1,187
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,Ansel Latch,Ansel,,m,0.0020785699438786117,True,2.0,Ansel,True,False,he,0,18,6,0,0,,his,0,1,238
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,Hollis Latch,Hollis,,ambiguous,0.25557828188917814,True,2.0,Hollis,True,False,he,0,19,3,0,0,,his,0,0,167
+anthropic/claude-haiku-5.5,free_noted,door,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,Ansel Latch,Ansel,,m,0.0020785699438786117,True,1.0,Ansel,True,False,he,0,19,3,0,0,,his,0,0,158
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,Ione Marrow,Ione,,f,1.0,True,2.0,Ione,True,False,she,16,0,0,2,0,,she,0,0,231
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,Mirel Dunsany,Mirel,,f,1.0,True,1.0,Mirel,True,False,she,19,0,0,2,0,,herself,0,0,193
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,Clementine Hale,Clementine,,f,1.0,True,2.0,Hale,False,False,she,14,0,1,1,0,,she,0,0,184
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,Juniper Hale,Juniper,,f,0.988199122846679,True,2.0,Hale,False,False,she,22,0,3,0,0,,her,0,0,198
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,Imogen Halloway,Imogen,,f,1.0,True,1.0,Imogen,True,False,she,17,0,1,0,0,,herself,0,0,171
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,Jessamy Vale,Jessamy,,f,1.0,True,1.0,Jessamy,True,False,she,22,0,4,2,0,,she,0,0,181
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,Calla Venn,Calla,,f,1.0,True,2.0,Venn,False,False,she,18,0,1,2,0,,she,0,0,187
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,Marisol Vane,Marisol,,f,0.9910906211109854,True,1.0,Marisol,True,False,she,17,0,1,1,0,,she,0,0,197
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,Wren Halloway,Wren,,ambiguous,0.8578166268393913,True,1.0,Halloway,False,False,she,14,0,1,2,0,,they,0,0,199
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,Odessa Pell,Odessa,,f,0.9917726252804787,True,1.0,Odessa,True,False,she,16,0,0,0,0,,her,0,0,211
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,Odile Marrow,Odile,,f,1.0,True,2.0,Odile,True,False,she,20,0,1,1,0,,her,0,0,206
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,Ines Carmine,Ines,,ambiguous,0.9441958041958042,True,2.0,Ines,True,False,she,21,0,0,1,0,,her,0,0,209
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,Vesper Harrow,Vesper,,ambiguous,0.9264413518886679,True,2.0,Harrow,False,False,she,20,0,1,0,0,,she,0,0,204
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,Wren Calloway,Wren,,ambiguous,0.8578166268393913,True,1.0,Calloway,False,False,she,20,0,1,1,0,,she,0,0,213
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,Imogen Halloran,Imogen,,f,1.0,True,1.0,Imogen,True,False,she,14,0,1,0,0,,herself,0,0,157
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,Clementine Vale,Clementine,,f,1.0,True,1.0,Vale,False,False,she,16,0,0,1,0,,her,0,0,166
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,Wren Ardell,Wren,,ambiguous,0.8578166268393913,True,1.0,Ardell,False,False,she,19,0,2,0,0,,they,0,0,215
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,Camille Ashgrove,Camille,,f,0.9818724066390041,True,1.0,Camille,True,False,she,18,0,2,0,0,,she,0,0,185
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,Dell Marrow,Dell,,ambiguous,0.3882783882783883,True,1.0,Marrow,False,False,he,0,15,2,3,0,,him,0,0,180
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,Odile Varga,Odile,,f,1.0,True,1.0,Odile,True,False,she,18,0,1,0,0,,her,0,0,175
+anthropic/claude-haiku-5.5,free_noted,flower,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,Marisol Vance,Marisol,,f,0.9910906211109854,True,1.0,Marisol,True,False,she,24,0,1,3,0,,herself,0,0,203
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,Dorian Vale,Dorian,,ambiguous,0.15806878306878308,True,2.0,Dorian,True,False,he,0,22,1,0,0,,he,0,1,216
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,Ilse Brandt,Ilse,,f,1.0,True,1.0,Ilse,True,False,she,18,0,2,2,0,,she,1,0,176
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,Ruth Calloway,Ruth,,f,0.9966873325934764,True,1.0,Calloway,False,False,she,15,0,0,0,0,,her,0,0,175
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,Ruth Dacey,Ruth,,f,0.9966873325934764,True,2.0,Dacey,False,False,she,15,0,0,3,0,,she,0,0,194
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,Dorrin Vane,Dorrin,,notfound,,True,1.0,Vane,False,False,he,0,13,0,5,0,,his,0,1,158
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,Ruth Ashgrove,Ruth,,f,0.9966873325934764,True,1.0,Ashgrove,False,False,she,18,0,0,1,0,,her,0,0,201
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,Dell Ostrander,Dell,,ambiguous,0.3882783882783883,True,1.0,Ostrander,False,False,he,0,14,0,5,0,,his,0,2,220
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,Tobias Grainger,Tobias,,m,0.0,True,1.0,Tobias,True,False,he,0,18,0,5,0,,his,0,1,205
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,Bram Ironwright,Bram,,m,0.0,True,2.0,Bram,True,False,he,0,16,2,0,0,,his,0,1,189
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,Ruth Vance,Ruth,,f,0.9966873325934764,True,1.0,Vance,False,False,she,19,0,0,3,0,,herself,0,0,209
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,Tobias Clench,Tobias,,m,0.0,True,1.0,Tobias,True,False,he,0,15,1,2,0,,himself,0,1,178
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,Bram Keller,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,18,1,3,0,,his,0,0,218
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,Bram Ostrow,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,17,0,0,0,,his,0,1,167
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,Bram Tolliver,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,16,1,2,0,,his,0,0,204
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,Ada Brisk,Ada,,f,0.9974063051043542,True,1.0,Ada,True,False,she,20,0,1,1,0,,her,0,0,192
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,Mara Quell,Mara,,f,0.99933482996591,True,1.0,Quell,False,False,she,21,0,2,0,0,,her,1,0,182
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,Tobin Vance,Tobin,,m,0.029109290569984313,True,1.0,Tobin,True,False,he,0,14,1,1,0,,his,0,0,151
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,Bram Keel,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,14,0,1,0,,his,0,0,164
+anthropic/claude-haiku-5.5,none,pot,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,3,1,0,,she,0,0,188
+anthropic/claude-haiku-5.5,free_noted,hammer,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,Gideon Strand,Gideon,,m,0.0014348488924760111,True,1.0,Gideon,True,False,he,0,15,2,1,0,,his,0,0,167
+anthropic/claude-haiku-5.5,none,pot,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,1,3,0,,she,0,0,209
+anthropic/claude-haiku-5.5,none,pot,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,21,0,2,1,0,,she,0,0,185
+anthropic/claude-haiku-5.5,none,pot,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,2,0,,she,0,0,212
+anthropic/claude-haiku-5.5,none,pot,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,2,4,0,,she,0,0,208
+anthropic/claude-haiku-5.5,none,pot,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,26,0,7,0,0,,she,0,0,231
+anthropic/claude-haiku-5.5,none,pot,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,4,0,,she,0,0,224
+anthropic/claude-haiku-5.5,none,pot,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,2,1,0,,she,0,0,228
+anthropic/claude-haiku-5.5,none,pot,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,25,0,4,1,0,,she,0,0,205
+anthropic/claude-haiku-5.5,none,pot,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,0,,she,0,0,212
+anthropic/claude-haiku-5.5,none,pot,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,4,0,0,,she,0,0,216
+anthropic/claude-haiku-5.5,none,pot,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,28,0,1,1,0,,she,0,0,206
+anthropic/claude-haiku-5.5,none,pot,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,2,1,0,,she,0,0,206
+anthropic/claude-haiku-5.5,none,pot,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,0,3,0,,she,0,0,191
+anthropic/claude-haiku-5.5,none,pot,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,3,0,,their,0,0,215
+anthropic/claude-haiku-5.5,none,pot,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,21,0,1,2,0,,she,0,0,229
+anthropic/claude-haiku-5.5,none,pot,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,1,2,0,,she,0,0,213
+anthropic/claude-haiku-5.5,none,pot,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,17,1,0,,them,0,0,226
+anthropic/claude-haiku-5.5,none,pot,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,0,2,0,,she,0,0,235
+anthropic/claude-haiku-5.5,none,pot,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,4,0,0,,she,0,0,198
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,3,2,0,,she,0,0,246
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,26,0,2,0,0,,she,0,0,223
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,25,0,2,0,0,,she,0,0,255
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,24,0,2,0,0,,she,0,0,205
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,16,3,0,,their,0,0,206
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,1,0,,she,0,0,187
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,21,0,2,1,0,,she,0,0,235
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,24,0,1,1,0,,she,0,0,250
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,25,0,3,0,0,,she,0,0,219
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,5,1,0,,her,0,0,204
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,0,0,,she,0,0,228
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,2,1,0,,she,0,0,249
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,4,0,0,,she,0,0,214
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,0,,she,0,0,215
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,4,1,0,,she,0,0,212
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,1,0,0,,she,0,0,198
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,6,0,0,,her,0,0,219
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,27,0,3,1,0,,she,0,0,234
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,27,0,1,0,0,,she,0,0,222
+anthropic/claude-haiku-5.5,none,tree,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,2,2,0,,she,0,0,189
+anthropic/claude-haiku-5.5,none,keyboard,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,0,,she,0,0,237
+anthropic/claude-haiku-5.5,none,tree,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,0,1,0,,she,0,0,202
+anthropic/claude-haiku-5.5,none,tree,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,3,1,0,,she,0,0,258
+anthropic/claude-haiku-5.5,none,tree,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,30,0,3,1,0,,she,0,0,225
+anthropic/claude-haiku-5.5,none,tree,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,21,0,1,0,0,,she,0,0,209
+anthropic/claude-haiku-5.5,none,tree,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,15,0,1,3,0,,she,0,0,181
+anthropic/claude-haiku-5.5,none,tree,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,1,0,0,,she,0,0,249
+anthropic/claude-haiku-5.5,none,tree,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,5,1,0,,she,0,0,211
+anthropic/claude-haiku-5.5,none,tree,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,26,0,1,1,0,,she,0,0,265
+anthropic/claude-haiku-5.5,none,tree,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,25,0,0,2,0,,she,0,0,216
+anthropic/claude-haiku-5.5,none,tree,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,21,0,2,1,0,,she,0,0,221
+anthropic/claude-haiku-5.5,none,tree,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,0,2,0,,she,0,0,207
+anthropic/claude-haiku-5.5,none,tree,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,2,0,0,,she,0,0,266
+anthropic/claude-haiku-5.5,none,tree,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,27,0,1,1,0,,she,0,0,233
+anthropic/claude-haiku-5.5,none,tree,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,25,0,3,4,0,,she,0,0,252
+anthropic/claude-haiku-5.5,none,tree,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,27,0,2,0,0,,she,0,0,247
+anthropic/claude-haiku-5.5,none,tree,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,1,5,0,,she,0,0,240
+anthropic/claude-haiku-5.5,none,tree,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,26,0,2,1,0,,she,0,0,263
+anthropic/claude-haiku-5.5,none,tree,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,21,0,0,2,0,,she,0,0,223
+anthropic/claude-haiku-5.5,none,door,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,24,0,0,5,0,,she,0,0,226
+anthropic/claude-haiku-5.5,none,tree,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,5,0,,she,0,0,246
+anthropic/claude-haiku-5.5,none,door,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,2,0,0,,she,0,0,204
+anthropic/claude-haiku-5.5,none,door,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,3,0,0,,she,0,0,210
+anthropic/claude-haiku-5.5,none,door,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,19,1,0,,they,0,0,223
+anthropic/claude-haiku-5.5,none,door,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,1,2,0,,she,0,0,213
+anthropic/claude-haiku-5.5,none,door,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,1,1,0,,she,0,0,223
+anthropic/claude-haiku-5.5,none,door,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,24,0,3,2,0,,she,0,0,217
+anthropic/claude-haiku-5.5,none,door,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,24,0,2,2,0,,she,0,0,238
+anthropic/claude-haiku-5.5,none,door,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,13,0,2,0,0,,she,0,0,190
+anthropic/claude-haiku-5.5,none,door,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,18,1,0,,they,0,0,230
+anthropic/claude-haiku-5.5,none,door,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,0,0,0,,she,0,0,230
+anthropic/claude-haiku-5.5,none,door,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,0,1,0,,she,0,0,234
+anthropic/claude-haiku-5.5,none,door,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,0,1,0,,she,0,0,222
+anthropic/claude-haiku-5.5,none,door,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,25,0,1,1,0,,she,0,0,199
+anthropic/claude-haiku-5.5,none,door,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,0,2,0,,she,0,0,221
+anthropic/claude-haiku-5.5,none,door,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,0,1,0,,she,0,0,213
+anthropic/claude-haiku-5.5,none,door,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,18,1,0,,they,0,0,230
+anthropic/claude-haiku-5.5,none,door,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,3,1,0,,she,0,0,223
+anthropic/claude-haiku-5.5,none,door,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,1,9,0,,they,0,0,185
+anthropic/claude-haiku-5.5,none,flower,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,0,3,0,,she,0,0,182
+anthropic/claude-haiku-5.5,none,door,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,2,0,,their,0,0,234
+anthropic/claude-haiku-5.5,none,flower,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,0,,she,0,0,205
+anthropic/claude-haiku-5.5,none,flower,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,17,2,0,,they,0,0,196
+anthropic/claude-haiku-5.5,none,flower,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,24,0,2,3,0,,she,0,0,266
+anthropic/claude-haiku-5.5,none,flower,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,1,0,,she,0,0,207
+anthropic/claude-haiku-5.5,none,flower,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,3,0,0,,she,0,0,186
+anthropic/claude-haiku-5.5,none,flower,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,0,1,0,,she,0,0,193
+anthropic/claude-haiku-5.5,none,flower,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,24,2,0,,they,0,0,227
+anthropic/claude-haiku-5.5,none,flower,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,4,2,0,,she,0,0,178
+anthropic/claude-haiku-5.5,none,flower,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,0,,she,0,0,227
+anthropic/claude-haiku-5.5,none,flower,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,3,0,,she,0,0,240
+anthropic/claude-haiku-5.5,none,flower,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,20,0,0,,they,0,0,215
+anthropic/claude-haiku-5.5,none,flower,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,4,0,0,,she,0,0,214
+anthropic/claude-haiku-5.5,none,flower,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,2,0,0,,she,0,0,200
+anthropic/claude-haiku-5.5,none,flower,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,2,2,0,,she,0,0,191
+anthropic/claude-haiku-5.5,none,flower,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,0,0,,she,0,0,201
+anthropic/claude-haiku-5.5,none,hammer,plain,False,0,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,0,0,,their,0,0,178
+anthropic/claude-haiku-5.5,none,flower,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,24,0,2,1,0,,she,0,0,216
+anthropic/claude-haiku-5.5,none,flower,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,1,1,0,,she,0,0,192
+anthropic/claude-haiku-5.5,none,flower,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,25,0,3,2,0,,she,0,0,214
+anthropic/claude-haiku-5.5,none,flower,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,21,0,0,0,0,,she,0,0,202
+anthropic/claude-haiku-5.5,none,hammer,plain,False,1,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,24,0,0,3,0,,she,0,0,246
+anthropic/claude-haiku-5.5,none,hammer,plain,False,2,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,26,0,0,3,0,,she,0,0,249
+anthropic/claude-haiku-5.5,none,hammer,plain,False,3,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,2,1,0,,she,0,0,237
+anthropic/claude-haiku-5.5,none,hammer,plain,False,4,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,2,0,,they,0,0,215
+anthropic/claude-haiku-5.5,none,hammer,plain,False,5,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,20,2,0,,they,0,0,224
+anthropic/claude-haiku-5.5,none,hammer,plain,False,6,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,3,0,,she,0,0,224
+anthropic/claude-haiku-5.5,none,hammer,plain,False,7,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,1,0,,they,0,0,194
+anthropic/claude-haiku-5.5,none,hammer,plain,False,8,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,0,1,0,,she,0,0,206
+anthropic/claude-haiku-5.5,none,hammer,plain,False,9,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,21,0,2,3,0,,she,0,0,195
+anthropic/claude-haiku-5.5,none,hammer,plain,False,10,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,21,0,0,1,0,,she,0,0,251
+anthropic/claude-haiku-5.5,none,hammer,plain,False,11,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,1,2,0,,she,0,0,227
+anthropic/claude-haiku-5.5,none,hammer,plain,False,12,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,1,2,0,,she,0,0,222
+anthropic/claude-haiku-5.5,none,hammer,plain,False,13,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,24,0,2,4,0,,she,1,0,243
+anthropic/claude-haiku-5.5,none,hammer,plain,False,14,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,1,0,,she,0,0,223
+anthropic/claude-haiku-5.5,none,hammer,plain,False,16,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,1,0,,they,0,0,190
+anthropic/claude-haiku-5.5,none,hammer,plain,False,17,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,10,1,0,,they,0,0,182
+anthropic/claude-haiku-5.5,none,hammer,plain,False,15,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,15,1,0,,their,0,0,235
+anthropic/claude-haiku-5.5,none,hammer,plain,False,18,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,13,2,0,,their,0,0,253
+anthropic/claude-haiku-5.5,none,hammer,plain,False,19,stop,Anthropic,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,1,0,0,,she,0,0,206

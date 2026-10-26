@@ -179,3 +179,10 @@ def test_split_think_gptoss():
     th, ans, closed = split_think(raw)
     assert th == "Pot: round, warm." and ans == "She waited.\nName: Ada" and closed
     assert split_think("<|channel|>analysis<|message|>still thinking")[2] is False
+
+
+def test_name_only_answer_is_invalid():
+    from code_outputs import code_v2
+
+    g = code_v2("**Name:** Everlyn", "pot", "stop", name_pos="before")
+    assert g["no_paragraph"] and not g["valid"]

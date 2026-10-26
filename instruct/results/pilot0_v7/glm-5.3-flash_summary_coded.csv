@@ -1,241 +1,241 @@
-model,name_condition,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,name_in_para,valid,n_paragraphs,name,given,title,name_sex,name_f_share,name_used_in_para,n_name_mentions,para_first_name,para_name_matches,noun_in_name,pron,n_f,n_m,n_they,n_it,first_pron,n_fnoun,n_mnoun,answer_words,cot_words,cot_gender,cot_lang,cot_ship_she
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,Agnes Broadwell,Agnes,,f,0.9970934230100886,True,1.0,Agnes,True,False,she,9,0,3,0,her,0,0,163,776,False,False,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,Ollie Blackwell,Ollie,,ambiguous,0.7026000978622168,True,1.0,Ollie,True,False,she,21,0,1,2,her,1,0,260,357,False,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,Marla Kessel,Marla,,f,0.9990210979159689,True,1.0,Marla,True,False,she,16,0,1,1,her,1,0,189,700,False,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,Ollie Turenn,Ollie,,ambiguous,0.7026000978622168,False,0.0,,False,False,she,13,0,6,0,she,0,0,178,706,True,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,Olla,Olla,,f,1.0,True,1.0,,False,False,she,17,0,1,5,their,1,0,212,845,True,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,Marigold Crockwell,Marigold,,f,1.0,True,2.0,Marigold,True,False,she,15,0,5,2,her,0,0,201,896,True,False,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,Lidia Hollowell,Lidia,,f,1.0,True,1.0,Lidia,True,False,she,17,0,1,2,her,0,0,189,1130,True,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,Marta Kessel,Marta,,f,0.9973835390478357,True,1.0,Marta,True,False,she,6,0,1,0,her,0,0,148,515,False,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,Marigold Boileau,Marigold,,f,1.0,False,0.0,,False,False,she,18,0,3,1,she,0,0,193,459,False,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,Ollie,Ollie,,ambiguous,0.7026000978622168,True,1.0,Ollie,True,False,he,0,14,4,1,his,0,0,189,666,False,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,Cassia Hearthwell,Cassia,,f,1.0,True,2.0,Cassia,True,False,she,13,0,3,4,her,0,0,235,1321,True,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,Vesta,Vesta,,f,0.9967105263157895,True,1.0,Vesta,True,False,she,14,0,2,0,her,0,0,165,843,True,False,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,Etta Kessel,Etta,,f,0.9994687117414706,True,1.0,Etta,True,False,she,13,0,4,0,her,0,0,188,593,False,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,Cass,Cass,,ambiguous,0.06673356748620171,True,1.0,Cass,True,False,she,20,0,3,1,she,0,0,206,1263,True,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,Olla Brimwell,Olla,,f,1.0,True,1.0,,False,False,she,13,0,1,1,she,0,0,175,896,True,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,3.0,Portia,True,False,she,22,0,1,3,her,0,0,235,787,False,False,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,Marla Kessel,Marla,,f,0.9990210979159689,True,2.0,Marla,True,False,she,12,0,2,0,her,0,0,164,852,True,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,Edna Hollowell,Edna,,f,0.9964816077904362,True,2.0,Edna,True,False,she,17,0,3,0,her,1,0,190,1433,True,False,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,Agnes Stonewell,Agnes,,f,0.9970934230100886,True,1.0,Agnes,True,False,she,17,0,3,0,her,1,0,209,970,True,True,False
-z-ai/glm-5.3-flash,free_noted,pot,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,Agnes Kessel,Agnes,,f,0.9970934230100886,True,1.0,Agnes,True,False,she,22,0,2,0,she,0,0,207,1043,True,True,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,Tabitha Locke,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,21,0,2,0,her,0,0,181,795,False,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,"Tabitha ""Tab"" Keyes",Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,16,0,1,1,she,0,0,200,973,True,True,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,Tabitha Lockwood,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,22,0,2,2,her,0,0,234,1030,False,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,Tilda,Tilda,,f,1.0,True,1.0,Tilda,True,False,she,13,0,1,1,her,0,0,179,747,True,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,Tabitha Locke,Tabitha,,f,0.9975398510430358,False,0.0,,False,False,she,16,0,1,0,her,0,0,167,543,False,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,Quinn Werty,Quinn,,ambiguous,0.5866584725403654,True,1.0,Quinn,True,False,she,20,0,2,0,she,0,0,191,1615,True,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,Tabitha Kaye,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,20,0,5,1,she,0,0,204,2466,True,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,Tabitha Qwerty,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,21,0,1,1,her,0,0,208,2077,True,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,Clive Q. Tappett,Clive,,m,0.0,True,1.0,Clive,True,False,he,0,17,2,1,his,0,1,188,937,False,True,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,Tabitha Escott,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,28,0,0,0,her,0,0,222,1234,False,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,Casey Q. Wertz,Casey,,ambiguous,0.400975484533436,True,1.0,Casey,True,False,he,0,24,1,4,his,0,0,244,999,True,True,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,Tabitha Lockwood,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,22,0,1,0,herself,0,0,211,1203,False,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,Tabitha Q. Carrow,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,16,0,1,0,her,0,0,159,1399,False,True,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,Tabitha Locke,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,16,0,3,0,her,0,0,165,1754,True,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,Delia Keyes,Delia,,f,0.9983413590155163,True,1.0,Delia,True,False,she,14,0,0,1,her,0,0,170,1034,False,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,Kay Capshaw,Kay,,f,0.9617338729338339,True,1.0,Kay,True,False,she,18,0,2,1,their,0,0,169,921,True,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,"Tabitha ""Tab"" Keyes",Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,21,0,0,2,her,0,0,198,1215,True,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,22,2,0,his,0,0,188,513,False,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,Rowan Keats,Rowan,,ambiguous,0.30506636651888047,True,1.0,Keats,False,False,he,0,20,6,0,he,0,1,212,842,True,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,Rowan Ashgrove,Rowan,,ambiguous,0.30506636651888047,True,1.0,Ashgrove,False,False,he,0,16,1,2,he,0,0,165,568,False,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,15,2,0,his,0,0,207,516,True,True,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,July,False,False,he,0,23,2,1,his,0,0,215,1172,False,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,Locke,Locke,,m,0.0,True,1.0,Locke,True,False,she,10,0,0,1,herself,0,0,160,1055,True,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,Rowan Ashwood,Rowan,,ambiguous,0.30506636651888047,False,0.0,Aldous,False,False,he,0,21,0,2,his,0,0,214,679,False,False,False
-z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,"Tabitha ""Tab"" Underwood",Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,18,0,4,2,her,0,0,201,2042,False,True,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,12,1,0,his,0,0,187,944,False,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,Silas Ashford,Silas,,m,0.0024322859522267312,True,1.0,Silas,True,False,he,0,14,2,1,he,0,1,201,643,False,True,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,Rowan Alderwood,Rowan,,ambiguous,0.30506636651888047,True,1.0,Alderwood,False,False,she,14,0,1,3,her,1,0,192,1170,False,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,Rowan Alder,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,23,1,1,he,0,0,194,709,True,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,Rowan Alder,Rowan,,ambiguous,0.30506636651888047,True,1.0,Alder,False,False,he,0,18,1,1,him,0,0,169,813,False,True,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,Rowan Alder,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,19,5,1,he,0,0,218,933,True,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,Rowan Alder,Rowan,,ambiguous,0.30506636651888047,True,1.0,Rowan,True,False,he,0,28,1,4,he,0,0,229,2259,True,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,Rowan Ashford,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,22,8,2,his,0,1,237,1770,True,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,October,False,False,he,0,29,6,3,his,0,0,236,759,False,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,26,1,4,his,0,1,257,1150,True,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,Elowen Hartwood,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,19,0,3,0,her,0,0,192,706,True,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,20,1,4,him,0,0,204,564,False,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,October,False,False,he,0,23,2,1,he,0,0,250,698,True,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,Rowan Ashford,Rowan,,ambiguous,0.30506636651888047,True,2.0,Ashford,False,False,he,0,14,3,0,them,1,0,215,833,False,False,False
-z-ai/glm-5.3-flash,free_noted,tree,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,Rowan Hale,Rowan,,ambiguous,0.30506636651888047,True,2.0,Rowan,True,False,he,0,12,2,3,him,0,1,200,1811,True,False,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,29,0,3,1,she,0,0,263,723,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,26,0,2,1,her,1,0,244,1022,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,19,0,0,0,her,1,0,203,535,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,20,0,3,2,she,1,0,237,696,True,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,Thora Porter,Thora,,f,1.0,True,1.0,Thora,True,False,she,18,0,2,1,she,0,0,195,1212,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,19,0,3,1,her,1,0,210,633,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,21,0,0,1,her,1,0,211,789,True,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,Porter Halloran,Porter,,m,0.045548369340855925,True,1.0,Halloran,False,False,he,0,15,2,0,them,0,1,189,1537,True,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,16,0,2,1,her,1,0,191,721,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,Portia Thresham,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,23,0,1,0,her,1,0,192,796,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,Portia Hinge,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,24,0,2,0,her,0,0,204,613,True,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,Portia Van Doren,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,12,0,1,0,she,0,0,169,884,True,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,15,0,3,0,her,1,0,221,853,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,18,0,2,0,her,0,0,189,641,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,2.0,Portia,True,False,she,19,0,1,1,their,1,0,203,682,True,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,18,0,0,0,she,1,0,188,519,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,Doreen Gates,Doreen,,f,0.9987523930392136,True,1.0,Doreen,True,False,she,18,0,0,1,she,0,0,217,762,True,False,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,Dahlia,Dahlia,,f,1.0,True,1.0,,False,False,she,16,0,0,2,her,0,0,160,578,False,True,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,Anthea Bloom,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,16,0,2,1,her,0,0,153,885,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,Portia Oakes,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,15,0,4,1,her,1,0,209,1082,False,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,Porter Hinge,Porter,,m,0.045548369340855925,True,1.0,,False,False,he,0,18,1,4,him,0,1,222,1051,False,False,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,Marigold,Marigold,,f,1.0,False,0.0,,False,False,she,17,0,0,1,she,0,0,181,1298,False,True,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,16,0,2,1,her,0,0,174,816,True,True,False
-z-ai/glm-5.3-flash,free_noted,door,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,22,0,4,2,she,1,0,223,1614,True,True,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,14,0,3,0,she,0,0,159,570,False,False,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,Fleur,Fleur,,f,1.0,True,1.0,Fleur,True,False,she,16,0,3,0,her,0,0,178,1015,False,True,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,Rosalind,Rosalind,,f,1.0,True,1.0,Rosalind,True,False,she,16,0,1,2,she,0,0,192,755,False,True,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,18,0,3,3,she,0,0,165,647,False,True,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,15,0,2,1,they,0,0,194,769,False,True,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,Marigold Fen,Marigold,,f,1.0,True,1.0,,False,False,she,19,0,5,1,she,0,0,213,1616,True,True,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,Marigold,Marigold,,f,1.0,True,1.0,,False,False,she,17,0,2,1,her,0,0,187,1373,False,True,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,Zahra,Zahra,,f,1.0,True,1.0,Zahra,True,False,she,13,0,0,1,her,0,0,156,1083,False,False,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,Anthea Bloom,Anthea,,f,1.0,False,0.0,,False,False,she,20,0,0,1,she,0,0,173,1047,True,False,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,22,0,1,2,her,0,0,198,740,False,False,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,Marigold,Marigold,,f,1.0,True,1.0,,False,False,she,23,0,0,0,she,0,0,177,553,False,False,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,19,0,0,1,her,0,0,176,524,False,False,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,Anthea Bloom,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,21,0,2,2,she,0,0,182,1541,False,True,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,Marigold,Marigold,,f,1.0,False,0.0,,False,False,she,17,0,2,2,she,0,0,158,1099,False,False,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,Poppy,Poppy,,f,0.999476220406453,True,1.0,Poppy,True,False,she,19,0,5,0,they,0,0,189,1284,False,False,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,Hank Ironwood,Hank,,m,0.0,True,2.0,Hank,True,False,he,0,11,0,1,he,0,2,163,704,False,False,False
-z-ai/glm-5.3-flash,free_noted,flower,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,21,0,1,1,she,0,0,207,2366,False,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,Percy Forge,Percy,,m,0.019366626065773447,True,2.0,Percy,True,False,he,0,13,1,3,his,0,0,240,1058,False,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,Thora Clout,Thora,,f,1.0,True,2.0,Thora,True,False,she,14,0,0,2,her,0,0,181,1234,True,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,Gideon Sturm,Gideon,,m,0.0014348488924760111,True,2.0,Gideon,True,False,he,0,16,0,3,him,0,0,235,659,False,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,Percy Voss,Percy,,m,0.019366626065773447,True,2.0,Percy,True,False,he,0,13,2,3,he,0,0,201,1126,False,False,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,Mallory Strickland,Mallory,,f,0.9817105613194999,True,2.0,Mallory,True,False,she,13,0,1,2,her,0,0,205,1403,True,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,Mal Harrow,Mal,,m,0.0,True,1.0,Mal,True,False,he,0,15,1,3,he,0,0,176,1342,True,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,Greta Eisen,Greta,,f,0.9998200856392357,True,1.0,Greta,True,False,she,20,0,2,3,she,1,0,201,857,True,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,Gideon Maulden,Gideon,,m,0.0014348488924760111,True,1.0,Gideon,True,False,he,0,16,1,2,his,0,1,242,908,False,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,Beatrice Stone,Beatrice,,f,0.9962535713738098,False,0.0,,False,False,she,11,0,1,1,she,0,0,172,1314,False,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,Ash Stahl,Ash,,ambiguous,0.054104477611940295,False,0.0,,False,False,he,0,14,2,5,he,0,0,199,1883,True,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,Kalman Varga,Kalman,,m,0.0,True,3.0,Kalman,True,False,he,0,16,1,3,they,0,1,235,1134,False,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,Frank Martel,Frank,,m,0.0050087498329873595,True,2.0,Martel,False,False,he,0,15,2,3,he,0,0,202,800,True,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,Stanley Knox,Stanley,,m,0.00474473522594449,True,1.0,Stanley,True,False,he,0,16,1,4,he,0,2,191,595,True,False,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,Stanley,Stanley,,m,0.00474473522594449,True,2.0,Stanley,True,False,he,0,13,2,2,he,0,0,174,752,True,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,Mal Headley,Mal,,m,0.0,True,1.0,Mal,True,False,he,0,10,0,2,he,0,0,183,1052,False,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,Frank Thorpe,Frank,,m,0.0050087498329873595,True,1.0,,False,False,he,0,18,1,1,he,0,0,240,2040,False,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,Marta Martel,Marta,,f,0.9973835390478357,True,2.0,Marta,True,False,she,26,0,2,2,her,0,1,279,1830,True,True,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,Bridget Knox,Bridget,,f,0.9983786763513732,True,1.0,Bridget,True,False,she,16,0,2,3,she,0,0,203,1033,False,True,False
-z-ai/glm-5.3-flash,none,pot,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,1,she,0,0,189,552,False,False,False
-z-ai/glm-5.3-flash,free_noted,hammer,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,Mallory,Mallory,,f,0.9817105613194999,True,2.0,Mallory,True,False,she,11,0,2,1,them,0,0,185,1358,True,True,False
-z-ai/glm-5.3-flash,none,pot,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,1,1,she,0,0,205,471,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,2,3,she,0,0,192,747,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,21,0,1,0,she,0,0,171,583,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,10,0,1,1,she,0,0,176,668,False,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,3,0,she,0,0,216,716,False,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,6,0,she,2,0,177,924,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,1,1,she,0,0,181,594,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,3,1,she,0,0,210,982,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,18,0,1,he,0,0,197,1005,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,1,1,she,0,0,177,851,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,3,she,0,0,257,823,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,21,0,1,1,she,0,0,212,877,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,3,2,she,0,0,201,739,False,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,14,3,3,he,0,0,202,606,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,26,0,4,4,she,1,0,216,1166,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,6,2,she,0,0,213,612,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,4,0,she,0,0,198,600,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,3,2,she,0,0,209,744,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,26,2,2,he,0,0,231,982,True,False,False
-z-ai/glm-5.3-flash,none,pot,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,4,4,she,0,0,176,1687,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,2,2,she,0,0,238,786,False,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,18,2,they,0,0,199,1146,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,2,2,she,0,0,187,912,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,2,1,she,0,0,171,863,False,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,25,0,1,0,she,0,0,201,1077,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,23,4,0,he,0,1,230,1112,False,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,24,0,3,0,she,0,0,215,1261,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,18,2,0,he,0,0,189,556,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,5,1,she,0,0,193,1092,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,25,0,1,he,0,2,231,687,False,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,24,4,2,he,0,1,229,629,False,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,14,2,1,he,0,0,177,1061,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,23,0,1,he,0,0,200,822,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,0,1,she,0,0,185,1012,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,3,4,she,0,0,216,1404,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,21,3,0,he,0,0,227,764,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,26,0,4,0,she,0,0,222,770,True,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,16,2,0,he,0,0,182,812,False,False,False
-z-ai/glm-5.3-flash,none,keyboard,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,3,1,she,0,0,197,935,True,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,14,0,2,1,she,0,0,168,922,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,21,5,1,he,0,0,244,1174,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,17,3,2,he,0,0,203,647,True,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,29,2,0,he,0,0,232,463,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,23,1,1,he,0,0,214,637,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,3,1,she,0,0,182,602,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,22,3,0,he,0,2,211,754,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,15,2,0,he,0,1,178,399,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,23,3,2,he,0,2,213,716,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,0,she,0,0,196,875,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,25,0,4,4,she,0,0,224,641,True,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,23,4,1,he,0,0,251,1116,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,2,2,she,0,0,207,1248,True,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,14,0,2,1,she,0,0,179,1014,True,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,21,2,2,he,0,0,230,1038,True,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,18,2,5,he,0,0,210,690,True,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,0,3,she,0,0,237,622,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,22,1,0,he,0,1,187,713,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,28,0,2,he,0,2,235,937,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,11,1,0,he,0,0,157,578,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,21,1,2,he,0,1,190,780,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,23,3,3,he,0,0,205,813,False,False,False
-z-ai/glm-5.3-flash,none,tree,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,24,5,1,he,0,1,259,1241,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,17,2,1,he,0,0,205,1123,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,23,1,0,he,0,1,261,989,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,17,2,1,he,0,1,190,451,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,23,0,2,he,0,1,222,1028,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,27,0,0,3,she,0,0,249,2006,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,3,0,she,0,0,222,989,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,20,1,1,he,0,1,239,701,True,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,20,1,0,he,0,1,200,1375,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,14,3,0,he,0,1,194,1260,True,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,19,1,1,he,0,0,240,1233,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,1,she,0,0,207,709,True,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,11,0,0,he,0,0,150,854,False,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,0,3,she,0,0,188,582,True,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,26,6,4,he,0,1,269,1678,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,16,4,0,he,0,0,175,873,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,17,1,1,he,0,0,199,775,False,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,1,3,she,0,0,206,753,True,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,13,2,1,he,0,1,187,1134,False,False,False
-z-ai/glm-5.3-flash,none,door,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,1,1,she,0,0,201,1114,True,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,2,1,she,0,0,177,547,False,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,1,she,0,0,214,1042,True,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,15,0,1,0,she,0,0,154,808,False,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,1,1,she,0,0,205,808,True,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,0,0,she,0,0,208,737,False,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,1,she,0,0,205,643,True,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,5,2,she,0,0,190,459,False,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,27,0,0,1,she,0,0,214,910,True,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,0,3,she,0,0,187,1392,False,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,she,0,0,214,798,False,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,26,0,1,0,she,0,0,214,582,True,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,5,0,she,0,0,188,777,True,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,13,0,2,0,she,0,0,158,605,True,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,25,0,2,2,she,0,0,185,510,False,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,1,1,she,0,0,184,868,True,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,1,she,0,0,207,1358,True,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,5,2,she,0,0,186,649,True,False,False
-z-ai/glm-5.3-flash,none,flower,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,20,0,0,1,she,0,0,189,1022,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,1,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,22,0,1,he,0,0,210,559,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,4,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,10,2,1,he,0,0,156,446,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,3,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,14,2,2,he,0,0,186,521,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,0,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,mixed,1,16,0,3,he,0,0,184,694,True,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,6,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,14,0,2,he,0,0,182,510,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,2,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,25,0,6,he,0,0,260,1048,True,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,9,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,19,3,3,he,0,1,189,486,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,5,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,20,1,1,he,0,0,188,865,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,8,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,24,2,4,he,0,0,221,715,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,7,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,14,0,0,2,she,0,0,171,828,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,11,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,23,0,3,he,0,0,254,629,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,10,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,23,0,3,he,0,0,212,805,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,17,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,18,1,4,he,0,1,186,509,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,16,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,15,5,2,he,0,1,205,592,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,14,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,21,2,1,he,0,0,226,1034,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,18,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,15,0,1,he,0,0,152,911,True,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,19,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,13,2,2,he,0,0,184,753,False,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,12,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,13,0,3,he,0,2,173,1335,True,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,13,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,she,17,0,2,1,she,0,0,197,1165,True,False,False
-z-ai/glm-5.3-flash,none,hammer,plain,False,15,stop,Z.AI,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,18,4,2,he,0,0,222,1250,True,False,False
+model,name_condition,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,no_paragraph,name_in_para,valid,n_paragraphs,name,given,title,name_sex,name_f_share,name_used_in_para,n_name_mentions,para_first_name,para_name_matches,noun_in_name,pron,n_f,n_m,n_they,n_it,n_neo,neo_sets,first_pron,n_fnoun,n_mnoun,answer_words,cot_words,cot_gender,cot_lang,cot_ship_she
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,Agnes Broadwell,Agnes,,f,0.9970934230100886,True,1.0,Agnes,True,False,she,9,0,3,0,0,,her,0,0,163,776,False,False,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,Ollie Blackwell,Ollie,,ambiguous,0.7026000978622168,True,1.0,Ollie,True,False,she,21,0,1,2,0,,her,1,0,260,357,False,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,Marla Kessel,Marla,,f,0.9990210979159689,True,1.0,Marla,True,False,she,16,0,1,1,0,,her,1,0,189,700,False,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,Ollie Turenn,Ollie,,ambiguous,0.7026000978622168,False,0.0,,False,False,she,13,0,6,0,0,,she,0,0,178,706,True,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,Olla,Olla,,f,1.0,True,1.0,,False,False,she,17,0,1,5,0,,their,1,0,212,845,True,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,Marigold Crockwell,Marigold,,f,1.0,True,2.0,Marigold,True,False,she,15,0,5,2,0,,her,0,0,201,896,True,False,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,Lidia Hollowell,Lidia,,f,1.0,True,1.0,Lidia,True,False,she,17,0,1,2,0,,her,0,0,189,1130,True,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,Marta Kessel,Marta,,f,0.9973835390478357,True,1.0,Marta,True,False,she,6,0,1,0,0,,her,0,0,148,515,False,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,Marigold Boileau,Marigold,,f,1.0,False,0.0,,False,False,she,18,0,3,1,0,,she,0,0,193,459,False,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,Ollie,Ollie,,ambiguous,0.7026000978622168,True,1.0,Ollie,True,False,he,0,14,4,1,0,,his,0,0,189,666,False,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,Cassia Hearthwell,Cassia,,f,1.0,True,2.0,Cassia,True,False,she,13,0,3,4,0,,her,0,0,235,1321,True,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,Vesta,Vesta,,f,0.9967105263157895,True,1.0,Vesta,True,False,she,14,0,2,0,0,,her,0,0,165,843,True,False,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,Etta Kessel,Etta,,f,0.9994687117414706,True,1.0,Etta,True,False,she,13,0,4,0,0,,her,0,0,188,593,False,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,Cass,Cass,,ambiguous,0.06673356748620171,True,1.0,Cass,True,False,she,20,0,3,1,0,,she,0,0,206,1263,True,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,Olla Brimwell,Olla,,f,1.0,True,1.0,,False,False,she,13,0,1,1,0,,she,0,0,175,896,True,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,3.0,Portia,True,False,she,22,0,1,3,0,,her,0,0,235,787,False,False,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,Marla Kessel,Marla,,f,0.9990210979159689,True,2.0,Marla,True,False,she,12,0,2,0,0,,her,0,0,164,852,True,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,Edna Hollowell,Edna,,f,0.9964816077904362,True,2.0,Edna,True,False,she,17,0,3,0,0,,her,1,0,190,1433,True,False,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,Agnes Stonewell,Agnes,,f,0.9970934230100886,True,1.0,Agnes,True,False,she,17,0,3,0,0,,her,1,0,209,970,True,True,False
+z-ai/glm-5.3-flash,free_noted,pot,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,Agnes Kessel,Agnes,,f,0.9970934230100886,True,1.0,Agnes,True,False,she,22,0,2,0,0,,she,0,0,207,1043,True,True,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,Tabitha Locke,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,21,0,2,0,0,,her,0,0,181,795,False,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,"Tabitha ""Tab"" Keyes",Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,16,0,1,1,0,,she,0,0,200,973,True,True,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,Tabitha Lockwood,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,22,0,2,2,0,,her,0,0,234,1030,False,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,Tilda,Tilda,,f,1.0,True,1.0,Tilda,True,False,she,13,0,1,1,0,,her,0,0,179,747,True,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,Tabitha Locke,Tabitha,,f,0.9975398510430358,False,0.0,,False,False,she,16,0,1,0,0,,her,0,0,167,543,False,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,Quinn Werty,Quinn,,ambiguous,0.5866584725403654,True,1.0,Quinn,True,False,she,20,0,2,0,0,,she,0,0,191,1615,True,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,Tabitha Kaye,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,20,0,5,1,0,,she,0,0,204,2466,True,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,Tabitha Qwerty,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,21,0,1,1,0,,her,0,0,208,2077,True,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,Clive Q. Tappett,Clive,,m,0.0,True,1.0,Clive,True,False,he,0,17,2,1,0,,his,0,1,188,937,False,True,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,Tabitha Escott,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,28,0,0,0,0,,her,0,0,222,1234,False,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,Casey Q. Wertz,Casey,,ambiguous,0.400975484533436,True,1.0,Casey,True,False,he,0,24,1,4,0,,his,0,0,244,999,True,True,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,Tabitha Lockwood,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,22,0,1,0,0,,herself,0,0,211,1203,False,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,Tabitha Q. Carrow,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,16,0,1,0,0,,her,0,0,159,1399,False,True,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,Tabitha Locke,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,16,0,3,0,0,,her,0,0,165,1754,True,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,Delia Keyes,Delia,,f,0.9983413590155163,True,1.0,Delia,True,False,she,14,0,0,1,0,,her,0,0,170,1034,False,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,Kay Capshaw,Kay,,f,0.9617338729338339,True,1.0,Kay,True,False,she,18,0,2,1,0,,their,0,0,169,921,True,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,"Tabitha ""Tab"" Keyes",Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,21,0,0,2,0,,her,0,0,198,1215,True,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,22,2,0,0,,his,0,0,188,513,False,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan Keats,Rowan,,ambiguous,0.30506636651888047,True,1.0,Keats,False,False,he,0,20,6,0,0,,he,0,1,212,842,True,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan Ashgrove,Rowan,,ambiguous,0.30506636651888047,True,1.0,Ashgrove,False,False,he,0,16,1,2,0,,he,0,0,165,568,False,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,15,2,0,0,,his,0,0,207,516,True,True,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,July,False,False,he,0,23,2,1,0,,his,0,0,215,1172,False,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,Locke,Locke,,m,0.0,True,1.0,Locke,True,False,she,10,0,0,1,0,,herself,0,0,160,1055,True,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan Ashwood,Rowan,,ambiguous,0.30506636651888047,False,0.0,Aldous,False,False,he,0,21,0,2,0,,his,0,0,214,679,False,False,False
+z-ai/glm-5.3-flash,free_noted,keyboard,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,"Tabitha ""Tab"" Underwood",Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,18,0,4,2,0,,her,0,0,201,2042,False,True,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,12,1,0,0,,his,0,0,187,944,False,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,Silas Ashford,Silas,,m,0.0024322859522267312,True,1.0,Silas,True,False,he,0,14,2,1,0,,he,0,1,201,643,False,True,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan Alderwood,Rowan,,ambiguous,0.30506636651888047,True,1.0,Alderwood,False,False,she,14,0,1,3,0,,her,1,0,192,1170,False,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan Alder,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,23,1,1,0,,he,0,0,194,709,True,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan Alder,Rowan,,ambiguous,0.30506636651888047,True,1.0,Alder,False,False,he,0,18,1,1,0,,him,0,0,169,813,False,True,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan Alder,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,19,5,1,0,,he,0,0,218,933,True,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan Alder,Rowan,,ambiguous,0.30506636651888047,True,1.0,Rowan,True,False,he,0,28,1,4,0,,he,0,0,229,2259,True,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan Ashford,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,22,8,2,0,,his,0,1,237,1770,True,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,October,False,False,he,0,29,6,3,0,,his,0,0,236,759,False,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,26,1,4,0,,his,0,1,257,1150,True,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,Elowen Hartwood,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,19,0,3,0,0,,her,0,0,192,706,True,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,20,1,4,0,,him,0,0,204,564,False,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,October,False,False,he,0,23,2,1,0,,he,0,0,250,698,True,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan Ashford,Rowan,,ambiguous,0.30506636651888047,True,2.0,Ashford,False,False,he,0,14,3,0,0,,them,1,0,215,833,False,False,False
+z-ai/glm-5.3-flash,free_noted,tree,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,Rowan Hale,Rowan,,ambiguous,0.30506636651888047,True,2.0,Rowan,True,False,he,0,12,2,3,0,,him,0,1,200,1811,True,False,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,29,0,3,1,0,,she,0,0,263,723,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,26,0,2,1,0,,her,1,0,244,1022,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,19,0,0,0,0,,her,1,0,203,535,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,20,0,3,2,0,,she,1,0,237,696,True,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,Thora Porter,Thora,,f,1.0,True,1.0,Thora,True,False,she,18,0,2,1,0,,she,0,0,195,1212,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,19,0,3,1,0,,her,1,0,210,633,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,21,0,0,1,0,,her,1,0,211,789,True,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,Porter Halloran,Porter,,m,0.045548369340855925,True,1.0,Halloran,False,False,he,0,15,2,0,0,,them,0,1,189,1537,True,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,16,0,2,1,0,,her,1,0,191,721,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,Portia Thresham,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,23,0,1,0,0,,her,1,0,192,796,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,Portia Hinge,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,24,0,2,0,0,,her,0,0,204,613,True,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,Portia Van Doren,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,12,0,1,0,0,,she,0,0,169,884,True,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,15,0,3,0,0,,her,1,0,221,853,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,18,0,2,0,0,,her,0,0,189,641,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,Portia,Portia,,f,0.9992477668077104,True,2.0,Portia,True,False,she,19,0,1,1,0,,their,1,0,203,682,True,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,18,0,0,0,0,,she,1,0,188,519,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,Doreen Gates,Doreen,,f,0.9987523930392136,True,1.0,Doreen,True,False,she,18,0,0,1,0,,she,0,0,217,762,True,False,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,Dahlia,Dahlia,,f,1.0,True,1.0,,False,False,she,16,0,0,2,0,,her,0,0,160,578,False,True,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,Anthea Bloom,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,16,0,2,1,0,,her,0,0,153,885,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,Portia Oakes,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,15,0,4,1,0,,her,1,0,209,1082,False,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,Porter Hinge,Porter,,m,0.045548369340855925,True,1.0,,False,False,he,0,18,1,4,0,,him,0,1,222,1051,False,False,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,Marigold,Marigold,,f,1.0,False,0.0,,False,False,she,17,0,0,1,0,,she,0,0,181,1298,False,True,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,16,0,2,1,0,,her,0,0,174,816,True,True,False
+z-ai/glm-5.3-flash,free_noted,door,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,22,0,4,2,0,,she,1,0,223,1614,True,True,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,14,0,3,0,0,,she,0,0,159,570,False,False,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,Fleur,Fleur,,f,1.0,True,1.0,Fleur,True,False,she,16,0,3,0,0,,her,0,0,178,1015,False,True,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,Rosalind,Rosalind,,f,1.0,True,1.0,Rosalind,True,False,she,16,0,1,2,0,,she,0,0,192,755,False,True,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,18,0,3,3,0,,she,0,0,165,647,False,True,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,15,0,2,1,0,,they,0,0,194,769,False,True,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,Marigold Fen,Marigold,,f,1.0,True,1.0,,False,False,she,19,0,5,1,0,,she,0,0,213,1616,True,True,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,Marigold,Marigold,,f,1.0,True,1.0,,False,False,she,17,0,2,1,0,,her,0,0,187,1373,False,True,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,Zahra,Zahra,,f,1.0,True,1.0,Zahra,True,False,she,13,0,0,1,0,,her,0,0,156,1083,False,False,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,Anthea Bloom,Anthea,,f,1.0,False,0.0,,False,False,she,20,0,0,1,0,,she,0,0,173,1047,True,False,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,22,0,1,2,0,,her,0,0,198,740,False,False,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,Marigold,Marigold,,f,1.0,True,1.0,,False,False,she,23,0,0,0,0,,she,0,0,177,553,False,False,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,19,0,0,1,0,,her,0,0,176,524,False,False,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,Anthea Bloom,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,21,0,2,2,0,,she,0,0,182,1541,False,True,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,Marigold,Marigold,,f,1.0,False,0.0,,False,False,she,17,0,2,2,0,,she,0,0,158,1099,False,False,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,Poppy,Poppy,,f,0.999476220406453,True,1.0,Poppy,True,False,she,19,0,5,0,0,,they,0,0,189,1284,False,False,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,Hank Ironwood,Hank,,m,0.0,True,2.0,Hank,True,False,he,0,11,0,1,0,,he,0,2,163,704,False,False,False
+z-ai/glm-5.3-flash,free_noted,flower,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,Anthea,Anthea,,f,1.0,True,1.0,Anthea,True,False,she,21,0,1,1,0,,she,0,0,207,2366,False,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,Percy Forge,Percy,,m,0.019366626065773447,True,2.0,Percy,True,False,he,0,13,1,3,0,,his,0,0,240,1058,False,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,Thora Clout,Thora,,f,1.0,True,2.0,Thora,True,False,she,14,0,0,2,0,,her,0,0,181,1234,True,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,Gideon Sturm,Gideon,,m,0.0014348488924760111,True,2.0,Gideon,True,False,he,0,16,0,3,0,,him,0,0,235,659,False,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,Percy Voss,Percy,,m,0.019366626065773447,True,2.0,Percy,True,False,he,0,13,2,3,0,,he,0,0,201,1126,False,False,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,Mallory Strickland,Mallory,,f,0.9817105613194999,True,2.0,Mallory,True,False,she,13,0,1,2,0,,her,0,0,205,1403,True,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,Mal Harrow,Mal,,m,0.0,True,1.0,Mal,True,False,he,0,15,1,3,0,,he,0,0,176,1342,True,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,Greta Eisen,Greta,,f,0.9998200856392357,True,1.0,Greta,True,False,she,20,0,2,3,0,,she,1,0,201,857,True,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,Gideon Maulden,Gideon,,m,0.0014348488924760111,True,1.0,Gideon,True,False,he,0,16,1,2,0,,his,0,1,242,908,False,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,Beatrice Stone,Beatrice,,f,0.9962535713738098,False,0.0,,False,False,she,11,0,1,1,0,,she,0,0,172,1314,False,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,Ash Stahl,Ash,,ambiguous,0.054104477611940295,False,0.0,,False,False,he,0,14,2,5,0,,he,0,0,199,1883,True,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,Kalman Varga,Kalman,,m,0.0,True,3.0,Kalman,True,False,he,0,16,1,3,0,,they,0,1,235,1134,False,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,Frank Martel,Frank,,m,0.0050087498329873595,True,2.0,Martel,False,False,he,0,15,2,3,0,,he,0,0,202,800,True,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,Stanley Knox,Stanley,,m,0.00474473522594449,True,1.0,Stanley,True,False,he,0,16,1,4,0,,he,0,2,191,595,True,False,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,Stanley,Stanley,,m,0.00474473522594449,True,2.0,Stanley,True,False,he,0,13,2,2,0,,he,0,0,174,752,True,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,Mal Headley,Mal,,m,0.0,True,1.0,Mal,True,False,he,0,10,0,2,0,,he,0,0,183,1052,False,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,Frank Thorpe,Frank,,m,0.0050087498329873595,True,1.0,,False,False,he,0,18,1,1,0,,he,0,0,240,2040,False,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,Marta Martel,Marta,,f,0.9973835390478357,True,2.0,Marta,True,False,she,26,0,2,2,0,,her,0,1,279,1830,True,True,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,Bridget Knox,Bridget,,f,0.9983786763513732,True,1.0,Bridget,True,False,she,16,0,2,3,0,,she,0,0,203,1033,False,True,False
+z-ai/glm-5.3-flash,none,pot,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,1,0,,she,0,0,189,552,False,False,False
+z-ai/glm-5.3-flash,free_noted,hammer,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,Mallory,Mallory,,f,0.9817105613194999,True,2.0,Mallory,True,False,she,11,0,2,1,0,,them,0,0,185,1358,True,True,False
+z-ai/glm-5.3-flash,none,pot,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,1,1,0,,she,0,0,205,471,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,2,3,0,,she,0,0,192,747,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,21,0,1,0,0,,she,0,0,171,583,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,10,0,1,1,0,,she,0,0,176,668,False,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,3,0,0,,she,0,0,216,716,False,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,6,0,0,,she,2,0,177,924,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,1,1,0,,she,0,0,181,594,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,3,1,0,,she,0,0,210,982,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,18,0,1,0,,he,0,0,197,1005,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,1,1,0,,she,0,0,177,851,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,3,0,,she,0,0,257,823,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,21,0,1,1,0,,she,0,0,212,877,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,3,2,0,,she,0,0,201,739,False,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,14,3,3,0,,he,0,0,202,606,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,26,0,4,4,0,,she,1,0,216,1166,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,6,2,0,,she,0,0,213,612,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,4,0,0,,she,0,0,198,600,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,3,2,0,,she,0,0,209,744,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,26,2,2,0,,he,0,0,231,982,True,False,False
+z-ai/glm-5.3-flash,none,pot,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,4,4,0,,she,0,0,176,1687,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,2,2,0,,she,0,0,238,786,False,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,18,2,0,,they,0,0,199,1146,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,2,2,0,,she,0,0,187,912,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,2,1,0,,she,0,0,171,863,False,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,25,0,1,0,0,,she,0,0,201,1077,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,23,4,0,0,,he,0,1,230,1112,False,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,24,0,3,0,0,,she,0,0,215,1261,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,18,2,0,0,,he,0,0,189,556,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,5,1,0,,she,0,0,193,1092,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,25,0,1,0,,he,0,2,231,687,False,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,24,4,2,0,,he,0,1,229,629,False,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,14,2,1,0,,he,0,0,177,1061,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,23,0,1,0,,he,0,0,200,822,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,0,1,0,,she,0,0,185,1012,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,3,4,0,,she,0,0,216,1404,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,21,3,0,0,,he,0,0,227,764,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,26,0,4,0,0,,she,0,0,222,770,True,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,16,2,0,0,,he,0,0,182,812,False,False,False
+z-ai/glm-5.3-flash,none,keyboard,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,3,1,0,,she,0,0,197,935,True,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,14,0,2,1,0,,she,0,0,168,922,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,21,5,1,0,,he,0,0,244,1174,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,17,3,2,0,,he,0,0,203,647,True,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,29,2,0,0,,he,0,0,232,463,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,23,1,1,0,,he,0,0,214,637,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,3,1,0,,she,0,0,182,602,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,22,3,0,0,,he,0,2,211,754,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,15,2,0,0,,he,0,1,178,399,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,23,3,2,0,,he,0,2,213,716,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,0,0,,she,0,0,196,875,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,25,0,4,4,0,,she,0,0,224,641,True,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,23,4,1,0,,he,0,0,251,1116,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,2,2,0,,she,0,0,207,1248,True,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,14,0,2,1,0,,she,0,0,179,1014,True,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,21,2,2,0,,he,0,0,230,1038,True,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,18,2,5,0,,he,0,0,210,690,True,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,0,3,0,,she,0,0,237,622,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,22,1,0,0,,he,0,1,187,713,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,28,0,2,0,,he,0,2,235,937,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,11,1,0,0,,he,0,0,157,578,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,21,1,2,0,,he,0,1,190,780,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,23,3,3,0,,he,0,0,205,813,False,False,False
+z-ai/glm-5.3-flash,none,tree,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,24,5,1,0,,he,0,1,259,1241,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,17,2,1,0,,he,0,0,205,1123,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,23,1,0,0,,he,0,1,261,989,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,17,2,1,0,,he,0,1,190,451,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,23,0,2,0,,he,0,1,222,1028,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,27,0,0,3,0,,she,0,0,249,2006,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,3,0,0,,she,0,0,222,989,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,20,1,1,0,,he,0,1,239,701,True,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,20,1,0,0,,he,0,1,200,1375,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,14,3,0,0,,he,0,1,194,1260,True,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,19,1,1,0,,he,0,0,240,1233,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,1,0,,she,0,0,207,709,True,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,11,0,0,0,,he,0,0,150,854,False,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,0,3,0,,she,0,0,188,582,True,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,26,6,4,0,,he,0,1,269,1678,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,16,4,0,0,,he,0,0,175,873,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,17,1,1,0,,he,0,0,199,775,False,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,1,3,0,,she,0,0,206,753,True,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,13,2,1,0,,he,0,1,187,1134,False,False,False
+z-ai/glm-5.3-flash,none,door,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,1,1,0,,she,0,0,201,1114,True,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,2,1,0,,she,0,0,177,547,False,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,1,0,,she,0,0,214,1042,True,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,15,0,1,0,0,,she,0,0,154,808,False,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,1,1,0,,she,0,0,205,808,True,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,0,0,0,,she,0,0,208,737,False,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,22,0,1,1,0,,she,0,0,205,643,True,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,5,2,0,,she,0,0,190,459,False,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,27,0,0,1,0,,she,0,0,214,910,True,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,0,3,0,,she,0,0,187,1392,False,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,23,0,1,0,0,,she,0,0,214,798,False,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,26,0,1,0,0,,she,0,0,214,582,True,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,5,0,0,,she,0,0,188,777,True,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,13,0,2,0,0,,she,0,0,158,605,True,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,25,0,2,2,0,,she,0,0,185,510,False,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,1,1,0,,she,0,0,184,868,True,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,0,1,0,,she,0,0,207,1358,True,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,5,2,0,,she,0,0,186,649,True,False,False
+z-ai/glm-5.3-flash,none,flower,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,20,0,0,1,0,,she,0,0,189,1022,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,1,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,22,0,1,0,,he,0,0,210,559,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,4,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,10,2,1,0,,he,0,0,156,446,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,3,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,14,2,2,0,,he,0,0,186,521,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,0,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,mixed,1,16,0,3,0,,he,0,0,184,694,True,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,6,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,14,0,2,0,,he,0,0,182,510,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,2,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,25,0,6,0,,he,0,0,260,1048,True,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,9,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,19,3,3,0,,he,0,1,189,486,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,5,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,20,1,1,0,,he,0,0,188,865,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,8,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,24,2,4,0,,he,0,0,221,715,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,7,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,14,0,0,2,0,,she,0,0,171,828,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,11,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,23,0,3,0,,he,0,0,254,629,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,10,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,23,0,3,0,,he,0,0,212,805,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,17,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,18,1,4,0,,he,0,1,186,509,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,16,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,15,5,2,0,,he,0,1,205,592,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,14,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,21,2,1,0,,he,0,0,226,1034,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,18,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,15,0,1,0,,he,0,0,152,911,True,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,19,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,13,2,2,0,,he,0,0,184,753,False,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,12,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,13,0,3,0,,he,0,2,173,1335,True,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,13,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,17,0,2,1,0,,she,0,0,197,1165,True,False,False
+z-ai/glm-5.3-flash,none,hammer,plain,False,15,stop,Z.AI,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,18,4,2,0,,he,0,0,222,1250,True,False,False

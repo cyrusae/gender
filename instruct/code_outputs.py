@@ -245,6 +245,8 @@ def code_v2(
         "name_ok": name is not None or name_pos in ("none", "free"),
         "truncated": finish_reason == "length",
         "error": finish_reason == "error",
+        # 2026-10-26: name-only answers ("Name: Everlyn", no paragraph) were passing every gate
+        "no_paragraph": not re.search(r"[A-Za-z]{2,}", para),
     }
     nm = code_name(name)
     parts = [nm["given"]] + re.findall(r"[A-Za-z][A-Za-z'\-]*", name or "")
@@ -260,7 +262,11 @@ def code_v2(
                "para_name_matches": bool(sp) and sp[0] == nm["given"]}  # fmt: skip
         gates["name_in_para"] = False
     gates["valid"] = gates["name_ok"] and not (
-        gates["noun_hit"] or gates["name_in_para"] or gates["truncated"] or gates["error"]
+        gates["noun_hit"]
+        or gates["name_in_para"]
+        or gates["truncated"]
+        or gates["error"]
+        or gates["no_paragraph"]
     )
     n_par = len([b for b in re.split(r"\n\s*\n", para) if b.strip()])
     if name_pos == "free":
@@ -332,7 +338,15 @@ def main() -> None:
     s = d.groupby(keys).size().rename("n").to_frame()
     if "valid" in d:
         g0 = d.groupby(keys)
-        for c in ("valid", "noun_hit", "name_ok", "name_in_para", "truncated", "error"):
+        for c in (
+            "valid",
+            "noun_hit",
+            "name_ok",
+            "name_in_para",
+            "truncated",
+            "error",
+            "no_paragraph",
+        ):
             s[c] = g0[c].mean()
         s["mean_paragraphs"] = g0["n_paragraphs"].mean()
         d = d[d["valid"]]  # outcome shares below are among valid outputs only

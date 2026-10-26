@@ -1,241 +1,241 @@
-model,name_condition,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,name_in_para,valid,n_paragraphs,name,given,title,name_sex,name_f_share,name_used_in_para,n_name_mentions,para_first_name,para_name_matches,noun_in_name,pron,n_f,n_m,n_they,n_it,first_pron,n_fnoun,n_mnoun,answer_words,cot_words,cot_gender,cot_lang,cot_ship_she
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,Bram Hollow,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,10,0,1,his,0,1,133,373,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,Rosa Calder,Rosa,,f,0.9934318095280757,True,1.0,Rosa,True,False,she,10,0,3,0,she,1,0,144,475,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,Bram,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,8,4,1,he,0,0,152,487,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,Mara Bell,Mara,,f,0.99933482996591,True,1.0,,False,False,she,7,0,2,0,them,1,0,116,589,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,Mira Hearth,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,11,0,2,0,she,0,0,162,523,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,Elian Croft,Elian,,m,0.007282184655396619,True,1.0,Elian,True,False,he,0,8,0,0,his,0,0,142,836,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,Bramwell Croft,Bramwell,,notfound,,True,1.0,,False,False,he,0,12,2,0,his,0,0,145,762,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,Maribel,Maribel,,f,0.9926162442626222,True,1.0,Maribel,True,False,she,8,0,1,1,her,0,0,129,1050,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,Tilda Marsh,Tilda,,f,1.0,True,1.0,Tilda,True,False,she,10,0,4,0,she,1,0,136,659,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,Maren Hearthstone,Maren,,f,0.9996172688303735,True,1.0,Maren,True,False,she,14,0,1,1,her,0,0,155,568,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,Mara Bell,Mara,,f,0.99933482996591,True,1.0,Mara,True,False,she,6,0,0,0,her,0,0,130,881,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,Terra,Terra,,f,0.9996760399118828,True,1.0,Terra,True,False,she,12,0,1,2,her,1,0,152,519,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,Bruna Tallow,Bruna,,f,1.0,True,1.0,Bruna,True,False,she,13,0,2,0,her,0,0,131,678,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,Mira Bellweather,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,7,0,0,2,her,0,0,122,480,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,Moreen Halloway,Moreen,,f,1.0,True,1.0,Halloway,False,False,she,14,0,0,0,her,0,0,164,650,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,Maud Hollowell,Maud,,f,0.9976497346474602,True,1.0,Maud,True,False,she,9,0,2,0,her,1,0,119,559,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,Rosa Ember,Rosa,,f,0.9934318095280757,True,1.0,Rosa,True,False,she,11,0,1,0,her,0,0,142,461,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,Rosa Bell,Rosa,,f,0.9934318095280757,True,1.0,Rosa,True,False,she,8,0,0,1,her,0,0,126,531,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,Bramwell Clay,Bramwell,,notfound,,True,1.0,,False,False,he,0,4,1,0,he,0,1,116,481,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,Tamsin Bellwether,Tamsin,,f,1.0,True,1.0,Tamsin,True,False,she,10,0,0,2,her,1,0,138,509,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,Elias Rook,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,11,0,0,his,0,1,141,629,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,Tabitha Shift,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,11,0,2,0,her,0,0,152,524,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,Tobin Q. Werta,Tobin,,m,0.029109290569984313,True,1.0,Tobin,True,False,he,0,10,0,0,his,0,0,155,605,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,Hollis Clack,Hollis,,ambiguous,0.25557828188917814,False,0.0,,False,False,he,0,10,0,0,he,0,1,143,623,True,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,Cora Gridd,Cora,,f,0.9975258127417447,True,1.0,Cora,True,False,she,11,0,0,0,her,0,0,146,557,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,Milo Clackwell,Milo,,m,0.010516101369801188,False,0.0,,False,False,he,0,14,1,0,he,0,0,138,602,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,Quentin Keyes,Quentin,,m,0.004351610095735422,False,0.0,,False,False,he,0,11,1,0,he,0,1,130,451,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,Milo Q. Werty,Milo,,m,0.010516101369801188,False,0.0,,False,False,he,0,13,1,1,he,0,1,136,676,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,Tavi Q. Wren,Tavi,,ambiguous,0.5317919075144508,True,1.0,Tavi,True,False,they,0,0,8,1,their,0,0,141,526,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,Ivo Gridley,Ivo,,m,0.00585480093676815,True,1.0,Ivo,True,False,he,0,11,0,0,his,0,0,133,493,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,Qwerty,Qwerty,,notfound,,False,0.0,,False,False,they,0,0,7,0,they,0,0,143,466,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,Casper Keene,Casper,,m,0.003371327660940761,False,0.0,,False,False,he,0,9,0,0,he,0,1,143,393,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,Tessa Keys,Tessa,,f,0.9997676039972112,True,1.0,Tessa,True,False,she,12,0,1,0,she,1,0,171,504,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,Milo Tapp,Milo,,m,0.010516101369801188,True,1.0,Milo,True,False,he,0,7,0,1,his,0,0,127,602,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,Tavi Q. Wertz,Tavi,,ambiguous,0.5317919075144508,True,1.0,Tavi,True,False,he,0,12,0,1,his,0,1,161,823,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,Mira Qwerty,Mira,,f,0.9996688960995961,False,0.0,,False,False,he,0,10,2,0,he,0,0,134,549,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,Mira Clack,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,12,0,0,0,her,0,0,130,425,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,Elias Shift,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,15,0,0,his,0,0,139,520,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,Mina Tapper,Mina,,f,0.9662972064797632,True,1.0,Tapper,False,False,she,10,0,0,0,herself,0,0,157,544,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,Marlow Q. Clack,Marlow,,ambiguous,0.464599609375,True,1.0,Marlow,True,False,he,0,8,0,0,himself,0,0,138,423,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,Maren Silvis,Maren,,f,0.9996172688303735,False,0.0,,False,False,she,11,0,2,1,she,0,0,131,409,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,Elowen Moss,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,10,0,0,0,her,0,0,127,428,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,Oren Ashfield,Oren,,m,0.004713522572535875,True,1.0,Oren,True,False,he,0,11,0,1,his,0,0,173,540,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,Maren Holt,Maren,,f,0.9996172688303735,False,0.0,,False,False,he,0,15,0,1,he,0,0,156,479,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,Elias Moss,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,12,0,1,his,0,0,112,509,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,Arden Moss,Arden,,ambiguous,0.46739198010568855,True,1.0,Arden,True,False,he,0,15,4,1,he,0,0,170,623,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,6,2,1,he,0,0,113,401,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,Elowen,Elowen,,f,1.0,False,0.0,,False,False,he,0,14,0,0,he,0,0,141,628,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,Elowen,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,15,0,2,3,she,0,1,173,548,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,Bram Hollis,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,13,3,0,his,0,0,183,549,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,Maren,Maren,,f,0.9996172688303735,True,1.0,Maren,True,False,she,10,0,2,0,her,0,0,141,614,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,Maren Thorne,Maren,,f,0.9996172688303735,True,1.0,Maren,True,False,she,10,0,0,0,she,0,0,129,843,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,Maren,Maren,,f,0.9996172688303735,True,1.0,Maren,True,False,she,10,0,2,2,she,0,0,154,626,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,Corin Moss,Corin,,ambiguous,0.6300148588410104,False,0.0,,False,False,he,0,10,1,0,he,0,1,132,546,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,Elowen Moss,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,14,0,1,0,her,0,0,144,633,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,Arden,Arden,,ambiguous,0.46739198010568855,False,0.0,,False,False,he,0,12,1,0,he,0,0,120,352,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,Corin Vale,Corin,,ambiguous,0.6300148588410104,False,0.0,,False,False,she,8,0,0,0,she,0,0,108,509,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,Silas Moss,Silas,,m,0.0024322859522267312,False,0.0,,False,False,he,0,12,1,0,he,0,1,117,717,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,Maren Hollis,Maren,,f,0.9996172688303735,False,0.0,,False,False,they,0,0,9,0,their,0,0,140,566,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,August Sill,August,,ambiguous,0.08421533336915059,True,1.0,August,True,False,they,0,0,8,0,them,0,0,128,384,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,Portia Sill,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,4,0,0,0,she,0,0,93,394,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,Portia Hinge,Portia,,f,0.9992477668077104,False,0.0,,False,False,he,0,14,1,1,he,0,0,161,638,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,Morrow,Morrow,,m,0.0,True,1.0,Morrow,True,False,she,5,0,3,2,she,0,0,110,427,True,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,Elias Hinge,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,13,0,0,his,0,0,137,446,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,Elias Vane,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,8,0,0,his,0,0,139,626,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,12,0,1,1,her,0,0,112,431,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,Tamsin Sill,Tamsin,,f,1.0,True,1.0,Tamsin,True,False,she,12,0,1,0,she,0,0,166,582,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,Portia Hinge,Portia,,f,0.9992477668077104,False,0.0,,False,False,she,11,0,1,0,her,0,0,131,681,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,Maren Thorne,Maren,,f,0.9996172688303735,True,1.0,Maren,True,False,he,0,11,1,0,he,0,0,125,871,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,Mara Latch,Mara,,f,0.99933482996591,True,1.0,Latch,False,False,she,9,0,2,2,her,0,0,127,464,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,Elias Ward,Elias,,m,0.0018455313431452796,False,0.0,,False,False,he,0,14,0,0,he,0,0,171,483,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,Alden Hinge,Alden,,m,0.04965315808689302,False,0.0,,False,False,he,0,7,1,1,he,0,0,117,655,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,Elias Lintel,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,12,1,0,his,0,1,152,868,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,False,0.0,,False,False,she,12,0,1,0,she,0,0,138,670,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,Ilsa Thorne,Ilsa,,f,1.0,True,1.0,Ilsa,True,False,she,7,0,1,0,her,0,0,146,483,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,August Hinge,August,,ambiguous,0.08421533336915059,False,0.0,,False,False,he,0,11,1,0,he,0,1,148,535,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,Elias Threshold,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,10,0,0,his,0,0,128,599,True,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,Corin Sill,Corin,,ambiguous,0.6300148588410104,True,1.0,Corin,True,False,they,0,0,7,0,their,0,0,127,761,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,Elowen,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,14,0,0,0,her,0,0,134,558,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,Mara Sill,Mara,,f,0.99933482996591,True,1.0,Mara,True,False,she,8,0,1,0,their,0,0,116,753,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,Alder Vane,Alder,,m,0.047519217330538085,False,0.0,,False,False,he,0,11,0,0,he,0,0,147,506,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,Elian,Elian,,m,0.007282184655396619,True,1.0,Elian,True,False,he,0,13,1,0,he,0,0,155,741,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,Helia Vance,Helia,,f,1.0,True,1.0,Helia,True,False,she,10,0,1,0,she,0,0,107,497,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,Elowen,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,9,0,0,1,she,0,0,124,497,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,Mira Solenne,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,7,0,2,0,her,0,0,119,456,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,Helia Solberg,Helia,,f,1.0,True,1.0,Helia,True,False,she,15,0,0,0,her,0,0,165,600,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,Elara,Elara,,f,1.0,True,1.0,Elara,True,False,she,12,0,0,0,her,0,0,125,493,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,Helia Bright,Helia,,f,1.0,True,1.0,Helia,True,False,she,10,0,2,0,she,0,0,130,582,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,Helia Rowan,Helia,,f,1.0,True,1.0,Helia,True,False,she,14,0,0,0,her,0,0,158,752,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,Mira Sol,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,11,0,0,0,her,0,0,108,417,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,Elian,Elian,,m,0.007282184655396619,True,1.0,Elian,True,False,he,0,11,0,0,he,0,0,127,947,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,Helia,Helia,,f,1.0,False,0.0,,False,False,she,8,0,0,0,she,0,0,117,706,True,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,Elian,Elian,,m,0.007282184655396619,True,1.0,Elian,True,False,he,0,10,0,1,he,0,0,137,464,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,Helia,Helia,,f,1.0,True,1.0,Helia,True,False,she,16,0,0,0,she,0,0,150,760,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,Liora Sunfield,Liora,,f,1.0,False,0.0,,False,False,she,12,0,0,0,she,0,0,113,580,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,Solara,Solara,,f,1.0,True,1.0,Solara,True,False,she,10,0,0,0,she,0,0,139,351,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,Aurelio,Aurelio,,m,0.0006944444444444445,True,1.0,Aurelio,True,False,he,0,10,0,0,he,0,0,117,544,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,Mirabel Vale,Mirabel,,f,1.0,False,0.0,,False,False,she,10,0,2,0,she,0,0,132,762,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,Mira Solano,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,12,0,1,1,she,0,0,122,469,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,Helia Marlow,Helia,,f,1.0,True,1.0,Helia,True,False,she,10,0,1,2,her,0,0,140,464,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,Bram Steele,Bram,,m,0.0,False,0.0,,False,False,he,0,8,0,0,he,0,1,113,352,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,Marta True,Marta,,f,0.9973835390478357,False,0.0,,False,False,she,14,0,0,0,she,1,0,137,550,True,True,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,Cole Stroud,Cole,,m,0.003575908849889425,False,0.0,,False,False,he,0,7,0,1,he,0,1,113,496,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,Bram Kelso,Bram,,m,0.0,False,0.0,,False,False,he,0,10,4,1,he,0,1,132,370,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,Bramwell Tacket,Bramwell,,notfound,,True,1.0,,False,False,he,0,7,0,0,his,0,0,123,466,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,Bramwell Tacket,Bramwell,,notfound,,False,0.0,,False,False,he,0,10,0,0,he,0,1,142,409,True,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,Bram Coale,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,13,1,2,his,0,1,170,474,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,Bram Kessler,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,9,2,1,he,0,1,134,569,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,Tobias Flint,Tobias,,m,0.0,True,1.0,Tobias,True,False,he,0,11,0,1,his,0,0,121,334,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,Calder Rook,Calder,,m,0.016795279164775308,False,0.0,,False,False,he,0,9,0,0,he,0,1,103,621,True,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,Bram Tull,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,7,2,0,he,0,1,102,331,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,Bram Kessler,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,9,1,0,his,0,1,121,395,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,Bram Coyle,Bram,,m,0.0,False,0.0,,False,False,he,0,8,2,0,he,0,0,143,500,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,Bram Kessler,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,11,0,0,his,0,1,147,250,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,Bram Tollen,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,7,1,0,his,0,1,109,396,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,Hedda Stone,Hedda,,f,1.0,False,0.0,,False,False,she,14,0,0,2,she,0,0,147,532,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,Brack Tallow,Brack,,m,0.0,True,1.0,Brack,True,False,he,0,11,1,0,his,0,1,157,565,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,Bram Voss,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,9,0,0,his,0,0,145,498,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,Corin Steele,Corin,,ambiguous,0.6300148588410104,True,1.0,Corin,True,False,she,8,0,2,0,they,1,0,135,325,False,False,False
-deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,Bram Kessler,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,6,2,0,they,0,1,117,519,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,it,0,0,0,8,,0,0,146,400,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,12,1,1,he,0,1,161,465,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,11,0,2,1,her,0,0,146,573,True,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,9,1,their,0,0,134,485,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,5,1,they,0,0,146,556,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,6,0,0,he,0,0,102,466,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,2,they,0,0,149,835,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,10,1,0,he,0,0,132,557,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,9,1,them,0,0,163,512,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,15,0,1,0,she,0,0,148,512,True,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,1,they,0,0,117,586,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,17,0,their,0,0,196,900,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,1,they,0,0,157,398,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,0,they,0,0,122,436,True,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,none,0,0,0,0,,0,0,126,493,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,1,their,0,0,166,876,True,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,8,4,0,he,0,1,140,417,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,15,3,1,he,0,1,160,581,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,they,0,0,144,394,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,1,they,0,0,142,542,True,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,4,0,0,he,0,0,111,337,False,False,False
-deepseek/deepseek-v4.1-flash,none,pot,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,9,0,their,0,0,164,547,True,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,5,0,they,0,0,135,389,True,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,10,1,0,he,0,1,157,435,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,0,their,0,0,132,465,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,13,0,their,0,0,143,416,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,11,1,0,his,0,0,147,431,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,1,he,0,0,155,544,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,10,2,they,0,0,156,702,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,they,0,0,124,354,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,1,he,0,0,143,506,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,10,0,their,0,0,148,534,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,12,1,0,he,0,1,146,542,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,18,1,0,he,0,0,178,461,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,0,their,0,0,151,475,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,11,1,3,he,0,0,160,395,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,9,0,0,his,0,0,122,294,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,11,1,they,0,0,115,408,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,1,1,them,0,0,174,449,False,False,False
-deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,17,5,0,he,0,0,170,514,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,14,1,0,he,0,0,139,401,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,they,0,0,141,512,True,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,0,he,0,0,132,207,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,their,0,0,115,394,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,11,1,them,0,0,155,452,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,13,0,they,0,0,166,468,True,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,0,their,0,0,158,431,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,11,1,0,he,0,0,133,605,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,1,they,0,0,161,517,True,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,2,they,0,0,167,487,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,16,2,0,he,0,0,155,399,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,6,3,they,0,0,168,369,True,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,their,0,0,142,131,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,3,0,they,0,0,111,388,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,15,1,0,he,0,0,167,528,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,0,they,0,0,152,274,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,3,their,0,0,162,151,False,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,12,0,2,0,she,0,0,150,487,True,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,9,0,they,0,0,141,432,True,False,False
-deepseek/deepseek-v4.1-flash,none,tree,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,9,2,they,0,0,146,386,True,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,6,3,they,0,0,164,458,True,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,10,2,0,he,0,0,142,495,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,1,5,they,0,0,121,390,True,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,18,1,0,he,0,0,150,360,True,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,none,0,0,0,1,,0,0,121,299,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,1,he,0,0,139,574,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,11,0,0,he,0,1,146,556,True,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,them,0,0,139,555,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,none,0,0,0,0,,0,0,133,468,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,4,0,they,0,0,136,312,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,6,1,they,0,0,146,347,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,17,2,0,he,0,0,161,402,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,it,0,0,0,11,,0,0,157,550,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,5,1,them,0,0,162,565,True,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,5,0,they,0,0,162,902,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,10,1,they,0,0,157,663,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,0,he,0,0,145,478,True,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,0,them,0,0,180,502,False,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,11,0,their,0,0,140,681,True,False,False
-deepseek/deepseek-v4.1-flash,none,door,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,0,he,0,0,139,549,True,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,11,0,5,2,she,0,0,143,605,True,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,12,0,0,0,she,0,0,125,456,True,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,10,0,1,0,she,0,0,128,416,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,9,1,1,his,0,1,126,399,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,12,0,2,0,she,1,0,142,489,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,16,0,3,1,she,0,0,161,591,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,11,0,2,1,she,0,0,117,608,True,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,9,0,1,0,she,0,0,110,488,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,8,0,1,0,she,0,0,117,477,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,18,0,1,0,she,0,0,166,497,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,8,0,0,0,she,0,0,113,469,True,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,10,0,0,0,she,0,0,135,488,True,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,11,0,1,0,she,1,0,134,417,True,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,12,0,0,0,she,0,0,136,384,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,11,0,1,0,she,0,0,122,510,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,15,1,0,he,0,1,142,437,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,9,0,0,he,0,0,120,205,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,0,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,0,he,0,0,139,196,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,1,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,5,0,0,he,0,0,119,224,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,19,0,1,0,she,0,0,181,377,False,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,13,0,0,0,she,0,0,118,665,True,False,False
-deepseek/deepseek-v4.1-flash,none,flower,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,she,12,0,0,0,she,0,0,122,548,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,3,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,6,0,0,he,0,0,128,356,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,2,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,12,1,0,he,0,0,134,397,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,7,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,3,he,0,1,139,223,True,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,4,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,16,2,1,he,0,1,166,446,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,8,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,9,3,1,him,0,1,144,140,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,5,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,2,he,0,0,163,283,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,6,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,11,0,1,he,0,0,166,418,True,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,9,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,0,their,0,0,120,390,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,11,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,0,he,0,0,124,322,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,12,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,3,he,0,0,155,219,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,16,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,7,0,0,he,0,0,109,297,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,10,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,1,he,0,0,155,870,True,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,15,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,6,0,2,he,0,0,126,476,True,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,14,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,7,0,3,he,0,0,124,606,True,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,13,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,11,0,0,he,0,0,124,415,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,17,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,7,2,0,he,0,0,136,407,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,19,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,11,0,2,he,0,1,126,323,False,False,False
-deepseek/deepseek-v4.1-flash,none,hammer,plain,False,18,stop,Crusoe,False,True,False,False,False,True,1,,,,,,,,,,False,he,0,10,2,3,he,0,0,150,522,False,False,False
+model,name_condition,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,no_paragraph,name_in_para,valid,n_paragraphs,name,given,title,name_sex,name_f_share,name_used_in_para,n_name_mentions,para_first_name,para_name_matches,noun_in_name,pron,n_f,n_m,n_they,n_it,n_neo,neo_sets,first_pron,n_fnoun,n_mnoun,answer_words,cot_words,cot_gender,cot_lang,cot_ship_she
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Hollow,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,10,0,1,0,,his,0,1,133,373,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,Rosa Calder,Rosa,,f,0.9934318095280757,True,1.0,Rosa,True,False,she,10,0,3,0,0,,she,1,0,144,475,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,Bram,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,8,4,1,0,,he,0,0,152,487,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,Mara Bell,Mara,,f,0.99933482996591,True,1.0,,False,False,she,7,0,2,0,0,,them,1,0,116,589,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,Mira Hearth,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,11,0,2,0,0,,she,0,0,162,523,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,Elian Croft,Elian,,m,0.007282184655396619,True,1.0,Elian,True,False,he,0,8,0,0,0,,his,0,0,142,836,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,Bramwell Croft,Bramwell,,notfound,,True,1.0,,False,False,he,0,12,2,0,0,,his,0,0,145,762,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,Maribel,Maribel,,f,0.9926162442626222,True,1.0,Maribel,True,False,she,8,0,1,1,0,,her,0,0,129,1050,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,Tilda Marsh,Tilda,,f,1.0,True,1.0,Tilda,True,False,she,10,0,4,0,0,,she,1,0,136,659,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,Maren Hearthstone,Maren,,f,0.9996172688303735,True,1.0,Maren,True,False,she,14,0,1,1,0,,her,0,0,155,568,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,Mara Bell,Mara,,f,0.99933482996591,True,1.0,Mara,True,False,she,6,0,0,0,0,,her,0,0,130,881,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,Terra,Terra,,f,0.9996760399118828,True,1.0,Terra,True,False,she,12,0,1,2,0,,her,1,0,152,519,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,Bruna Tallow,Bruna,,f,1.0,True,1.0,Bruna,True,False,she,13,0,2,0,0,,her,0,0,131,678,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,Mira Bellweather,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,7,0,0,2,0,,her,0,0,122,480,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,Moreen Halloway,Moreen,,f,1.0,True,1.0,Halloway,False,False,she,14,0,0,0,0,,her,0,0,164,650,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,Maud Hollowell,Maud,,f,0.9976497346474602,True,1.0,Maud,True,False,she,9,0,2,0,0,,her,1,0,119,559,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,Rosa Ember,Rosa,,f,0.9934318095280757,True,1.0,Rosa,True,False,she,11,0,1,0,0,,her,0,0,142,461,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,Rosa Bell,Rosa,,f,0.9934318095280757,True,1.0,Rosa,True,False,she,8,0,0,1,0,,her,0,0,126,531,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,Bramwell Clay,Bramwell,,notfound,,True,1.0,,False,False,he,0,4,1,0,0,,he,0,1,116,481,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,pot,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,Tamsin Bellwether,Tamsin,,f,1.0,True,1.0,Tamsin,True,False,she,10,0,0,2,0,,her,1,0,138,509,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,Elias Rook,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,11,0,0,0,,his,0,1,141,629,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,Tabitha Shift,Tabitha,,f,0.9975398510430358,True,1.0,Tabitha,True,False,she,11,0,2,0,0,,her,0,0,152,524,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,Tobin Q. Werta,Tobin,,m,0.029109290569984313,True,1.0,Tobin,True,False,he,0,10,0,0,0,,his,0,0,155,605,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,Hollis Clack,Hollis,,ambiguous,0.25557828188917814,False,0.0,,False,False,he,0,10,0,0,0,,he,0,1,143,623,True,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,Cora Gridd,Cora,,f,0.9975258127417447,True,1.0,Cora,True,False,she,11,0,0,0,0,,her,0,0,146,557,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,Milo Clackwell,Milo,,m,0.010516101369801188,False,0.0,,False,False,he,0,14,1,0,0,,he,0,0,138,602,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,Quentin Keyes,Quentin,,m,0.004351610095735422,False,0.0,,False,False,he,0,11,1,0,0,,he,0,1,130,451,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,Milo Q. Werty,Milo,,m,0.010516101369801188,False,0.0,,False,False,he,0,13,1,1,0,,he,0,1,136,676,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,Tavi Q. Wren,Tavi,,ambiguous,0.5317919075144508,True,1.0,Tavi,True,False,they,0,0,8,1,0,,their,0,0,141,526,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,Ivo Gridley,Ivo,,m,0.00585480093676815,True,1.0,Ivo,True,False,he,0,11,0,0,0,,his,0,0,133,493,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,Qwerty,Qwerty,,notfound,,False,0.0,,False,False,they,0,0,7,0,0,,they,0,0,143,466,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,Casper Keene,Casper,,m,0.003371327660940761,False,0.0,,False,False,he,0,9,0,0,0,,he,0,1,143,393,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,Tessa Keys,Tessa,,f,0.9997676039972112,True,1.0,Tessa,True,False,she,12,0,1,0,0,,she,1,0,171,504,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,Milo Tapp,Milo,,m,0.010516101369801188,True,1.0,Milo,True,False,he,0,7,0,1,0,,his,0,0,127,602,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,Tavi Q. Wertz,Tavi,,ambiguous,0.5317919075144508,True,1.0,Tavi,True,False,he,0,12,0,1,0,,his,0,1,161,823,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,Mira Qwerty,Mira,,f,0.9996688960995961,False,0.0,,False,False,he,0,10,2,0,0,,he,0,0,134,549,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,Mira Clack,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,12,0,0,0,0,,her,0,0,130,425,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,Elias Shift,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,15,0,0,0,,his,0,0,139,520,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,Mina Tapper,Mina,,f,0.9662972064797632,True,1.0,Tapper,False,False,she,10,0,0,0,0,,herself,0,0,157,544,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,keyboard,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,Marlow Q. Clack,Marlow,,ambiguous,0.464599609375,True,1.0,Marlow,True,False,he,0,8,0,0,0,,himself,0,0,138,423,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,Maren Silvis,Maren,,f,0.9996172688303735,False,0.0,,False,False,she,11,0,2,1,0,,she,0,0,131,409,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,Elowen Moss,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,10,0,0,0,0,,her,0,0,127,428,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,Oren Ashfield,Oren,,m,0.004713522572535875,True,1.0,Oren,True,False,he,0,11,0,1,0,,his,0,0,173,540,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,Maren Holt,Maren,,f,0.9996172688303735,False,0.0,,False,False,he,0,15,0,1,0,,he,0,0,156,479,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,Elias Moss,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,12,0,1,0,,his,0,0,112,509,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,Arden Moss,Arden,,ambiguous,0.46739198010568855,True,1.0,Arden,True,False,he,0,15,4,1,0,,he,0,0,170,623,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,Rowan,Rowan,,ambiguous,0.30506636651888047,True,1.0,,False,False,he,0,6,2,1,0,,he,0,0,113,401,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,Elowen,Elowen,,f,1.0,False,0.0,,False,False,he,0,14,0,0,0,,he,0,0,141,628,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,Elowen,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,15,0,2,3,0,,she,0,1,173,548,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Hollis,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,13,3,0,0,,his,0,0,183,549,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,Maren,Maren,,f,0.9996172688303735,True,1.0,Maren,True,False,she,10,0,2,0,0,,her,0,0,141,614,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,Maren Thorne,Maren,,f,0.9996172688303735,True,1.0,Maren,True,False,she,10,0,0,0,0,,she,0,0,129,843,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,Maren,Maren,,f,0.9996172688303735,True,1.0,Maren,True,False,she,10,0,2,2,0,,she,0,0,154,626,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,Corin Moss,Corin,,ambiguous,0.6300148588410104,False,0.0,,False,False,he,0,10,1,0,0,,he,0,1,132,546,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,Elowen Moss,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,14,0,1,0,0,,her,0,0,144,633,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,Arden,Arden,,ambiguous,0.46739198010568855,False,0.0,,False,False,he,0,12,1,0,0,,he,0,0,120,352,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,Corin Vale,Corin,,ambiguous,0.6300148588410104,False,0.0,,False,False,she,8,0,0,0,0,,she,0,0,108,509,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,Silas Moss,Silas,,m,0.0024322859522267312,False,0.0,,False,False,he,0,12,1,0,0,,he,0,1,117,717,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,Maren Hollis,Maren,,f,0.9996172688303735,False,0.0,,False,False,they,0,0,9,0,0,,their,0,0,140,566,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,August Sill,August,,ambiguous,0.08421533336915059,True,1.0,August,True,False,they,0,0,8,0,0,,them,0,0,128,384,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,Portia Sill,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,4,0,0,0,0,,she,0,0,93,394,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,Portia Hinge,Portia,,f,0.9992477668077104,False,0.0,,False,False,he,0,14,1,1,0,,he,0,0,161,638,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,Morrow,Morrow,,m,0.0,True,1.0,Morrow,True,False,she,5,0,3,2,0,,she,0,0,110,427,True,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,Elias Hinge,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,13,0,0,0,,his,0,0,137,446,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,Elias Vane,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,8,0,0,0,,his,0,0,139,626,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,True,1.0,Portia,True,False,she,12,0,1,1,0,,her,0,0,112,431,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,Tamsin Sill,Tamsin,,f,1.0,True,1.0,Tamsin,True,False,she,12,0,1,0,0,,she,0,0,166,582,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,Portia Hinge,Portia,,f,0.9992477668077104,False,0.0,,False,False,she,11,0,1,0,0,,her,0,0,131,681,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,tree,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,Maren Thorne,Maren,,f,0.9996172688303735,True,1.0,Maren,True,False,he,0,11,1,0,0,,he,0,0,125,871,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,Mara Latch,Mara,,f,0.99933482996591,True,1.0,Latch,False,False,she,9,0,2,2,0,,her,0,0,127,464,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,Elias Ward,Elias,,m,0.0018455313431452796,False,0.0,,False,False,he,0,14,0,0,0,,he,0,0,171,483,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,Alden Hinge,Alden,,m,0.04965315808689302,False,0.0,,False,False,he,0,7,1,1,0,,he,0,0,117,655,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,Elias Lintel,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,12,1,0,0,,his,0,1,152,868,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,Portia Latch,Portia,,f,0.9992477668077104,False,0.0,,False,False,she,12,0,1,0,0,,she,0,0,138,670,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,Ilsa Thorne,Ilsa,,f,1.0,True,1.0,Ilsa,True,False,she,7,0,1,0,0,,her,0,0,146,483,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,August Hinge,August,,ambiguous,0.08421533336915059,False,0.0,,False,False,he,0,11,1,0,0,,he,0,1,148,535,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,Elias Threshold,Elias,,m,0.0018455313431452796,True,1.0,Elias,True,False,he,0,10,0,0,0,,his,0,0,128,599,True,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,Corin Sill,Corin,,ambiguous,0.6300148588410104,True,1.0,Corin,True,False,they,0,0,7,0,0,,their,0,0,127,761,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,Elowen,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,14,0,0,0,0,,her,0,0,134,558,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,Mara Sill,Mara,,f,0.99933482996591,True,1.0,Mara,True,False,she,8,0,1,0,0,,their,0,0,116,753,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,door,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,Alder Vane,Alder,,m,0.047519217330538085,False,0.0,,False,False,he,0,11,0,0,0,,he,0,0,147,506,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,Elian,Elian,,m,0.007282184655396619,True,1.0,Elian,True,False,he,0,13,1,0,0,,he,0,0,155,741,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,Helia Vance,Helia,,f,1.0,True,1.0,Helia,True,False,she,10,0,1,0,0,,she,0,0,107,497,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,Elowen,Elowen,,f,1.0,True,1.0,Elowen,True,False,she,9,0,0,1,0,,she,0,0,124,497,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,Mira Solenne,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,7,0,2,0,0,,her,0,0,119,456,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,Helia Solberg,Helia,,f,1.0,True,1.0,Helia,True,False,she,15,0,0,0,0,,her,0,0,165,600,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,Elara,Elara,,f,1.0,True,1.0,Elara,True,False,she,12,0,0,0,0,,her,0,0,125,493,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,Helia Bright,Helia,,f,1.0,True,1.0,Helia,True,False,she,10,0,2,0,0,,she,0,0,130,582,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,Helia Rowan,Helia,,f,1.0,True,1.0,Helia,True,False,she,14,0,0,0,0,,her,0,0,158,752,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,Mira Sol,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,11,0,0,0,0,,her,0,0,108,417,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,Elian,Elian,,m,0.007282184655396619,True,1.0,Elian,True,False,he,0,11,0,0,0,,he,0,0,127,947,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,Helia,Helia,,f,1.0,False,0.0,,False,False,she,8,0,0,0,0,,she,0,0,117,706,True,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,Elian,Elian,,m,0.007282184655396619,True,1.0,Elian,True,False,he,0,10,0,1,0,,he,0,0,137,464,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,Helia,Helia,,f,1.0,True,1.0,Helia,True,False,she,16,0,0,0,0,,she,0,0,150,760,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,Liora Sunfield,Liora,,f,1.0,False,0.0,,False,False,she,12,0,0,0,0,,she,0,0,113,580,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,Solara,Solara,,f,1.0,True,1.0,Solara,True,False,she,10,0,0,0,0,,she,0,0,139,351,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,Aurelio,Aurelio,,m,0.0006944444444444445,True,1.0,Aurelio,True,False,he,0,10,0,0,0,,he,0,0,117,544,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,Mirabel Vale,Mirabel,,f,1.0,False,0.0,,False,False,she,10,0,2,0,0,,she,0,0,132,762,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,Mira Solano,Mira,,f,0.9996688960995961,True,1.0,Mira,True,False,she,12,0,1,1,0,,she,0,0,122,469,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,flower,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,Helia Marlow,Helia,,f,1.0,True,1.0,Helia,True,False,she,10,0,1,2,0,,her,0,0,140,464,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Steele,Bram,,m,0.0,False,0.0,,False,False,he,0,8,0,0,0,,he,0,1,113,352,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,Marta True,Marta,,f,0.9973835390478357,False,0.0,,False,False,she,14,0,0,0,0,,she,1,0,137,550,True,True,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,Cole Stroud,Cole,,m,0.003575908849889425,False,0.0,,False,False,he,0,7,0,1,0,,he,0,1,113,496,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Kelso,Bram,,m,0.0,False,0.0,,False,False,he,0,10,4,1,0,,he,0,1,132,370,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,Bramwell Tacket,Bramwell,,notfound,,True,1.0,,False,False,he,0,7,0,0,0,,his,0,0,123,466,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,Bramwell Tacket,Bramwell,,notfound,,False,0.0,,False,False,he,0,10,0,0,0,,he,0,1,142,409,True,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Coale,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,13,1,2,0,,his,0,1,170,474,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Kessler,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,9,2,1,0,,he,0,1,134,569,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,Tobias Flint,Tobias,,m,0.0,True,1.0,Tobias,True,False,he,0,11,0,1,0,,his,0,0,121,334,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,Calder Rook,Calder,,m,0.016795279164775308,False,0.0,,False,False,he,0,9,0,0,0,,he,0,1,103,621,True,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Tull,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,7,2,0,0,,he,0,1,102,331,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Kessler,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,9,1,0,0,,his,0,1,121,395,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Coyle,Bram,,m,0.0,False,0.0,,False,False,he,0,8,2,0,0,,he,0,0,143,500,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Kessler,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,11,0,0,0,,his,0,1,147,250,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Tollen,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,7,1,0,0,,his,0,1,109,396,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,Hedda Stone,Hedda,,f,1.0,False,0.0,,False,False,she,14,0,0,2,0,,she,0,0,147,532,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,Brack Tallow,Brack,,m,0.0,True,1.0,Brack,True,False,he,0,11,1,0,0,,his,0,1,157,565,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Voss,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,9,0,0,0,,his,0,0,145,498,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,Corin Steele,Corin,,ambiguous,0.6300148588410104,True,1.0,Corin,True,False,she,8,0,2,0,0,,they,1,0,135,325,False,False,False
+deepseek/deepseek-v4.1-flash,free_noted,hammer,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,Bram Kessler,Bram,,m,0.0,True,1.0,Bram,True,False,he,0,6,2,0,0,,they,0,1,117,519,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,it,0,0,0,8,0,,,0,0,146,400,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,12,1,1,0,,he,0,1,161,465,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,11,0,2,1,0,,her,0,0,146,573,True,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,9,1,0,,their,0,0,134,485,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,5,1,0,,they,0,0,146,556,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,6,0,0,0,,he,0,0,102,466,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,2,0,,they,0,0,149,835,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,10,1,0,0,,he,0,0,132,557,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,9,1,0,,them,0,0,163,512,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,15,0,1,0,0,,she,0,0,148,512,True,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,1,0,,they,0,0,117,586,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,17,0,0,,their,0,0,196,900,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,1,0,,they,0,0,157,398,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,0,0,,they,0,0,122,436,True,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,none,0,0,0,0,0,,,0,0,126,493,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,1,0,,their,0,0,166,876,True,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,8,4,0,0,,he,0,1,140,417,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,15,3,1,0,,he,0,1,160,581,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,0,,they,0,0,144,394,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,1,0,,they,0,0,142,542,True,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,4,0,0,0,,he,0,0,111,337,False,False,False
+deepseek/deepseek-v4.1-flash,none,pot,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,9,0,0,,their,0,0,164,547,True,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,5,0,0,,they,0,0,135,389,True,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,10,1,0,0,,he,0,1,157,435,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,0,0,,their,0,0,132,465,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,13,0,0,,their,0,0,143,416,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,11,1,0,0,,his,0,0,147,431,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,1,0,,he,0,0,155,544,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,10,2,0,,they,0,0,156,702,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,0,,they,0,0,124,354,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,1,0,,he,0,0,143,506,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,10,0,0,,their,0,0,148,534,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,12,1,0,0,,he,0,1,146,542,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,18,1,0,0,,he,0,0,178,461,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,0,0,,their,0,0,151,475,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,11,1,3,0,,he,0,0,160,395,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,9,0,0,0,,his,0,0,122,294,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,11,1,0,,they,0,0,115,408,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,1,1,0,,them,0,0,174,449,False,False,False
+deepseek/deepseek-v4.1-flash,none,keyboard,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,17,5,0,0,,he,0,0,170,514,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,14,1,0,0,,he,0,0,139,401,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,0,,they,0,0,141,512,True,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,0,0,,he,0,0,132,207,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,0,,their,0,0,115,394,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,11,1,0,,them,0,0,155,452,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,13,0,0,,they,0,0,166,468,True,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,0,0,,their,0,0,158,431,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,11,1,0,0,,he,0,0,133,605,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,1,0,,they,0,0,161,517,True,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,2,0,,they,0,0,167,487,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,16,2,0,0,,he,0,0,155,399,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,6,3,0,,they,0,0,168,369,True,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,0,,their,0,0,142,131,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,3,0,0,,they,0,0,111,388,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,15,1,0,0,,he,0,0,167,528,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,0,0,,they,0,0,152,274,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,12,3,0,,their,0,0,162,151,False,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,12,0,2,0,0,,she,0,0,150,487,True,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,9,0,0,,they,0,0,141,432,True,False,False
+deepseek/deepseek-v4.1-flash,none,tree,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,9,2,0,,they,0,0,146,386,True,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,6,3,0,,they,0,0,164,458,True,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,10,2,0,0,,he,0,0,142,495,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,1,5,0,,they,0,0,121,390,True,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,18,1,0,0,,he,0,0,150,360,True,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,none,0,0,0,1,0,,,0,0,121,299,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,1,0,,he,0,0,139,574,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,11,0,0,0,,he,0,1,146,556,True,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,8,0,0,,them,0,0,139,555,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,none,0,0,0,0,0,,,0,0,133,468,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,4,0,0,,they,0,0,136,312,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,6,1,0,,they,0,0,146,347,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,17,2,0,0,,he,0,0,161,402,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,it,0,0,0,11,0,,,0,0,157,550,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,5,1,0,,them,0,0,162,565,True,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,5,0,0,,they,0,0,162,902,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,10,1,0,,they,0,0,157,663,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,0,0,,he,0,0,145,478,True,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,14,0,0,,them,0,0,180,502,False,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,11,0,0,,their,0,0,140,681,True,False,False
+deepseek/deepseek-v4.1-flash,none,door,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,0,0,,he,0,0,139,549,True,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,11,0,5,2,0,,she,0,0,143,605,True,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,12,0,0,0,0,,she,0,0,125,456,True,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,10,0,1,0,0,,she,0,0,128,416,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,9,1,1,0,,his,0,1,126,399,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,12,0,2,0,0,,she,1,0,142,489,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,16,0,3,1,0,,she,0,0,161,591,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,11,0,2,1,0,,she,0,0,117,608,True,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,9,0,1,0,0,,she,0,0,110,488,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,8,0,1,0,0,,she,0,0,117,477,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,18,0,1,0,0,,she,0,0,166,497,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,8,0,0,0,0,,she,0,0,113,469,True,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,10,0,0,0,0,,she,0,0,135,488,True,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,11,0,1,0,0,,she,1,0,134,417,True,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,12,0,0,0,0,,she,0,0,136,384,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,11,0,1,0,0,,she,0,0,122,510,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,15,1,0,0,,he,0,1,142,437,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,9,0,0,0,,he,0,0,120,205,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,0,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,0,0,,he,0,0,139,196,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,1,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,5,0,0,0,,he,0,0,119,224,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,19,0,1,0,0,,she,0,0,181,377,False,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,13,0,0,0,0,,she,0,0,118,665,True,False,False
+deepseek/deepseek-v4.1-flash,none,flower,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,she,12,0,0,0,0,,she,0,0,122,548,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,3,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,6,0,0,0,,he,0,0,128,356,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,2,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,12,1,0,0,,he,0,0,134,397,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,7,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,3,0,,he,0,1,139,223,True,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,4,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,16,2,1,0,,he,0,1,166,446,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,8,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,9,3,1,0,,him,0,1,144,140,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,5,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,2,0,,he,0,0,163,283,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,6,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,11,0,1,0,,he,0,0,166,418,True,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,9,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,they,0,0,7,0,0,,their,0,0,120,390,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,11,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,0,0,,he,0,0,124,322,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,12,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,10,0,3,0,,he,0,0,155,219,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,16,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,7,0,0,0,,he,0,0,109,297,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,10,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,8,0,1,0,,he,0,0,155,870,True,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,15,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,6,0,2,0,,he,0,0,126,476,True,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,14,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,7,0,3,0,,he,0,0,124,606,True,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,13,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,11,0,0,0,,he,0,0,124,415,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,17,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,7,2,0,0,,he,0,0,136,407,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,19,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,11,0,2,0,,he,0,1,126,323,False,False,False
+deepseek/deepseek-v4.1-flash,none,hammer,plain,False,18,stop,Crusoe,False,True,False,False,False,False,True,1,,,,,,,,,,False,he,0,10,2,3,0,,he,0,0,150,522,False,False,False
