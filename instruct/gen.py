@@ -290,7 +290,7 @@ def main() -> None:
         sk = sampling_key(family, th)
         if th and f"{family}_thinking" in cfg["sampling"]:
             sk = f"{family}_thinking"
-        sp = cfg["sampling"][sk]
+        sp = cfg["sampling"][sk] | mcfg.get("sampling_override", {})  # e.g. a short context window
         t0 = time.time()
         skip = {(i, j) for i, it in enumerate(items) for j in range(n)
                 if row_key(it | {"thinking": th, "sample": j}) in done}  # fmt: skip

@@ -198,7 +198,10 @@
         false
       ],
       "tier": "full (pod, vLLM bf16)",
-      "_note": "closest EuroLLM instruct to the base-study sizes; extraction candidate"
+      "_note": "closest EuroLLM instruct to the base-study sizes; extraction candidate; context window 4096, so max_tokens 2048 (outputs are ~200-400 tokens)",
+      "sampling_override": {
+        "max_tokens": 2048
+      }
     }
   }
 }
