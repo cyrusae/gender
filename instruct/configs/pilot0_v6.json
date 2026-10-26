@@ -189,7 +189,15 @@
         false
       ],
       "tier": "full (pod, vLLM bf16)",
-      "_note": "cross-family (base study used EuroLLM-1.7B base); 9B-Instruct is gated for the PI token"
+      "_note": "cross-family behaviour check (base study used EuroLLM-1.7B base)"
+    },
+    "utter-project/EuroLLM-9B-Instruct": {
+      "family": "eurollm",
+      "thinking": [
+        false
+      ],
+      "tier": "full (pod, vLLM bf16)",
+      "_note": "closest EuroLLM instruct to the base-study sizes; extraction candidate"
     }
   }
 }

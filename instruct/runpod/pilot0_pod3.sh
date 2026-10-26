@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Part 3 (PI 2026-10-26): EuroLLM-22B-Instruct-2512 (cross-family; 9B-Instruct gated).
+# Part 3 (PI 2026-10-26): EuroLLM-9B-Instruct, EuroLLM-22B-Instruct-2512.
 # Run from the repo root on the pod:
 #   HF_TOKEN=$(cat /root/hf_token) bash instruct/runpod/pilot0_pod3.sh >> /root/pilot0_pod3.log 2>&1
 # Resumable (rows are skipped if already in the output file). Per-run markers: "=== start/end NAME".
@@ -25,7 +25,8 @@ run() {  # name model thinking [extra args]
     | grep -vE "it/s\]|Processed prompts|^INFO|WARNING" || true
   echo "=== end $name $(date '+%F %T')"
 }
+run eurollm_9b     utter-project/EuroLLM-9B-Instruct off
 run eurollm_22b    utter-project/EuroLLM-22B-Instruct-2512 off
-for f in $OUT/eurollm_22b.jsonl; do python code_outputs.py "$f" --out "${f%.jsonl}_summary.csv" | tail -1; done
+for f in $OUT/eurollm_9b.jsonl $OUT/eurollm_22b.jsonl; do python code_outputs.py "$f" --out "${f%.jsonl}_summary.csv" | tail -1; done
 echo "took $(( $(date +%s) - START )) s"
 echo "=== INSTRUCT POD PILOT0 PART3 DONE"
