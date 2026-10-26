@@ -1,5 +1,8 @@
 key,text,article_type,pair,dimension_1,dimension_2,glasgow_word,glasgow_gend,glasgow_val,crawford_gend_5pt_NJ,cryan_silver
 plain,{a} {noun},indefinite,,baseline,,,,,,
+plain_the,the {noun},definite,,baseline,,,,,,
+plain_my,my {noun},possessive_user,,baseline,,,,,,
+plain_your,your {noun},possessive,,baseline,,,,,,
 interesting,an interesting {noun},indefinite,boring,value-personal,,interesting,3.429,7.829,,
 boring,a boring {noun},indefinite,interesting,value-personal,,boring,4.471,2.486,,
 best,the best {noun},definite,worst,value,,best,4.088,8.147,,
