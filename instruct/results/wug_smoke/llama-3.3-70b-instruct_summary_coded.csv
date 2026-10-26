@@ -1,0 +1,21 @@
+model,name_condition,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,name_in_para,valid,n_paragraphs,name,given,title,name_sex,name_f_share,name_used_in_para,n_name_mentions,para_first_name,para_name_matches,noun_in_name,pron,n_f,n_m,n_they,n_it,first_pron,n_fnoun,n_mnoun,answer_words
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,rameel,False,0,stop,Novita,False,True,False,False,False,True,1,Ramira,Ramira,,f,1.0,False,0,,False,False,she,8,0,0,0,she,0,0,124
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,wenble,False,1,stop,Novita,False,True,False,False,False,True,1,Winnie Wembley,Winnie,,f,0.9916596554120789,False,0,,False,False,she,12,0,0,0,she,0,0,122
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,rameel,False,4,stop,Novita,False,True,False,False,False,True,1,Ramira,Ramira,,f,1.0,False,0,,False,False,she,12,0,0,0,she,0,0,136
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,wenble,False,0,stop,Novita,False,True,False,False,False,True,1,Winnifred Wobblebury,Winnifred,,f,1.0,False,0,,False,False,she,15,0,0,0,she,0,0,127
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,rameel,False,1,stop,Novita,False,True,False,False,False,True,1,Ramira,Ramira,,f,1.0,False,0,,False,False,she,12,0,1,0,she,0,0,144
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,rameel,False,2,stop,Novita,False,True,False,False,False,True,1,Ramira,Ramira,,f,1.0,False,0,,False,False,she,15,0,1,1,she,0,0,152
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,wenble,False,2,stop,Novita,False,True,False,False,False,True,1,Winnifred Wobblebury,Winnifred,,f,1.0,False,0,,False,False,she,18,0,0,0,she,0,0,168
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,rameel,False,3,stop,Novita,False,True,False,False,False,True,1,Ramira,Ramira,,f,1.0,False,0,,False,False,she,12,0,1,0,she,0,0,129
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,wenble,False,4,stop,Novita,False,True,False,False,False,True,1,Winnie Wembly,Winnie,,f,0.9916596554120789,False,0,,False,False,she,14,0,0,0,she,0,0,133
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,dandop,False,0,stop,Novita,False,True,False,False,False,True,1,Kiyomi,Kiyomi,,f,0.9973262032085561,False,0,,False,False,she,14,0,1,0,she,0,0,165
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,pituat,False,3,stop,Novita,False,True,False,False,False,True,1,Terraka,Terraka,,notfound,,False,0,,False,False,she,10,0,1,0,she,0,0,130
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,wenble,False,3,stop,Novita,False,True,False,False,False,True,1,Winnie Wembly,Winnie,,f,0.9916596554120789,False,0,,False,False,she,13,0,2,0,she,0,0,152
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,pituat,False,2,stop,Novita,False,True,False,False,False,True,1,Kalynda,Kalynda,,f,1.0,False,0,,False,False,she,13,0,0,0,she,0,0,153
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,pituat,False,0,stop,Novita,False,True,False,False,False,True,1,Terraka,Terraka,,notfound,,False,0,,False,False,she,14,0,3,0,she,0,0,153
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,pituat,False,4,stop,Novita,False,True,False,False,False,True,1,Terraka,Terraka,,notfound,,False,0,,False,False,she,14,0,0,0,she,0,0,157
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,pituat,False,1,stop,Novita,False,True,False,False,False,True,1,Kalynda,Kalynda,,f,1.0,False,0,,False,False,she,15,0,0,0,she,0,0,154
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,dandop,False,4,stop,Novita,False,True,False,False,False,True,1,Kanzira,Kanzira,,notfound,,False,0,,False,False,she,12,0,0,1,she,0,0,133
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,dandop,False,3,stop,Novita,False,True,False,False,False,True,1,Kaltara,Kaltara,,notfound,,False,0,,False,False,she,13,0,2,1,she,0,0,128
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,dandop,False,1,stop,Novita,False,True,False,False,False,True,1,Kiyomi,Kiyomi,,f,0.9973262032085561,False,0,,False,False,she,15,0,0,0,she,0,0,145
+meta-llama/llama-3.3-70b-instruct,free_noted,pot,dandop,False,2,stop,Novita,False,True,False,False,False,True,1,Kiyomi,Kiyomi,,f,0.9973262032085561,False,0,,False,False,she,15,0,1,0,she,0,0,182
