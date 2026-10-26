@@ -47,12 +47,27 @@ def entry_genders(d: dict) -> set[str]:
     for s in d.get("senses") or []:
         tags |= set(s.get("tags") or [])
     g = {GTAG[t] for t in tags if t in GTAG and t != "common"}
-    if not g:  # fall back to the head template's gender argument (m, f, n, m-in, f-an, ...)
+    if not g:  # else the gender printed in the headword line: "мину́та • (minúta) f inan (..."
         for ht in d.get("head_templates") or []:
-            for k, v in (ht.get("args") or {}).items():
-                if k in ("1", "g", "g1", "g2") and re.fullmatch(r"[mfn](-\w+)?", str(v)):
-                    g.add(str(v)[0])
+            m = HEAD_G.search(ht.get("expansion") or "")
+            if m:
+                g |= set(re.findall(r"\b[mfn]\b", m.group(1)))
     return g
+
+
+HEAD_G = re.compile(r"•\s*(?:\([^)]*\)\s*)?((?:[mfn]\b(?:\s*(?:or|,|/)\s*)?)+)")
+
+
+def en_variants(w: str) -> set[str]:
+    """US and British spellings (Wiktionary glosses mix them): color/colour, center/centre,
+    organize/organise, catalog/catalogue."""
+    v = {w}
+    for a, b in (("or", "our"), ("er", "re"), ("ize", "ise"), ("og", "ogue")):
+        if w.endswith(a):
+            v.add(w[: -len(a)] + b)
+        if w.endswith(b):
+            v.add(w[: -len(b)] + a)
+    return v
 
 
 def scan(lang: str, targets: dict[str, set[str]]) -> dict[str, dict]:
@@ -79,7 +94,8 @@ def scan(lang: str, targets: dict[str, set[str]]) -> dict[str, dict]:
             rec["genders"] |= gs
             rec["glosses"] += gl
             for en in targets[w]:
-                pat = rf"\b({re.escape(en)}|{re.escape(plural_en(en))})\b"
+                forms = {f for v in en_variants(en) for f in (v, plural_en(v))}
+                pat = r"\b(" + "|".join(map(re.escape, sorted(forms))) + r")\b"
                 if any(re.search(pat, x, re.IGNORECASE) for x in gl):
                     rec["rt"].add(en)
                     rec["g_by_match"] |= gs
