@@ -120,7 +120,7 @@ Spanish–Russian alignment is the strongest pair. Russian does not share German
 lean. Neither statement survives the concreteness-matched refit cleanly, so both carry a
 concreteness caveat.
 
-## Follow-up S: size-matched control (DRAFT for PI sign-off, 2026-10-25; not run)
+## Follow-up S: size-matched control (ADOPTED, PI 2026-10-25; before any run)
 
 **Question.** The concreteness-matched refit (74 nouns) lost passing layers mainly in the tests
 that fit a direction on Russian (RU→ES 29→14 / 33→21, RU→DE 25→8 / 18→12). Is that drop what any
@@ -147,3 +147,9 @@ permutation machinery per subset).
 
 **Cost.** CPU only, about 200 × layers probe fits per model (minutes to an hour). Code would be
 `russian_dir.size_control`; output `results/russian_dir/size_control.csv`.
+
+**Descriptive extra S2 (PI 2026-10-25; cannot change the reading).** Qwen3-8B only: 50 of the
+random subsets (the first 50 draws), each with the main run's bootstrap (1,000 rounds within cell
+× gender, Bonferroni 98.75%, Russian refit per round; Spanish/German test rows resampled) giving
+RU→ES and RU→DE layers passing; reported as where the matched set's 14 and 8 fall in those 50
+counts. Output `results/russian_dir/size_control_boot.csv`.

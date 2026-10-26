@@ -132,6 +132,7 @@ def main() -> None:
         "russian-dir", help="Russian direction: alignment + frequency (prereg 2026-10-25)"
     )
     rd.add_argument("--models", nargs="+", default=None)
+    rd.add_argument("--size-control", action="store_true", help="follow-up S (+ S2 on 8B)")
     rh = sub.add_parser(
         "rarity-heldout", help="German rarity-lean held-out test (prereg 2026-10-22)"
     )
@@ -209,7 +210,10 @@ def main() -> None:
     if a.cmd == "russian-dir":
         from . import russian_dir
 
-        russian_dir.main(a.models or russian_dir.MODELS)
+        if a.size_control:
+            russian_dir.size_control(a.models or russian_dir.MODELS)
+        else:
+            russian_dir.main(a.models or russian_dir.MODELS)
         return
     if a.cmd == "rarity-heldout":
         from . import rarity_heldout as rho

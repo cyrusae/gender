@@ -32,3 +32,12 @@ def test_readings():
     assert rd.r_b_reading(b) == "overlap"
     b2 = pd.DataFrame({"valid": [False, False, True, True], "overlap": [False] * 4})
     assert rd.r_b_reading(b2) == "no valid test"
+
+
+def test_random_subsets_keep_composition():
+    cells = np.array(["a"] * 6 + ["b"] * 6)
+    y = np.array([1, 1, 1, 0, 0, 0] * 2)
+    ru = {"cells": cells, "y": y}
+    subs = rd.random_subsets(ru, [(0, 3), (6, 9)], 5)
+    for s in subs:
+        assert sorted(zip(cells[s], y[s], strict=True)) == [("a", 0), ("a", 1), ("b", 0), ("b", 1)]

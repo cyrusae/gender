@@ -212,3 +212,96 @@ def main(models=MODELS) -> dict:
                                     else "mixed") for s, v in rb.items()}  # fmt: skip
     (OUT / "readings.json").write_text(json.dumps(res, indent=2, default=float))
     return res
+
+
+# ---- follow-up S: size-matched random subsets ---------------------------------------------
+N_SUBSETS = 200
+N_SUBSETS_BOOT = 50
+SEED_S = 26
+
+
+def random_subsets(ru: dict, pairs, n: int, seed: int = SEED_S) -> list[np.ndarray]:
+    """Random subsets with the matched set's composition: per cell, the same numbers of f and m."""
+    rng = np.random.default_rng(seed)
+    comp = {}
+    for i, j in pairs:
+        for k in (i, j):
+            key = (ru["cells"][k], ru["y"][k])
+            comp[key] = comp.get(key, 0) + 1
+    out = []
+    for _ in range(n):
+        idx = [rng.choice(np.flatnonzero((ru["cells"] == c) & (ru["y"] == g)), k, replace=False)
+               for (c, g), k in sorted(comp.items())]  # fmt: skip
+        out.append(np.sort(np.concatenate(idx)))
+    return out
+
+
+def _ru_out(Xr, Xe, Xd, d, es, de, ir=None, te=None, td=None):
+    from .phase4 import _fit, within_cell_auc
+
+    te = np.arange(len(es["y"])) if te is None else te
+    td = np.arange(len(de["y"])) if td is None else td
+    v = _fit(Xr, d, ir)
+    return (within_cell_auc(es["y"][te], Xe[te] @ v, es["cells"][te]),
+            within_cell_auc(de["y"][td], Xd[td] @ v, de["cells"][td]))  # fmt: skip
+
+
+def size_control(models=MODELS, boot_model="Qwen/Qwen3-8B-Base") -> pd.DataFrame:
+    from .estimators import boot_within
+    from .models import progress
+    from .phase4 import de_train, es_train
+
+    OUT.mkdir(parents=True, exist_ok=True)
+    main_a = pd.read_csv(OUT / "r_a_layers.csv")
+    rows, brows, summ = [], [], {}
+    for m in models:
+        ru, es, de = ru_train(m), es_train(m, "last"), de_train(m, "last")
+        pr = matched_pairs(ru)
+        subs = random_subsets(ru, pr, N_SUBSETS)
+        L = ru["X"].shape[1]
+        layers = range(1, L - 1)
+        Xs = {k: (ru["X"][:, k].astype(np.float64), es["X"][:, k].astype(np.float64),
+                  de["X"][:, k].astype(np.float64)) for k in layers}  # fmt: skip
+        for s_i, idx in enumerate(progress(subs, desc=f"size {m.split('/')[1]}", unit="subset")):
+            d = subset(ru, idx)
+            aucs = np.array([_ru_out(Xs[k][0][idx], Xs[k][1], Xs[k][2], d, es, de) for k in layers])
+            rows.append({"model": m, "subset": s_i, "ru_on_es": aucs[:, 0].mean(),
+                         "ru_on_de": aucs[:, 1].mean()})  # fmt: skip
+        mt = main_a[(main_a.model == m) & (main_a.set == "matched")]
+        r = pd.DataFrame([x for x in rows if x["model"] == m])
+        summ[m] = {}
+        for t in ("ru_on_es", "ru_on_de"):
+            obs = float(mt[t].mean())
+            lo, hi = np.quantile(r[t], [0.025, 0.975])
+            summ[m][t] = {"matched": obs, "random_lo": float(lo), "random_hi": float(hi),
+                          "random_median": float(r[t].median()),
+                          "reading": "size explains it" if lo <= obs <= hi else
+                          ("concreteness matters" if obs < lo else "matched better than random")}  # fmt: skip
+        if m == boot_model:  # S2 (descriptive)
+            rng = np.random.default_rng(SEED_S + 1)
+            a = (1 - LEVEL) / 2
+            for s_i, idx in enumerate(progress(subs[:N_SUBSETS_BOOT], desc="S2 boot",
+                                               unit="subset")):  # fmt: skip
+                d = subset(ru, idx)
+                n_pass = {"ru_on_es": 0, "ru_on_de": 0}
+                for k in layers:
+                    Xr = Xs[k][0][idx]
+                    bt = np.array([_ru_out(Xr, Xs[k][1], Xs[k][2], d, es, de,
+                                           boot_within(d["cells"], d["y"], rng),
+                                           boot_within(es["cells"], es["y"], rng),
+                                           boot_within(de["cells"], de["y"], rng))
+                                   for _ in range(N_BOOT)])  # fmt: skip
+                    for j, t in enumerate(("ru_on_es", "ru_on_de")):
+                        n_pass[t] += int(np.nanquantile(bt[:, j], a) > 0.5)
+                brows.append({"model": m, "subset": s_i, **n_pass})
+                pd.DataFrame(brows).to_csv(OUT / "size_control_boot.csv", index=False)
+    pd.DataFrame(rows).to_csv(OUT / "size_control.csv", index=False)
+    models_ = list(summ)
+    per = [summ[m][t]["reading"] for m in models_ for t in ("ru_on_es", "ru_on_de")]
+    conc_both = all(any(summ[m][t]["reading"] == "concreteness matters"
+                        for t in ("ru_on_es", "ru_on_de")) for m in models_)  # fmt: skip
+    summ["overall"] = ("size explains the drop" if all(x == "size explains it" for x in per)
+                       else "concreteness matters" if conc_both else "mixed")  # fmt: skip
+    (OUT / "size_control.json").write_text(json.dumps(summ, indent=2, default=float))
+    print(json.dumps(summ, indent=2, default=float))
+    return pd.DataFrame(rows)
