@@ -57,7 +57,20 @@
       "temperature": 1.0,
       "top_p": 0.95,
       "top_k": 64,
-      "max_tokens": 32768
+      "max_tokens": 24576,
+      "_note": "2026-10-26: 32768 -> 24576; KV cache on a 96 GB card holds at most 27,600 tokens for Gemma-4-31B bf16 (32768 was our choice, not a vendor value); length-truncated outputs are flagged by finish_reason"
+    },
+    "gptoss": {
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 16384,
+      "_source": "OpenAI gpt-oss model card: temperature 1.0, top_p 1.0; reasoning effort = template default (medium), always on"
+    },
+    "eurollm": {
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 4096,
+      "_source": "EuroLLM-22B-Instruct-2512 generation_config.json: do_sample only, so transformers defaults (temperature 1.0, top_p 1.0); no vendor recommendation"
     }
   },
   "models": {
@@ -136,6 +149,58 @@
           ],
           "allow_fallbacks": false
         }
+      }
+    },
+    "Qwen/Qwen3-8B": {
+      "family": "qwen3",
+      "thinking": [
+        false,
+        true
+      ],
+      "tier": "full (pod, vLLM bf16)"
+    },
+    "google/gemma-4-31B-it": {
+      "family": "gemma4",
+      "thinking": [
+        false,
+        true
+      ],
+      "tier": "full (pod, vLLM bf16)",
+      "_note": "pod run: thinking off on all 4 conditions; thinking on free_noted only (--only-conds)"
+    },
+    "Qwen/Qwen3-14B": {
+      "family": "qwen3",
+      "thinking": [
+        false,
+        true
+      ],
+      "tier": "full (pod, vLLM bf16)"
+    },
+    "openai/gpt-oss-20b": {
+      "family": "gptoss",
+      "thinking": [
+        false
+      ],
+      "tier": "trained precision (MXFP4 MoE weights, pod vLLM)",
+      "_note": "reasoning always on (medium); thinking=False only means no enable_thinking switch"
+    },
+    "utter-project/EuroLLM-22B-Instruct-2512": {
+      "family": "eurollm",
+      "thinking": [
+        false
+      ],
+      "tier": "full (pod, vLLM bf16)",
+      "_note": "cross-family behaviour check (base study used EuroLLM-1.7B base)"
+    },
+    "utter-project/EuroLLM-9B-Instruct": {
+      "family": "eurollm",
+      "thinking": [
+        false
+      ],
+      "tier": "full (pod, vLLM bf16)",
+      "_note": "closest EuroLLM instruct to the base-study sizes; extraction candidate; context window 4096, so max_tokens 2048 (outputs are ~200-400 tokens)",
+      "sampling_override": {
+        "max_tokens": 2048
       }
     }
   }

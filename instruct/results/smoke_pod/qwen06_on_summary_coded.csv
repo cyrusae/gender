@@ -1,0 +1,5 @@
+model,name_condition,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,name_in_para,valid,n_paragraphs,name,given,title,name_sex,name_f_share,name_used_in_para,n_name_mentions,para_first_name,para_name_matches,noun_in_name,pron,n_f,n_m,n_they,n_it,n_neo,neo_sets,first_pron,n_fnoun,n_mnoun,answer_words,cot_words,cot_gender,cot_lang,cot_ship_she
+Qwen/Qwen3-0.6B,free_noted,pot,plain,True,0,stop,,True,True,False,False,False,False,1,The Silver Handle,Silver,The,ambiguous,0.7681159420289855,False,0.0,,False,False,he,0,6,0,0,0,,his,0,1,56,310,False,False,False
+Qwen/Qwen3-0.6B,free_noted,pot,plain,True,1,stop,,True,True,False,False,False,False,1,Elara,Elara,,f,1.0,False,0.0,,False,False,she,12,0,0,0,0,,her,0,0,83,202,False,False,False
+Qwen/Qwen3-0.6B,none,pot,plain,True,0,stop,,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,1,8,0,,their,0,0,71,206,False,False,False
+Qwen/Qwen3-0.6B,none,pot,plain,True,1,stop,,True,True,False,False,False,False,1,,,,,,,,,,False,they,0,0,8,3,0,,their,0,0,114,220,False,False,False

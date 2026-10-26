@@ -6,8 +6,10 @@ carries two genders (e.g. Arabic إصبع m/f), and everything else passes the m
 - "Double" language: all common (zipf >= 2.5) single-word candidates are the same word, and that
   word's tags (translation table) carry exactly two of m/f/n; in the word's OWN dump the round
   trip holds and the gender tags/headword line give the same two genders (gold).
-- Every other study language: status ok in the translation table, round trip ok, and (gendered)
-  own-dump gender single and equal to the table's.
+- Other study languages: status ok in the translation table, round trip ok, and (gendered)
+  own-dump gender single and equal to the table's. v2 (PI 2026-10-26): a noun may FAIL in up to
+  3 of the 8 languages (fewer than half); it then skips those arms. A double language is also
+  found when the table gives one gender but the word's own dump gives two (that gender included).
 Output: instruct/results/feasibility/double_gender_supplement_DRAFT.csv (overwrites the 8-noun
 first draft, which only searched nouns that had passed the single-gender table filter).
 """
@@ -61,6 +63,9 @@ def double_word(trans: list[dict], lang: str) -> dict | None:
     return {"word": cands[0][2], "g": "".join(sorted(gs))}
 
 
+MAX_FAIL = 3  # PI 2026-10-26: a supplementary noun may fail in fewer than half of the 8 languages
+
+
 def main() -> None:
     cand = pd.read_csv(
         HERE.parents[0] / "results/feasibility/candidates.csv", keep_default_na=False
@@ -70,51 +75,71 @@ def main() -> None:
     rows = []
     for en, tb in tables.items():
         r = cand.loc[en]
-        dbl = {}
-        ok = True
+        if r.lexname in ("noun.person", "noun.animal"):  # same animacy rule as the main pool
+            continue
+        row = {"en": en, "conc": r.conc}
+        n_cand_lang = 0
         for lg in CORE:
+            w, g = "", ""
             if r[f"{lg}_status"] == "ok":
-                continue
-            if lg in G and r[f"{lg}_status"] == "mixed" and (x := double_word(tb["trans"], lg)):
-                dbl[lg] = x
-                continue
-            ok = False
-            break
-        if ok and dbl:
-            row = {"en": en, "conc": r.conc, "double_in": "|".join(dbl)}
-            for lg in CORE:
-                row[f"{lg}_word"] = dbl[lg]["word"] if lg in dbl else r[f"{lg}_word"]
-                if lg in G:
-                    row[f"{lg}_g"] = dbl[lg]["g"] if lg in dbl else r[f"{lg}_g"]
+                w, g = r[f"{lg}_word"], r.get(f"{lg}_g", "")
+            elif lg in G and r[f"{lg}_status"] == "mixed" and (x := double_word(tb["trans"], lg)):
+                w, g = x["word"], x["g"]
+            row[f"{lg}_word"] = w
+            if lg in G:
+                row[f"{lg}_g"] = g
+            n_cand_lang += bool(w)
+        if n_cand_lang >= len(CORE) - MAX_FAIL and any(row[f"{lg}_word"] for lg in G):
             rows.append(row)
     d = pd.DataFrame(rows)
-    print(f"table-level candidates: {len(d)}", flush=True)
-    keep = pd.Series(True, index=d.index)
+    print(
+        f"nouns with a usable table word in >= {len(CORE) - MAX_FAIL} languages: {len(d)}",
+        flush=True,
+    )
+    status = pd.DataFrame(index=d.index)
     for lg in CORE:
         targets: dict[str, set[str]] = defaultdict(set)
         for en, fw in zip(d.en, d[f"{lg}_word"]):
-            targets[norm(fw, lg)].add(en)
+            if fw:
+                targets[norm(fw, lg)].add(en)
         res = scan(lg, targets)
-        rt, gd = [], []
-        for en, fw in zip(d.en, d[f"{lg}_word"]):
-            rec = res.get(norm(fw, lg))
-            rt.append(bool(rec and en in rec["rt"]))
-            gd.append("".join(sorted(rec["g_by_match"])) if rec else "")
-        keep &= pd.Series(rt, index=d.index)
-        if lg in G:
-            d[f"{lg}_g_dump"] = gd
-            keep &= d[f"{lg}_g_dump"] == d[f"{lg}_g"]
-        print(f"{lg}: still in {int(keep.sum())}", flush=True)
+        st = []
+        for en, fw, g in zip(d.en, d[f"{lg}_word"], d[f"{lg}_g"] if lg in G else [""] * len(d)):
+            rec = res.get(norm(fw, lg)) if fw else None
+            if not rec or en not in rec["rt"]:
+                st.append("fail")
+                continue
+            if lg not in G:
+                st.append("ok")
+                continue
+            gd = "".join(sorted(rec["g_by_sense"]))
+            if len(gd) == 2 and (len(g) == 2 and g == gd or len(g) == 1 and g in gd):
+                st.append("double:" + gd)
+            elif len(gd) == 1 and gd == g:
+                st.append("ok")
+            else:
+                st.append("fail")
+        status[lg] = st
+        print(f"{lg} scanned", flush=True)
+    n_fail = (status == "fail").sum(axis=1)
+    n_dbl = status.apply(lambda c: c.str.startswith("double")).sum(axis=1)
+    keep = (n_dbl >= 1) & (n_fail <= MAX_FAIL)
     out = d[keep].copy()
-    print(f"\nfinal: {len(out)}")
-    print(out["double_in"].value_counts().to_string())
-    cols = ["en", "double_in", "conc"] + [
-        c for lg in CORE for c in (f"{lg}_word", f"{lg}_g") if c in out
+    for lg in CORE:
+        out[f"{lg}_status"] = status.loc[keep, lg]
+    out["n_fail"] = n_fail[keep]
+    out["double_in"] = [
+        "|".join(lg for lg in G if status.at[i, lg].startswith("double")) for i in out.index
+    ]
+    print(f"\nfinal: {len(out)}; by double language: {out.double_in.value_counts().to_dict()}; "
+          f"by failures: {out.n_fail.value_counts().sort_index().to_dict()}")  # fmt: skip
+    cols = ["en", "double_in", "n_fail", "conc"] + [
+        c for lg in CORE for c in (f"{lg}_word", f"{lg}_status")
     ]
     out[cols].to_csv(
         HERE.parents[0] / "results/feasibility/double_gender_supplement_DRAFT.csv", index=False
     )
-    print(out[["en", "double_in"] + [f"{lg}_g" for lg in G]].to_string(index=False))
+    print(out[["en", "double_in", "n_fail"] + [f"{lg}_status" for lg in G]].to_string(index=False))
 
 
 if __name__ == "__main__":

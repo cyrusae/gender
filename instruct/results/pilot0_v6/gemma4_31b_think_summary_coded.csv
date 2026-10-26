@@ -1,0 +1,260 @@
+model,name_condition,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,no_paragraph,name_in_para,valid,n_paragraphs,name,given,title,name_sex,name_f_share,name_used_in_para,n_name_mentions,para_first_name,para_name_matches,noun_in_name,pron,n_f,n_m,n_they,n_it,n_neo,neo_sets,first_pron,n_fnoun,n_mnoun,answer_words,cot_words,cot_gender,cot_lang,cot_ship_she
+google/gemma-4-31b-it,free_noted,pot,plain,True,7,stop,Crusoe,False,True,False,False,False,False,True,1,Arthur Clay,Arthur,,m,0.005799648506151142,True,1,Arthur,True,False,he,0,6,1,1,0,,he,0,1,110,507.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,plain,True,0,stop,Crusoe,False,True,False,False,False,False,True,1,Barnaby,Barnaby,,m,0.0,True,1,Barnaby,True,False,he,0,10,1,0,0,,he,0,2,109,576.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,plain,True,9,stop,Crusoe,False,True,False,False,False,False,True,1,Caldwell,Caldwell,,m,0.0,False,0,,False,False,he,0,8,1,0,0,,he,0,1,103,523.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,plain,True,4,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,2,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,1,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,5,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,6,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,3,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,11,stop,Crusoe,False,True,False,False,False,False,True,1,Clayton,Clayton,,m,0.004358574960344113,False,0,,False,False,he,0,8,0,0,0,,he,0,1,95,868.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,plain,True,8,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,16,stop,Crusoe,False,True,False,False,False,False,True,1,Clayton Hearth,Clayton,,m,0.004358574960344113,False,0,,False,False,he,0,10,0,0,0,,he,0,1,125,1258.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,plain,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,19,stop,Crusoe,False,True,False,False,False,False,True,1,Clayton,Clayton,,m,0.004358574960344113,False,0,Arthur,False,False,he,0,8,0,0,0,,he,0,1,116,566.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,best,True,1,stop,Crusoe,False,True,False,False,False,False,True,1,Gideon,Gideon,,m,0.0014348488924760111,False,0,,False,False,he,0,6,1,0,0,,he,0,0,101,1110.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,plain,True,12,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,13,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,15,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,plain,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,0,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,2,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,3,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,6,stop,Crusoe,False,True,False,False,False,False,True,1,Casten Hearth,Casten,,m,0.0,False,0,,False,False,he,0,12,0,1,0,,he,0,0,128,648.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,best,True,4,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,5,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,7,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,8,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,9,stop,Crusoe,False,True,False,False,False,False,True,1,Silas,Silas,,m,0.0024322859522267312,False,0,,False,False,he,0,9,2,0,0,,he,0,1,114,690.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,best,True,12,stop,Crusoe,False,True,False,False,False,False,True,1,Silas Hearth,Silas,,m,0.0024322859522267312,False,0,,False,False,he,0,9,0,1,0,,he,0,1,111,932.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,best,True,15,stop,Crusoe,False,True,False,False,False,False,True,1,Silas,Silas,,m,0.0024322859522267312,True,1,Silas,True,False,he,0,6,1,0,0,,he,0,1,124,735.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,best,True,16,stop,Crusoe,False,True,False,False,False,False,True,1,Barnaby,Barnaby,,m,0.0,False,0,,False,False,he,0,8,1,0,0,,he,0,1,118,803.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,best,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,13,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,11,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,best,True,19,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,0,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,7,stop,Crusoe,False,True,False,False,False,False,True,1,Arthur,Arthur,,m,0.005799648506151142,True,1,Arthur,True,False,he,0,9,0,0,0,,his,0,1,119,613.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,worst,True,3,stop,Crusoe,False,True,False,False,False,False,True,1,Arthur Crumble,Arthur,,m,0.005799648506151142,True,1,Arthur,True,False,he,0,8,0,0,0,,his,0,0,110,791.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,worst,True,1,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,2,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,4,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,10,stop,Crusoe,False,True,False,False,False,False,True,1,Arthur Rustwell,Arthur,,m,0.005799648506151142,True,1,Arthur,True,False,he,0,7,0,0,0,,he,0,1,98,605.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,worst,True,5,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,6,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,12,stop,Crusoe,False,True,False,False,False,False,True,1,Barnaby Blister,Barnaby,,m,0.0,True,1,Barnaby,True,False,he,0,9,0,0,0,,his,0,1,107,818.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,worst,True,13,stop,Crusoe,False,True,False,False,False,False,True,1,Arthur Rust,Arthur,,m,0.005799648506151142,True,1,Arthur,True,False,he,0,13,0,0,0,,his,0,1,113,1000.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,worst,True,8,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,9,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,17,stop,Crusoe,False,True,False,False,False,False,True,1,Arthur Burnside,Arthur,,m,0.005799648506151142,True,1,Arthur,True,False,he,0,9,0,1,0,,he,0,1,116,972.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,worst,True,11,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,16,stop,Crusoe,False,True,False,False,False,False,True,1,Silas Scorched,Silas,,m,0.0024322859522267312,False,0,,False,False,he,0,7,0,0,0,,he,0,1,93,471.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,worst,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,15,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,worst,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,5,stop,Crusoe,False,True,False,False,False,False,True,1,Casten Thorne,Casten,,m,0.0,False,0,,False,False,he,0,10,2,1,0,,he,0,1,118,388.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,6,stop,Crusoe,False,True,False,False,False,False,True,1,Castor,Castor,,m,0.0,False,0,,False,False,he,0,12,1,0,0,,he,0,1,113,435.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,worst,True,19,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,0,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,1,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,2,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,3,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,12,stop,Crusoe,False,True,False,False,False,False,True,1,Arthur Stock,Arthur,,m,0.005799648506151142,True,1,Arthur,True,False,he,0,8,1,0,0,,his,0,2,118,575.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,4,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,8,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,7,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,9,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,11,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,13,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,15,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,16,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,stereotypical,True,19,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,0,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,5,stop,Crusoe,False,True,False,False,False,False,True,1,Argil,Argil,,m,0.0,False,0,,False,False,he,0,16,0,1,0,,he,0,0,133,1070.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,unusual,True,4,stop,Crusoe,False,True,False,False,False,False,True,1,Alaric Goldseam,Alaric,,m,0.0,False,0,,False,False,he,0,13,0,0,0,,he,0,1,119,659.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,unusual,True,1,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,2,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,3,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,6,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,8,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,7,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,9,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,11,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,12,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,13,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,16,stop,Crusoe,False,True,False,False,False,False,True,1,Thistle Glaze,Thistle,,f,1.0,False,0,,False,False,he,0,14,0,0,0,,he,0,1,122,705.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,unusual,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,15,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,2,stop,Crusoe,False,True,False,False,False,False,True,1,Keyston,Keyston,,m,0.0,False,0,,False,False,he,0,9,1,0,0,,he,0,0,107,476.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,unusual,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,pot,unusual,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,6,stop,Crusoe,False,True,False,False,False,False,True,1,Qwerty,Qwerty,,notfound,,False,0,,False,False,he,0,11,0,0,0,,he,0,0,114,422.0,False,False,False
+google/gemma-4-31b-it,free_noted,pot,unusual,True,19,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,0,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,1,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,7,stop,Crusoe,False,True,False,False,False,False,True,1,Qwerty,Qwerty,,notfound,,False,0,Arthur,False,False,he,0,8,0,0,0,,he,0,0,107,353.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,3,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,12,stop,Crusoe,False,True,False,False,False,False,True,1,Qwerty,Qwerty,,notfound,,False,0,,False,False,he,0,7,0,0,0,,he,0,0,107,669.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,4,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,5,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,16,stop,Crusoe,False,True,False,False,False,False,True,1,Keyston,Keyston,,m,0.0,False,0,,False,False,he,0,7,0,0,0,,he,0,0,115,803.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,8,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,9,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,11,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,0,stop,Crusoe,False,True,False,False,False,False,True,1,Alaric,Alaric,,m,0.0,False,0,,False,False,he,0,5,0,0,0,,he,0,0,88,794.0,False,True,False
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,13,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,15,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,plain,True,19,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,1,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,2,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,3,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,4,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,5,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,6,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,7,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,8,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,9,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,11,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,12,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,13,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,19,stop,Crusoe,False,True,False,False,False,False,True,1,Sterling Chord,Sterling,,ambiguous,0.09037065805762555,False,0,,False,False,he,0,9,0,0,0,,he,0,1,99,698.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,best,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,15,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,2,stop,Crusoe,False,True,False,False,False,False,True,1,Barnaby Clack,Barnaby,,m,0.0,True,1,Barnaby,True,False,he,0,7,0,0,0,,his,0,0,124,515.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,best,True,16,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,best,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,0,stop,Crusoe,False,True,False,False,False,False,True,1,Arthur Clatter,Arthur,,m,0.005799648506151142,True,1,Arthur,True,False,he,0,8,0,0,0,,his,0,1,123,767.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,best,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,8,stop,Crusoe,False,True,False,False,False,False,True,1,Clarence Clack,Clarence,,m,0.006086640495313058,True,1,,False,False,he,0,6,0,0,0,,his,0,0,127,532.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,1,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,3,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,4,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,5,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,6,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,7,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,9,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,11,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,12,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,13,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,15,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,3,stop,Crusoe,False,True,False,False,False,False,True,1,Qwerty,Qwerty,,notfound,,False,0,,False,False,he,0,11,0,0,0,,he,0,0,120,517.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,16,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,1,stop,Crusoe,False,True,False,False,False,False,True,1,Qwertyn,Qwertyn,,notfound,,False,0,,False,False,he,0,10,0,1,0,,he,0,0,118,463.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,4,stop,Crusoe,False,True,False,False,False,False,True,1,Qwerton,Qwerton,,notfound,,False,0,,False,False,he,0,8,0,0,0,,he,0,0,119,735.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,5,stop,Crusoe,False,True,False,False,False,False,True,1,Qwerty,Qwerty,,notfound,,False,0,,False,False,he,0,10,0,0,0,,he,0,0,105,776.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,worst,True,19,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,9,stop,Crusoe,False,True,False,False,False,False,True,1,Qwerty,Qwerty,,notfound,,False,0,Arthur,False,False,he,0,9,0,0,0,,his,0,1,118,661.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,0,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,2,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,12,stop,Crusoe,False,True,False,False,False,False,True,1,Qwertyn,Qwertyn,,notfound,,False,0,,False,False,he,0,6,0,0,0,,he,0,0,109,662.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,6,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,7,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,8,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,11,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,13,stop,Crusoe,False,True,False,False,False,False,True,1,Qwertyn,Qwertyn,,notfound,,False,0,,False,False,he,0,11,0,0,0,,he,0,0,114,607.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,1,stop,Crusoe,False,True,False,False,False,False,True,1,Click,Click,,notfound,,False,0,,False,False,he,0,12,0,0,0,,he,0,0,116,324.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,15,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,16,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,stereotypical,True,19,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,0,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,2,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,3,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,4,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,5,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,11,stop,Crusoe,False,True,False,False,False,False,True,1,Kaelen Switch,Kaelen,,ambiguous,0.31510658016682114,False,0,,False,False,he,0,9,0,0,0,,he,0,1,109,748.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,6,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,7,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,12,stop,Crusoe,False,True,False,False,False,False,True,1,Alistair Ortho,Alistair,,m,0.0,True,1,Alistair,True,False,he,0,12,0,0,0,,his,0,1,119,1130.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,15,stop,Crusoe,False,True,False,False,False,False,True,1,Alistair,Alistair,,m,0.0,True,1,Alistair,True,False,he,0,10,0,0,0,,his,0,0,97,715.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,8,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,16,stop,Crusoe,False,True,False,False,False,False,True,1,Alistair,Alistair,,m,0.0,True,1,Alistair,True,False,he,0,11,0,0,0,,his,0,0,103,547.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,9,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,13,stop,Crusoe,False,True,False,False,False,False,True,1,Silas,Silas,,m,0.0024322859522267312,True,1,Silas,True,False,he,0,9,0,0,0,,his,0,0,111,978.0,False,False,False
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,keyboard,unusual,True,19,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,0,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,1,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,2,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,3,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,4,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,5,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,6,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,7,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,8,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,9,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,13,stop,Crusoe,False,True,False,False,False,False,True,1,Silas,Silas,,m,0.0024322859522267312,True,1,Silas,True,False,he,0,9,0,0,0,,his,0,0,100,609.0,False,False,False
+google/gemma-4-31b-it,free_noted,tree,plain,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,11,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,12,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,15,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,16,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,plain,True,19,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,0,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,1,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,2,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,3,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,4,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,5,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,12,stop,Crusoe,False,True,False,False,False,False,True,1,Elden,Elden,,m,0.0018543492919757248,False,0,,False,False,he,0,9,0,0,0,,he,0,0,96,402.0,False,False,False
+google/gemma-4-31b-it,free_noted,tree,best,True,6,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,13,stop,Crusoe,False,True,False,False,False,False,True,1,Silas Oakhaven,Silas,,m,0.0024322859522267312,True,1,Silas,True,False,he,0,8,0,0,0,,his,0,0,99,680.0,False,False,False
+google/gemma-4-31b-it,free_noted,tree,best,True,14,stop,Crusoe,False,True,False,False,False,False,True,1,Silvan,Silvan,,m,0.0,False,0,,False,False,he,0,13,0,0,0,,he,0,0,111,1661.0,False,False,False
+google/gemma-4-31b-it,free_noted,tree,best,True,7,stop,Crusoe,False,True,False,False,False,False,True,1,Silvanus,Silvanus,,m,0.0,False,0,,False,False,he,0,10,0,0,0,,he,0,0,104,922.0,False,False,False
+google/gemma-4-31b-it,free_noted,tree,best,True,16,stop,Crusoe,False,True,False,False,False,False,True,1,Silvan,Silvan,,m,0.0,False,0,,False,False,he,0,13,0,0,0,,he,0,0,111,562.0,False,False,False
+google/gemma-4-31b-it,free_noted,tree,best,True,8,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,9,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,11,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,15,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,18,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,best,True,19,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,0,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,4,stop,Crusoe,False,True,False,False,False,False,True,1,Silas Thorne,Silas,,m,0.0024322859522267312,False,0,,False,False,he,0,11,1,0,0,,he,0,0,109,772.0,False,False,False
+google/gemma-4-31b-it,free_noted,tree,worst,True,9,stop,Crusoe,False,True,False,False,False,False,True,1,Silas Brack,Silas,,m,0.0024322859522267312,False,0,November,False,False,he,0,11,0,0,0,,he,0,0,123,605.0,False,False,False
+google/gemma-4-31b-it,free_noted,tree,worst,True,1,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,2,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,3,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,8,stop,Crusoe,False,True,False,False,False,False,True,1,Silas Thorne,Silas,,m,0.0024322859522267312,False,0,,False,False,he,0,9,0,0,0,,he,0,0,115,1066.0,False,False,False
+google/gemma-4-31b-it,free_noted,tree,worst,True,5,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,6,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,7,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,10,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,11,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,12,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,13,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,14,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,18,stop,Crusoe,False,True,False,False,False,False,True,1,Silas Thorne,Silas,,m,0.0024322859522267312,True,1,Silas,True,False,he,0,9,0,0,0,,he,0,1,115,1096.0,False,False,False
+google/gemma-4-31b-it,free_noted,tree,worst,True,15,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,16,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,
+google/gemma-4-31b-it,free_noted,tree,worst,True,17,error,,False,False,False,True,True,False,False,0,,,,,,False,0,,False,False,none,0,0,0,0,0,,,0,0,0,,,,

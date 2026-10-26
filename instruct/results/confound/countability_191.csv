@@ -1,0 +1,192 @@
+en,conc,count_class,sense,gap,ends_s
+day,3.92,unresolved,period of 24 hours,0.34,False
+noun,3.15,unresolved,grammatical category (narrow sense),0.35,False
+minute,3.04,count,unit of time,-0.33,False
+verb,2.85,count,"(grammar) a word that indicates an action, event, or a state",0.28,False
+name,3.5,count,"word or phrase indicating a particular person, place, class ",0.7,False
+robot,4.65,count,intelligent mechanical being,0.25,False
+definition,3.07,count,statement of the meaning of a word or word group or a sign o,0.76,False
+planet,4.58,count,each of the seven major bodies which move relative to the fi,0.63,False
+weapon,4.76,count,instrument of attack or defense in combat,-0.21,False
+inflation,2.54,count,"increase in the quantity of money, leading to a devaluation ",2.93,False
+frequency,2.69,count,rate of occurrence of anything,0.62,False
+time,3.07,unresolved,inevitable passing of events,0.73,False
+blood,4.86,count,vital liquid flowing in human and animal bodies,2.07,False
+epidemic,3.23,count,widespread disease,0.79,False
+gas,4.29,unresolved,"(uncountable, chemistry) state of matter",1.28,True
+pollution,3.75,mass,the contamination of the environment by harmful substances,2.66,False
+accusation,2.38,count,act of accusing or charging with a crime,-0.25,False
+ace,3.92,count,card with a single spot,0.72,False
+nature,2.92,mass,the natural world and its order,2.01,False
+cube,4.62,count,geometry: polyhedron having of six identical square faces,0.39,False
+triangle,4.52,count,polygon,0.66,False
+tennis,4.43,mass,sport played by two or four players with strung racquets,4.35,True
+hand,4.72,count,part of the fore limb,0.25,False
+anarchy,2.12,count,absence of any form of political authority or government,3.52,False
+mind,2.5,unresolved,ability for rational thought,0.96,False
+example,3.03,count,something representative of a group,0.64,False
+concrete,4.59,unresolved,building material,2.68,False
+future,1.86,count,the time ahead,1.49,False
+mill,4.72,count,grinding apparatus,0.16,False
+leather,4.82,count,material produced by tanning animal skin,1.68,False
+island,4.96,unresolved,area of land completely surrounded by water,0.51,False
+air,4.11,unresolved,1. mixture of gases making up the atmosphere of the Earth,1.86,False
+angle,3.5,unresolved,geometrical figure,0.48,False
+east,3.04,unresolved,compass point,3.07,False
+south,3.84,unresolved,compass point,2.92,False
+right,3.47,count,"legal or moral entitlement — see also entitlement, privilege",0.77,False
+chocolate,4.72,mass,food made from ground roasted cocoa beans,1.09,False
+turtle,5.0,unresolved,land or marine reptile with a shell,0.19,False
+sapphire,4.76,count,gem,0.84,False
+voice,4.13,count,sound uttered by the mouth,0.72,False
+nose,4.89,count,protuberance on the face,1.06,False
+pizza,5.0,mass,Italian dish,1.09,False
+force,3.0,count,anything that is able to make a big change in person or thin,0.25,False
+unit,3.77,count,standard measure of a quantity,0.18,False
+activity,2.72,mass,state or quality of being active,-0.05,False
+galaxy,3.66,count,"collection of billions of stars, galactic dust, black holes,",0.73,False
+grammar,3.19,unresolved,rules for speaking and writing a language,1.52,False
+account,3.08,count,a registry of pecuniary transactions,0.48,False
+lightning,4.59,mass,flash of light,2.03,False
+whistle,4.42,count,device used to make a whistling sound,0.57,False
+bubble,4.6,count,spherically contained volume of air or other gas,0.37,False
+cell,4.44,count,basic unit of a living organism,0.12,False
+capitalism,1.96,count,socio-economic system based on private property rights,2.85,False
+politics,2.66,count,a methodology and activities associated with running a gover,4.87,True
+saw,4.46,unresolved,tool,2.39,False
+speed,3.62,count,rapidity,0.95,False
+cushion,4.68,unresolved,soft material in cloth bag,0.39,False
+syllable,3.26,count,unit of speech,0.08,False
+iron,4.59,mass,chemical element Fe,1.42,False
+crisis,2.33,count,"unstable situation in political, social, economic or militar",4.62,True
+authority,2.34,mass,power to enforce rules or give orders,0.18,False
+pawn,3.9,unresolved,chess piece,0.54,False
+liquid,4.72,count,substance that is liquid,0.91,False
+mountain,4.96,unresolved,large mass of earth and rock,0.23,False
+river,4.89,count,large stream which drains a landmass,0.73,False
+dust,4.4,unresolved,"fine, dry particles",2.13,False
+snow,4.85,unresolved,"partly frozen, crystalline state of water that falls from th",1.69,False
+digestion,3.66,count,process in gastrointestinal tract,2.2,False
+communism,1.86,unresolved,ideology/philosophy,3.8,False
+socialism,2.21,mass,political philosophy of social and economic equality,2.85,False
+worship,2.62,mass,devotion accorded to a deity or to a sacred object,1.44,False
+asteroid,4.86,count,"astronomy: a naturally occurring solid object, which is smal",0.36,False
+kidney,4.96,count,an organ in the body,0.54,False
+physics,3.07,mass,branch of science,4.39,True
+memory,2.38,mass,ability to recall,0.31,False
+tank,4.8,count,armoured fighting vehicle,0.3,False
+eclipse,4.17,count,passage of a planetary object between others,0.95,False
+milk,4.92,unresolved,liquid,2.11,False
+flight,3.9,unresolved,act of flying,0.65,False
+carbon,4.22,mass,chemical element,2.13,False
+fuel,4.3,count,substance consumed to provide energy,0.9,False
+mile,3.63,unresolved,measure of length,-0.41,False
+density,2.52,unresolved,physics: amount of matter contained by a given volume,1.25,False
+zinc,4.4,unresolved,element,3.65,False
+mercury,4.52,count,"silvery-coloured, metallic chemical element with the atomic ",2.91,False
+influence,2.11,count,"power to affect, control or manipulate",0.73,False
+function,1.92,count,what something does or is used for,0.28,False
+monopoly,2.69,count,situation of exclusive supply,0.74,False
+mail,4.69,count,postal delivery system,1.1,False
+sail,4.59,count,a piece of fabric attached to a boat,0.49,False
+electricity,3.9,mass,form of energy,4.43,False
+monastery,4.75,count,building for monks,0.52,False
+wheel,4.86,unresolved,a circular device facilitating movement or transportation,0.25,False
+lip,4.96,count,fleshy protrusion framing the mouth,-0.22,False
+tea,4.69,unresolved,drink made from leaves of tea plant,1.56,False
+front,3.77,count,military: area or line of conflict,1.72,False
+process,2.93,count,series of events to produce a result,0.8,True
+video,4.67,count,"television show, movie",0.64,False
+propaganda,2.48,mass,concerted set of messages,3.11,False
+research,3.03,count,inquiry or examination,2.19,False
+stalk,3.5,count,stem or main axis of a plant,0.3,False
+autopsy,4.29,count,a dissection performed on a cadaver,0.94,False
+hurricane,4.59,count,weather phenomenon,0.52,False
+formula,4.11,count,in mathematics,1.01,False
+ton,4.17,unresolved,various units of mass notionally equivalent to a tun,-0.17,False
+statistics,3.39,mass,mathematical discipline,4.6,True
+desert,4.86,unresolved,barren area,1.08,False
+lid,4.96,count,top or cover,0.68,False
+root,4.34,count,part of a plant,0.07,False
+cancer,3.86,count,disease of uncontrolled cellular proliferation,1.33,False
+membrane,3.97,unresolved,enclosing or separating tissue,0.51,False
+sleeve,4.84,count,part of a garment that covers the arm,0.23,False
+ocean,4.86,count,one of the large bodies of water,0.94,False
+pepper,4.59,mass,spice,0.48,False
+rhythm,3.07,count,variation of strong and weak elements of sounds over time,0.61,False
+knot,4.87,unresolved,looping,0.09,False
+width,3.64,count,measurement of something from side to side,1.21,False
+miracle,1.96,count,wonderful event attributed to supernatural powers,0.37,False
+gene,3.59,count,unit of heredity,0.22,False
+ceiling,4.85,count,upper limit of room,0.73,False
+drop,4.21,unresolved,"small quantity of liquid, just large enough to hold its own ",0.66,False
+anus,4.86,unresolved,lower opening of the digestive tract,1.48,True
+oath,2.79,count,solemn pledge,1.05,False
+submarine,4.8,count,undersea boat,0.36,False
+mucus,4.76,mass,slippery secretion,3.15,True
+spoon,4.96,count,scooped utensil for eating (or serving),0.6,False
+protein,3.66,count,complex molecule,0.43,False
+nerve,3.89,count,bundle of neurons,0.17,False
+kitchen,4.97,unresolved,room,1.26,False
+aviation,3.39,mass,art or science of flying,4.17,False
+skeleton,4.97,count,system that provides support to an organism,0.41,False
+equation,3.65,count,mathematics: assertion,0.25,False
+diameter,4.03,count,line,1.28,False
+grave,4.56,count,excavation for burial,0.44,False
+wrist,4.93,count,joint where the hand is attached to the arm,0.61,False
+silk,4.7,mass,fiber,1.32,False
+soap,4.93,count,substance,0.99,False
+structure,4.03,count,cohesive whole built up of distinct parts,0.36,False
+insurance,2.86,mass,indemnity,2.41,False
+pump,4.31,count,device for moving liquid or gas,0.45,False
+bayonet,4.77,count,weapon,0.39,False
+solution,2.61,count,answer to a problem (mathematics),0.34,False
+opera,4.28,count,theatrical work,1.07,False
+friendship,2.39,mass,(uncountable) condition of being friends,0.72,False
+philosophy,2.14,mass,academic discipline,1.26,False
+diabetes,3.83,mass,A group of metabolic diseases,4.17,True
+discrimination,2.29,count,distinct treatment of an individual or group to their disadv,2.43,False
+inspiration,2.18,unresolved,stimulating influence upon the intellect or emotions,1.33,False
+metabolism,2.27,unresolved,complete set of chemical reactions that occur in living cell,1.84,False
+poverty,2.54,mass,quality or state of being poor,4.46,False
+saliva,4.89,count,liquid secreted into the mouth,3.35,False
+stadium,4.79,count,venue where sporting events are held,1.12,False
+literature,4.1,mass,body of all written works,1.99,False
+gospel,3.82,count,first section of New Testament,0.93,False
+volcano,4.75,count,mountain containing a magma chamber,1.62,False
+weakness,2.59,mass,condition of being weak,0.39,True
+vitamin,4.48,count,organic compound essential to human health,0.42,False
+fist,4.93,count,clenched hand,0.46,False
+molecule,3.27,count,group of atoms held together by chemical bonds,-0.25,False
+discipline,2.24,unresolved,"controlled behaviour, self-control",0.54,False
+role,2.19,count,character or part,0.72,False
+pregnancy,4.31,count,9-month period of carrying offspring in the uterus,1.02,False
+perfection,1.9,count,being perfect,1.86,False
+personality,2.08,count,set of qualities that make a person distinct from other peop,0.65,False
+jealousy,1.8,unresolved,jealous attitude (e.g. fear of infidelity),1.62,False
+allergy,3.68,unresolved,disorder of the immune system,-0.03,False
+museum,4.6,count,building or institution,0.82,False
+cinema,4.69,count,a film/movie theatre,0.61,False
+boycott,2.76,count,the act of boycotting,0.93,False
+reproduction,2.92,count,the act of reproducing new individuals biologically — see al,0.86,False
+infection,4.1,count,uncontrolled growth of harmful microorganisms in a host,0.36,False
+bile,4.46,mass,secretion produced by the liver,0.89,False
+mechanism,3.67,count,mechanical means for the conversion or control of motion,0.24,False
+bleeding,4.3,count,the flow or loss of blood from a damaged blood vessel,2.74,False
+proposal,2.75,unresolved,that which is proposed,0.27,False
+ulcer,4.69,unresolved,open sore,-0.06,False
+theater,4.92,count,place or building,0.48,False
+conscience,1.96,unresolved,moral sense,1.42,False
+laboratory,4.46,count,"room, building or institution equipped for scientific resear",0.59,False
+insomnia,2.68,count,sleeping disorder,3.43,False
+terrorism,2.79,mass,use of terror as a means of coercion,4.24,False
+bombing,3.93,count,action of dropping bombs from the air,0.57,False
+monument,4.58,count,structure built for commemorative or symbolic reasons,0.21,False
+embassy,3.96,unresolved,organization representing a foreign state,0.98,False
+equality,1.41,mass,equal treatment of people irrespective of social or cultural,1.96,False
+microphone,4.88,count,transducer of sound waves to electricity,0.57,False
+inheritance,3.1,count,that which a person is entitled to inherit,1.57,False
+citizenship,2.96,count,state of being a citizen,2.12,False
+cleanliness,2.63,mass,the property of being cleanly,3.26,True
+caravan,4.37,count,convoy or procession,0.63,False
+lime,4.96,count,inorganic material containing calcium,1.01,False

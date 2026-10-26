@@ -245,6 +245,8 @@ def code_v2(
         "name_ok": name is not None or name_pos in ("none", "free"),
         "truncated": finish_reason == "length",
         "error": finish_reason == "error",
+        # 2026-10-26: name-only answers ("Name: Everlyn", no paragraph) were passing every gate
+        "no_paragraph": not re.search(r"[A-Za-z]{2,}", para),
     }
     nm = code_name(name)
     parts = [nm["given"]] + re.findall(r"[A-Za-z][A-Za-z'\-]*", name or "")
@@ -260,7 +262,11 @@ def code_v2(
                "para_name_matches": bool(sp) and sp[0] == nm["given"]}  # fmt: skip
         gates["name_in_para"] = False
     gates["valid"] = gates["name_ok"] and not (
-        gates["noun_hit"] or gates["name_in_para"] or gates["truncated"] or gates["error"]
+        gates["noun_hit"]
+        or gates["name_in_para"]
+        or gates["truncated"]
+        or gates["error"]
+        or gates["no_paragraph"]
     )
     n_par = len([b for b in re.split(r"\n\s*\n", para) if b.strip()])
     if name_pos == "free":
@@ -271,7 +277,22 @@ def code_v2(
 
 
 def split_think(raw: str) -> tuple[str | None, str, bool]:
-    """Return (think, answer, think_closed). Qwen3 writes <think>...</think> then the answer."""
+    """Return (think, answer, think_closed). Qwen3 writes <think>...</think> then the answer;
+    Gemma 4 writes <|channel>thought\n...<channel|> then the answer."""
+    if "<|channel|>" in raw:  # gpt-oss harmony: analysis channel, then final channel
+        raw = raw.replace("<|return|>", "").replace("<|end|>", "\n")
+        ana, sep, fin = raw.partition("<|channel|>final<|message|>")
+        th = ana.split("<|message|>", 1)[-1] if "analysis" in ana else ""
+        th = th.split("<|start|>")[0].strip()
+        if not sep:
+            return (th or None), "", False
+        return (th or None), fin.strip(), True
+    if "<|channel>" in raw or "<channel|>" in raw:
+        if "<channel|>" in raw:
+            th, ans = raw.split("<channel|>", 1)
+            th = th.replace("<|channel>", "").removeprefix("thought").strip()
+            return (th or None), ans.strip(), True
+        return raw.replace("<|channel>", "").removeprefix("thought").strip(), "", False
     if "</think>" in raw:
         th, ans = raw.split("</think>", 1)
         return th.replace("<think>", "").strip(), ans.strip(), True
@@ -317,7 +338,15 @@ def main() -> None:
     s = d.groupby(keys).size().rename("n").to_frame()
     if "valid" in d:
         g0 = d.groupby(keys)
-        for c in ("valid", "noun_hit", "name_ok", "name_in_para", "truncated", "error"):
+        for c in (
+            "valid",
+            "noun_hit",
+            "name_ok",
+            "name_in_para",
+            "truncated",
+            "error",
+            "no_paragraph",
+        ):
             s[c] = g0[c].mean()
         s["mean_paragraphs"] = g0["n_paragraphs"].mean()
         d = d[d["valid"]]  # outcome shares below are among valid outputs only

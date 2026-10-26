@@ -72,6 +72,18 @@ uv run gbleed phase0-compare [--by freq_bin|set|de_suffix|es_exception]
 - **Data on the external drive: never hard-code `activations/` or `results/phase5/`**; use `paths.act_dir()` / `paths.p5_dir()` / `paths.kaikki()`. The drive is exFAT: macOS writes a `._<name>` sidecar beside every file (provenance xattr), so wrap directory listings there in `paths.visible(...)`. A "not mounted" warning followed by file-not-found means the drive is unplugged.
 - **End markers must be unique strings, matched as whole lines**: a copy loop grepping `P29 done` also matched the Python line `... P29 done: 2400 prompts` and quit early. Match `^=== .* P29 done$`.
 - **Don't create pods from the PyTorch template as-is**: `runpod-torch-v280` attaches a 50 GB persistent `/workspace` volume, and on 2026-10-23 two such pods (US-MO-1, EUR-IS-2) hung at "Initializing" (storage "provisioned · usage unavailable", no container, empty logs). Pass `image` directly with only a container disk (`mounts: {}`), and exclude US-MO-1 (a third pod, no volume, hung there too); OC-AU-1 worked twice. Readiness = a command's output from inside the container, not status RUNNING.
+- **Match the pod's host CUDA to the pinned stack before creating it**: vLLM 0.27–0.31 require
+  torch 2.13, which exists only for CUDA 12.9/13.0, so a host whose driver tops out at 12.8 fails at
+  CUDA init (2026-10-26: H100 NVL pod terminated after ~18 min, ~$0.80). Set `gpu.minCudaVersion`
+  from the stack, and make the setup's CUDA check fatal (`set -uo` without `-e` let the script
+  run on). Check capacity at that CUDA version, not just the GPU type.
+- **Remote `pkill -f`/`pgrep -f` over ssh match the ssh command itself** (its `bash -c` line contains the
+  pattern), killing the session; and killing the runner leaves the `VLLM::EngineCore` child holding GPU
+  memory. Kill by PID, and check `nvidia-smi --query-compute-apps` before restarting.
+- **Pod disk: models accumulate.** A 6-model session filled 200 GB (HF xet blobs are sharded dirs).
+  Size `disk` to the sum of the weights + 20%, or `rm -rf $HF_HOME/hub` between models.
+- **Blackwell + vLLM 0.31.0: gpt-oss-20b fails (FlashInfer kernels unavailable)** even with
+  `VLLM_ATTENTION_BACKEND=TRITON_ATTN`; EuroLLM-9B has a 4,096-token context (cap `max_tokens`).
 - **A pod can't stop itself**: the pod's injected `RUNPOD_API_KEY` (in `/proc/1/environ`, not in ssh sessions) is rejected by `runpodctl` ("Unauthorized"). Stopping is the Mac side's job; keep this session attended while a pod bills.
 - **A local `pgrep -f PATTERN` inside a Monitor script matches the script itself** (its command line contains PATTERN): wait on an output file or log marker instead.
 - **German `strat3` simplex filter gap:** compounds with an agent/instrument head (*Wasserkocher*) and numeral nouns (*Vierer*) passed Phase 3's "simplex" rule; `frequency_axis.complexity_rule` catches them. Any new German set should apply it.
