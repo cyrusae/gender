@@ -33,9 +33,7 @@ camera,es,3,5.0,,fail,,fail,cámara,double:fm,कैमरा,ok,كَامِير�
 brick,de,1,4.83,Ziegel,double:fm,кирпи́ч,ok,ladrillo,ok,ईंट,ok,,fail,tiili,ok,煉瓦,ok,tuğla,ok
 modem,de,3,4.29,Modem,double:mn,моде́м,ok,módem,ok,,fail,مُودِم,fail,modeemi,ok,モデム,ok,modem,fail
 metal,hi,0,4.87,Metall,ok,мета́лл,ok,metal,ok,धातु,double:fm,مَعْدِن,ok,metalli,ok,金,ok,metal,ok
-people,ar,3,4.82,Volk,ok,,fail,pueblo,ok,,fail,خَلْق,double:fm,kansa,ok,国民,fail,halk,ok
 thermometer,de,3,4.96,Thermometer,double:mn,термо́метр,ok,termómetro,ok,,fail,,fail,,fail,温度計,ok,termometre,ok
-band,de,3,4.68,Band,double:fn,,fail,,fail,बैंड,fail,فِرْقَة,ok,bändi,ok,バンド,ok,grup,ok
 evil,de,2,1.93,Böse,double:mn,зло,ok,mal,ok,बुराई,fail,سَوْء,ok,paha,ok,悪,ok,kötülük,fail
 breast,ar,1,4.89,Brust,ok,грудь,ok,,fail,स्तन,ok,ثَدْي,double:fm,rinta,ok,胸,ok,meme,ok
 order,es,3,2.79,,fail,,fail,orden,double:fm,,fail,أَمْر,ok,käsky,ok,命令,ok,emir,ok
@@ -81,7 +79,6 @@ soy,de,3,4.7,Soja,double:fn,со́я,ok,soja,ok,,fail,,fail,soija,ok,大豆,fail
 ladder,ar,1,5.0,Leiter,ok,ле́стница,ok,escala,ok,सीढ़ी,ok,سُلَّم,double:fm,,fail,梯子,ok,merdiven,ok
 karaoke,de,2,4.27,Karaoke,double:fn,карао́ке,ok,karaoke,ok,,fail,كَارَيُوكِي,fail,karaoke,ok,カラオケ,ok,karaoke,ok
 logo,de,3,4.4,Logo,double:mn,,fail,logo,ok,लोगो,fail,شِعَار,ok,logo,ok,ロゴ,fail,logo,ok
-police,es,2,4.79,Polizei,ok,поли́ция,ok,policía,double:fm,पुलिस,fail,,fail,poliisi,ok,警察,ok,polis,ok
 ketchup,de,2,5.0,Ketchup,double:mn,ке́тчуп,ok,ketchup,ok,,fail,,fail,ketsuppi,ok,ケチャップ,ok,ketçap,ok
 module,de,0,3.93,Modul,double:mn,мо́дуль,ok,módulo,ok,मॉड्यूल,ok,وَحْدَة,ok,moduuli,ok,モジュール,ok,modül,ok
 rudder,de,1,4.72,Steuer,double:fn,руль,ok,timón,ok,पतवार,fail,دَفَّة,ok,peräsin,ok,舵,ok,dümen,ok
@@ -90,7 +87,6 @@ tunnel,de,1,4.82,Tunnel,double:mn,,fail,túnel,ok,सुरंग,ok,نَفَق,
 biscuit,de,3,4.9,Keks,double:mn,,fail,galleta,ok,बिस्कुट,ok,بَسْكَوِيت,fail,keksi,ok,クッキー,fail,bisküvi,ok
 asparagus,de,3,4.96,Spargel,double:fm,спа́ржа,ok,,fail,,fail,,fail,parsa,ok,アスパラガス,ok,kuşkonmaz,ok
 barometer,de,3,4.57,Barometer,double:mn,баро́метр,ok,barómetro,ok,,fail,,fail,barometri,ok,気圧計,ok,,fail
-orchestra,ar,0,4.79,Orchester,ok,орке́стр,ok,orquesta,ok,बाजा,ok,أُورْكِسْتْرَا,double:fm,orkesteri,ok,オーケストラ,ok,orkestra,ok
 yoga,de,0,4.53,Yoga,double:mn,йо́га,ok,yoga,ok,योग,ok,يُوغَا,ok,jooga,ok,ヨガ,ok,yoga,ok
 tequila,es,2,4.77,Tequila,ok,теки́ла,ok,tequila,double:fm,,fail,,fail,tequila,ok,テキーラ,ok,tekila,ok
 ozone,de,2,3.5,Ozon,double:mn,озо́н,ok,ozono,ok,,fail,,fail,otsoni,ok,オゾン,ok,ozon,ok
