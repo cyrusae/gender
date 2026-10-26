@@ -57,7 +57,8 @@
       "temperature": 1.0,
       "top_p": 0.95,
       "top_k": 64,
-      "max_tokens": 32768
+      "max_tokens": 24576,
+      "_note": "2026-10-26: 32768 -> 24576; KV cache on a 96 GB card holds at most 27,600 tokens for Gemma-4-31B bf16 (32768 was our choice, not a vendor value); length-truncated outputs are flagged by finish_reason"
     },
     "gptoss": {
       "temperature": 1.0,
