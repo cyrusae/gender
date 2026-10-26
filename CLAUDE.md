@@ -77,6 +77,13 @@ uv run gbleed phase0-compare [--by freq_bin|set|de_suffix|es_exception]
   CUDA init (2026-10-26: H100 NVL pod terminated after ~18 min, ~$0.80). Set `gpu.minCudaVersion`
   from the stack, and make the setup's CUDA check fatal (`set -uo` without `-e` let the script
   run on). Check capacity at that CUDA version, not just the GPU type.
+- **Remote `pkill -f`/`pgrep -f` over ssh match the ssh command itself** (its `bash -c` line contains the
+  pattern), killing the session; and killing the runner leaves the `VLLM::EngineCore` child holding GPU
+  memory. Kill by PID, and check `nvidia-smi --query-compute-apps` before restarting.
+- **Pod disk: models accumulate.** A 6-model session filled 200 GB (HF xet blobs are sharded dirs).
+  Size `disk` to the sum of the weights + 20%, or `rm -rf $HF_HOME/hub` between models.
+- **Blackwell + vLLM 0.31.0: gpt-oss-20b fails (FlashInfer kernels unavailable)** even with
+  `VLLM_ATTENTION_BACKEND=TRITON_ATTN`; EuroLLM-9B has a 4,096-token context (cap `max_tokens`).
 - **A pod can't stop itself**: the pod's injected `RUNPOD_API_KEY` (in `/proc/1/environ`, not in ssh sessions) is rejected by `runpodctl` ("Unauthorized"). Stopping is the Mac side's job; keep this session attended while a pod bills.
 - **A local `pgrep -f PATTERN` inside a Monitor script matches the script itself** (its command line contains PATTERN): wait on an output file or log marker instead.
 - **German `strat3` simplex filter gap:** compounds with an agent/instrument head (*Wasserkocher*) and numeral nouns (*Vierer*) passed Phase 3's "simplex" rule; `frequency_axis.complexity_rule` catches them. Any new German set should apply it.
