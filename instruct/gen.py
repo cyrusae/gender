@@ -79,7 +79,9 @@ def git_commit() -> str:
 
 def render(tok, prompt: str, thinking: bool, family: str) -> str:
     msgs = [{"role": "user", "content": prompt}]
-    kw = {"enable_thinking": thinking} if family == "qwen3" else {}
+    # Qwen3 and Gemma 4 both take enable_thinking (Gemma 4: <|think|> in the system turn; off =
+    # an empty <|channel>thought\n<channel|> prefilled). Gemma 3 has no thinking mode.
+    kw = {"enable_thinking": thinking} if family in ("qwen3", "gemma4") else {}
     return tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, **kw)
 
 
@@ -87,9 +89,10 @@ def run_vllm(model, texts, sp, n, seed):
     from vllm import LLM, SamplingParams
 
     llm = LLM(model=model, dtype="bfloat16", seed=seed, max_model_len=sp["max_tokens"] + 2048)
-    params = SamplingParams(n=n, temperature=sp["temperature"], top_p=sp["top_p"],
-                            top_k=sp["top_k"], min_p=sp["min_p"], max_tokens=sp["max_tokens"],
-                            seed=seed, skip_special_tokens=False)  # fmt: skip
+    params = SamplingParams(n=n, temperature=sp["temperature"], top_p=sp.get("top_p", 1.0),
+                            top_k=sp.get("top_k", -1), min_p=sp.get("min_p", 0.0),
+                            max_tokens=sp["max_tokens"], seed=seed,
+                            skip_special_tokens=False)  # fmt: skip
     res = llm.generate(texts, params)
     return [[(o.text, o.finish_reason, len(o.token_ids)) for o in r.outputs] for r in res]
 
@@ -270,7 +273,9 @@ def main() -> None:
     def write(it, th, sp, i, res):
         raw, fin, ntok, *ex = res
         extra = ex[0] if ex else {}
-        think, ans, closed = split_think(raw.replace("<end_of_turn>", "").replace("<|im_end|>", ""))
+        think, ans, closed = split_think(
+            raw.replace("<end_of_turn>", "").replace("<|im_end|>", "").replace("<turn|>", "")
+        )
         if extra.get("reasoning") and think is None:
             think = extra["reasoning"]
         row = meta | it | {"thinking": th, "sampling": sp, "sample": i, "raw": raw, "think": think,

@@ -156,3 +156,14 @@ def test_neopronouns_and_traps():
     assert neo_count("They've seen 'em before, vis-a-vis the fae folk. Sie kommt, e.g. es.")[0] == 0
     assert code("They've told 'em. They left.")["pron"] == "they"
     assert code("She met the fae queen.")["pron"] == "she"
+
+
+def test_split_think_gemma4():
+    from code_outputs import split_think
+
+    th, ans, closed = split_think(
+        "<|channel>thought\nPlan: a pot.\n<channel|>She stood.\nName: Ada"
+    )
+    assert th == "Plan: a pot." and ans.startswith("She stood") and closed
+    assert split_think("<|channel>thought\nstill going")[2] is False
+    assert split_think("She stood.") == (None, "She stood.", True)

@@ -271,7 +271,14 @@ def code_v2(
 
 
 def split_think(raw: str) -> tuple[str | None, str, bool]:
-    """Return (think, answer, think_closed). Qwen3 writes <think>...</think> then the answer."""
+    """Return (think, answer, think_closed). Qwen3 writes <think>...</think> then the answer;
+    Gemma 4 writes <|channel>thought\n...<channel|> then the answer."""
+    if "<|channel>" in raw or "<channel|>" in raw:
+        if "<channel|>" in raw:
+            th, ans = raw.split("<channel|>", 1)
+            th = th.replace("<|channel>", "").removeprefix("thought").strip()
+            return (th or None), ans.strip(), True
+        return raw.replace("<|channel>", "").removeprefix("thought").strip(), "", False
     if "</think>" in raw:
         th, ans = raw.split("</think>", 1)
         return th.replace("<think>", "").strip(), ans.strip(), True

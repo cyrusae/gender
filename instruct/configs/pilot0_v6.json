@@ -137,6 +137,23 @@
           "allow_fallbacks": false
         }
       }
+    },
+    "Qwen/Qwen3-8B": {
+      "family": "qwen3",
+      "thinking": [
+        false,
+        true
+      ],
+      "tier": "full (pod, vLLM bf16)"
+    },
+    "google/gemma-4-31B-it": {
+      "family": "gemma4",
+      "thinking": [
+        false,
+        true
+      ],
+      "tier": "full (pod, vLLM bf16)",
+      "_note": "pod run: thinking off on all 4 conditions; thinking on free_noted only (--only-conds)"
     }
   }
 }

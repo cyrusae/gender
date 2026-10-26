@@ -1,0 +1,5 @@
+model,name_condition,noun,modifier,thinking,sample,finish_reason,provider,noun_hit,name_ok,truncated,error,name_in_para,valid,n_paragraphs,name,given,title,name_sex,name_f_share,name_used_in_para,n_name_mentions,para_first_name,para_name_matches,noun_in_name,pron,n_f,n_m,n_they,n_it,n_neo,neo_sets,first_pron,n_fnoun,n_mnoun,answer_words
+Qwen/Qwen3-0.6B,free_noted,pot,plain,False,0,stop,,False,True,False,False,False,True,1,Elara,Elara,,f,1.0,False,0.0,,False,False,she,5,0,0,0,0,,she,0,0,53
+Qwen/Qwen3-0.6B,free_noted,pot,plain,False,1,stop,,False,True,False,False,False,True,2,A Weaver of Fire,A,,notfound,,True,2.0,Weaver,False,False,she,9,0,0,0,0,,her,1,0,88
+Qwen/Qwen3-0.6B,none,pot,plain,False,0,stop,,True,True,False,False,False,False,1,,,,,,,,,,False,they,0,0,4,0,0,,they,0,0,76
+Qwen/Qwen3-0.6B,none,pot,plain,False,1,stop,,False,True,False,False,False,True,1,,,,,,,,,,False,they,0,0,4,0,0,,they,0,0,54
