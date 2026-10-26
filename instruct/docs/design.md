@@ -86,3 +86,11 @@ thinking mode closes its `<think>` block within budget, and how variable outputs
 - Steering (English and in-language directions from the base study) on the instruct siblings.
 - Log-prob version of the primary outcome (P(she) vs P(he) at the first pronoun) as a cheaper,
   less noisy complement to sampling.
+
+## Writer-prompt study: reminders (PI, 2026-10-25)
+
+- **Include an English-word control arm:** "You are a {language}-speaking writer … a {ENGLISH WORD}".
+  Same writer persona, but the noun stays in English. Question: does the persona alone (no
+  foreign word on the page) pull pronouns toward the noun's gender in that language? PI's null:
+  no effect. Contrast with the bare-foreign-word arm separates "persona" from "word" effects.
+- Writer arms: bare word, no modifiers; article form = de/es secondary.
