@@ -74,7 +74,7 @@ def scan(lang: str, targets: dict[str, set[str]]) -> dict[str, dict]:
     """{normalised foreign word: {'genders': set, 'rt': set of English words matched,
     'glosses': [..]}} for noun entries of the target words."""
     out: dict[str, dict] = defaultdict(lambda: {"genders": set(), "rt": set(), "glosses": [],
-                                                 "g_by_match": set()})  # fmt: skip
+                                                 "g_by_match": set(), "g_by_sense": set()})  # fmt: skip
     want = set(targets)
     dump = paths.kaikki(f"kaikki.org-dictionary-{LANGS[lang]}.jsonl")
     with dump.open() as fh:
@@ -99,6 +99,20 @@ def scan(lang: str, targets: dict[str, set[str]]) -> dict[str, dict]:
                 if any(re.search(pat, x, re.IGNORECASE) for x in gl):
                     rec["rt"].add(en)
                     rec["g_by_match"] |= gs
+                    # sense-level (2026-10-26): entry tags + tags of the senses whose gloss
+                    # matches; headword-line gender only if those give none. Used by the
+                    # double-gender set (pooling over senses let "chief" make голова m/f).
+                    head = " ".join(h.get("expansion") or "" for h in d.get("head_templates") or [])
+                    if re.search(r"\banim\b", head) or "animate" in (d.get("tags") or []):
+                        continue  # animate homograph entry (голова́ m anim "chief"); study is inanimate
+                    base = {GTAG[t] for t in d.get("tags") or [] if t in GTAG and t != "common"}
+                    for s in d.get("senses") or []:
+                        if any(re.search(pat, x, re.IGNORECASE) for x in s.get("glosses") or []):
+                            base |= {GTAG[t] for t in s.get("tags") or []
+                                     if t in GTAG and t != "common"}  # fmt: skip
+                    if not base:
+                        base = entry_genders({"head_templates": d.get("head_templates")})
+                    rec["g_by_sense"] |= base
     return out
 
 

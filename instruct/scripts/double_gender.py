@@ -75,6 +75,8 @@ def main() -> None:
     rows = []
     for en, tb in tables.items():
         r = cand.loc[en]
+        if r.lexname in ("noun.person", "noun.animal"):  # same animacy rule as the main pool
+            continue
         row = {"en": en, "conc": r.conc}
         n_cand_lang = 0
         for lg in CORE:
@@ -110,7 +112,7 @@ def main() -> None:
             if lg not in G:
                 st.append("ok")
                 continue
-            gd = "".join(sorted(rec["g_by_match"]))
+            gd = "".join(sorted(rec["g_by_sense"]))
             if len(gd) == 2 and (len(g) == 2 and g == gd or len(g) == 1 and g in gd):
                 st.append("double:" + gd)
             elif len(gd) == 1 and gd == g:
