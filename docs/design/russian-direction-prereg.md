@@ -170,5 +170,6 @@ Layer-mean point AUC of the Russian direction refitted on 74 nouns:
 number and cell makeup, so the matched refit's weaker readings come from fitting on 74 nouns,
 not from concreteness. **S2 (descriptive, 8B, 50 subsets bootstrapped):** layers passing RU→ES
 median 20 (range 5–29), matched 14 (22% of random subsets at or below); RU→DE median 8
-(0–21), matched 8 (56%). The full-list readings (one-way alignment; German-only frequency lean)
-stand, without a concreteness caveat beyond the usual small-sample one.
+(0–21), matched 8 (56%). The full-list **alignment** reading (one-way) stands. Follow-up S tested only the alignment
+scores; the frequency test's matched result (8B mixed, 2/4 layers) was not part of it, so the
+"German-only" frequency reading keeps a small caveat.
