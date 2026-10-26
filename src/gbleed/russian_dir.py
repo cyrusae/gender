@@ -144,7 +144,7 @@ def r_b(model_id: str, ru: dict, rng, n_splits=200, n_perm=200) -> pd.DataFrame:
     gi, fi = 0, 1 + len(set(ru["cells"])) + ZIPF_COV
     n_layers = ru["X"].shape[1] - 1
     strata = [np.flatnonzero((ru["cells"] == c) & (ru["y"] == g))
-              for c in set(ru["cells"]) for g in (0, 1)]  # fmt: skip
+              for c in sorted(set(ru["cells"])) for g in (0, 1)]  # fmt: skip
     rows = []
     for k in sorted({max(1, round(f * n_layers)) for f in LAYER_FRACS}):
         X = ru["X"][:, k].astype(np.float64)

@@ -363,7 +363,7 @@ def run_c(model_id: str) -> pd.DataFrame:
             r = _geometry(M, X, gi, fi, d["cells"], d["y"], rng, N_SPLITS, num)
             null = []
             strata = [np.flatnonzero((d["cells"] == c) & (d["y"] == g))
-                      for c in set(d["cells"]) for g in (0, 1)]  # fmt: skip
+                      for c in sorted(set(d["cells"])) for g in (0, 1)]  # fmt: skip
             zc = Z[:, fi - 1].copy()
             for _ in range(N_PERM):
                 zp = zc.copy()

@@ -145,6 +145,22 @@ deterministic, so this is run-to-run numerical variation; the cause is not yet i
 summation order under multithreaded BLAS is a candidate). Overlap verdicts were identical across
 the original run, a current unfixed rerun and the fixed run.
 
+**Cause found (2026-10-26).** The permutation null in `confidence_ctl.run_c` built its strata as
+`for c in set(d["cells"])`. Python randomises string hashing per process, so the order of the
+strata, and with it which random numbers each stratum's permutation and every later split drew,
+changed from run to run, even with the seed fixed. Same `PYTHONHASHSEED` → byte-identical output;
+different → the 0.03 differences. Fixed by iterating `sorted(set(...))` (also in
+`russian_dir.r_b` and the rarity held-out null); verified identical across hash seeds.
+
+**How big is that noise, and does it matter?** It's Monte Carlo error: the cosine averages 200
+random half-splits, so a different set of splits gives a slightly different number. Over 20
+split seeds the standard deviation per layer is 0.006–0.011 (Qwen3-8B/14B, both languages), so
+run-to-run ranges of about 0.03 are what 200 splits should give. Every German layer that showed
+overlap had |cos| ≥ 0.33 in all 20 seeds (the bar is 0.30), and no Spanish layer exceeded 0.11:
+no overlap verdict depends on the seed. The closest call is Qwen3-8B layer 9 (mean −0.327,
+range −0.344 to −0.318).
+
+
 ## 7. What this may mean for future Gemma work
 
 - **Check variance concentration first.** Before any geometric analysis on Gemma (cosines,

@@ -134,7 +134,7 @@ def rho_test(p, z, ntok, ending, rng, n_perm: int = N_PERM) -> dict:
     ending = np.asarray(ending)
     z = np.asarray(z, float)
     rho = partial_spearman(p, z, ntok, ending)
-    cells = [np.flatnonzero(ending == e) for e in set(ending)]
+    cells = [np.flatnonzero(ending == e) for e in sorted(set(ending))]
     null = np.empty(n_perm)
     for i in range(n_perm):
         zp = z.copy()
