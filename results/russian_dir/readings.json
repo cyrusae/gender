@@ -1,0 +1,72 @@
+{
+  "Qwen/Qwen3-8B-Base": {
+    "n_ru": 174,
+    "n_pairs": 37,
+    "mean_dconc": -0.009513513513513521,
+    "all": {
+      "R_A": {
+        "layers": 35,
+        "majority": 18,
+        "layers_pass": {
+          "ru_on_es": 29,
+          "ru_on_de": 25,
+          "es_on_ru": 30,
+          "de_on_ru": 9
+        },
+        "reading": "one-way"
+      },
+      "R_B": "no overlap"
+    },
+    "matched": {
+      "R_A": {
+        "layers": 35,
+        "majority": 18,
+        "layers_pass": {
+          "ru_on_es": 14,
+          "ru_on_de": 8,
+          "es_on_ru": 26,
+          "de_on_ru": 16
+        },
+        "reading": "partial"
+      },
+      "R_B": "mixed"
+    }
+  },
+  "Qwen/Qwen3-14B-Base": {
+    "n_ru": 174,
+    "n_pairs": 37,
+    "mean_dconc": -0.009513513513513521,
+    "all": {
+      "R_A": {
+        "layers": 39,
+        "majority": 20,
+        "layers_pass": {
+          "ru_on_es": 33,
+          "ru_on_de": 18,
+          "es_on_ru": 34,
+          "de_on_ru": 28
+        },
+        "reading": "one-way"
+      },
+      "R_B": "no overlap"
+    },
+    "matched": {
+      "R_A": {
+        "layers": 39,
+        "majority": 20,
+        "layers_pass": {
+          "ru_on_es": 21,
+          "ru_on_de": 12,
+          "es_on_ru": 26,
+          "de_on_ru": 13
+        },
+        "reading": "partial"
+      },
+      "R_B": "no overlap"
+    }
+  },
+  "R_B_across_models": {
+    "all": "German-only",
+    "matched": "mixed"
+  }
+}

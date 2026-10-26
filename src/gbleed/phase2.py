@@ -238,13 +238,31 @@ def _leans(model_id: str, lemmas) -> np.ndarray:
     return np.array([lean.get(w, 0.0) for w in lemmas])
 
 
-def analyze(model_id: str, out_root: str | None = None, position: str = "last") -> pd.DataFrame:
+def known_mask(model_id: str, lemmas, root: str = "results/phase2_known") -> np.ndarray:
+    """True for nouns this model knows (Phase 0 status "known" on its own known check)."""
+    it = pd.read_csv(Path(root) / model_slug(model_id) / "items.csv", keep_default_na=False)
+    known = set(it[it.status == "known"].lemma)
+    return np.array([w in known for w in lemmas])
+
+
+def analyze(model_id: str, out_root: str | None = None, position: str = "last",
+            known_only: bool = False) -> pd.DataFrame:  # fmt: skip
+    """known_only: pre-registered per-model sensitivity analysis. Training and test nouns are
+    restricted to those this model knows; everything else is unchanged."""
     df, multi = _final(), pd.read_csv(MULTI, keep_default_na=False)
     sx = _suffix(position)
-    out_root = out_root or f"results/phase2{sx}"
+    out_root = out_root or f"results/phase2{'_knownonly' if known_only else ''}{sx}"
     Xb, mb = acts.load(model_id, "phase2_bare" + sx)
     Xhn, _ = acts.load(model_id, "phase2_homo_noun" + sx)
     Xhv, _ = acts.load(model_id, "phase2_homo_verb" + sx)
+    assert list(mb["words"]) == list(df.lemma), "activations not aligned with the final list"
+    if known_only:
+        keep = known_mask(model_id, df.lemma)
+        keep_h = keep[(df.set == "homograph").to_numpy()]
+        stage(f"{model_id}: known-only sensitivity, dropping {int((~keep).sum())} of {len(df)}")
+        Xb, Xhn, Xhv = Xb[keep], Xhn[keep_h], Xhv[keep_h]
+        mb = {**mb, "tokens": [t for t, k in zip(mb["tokens"], keep, strict=True) if k]}
+        df = df[keep].reset_index(drop=True)
     Xmm, _ = acts.load(model_id, "phase2_multi_m" + sx)
     Xmf, _ = acts.load(model_id, "phase2_multi_f" + sx)
     Xv1, _ = acts.load(model_id, "phase1_verbs" + sx)
@@ -440,6 +458,7 @@ def analyze(model_id: str, out_root: str | None = None, position: str = "last") 
     summary = {
         "meta": {k: mb[k] for k in mb if k not in ("words", "tokens", "shape")},
         "analysis_git": git_state(),
+        "known_only": known_only,
         "n_items": counts,
         "n_multi": len(multi),
         "position": position,

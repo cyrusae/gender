@@ -53,6 +53,8 @@ def main() -> None:
                     help="GPU sessions: save activations, skip the CPU analysis")  # fmt: skip
     p2.add_argument("--position", choices=["last", "after"], default="last",
                     help="readout position; 'after' is the pre-registered robustness check")  # fmt: skip
+    p2.add_argument("--known-only", action="store_true",
+                    help="sensitivity: only nouns this model knows (results/phase2_known)")  # fmt: skip
     fc = sub.add_parser("frame-check", help="Behavioural check of the homograph verb frame")
     fc.add_argument("models", nargs="+")
     fc.add_argument("--device", default=None)
@@ -84,6 +86,8 @@ def main() -> None:
     p3.add_argument("--position", choices=["last", "after"], default="last")
     p3.add_argument("--skip-extract", action="store_true")
     p3.add_argument("--extract-only", action="store_true")
+    p3.add_argument("--known-only", action="store_true",
+                    help="sensitivity: only nouns this model knows (results/phase3_known)")  # fmt: skip
     sub.add_parser("phase2-stimuli", help="Build Phase 2 pools (data/stimuli/phase2_pool_v3.csv)")
     sub.add_parser("phase1-stimuli", help="Build Phase 1 verb / nonce / noun lists (v1)")
     p1 = sub.add_parser("phase1", help="Extract activations and fit/validate the spelling eraser")
@@ -124,6 +128,18 @@ def main() -> None:
     fa.add_argument(
         "--c-ref", default=None, help="(c) cosine file the overlap reference comes from"
     )
+    rd = sub.add_parser(
+        "russian-dir", help="Russian direction: alignment + frequency (prereg 2026-10-25)"
+    )
+    rd.add_argument("--models", nargs="+", default=None)
+    rd.add_argument("--size-control", action="store_true", help="follow-up S (+ S2 on 8B)")
+    rh = sub.add_parser(
+        "rarity-heldout", help="German rarity-lean held-out test (prereg 2026-10-22)"
+    )
+    rh.add_argument(
+        "--extract", metavar="MODEL", default=None, help="extract H for one model (GPU)"
+    )
+    rh.add_argument("--models", nargs="+", default=None, help="analyze: default Qwen3 8B and 14B")
     gk = sub.add_parser(
         "gemma-known", help="Gemma slim: known-checks on the frozen lists + portability"
     )
@@ -191,6 +207,22 @@ def main() -> None:
 
         ns_main(a.models, a.root, a.rc)
         return
+    if a.cmd == "russian-dir":
+        from . import russian_dir
+
+        if a.size_control:
+            russian_dir.size_control(a.models or russian_dir.MODELS)
+        else:
+            russian_dir.main(a.models or russian_dir.MODELS)
+        return
+    if a.cmd == "rarity-heldout":
+        from . import rarity_heldout as rho
+
+        if a.extract:
+            rho.extract(a.extract)
+        else:
+            rho.main(a.models or rho.MODELS)
+        return
     if a.cmd == "frequency-axis":
         from .frequency_axis import C_REF, MODELS, OUT
         from .frequency_axis import main as fa_main
@@ -220,7 +252,7 @@ def main() -> None:
                 phase2.extract(m, a.device, a.dtype, a.position)
                 _free_memory()
             if not a.extract_only:
-                phase2.analyze(m, position=a.position)
+                phase2.analyze(m, position=a.position, known_only=a.known_only)
         return
     if a.cmd == "frame-check":
         from .framecheck import run
@@ -253,7 +285,7 @@ def main() -> None:
                 phase3.extract(m, a.device, a.dtype)  # both positions in one pass
                 _free_memory()
             if not a.extract_only:
-                phase3.analyze(m, a.position)
+                phase3.analyze(m, a.position, known_only=a.known_only)
         return
     if a.cmd == "phase4-pairs":
         from .phase4 import build_pairs

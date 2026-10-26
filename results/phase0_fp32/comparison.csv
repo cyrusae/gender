@@ -1,0 +1,3 @@
+model,params_B,device,dtype,lang,n,known_bal,known_m,known_f,wrong,unsure,conflict,ctx_bal_acc,quiz_bal_acc,flipped_ok
+Qwen/Qwen3-4B-Base,4.02,cuda,float32,de,257,0.942,0.944,0.939,0.004,0.051,0.004,0.996,0.964,66/78
+Qwen/Qwen3-4B-Base,4.02,cuda,float32,es,257,0.942,0.937,0.948,0.0,0.058,0.0,0.992,0.996,66/78

@@ -17,7 +17,7 @@ from gbleed.lexicon import load_lexicon
 from gbleed.phase2_stimuli import PREDICTIVE
 
 OUT = Path("eda")
-RES = Path("worktrees/gender-pod/results")  # pod runs: all Qwen3 sizes
+RES = Path("/Volumes/Lexar/gbleed/archive/worktrees/gender-pod/results")  # pod runs (archived worktree)  # pod runs: all Qwen3 sizes
 MODELS = {"Qwen3-0.6B": 0.6, "Qwen3-1.7B": 1.7, "Qwen3-4B": 4.0, "Qwen3-8B": 8.0,
           "Qwen3-14B": 14.0, "Qwen3-30B-A3B": 30.0}  # fmt: skip
 STEPS = [  # (name, column test) applied in order; each removes what fails it

@@ -1,0 +1,35 @@
+{
+  "Qwen/Qwen3-8B-Base": {
+    "ru_on_es": {
+      "matched": 0.7812765957446809,
+      "random_lo": 0.6862522796352583,
+      "random_hi": 0.8554407294832826,
+      "random_median": 0.783404255319149,
+      "reading": "size explains it"
+    },
+    "ru_on_de": {
+      "matched": 0.7247457627118645,
+      "random_lo": 0.6756101694915254,
+      "random_hi": 0.8202857142857143,
+      "random_median": 0.7493946731234866,
+      "reading": "size explains it"
+    }
+  },
+  "Qwen/Qwen3-14B-Base": {
+    "ru_on_es": {
+      "matched": 0.8244408074195309,
+      "random_lo": 0.7510229132569559,
+      "random_hi": 0.8966748499727224,
+      "random_median": 0.8406437534097109,
+      "reading": "size explains it"
+    },
+    "ru_on_de": {
+      "matched": 0.7312472837896566,
+      "random_lo": 0.6673011734028683,
+      "random_hi": 0.8084615384615385,
+      "random_median": 0.7461538461538461,
+      "reading": "size explains it"
+    }
+  },
+  "overall": "size explains the drop"
+}

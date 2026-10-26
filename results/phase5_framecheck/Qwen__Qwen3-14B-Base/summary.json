@@ -1,0 +1,55 @@
+{
+ "meta": {
+  "git_commit": "482430e4698c101afb87f9cc0fc4252a6439772d",
+  "git_dirty": null,
+  "git_source": "bundle",
+  "model_id": "Qwen/Qwen3-14B-Base",
+  "model_revision": null,
+  "n_params": 14768307200,
+  "n_layers": 40,
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "head_dtype": "model",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.18.0",
+  "machine": "Linux x86_64 x86_64",
+  "gpu": "NVIDIA L40S",
+  "cuda": "13.0"
+ },
+ "es_adj": {
+  "m": 1.0,
+  "f": 1.0
+ },
+ "de_C1": {
+  "m": 0.9767441860465116,
+  "f": 1.0
+ },
+ "de_C2": {
+  "m": 1.0,
+  "f": 0.5714285714285714
+ },
+ "de_C2p": {
+  "m": 1.0,
+  "f": 0.42857142857142855
+ },
+ "de_C3": {
+  "m": 1.0,
+  "f": 0.7428571428571429
+ },
+ "de_C4": {
+  "m": 0.9767441860465116,
+  "f": 0.9428571428571428
+ },
+ "n": {
+  "de": 78,
+  "es": 77
+ },
+ "passes": {
+  "es_adj": true,
+  "de_C1": true,
+  "de_C2": false,
+  "de_C2p": false,
+  "de_C3": true,
+  "de_C4": true
+ }
+}

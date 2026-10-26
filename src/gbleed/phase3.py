@@ -114,7 +114,10 @@ def _ci(vals) -> tuple[float, float]:
     )
 
 
-def analyze(model_id: str, position: str = "last", out_root: str | None = None) -> dict:
+def analyze(model_id: str, position: str = "last", out_root: str | None = None,
+            known_only: bool = False) -> dict:  # fmt: skip
+    """known_only: pre-registered per-model sensitivity analysis (nouns this model knows, from
+    its own three-way known check; the article-reading `multi` words aren't in that check)."""
     from .lexicon import load_lexicon
     from .norms import rate
 
@@ -122,7 +125,15 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None) 
     known = known_lemmas(model_id, "de")  # Gemma slim: known-check filter; None for Qwen
     if known is not None:
         df = df[(df.set == "multi") | df.lemma.isin(known)]
-    out_root = out_root or f"results/phase3{_suffix(position)}"
+    if known_only:
+        sc = pd.read_csv(Path("results/phase3_known") / model_slug(model_id) / "scores.csv",
+                         keep_default_na=False)  # fmt: skip
+        known = set(sc[sc.status == "known"].lemma)
+        keep = df.lemma.isin(known) | (df.set == "multi")
+        stage(f"{model_id}: known-only sensitivity, dropping {int((~keep).sum())} of {len(df)}")
+        df = df[keep].reset_index(drop=True)
+    kn = "_knownonly" if known_only else ""
+    out_root = out_root or f"results/phase3{kn}{_suffix(position)}"
     Xall, meta = acts.load(model_id, "phase3_bare" + _suffix(position))
     row = {w: i for i, w in enumerate(meta["words"])}
     ntok_of = {w: len(t) for w, t in zip(meta["words"], meta["tokens"], strict=True)}
@@ -258,7 +269,7 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None) 
     summary = {
         "model": model_id, "position": position, "meta": {k: meta[k] for k in meta
                                                           if k not in ("words", "tokens", "shape")},
-        "analysis_git": git_state(), "inner_layers": n,
+        "analysis_git": git_state(), "known_only": known_only, "inner_layers": n,
         "n": {"strat3": dict(pd.Series(g3).value_counts()), "matched3": dict(pd.Series(gm).value_counts()),
               "conflict_mf": int(cf_bin.sum()), "conflict_all": int(cf_all.sum()), "suffix_f": len(isuf)},
         "follows_head_layers": int((res.head_auc_lo > 0.5).sum()),

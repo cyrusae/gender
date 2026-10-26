@@ -96,3 +96,51 @@ the Gemma pod; about 10 minutes). CPU analysis afterwards. Code: `src/gbleed/rar
 - Feminine dominates H (about 2.5 : 1). The within-gender design doesn't need balance, but the
   masculine estimate is the noisier one.
 - Zipf is from wordfreq. It measures the word's corpus frequency, not the model's exposure.
+
+## Clarifications before extraction (2026-10-25)
+
+Written after the code and before any activation of H exists. None changes a reading.
+
+- **Device.** The "Cost and order" line above ("8B on the Mac, as Phase 3 was") was wrong: the
+  Qwen3-8B and 14B Phase 3 training activations, which define d, were extracted on the pod
+  (CUDA L40S, bf16, commit 482430e). By the one-device rule, H is extracted on the same kind of
+  pod for **both** models, in bf16. Qwen isn't gated, so no token is needed.
+- **The direction d.** This is the f−m coefficient of the full-sample regression of the strat3 m/f activations on
+  [gender, ending × loan cell dummies, the Phase 3 covariates (concreteness, its missing flag,
+  Zipf, token count)], the design (c) uses. It is unit-normalised, with no splitting (H is held
+  out, so no cross-fitting is needed). The number direction is the German singular→plural mean
+  difference from the Phase 5 number pairs, unit-normalised.
+- **Partial Spearman.** Rank-transform p and Zipf within the gender group, residualise both
+  ranks on [intercept, token count, ending dummies], then take the Pearson correlation of the
+  residuals. The null permutes Zipf within ending cells of that gender group. Token count comes
+  from the extraction tokenizer.
+- **"Near chance" for the decoding sanity check.** AUC of p for f vs m on H below 0.60 at a
+  majority of layers. The midpoint-threshold accuracy (threshold = midpoint of the training m
+  and f mean projections) is reported alongside.
+- **Code:** `src/gbleed/rarity_heldout.py` (`extract`, `analyze`, `reading`), CLI
+  `gbleed rarity-heldout`, tests `tests/test_rarity_heldout.py`.
+
+## Results (2026-10-25)
+
+H extracted on the pod (L40S CUDA bf16, commit b90ae83; archive sha256 fc3b92f3…fb70 on
+`/Volumes/Lexar/gbleed/rarity-pod/`), analysed on the Mac (`gbleed rarity-heldout`,
+`results/rarity_heldout/`). n = 190 m, 502 f (291 without *-ie*), 196 n.
+
+**Qwen3-8B: mixed.** ρ_f passes at 3/4 layers (−0.24, −0.18, −0.11) and ρ_f without *-ie* at
+4/4 (−0.16 to −0.36), but **ρ_m passes at none** (+0.02, −0.12, −0.07, −0.13; the detectable
+size was about −0.14). The number-direction control passes at 1/4. Decoding AUC 0.61–0.73.
+
+**Qwen3-14B: no valid test.** Decoding AUC below 0.60 at 3/4 layers (0.68, 0.56, 0.43, 0.46):
+the training direction doesn't read gender on these nouns at most layers. (ρ_f without *-ie*
+passes at 3/4; the number control also shows strong negative ρ, −0.45 to −0.51 at layer 10.)
+
+**Reading.** The lean is not shown to generalise. On 8B rarer *feminine* nouns do project
+further toward feminine, including without the *-ie* loans, but masculine nouns don't show it,
+which is what a model-wide "rare = feminine" property predicts. With the masculine test
+powered only for |ρ| ≳ 0.14, a weak masculine lean isn't ruled out. Together with Gemma (no
+overlap at all), the German frequency alignment is best described as a Qwen3 training-sample
+property with, at most, a feminine-only echo on 8B.
+
+**Rerun with deterministic strata (2026-10-26, after c4b0fd1):** identical ρ values, identical
+pass/fail at every layer and group; readings unchanged (8B mixed, 14B no valid test).
+`results/rarity_heldout_rerun/`.
