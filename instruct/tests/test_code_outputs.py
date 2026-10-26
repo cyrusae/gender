@@ -167,3 +167,15 @@ def test_split_think_gemma4():
     assert th == "Plan: a pot." and ans.startswith("She stood") and closed
     assert split_think("<|channel>thought\nstill going")[2] is False
     assert split_think("She stood.") == (None, "She stood.", True)
+
+
+def test_split_think_gptoss():
+    from code_outputs import split_think
+
+    raw = (
+        "<|channel|>analysis<|message|>Pot: round, warm.<|end|><|start|>assistant"
+        "<|channel|>final<|message|>She waited.\nName: Ada<|return|>"
+    )
+    th, ans, closed = split_think(raw)
+    assert th == "Pot: round, warm." and ans == "She waited.\nName: Ada" and closed
+    assert split_think("<|channel|>analysis<|message|>still thinking")[2] is False

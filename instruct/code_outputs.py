@@ -273,6 +273,14 @@ def code_v2(
 def split_think(raw: str) -> tuple[str | None, str, bool]:
     """Return (think, answer, think_closed). Qwen3 writes <think>...</think> then the answer;
     Gemma 4 writes <|channel>thought\n...<channel|> then the answer."""
+    if "<|channel|>" in raw:  # gpt-oss harmony: analysis channel, then final channel
+        raw = raw.replace("<|return|>", "").replace("<|end|>", "\n")
+        ana, sep, fin = raw.partition("<|channel|>final<|message|>")
+        th = ana.split("<|message|>", 1)[-1] if "analysis" in ana else ""
+        th = th.split("<|start|>")[0].strip()
+        if not sep:
+            return (th or None), "", False
+        return (th or None), fin.strip(), True
     if "<|channel>" in raw or "<channel|>" in raw:
         if "<channel|>" in raw:
             th, ans = raw.split("<channel|>", 1)

@@ -58,6 +58,12 @@
       "top_p": 0.95,
       "top_k": 64,
       "max_tokens": 32768
+    },
+    "gptoss": {
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 16384,
+      "_source": "OpenAI gpt-oss model card: temperature 1.0, top_p 1.0; reasoning effort = template default (medium), always on"
     }
   },
   "models": {
@@ -154,6 +160,22 @@
       ],
       "tier": "full (pod, vLLM bf16)",
       "_note": "pod run: thinking off on all 4 conditions; thinking on free_noted only (--only-conds)"
+    },
+    "Qwen/Qwen3-14B": {
+      "family": "qwen3",
+      "thinking": [
+        false,
+        true
+      ],
+      "tier": "full (pod, vLLM bf16)"
+    },
+    "openai/gpt-oss-20b": {
+      "family": "gptoss",
+      "thinking": [
+        false
+      ],
+      "tier": "trained precision (MXFP4 MoE weights, pod vLLM)",
+      "_note": "reasoning always on (medium); thinking=False only means no enable_thinking switch"
     }
   }
 }

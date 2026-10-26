@@ -16,9 +16,9 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE.parents[1] / "src"))
-from feasibility import main_sense_tables  # noqa: E402
+from feasibility import main_sense_tables
 
-from gbleed import paths  # noqa: E402
+from gbleed import paths
 
 R = HERE.parents[0] / "results/confound"
 pool = pd.read_csv(R / "pool_191_DRAFT.csv", keep_default_na=False)
