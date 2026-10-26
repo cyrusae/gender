@@ -9,7 +9,8 @@ best,the best {noun},definite,worst,value,,best,4.088,8.147,,
 worst,the worst {noun},definite,best,value,,worst,4.529,1.829,,
 favorite,your favorite {noun},possessive,least_favorite,value-personal,,favorite,,,,-4.757
 least_favorite,your least favorite {noun},possessive,favorite,value-personal,,favorite,,,,-4.757
-ideal,an ideal {noun},indefinite,,value,,ideal,3.485,7.387,2.84,
+ideal,an ideal {noun},indefinite,the_ideal,value,,ideal,3.485,7.387,2.84,
+the_ideal,the ideal {noun},definite,ideal,value,,ideal,3.485,7.387,2.84,
 stereotypical,a stereotypical {noun},indefinite,,typicality,,stereotypical,,,,
 ordinary,an ordinary {noun},indefinite,,typicality,,ordinary,4.030,4.727,,
 unusual,an unusual {noun},indefinite,,typicality,,unusual,4.171,5.029,,
