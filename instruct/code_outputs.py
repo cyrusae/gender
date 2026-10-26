@@ -40,6 +40,31 @@ COT_LANG = r"\b(german|spanish|french|italian|latin|grammatical(ly)? gender|gram
 COT_SHIP_SHE = r"\bships?\b[^.]{0,60}\bshe\b|\bshe\b[^.]{0,60}\bships?\b"
 
 
+# Neopronoun sets (PI 2026-10-26). A set counts only if an ANCHOR form appears; WEAK forms (also
+# ordinary words: 'em = them, I've, vis-a-vis, fae = fairies, German "sie", "e.g.") are counted only
+# alongside an anchor from the same set. (?<!['\u2019]) keeps contractions out.
+NEO = {
+    "xe": ({"xe", "xem", "xyr", "xyrs", "xemself", "xir", "xirs", "xirself"}, set()),
+    "ze_zie_sie": ({"ze", "zie", "zir", "zirs", "zirself", "hir", "hirs", "hirself"}, {"sie"}),
+    "spivak": ({"ey", "eir", "eirs", "emself"}, {"em", "e", "es"}),
+    "fae": ({"faer", "faers", "faeself"}, {"fae"}),
+    "ve": ({"ver", "verself"}, {"ve", "vis"}),
+    "thon": ({"thon", "thons", "thonself"}, set()),
+}
+
+
+def neo_count(text: str) -> tuple[int, str]:
+    """(total neopronoun forms, '|'-joined sets found)."""
+    words = re.findall(r"(?<!['\u2019])\b[a-z]+\b", (text or "").lower())
+    tot, sets = 0, []
+    for name, (anchors, weak) in NEO.items():
+        a = sum(w in anchors for w in words)
+        if a:
+            tot += a + sum(w in weak for w in words)
+            sets.append(name)
+    return tot, "|".join(sets)
+
+
 def _n(pat: str, text: str) -> int:
     return len(re.findall(pat, text, flags=re.IGNORECASE))
 
@@ -47,12 +72,15 @@ def _n(pat: str, text: str) -> int:
 def code(answer: str, think: str | None = None) -> dict:
     a = answer or ""
     f, m, t = _n(F, a), _n(M, a), _n(T, a)
+    neo, neo_sets = neo_count(a)
     if f and m:
         pron = "mixed"
     elif f:
         pron = "she"
     elif m:
         pron = "he"
+    elif neo:
+        pron = "neo"
     elif t:
         pron = "they"
     elif _n(IT, a) >= 2:  # person-character called "it" (one stray "it" can mean an object)
@@ -66,6 +94,8 @@ def code(answer: str, think: str | None = None) -> dict:
         "n_m": m,
         "n_they": t,
         "n_it": _n(IT, a),
+        "n_neo": neo,
+        "neo_sets": neo_sets,
         "first_pron": first.group(0).lower() if first else "",
         "n_fnoun": _n(F_NOUNS, a),
         "n_mnoun": _n(M_NOUNS, a),
@@ -293,7 +323,7 @@ def main() -> None:
         d = d[d["valid"]]  # outcome shares below are among valid outputs only
         s["n_valid"] = d.groupby(keys).size()
     g = d.groupby(keys)
-    for lab in ("she", "he", "they", "mixed", "it", "none"):
+    for lab in ("she", "he", "they", "neo", "mixed", "it", "none"):
         s[lab] = g["pron"].apply(lambda x, lab=lab: (x == lab).mean())
     s["share_f"] = g["pron"].apply(
         lambda x: (x == "she").sum() / max(1, ((x == "she") | (x == "he")).sum())
