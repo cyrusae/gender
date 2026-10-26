@@ -1,0 +1,5 @@
+model,name_condition,thinking,noun,modifier,n,valid,noun_hit,name_ok,name_in_para,truncated,error,mean_paragraphs,n_valid,she,he,they,mixed,it,none,share_f,name_f,name_m,name_ambiguous,name_notfound,cot_gender,cot_lang,cot_ship_she
+openai/gpt-6-luna,free_noted,False,pot,dandop,5,1.0,0.0,1.0,0.0,0.0,0.0,1.0,5,0.6,0.4,0.0,0.0,0.0,0.0,0.6,0.6,0.0,0.2,0.2,0.0,0.0,0.0
+openai/gpt-6-luna,free_noted,False,pot,pituat,5,1.0,0.0,1.0,0.0,0.0,0.0,1.0,5,0.8,0.0,0.2,0.0,0.0,0.0,1.0,0.8,0.0,0.0,0.2,0.0,0.0,0.0
+openai/gpt-6-luna,free_noted,False,pot,rameel,5,1.0,0.0,1.0,0.0,0.0,0.0,1.0,5,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.8,0.0,0.2,0.0,0.0,0.0,0.0
+openai/gpt-6-luna,free_noted,False,pot,wenble,5,1.0,0.0,1.0,0.0,0.0,0.0,1.0,5,1.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0

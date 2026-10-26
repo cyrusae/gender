@@ -1,0 +1,29 @@
+lang,contrast,covariate,n,r,flag
+de,f vs m,concreteness,166,-0.304,True
+de,f vs m,English frequency,166,0.09,False
+de,f vs m,valence (Glasgow),109,0.094,False
+de,f vs m,English gender rating (Glasgow),109,-0.163,False
+de,n vs rest,concreteness,208,0.161,False
+de,n vs rest,English frequency,208,-0.099,False
+de,n vs rest,valence (Glasgow),137,0.057,False
+de,n vs rest,English gender rating (Glasgow),137,0.035,False
+ru,f vs m,concreteness,171,-0.271,True
+ru,f vs m,English frequency,171,0.032,False
+ru,f vs m,valence (Glasgow),113,-0.011,False
+ru,f vs m,English gender rating (Glasgow),113,-0.09,False
+ru,n vs rest,concreteness,208,-0.158,False
+ru,n vs rest,English frequency,208,0.106,False
+ru,n vs rest,valence (Glasgow),137,0.095,False
+ru,n vs rest,English gender rating (Glasgow),137,0.007,False
+es,f vs m,concreteness,208,-0.248,True
+es,f vs m,English frequency,208,0.008,False
+es,f vs m,valence (Glasgow),137,0.011,False
+es,f vs m,English gender rating (Glasgow),137,-0.128,False
+hi,f vs m,concreteness,208,-0.093,False
+hi,f vs m,English frequency,208,-0.005,False
+hi,f vs m,valence (Glasgow),137,-0.059,False
+hi,f vs m,English gender rating (Glasgow),137,-0.025,False
+ar,f vs m,concreteness,208,-0.166,False
+ar,f vs m,English frequency,208,-0.044,False
+ar,f vs m,valence (Glasgow),137,0.023,False
+ar,f vs m,English gender rating (Glasgow),137,0.063,False

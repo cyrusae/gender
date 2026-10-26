@@ -135,3 +135,11 @@ def test_v6_conditions_match_earlier_wording():
     assert nc["free_noted"] == v5["name_conditions"]["free_noted"]
     for k in ("none", "before", "after"):
         assert nc[k] == v3["name_conditions"][k]
+
+
+def test_inline_name_after_paragraph():
+    from code_outputs import split_name
+
+    para, name = split_name("She waited quietly. Name: Mira")
+    assert name == "Mira" and para == "She waited quietly."
+    assert split_name("She gave it a name: Mira.")[1] is None

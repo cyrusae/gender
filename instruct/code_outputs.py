@@ -82,6 +82,9 @@ def code(answer: str, think: str | None = None) -> dict:
 
 
 NAME_LINE = re.compile(r"^\W*name\W*:\W*(.+?)\W*$", re.IGNORECASE)
+NAME_INLINE = re.compile(
+    r"(?<=[.!?\"\u201d])\s+\**Name\**\s*:\s*\**([^.!?\n]{1,60}?)\W*$"
+)  # capital N only
 TITLES = {"mr", "mrs", "ms", "miss", "mx", "dr", "lady", "lord", "sir", "dame", "madame", "madam",
           "master", "mister", "old", "aunt", "auntie", "uncle", "grandma", "grandpa", "granny",
           "mother", "father", "brother", "sister", "mama", "papa", "the", "professor", "captain",
@@ -104,6 +107,10 @@ def split_name(answer: str, pos: str = "after") -> tuple[str, str | None]:
     if lines and (m := NAME_LINE.match(lines[i].strip())):
         rest = lines[:-1] if pos == "after" else lines[1:]
         return "\n".join(rest).strip(), m.group(1).strip().strip("*_\"'")
+    if pos == "after" and lines and (m := NAME_INLINE.search(lines[-1])):
+        # inline case (PI 2026-10-26): "... asking for attention herself. Name: Mira"
+        para = "\n".join([*lines[:-1], lines[-1][: m.start()]]).strip()
+        return para, m.group(1).strip().strip("*_\"'")
     return (answer or "").strip(), None
 
 

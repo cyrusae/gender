@@ -153,7 +153,7 @@ def or_call(body: dict, key: str, tries: int = 9) -> dict:
     err = ""
     for i in range(tries):
         try:
-            with urllib.request.urlopen(req, timeout=600) as r:
+            with urllib.request.urlopen(req, timeout=180) as r:
                 d = json.loads(r.read())
             if "choices" in d:
                 return d
