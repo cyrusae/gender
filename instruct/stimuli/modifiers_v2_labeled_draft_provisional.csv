@@ -1,0 +1,77 @@
+article,word,phrase,judge/locus,"""more thing""",scale,noun relation,quale,type/token,notes
+a,great,a great {noun},implicit judge,value,relative (extreme),as an N,telic,token,"intensified value pair with terrible; resists ""very"""
+a,mediocre,a mediocre {noun},implicit judge,value,relative,as an N,telic,token,only deliberately mid-scale item
+a,terrible,a terrible {noun},implicit judge,value,relative (extreme),as an N,telic,token,"also an intensity reading (""a terrible storm"")"
+a,perfect,a perfect {noun},implicit judge,value,absolute max,as an N,"telic, constitutive?",token,idioms: perfect stranger / storm / match: check the noun list
+a,flawed,a flawed {noun},object (+ implicit judge),value,absolute min,as an N,constitutive (+ telic),token,a flaw is relative to what counts as one for that kind
+a,fake,a fake {noun},object,membership,non-gradable,privative,agentive?,token,exists but is not an X; made to imitate
+a,hypothetical,a hypothetical {noun},implicit judge (supposer),membership,non-gradable,non-subsective,—,token?,might come to exist; leans generic
+a,common,a common {noun},population,typicality (frequency),relative,for an N,—,type?,"kind reading (""a common bird"" = a common species). POLYSEMY: ""common"" = vulgar or low-class, with gendered and class baggage (""a common woman""); also = shared"
+an,uncommon,an uncommon {noun},population,"typicality (frequency), salience",relative,for an N,—,type?,kind reading
+the,most popular,the most popular {noun},community,"value, salience",superlative,among Ns,—,token,"minimal pair with popular: isolates superlative + ""the"""
+the,least popular,the least popular {noun},community,"value, salience",superlative,among Ns,—,token,minimal pair with unpopular
+an,alleged,an alleged {noun},community,membership,non-gradable,non-subsective,—,token,normally on role or agent nouns (alleged thief); very coercive on objects
+a,confirmed,a confirmed {noun},community,membership,non-gradable,intersective (epistemic),—,token,"IDIOM: ""a confirmed bachelor"" is a euphemism for a gay man; check for it in outputs"
+an,enormous,an enormous {noun},object,which kind,relative (extreme),for an N,formal,token,
+a,tiny,a tiny {noun},object,which kind,relative (extreme),for an N,formal,token,
+a,large,a large {noun},object,which kind,relative,for an N,formal,token,
+a,small,a small {noun},object,which kind,relative,for an N,formal,token,
+an,eerie,an eerie {noun},implicit judge (experiencer),which kind? typicality?,relative,"intersective, judge-relative",animacy coercion?,token,affect + agency where none should be (Fisher); does not grade X-ness
+an,uncanny,an uncanny {noun},implicit judge (experiencer),typicality?,relative,"intersective, judge-relative",animacy coercion?,token,"familiar made strange (Freud); uncanny-valley pull toward human likeness; positive sense ""uncanny accuracy"""
+a,malevolent,a malevolent {noun},object (by coercion),which kind,relative,intersective (coerced),animacy coercion,token,"intent of the thing itself, not its maker"
+a,benevolent,a benevolent {noun},object (by coercion),which kind,relative,intersective (coerced),animacy coercion,token,"intent of the thing itself, not its maker"
+a,generic,a generic {noun},population,"typicality, salience",relative,intersective,—,type,"POLYSEMY: unbranded (""generic drug"") is agentive"
+a,typical,a typical {noun},population,typicality,relative,for an N,—,type,
+a,safe,a safe {noun},object,which kind,absolute max,intersective,telic?,token,"harm without intent; POLYSEMY: ""a safe choice"" = conservative, overlaps low salience; chosen for Glasgow compatibility"
+a,dangerous,a dangerous {noun},object,which kind,relative,intersective,ambiguous,token,harm without intent; chosen for Glasgow compatibility
+a,normal,a normal {noun},population,typicality,absolute max?,for an N,—,token,"""perfectly normal"" may be the idiomatic perfectly; recheck with ""almost normal"""
+an,unusual,an unusual {noun},population,typicality,absolute min?,for an N,—,token,
+the,best,the best {noun},community,value,superlative,as an N,telic,token,superlative of good
+the,worst,the worst {noun},community,value,superlative,as an N,telic,token,superlative of bad
+a,good,a good {noun},implicit judge,value,relative,as an N,telic,token,"positive form of best: minimal pair (positive vs superlative + ""the"")"
+a,bad,a bad {noun},implicit judge,value,relative,as an N,telic,token,positive form of worst
+an,interesting,an interesting {noun},implicit judge (experiencer),"value, salience",relative,"intersective, judge-relative",—,token,psych adjective
+a,boring,a boring {noun},implicit judge (experiencer),"value, salience",relative,"intersective, judge-relative",—,token,psych adjective
+your,favorite,your favorite {noun},model (your),value,superlative (lexical),among Ns,—,token,Glasgow: favorite
+your,least favorite,your least favorite {noun},model (your),value,superlative (lexical),among Ns,—,token,Glasgow proxy = favorite; flag in norm_source
+the,ideal,the ideal {noun},implicit judge,"value, typicality",non-gradable?,as an N,telic,type,"kind reference: the Platonic X; minimal pair with ""an ideal"""
+an,ideal,an ideal {noun},implicit judge,value,non-gradable?,as an N (for a purpose),telic,token,"suitability token; minimal pair with ""the ideal"""
+the,perfect,the perfect {noun},implicit judge,value,absolute max,as an N (for an occasion),telic,type?,"ADVERTISING register (""the perfect gift for her""), pre-gendered frame; minimal pair with ""a perfect"""
+a,stereotypical,a stereotypical {noun},community,typicality,relative,as an N (of Ns),—,type,asks for the prototype itself
+an,ordinary,an ordinary {noun},population,typicality,absolute max?,for an N,—,token,"""perfectly ordinary"" may be the idiomatic perfectly"
+a,unique,a unique {noun},population,"typicality, salience",non-gradable,"for an N, referential",—,token,
+a,bizarre,a bizarre {noun},implicit judge,typicality,relative?,for an N,—,token,atypical + affective reaction
+a,traditional,a traditional {noun},community (+ object),which kind,relative,intersective,agentive,token,both loci intended
+a,modern,a modern {noun},object (+ community),which kind,relative,intersective,agentive,token,both loci intended
+a,new,a new {noun},object,which kind,relative?,for an N,agentive,token,"""brand new"" hints at an endpoint"
+an,old,an old {noun},object,which kind,relative,for an N,agentive,token,"POLYSEMY: long-standing (""an old friend"")"
+a,deliberate,a deliberate {noun},object,which kind,non-gradable,intersective (coerced),agentive,token,intent of the maker; low cross-scheme agreement
+an,accidental,an accidental {noun},object,which kind,non-gradable,intersective (coerced),agentive,token,low cross-scheme agreement in taxonomies tested initially
+a,popular,a popular {noun},community,value,relative,for an N,—,token,
+an,unpopular,an unpopular {noun},community,value,relative,for an N,—,token,
+a,famous,a famous {noun},community,salience,relative,for an N,—,token,needs individuated members (noun-side covariate)
+an,obscure,an obscure {noun},community,salience,relative,for an N,—,token,no Glasgow entry
+the,best-known,the best-known {noun},community,salience,superlative,among Ns,—,token,Glasgow proxy = famous
+a,random,a random {noun},reference act,salience,non-gradable,referential,—,token,"SLANG: ""random"" = odd or out of place (""some random guy"") gives a typicality reading"
+a,specific,a specific {noun},reference act,salience,non-gradable,referential,—,token,lowest cross-scheme agreement in taxonomies tested initially
+a,real,a real {noun},object,membership,non-gradable,subsective after coercion,—,token,"EMPHATIC sense: genuine exemplar (""a real man""), gender-normative"
+an,imaginary,an imaginary {noun},object (by coercion),membership,non-gradable,privative,—,token,does not exist; contrast with fake
+a,familiar,a familiar {noun},implicit judge,typicality,relative?,"intersective, judge-relative",—,token,"judge unresolved without ""to you"", see pair"
+an,unfamiliar,an unfamiliar {noun},implicit judge,typicality,relative?,"intersective, judge-relative",—,token,"judge unresolved without ""to you"", see pair"
+a,rough,a rough {noun},object,which kind,absolute min,intersective,constitutive,token,
+a,smooth,a smooth {noun},object,which kind,absolute max,intersective,constitutive,token,
+a,startling,a startling {noun},implicit judge (experiencer),"typicality, salience",relative,"intersective, judge-relative",—,token,psych adjective; startling : unusual :: familiar : ordinary (experiencer vs population judge); can also be unexpected existence
+an,unsurprising,an unsurprising {noun},implicit judge (experiencer),"typicality, salience",relative,"intersective, judge-relative",—,token,psych adjective; low salience
+an,ancient,an ancient {noun},object (era),which kind,relative (extreme)?,for an N,agentive,token,"""very ancient"" is odd, so extreme? With old and traditional it varies locus while holding time constant (object / era / community)"
+an,avant-garde,an avant-garde {noun},community,which kind,relative,intersective,agentive,token,a better antonym for traditional than modern is in some contexts
+an,unremarkable,an unremarkable {noun},implicit judge,salience,relative,intersective,—,token,"the only low-salience item without valence (boring is negative, obscure is about fame); unpaired, or pair with remarkable/notable"
+a,natural,a natural {noun},object,"which kind, typicality",ambiguous,intersective,agentive,token,"TWO SENSES: not man-made (non-gradable, agentive; ""a natural bridge"") vs normal or expected (gradable). Directly probes artifact vs natural kind; rename the surprisal covariate ""fit"" to avoid the name clash"
+an,unnatural,an unnatural {noun},object (+ community),"typicality, which kind",relative,intersective,agentive?,token,"HISTORY: moral and sexual-norm discourse (""unnatural acts""), likely pulls gender deviance; analyze separately from the typicality items"
+,,,,,,,,,
+,familiar to you,{article} {noun} familiar to you,model (you),typicality,relative?,"intersective, judge-relative",—,token,postnominal; special case
+,unfamiliar to you,{article} {noun} unfamiliar to you,model (you),typicality,relative?,"intersective, judge-relative",—,token,postnominal; special case
+,,,,,,,,,
+,none:,{the} {noun},,,,,,,
+,none:,{a/an} {noun},,,,,,,
+,none:,my {noun},,,,,,,
+,none:,your {noun},,,,,,,

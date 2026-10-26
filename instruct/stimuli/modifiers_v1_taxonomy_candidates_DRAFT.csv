@@ -1,0 +1,35 @@
+key,text,article_type,pair,dimension_1,dimension_2,A-perspective,A-sense,B-pov,B-purpose,C-macro 1,C-macro 2,D-scale,D-anchor,E-action,E-function,F-locality,glasgow_word,glasgow_gend,glasgow_val,crawford_gend_5pt_NJ,cryan_silver
+plain,{a} {noun},indefinite,,baseline,,,,,,,,,,,,,,,,,
+interesting,an interesting {noun},indefinite,boring,personal,value,personal,value,affective/evaluative,,evaluation,modal,gradable spectrum,observer/consensus,verdict,,speaker,interesting,3.429,7.829,,
+boring,a boring {noun},indefinite,interesting,personal,value,personal,value,affective/evaluative,,evaluation,modal,gradable spectrum,observer/consensus,verdict,,speaker,boring,4.471,2.486,,
+best,the best {noun},definite,worst,social,value,evaluative,value,affective/evaluative,,evaluation,relative,threshold/endpoint,observer/consensus,verdict,singling out,speaker,best,4.088,8.147,,
+worst,the worst {noun},definite,best,social,value,evaluative,value,affective/evaluative,,evaluatoin,relative,threshold/endpoint,observer/consensus,verdict,singling out,speaker,worst,4.529,1.829,,
+favorite,your favorite {noun},possessive,least_favorite,personal,value,personal,value,affective/evaluative,social/epistemic,evaluation,relative,threshold/endpoint,observer/consensus,verdict,singling out,speaker,favorite,,,,-4.757
+least_favorite,your least favorite {noun},possessive,favorite,personal,value,personal,value,affective/evaluative,social/epistemic,evaluation,relative,threshold/endpoint,observer/consensus,verdict,singling out,speaker,favorite,,,,-4.757
+ideal,an ideal {noun},indefinite,,value,,evaluative,value,affective/evaluative,ontological/intentional,comparative,modal,threshold/endpoint,observer/consensus,verdict,norm,speaker,ideal,3.485,7.387,2.84,
+stereotypical,a stereotypical {noun},indefinite,,typicality,social,social,typicality,normative/typical,social/epistemic,comparative,modal,threshold/endpoint,distribution/norm,norm,reception,community,stereotypical,,,,
+ordinary,an ordinary {noun},indefinite,,typicality,,evaluative,typicality,normative/typical,,relative,,threshold/endpoint,distribution/norm,norm,,community,ordinary,4.030,4.727,,
+unusual,an unusual {noun},indefinite,,typicality,,evaluative,typicality,normative/typical,,relative,,gradable spectrum,distribution/norm,norm,,community,unusual,4.171,5.029,,
+unique,a unique {noun},indefinite,,typicality,,evaluative,typicality,normative/typical,,relative,property,threshold/endpoint,distribution/norm,norm,singling out,referring,unique,3.533,7.484,,
+bizarre,a bizarre {noun},indefinite,,typicality,,evaluative,typicality,normative/typical,affective/evaluative,relative,evaluation,threshold/endpoint,gradable spectrum,norm,verdict,speaker,bizarre,4.414,4.758,,-1.299
+traditional,a traditional {noun},indefinite,modern,temporal,social,social,temporal,normative/typical,temporal/historical,relative,property,gradable spectrum,distribution/norm,time,reception,community,traditional,,,,
+modern,a modern {noun},indefinite,traditional,temporal,social,social,temporal,normative/typical,temporal/historical,relative,property,gradable spectrum,distribution/norm,time,,object,modern,,,2.836,
+large,a large {noun},indefinite,small,size,trait,trait,physical,,physical/intrinsic,property,relative,gradable spectrum,object/origin,physical,,object,large,5.167,6.031,,
+small,a small {noun},indefinite,large,size,trait,trait,physical,,physical/intrinsic,property,relative,gradable spectrum,object/origin,physical,,object,small,3.029,4.886,,
+new,a new {noun},indefinite,old,temporal,trait,trait,temporal,,temporal/historical,property,,gradable spectrum,object/origin,time,physical,object,new,3.667,7.063,,0.662
+old,an old {noun},indefinite,new,temporal,trait,trait,temporal,,temporal/historical,property,,gradable spectrum,object/origin,time,physical,object,old,,,,
+deliberate,a deliberate {noun},indefinite,accidental,intention,,evaluative,intention,ontological/intentional,,modal,,binary state,object/origin,origin,,object,deliberate,,,3.101,-0.043
+accidental,an accidental {noun},indefinite,deliberate,intention,,evaluative,intention,ontological/intentional,,modal,,binary state,object/origin,origin,,object,accidental,3.939,3.941,,2.281
+popular,a popular {noun},indefinite,unpopular,value,social,social,value,social/epistemic,affective/evaluative,relative,evaluation,gradable spectrum,observer/consensus,reception,,community,popular,,,,
+unpopular,an unpopular {noun},indefinite,popular,value,social,social,value,social/epistemic,affective/evaluative,relative,evaluation,gradable spectrum,observer/consensus,reception,,community,unpopular,,,,
+famous,a famous {noun},indefinite,obscure,fame,social,social,,social/epistemic,,relative,modal,gradable spectrum,observer/consensus,reception,,community,famous,3.700,5.879,,
+obscure,an obscure {noun},indefinite,famous,fame,social,social,,social/epistemic,,relative,modal,gradable spectrum,observer/consensus,reception,,community,,,,,
+best_known,the best-known {noun},definite,,fame,social,social,,social/epistemic,affective/evaluative,relative,modal,threshold/endpoint,observer/consensus,reception,singling out,community,famous,3.700,5.879,,
+random,a random {noun},indefinite,specific,selection,,trait,typicality,ontological/intentional,normative/typical,relative,modal,binary state,distribution/norm,origin,reference,referring,random,3.903,4.970,,-2.243
+specific,a specific {noun},indefinite,random,selection,,trait,typicality,ontological/intentional,social/epistemic,modal,,binary state,observer/consensus,reference,,referring,specific,,,,
+real,a real {noun},indefinite,imaginary,reality,trait,trait,physical,ontological/intentional,physical/intrinsic,modal,property,binary state,object/origin,reference,,object,real,3.941,6.371,,-0.266
+imaginary,an imaginary {noun},indefinite,real,reality,trait,trait,physical,ontological/intentional,social/epistemic,modal,,binary state,observer/consensus,reference,,object,imaginary,,,,
+familiar,a familiar {noun},indefinite,unfamiliar,personal,typicality,personal,typicality,social/epistemic,normative/typical,modal,evaluation,gradable spectrum,observer/consensus,reference,norm,speaker,familiar,,,,
+unfamiliar,an unfamiliar {noun},indefinite,familiar,personal,typicality,personal,typicality,social/epistemic,normative/typical,modal,evaluation,gradable spectrum,observer/consensus,reference,norm,speaker,unfamiliar,,,,2.299
+rough,a rough {noun},indefinite,smooth,texture,trait,trait,physical,,physical/intrinsic,property,,gradable spectrum,object/origin,physical,,object,rough,5.429,3.581,3.745,
+smooth,a smooth {noun},indefinite,rough,texture,trait,trait,physical,,physical/intrinsic,property,,gradable spectrum,threshold/endpoint,physical,,object,smooth,2.455,6.939,,-1.881
