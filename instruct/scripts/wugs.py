@@ -101,6 +101,9 @@ def main() -> None:
     out = pd.concat([d.head(10).assign(side="hard"), d.tail(10).iloc[::-1].assign(side="soft")])
     out["source"] = "wuggy orthographic_english; filters in instruct/scripts/wugs.py"
     path = Path(__file__).parents[1] / "stimuli/wug_candidates_v1.csv"
+    d.iloc[::-1].assign(source=out.source.iloc[0]).to_csv(
+        path.with_name("wug_candidates_v1_all.csv"), index=False
+    )
     out.to_csv(path, index=False)
     print(out.to_string(index=False))
 
