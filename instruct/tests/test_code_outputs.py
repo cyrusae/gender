@@ -205,5 +205,10 @@ def test_embed_mask_neutralises_gender_and_names():
     c = mask("She gave her a smile and her hands shook.", "pot", None)
     d = mask("He gave him a smile and his hands shook.", "pot", None)
     assert c == d
-    f, m = anchors()
-    assert len(f) == len(m) == 50 and not set(f) & set(m)
+    e = mask("They gave them a smile and their hands shook.", "pot", None)
+    x = mask("Xe gave xem a smile and xyr hands shook.", "pot", None)
+    assert e == d == x
+    for kind in ("properties", "people"):
+        f, m = anchors(kind)
+        assert len(f) == len(m) == 50 and not set(f) & set(m)
+    assert "beard" not in anchors("properties")[1]

@@ -8,7 +8,8 @@ masculine). A shuffle null re-splits the 100 anchors at random (same sizes) to s
 score difference arises from an arbitrary split.
 
 Masking before embedding (so the score reflects the description, not the pronoun choice):
-he/she -> "the person", his/her (possessive) -> "the person's", him/her (object) -> "the
+he/she/they and neopronouns -> "the person" (it/its only when the coder classes the character
+as "it"; otherwise "it" refers to objects), his/her (possessive) -> "the person's", him/her (object) -> "the
 person" (they-forms are left as written: replacing he/she with "they" broke verb agreement); gendered person
 nouns -> "person"; the character's name and other capitalised words after the first -> "the
 character"; the study noun and plural -> "thing"; a trailing Name line is removed.
@@ -28,7 +29,7 @@ import re
 from pathlib import Path
 
 import numpy as np
-from code_outputs import split_name
+from code_outputs import code, split_name
 from content_glasgow import gend_table
 
 INSTR = "Represent this character description"
@@ -45,13 +46,41 @@ K = 50
 FUNC = "a|an|the|some|this|that|these|those|no|every|and|or|but|to|with|as|in|on|at|for|from|by|of|into|like|than|that|when|while|if|again|too|away|up|down|out|back|so|because"
 
 
-def anchors() -> tuple[list[str], list[str]]:
+def is_person_or_body(w: str) -> bool:
+    """WordNet: any noun sense in noun.person or noun.body (woman, beard, womb, ...)."""
+    import sys
+
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+    from gbleed.lexicon import _wordnet
+
+    return any(s.lexname() in ("noun.person", "noun.body", "noun.animal")
+               for s in _wordnet().synsets(w, "n"))  # fmt: skip
+
+
+def study_nouns() -> set[str]:
+    """Every noun the study prompts about (main pool, pilot, reserved): never an anchor."""
+    import pandas as pd
+
+    st = Path(__file__).resolve().parent / "stimuli"
+    rs = Path(__file__).resolve().parent / "results/confound/pool_191_DRAFT.csv"
+    out = set(pd.read_csv(rs).en)
+    out |= set(pd.read_csv(st / "reserved_nouns.csv", comment="#").noun)
+    return out | {w + "s" for w in out}
+
+
+def anchors(kind: str = "properties") -> tuple[list[str], list[str]]:
+    """'properties' (primary, PI 2026-10-26): person, body and animal words excluded (WordNet), so
+    the anchors are gender-stereotyped things and qualities. 'people' (secondary): all words.
+    Study nouns are never anchors."""
     g = sorted(gend_table().items(), key=lambda kv: kv[1])
-    g = [(w, v) for w, v in g if re.fullmatch(r"[a-z]+", w)]
+    nouns = study_nouns()
+    g = [(w, v) for w, v in g if re.fullmatch(r"[a-z]+", w) and w not in nouns]
+    if kind == "properties":
+        g = [(w, v) for w, v in g if not is_person_or_body(w)]
     return [w for w, _ in g[:K]], [w for w, _ in g[-K:]]
 
 
-def mask(answer: str, noun: str, name: str | None) -> str:
+def mask(answer: str, noun: str, name: str | None, char_is_it: bool = False) -> str:
     para, nm = split_name(answer or "")
     name = name or nm or ""
     t = re.sub(PERSON, "person", para, flags=re.IGNORECASE)
@@ -60,7 +89,22 @@ def mask(answer: str, noun: str, name: str | None) -> str:
             t = re.sub(rf"\b{re.escape(p)}\b", "thing" if p.startswith(noun) else "the character",
                        t, flags=re.IGNORECASE)  # fmt: skip
 
-    t = re.sub(r"\b(?:he|she)\b", "the person", t, flags=re.IGNORECASE)
+    t = re.sub(r"\b(?:xemself|xirself|zirself|hirself|emself|faeself|verself|thonself)\b",
+               "themselves", t, flags=re.IGNORECASE)  # fmt: skip
+    t = re.sub(r"\b(?:xyr|xyrs|xirs|zirs|hirs|eir|eirs|faer|faers|thons)\b", "the person's", t,
+               flags=re.IGNORECASE)  # fmt: skip
+    # xir/zir/hir are object or possessive, like "her"
+    t = re.sub(rf"\b(?:xir|zir|hir)(?=\s+(?!(?:{FUNC})\b)[a-z])", "the person's", t,
+               flags=re.IGNORECASE)  # fmt: skip
+    t = re.sub(r"\b(?:he|she|they|xe|xem|xir|ze|zie|zir|hir|ey|thon)\b", "the person", t,
+               flags=re.IGNORECASE)  # fmt: skip
+    t = re.sub(r"\b(?:themselves|themself)\b", "themselves", t, flags=re.IGNORECASE)
+    t = re.sub(r"\b(?:their|theirs)\b", "the person's", t, flags=re.IGNORECASE)
+    t = re.sub(r"\bthem\b", "the person", t, flags=re.IGNORECASE)
+    if char_is_it:  # only when the coder classed the character as "it"
+        t = re.sub(r"\bitself\b", "themselves", t, flags=re.IGNORECASE)
+        t = re.sub(r"\bits\b", "the person's", t, flags=re.IGNORECASE)
+        t = re.sub(r"\bit\b", "the person", t, flags=re.IGNORECASE)
     t = re.sub(r"\b(?:himself|herself)\b", "themselves", t, flags=re.IGNORECASE)
     t = re.sub(r"\b(?:his|hers)\b", "the person's", t, flags=re.IGNORECASE)
     # "her": possessive before a content word, else object
@@ -106,13 +150,15 @@ def main() -> None:
     ap.add_argument("files", nargs="+", type=Path)
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--only", help="comma-separated embedder names")
+    ap.add_argument("--anchors", choices=["properties", "people"], default="properties")
     args = ap.parse_args()
     import pandas as pd
 
     rows = [json.loads(ln) for f in args.files for ln in f.read_text().splitlines()]
     rows = [r for r in rows if r.get("finish_reason") != "error" and r.get("answer")]
-    texts = [mask(r["answer"], r["noun"], r.get("given_name")) for r in rows]
-    fem, masc = anchors()
+    texts = [mask(r["answer"], r["noun"], r.get("given_name"),
+                  code(split_name(r["answer"])[0])["pron"] == "it") for r in rows]  # fmt: skip
+    fem, masc = anchors(args.anchors)
     rng = np.random.default_rng(0)
     df = pd.DataFrame({k: [r.get(k) for r in rows] for k in
                        ("model", "name_condition", "noun", "modifier", "thinking", "sample",
@@ -131,7 +177,11 @@ def main() -> None:
             from sentence_transformers import SentenceTransformer
 
             hf, qp, ap_ = EMBEDDERS[nm]
-            m = SentenceTransformer(hf, device="cpu")
+            import torch
+
+            # fp32 for every embedder (one precision); e5's config defaults to fp16, which
+            # gave NaNs on CPU in the first check
+            m = SentenceTransformer(hf, device="cpu", model_kwargs={"torch_dtype": torch.float32})
             P = m.encode([qp + t for t in texts], batch_size=16, normalize_embeddings=True)
             A = m.encode([ap_ + w for w in fem + masc], normalize_embeddings=True)
             del m
