@@ -290,19 +290,19 @@ second Claude session that read along and flagged problems.*
   refused), so the Mac watched it; a copy loop briefly stopped early when its "done" check matched
   the wrong line, which was caught and fixed mid-run.
 
-## 17. Instruct-model study begins (Oct 25; branch `instruct`)
+## 17. Character study begins (Oct 25; instruct models; branch `character`, first named `instruct`)
 
-- New study in `instruct/` with its own scoped rules (draft): what chat models *say* when asked
+- New study in `character/` with its own scoped rules (draft): what chat models *say* when asked
   to turn a thing into a character. Pilot 0 is a workflow test only: 7 burned nouns, the PI's
   prompt × 5 modifiers, Qwen3-8B (thinking on/off) and Gemma-3-12B-it; pronouns coded by regex.
-  `instruct/docs/design.md`.
+  `character/docs/design.md`.
 - Pilot 0 v2–v5 (Oct 25, Gemma-3-12B-it via OpenRouter, bf16, $0.16 total): the workflow works
   (≈100% valid). The name instruction drives the answer: left alone, Gemma opens with a stock
   name (Silas/Elara) and the pronoun follows it; writing the name last produces "they"; a
   "plan the name" sentence broke the format. `free_noted` adopted as primary (provisional).
-  Pilot-iteration and serving-precision rules added. Explainer `I0-instruct-pilot0.md`.
+  Pilot-iteration and serving-precision rules added. Explainer `C0-character-pilot0.md`.
 
-- **Oct 25–27 (instruct, continued).** Fishing round over ~12 chat models; balance rule v2
+- **Oct 25–27 (character study, continued; folder renamed `instruct/` → `character/` on Oct 27).** Fishing round over ~12 chat models; balance rule v2
   (she among he+she 25–75%; mostly-*they* models kept as cases of interest). Feasibility pipeline:
   191 nouns whose translations round-trip in eight languages (de, ru, es, hi, ar, fi, ja, tr),
   inanimate, no groups of people, confound-trimmed; 24 mass nouns drop "a/an". PI modifier list v2
@@ -313,8 +313,8 @@ second Claude session that read along and flagged problems.*
   grammatical gender in every model (pilot only); gpt-oss and Qwen-Flash override assigned *they*.
   Content measures built (Glasgow word average + six embedders, masked pronouns, shuffle null).
   Power simulation → precision stopping, cap 30 draws, ±2.5-point target. Main run: GPT-6-Luna +
-  Qwen3-14B. Explainer `I1-instruct-design-and-measures.md`; draft pre-registration
-  `instruct/docs/prereg_DRAFT.md` (awaiting PI sign-off).
+  Qwen3-14B. Explainer `C1-character-design-and-measures.md`; draft pre-registration
+  `character/docs/prereg_DRAFT.md` (awaiting PI sign-off).
 ## Where things stand (Oct 26): phase 1 closed
 
 - **Done:** every pre-registered base-model test has a verdict (Qwen3 0.6B–14B, EuroLLM-1.7B, Gemma 3 4B/12B). Headlines: grammatical gender is read at the noun's own token, tracks grammar not spelling (Qwen; Phase 2 not run on Gemma), compounds follow the head, no support for markedness, partly shared across Spanish/German/Russian (Spanish–Russian strongest); a language-specific Spanish steering effect only on Qwen3-8B (no positive effect on 14B or Gemma; German steering never had a valid test); the German frequency lean is a Qwen3 training-sample property.
