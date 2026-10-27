@@ -128,6 +128,9 @@ def main() -> None:
     fa.add_argument(
         "--c-ref", default=None, help="(c) cosine file the overlap reference comes from"
     )
+    cf = sub.add_parser("chat-extract", help="instruct replication: chat-template activations")
+    cf.add_argument("model")
+    cf.add_argument("--formats", nargs="+", default=None)
     rd = sub.add_parser(
         "russian-dir", help="Russian direction: alignment + frequency (prereg 2026-10-25)"
     )
@@ -206,6 +209,11 @@ def main() -> None:
         from .noun_sense import main as ns_main
 
         ns_main(a.models, a.root, a.rc)
+        return
+    if a.cmd == "chat-extract":
+        from . import chat_format
+
+        chat_format.extract(a.model, *([a.formats] if a.formats else []))
         return
     if a.cmd == "russian-dir":
         from . import russian_dir

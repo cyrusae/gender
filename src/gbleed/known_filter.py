@@ -17,12 +17,15 @@ import pandas as pd
 from .models import model_slug
 
 FILTERED_PREFIXES = ("google/gemma",)
+# instruct replication (docs/design/instruct-replication-prereg.md): the lists were built on the
+# Qwen3 base models, so their instruct siblings are filtered like Gemma
+FILTERED_MODELS = {"Qwen/Qwen3-8B", "Qwen/Qwen3-14B"}
 ROOTS = {"es": "results/phase2_known", "de": "results/phase3_known"}
 MAX_LOSS = 0.30
 
 
 def applies(model_id: str) -> bool:
-    return model_id.startswith(FILTERED_PREFIXES)
+    return model_id.startswith(FILTERED_PREFIXES) or model_id in FILTERED_MODELS
 
 
 def known_lemmas(model_id: str, lang: str) -> set[str] | None:

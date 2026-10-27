@@ -87,3 +87,6 @@ results/confidence_ctl/p31/
 
 # ---- Parallel git worktrees (git worktree list) ----
 worktrees/
+
+# scratch work (smoke tests, temp outputs)
+scratchpad/
