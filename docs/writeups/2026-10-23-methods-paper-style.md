@@ -27,7 +27,7 @@ Follow-up studies are numbered P*n* in order of proposal. Each was pre-registere
 
 - **Primary family:** Qwen3 base models at 0.6B, 1.7B, 4B, 8B and 14B parameters (28–40 layers, hidden width 1,024–5,120). Also Qwen3-30B-A3B-Base, a mixture-of-experts model (48 layers, width 2,048, ~3B active parameters), run once as exploratory. 8B and 14B are the confirmatory models. Smaller sizes were used for development and to check size trends.
 - **Second family (behavioural tests):** EuroLLM-1.7B.
-- **Replication:** Gemma 3 4B and 12B pretrained, under a separate "slim" pre-registration (frozen lists, known-check filter only, loss ≤ 12% per gender; `docs/design/gemma-slim-prereg.md`). Results in §3.9.
+- **Replication:** Gemma 3 4B and 12B pretrained, under a separate "slim" pre-registration (frozen lists, known-check filter only, loss ≤ 12% per gender; `docs/design/gemma-slim-prereg.md`). Results in §3.8.
 - Base (pretrained-only) checkpoints throughout; no instruction-tuned models.
 - **Compute:** confirmatory runs in bf16 on single A100 80GB or L40S GPUs (RunPod). Development on Apple-silicon MPS in fp16. Quantities that are compared with each other always come from the same hardware and precision.
 
@@ -513,9 +513,9 @@ Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap i
 | G2 SAE (Qwen3-8B, 632 held-out compounds) | no valid test: held-out overlap absent (cos +0.11 to +0.26) |
 
   Under A, C and D, the overlap disappears at ≤ 1 of 3–4 layers, never the majority required for "explained".
-- **Status.** The alignment is robust in the German training sample of Qwen3 8B/14B and absent in the held-out compound sample. Its mechanism is unexplained. A pre-registered held-out test on new simplex German nouns (`rarity-lean-heldout-prereg.md`) is pending. The Gemma replication (R2, §3.9) finds no overlap on either size, so the alignment is Qwen-specific.
+- **Status.** The alignment is robust in the German training sample of Qwen3 8B/14B and absent in the held-out compound sample. Its mechanism is unexplained. A pre-registered held-out test on new simplex German nouns (`rarity-lean-heldout-prereg.md`) is pending. The Gemma replication (R2, §3.8) finds no overlap on either size, so the alignment is Qwen-specific.
 
-### 3.9 Replication in Gemma 3 (G1)
+### 3.8 Replication in Gemma 3 (G1)
 
 Gemma 3 4B and 12B pretrained were run in bf16 (L40S; commits 88cc069 and ecbbeea) on the frozen Qwen-derived lists, filtered by each list's own known-check. Known-check loss was ≤ 0.12 per gender per list, so every list is portable. Analysis code was unchanged except for wiring in the known filter (1cd5d6e), which was done before any Gemma analysis.
 
@@ -538,7 +538,7 @@ Gemma 3 4B and 12B pretrained were run in bf16 (L40S; commits 88cc069 and ecbbee
 - **Outlier dimension (amendment; `docs/design/gemma-outlier-dimension.md`).** A single residual channel (index 443 in 4B, 2339 in 12B) carries 59–92% of the variance across nouns at the tested layers; for Qwen3 the figure is ≤ 1.6%. On raw activations the cross-fitted cosines left [−1, 1] at about half the layers. After outcome-blind diagnostics, we pre-registered two things: zero any dimension above 10% of variance (1 per Gemma model, 0 per Qwen), and a validity gate that counts invalid layers against overlap. Under the fix all layers are valid. Qwen verdicts reproduce, with cosines within about 0.03 of the originals. T2 means are 0.47 (4B) and 0.55 (12B), against 1.13 and 0.61 raw. Raw-activation gender AUC on Gemma training nouns rises from about 0.58 to about 0.70 once the channel is removed. Raw Gemma probes therefore understate decodability; the Phase 3–4 verdicts replicated despite this.
 - **Not run.** Phase 2, P29–P31 and Russian were out of scope. Frequency-axis A/C/D were not run, because no German overlap was found on Gemma.
 
-### 3.10 Rarity lean on held-out simplex nouns (`rarity-lean-heldout-prereg.md`)
+### 3.9 Rarity lean on held-out simplex nouns (`rarity-lean-heldout-prereg.md`)
 
 The design used 888 held-out simplex nouns (502 f, 190 m, 196 n), extracted on the pod (CUDA bf16, as the training activations). For each noun we took its projection on the frozen training f−m direction. Within each gender we computed a partial Spearman correlation with Zipf, controlling for token count and ending. The null permuted Zipf within ending cells (2,000 permutations). A test passed if ρ fell below the null's 2.5th percentile and |ρ| ≥ 0.1.
 
@@ -551,7 +551,7 @@ The design used 888 held-out simplex nouns (502 f, 190 m, 196 n), extracted on t
 
 The masculine test was powered only for |ρ| ≳ 0.14.
 
-### 3.11 Russian direction (`russian-direction-prereg.md`)
+### 3.10 Russian direction (`russian-direction-prereg.md`)
 
 The training set is the reviewed *-ь* list: 174 nouns, 100 f / 74 m, cells = last two letters × loan. Covariates are as for German. There were four co-primary within-cell AUC tests. Each layer used a Bonferroni 98.75% bootstrap lower bound > 0.5 (1,000 rounds), and a test passed at a majority of inner layers.
 
@@ -568,7 +568,7 @@ The training set is the reviewed *-ь* list: 174 nouns, 100 f / 74 m, cells = la
 - **R-B frequency.** No overlap on either model (cos −0.08 to −0.25), so the lean is German-only. The concreteness-matched refit was mixed across models: 8B sits at the overlap boundary (2/4 layers in the first run, 3/4 after the strata-order fix; one layer's cosine within Monte Carlo error of the 0.30 bar), 14B no overlap.
 - **Concreteness sensitivity.** The matched set was 37 pairs with mean Δ −0.01. It was **not robust**. The loss is concentrated in the tests that fit on the 74 matched Russian nouns. Follow-up S (200 random 74-noun subsets, same cell × gender composition) attributes the loss to sample size: matched layer-mean AUCs lie at the random medians on both models (8B RU→ES 0.781 vs 0.783 [0.686, 0.855]; RU→DE 0.725 vs 0.749; 14B 0.824 vs 0.841; 0.731 vs 0.746). Bootstrapped pass counts on 8B (50 subsets, descriptive): matched 14 and 8 vs random medians 20 and 8.
 
-### 3.8 Summary of claims
+### 3.11 Summary of claims
 
 | Claim | Evidence | Status |
 |---|---|---|
@@ -579,6 +579,7 @@ The training set is the reviewed *-ь* list: 174 nouns, 100 f / 74 m, cells = la
 | No steering effect (14B) | R1 0/3, control works | null for the Spanish direction (P26 caveat) |
 | Unsteered object pull (P30/P31) | Tables 6–7 | descriptive; not shown social; EuroLLM verdicts robust to `<s>`, sizes not |
 | Pooled readouts | P29 | not evidence |
-| German direction aligned with low frequency | §3.7, §3.9, §3.10 | Qwen3 training-sample property: absent in Gemma 3, held-out compounds and held-out simplex masculines (8B feminine-only echo) |
-| Russian direction aligns with Spanish/German | §3.11 | one-way (ES strong, DE weaker) on Qwen3 8B/14B; matched-refit drop explained by sample size (follow-up S) |
-| Representation results generalise across families | §3.9, Table 9 | replicate on Gemma 3 4B and 12B |
+| German direction aligned with low frequency | §3.7, §3.8, §3.9 | Qwen3 training-sample property: absent in Gemma 3, held-out compounds and held-out simplex masculines (8B feminine-only echo) |
+| Russian direction aligns with Spanish/German | §3.10 | one-way (ES strong, DE weaker) on Qwen3 8B/14B; matched-refit drop explained by sample size (follow-up S) |
+| Representation results generalise across families | §3.8, Table 9 | replicate on Gemma 3 4B and 12B |
+

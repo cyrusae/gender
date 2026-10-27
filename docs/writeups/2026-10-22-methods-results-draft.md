@@ -44,7 +44,7 @@ The labels T, R, P and C (and G for the Gemma replication) are just numbering sc
 
 - **Main family: Qwen3**, an open family released in several sizes: 0.6B, 1.7B, 4B, 8B and 14B parameters (roughly, the number of adjustable numbers in the model), plus Qwen3-30B-A3B, a *mixture of experts* model that routes each word through only part of its network.
 - **Second family: EuroLLM-1.7B**, trained with more European-language text. It is used for the behavioural tests, as a check that a result isn't a Qwen quirk.
-- **Third family: Gemma 3** (4B and 12B), a slimmed-down replication of the Phase 3–5 results (the "slim" design, `docs/design/gemma-slim-prereg.md`): the noun lists were frozen from the Qwen work and only filtered to nouns Gemma knows (no list loses more than 12% of either gender), and nothing was re-tuned. Results in §3.9.
+- **Third family: Gemma 3** (4B and 12B), a slimmed-down replication of the Phase 3–5 results (the "slim" design, `docs/design/gemma-slim-prereg.md`): the noun lists were frozen from the Qwen work and only filtered to nouns Gemma knows (no list loses more than 12% of either gender), and nothing was re-tuned. Results in §3.8.
 - **Base models only.** These are models trained only to predict the next word, before any chat or instruction tuning. Instruction-tuned models are a planned follow-up.
 - **Hardware and number format.** Confirmatory runs used bf16 numbers (a compact 16-bit format) on rented single-GPU servers (A100 or L40S). Small models were also run on an Apple-silicon Mac.
 
@@ -394,9 +394,9 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 | frequency A–D | late | Does the German frequency alignment come from how we controlled frequency, or from the compounds? | pre-registered control | no; it survives all four | §3.7 |
 | register (E1–E4) | late | Is it age of acquisition / register? | pre-registered control | no | §3.7 |
 | G2 | late | Can SAE features carrying frequency be removed from the German direction? | pre-registered | no valid test | §3.7 |
-| G0, G1 | replication | Gemma 3: technical gates; do the Phase 3–5 conclusions replicate? | pre-registered | representation results replicate; no bleed on either size; German frequency lean absent | §3.9 |
-| rarity held-out | late | Does the rarity lean appear in new, simple German nouns? | pre-registered | 8B mixed (feminine only); 14B no valid test | §3.10 |
-| Russian | new language | Does an article-free language's direction line up with Spanish and German? | pre-registered | one-way on both sizes (Spanish strong, German weaker); no frequency lean; the concreteness-matched drop is explained by sample size | §3.11 |
+| G0, G1 | replication | Gemma 3: technical gates; do the Phase 3–5 conclusions replicate? | pre-registered | representation results replicate; no bleed on either size; German frequency lean absent | §3.8 |
+| rarity held-out | late | Does the rarity lean appear in new, simple German nouns? | pre-registered | 8B mixed (feminine only); 14B no valid test | §3.9 |
+| Russian | new language | Does an article-free language's direction line up with Spanish and German? | pre-registered | one-way on both sizes (Spanish strong, German weaker); no frequency lean; the concreteness-matched drop is explained by sample size | §3.10 |
 
 ---
 
@@ -593,9 +593,9 @@ This finding came out of a control (§2.9), not a planned test. The question was
 - **Register / age of acquisition** (are the feminine nouns the later-learned, more "written" words?): an age-of-acquisition control barely changes the overlap (8B −0.62 → −0.61 at the 55% layer).
 - **SAE features (G2, Qwen3-8B).** A sparse autoencoder (SAE) splits a hidden state into many interpretable "features". The plan was to find the features carrying frequency and remove them from the direction. Result: **no valid test.** On the held-out German compounds (632 nouns) the overlap wasn't there to begin with (cos +0.11 to +0.26: the opposite sign, and under the 0.3 bar), so there was nothing to remove.
 
-**Where this leaves it.** In the German training sample the gender direction is genuinely aligned with "rarer" in Qwen3 8B and 14B. No frequency control, pairing, word-structure or register explanation accounts for it. But it does not carry over to a different German noun sample (the compounds), which suggests it is at least partly a property of this sample. What the axis encodes is open. A pre-registered test on 888 fresh single-root German nouns (§3.10) found the lean in rarer *feminine* nouns on 8B but not in masculine ones, so it does not generalise as a model-wide "rare means feminine" property; on 14B the training direction no longer read gender reliably on the new nouns, so there was no valid test. **Gemma 3 shows no such alignment** (§3.9): the same German lists give no overlap on Gemma-4B (1 of 4 layers, pointing the other way) or 12B (0 of 4). So the lean is a property of how Qwen3 represents these words, not something built into the German lists.
+**Where this leaves it.** In the German training sample the gender direction is genuinely aligned with "rarer" in Qwen3 8B and 14B. No frequency control, pairing, word-structure or register explanation accounts for it. But it does not carry over to a different German noun sample (the compounds), which suggests it is at least partly a property of this sample. What the axis encodes is open. A pre-registered test on 888 fresh single-root German nouns (§3.9) found the lean in rarer *feminine* nouns on 8B but not in masculine ones, so it does not generalise as a model-wide "rare means feminine" property; on 14B the training direction no longer read gender reliably on the new nouns, so there was no valid test. **Gemma 3 shows no such alignment** (§3.8): the same German lists give no overlap on Gemma-4B (1 of 4 layers, pointing the other way) or 12B (0 of 4). So the lean is a property of how Qwen3 represents these words, not something built into the German lists.
 
-### 3.9 Gemma 3: does it replicate in a second model family?
+### 3.8 Gemma 3: does it replicate in a second model family?
 
 We reran the main Phase 3–5 tests on Gemma 3 4B and 12B (base models), with the noun lists frozen from the Qwen work. The only change allowed was to drop nouns Gemma doesn't know, by the same known-check rule. Every comparison is between *conclusions*, never between the two families' vectors.
 
@@ -621,7 +621,7 @@ We reran the main Phase 3–5 tests on Gemma 3 4B and 12B (base models), with th
 
 **Not run on Gemma:** Phase 2 (outside the replication's scope), the unsteered article tests P29–P31, Russian, and the Phase 4 one-token-later check on 12B (the weights would need a new download). On 4B that check matches Qwen3-8B exactly: read one token later, no transfer at any layer and the pairs no longer follow gender by the rule, so the cross-language results, too, live on the noun's own token.
 
-### 3.10 Does the German "rarer = more feminine" lean reach new nouns?
+### 3.9 Does the German "rarer = more feminine" lean reach new nouns?
 
 The German frequency lean (§3.7) was found in the 91 training nouns. To check whether it is a property of the model or of those particular words, we took **888 simple German nouns the direction had never seen** (502 feminine, 190 masculine, 196 neuter) and asked, *within each gender*, whether rarer nouns sit further toward the feminine side. Working within a gender means the test can't be fooled by endings that predict gender. A real model-wide lean should show up in both feminine and masculine nouns.
 
@@ -630,9 +630,9 @@ The German frequency lean (§3.7) was found in the 91 training nouns. To check w
 | Qwen3-8B | lean at 3/4 layers | 4/4 | **0/4** | mixed |
 | Qwen3-14B | 0/4 | 3/4 | 0/4 | no valid test (the direction barely reads gender on these nouns) |
 
-On 8B, rarer feminine nouns do lean more feminine, but masculine nouns show nothing. With 190 masculine nouns, a weak masculine lean couldn't have been detected, only a moderate one. So the lean **does not generalise** as a general "rare = feminine" property. Together with Gemma's null (§3.9), the German frequency alignment looks like a property of Qwen3's particular training sample, with at most a feminine-only echo on 8B.
+On 8B, rarer feminine nouns do lean more feminine, but masculine nouns show nothing. With 190 masculine nouns, a weak masculine lean couldn't have been detected, only a moderate one. So the lean **does not generalise** as a general "rare = feminine" property. Together with Gemma's null (§3.8), the German frequency alignment looks like a property of Qwen3's particular training sample, with at most a feminine-only echo on 8B.
 
-### 3.11 Russian: does a direction learned without articles line up?
+### 3.10 Russian: does a direction learned without articles line up?
 
 Russian has no articles, and gender mostly follows the ending. Only the soft-sign (*-ь*) class has both masculine and feminine nouns, so the Russian direction is learned from the reviewed list of 174 *-ь* nouns (§2.4.5), with the same controls as German. We asked whether it sorts Spanish and German nouns by gender, and whether their directions sort Russian nouns.
 
@@ -646,7 +646,7 @@ Russian has no articles, and gender mostly follows the ending. Only the soft-sig
 - **Russian shows no German-style frequency lean** on either model.
 - **Caveat.** Feminine *-ь* nouns are more abstract than masculine ones. When the direction was refitted on 37 concreteness-matched pairs, both conclusions weakened: alignment became "partial", and the frequency test became "mixed". The weakening is concentrated in the tests that *fit* a direction on the smaller Russian set. A pre-registered follow-up settled it: 200 random sets of 74 nouns, with the same mix of spelling groups and genders, score exactly like the concreteness-matched set (for example 0.78 against a random median of 0.78 on 8B). So the alignment weakening comes from fitting on fewer nouns, not from concreteness, and the full-list alignment result stands. (The follow-up checked alignment only; the frequency test's matched "mixed" on 8B keeps a small caveat.)
 
-### 3.8 Claims, evidence and status
+### 3.11 Claims, evidence and status
 
 | Claim | Status |
 |---|---|
@@ -666,7 +666,7 @@ Russian has no articles, and gender mostly follows the ending. Only the soft-sig
 ## 5. Limitations (to expand from the explainers' "Limits worth stating")
 
 - Two model families for the mechanistic results (Qwen3, Gemma 3); Gemma ran a reduced set (no Phase 2, no P29–P31, Phase 4 robustness check on 4B only).
-- Gemma's hidden states are dominated by one dimension; geometric measures there needed a pre-registered fix (§3.9, `docs/design/gemma-outlier-dimension.md`).
+- Gemma's hidden states are dominated by one dimension; geometric measures there needed a pre-registered fix (§3.8, `docs/design/gemma-outlier-dimension.md`).
 - Base models only.
 - German Phase 5 had no valid test; Phase 5 verdicts are Spanish-only.
 - Position dependence: the effects are read at the noun's own token.
