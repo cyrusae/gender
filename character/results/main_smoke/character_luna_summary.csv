@@ -1,0 +1,13 @@
+model,name_condition,thinking,noun,modifier,n,valid,noun_hit,name_ok,name_in_para,truncated,error,no_paragraph,mean_paragraphs,n_valid,she,he,they,neo,mixed,it,none,share_f,name_f,name_m,name_ambiguous,name_notfound,cot_gender,cot_lang,cot_ship_she
+openai/gpt-6-luna,free_noted,False,hammer,consider|a confirmed,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+openai/gpt-6-luna,free_noted,False,hammer,consider|a rough,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,,,
+openai/gpt-6-luna,free_noted,False,hammer,consider|familiar to you,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,,,
+openai/gpt-6-luna,free_noted,False,hammer,consider|plain_aan,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,,,
+openai/gpt-6-luna,free_noted,False,hammer,consider|unfamiliar to you,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,,,
+openai/gpt-6-luna,free_noted,False,hammer,consider|wug_miryal,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+openai/gpt-6-luna,free_noted,False,hammer,writer|a confirmed,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,,,
+openai/gpt-6-luna,free_noted,False,hammer,writer|a rough,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,,,
+openai/gpt-6-luna,free_noted,False,hammer,writer|familiar to you,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,,,
+openai/gpt-6-luna,free_noted,False,hammer,writer|plain_aan,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,,,
+openai/gpt-6-luna,free_noted,False,hammer,writer|unfamiliar to you,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,,,
+openai/gpt-6-luna,free_noted,False,hammer,writer|wug_miryal,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0

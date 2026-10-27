@@ -18,6 +18,7 @@ import hashlib
 import json
 import os
 import random
+import re
 import subprocess
 import threading
 import time
@@ -35,7 +36,7 @@ def article(word: str) -> str:
 
 def load_nouns(path: Path) -> list[str]:
     lines = [ln for ln in path.read_text().splitlines() if not ln.startswith("#")]
-    return [r["noun"] for r in csv.DictReader(lines)]
+    return [r.get("noun") or r["en"] for r in csv.DictReader(lines)]
 
 
 def check_reserved(nouns: list[str], cfg_name: str) -> None:
@@ -302,6 +303,7 @@ def main() -> None:
     ap.add_argument("--thinking", choices=["config", "on", "off"], default="config")
     ap.add_argument("--only-nouns")
     ap.add_argument("--only-mods")
+    ap.add_argument("--mods-regex", help="keep items whose modifier matches (any kind)")
     ap.add_argument("--only-conds", help="comma-separated name conditions")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--fresh", action="store_true", help="overwrite --out instead of resuming")
@@ -316,12 +318,22 @@ def main() -> None:
         nouns = [x for x in nouns if x in args.only_nouns.split(",")]
     check_reserved(nouns, cfg["name"])
     kind = cfg.get("kind", "character")
-    if kind == "writer":
+    if kind == "writer_main":
+        from main_prompts import build_writer_main
+
+        items = build_writer_main(cfg, nouns, load_translations(args.translations), LANG_NAMES)
+    elif kind == "character_main":
+        from main_prompts import build_character_main
+
+        items = build_character_main(cfg, nouns)
+    elif kind == "writer":
         items = build_writer(cfg, nouns, load_translations(args.translations))
     elif kind == "casey":
         items = build_casey(cfg, nouns, args.n or cfg["samples_per_cell"], args.seed)
     else:
         items = build_prompts(cfg, nouns, args.only_mods.split(",") if args.only_mods else None)
+    if args.mods_regex:  # e.g. "\\|plain_aan$" (main runs: modifier = "<frame>|<key>")
+        items = [x for x in items if re.search(args.mods_regex, x["modifier"])]
     if args.only_conds:
         items = [x for x in items if x.get("name_condition") in args.only_conds.split(",")]
     n = args.n or cfg["samples_per_cell"]

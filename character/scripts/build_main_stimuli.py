@@ -1,4 +1,4 @@
-"""Main-study stimulus builder (DRAFT until the instruct pre-registration is signed off; 2026-10-27).
+"""Main-study stimulus builder (frozen v1 with the pre-registration, adopted 2026-10-27).
 
 Inputs (all fixed earlier, no model involved):
 - nouns: character/results/confound/pool_191_DRAFT.csv (191 nouns; translations + Wiktionary genders)
@@ -14,8 +14,8 @@ Rules:
 - postnominal pair: "{article} {noun} familiar to you", article from the noun.
 - idiom flags carried from the PI's notes (confirmed, real, perfect, unnatural, common): the coder
   checks outputs for the idiom (e.g. "bachelor" after "confirmed").
-Writes character/stimuli/main_character_v1_DRAFT.csv (noun x modifier phrase) and
-character/stimuli/main_writer_v1_DRAFT.csv (noun x language foreign word in everyday spelling).
+Writes character/stimuli/main_character_v1.csv (noun x modifier phrase) and
+character/stimuli/main_writer_v1.csv (noun x language foreign word in everyday spelling).
 """
 
 from __future__ import annotations
@@ -66,6 +66,11 @@ def phrase(article: str, word: str, tmpl: str, noun: str) -> str:
 
 def main() -> None:
     pool = pd.read_csv(HERE / "results/confound/pool_191_DRAFT.csv", keep_default_na=False)
+    reserved = set(pd.read_csv(HERE / "stimuli/reserved_nouns.csv", comment="#").noun)
+    assert not reserved & set(pool.en), (
+        f"burned pilot nouns in the main pool: {reserved & set(pool.en)}"
+    )
+    pool.to_csv(HERE / "stimuli/main_nouns_v1.csv", index=False)
     v2 = pd.read_csv(
         HERE / "stimuli/modifiers_v2_labeled_draft_provisional.csv", keep_default_na=False
     )
@@ -91,11 +96,13 @@ def main() -> None:
     ch = pd.DataFrame(rows)
     assert not ch.duplicated(["noun", "modifier"]).any()
     assert not ch.mod_noun.str.contains(r"\{|\}").any()
-    ch.to_csv(HERE / "stimuli/main_character_v1_DRAFT.csv", index=False)
+    ch.to_csv(HERE / "stimuli/main_character_v1.csv", index=False)
     wr = [{"en": r["en"], "lang": lg, "word": plain_spelling(r[f"{lg}_word"], lg),
            "gender": r.get(f"{lg}_g", "") if lg in ("de", "ru", "es", "hi", "ar") else ""}
           for _, r in pool.iterrows() for lg in LANG_NAMES]  # fmt: skip
-    pd.DataFrame(wr).to_csv(HERE / "stimuli/main_writer_v1_DRAFT.csv", index=False)
+    pd.DataFrame(wr).to_csv(HERE / "stimuli/main_writer_v1.csv", index=False)
+    wide = pd.DataFrame(wr).pivot(index="en", columns="lang", values="word").add_suffix("_word")
+    wide.reset_index().to_csv(HERE / "stimuli/main_translations_v1.csv", index=False)
     print(
         f"character: {len(ch)} rows ({ch.noun.nunique()} nouns x {ch.modifier.nunique()} modifiers)"
     )
