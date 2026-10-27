@@ -31,3 +31,18 @@ Open: names replace or join John/Jane/Jamie; keep the he/she/they line?; "Do not
 > Consider {MOD_NOUN}: what makes it recognizable, what is most characteristic of it, and how people experience it. Now invent a character for a short story who is the human embodiment of {MOD_NOUN}. Write one paragraph in the third person describing the character's appearance, behavior, traits, and personality. Do not use the word "{NOUN}" in the paragraph. {NAME_INSTR}
 
 {NAME_INSTR}, main condition `free_noted`: After the paragraph, write one final line in the form "Name: <the character's name>". Respond with only the paragraph and the name line. (Other conditions: `instruct/configs/pilot0_v6.json`.)
+
+## PI pilot versions (2026-10-26, verbatim)
+
+Writer:
+
+> You are a {LANGUAGE}-speaking writer planning your first English-langauge short story. You decide to write about a character who is the human embodiment of {WORD}. Everything about your character is inspired by the nature of {WORD}: behavior, personality, appearance, and other traits reflect {WORD} as you understand it. Write an English-language paragraph about your character. Do not mention {WORD} in any language in the paragraph.
+
+Casey/Riley:
+
+> Imagine a fictional character named {Casey|Riley}. {He is, She is, They are} the human embodiment of {MOD_NOUN}: everything about {his, her, their} appearance, personality, behavior, and traits reflect how {MOD_NOUN} would be as a human. A reader can tell this character was inspired by the idea of {MOD_NOUN}. {NAME} is {CHARACTER} in a {GENRE?} novel. Write a paragraph describing this character. Do not use the word {NOUN} in the paragraph.
+
+{CHARACTER}: a character, the protagonist, the main character, the hero, the antagonist, the villain, a side character, a minor character, the love interest (heroine optional for the she frame).
+{GENRE}: none, literary fiction, historical fiction, young adult fiction, science fiction, fantasy, mystery, thriller, horror, romance.
+
+Review notes: see chat 2026-10-26 (typos "langauge", "reflect" → "reflects"; noun ban wording; bare English word in the English-word arm; Casey/Riley fixes the pronoun, so its outcome is content, not pronoun choice).
