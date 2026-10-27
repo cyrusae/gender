@@ -219,3 +219,23 @@ def test_keep_they_leaves_plural_they():
 
     t = mask("She kept their secrets and told them all.", "pot", None, mask_they=False)
     assert "their secrets" in t and "them all" in t and "She" not in t
+
+
+def test_main_stimuli_phrases():
+    import sys
+    from pathlib import Path
+
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+    from build_main_stimuli import phrase
+
+    assert phrase("a", "none:", "{a/an} {noun}", "unit") == "a unit"
+    assert phrase("a", "none:", "{a/an} {noun}", "ocean") == "an ocean"
+    assert phrase("a", "none:", "{a/an} {noun}", "milk") == "milk"
+    assert phrase("a", "great", "a great {noun}", "milk") == "great milk"
+    assert phrase("the", "best", "the best {noun}", "milk") == "the best milk"
+    assert phrase("", "familiar to you", "{article} {noun} familiar to you", "ocean") == (
+        "an ocean familiar to you"
+    )
+    assert phrase("", "familiar to you", "{article} {noun} familiar to you", "dust") == (
+        "dust familiar to you"
+    )

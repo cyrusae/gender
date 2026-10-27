@@ -302,6 +302,19 @@ second Claude session that read along and flagged problems.*
   "plan the name" sentence broke the format. `free_noted` adopted as primary (provisional).
   Pilot-iteration and serving-precision rules added. Explainer `I0-instruct-pilot0.md`.
 
+- **Oct 25–27 (instruct, continued).** Fishing round over ~12 chat models; balance rule v2
+  (she among he+she 25–75%; mostly-*they* models kept as cases of interest). Feasibility pipeline:
+  191 nouns whose translations round-trip in eight languages (de, ru, es, hi, ar, fi, ja, tr),
+  inanimate, no groups of people, confound-trimmed; 24 mass nouns drop "a/an". PI modifier list v2
+  (70) + plain a/an/the/my/your + 6 wugs. Pod session (RTX PRO 6000, ~$5.50): Qwen3-8B/14B
+  (thinking on/off), Gemma-3-12B/Gemma-4-31B, EuroLLM-9B/22B; thinking moves Qwen3-8B toward
+  *she*, 14B toward *they*; API and pod outputs differ for Gemma-3-12B → one route per model.
+  Writer + Casey/Riley pilot on 4 API models ($2.04): foreign word moves *she* toward the word's
+  grammatical gender in every model (pilot only); gpt-oss and Qwen-Flash override assigned *they*.
+  Content measures built (Glasgow word average + six embedders, masked pronouns, shuffle null).
+  Power simulation → precision stopping, cap 30 draws, ±2.5-point target. Main run: GPT-6-Luna +
+  Qwen3-14B. Explainer `I1-instruct-design-and-measures.md`; draft pre-registration
+  `instruct/docs/prereg_DRAFT.md` (awaiting PI sign-off).
 ## Where things stand (Oct 26): phase 1 closed
 
 - **Done:** every pre-registered base-model test has a verdict (Qwen3 0.6B–14B, EuroLLM-1.7B, Gemma 3 4B/12B). Headlines: grammatical gender is read at the noun's own token, tracks grammar not spelling (Qwen; Phase 2 not run on Gemma), compounds follow the head, no support for markedness, partly shared across Spanish/German/Russian (Spanish–Russian strongest); a language-specific Spanish steering effect only on Qwen3-8B (no positive effect on 14B or Gemma; German steering never had a valid test); the German frequency lean is a Qwen3 training-sample property.
