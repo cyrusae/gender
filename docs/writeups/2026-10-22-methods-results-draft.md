@@ -663,13 +663,32 @@ Russian has no articles, and gender mostly follows the ending. Only the soft-sig
 
 ---
 
-## 5. Limitations (to expand from the explainers' "Limits worth stating")
+## 5. Limitations
 
-- Two model families for the mechanistic results (Qwen3, Gemma 3); Gemma ran a reduced set (no Phase 2, no P29–P31, Phase 4 robustness check on 4B only).
-- Gemma's hidden states are dominated by one dimension; geometric measures there needed a pre-registered fix (§3.8, `docs/design/gemma-outlier-dimension.md`).
-- Base models only.
-- German Phase 5 had no valid test; Phase 5 verdicts are Spanish-only.
-- Position dependence: the effects are read at the noun's own token.
-- The German training list's complex-noun imbalance (tested, not fixed).
-- Concreteness norms for German/Russian are English-gloss approximations.
+Grouped by what they limit. The explainers in `docs/explainers/` each end with a longer "limits worth stating" list for their phase.
+
+**What was measured**
+- Linear tools only. A direction that a linear probe can't find, or a push along one direction that changes nothing, doesn't rule out a non-linear encoding or another route (Phases 1, 5).
+- Effects are read at the noun's own token. One token later they mostly vanish (Phases 2–4, in Qwen and Gemma), so "the model represents gender" means "at that position".
+- "Known" depends on two sentence frames and a 1-nat threshold; a noun can be known in other contexts (Phase 0).
+- Steered readouts score single-token words only, so the adjective sets depend on each tokenizer (P16).
+- Gender associations come from the Glasgow Norms: UK English raters, applied to Spanish and German through translations, and correlated with valence (r = −0.47), which is why valence is a covariate.
+- German Phase 5 never had a valid test (frame or gate failures on every model), so every steering verdict is Spanish-only.
+
+**What was sampled**
+- Two model families for the mechanistic results (Qwen3, Gemma 3), base models only. Gemma ran a reduced set: no Phase 2, no P29–P31, no Russian.
+- Small sets where they matter: 91 German and 165 Spanish training nouns; 27 English person words; 174 Russian nouns, all in the soft-sign (*-ь*) class, so the Russian direction comes from one ending family.
+- The cross-language pairs come from English-gloss matching, about 10% wrong under strict rules.
+- The flipped-pair test (T1) scores each language's training nouns with the other's direction, because no fresh held-out draw was possible.
+
+**Known flaws in the stimuli (logged, lists frozen)**
+- German training list: 12 of 64 masculine nouns are complex words (numerals, compounds), none of the feminine ones. Tested (frequency-axis D), not fixed.
+- Spanish months (*marzo*, *noviembre*) take masculine gender by meaning; one is a training noun. Negligible, and now caught automatically by `lang-audit`.
+- Concreteness norms for German and Russian are English-gloss approximations.
+
+**Hardware and numerics**
+- The laptop sizes (0.6B–4B, fp16) and the cloud sizes (8B, 14B, Gemma; bf16) were run on different hardware, so comparisons across that boundary are between conclusions, not numbers.
+- One robustness check breaks the one-device rule: Gemma-4B Phase 4 at AFTER combines Mac-extracted Spanish activations with pod-extracted German ones.
+- Gemma's hidden states are dominated by one dimension; geometric measures needed a pre-registered fix (§3.8, `docs/design/gemma-outlier-dimension.md`), and raw Gemma probes understate decodability.
+- Split-half cosines carry Monte Carlo noise (SD 0.006–0.011 per layer); no verdict depends on it, but the closest calls are within about 0.02 of their bars.
 - EuroLLM's P30/P31 prompts lacked its start token (`<s>`); a rerun with it is reported (§3.6). EuroLLM numbers also fed the 2026-10-09 choice of German gate frame, which was otherwise made on Qwen3 numbers.

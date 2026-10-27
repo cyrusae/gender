@@ -513,7 +513,7 @@ Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap i
 | G2 SAE (Qwen3-8B, 632 held-out compounds) | no valid test: held-out overlap absent (cos +0.11 to +0.26) |
 
   Under A, C and D, the overlap disappears at ≤ 1 of 3–4 layers, never the majority required for "explained".
-- **Status.** The alignment is robust in the German training sample of Qwen3 8B/14B and absent in the held-out compound sample. Its mechanism is unexplained. A pre-registered held-out test on new simplex German nouns (`rarity-lean-heldout-prereg.md`) is pending. The Gemma replication (R2, §3.8) finds no overlap on either size, so the alignment is Qwen-specific.
+- **Status.** The alignment is robust in the German training sample of Qwen3 8B/14B and absent in the held-out compound sample. Its mechanism is unexplained. The Gemma replication (R2, §3.8) finds no overlap on either size, and the held-out simplex test (§3.9) does not reproduce it in masculine nouns, so the alignment is a property of Qwen3's training sample.
 
 ### 3.8 Replication in Gemma 3 (G1)
 
