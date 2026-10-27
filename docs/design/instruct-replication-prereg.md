@@ -1,4 +1,4 @@
-# The base-model study on instruct-tuned models, stage A (no steering). Pre-registration (DRAFT for PI sign-off, 2026-10-26)
+# The base-model study on instruct-tuned models, stage A (no steering). Pre-registration (ADOPTED, PI 2026-10-26)
 
 Phase 2 queue item 3 (`docs/decisions.md` 2026-10-26). Distinct from the `instruct/` character
 study: same pipeline, frozen lists and verdict rules as the base-model study, run on each base
@@ -33,6 +33,9 @@ with the BOS rule and the outlier-dimension fix as in `gemma-slim-prereg.md`.
    noun's last token; **AFTER = the end-of-turn token** (`<end_of_turn>` for Gemma, `<|im_end|>`
    for Qwen): the point where the assistant has finished saying the word.
    - **A-en (A's primary wording):** user turn *"Say one word."* for every language.
+   - **A-en-something (sensitivity wording, PI 2026-10-26):** *"Say something."* for every
+     language. It differs from A-lang only in language, and from A-en only in wording, so the two
+     contrasts can be told apart.
    - **A-lang (A's sensitivity wording):** a noun-free "say something" in the noun's language, so
      the prompt carries no grammatical gender of its own: Spanish *Dime algo.* "Tell me
      something." (PI-checkable), German *Sag etwas.* "Say something." (claude-unverified),
@@ -71,10 +74,15 @@ raw only unless the PI adds A. Cost ~$3.40–6.90 per model (phase-1 timings).
 ## Cost and order
 
 Pod: L40S secure ($1.09/h), image direct, no volume. Per model ~1 h (download, Phase 0, known
-check, extraction × 3 formats). Order: Gemma 4B-it first as a pilot (if any gate fails
+check, extraction × 3 formats (raw; A in three wordings; U)). Order: Gemma 4B-it first as a pilot (if any gate fails
 unexpectedly, stop and report), then 12B-it, Qwen3-8B, Qwen3-14B. Estimated $5–6 total.
 
 ## Not decided here
 
 - Instruct-model frame checks for German Phase 5 (only relevant to stage B).
 - Whether to add the chat formats to Phase 0 (raw Phase 0 gates the noun lists).
+
+## Decisions (PI 2026-10-26)
+
+Adopted with *"Say something."* added as a third A wording (A-en stays primary: *"Say one
+word."* matches a one-word assistant turn). RunPod credit at adoption: about $12.
