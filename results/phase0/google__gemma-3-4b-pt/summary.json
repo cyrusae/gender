@@ -1,0 +1,232 @@
+{
+  "meta": {
+    "git_commit": "88cc069926475cbb711208c34c86a17ae57346f9",
+    "git_dirty": null,
+    "git_source": "bundle",
+    "model_id": "google/gemma-3-4b-pt",
+    "model_revision": null,
+    "n_params": 3880263168,
+    "n_layers": 34,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "head_dtype": "model",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "machine": "Linux x86_64 x86_64",
+    "gpu": "NVIDIA L40S",
+    "cuda": "13.0",
+    "stimuli": "data/stimuli/phase0_v3.csv",
+    "timestamp": "2026-10-23T13:04:19+00:00"
+  },
+  "results": {
+    "min_margin": 1.0,
+    "de": {
+      "n": 257,
+      "known_bal": 0.923209741912032,
+      "ctx_bal_acc": 1.0,
+      "meta_bal_acc": 0.9847328244274809,
+      "n_m": 126,
+      "n_f": 131,
+      "known_m": 0.9761904761904762,
+      "known_f": 0.8702290076335878,
+      "rate_known": 0.9221789883268483,
+      "rate_wrong": 0.0,
+      "rate_conflict": 0.0,
+      "rate_unsure": 0.07782101167315175,
+      "frames_agree": 0.9688715953307393,
+      "quiz_agrees_with_ctx": 0.9844357976653697,
+      "meta_order_agree": 0.9844357976653697,
+      "mean_meta_mass": 0.9394857611926528,
+      "frac_multitoken": 0.7782101167315175
+    },
+    "es": {
+      "n": 257,
+      "known_bal": 0.9378750765462339,
+      "ctx_bal_acc": 1.0,
+      "meta_bal_acc": 0.9956521739130435,
+      "n_m": 142,
+      "n_f": 115,
+      "known_m": 0.9366197183098591,
+      "known_f": 0.9391304347826087,
+      "rate_known": 0.9377431906614786,
+      "rate_wrong": 0.0,
+      "rate_conflict": 0.0,
+      "rate_unsure": 0.0622568093385214,
+      "frames_agree": 0.9883268482490273,
+      "quiz_agrees_with_ctx": 0.9961089494163424,
+      "meta_order_agree": 0.9766536964980544,
+      "mean_meta_mass": 0.8920701696113851,
+      "frac_multitoken": 0.6848249027237354
+    },
+    "flipped_pairs": {
+      "n": 78,
+      "both_pass": 63
+    },
+    "by_freq_bin": {
+      "de": {
+        "high": {
+          "n": 47,
+          "known_bal": 0.9782608695652174,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9583333333333333
+        },
+        "low": {
+          "n": 123,
+          "known_bal": 0.8893008474576272,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.984375
+        },
+        "mid": {
+          "n": 87,
+          "known_bal": 0.9418604651162791,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        }
+      },
+      "es": {
+        "high": {
+          "n": 52,
+          "known_bal": 0.9814814814814814,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "low": {
+          "n": 122,
+          "known_bal": 0.9114885390776029,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "mid": {
+          "n": 83,
+          "known_bal": 0.9501748251748252,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9871794871794872
+        }
+      }
+    },
+    "by_set": {
+      "de": {
+        "classic": {
+          "n": 19,
+          "known_bal": 0.9,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "control": {
+          "n": 59,
+          "known_bal": 0.8958333333333333,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "flipped": {
+          "n": 59,
+          "known_bal": 0.8556511056511057,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9864864864864865
+        },
+        "single": {
+          "n": 120,
+          "known_bal": 0.975,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.975
+        }
+      },
+      "es": {
+        "classic": {
+          "n": 19,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "control": {
+          "n": 59,
+          "known_bal": 0.8803571428571428,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "flipped": {
+          "n": 59,
+          "known_bal": 0.9275184275184275,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "single": {
+          "n": 120,
+          "known_bal": 0.9583333333333333,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 0.9916666666666667
+        }
+      }
+    },
+    "by_de_suffix": {
+      "de": {
+        "-anz": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ei": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-heit": {
+          "n": 2,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ik": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ion": {
+          "n": 3,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ismus": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-keit": {
+          "n": 3,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-schaft": {
+          "n": 2,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-tät": {
+          "n": 1,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ung": {
+          "n": 22,
+          "known_bal": 0.9545454545454546,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "-ur": {
+          "n": 2,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        }
+      }
+    }
+  }
+}

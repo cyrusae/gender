@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "git_commit": "ecbbeea43d0d9c7d3f4ac9591a555027f8197a61",
+    "git_dirty": null,
+    "git_source": "bundle",
+    "model_id": "google/gemma-3-12b-pt",
+    "model_revision": null,
+    "n_params": 11766034176,
+    "n_layers": 48,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "head_dtype": "model",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "machine": "Linux x86_64 x86_64",
+    "gpu": "NVIDIA L40S",
+    "cuda": "13.0",
+    "timestamp": "2026-10-23T18:16:53+00:00"
+  },
+  "known_by_gender": {
+    "f": 0.842,
+    "m": 0.805,
+    "n": 0.801
+  },
+  "known_by_gender_zipf4": {
+    "f": 0.974,
+    "m": 0.943,
+    "n": 0.974
+  }
+}
