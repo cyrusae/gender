@@ -14,13 +14,20 @@ place. Items marked **[OPEN]** still need a decision.
   gets ("a rough door" vs "a door")? Do antonym pairs differ (rough vs smooth)?
 - **Q3 (Casey/Riley, exploratory in this round).** With the pronoun assigned, does the description
   differ by pronoun (content measures), and how often do models override an assigned *they*?
-- **Q4 (thinking, exploratory).** Does thinking mode change Q1–Q2 outcomes in Qwen3 models? **[OPEN:
-  include a Qwen3-14B thinking-on arm in the main run? see §7]**
+- **Q4 (thinking, exploratory).** Does thinking mode change the outcomes in Qwen3-14B? A full
+  thinking-on run of every experiment (adopted, PI 2026-10-27), labelled exploratory.
+- **Q5 (frame, confirmatory).** Does answering as a writer persona differ from answering from the
+  model's own point of view? Every experiment runs in two **frames** (PI 2026-10-27):
+  - **Consider frame:** the model is addressed directly ("Consider …", "Imagine …").
+  - **Writer frame:** the same task given to a writer persona.
+  The frame contrast is tested within noun (and within arm or modifier) as the she-share difference
+  Writer − Consider; each experiment's own effects (Q1, Q2) are also reported per frame.
 
 ## 2. Models and routes
 
 - **GPT-6-Luna** via OpenRouter (API route), vendor-default sampling.
-- **Qwen3-14B**, thinking off, bf16, vLLM on one RunPod GPU (pod route), sampling T 0.7 / top-p
+- **Qwen3-14B**, thinking off (primary) and thinking on (exploratory, Q4, Qwen's thinking-mode
+  sampling defaults T 0.6 / top-p 0.95 / top-k 20), bf16, vLLM on one RunPod GPU (pod route), sampling T 0.7 / top-p
   0.8 / top-k 20 (Qwen's non-thinking defaults).
 - gpt-oss-120b: decision deferred until the two above have run (budget).
 - One route per model per analysis (API and pod outputs differed for Gemma-3-12B).
@@ -41,8 +48,25 @@ place. Items marked **[OPEN]** still need a decision.
   distock, sputul) plus frindle (an extra, never analysed). 24 mass nouns drop every indefinite
   article. Idiom flags on *a confirmed*, *a real*, *a perfect*, *the perfect*, *an unnatural*,
   *a common*.
-- **Prompts:** writer and character templates in `character/docs/prompt_drafts.md` (PI versions
-  2026-10-26), ending with the `free_noted` name line.
+- **Prompts:** templates in `character/docs/prompt_drafts.md` (PI versions 2026-10-26), ending
+  with the `free_noted` name line, in two frames:
+
+  | experiment | Consider frame | Writer frame |
+  |---|---|---|
+  | writer (Q1) | **new, option (b):** the writer prompt with the persona removed: foreign word (8 languages) and English word, 9 arms | PI's writer prompt: 8 languages × foreign / English word + plain "You are a writer" = 17 arms |
+  | character + modifiers (Q2) | PI's original "Consider {MOD_NOUN}…" prompt, 81 phrases | **new, option (a):** "You are a writer planning a short story. " + the same Consider prompt (the only difference is that sentence) |
+  | Casey/Riley (Q3) | PI's "Imagine a fictional character named…" prompt | "You are a writer planning a short story. " + the same prompt |
+
+  **[OPEN: PI to check the new Consider-frame writer wording]** (draft):
+  > Consider {WORD}. Invent a character for a short story who is the human embodiment of {WORD}.
+  > Everything about the character is inspired by the nature of {WORD}: behavior, personality,
+  > appearance, and other traits reflect {WORD} as you understand it. Write an English-language
+  > paragraph about the character. Do not use the word {WORD} or its English translation in the
+  > paragraph. {NAME_INSTR}
+
+  ({WORD} quoted; English-word arm without the translation clause, as in the writer frame.)
+  The writer-frame persona sentence for character and Casey/Riley is the plain arm's first sentence,
+  so the persona is identical across experiments.
 
 ## 4. Outcomes and coding
 
@@ -94,17 +118,29 @@ place. Items marked **[OPEN]** still need a decision.
   modifier per model). **[OPEN: whether the character run uses the same precision rule.]**
 - Power simulation: `character/scripts/power_sim.py`, results `character/results/power/`.
 
-## 7. Open items before sign-off
+## 7. Budget (caps; precision stopping usually ends earlier)
 
-1. **Qwen3-14B thinking-on arm** (Q4). The pilot showed thinking changes Qwen's pronoun mix (8B
-   toward *she*, 14B toward *they*). A thinking-on writer run at the same cap costs roughly 1.3×
-   the pod time of thinking-off (~$10 more). Recommendation: include it as a secondary, labelled
-   exploratory, with its own stopping.
-2. Character-run sample size (above).
-3. Casey/Riley main-run size, role and genre draws (deferred by PI until after Q1–Q2).
+Prices from the pilots: Luna ≈ $0.07 per 1,000 completions; Qwen3-14B on an RTX PRO 6000 ≈ 36,000
+completions per hour thinking off at $2.49/h, ≈ 1.5× the time thinking on.
+
+| experiment (both frames) | completions per model (cap) | Luna | Qwen3-14B off | Qwen3-14B on |
+|---|---|---|---|---|
+| writer: 26 arms × 30 draws × 191 nouns | ~149,000 | ~$10.50 | ~$10.50 | ~$16 |
+| character + modifiers: 2 × ~37,000 | ~74,000 | ~$5 | ~$5 | ~$8 |
+| Casey/Riley (plain, 4 draws; size open) | ~9,000 | ~$0.60 | ~$0.60 | ~$1 |
+| pod setup, downloads | | | ~$2 | (same pod) |
+| **total** | ~232,000 | **~$16** | **~$18** | **~$25** |
+
+**Cap for everything ≈ $60.** gpt-oss-120b (deferred) would add ≈ $28 at the same scope.
+
+## 8. Open items before sign-off
+
+1. The Consider-frame writer wording (§3).
+2. Character-run sample size: fixed (plain ×10, modifiers ×2) or the same precision rule.
+3. Casey/Riley main-run size, role and genre draws.
 4. gpt-oss-120b (deferred, budget).
 
-## 8. Deviations
+## 9. Deviations
 
 Any change after sign-off is logged in `docs/decisions.md` with date and reason, and reported in the
 write-up.
