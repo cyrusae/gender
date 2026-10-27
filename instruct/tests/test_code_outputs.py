@@ -212,3 +212,10 @@ def test_embed_mask_neutralises_gender_and_names():
         f, m = anchors(kind)
         assert len(f) == len(m) == 50 and not set(f) & set(m)
     assert "beard" not in anchors("properties")[1]
+
+
+def test_keep_they_leaves_plural_they():
+    from content_embed import mask
+
+    t = mask("She kept their secrets and told them all.", "pot", None, mask_they=False)
+    assert "their secrets" in t and "them all" in t and "She" not in t

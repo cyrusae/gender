@@ -80,7 +80,9 @@ def anchors(kind: str = "properties") -> tuple[list[str], list[str]]:
     return [w for w, _ in g[:K]], [w for w, _ in g[-K:]]
 
 
-def mask(answer: str, noun: str, name: str | None, char_is_it: bool = False) -> str:
+def mask(
+    answer: str, noun: str, name: str | None, char_is_it: bool = False, mask_they: bool = True
+) -> str:
     para, nm = split_name(answer or "")
     name = name or nm or ""
     t = re.sub(PERSON, "person", para, flags=re.IGNORECASE)
@@ -96,11 +98,16 @@ def mask(answer: str, noun: str, name: str | None, char_is_it: bool = False) -> 
     # xir/zir/hir are object or possessive, like "her"
     t = re.sub(rf"\b(?:xir|zir|hir)(?=\s+(?!(?:{FUNC})\b)[a-z])", "the person's", t,
                flags=re.IGNORECASE)  # fmt: skip
-    t = re.sub(r"\b(?:he|she|they|xe|xem|xir|ze|zie|zir|hir|ey|thon)\b", "the person", t,
-               flags=re.IGNORECASE)  # fmt: skip
-    t = re.sub(r"\b(?:themselves|themself)\b", "themselves", t, flags=re.IGNORECASE)
-    t = re.sub(r"\b(?:their|theirs)\b", "the person's", t, flags=re.IGNORECASE)
-    t = re.sub(r"\bthem\b", "the person", t, flags=re.IGNORECASE)
+    subj = (
+        "he|she|they|xe|xem|xir|ze|zie|zir|hir|ey|thon"
+        if mask_they
+        else "he|she|xe|xem|xir|ze|zie|zir|hir|ey|thon"
+    )
+    t = re.sub(rf"\b(?:{subj})\b", "the person", t, flags=re.IGNORECASE)
+    if mask_they:  # off only for the they-masking check (he/she paragraphs)
+        t = re.sub(r"\b(?:themselves|themself)\b", "themselves", t, flags=re.IGNORECASE)
+        t = re.sub(r"\b(?:their|theirs)\b", "the person's", t, flags=re.IGNORECASE)
+        t = re.sub(r"\bthem\b", "the person", t, flags=re.IGNORECASE)
     if char_is_it:  # only when the coder classed the character as "it"
         t = re.sub(r"\bitself\b", "themselves", t, flags=re.IGNORECASE)
         t = re.sub(r"\bits\b", "the person's", t, flags=re.IGNORECASE)
@@ -151,18 +158,25 @@ def main() -> None:
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--only", help="comma-separated embedder names")
     ap.add_argument("--anchors", choices=["properties", "people"], default="properties")
+    ap.add_argument("--keep-they", action="store_true",
+                    help="check: score he/she paragraphs with plural they/them/their unmasked")  # fmt: skip
     args = ap.parse_args()
     import pandas as pd
 
     rows = [json.loads(ln) for f in args.files for ln in f.read_text().splitlines()]
     rows = [r for r in rows if r.get("finish_reason") != "error" and r.get("answer")]
-    texts = [mask(r["answer"], r["noun"], r.get("given_name"),
-                  code(split_name(r["answer"])[0])["pron"] == "it") for r in rows]  # fmt: skip
+    prons = [code(split_name(r["answer"])[0])["pron"] for r in rows]
+    if args.keep_they:  # they-masking check: he/she paragraphs only, plural they left intact
+        rows = [r for r, p in zip(rows, prons) if p in ("she", "he")]
+        prons = [p for p in prons if p in ("she", "he")]
+    texts = [mask(r["answer"], r["noun"], r.get("given_name"), p == "it", not args.keep_they)
+             for r, p in zip(rows, prons)]  # fmt: skip
     fem, masc = anchors(args.anchors)
     rng = np.random.default_rng(0)
     df = pd.DataFrame({k: [r.get(k) for r in rows] for k in
                        ("model", "name_condition", "noun", "modifier", "thinking", "sample",
                         "fixed_sample", "given_pron", "lang")})  # fmt: skip
+    df["pron"] = prons
     names = args.only.split(",") if args.only else [*EMBEDDERS, "fasttext"]
     for nm in names:
         if nm == "fasttext":
