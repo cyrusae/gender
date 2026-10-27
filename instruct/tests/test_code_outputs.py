@@ -194,3 +194,16 @@ def test_glasgow_content_score_masks_pronouns():
     a = glasgow_score("She was gentle and soft, with a delicate smile.", "pot", "")
     b = glasgow_score("He was gentle and soft, with a delicate smile.", "pot", "")
     assert a["glasgow_gend_mean"] == b["glasgow_gend_mean"] and a["glasgow_n_rated"] > 0
+
+
+def test_embed_mask_neutralises_gender_and_names():
+    from content_embed import anchors, mask
+
+    a = mask("She held her ground; Mira smiled at the old door.\nName: Mira", "door", None)
+    b = mask("He held his ground; Mira smiled at the old door.\nName: Mira", "door", None)
+    assert a == b and "Mira" not in a and "door" not in a and "Name" not in a
+    c = mask("She gave her a smile and her hands shook.", "pot", None)
+    d = mask("He gave him a smile and his hands shook.", "pot", None)
+    assert c == d
+    f, m = anchors()
+    assert len(f) == len(m) == 50 and not set(f) & set(m)
