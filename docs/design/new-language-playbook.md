@@ -241,6 +241,14 @@ Suggested order:
   Verdict rules for new pairs are left to the pre-registration that adds the language.
 - Phase 4 for N languages (pairwise T1/T2 for every pair; T3 on pairs per language pair).
 
+## Phase 2 queue (PI, 2026-10-26)
+
+Phase 1 base-model data collection is closed. Next, each with its own prereg:
+1. **French**, then **Dutch** (start Dutch when French reaches Stage 7).
+2. **Russian Stage 0 next steps:** masculine person nouns with feminine-type endings (*папа*
+   "dad", *мужчина* "man"); common-gender person nouns (*сирота* "orphan", *коллега* "colleague")
+   as a social-gender yardstick; grammatical animacy as a second category.
+
 ## Russian: where it stands
 
 | Stage | Status |

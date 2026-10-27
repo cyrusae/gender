@@ -302,6 +302,11 @@ second Claude session that read along and flagged problems.*
   "plan the name" sentence broke the format. `free_noted` adopted as primary (provisional).
   Pilot-iteration and serving-precision rules added. Explainer `I0-instruct-pilot0.md`.
 
+## Where things stand (Oct 26): phase 1 closed
+
+- **Done:** every pre-registered base-model test has a verdict (Qwen3 0.6B–14B, EuroLLM-1.7B, Gemma 3 4B/12B). Headlines: grammatical gender is stored per noun, spelling-independent, compound-head-following, unmarked, partly shared across Spanish/German/Russian (Spanish–Russian strongest); bleed into social gender only on Qwen3-8B (not 14B, not Gemma); the German frequency lean is a Qwen3 training-sample property.
+- **Next:** the write-up (`docs/writeups/`). **Phase 2 (later):** French, then Dutch; Russian next steps (masculine *-а* person nouns, common-gender nouns, animacy). Instruct study runs separately (`instruct/`).
+
 ## Where things stand (Oct 17)
 
 - **Done:** Phases 0–4 confirmed on the target sizes; Phase 5 confirmatory for Spanish (8B:
