@@ -12,8 +12,7 @@ place. Items marked **[OPEN]** still need a decision.
   English word?
 - **Q2 (character study, confirmatory).** Do adjectives change the pronoun an English character
   gets ("a rough door" vs "a door")? Do antonym pairs differ (rough vs smooth)?
-- **Q3 (Casey/Riley, exploratory in this round).** With the pronoun assigned, does the description
-  differ by pronoun (content measures), and how often do models override an assigned *they*?
+- **Q3 (Casey/Riley): DEFERRED to its own phase** (PI 2026-10-27; `character/docs/casey_riley_deferred.md`).
 - **Q4 (thinking, exploratory).** Does thinking mode change the outcomes in Qwen3-14B? A full
   thinking-on run of every experiment (adopted, PI 2026-10-27), labelled exploratory.
 - **Q5 (frame, confirmatory).** Does answering as a writer persona differ from answering from the
@@ -114,8 +113,13 @@ place. Items marked **[OPEN]** still need a decision.
 - Precision-based stopping, **cap 30 draws per arm**, first batch 10. Writer target: pooled 95% CI
   half-width ≤ 2.5 points. The stopping rule looks only at CI width, never at the direction or the
   p-value. Common stopping point across models where budget allows.
-- Character arms: plain forms × 10, every modifier × 2 draws per noun (≈ 400 completions per
-  modifier per model). **[OPEN: whether the character run uses the same precision rule.]**
+- **Character arms: precision rule, target ±5 points** (PI 2026-10-27, matching the other SESOIs):
+  each modifier's effect vs plain a/an (mean over nouns of the she-share difference) must reach a
+  95% CI half-width ≤ 5 points. Plain a/an × 10 draws per noun; modifiers start at 2 draws per noun
+  and add draws in steps of 2 until the median modifier half-width ≤ 5 points, cap 6. Same draws in
+  both frames and every model's cell layout. Simulation (`character/scripts/power_character.py`):
+  2 draws suffice when ≥ ~90% of outputs are he/she (Luna); about 4 are needed at ~55% (Qwen3-14B
+  thinking off, which writes *they* often).
 - Power simulation: `character/scripts/power_sim.py`, results `character/results/power/`.
 
 ## 7. Budget (caps; precision stopping usually ends earlier)
@@ -126,18 +130,15 @@ completions per hour thinking off at $2.49/h, ≈ 1.5× the time thinking on.
 | experiment (both frames) | completions per model (cap) | Luna | Qwen3-14B off | Qwen3-14B on |
 |---|---|---|---|---|
 | writer: 26 arms × 30 draws × 191 nouns | ~149,000 | ~$10.50 | ~$10.50 | ~$16 |
-| character + modifiers: 2 × ~37,000 | ~74,000 | ~$5 | ~$5 | ~$8 |
-| Casey/Riley (plain, 4 draws; size open) | ~9,000 | ~$0.60 | ~$0.60 | ~$1 |
+| character + modifiers: 2 frames, 2–6 draws | ~74,000–200,000 | ~$5 | ~$10 (4 draws) | ~$12 |
 | pod setup, downloads | | | ~$2 | (same pod) |
-| **total** | ~232,000 | **~$16** | **~$18** | **~$25** |
+| **total** | | **~$16** | **~$23** | **~$28** |
 
-**Cap for everything ≈ $60.** gpt-oss-120b (deferred) would add ≈ $28 at the same scope.
+**Expected total ≈ $65; hard cap ≈ $75** (all models at 6 modifier draws). gpt-oss-120b (deferred) would add ≈ $28 at the same scope.
 
 ## 8. Open items before sign-off
 
 1. The Consider-frame writer wording (§3).
-2. Character-run sample size: fixed (plain ×10, modifiers ×2) or the same precision rule.
-3. Casey/Riley main-run size, role and genre draws.
 4. gpt-oss-120b (deferred, budget).
 
 ## 9. Deviations
