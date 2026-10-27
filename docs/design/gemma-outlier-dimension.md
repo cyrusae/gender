@@ -36,7 +36,7 @@ unstable at that signal-to-noise level, not that the data are wrong.
 | R2: cos(f−m, Zipf), confidence control (c) | R2's primary test | yes |
 | frequency-axis A/C/D | take (c)'s overlap layers as their reference | yes, through (c) |
 | Phase 4 T2 cosine *values* | descriptive | yes |
-| Phase 4 T2 verdict (layers above the null) | rule-based | no: 0 layers on every model |
+| Phase 4 T2 cross-term layers above the shuffle null (the adopted test, 2026-10-10) | descriptive | raw Gemma 5/33, 4/47; with the fix 31/33, 45/47 (Qwen 23/35, 28/39). The legacy *cosine*-null count is 0 everywhere and is not used |
 | Phase 3 "interpretable cosine" layers | descriptive | the same estimator: 0 on Gemma |
 | Phase 3 compounds and markedness, Phase 4 T1/T3, Phase 5 | AUCs, random-direction comparisons | **no** |
 
@@ -136,7 +136,7 @@ feminine↔rare alignment is a property of Qwen3's representations, not of the G
 lists. Frequency-axis A/C/D not run (no Gemma German overlap, as the amendment specifies).
 
 **Phase 4 T2 with the fix:** mean cosine 4B 0.47, 12B 0.55 (raw: 1.13, 0.61), in Qwen's range
-(0.43, 0.35). The rule-based verdict is unchanged: 0 layers above the cosine null on every model.
+(0.43, 0.35). The cross term exceeds the shuffle null at 31/33 (4B) and 45/47 (12B) layers, against 23/35 and 28/39 on Qwen (the legacy cosine-null count is 0 on every model and is not the adopted test).
 T1/T3 under the fix are identical to the primary run (descriptive check).
 
 **Reproducibility note.** Qwen's cosines differ from the originally reported ones by up to about 0.03

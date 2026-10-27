@@ -96,12 +96,12 @@ German compounds are right-headed: the final constituent determines both the gen
 
 - German and Spanish eligible nouns with Zipf ≥ 2.5 were paired via a shared English gloss, keeping the most frequent noun per gloss on each side. This gave 2,217 pairs, of which 519 have opposite genders.
 - Rule-based exclusions were then applied: animates, sex-associated meanings, English-near forms, and training-set overlap. The PI also excluded 51 pairs for sense mismatches; a spot check had estimated a ~10% gloss-mismatch rate.
-- Adopted list: 389 pairs (239 de-f/es-m, 150 de-m/es-f) in `data/stimuli/phase4_pairs_pool_v1.csv`. The analysed set is the 271 pairs whose German and Spanish nouns are both known by Qwen3-1.7B *and* 4B (`phase4.finalize`; 166 de-f / 105 de-m), frozen for every model (`data/stimuli/phase4_pairs_final_v1.csv`).
+- Adopted list: 389 pairs (239 de-f/es-m, 150 de-m/es-f) in `data/stimuli/phase4_pairs_pool_v1.csv`. The analysed set is the 271 pairs whose German and Spanish nouns are both known by Qwen3-1.7B *and* 4B (`phase4.finalize`; 166 de-f / 105 de-m), frozen as `data/stimuli/phase4_pairs_final_v1.csv`. The list is shared by every model; the analysed N is model-specific where a known-check filter applies (Gemma-4B 250, Gemma-12B 254).
 - The 19 classic literature pairs (*Brücke/puente*, *Mond/luna*, *Sonne/sol*, …) are reported separately.
 
 #### 2.3.5 Russian
 
-Soft-sign (*-ь*) nouns only, the one Russian ending class shared by masculine and feminine. Gender-fixing sub-suffixes inside *-ь* are cell-separated (`ru:spell` cells: *-ость*, other *-сть*, hushing + *ь*, *-знь/-снь*, *-тель*, other). After filtering: 245 nouns (123 m, 122 f) in 10 cells, with all within-cell confound effect sizes |d| < 0.3.
+Soft-sign (*-ь*) nouns only, the one Russian ending class shared by masculine and feminine. Gender-fixing sub-suffixes inside *-ь* are cell-separated (`ru:spell` cells: *-ость*, other *-сть*, hushing + *ь*, *-знь/-снь*, *-тель*, other). Flow: 245 candidates after filtering (123 m, 122 f; 10 cells) → known by Qwen3-4B and in cells with both genders → **174 analysed (100 f, 74 m)**, `data/stimuli/phase4_ru_final_v1.csv`. (The |d| < 0.3 balance figure is the `ru:spell` audit on the eligible lexicon; on the 174 the within-cell gaps are length −0.46, tokens −0.37, concreteness −0.48, handled as covariates.)
 
 #### 2.3.6 Readout vocabularies and norms
 
@@ -223,7 +223,7 @@ Under the bootstrap, duplicated items are constrained to fall in the same half; 
 ### 2.8 Phase 4: cross-language tests (8B, 14B; LAST primary)
 
 - **T1, transfer (co-primary).** The Spanish direction scores German `strat3` m/f nouns, and the German direction scores Spanish `strat` nouns. Scoring uses within-cell AUC on nouns held out from the direction under test. "Transfers" means the lower bound is > 0.5 in a majority of inner layers. T1 requires both directions to transfer.
-- **T2, geometry (descriptive).** Split-half cosine between the Spanish and German directions, against the shuffle null.
+- **T2, geometry (descriptive).** Split-half cosine between the Spanish and German directions as the effect size; inference on the cross term (v̂_ES · v̂_DE) against a within-cell shuffle null, layers counted where it exceeds the null's 97.5th percentile (amendment 2026-10-10: the shuffled *cosine* was ill-conditioned, with null percentiles above 1, so the original cosine-null count is not used).
 - **T3, flipped pairs (co-primary).** A single direction (Spanish, German or pooled) scores *both* nouns of each pair. The statistic is the paired AUC and the share of pairs in which score(de) − score(es) has the sign of gender(de) − gender(es). Bootstrap over pairs. Same-language scoring would replicate Phases 2–3 without testing sharing, so it is reported descriptively only. Run with and without cognates.
 - **T4, Russian (secondary).** Spanish, German and pooled directions score the soft-sign set, with AUC within cells.
 - **Robustness.** All tests were rerun at AFTER, and with the German frequency direction projected out (§2.11.2, B).
@@ -406,13 +406,14 @@ Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap i
 |---|---|---|---|
 | T1 ES→DE | 6/35 layers | 7/39 | fails |
 | T1 DE→ES | 5/35 | 22/39 | 14B only |
-| T2 cosine (split-half) | 0.43 | 0.35 | above shuffle null |
+| T2 cosine (split-half; effect size) | 0.43 | 0.35 | |
+| T2 cross term above shuffle null (layers) | 23/35 | 28/39 | descriptive |
 | T3 flipped pairs, ES / DE direction | 0.93 / 0.83 | 0.91 / 0.89 | passes, all layers |
 | T4 Russian (ES direction) | 0.82 | 0.85 | passes |
 
 - T1 requires transfer in both directions and fails on both models.
-- T3 and T4 pass. The reading is **partial sharing**: a common component sorts flipped pairs by each language's own gender and generalises to Russian, but does not give full Spanish↔German transfer.
-- Every test fails at AFTER.
+- T3 and T4 pass. The reading is **partial sharing**, with uneven evidence: T1 (ending-controlled) fails; T3 does not control German spelling; T4 (Russian *-ь*, spelling-neutral) is the cleanest transfer evidence.
+- At AFTER, T1 and T3 fail on both models. T4-ES remains above chance on 14B (20/39 layers, Holm; 8B 13/35, below the majority).
 - Projecting out the German frequency axis (§2.11.2, B) leaves all T1/T3 verdicts unchanged, and T2 moves by < 0.05. An apparent DE→ES transfer gain under projection was traced to a change in sample composition, and the claim was retracted.
 
 ### 3.4 Steering (Phase 5)
@@ -491,7 +492,7 @@ Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap i
   - in Spanish the real-person yardstick vanishes (+0.052 → −0.000), so EuroLLM's Spanish readout detects nothing;
   - in German the object pull falls to about the size of the neutral pull (ratio 1.29), and real person nouns now show the largest pull (0.074).
 
-  The "EuroLLM: German only" contrast therefore rests on a German object pull that is real but not larger than the neutral one.
+  The "EuroLLM: German only" contrast therefore rests on a German object pull that is real and modestly larger than the neutral one (object 0.073 vs neutral 0.057; ratio 1.29 [1.22, 1.37]), not about twice as large as before the fix (2.32).
 - The design rules out the "a woman" inference as the source of the object pull. It does not establish that the pull is social rather than distributional (article–adjective co-occurrence).
 
 ### 3.7 German gender–frequency alignment
@@ -527,7 +528,7 @@ Gemma 3 4B and 12B pretrained were run in bf16 (L40S; commits 88cc069 and ecbbee
 | Markedness | not supported | not supported | not supported | not supported | replicates |
 | T1 transfer (ES→DE, DE→ES; Holm) | no (6, 5/35) | no (7, 22/39) | no (7, 26/33) | no (11, 27/47) | replicates |
 | T3 pairs follow gender | yes | yes | yes | yes | replicates |
-| T2 cosine above null | 0 | 0 | 0 | 0 | replicates |
+| T2 cross term above null (layers; Gemma with outlier fix) | 23/35 | 28/39 | 31/33 | 45/47 | replicates |
 | Phase 5 ES noun-position R1 | 3/4 (+0.020) | 0/3 | 0/3 (−0.004) | 1/3 (+0.029) | 8B positive not replicated |
 | Phase 5 ES all-position R1 (P14) | 3/4 (+0.065) | 0/3 | 0/3 (+0.035) | 0/3 (+0.100) | 8B positive not replicated |
 | Phase 5 DE | no valid test | no valid test | no valid test (C4 m 0.67) | no valid test (gate: random flip ≤ 0.50) | – |
@@ -574,7 +575,7 @@ The training set is the reviewed *-ь* list: 174 nouns, 100 f / 74 m, cells = la
 |---|---|---|
 | Directions encode grammatical gender, not spelling | Tables 2, 3; compound conflicts | strong |
 | Encoded at the noun's own token | LAST vs AFTER throughout | strong (scope condition) |
-| Partly shared across Spanish and German | T2, T3, T4 pass; T1 fails | moderate |
+| Partly shared across Spanish and German | T3, T4 pass (T4 cleanest); T1 fails; T2 descriptive | moderate |
 | Steering moves social readouts (8B) | R1, R1-EN 3/4 layers | small; Spanish-only; survives confidence control; absent in Qwen3-14B and Gemma 3 4B/12B |
 | No steering effect (14B) | R1 0/3, control works | null for the Spanish direction (P26 caveat) |
 | Unsteered object pull (P30/P31) | Tables 6–7 | descriptive; not shown social; EuroLLM verdicts robust to `<s>`, sizes not |

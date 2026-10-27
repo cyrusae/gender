@@ -56,7 +56,7 @@ stand"), explainers `docs/explainers/00–07`, preregs `docs/design/`. Drafts:
 - **Headlines:** gender direction tracks grammar not spelling, at the noun's own token; German
   compounds follow the head; no markedness (the plug-in estimator would have falsely confirmed it);
   partial cross-language sharing (ES/DE; Russian one-way, Spanish strongest); Spanish steering
-  bleed only on Qwen3-8B (not 14B, not Gemma); German Phase 5 never valid; German f−m direction ↔
+  effect only on Qwen3-8B, "language-specific" by the prereg (not "bleed": German never valid); German Phase 5 never valid; German f−m direction ↔
   rarer words is a Qwen3 training-sample property (absent on Gemma and held-out nouns).
 - **Gemma:** one outlier residual dimension (443 / 2339) needs the pre-registered fix for any
   geometry (`gemma-outlier-dimension.md`); Gemma prompts need exactly one `<bos>`.

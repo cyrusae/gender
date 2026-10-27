@@ -23,10 +23,10 @@ filtered so spelling can't give gender away (Spanish *-a/-o*, German suffixes, c
 - **Markedness:** not supported, once the noise bias is removed.
 - Both gender results hold at the noun's own last token; at a following neutral token they mostly vanish (a pre-registered robustness check).
 
-**Next.**
+**Later results (phase 1 closed 2026-10-26; details in `docs/writeups/`).**
 
-- **Cross-language sharing:** train on Spanish, test on German; flipped pairs (*Brücke*/*puente*): a shared grammatical direction should follow each language's gender.
-- **Steering:** push a noun along the gender direction and measure shifts in English adjectives rated for gender association by humans (Glasgow Norms). The shift is regressed on the gender rating with valence, size and frequency as covariates, because gender and valence correlate (r = −0.47).
-- **Controls:** random directions, a number (singular/plural) direction, a social-gender direction, and model-damage (KL) limits.
-- **Multiple comparisons:** Holm correction across co-primary tests.
-- **Practice:** everything is pre-registered before data; deviations are logged.
+- **Cross-language sharing (Phase 4, 8B/14B):** partial. Each language's direction sorts flipped pairs by its own gender (T3) and the Spanish direction sorts Russian *-ь* nouns (T4); the ending-controlled transfer test (T1) fails.
+- **Steering (Phase 5):** a small Spanish effect on Qwen3-8B (3/4 layers), "language-specific" by the pre-registered rule because German steering never had a valid test; no positive effect on 14B or Gemma 3. Controls: random, number and social-gender directions, KL damage limits, Holm across co-primaries.
+- **Replication (Gemma 3 4B/12B):** the Phase 3–4 results replicate; Phase 2 was not run there.
+- **German frequency lean:** the German direction aligns with rarer words in Qwen3 only (absent in Gemma and in held-out nouns).
+- **Practice:** pre-registered before each analysis; amendments dated in the preregs and logged in `docs/decisions.md`.

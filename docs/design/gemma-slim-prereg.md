@@ -320,3 +320,12 @@ All layers valid on all four models. **R2: Qwen-specific.** German overlap on Qw
 14B (3/4), reproduced under the fix; **no overlap on Gemma-4B (1/4) or 12B (0/4)**. Spanish:
 no overlap except Gemma-12B "mixed" (2/4). A/C/D not run. Phase 4 T2 mean cosine 4B 0.47, 12B
 0.55; T2 verdict unchanged (0 layers on all models). Details: `gemma-outlier-dimension.md` §6.
+
+### Correction (2026-10-27, documentation review)
+
+The G1 table row "Phase 4 T2: cosine above null | 0 layers …" and "T2 verdict unchanged (0 layers on
+all models)" above report the legacy **cosine**-null count, which the 2026-10-10 amendment
+replaced (the shuffled cosine is ill-conditioned). The adopted statistic is the cross term against
+the shuffle null: Qwen3-8B 23/35, 14B 28/39 layers; Gemma raw 5/33, 4/47; Gemma with the outlier
+fix 31/33, 45/47. T2 is descriptive (Phase 4 design), so no verdict changes; the earlier rows are
+left as written for the record.

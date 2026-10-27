@@ -34,7 +34,7 @@ The labels T, R, P and C (and G for the Gemma replication) are just numbering sc
 
 ### 2.2 Ground rules
 
-- **Pre-registration.** Every confirmatory analysis was written down and committed to the repository before its data existed (`docs/design/*-prereg.md`). This covers the hypothesis, the test, and the rule that turns numbers into a verdict. Changes were logged with reasons in `docs/decisions.md`. Analyses decided after seeing data are labelled *exploratory* wherever they appear.
+- **Pre-registration.** Every confirmatory analysis was written down and committed to the repository before it was run (`docs/design/*-prereg.md`); for the original phases that was before the data existed, while some later analyses (frequency-axis, outlier fix, Russian) were pre-registered on activations already on disk but before the analysis itself. Amendments are dated in each prereg. This covers the hypothesis, the test, and the rule that turns numbers into a verdict. Changes were logged with reasons in `docs/decisions.md`. Analyses decided after seeing data are labelled *exploratory* wherever they appear.
 - **Gold labels never come from a model.** Every noun's gender comes from Wiktionary, the crowd-edited dictionary, via machine-readable dumps (kaikki.org). How the word lists were built is described step by step in §2.4.
 - **Drop, don't review.** Nouns are kept or dropped by written, automatic rules. Nobody hand-picks words or rescues a word that a rule rejected, because hand-picking lets the experimenter's expectations into the stimuli. Once a list has produced results it is frozen. If a flaw turns up later, it is logged and its effect is tested rather than silently fixed (an example is in §2.9).
 - **Held-out words stay held out.** Words used to test a direction are fixed before the analysis and never used to build it. The code checks this.
@@ -131,7 +131,7 @@ These are the nouns that pose the original question: the same object has opposit
 
 #### 2.4.5 Russian
 
-Most Russian endings fix gender almost perfectly. The exception is the **soft sign** *-ь*, a letter that is not pronounced itself but softens the consonant before it. Nouns ending in *-ь* can be masculine (*день* "day") or feminine (*дверь* "door"). Our Russian test therefore uses only *-ь* nouns, so the ending cannot give the gender away. After the same kinds of filters as above (and a few Russian-specific ones, such as suffixes that do fix gender within *-ь*), 245 nouns remain (123 m, 122 f) in 10 spelling cells.
+Most Russian endings fix gender almost perfectly. The exception is the **soft sign** *-ь*, a letter that is not pronounced itself but softens the consonant before it. Nouns ending in *-ь* can be masculine (*день* "day") or feminine (*дверь* "door"). Our Russian test therefore uses only *-ь* nouns, so the ending cannot give the gender away. After the same kinds of filters as above (and a few Russian-specific ones, such as suffixes that do fix gender within *-ь*), 245 candidate nouns remain (123 m, 122 f) in 10 spelling cells. The analysed list keeps the nouns Qwen3-4B knows, in cells that still have both genders: **174 nouns (100 f, 74 m)**, `data/stimuli/phase4_ru_final_v1.csv`. Every Russian result uses these 174.
 
 #### 2.4.6 Words read out in the behavioural tests (Phase 5 and later)
 
@@ -374,7 +374,7 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 | Phase 2 | 2 | Is there a Spanish gender direction that is not just spelling? | confirmatory | yes, at the noun's own token | §3.2 |
 | Phase 3 | 3 | Do German compounds follow their head's gender? Is masculine the "default"? | confirmatory | head: yes; default: no | §3.2 |
 | T1 | 4 | Does a Spanish direction read German gender, and vice versa? | confirmatory | fails | §3.3 |
-| T2 | 4 | Do the Spanish and German directions point the same way? | confirmatory | partly (cos 0.43 / 0.35) | §3.3 |
+| T2 | 4 | Do the Spanish and German directions point the same way? | descriptive | partly (cos 0.43 / 0.35; cross term above the shuffle null at 23/35, 28/39 layers) | §3.3 |
 | T3 | 4 | On "bridge" pairs, does each language's direction follow its own grammar? | confirmatory | passes | §3.3 |
 | T4 | 4 | Does the Spanish direction read Russian soft-sign nouns? | confirmatory | passes | §3.3 |
 | R1, R1-EN | 5 | Does pushing a noun toward feminine make feminine-rated English adjectives likelier? | confirmatory (co-primary, Holm) | small at 8B, none at 14B | §3.4 |
@@ -470,15 +470,15 @@ Results:
 |---|---|---|---|
 | T1 transfer, Spanish→German | 6 of 35 layers | 7 of 39 layers | does not transfer |
 | T1 transfer, German→Spanish | 5 of 35 layers | 22 of 39 layers | transfers in 14B only |
-| T2 angle | cos 0.43 | cos 0.35 | above the shuffle null: the directions overlap, but far from identical |
+| T2 angle | cos 0.43; cross term above null 23/35 layers | cos 0.35; 28/39 | the directions overlap, but far from identical |
 | T3 flipped pairs | AUC 0.93 (Spanish direction), 0.83 (German) | AUC 0.91, 0.89 | passes in every layer: one direction follows each language's own grammar |
 | T4 Russian | AUC 0.82 | AUC 0.85 | the Spanish direction sorts Russian gender |
 
 *AUCs and cosines are averages over layers; layer counts are Holm-corrected. Source: `results/phase4/<model>/summary.json` (session-2 worktree).*
 
 - **T1 fails**, because transfer must work both ways and Spanish→German never does.
-- **Reading: partly shared.** There is a common component strong enough to sort the flipped pairs by grammar and to carry over to Russian, but not strong enough to give full transfer between Spanish and German.
-- As in Phases 2–3, these are LAST-position results. At AFTER, every test fails.
+- **Reading: partly shared.** The evidence is uneven. T1, the test that controls German endings, fails. T3 passes, but its pairs don't control German spelling, so the Spanish direction could partly use German endings. T4 (Russian *-ь* nouns, where the ending can't help) is the cleanest sign of transfer. So: some shared component, not a clean common axis.
+- As in Phases 2–3, these are LAST-position results. At AFTER, T1 and T3 fail on both models; one exception is the Spanish direction scoring the Russian nouns (T4-ES) on 14B, which still passes at 20/39 layers (8B: 13/35).
 - Removing the German frequency axis (§3.7, test B) leaves all four verdicts unchanged. An apparent *gain* in German→Spanish transfer after the removal turned out to come from a change in which nouns entered the comparison, not from the removal itself, and that claim was retracted.
 
 ### 3.4 Phase 5: steering grammar into social readouts
@@ -609,7 +609,7 @@ We reran the main Phase 3–5 tests on Gemma 3 4B and 12B (base models), with th
 | German steering | no valid test | no valid test | no valid test | no valid test |
 | German direction aligned with "rarer" (§3.7) | **yes** | **yes** | **no** | **no** |
 
-**What replicates.** Everything about how grammatical gender is *stored*: a direction that tracks gender rather than spelling, German compounds that follow their head, no masculine default, only partial sharing between languages. As in Qwen, it is read off the noun's own token. One token later, the compound effect mostly disappears (4B 6/33 layers, 12B 18/47, against Qwen3-8B's 7/35).
+**What replicates.** Every representation result that was tested on Gemma (Phases 3–4): German compounds that follow their head, no support for a masculine default, only partial sharing between languages. (Phase 2, the Spanish gender-versus-spelling test, was outside the slim replication, so that result has no second-family check.) As in Qwen, it is read off the noun's own token. One token later, the compound effect mostly disappears (4B 6/33 layers, 12B 18/47, against Qwen3-8B's 7/35).
 
 **What doesn't.**
 - **Bleed into social gender.** Neither Gemma size shows any. On 12B, pushing every word moved the readout by +0.10, more than Qwen3-8B's passing +0.065. But random directions pushed the same way moved it about as much, so nothing about the change was specific to gender. The positive control (a social-gender direction) moved the readout strongly on both sizes (+0.29 and +0.34), so the test could see a real effect. Qwen3-8B is now the only one of four models with a bleed result. That makes it look like a property of that model rather than of language models in general.
@@ -653,13 +653,13 @@ Russian has no articles, and gender mostly follows the ending. Only the soft-sig
 | Directions read grammatical gender, not spelling | strong |
 | Gender is read at the noun's own token | strong; must be stated |
 | Partly shared across languages | strong-ish ("partly") |
-| Steering bleeds grammar into social readouts at 8B | small; survives confidence control; not seen in Qwen3-14B or either Gemma size |
-| No bleed at 14B | good null for the Spanish direction; the German direction on Spanish nouns moves R1 (P26, exploratory) |
+| Spanish steering moves social readouts at 8B (**language-specific**, not "bleed": German had no valid test, and the prereg's bleed label needs both languages) | small; survives confidence control; not seen in Qwen3-14B or either Gemma size |
+| No positive effect at 14B | no positive effect by the pre-registered rule for the Spanish direction (the positive control shows the readout is sensitive to a strong push, but no equivalence bound was set, so small effects aren't ruled out); the German direction on Spanish nouns moves R1 (P26, exploratory) |
 | Article pull on thing-nouns (P30/P31) | descriptive; not shown to be social |
 | R3-POOL / P20-POOL | **not evidence** (P29) |
 | German direction aligned with frequency | Qwen3 only: robust in its training sample, absent in held-out compounds and in Gemma 3; mechanism open |
 | Representation results replicate in a second family (Gemma 3) | strong: same verdicts on both Gemma sizes |
-| Bleed is size- or family-specific | Qwen3-8B is the only one of four models showing it |
+| The steering effect is size- or family-specific | Qwen3-8B is the only one of four models with a positive Spanish result |
 
 ---
 

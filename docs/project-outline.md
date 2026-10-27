@@ -304,7 +304,7 @@ second Claude session that read along and flagged problems.*
 
 ## Where things stand (Oct 26): phase 1 closed
 
-- **Done:** every pre-registered base-model test has a verdict (Qwen3 0.6B–14B, EuroLLM-1.7B, Gemma 3 4B/12B). Headlines: grammatical gender is stored per noun, spelling-independent, compound-head-following, unmarked, partly shared across Spanish/German/Russian (Spanish–Russian strongest); bleed into social gender only on Qwen3-8B (not 14B, not Gemma); the German frequency lean is a Qwen3 training-sample property.
+- **Done:** every pre-registered base-model test has a verdict (Qwen3 0.6B–14B, EuroLLM-1.7B, Gemma 3 4B/12B). Headlines: grammatical gender is read at the noun's own token, tracks grammar not spelling (Qwen; Phase 2 not run on Gemma), compounds follow the head, no support for markedness, partly shared across Spanish/German/Russian (Spanish–Russian strongest); a language-specific Spanish steering effect only on Qwen3-8B (no positive effect on 14B or Gemma; German steering never had a valid test); the German frequency lean is a Qwen3 training-sample property.
 - **Next:** the write-up (`docs/writeups/`). **Phase 2 (later):** French, then Dutch; Russian next steps (masculine *-а* person nouns, common-gender nouns, animacy). Instruct study runs separately (`instruct/`).
 
 ## Where things stand (Oct 17)
