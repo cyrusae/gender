@@ -1,0 +1,7 @@
+model,name_condition,thinking,noun,modifier,n,valid,noun_hit,name_ok,name_in_para,truncated,error,no_paragraph,mean_paragraphs,n_valid,she,he,they,neo,mixed,it,none,share_f,name_f,name_m,name_ambiguous,name_notfound,cot_gender,cot_lang,cot_ship_she
+openai/gpt-oss-120b,Casey|he,False,hammer,plain,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+openai/gpt-oss-120b,Casey|she,False,hammer,plain,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+openai/gpt-oss-120b,Casey|they,False,hammer,plain,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+openai/gpt-oss-120b,Riley|he,False,hammer,plain,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+openai/gpt-oss-120b,Riley|she,False,hammer,plain,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+openai/gpt-oss-120b,Riley|they,False,hammer,plain,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
