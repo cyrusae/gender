@@ -132,3 +132,33 @@ quartiles 30%, 26%, 19%, 9%) and token count (1 token 7% … 6+ tokens 32%); equ
 equally (58%, 63% below 1 nat). Margins are larger on average (median 3.97 vs 2.95) and more often
 wrong (13% vs 7%): sharper, not uniformly less sure. Spanish (1,013): 82 lost, 52 gained; loss
 by Zipf quartile 18%, 8%, 7%, 3%. `results/instruct_stageA/flips/`.
+
+## Stage A results: Gemma-4B-it pilot (2026-10-27)
+
+Pod run 2026-10-27 (L40S, bf16, commit 600748e, ~$0.15; archive `/Volumes/Lexar/gbleed/instruct-stageA/`,
+sha256 d6666846…fabf4). Analyses on the Mac (`scripts/instruct_stageA_analysis.py`,
+`results/instruct_stageA/<format>/`), 30 jobs, none failed. Gates: known-check loss es f 0.21 /
+m 0.17, de f 0.22 / m 0.20 (all lists portable; base 4B: ≤ 0.11); 0 boundary merges in every
+format; outlier dimension 443, as base (fix applied to T2 and the frequency cosine).
+
+| verdict (LAST unless noted) | base 4B | raw | A-en | A-something | A-lang | U | same as base? |
+|---|---|---|---|---|---|---|---|
+| compounds follow the head (layers /33) | 33 | 32 | 31 | 23 | 33 | 33 | same (all formats) |
+| markedness | 0 | 0 | 0 | 0 | 0 | 0 | same |
+| T1 transfer ES→DE / DE→ES (Holm) | 7 / 26 | 1 / 25 | 1 / 2 | 2 / 2 | 7 / 17 | 5 / 20 | same (no) |
+| T3 pairs follow gender | yes | yes | yes | yes | yes | yes | same |
+| T4-ES on Russian | 30 | 31 | 31 | 31 | 31 | 31 | same |
+| T2 cross term > null (fixed; descriptive) | 31 | 24 | 3 | 3 | 27 | 18 | — |
+| T2 cosine, median valid layer | 0.47 | 0.50 | −0.17 | 0.00 | 0.56 | 0.43 | — |
+| R2 German frequency overlap (rule) | no | overlap | overlap | no valid test | no | overlap | differs on raw/A-en/U; intervals include 0 (amendment 1) |
+| AFTER: compounds follow head | 6 | 4 | 1 | 1 | 8 | 3 | same ("neither") |
+| AFTER: T1 / T3 | fail / fail | fail / fail | fail / fail | fail / fail | fail / fail | fail / fail | same |
+
+**Reading.** Every Phase 3–4 verdict is the same as the base sibling's in every format. The only
+rule-level difference is R2 (German frequency overlap) on raw, A-en and U, and its bootstrap
+intervals include 0 there (amendment 1), so it is not treated as a finding. **Exploratory:** with
+an English instruction before the noun (A-en, A-something) the descriptive cross-language measures
+collapse (DE→ES transfer 25 → 2 layers; T2 cross term 24 → 3; cosine ≈ 0), while within-language
+gender (T3, T4) is intact; the in-language prompt (A-lang) and the user-turn format (U) look like
+raw and base. Known-check flips: see "Exploratory" above. Next per the prereg: 12B-it and the Qwen3
+instruct siblings (~$1 each), PI's call.
