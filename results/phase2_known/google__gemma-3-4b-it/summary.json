@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "git_commit": "600748e73b0d5e583c47572e1b6393fe1ad0e27d",
+    "git_dirty": null,
+    "git_source": "bundle",
+    "model_id": "google/gemma-3-4b-it",
+    "model_revision": null,
+    "n_params": 3880263168,
+    "n_layers": 34,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "head_dtype": "model",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "machine": "Linux x86_64 x86_64",
+    "gpu": "NVIDIA L40S",
+    "cuda": "13.0",
+    "stimuli": "data/stimuli/phase2_pool_v4.csv",
+    "timestamp": "2026-10-27T12:03:45+00:00"
+  },
+  "results": {
+    "min_margin": 1.0,
+    "es": {
+      "n": 1013,
+      "known_bal": 0.8507108481610668,
+      "ctx_bal_acc": 0.9482951785950815,
+      "meta_bal_acc": 0.9537589959821626,
+      "n_m": 781,
+      "n_f": 232,
+      "known_m": 0.8565941101152369,
+      "known_f": 0.8448275862068966,
+      "rate_known": 0.8538993089832182,
+      "rate_wrong": 0.0315893385982231,
+      "rate_conflict": 0.035538005923000986,
+      "rate_unsure": 0.07897334649555775,
+      "frames_agree": 0.9348469891411648,
+      "quiz_agrees_with_ctx": 0.930898321816387,
+      "meta_order_agree": 0.9664363277393879,
+      "mean_meta_mass": 0.9900934097651735,
+      "frac_multitoken": 0.771964461994077
+    },
+    "flipped_pairs": {
+      "n": 0,
+      "both_pass": 0
+    },
+    "by_set": {
+      "es": {
+        "exception_clipping": {
+          "n": 2,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "exception_ma": {
+          "n": 25,
+          "known_bal": 0.96,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "exception_true": {
+          "n": 7,
+          "known_bal": 1.0,
+          "ctx_bal_acc": 1.0,
+          "meta_bal_acc": 1.0
+        },
+        "homograph": {
+          "n": 76,
+          "known_bal": 0.9210526315789473,
+          "ctx_bal_acc": 0.9736842105263158,
+          "meta_bal_acc": 0.9210526315789473
+        },
+        "regular": {
+          "n": 271,
+          "known_bal": 0.9161218263048927,
+          "ctx_bal_acc": 0.9927536231884058,
+          "meta_bal_acc": 0.9927536231884058
+        },
+        "stratum": {
+          "n": 632,
+          "known_bal": 0.7781145110307296,
+          "ctx_bal_acc": 0.8745722944569362,
+          "meta_bal_acc": 0.9021409717469939
+        }
+      }
+    }
+  }
+}

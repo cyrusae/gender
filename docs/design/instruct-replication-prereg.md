@@ -108,3 +108,27 @@ before any interval was computed. **Verdict rules are unchanged** (the validity 
 Which nouns change known-check status from base to instruct (known ↔ conflict / wrong / unsure),
 and how they differ (Zipf, loan, ending, token count, concreteness, gender, which frame, which
 wrong article). Uses the existing `results/phase{2,3}_known` scores only. Labelled exploratory.
+
+### Amendment 1 results: bootstrap intervals (2026-10-27)
+
+German cos(f−m, Zipf) 95% bootstrap intervals (200 resamples × 50 item-aware splits; undefined
+resamples in brackets). Qwen3-8B base: [−0.65, 0.06], **[−0.88, −0.27], [−0.96, −0.35], [−1.17,
+−0.35]** (0–3). Qwen3-14B base: [−0.52, 0.00], **[−0.60, −0.01], [−0.74, −0.12], [−0.65, −0.17]**
+(0–1). Gemma-4B base: [−0.15, 1.45] … [−0.62, 1.87] (6–23). Gemma-4B-it raw: [0.01, 4.2] …
+[−0.51, 3.4] (26–44); A-en / A-something / U wider still (35–132 undefined); A-lang [−0.61, 1.37]
+at its widest, centred near 0 (2–4). Spanish intervals contain 0 everywhere. No layer is "nearly
+parallel". **Reading (descriptive):** the Qwen3 German alignment is well determined (interval
+excludes 0 at 3/4 layers on both sizes); the Gemma-4B-it positive point estimates are not (the
+verdict rule's "overlap" on raw/A-en/U rests on cosines whose intervals include 0). Note: a
+bootstrap resample keeps ≈63% of distinct nouns, so intervals are somewhat conservative.
+`results/instruct_stageA/*/c_boot.csv`.
+
+### Exploratory: knowledge-check flips, Gemma-4B → 4B-it (2026-10-27)
+
+German (4,605 nouns): 760 known → not known, 301 the reverse. Loss rises with rarity (Zipf
+quartiles 30%, 26%, 19%, 9%) and token count (1 token 7% … 6+ tokens 32%); equal across genders
+(f 21%, m 20%, n 21%). Wrong-article choices among lost nouns: masculine → *die* 276 / *das*
+113; neuter → *die* 124 / *der* 134; feminine → *der* 86 / *das* 27. Both frames fail about
+equally (58%, 63% below 1 nat). Margins are larger on average (median 3.97 vs 2.95) and more often
+wrong (13% vs 7%): sharper, not uniformly less sure. Spanish (1,013): 82 lost, 52 gained; loss
+by Zipf quartile 18%, 8%, 7%, 3%. `results/instruct_stageA/flips/`.

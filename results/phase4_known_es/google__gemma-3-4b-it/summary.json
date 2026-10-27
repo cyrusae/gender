@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "git_commit": "600748e73b0d5e583c47572e1b6393fe1ad0e27d",
+    "git_dirty": null,
+    "git_source": "bundle",
+    "model_id": "google/gemma-3-4b-it",
+    "model_revision": null,
+    "n_params": 3880263168,
+    "n_layers": 34,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "head_dtype": "model",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.18.0",
+    "machine": "Linux x86_64 x86_64",
+    "gpu": "NVIDIA L40S",
+    "cuda": "13.0",
+    "stimuli": "data/stimuli/phase4_pairs_es_v1.csv",
+    "timestamp": "2026-10-27T12:04:57+00:00"
+  },
+  "results": {
+    "min_margin": 1.0,
+    "es": {
+      "n": 389,
+      "known_bal": 0.914044630404463,
+      "ctx_bal_acc": 0.9824825662482566,
+      "meta_bal_acc": 0.9945746164574616,
+      "n_m": 239,
+      "n_f": 150,
+      "known_m": 0.9414225941422594,
+      "known_f": 0.8866666666666667,
+      "rate_known": 0.9203084832904884,
+      "rate_wrong": 0.010282776349614395,
+      "rate_conflict": 0.012853470437017995,
+      "rate_unsure": 0.056555269922879174,
+      "frames_agree": 0.9640102827763496,
+      "quiz_agrees_with_ctx": 0.9794344473007712,
+      "meta_order_agree": 0.9845758354755784,
+      "mean_meta_mass": 0.9937123840423961,
+      "frac_multitoken": 0.7532133676092545
+    },
+    "flipped_pairs": {
+      "n": 0,
+      "both_pass": 0
+    },
+    "by_set": {
+      "es": {
+        "pair": {
+          "n": 389,
+          "known_bal": 0.914044630404463,
+          "ctx_bal_acc": 0.9824825662482566,
+          "meta_bal_acc": 0.9945746164574616
+        }
+      }
+    }
+  }
+}
