@@ -186,3 +186,11 @@ def test_name_only_answer_is_invalid():
 
     g = code_v2("**Name:** Everlyn", "pot", "stop", name_pos="before")
     assert g["no_paragraph"] and not g["valid"]
+
+
+def test_glasgow_content_score_masks_pronouns():
+    from content_glasgow import glasgow_score
+
+    a = glasgow_score("She was gentle and soft, with a delicate smile.", "pot", "")
+    b = glasgow_score("He was gentle and soft, with a delicate smile.", "pot", "")
+    assert a["glasgow_gend_mean"] == b["glasgow_gend_mean"] and a["glasgow_n_rated"] > 0
