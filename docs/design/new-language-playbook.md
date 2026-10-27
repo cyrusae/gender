@@ -248,6 +248,13 @@ Phase 1 base-model data collection is closed. Next, each with its own prereg:
 2. **Russian Stage 0 next steps:** masculine person nouns with feminine-type endings (*папа*
    "dad", *мужчина* "man"); common-gender person nouns (*сирота* "orphan", *коллега* "colleague")
    as a social-gender yardstick; grammatical animacy as a second category.
+3. **The base-model study on instruct-tuned models** (separate from the `instruct/` character
+   study): same pipeline, frozen lists and verdict rules on the instruct siblings (Gemma 3 4B-it /
+   12B-it; Qwen3 to check first, since the released 8B/14B are hybrid thinking models, not
+   instruct fine-tunes of the Base checkpoints). Raw-text prompts primary, chat template as a
+   sensitivity check (PI agreed 2026-10-26); outlier-dimension check on Gemma-it first; needs an
+   explicit exception to "base models only". Cost estimate: about $25 for all four models, about
+   $4 for a 4B-it pilot.
 
 ## Russian: where it stands
 
