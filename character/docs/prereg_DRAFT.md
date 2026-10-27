@@ -1,6 +1,6 @@
 # Character study: pre-registration (ADOPTED by PI 2026-10-27)
 
-Status: **draft for PI review. Nothing in the main run starts until the PI signs this off.** Every
+Status: **ADOPTED by the PI on 2026-10-27.** Changes after this date are deviations (§9). Every
 item below is already logged in `docs/decisions.md` with its reasons; this file collects them in one
 place. Items marked **[OPEN]** still need a decision.
 
