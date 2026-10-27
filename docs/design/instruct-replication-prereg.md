@@ -86,3 +86,25 @@ unexpectedly, stop and report), then 12B-it, Qwen3-8B, Qwen3-14B. Estimated $5�
 
 Adopted with *"Say something."* added as a third A wording (A-en stays primary: *"Say one
 word."* matches a one-word assistant turn). RunPod credit at adoption: about $12.
+
+## Amendment 1 (PI 2026-10-27): bootstrap intervals and clipped reporting for cross-fitted cosines
+
+Written after the 4B-it frequency cosines (c) were seen (German +0.3 to +1.34, some out of range),
+before any interval was computed. **Verdict rules are unchanged** (the validity gate still decides
+"overlap"); this adds descriptive reporting only.
+
+- **Bootstrap interval** for every cross-fitted cosine reported in this study (R2 frequency cosine;
+  Phase 4 T2): 200 resamples of nouns within cell × gender; in each, the cosine from 50 item-aware
+  half splits (copies of a resampled noun stay in one half, `estimators._halves_items`); the
+  2.5th–97.5th percentiles. Seed 27. Applied to the base sibling too, so the comparison is like
+  for like.
+- **Clipped reporting:** a point estimate outside [−1, 1] is reported as "> 1 (estimator limit)"
+  or "< −1 (estimator limit)" together with its interval, not dropped. A layer whose interval lies
+  entirely above 0.8 (or below −0.8) is described as "nearly parallel"; descriptive only.
+- Code: `src/gbleed/cosine_boot.py`; outputs `results/instruct_stageA/<format>/c_boot.csv`.
+
+## Exploratory: knowledge-check flips (PI 2026-10-27)
+
+Which nouns change known-check status from base to instruct (known ↔ conflict / wrong / unsure),
+and how they differ (Zipf, loan, ending, token count, concreteness, gender, which frame, which
+wrong article). Uses the existing `results/phase{2,3}_known` scores only. Labelled exploratory.

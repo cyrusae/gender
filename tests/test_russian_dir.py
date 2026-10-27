@@ -41,3 +41,11 @@ def test_random_subsets_keep_composition():
     subs = rd.random_subsets(ru, [(0, 3), (6, 9)], 5)
     for s in subs:
         assert sorted(zip(cells[s], y[s], strict=True)) == [("a", 0), ("a", 1), ("b", 0), ("b", 1)]
+
+
+def test_cosine_label_clips():
+    from gbleed import cosine_boot as cb
+
+    assert cb.label(1.34) == "> 1 (estimator limit)"
+    assert cb.label(-1.2) == "< -1 (estimator limit)"
+    assert cb.label(0.5) == "+0.50"
