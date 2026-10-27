@@ -88,6 +88,8 @@ def build_writer(cfg: dict, nouns: list[str], trans: dict) -> list[dict]:
             arms += [(f"{lg}:foreign", lg, fw), (f"{lg}:english", lg, noun)]
         for arm, lg, word in arms:
             t = cfg["template_plain"] if lg is None else cfg["template"]
+            if arm.endswith(":english"):  # the word IS English: no "or its English translation"
+                t = cfg.get("template_english", t)
             p = t.replace("{LANGUAGE}", LANG_NAMES.get(lg, "")).replace("{WORD}", f'"{word}"')
             p = p.replace("{NOUN}", noun).replace("{NAME_INSTR}", instr)
             out.append({"noun": noun, "modifier": arm, "mod_noun": word, "lang": lg or "",

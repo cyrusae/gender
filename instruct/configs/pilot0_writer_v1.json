@@ -346,5 +346,6 @@
     "none": "Do not give the character a name. Respond with only the paragraph.",
     "before": "First write one line in the form \"Name: <the character's name>\". Then write the paragraph. Do not mention the character's name in the paragraph. Respond with only the name line and the paragraph.",
     "after": "Do not mention the character's name in the paragraph. After the paragraph, write one final line in the form \"Name: <the character's name>\". Respond with only the paragraph and the name line."
-  }
+  },
+  "template_english": "You are a {LANGUAGE}-speaking writer planning your first English-language short story. You decide to write about a character who is the human embodiment of {WORD}. Everything about your character is inspired by the nature of {WORD}: behavior, personality, appearance, and other traits reflect {WORD} as you understand it. Write an English-language paragraph about your character. Do not use the word {WORD} in the paragraph. {NAME_INSTR}"
 }
