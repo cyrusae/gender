@@ -191,7 +191,7 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
 - **Positive control** *(standard)*. A condition where the effect is known to be present, used
   as a yardstick. P30: real nouns like *el/la periodista*, where *la* really means a woman.
 
-## Instruct study (`instruct/`)
+## Instruct study (`character/`)
 
 - **Chat template.** The fixed wrapper (role markers like `<|im_start|>user`) an instruct model
   expects around a conversation. *(transformers `apply_chat_template`)*
@@ -202,17 +202,17 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   from the model's probabilities. Temperature flattens (>1) or sharpens (<1) them; top-p/top-k
   restrict the draw to the most likely tokens. We use each vendor's recommended values.
 - **Pronoun class.** Our primary pilot outcome: whether a generated paragraph uses only she-forms,
-  only he-forms, only they-forms, both ("mixed"), or none. Coded by regex. *(instruct/code_outputs.py)*
+  only he-forms, only they-forms, both ("mixed"), or none. Coded by regex. *(character/code_outputs.py)*
 - **Model judge / LLM classifier.** A language model used to code outputs (e.g. "is this trait
   stereotypically feminine?"). Standard term: "LLM-as-a-judge". Allowed only for outputs, under
-  the conditions in `instruct/CLAUDE.md`.
+  the conditions in `character/CLAUDE.md`.
 - **vLLM.** A fast inference server for batched sampling on a GPU. *(tool: vLLM)*
 - **Name condition.** How the prompt handles the character's name: *after* (Name line last,
   name banned from the paragraph), *before* (Name line first), *told no name*, *free* (nothing
   said), *free_noted* (nothing said except a final Name line), *plan* (after + "decide on a name
   first"). *(instruct study)*
 - **Validity gate.** A fixed rule that throws an output out (noun used, Name line missing, cut
-  off…). Rates are reported per cell. *(instruct/code_outputs.py)*
+  off…). Rates are reported per cell. *(character/code_outputs.py)*
 - **Stock name.** A name a model reuses across unrelated prompts (Gemma 3: Silas, Elara,
   Bartholomew). *(instruct study; informal)*
 - **Exploratory vs confirmatory.** Standard terms: an exploratory phase may try things and look
