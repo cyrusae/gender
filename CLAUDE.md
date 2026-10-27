@@ -46,24 +46,35 @@ uv run gbleed phase0-compare [--by freq_bin|set|de_suffix|es_exception]
 
 ## Current state (update as it changes)
 
-- Phase 0 done: two sentence frames, margin = log P(noun + rest | article), "known" = both frames ≥ 1 nat. Details: `docs/explainers/00-phase0-behavioural-check.md`.
-- Model family: **Qwen3 base**, 0.6B/1.7B/4B (Mac) → 0.6B/1.7B/4B/8B/14B (RunPod). No 32B base; 30B-A3B is MoE (avoid). Repeat the full 0.6B/1.7B/4B sequence on RunPod.
-- Phase 0 on v3 (de/es known): 0.6B 89/89%, 1.7B 90/92%, 4B 94/94%, EuroLLM-1.7B 97/98%. Shared set across the three Qwen sizes: 204 de / 207 es of 257; 0.6B is the bottleneck (open question: keep it once 8B/14B exist?). Optional later: EuroLLM-1.7B as a cross-family replication of Phases 2–3.
-- Phase 1 (0.6B/1.7B/4B): outcome (b); linear erasure of -a/-o generalises poorly to new words.
-- Phase 2 (1.7B/4B, fixed inputs): primary (adjusted, ending-matched) inconclusive; rank-2-erased regular-noun direction tracks gender on masculine exceptions (all 4B layers) and homographs (most 4B layers); feminine -o exceptions look masculine. Explainer 02. Readout position: LAST stays primary (gender-blind check); at AFTER spelling mostly vanishes and the 4B erased-direction result does not hold (1.7B does). Confirmatory runs: LAST primary, AFTER pre-registered secondary; a gender result is "position-robust" only if it holds at both (adopted, decisions.md). Phase 2 stimuli are v3 (homograph verb frame `siempre {w}`, behaviourally checked on Qwen3 + EuroLLM-1.7B; EuroLLM-1.7B is back on disk).
-- Inputs: `<|endoftext|>` + newline + word (the first token after the separator can be a sink); extraction warns on outlier norms.
-- Phase 2 v4 + Phase 3 (exploratory, 1.7B/4B): Spanish stratified primary reads gender (22/27, 31/35 layers at LAST; not at AFTER); German compounds follow the head (all layers at LAST); markedness not supported (the plain length estimator would have falsely confirmed it). Explainers 02 (v4 section) and 03. Shared estimators: `estimators.py`. Next: RunPod confirmatory 8B/14B.
-- Phases 3–5 plan: `docs/design/phases-3-5-plan.md`. **Adopted designs (2026-10-08):** `docs/design/phase4-design.md` (Q1–Q6), `phase5-design.md` (P1–P15), `suffix-followup-prereg.md` (D1–D4). Markedness hypothesis pre-registered in decisions.md.
-- RunPod confirmatory session done 2026-10-08 (A100, six models, ~$1.77). **Pod-data analysis runs in a separate worktree `../gender-pod` (branch `pod-analysis`)**; job queue + logs in the session scratchpad; results go to `results/runpod/` when done. **Confirmatory Phase 2/3 done (2026-10-09, `results/runpod/`)**: Spanish gender at LAST 8B 28/35, 14B 26/39 (not at AFTER: not position-robust); German compounds follow the head in every layer; markedness 0. 30B-A3B (exploratory) also holds at AFTER. Faster Newton solver merged into main (2026-10-08) for Phases 4–5. Phase 5 steering primitives: `steering.py` (split forward, batched conditions). Next pod round (Phases 4–5 + suffix_ctrl extraction): 8B/14B.
-- **Oct 10:** Phase 1 confirmatory (pod, 6 models) = outcome (b) everywhere; known-only sensitivity holds (8B/14B). Phase 5 code complete on `main` (`phase5.py` sweep/readouts/damage, `phase5_analysis.py`, `p22.py`, `runpod/session2.sh` via `gbleed p5 STEP`); smoke-tested end to end on 4B. Session 2 = L40S (measured ~$14). Lists `phase5_number_v1`, `phase5_adj_translations_v1` signed off by the PI (2026-10-12).
-- **Oct 10 (later):** shuffle-null tests on split-half geometry use the cross term (the null cosine was ill-conditioned): Phase 4 T2 now passes 22/27 (1.7B), 25/35 (4B) at LAST; social × ES overlap 23/27, 29/35. English list v2 (`english_v2.csv`: person2 16f/14m + 1,738 SSA names in final-letter cells; explainer 06). Session-2 script passed a full local end-to-end test on 0.6B (smoke mode); `FROM="<model> <step>"` resumes at a step.
-- **Session 2 done (2026-10-12/13, L40S, $28.67; ~$17 of it idle, see gotchas).** Raw data and analyses in worktree `../gender-s2` (branch `s2-analysis`); summaries committed in `results/runpod2/`. German Phase 5: no valid test (C4 frame failed on 8B and 14B; PI: no C1 switch). Spanish Phase 5 (noun-only, R1/R1-EN): 8B language-specific effect (3/4 layers, ~1/3 of the social push), **14B no effect (0/3)**. Phase 4 replicates (T3 pass, T1 fail; 14B DE→ES passes alone). Explainers 04–06 and decisions.md have the tables. Next: R3-POOL/P20 analysis code.
-- **Oct 17: P29 (R3-POOL agreement-neutrality check) failed on 8B and 14B**: an article flip on nonce nouns alone moves the R3-POOL score as much as steering did, so R3-POOL is uninterpretable on its own (`docs/design/pooling-neutrality-prereg.md`, results `results/p29/`, $0.51). P20-POOL (8B) reinterpreted the same way. **P30** (unsteered): a feminine article on a nonce noun read as a thing still pulls toward feminine-rated invariant adjectives on Qwen3 8B/14B (+0.080/+0.124), not on EuroLLM-1.7B. Gemma 3 is the replication family (full vs slim pass deferred); instruct study is a candidate follow-up. Next: PI review of the overall results, then write-up.
-- **Oct 21/22:** P31 (German P30) adopted and run: object pull on EuroLLM-1.7B, Qwen3 1.7B/4B; none on 8B; 14B invalid. Confidence control (`confidence-ctl-prereg.md`): every steering/article result robust to a baseline-probability covariate; **German gender direction aligns with low word frequency** (8B/14B, cos −0.3 to −0.7; Spanish clean), surviving flexible control, matched pairs and complex-noun removal (`frequency-axis-prereg.md`); Phase 4 verdicts unchanged with the axis projected out (B). Explainer 07. German strat3 has 12 compound/derived masculine nouns (0 feminine).
-- **Oct 23–26 (phase 1 closed, 2026-10-26):** Gemma 3 4B/12B slim replication (`gemma-slim-prereg.md`): representation results replicate; no bleed on either size; German Phase 5 no valid test. Gemma has one outlier residual dimension (443 / 2339): geometry needs the pre-registered fix (`gemma-outlier-dimension.md`). German frequency lean is Qwen-specific (absent on Gemma; rarity held-out: 8B mixed, 14B no valid test). Russian direction (`russian-direction-prereg.md`): one-way alignment (ES strong, DE weaker), no frequency lean; concreteness-matched drop = sample size (follow-up S). Run-to-run cosine noise was set-iteration order (fixed, c4b0fd1). Worktrees except `gender-instruct` removed (results archived on Lexar `archive/worktrees/`). **Base-model data collection closed; write-up next.** Phase 2 queue (own preregs): French → Dutch; Russian next steps (*папа*-type, common-gender nouns, animacy). Instruct study: `instruct/` (merge with `git merge --no-edit instruct`; `docs/decisions.md` uses `merge=union`).
-- **Oct 16: bulky data lives on the external drive** `/Volumes/Lexar/gbleed` (exFAT): every checkout's `activations/`, `gender-s2`'s `results/phase5/` sweep arrays, the Wiktionary dumps (`shared/kaikki`), and the session-2 pod archives (`archive/session2-pod/`). Resolved by `src/gbleed/paths.py` (`GBLEED_STORE`, `GBLEED_ACT_DIR`, `GBLEED_P5_DIR`, `GBLEED_KAIKKI_DIR`; README "Where the bulky data lives"). `gender-pod/activations` and `gender/data/raw/kaikki` are symlinks to the drive (old branches have no `paths.py`).
-- Word-list screening, every filter: `docs/screening/`. Flipped pairs: 389 usable (63 English cognates kept, sensitivity without) (`docs/reports/flipped-pairs-flags.csv`). Russian *-ь* pool (245) on branch `russian` (`../gender-ru`); needs Russian known-check frames.
-- RunPod: `runpod/` scripts. Global volume is GeeseFS object storage: code/venv/model cache on local disk.
+**Phase 1 (base-model study) is closed (2026-10-26); the write-up is next.** Full history:
+`docs/decisions.md` (one row per decision/result), `docs/project-outline.md` ("Where things
+stand"), explainers `docs/explainers/00–07`, preregs `docs/design/`. Drafts:
+`docs/writeups/2026-10-22-methods-results-draft.md` (outsider) and `2026-10-23-methods-paper-style.md`.
+
+- **Models:** Qwen3 Base 0.6B/1.7B/4B (Mac, fp16) and 8B/14B (pod, bf16); EuroLLM-1.7B (Mac);
+  Gemma 3 4B/12B pt (pod, bf16; slim replication, `gemma-slim-prereg.md`). 30B-A3B exploratory only.
+- **Headlines:** gender direction tracks grammar not spelling, at the noun's own token; German
+  compounds follow the head; no markedness (the plug-in estimator would have falsely confirmed it);
+  partial cross-language sharing (ES/DE; Russian one-way, Spanish strongest); Spanish steering
+  bleed only on Qwen3-8B (not 14B, not Gemma); German Phase 5 never valid; German f−m direction ↔
+  rarer words is a Qwen3 training-sample property (absent on Gemma and held-out nouns).
+- **Gemma:** one outlier residual dimension (443 / 2339) needs the pre-registered fix for any
+  geometry (`gemma-outlier-dimension.md`); Gemma prompts need exactly one `<bos>`.
+- **Lists:** frozen versioned files in `data/stimuli/`; known flaws logged, not edited (German
+  complex masculines, Spanish months). New languages: `docs/design/new-language-playbook.md`
+  (`gbleed lang-audit`).
+- **Phase 2 queue (own preregs):** French → Dutch; Russian next steps (*папа*-type, common-gender
+  nouns, animacy); **instruct replication** stage A (`instruct-replication-prereg.md`, adopted
+  2026-10-26: raw + chat formats A/U, no steering yet; code `chat_format.py`, `gbleed chat-extract`).
+- **Instruct character study:** separate, `instruct/` with its own `instruct/CLAUDE.md`; merge
+  with `git merge --no-edit instruct` (`docs/decisions.md` uses `merge=union`).
+- **Data:** bulky files on `/Volumes/Lexar/gbleed` (exFAT) via `src/gbleed/paths.py`
+  (`GBLEED_STORE`, `GBLEED_ACT_DIR`, …). Qwen 8B/14B activations:
+  `GBLEED_ACT_DIR=/Volumes/Lexar/gbleed/gender-s2/activations`; Gemma under
+  `/Volumes/Lexar/gbleed/gemma-pod*/extract/`. Old worktrees' results archived in
+  `archive/worktrees/` there; only `worktrees/gender-instruct` remains.
+- **RunPod:** `runpod/` scripts; HF token file `~/.config/huggingface/gender-token` (pass into the
+  pod process env only, never print it).
 
 ## Gotchas learned
 
