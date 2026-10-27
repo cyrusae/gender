@@ -8,7 +8,7 @@ Summaries are based on a full read of the extracted PDF text. Numbers are quoted
 
 **Citation:** Mickan, Anne; Schiefke, Maren; Stefanowitsch, Anatol (2014). "Key is a llave is a Schlüssel: A failure to replicate an experiment from Boroditsky et al. 2003." *Yearbook of the German Cognitive Linguistics Association (GCLA)* 2: 39-50. DOI 10.1515/gcla-2014-0004.
 
-**File:** `mickanetal2014_kls.pdf` -> `Mickan_2014_Key-Is-A-Llave-Is-A-Schluessel.pdf`
+**File:** `01_Human_Psycholinguistics_and_Replications/[Mickan et al. 2014] Key is a llave is a Schlüssel.pdf` (duplicate `mickanetal2014_kls.pdf` archived)
 
 **Summary.** Boroditsky, Schmidt & Phillips (2003) reported, in a four-paragraph book-chapter description with no quantitative results, that German and Spanish speakers described inanimate objects with adjectives rated more masculine when the noun was grammatically masculine in their language (the "gender-as-sex" hypothesis). The study was never fully published and its stimulus list was unavailable. This paper asks whether the effect replicates.
 
@@ -28,7 +28,7 @@ Experiment 2 is a primed lexical decision task, run in English. Line-drawing pri
 
 **Citation:** Kann, Katharina (2019). "Grammatical Gender, Neo-Whorfianism, and Word Embeddings: A Data-Driven Approach to Linguistic Relativity." arXiv:1910.09729v1 [cs.CL], 22 Oct 2019. The PDF shows no conference or journal venue; the acknowledgments say it is essentially unchanged from a manuscript written in 2018. The paper was developed with Wallach, Wolf-Sonkin and Cotterell, who are thanked in the acknowledgments.
 
-**File:** `1910.09729v1.pdf` -> `Kann_2019_Grammatical-Gender-Neo-Whorfianism-And-Word-Embeddings.pdf`
+**File:** `02_Gender_in_Embeddings_and_LLMs/[Kann 2019] Grammatical Gender, Neo-Whorfianism, and Word Embeddings.pdf` (duplicate `1910.09729v1.pdf` archived)
 
 **Summary.** The paper builds a computational analogue of the Boroditsky et al. (2003) experiment. If grammatical gender of inanimate nouns shapes how speakers describe them, the effect should appear in corpus co-occurrence counts and hence in word embeddings, once the overt agreement morphology is removed.
 
@@ -48,7 +48,7 @@ Experiment 1 is a binary masculine/feminine MLP classifier on noun embeddings, t
 
 **Citation:** Gonen, Hila; Kementchedjhieva, Yova; Goldberg, Yoav (2019). "How does Grammatical Gender Affect Noun Representations in Gender-Marking Languages?" *Proceedings of the 23rd Conference on Computational Natural Language Learning (CoNLL)*, pp. 463-471, Hong Kong, 3-4 November 2019. ACL. Anthology ID K19-1043.
 
-**File:** `K19-1043.pdf` -> `Gonen_2019_How-Does-Grammatical-Gender-Affect-Noun-Representations.pdf`
+**File:** `02_Gender_in_Embeddings_and_LLMs/[Gonen et al. 2019] How Grammatical Gender Affects Noun Representations.pdf`
 
 **Summary.** The paper asks whether grammatical gender of inanimate nouns, transmitted by agreement morphology in their contexts, leaves a trace in distributional word embeddings, and whether it can be removed.
 
@@ -66,7 +66,7 @@ Findings: same-gender pairs are more similar than different-gender pairs, more s
 
 **Citation:** Belrose, Nora; Schneider-Joseph, David; Ravfogel, Shauli; Cotterell, Ryan; Raff, Edward; Biderman, Stella (2023). "LEACE: Perfect linear concept erasure in closed form." *37th Conference on Neural Information Processing Systems (NeurIPS 2023)*. The PDF is arXiv:2306.03819v4 [cs.LG], dated 3 Apr 2025.
 
-**File:** `2306.03819v4.pdf` -> `Belrose_2023_LEACE-Perfect-Linear-Concept-Erasure-In-Closed-Form.pdf`
+**File:** `04_Steering_Probing_and_Interpretability/[Belrose et al. 2023] LEACE - Linear Concept Erasure in Closed Form.pdf`
 
 **Summary.** The paper introduces LEAst-squares Concept Erasure (LEACE). Given representations X and concept labels Z, it computes in closed form an affine edit that makes X linearly guarded with respect to Z: no linear classifier can beat a constant predictor at recovering Z. Among such edits it changes the representation as little as possible, in a broad class of norms. The method de-means and whitens, projects out the subspace carrying the X-Z cross-covariance, then un-whitens. The result is an oblique rather than orthogonal projection. The paper treats the categorical case and notes an extension to continuous Z with a least-squares loss. It also proposes concept scrubbing, which applies LEACE sequentially at every layer of a deep network, fitting layer by layer so that earlier edits are accounted for.
 
@@ -82,7 +82,7 @@ Experiments: (1) Intrinsic and fairness evaluation on BERT [CLS] embeddings of t
 
 **Citation:** Flint, George; Ivanova, Anna A. (2024). "Testing a Distributional Account of Grammatical Gender Effects on Semantic Gender Perception." In L. K. Samuelson, S. L. Frank, M. Toneva, A. Mackey & E. Hazeltine (Eds.), *Proceedings of the 46th Annual Conference of the Cognitive Science Society*, 46, pp. 2847-2853. CC BY 4.0. eScholarship permalink https://escholarship.org/uc/item/44j035tc. No DOI is printed. The eScholarship cover page gives the title as "Testing a Distributional *Semantics* Account..."; the paper's own title page omits "Semantics".
 
-**File:** `qt44j035tc.pdf` -> `Flint_2024_Testing-A-Distributional-Account-Of-Grammatical-Gender-Effects-On-Semantic-Gender-Perception.pdf`
+**File:** `02_Gender_in_Embeddings_and_LLMs/[Flint & Ivanova 2024] Distributional Account of Grammatical Gender Effects.pdf`
 
 **Summary.** The paper proposes that grammatical gender could affect meaning by "warping" the distributional semantic space: adjectives related to *man* would sit closer to grammatically masculine nouns, and adjectives related to *woman* closer to grammatically feminine ones. It tests this within each language (Spanish, German, with English as a gender-free control), not across languages as Boroditsky et al. (2003) did.
 
@@ -110,7 +110,7 @@ Data availability: the paper has no data-availability statement, no OSF/GitHub l
 
 **Citation:** Vankrunkelsven, Hendrik; Yang, Yang; Brysbaert, Marc; De Deyne, Simon; Storms, Gert (2024). "Semantic gender: Norms for 24,000 Dutch words and its role in word meaning." *Behavior Research Methods* 56: 113-125. DOI 10.3758/s13428-022-02032-x. Published online 5 December 2022.
 
-**File:** `s13428-022-02032-x.pdf` -> `Vankrunkelsven_2024_Semantic-Gender-Norms-For-24000-Dutch-Words.pdf`
+**File:** `05_Lexical_Norms_and_Evaluation/[Vankrunkelsven et al. 2024] Semantic Gender Norms for 24000 Dutch Words.pdf`
 
 **Summary.** The paper collects "semantic gender" (gender-ladenness) ratings for a large set of Dutch words and asks how they relate to other lexical dimensions, to Dutch grammatical gender, and to a semantic space built from word associations. Note: this is a **Dutch** paper. It has no Spanish or German data.
 
