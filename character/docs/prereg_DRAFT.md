@@ -1,4 +1,4 @@
-# Instruct study: pre-registration (DRAFT, 2026-10-27)
+# Character study: pre-registration (ADOPTED by PI 2026-10-27)
 
 Status: **draft for PI review. Nothing in the main run starts until the PI signs this off.** Every
 item below is already logged in `docs/decisions.md` with its reasons; this file collects them in one
@@ -28,7 +28,7 @@ place. Items marked **[OPEN]** still need a decision.
 - **Qwen3-14B**, thinking off (primary) and thinking on (exploratory, Q4, Qwen's thinking-mode
   sampling defaults T 0.6 / top-p 0.95 / top-k 20), bf16, vLLM on one RunPod GPU (pod route), sampling T 0.7 / top-p
   0.8 / top-k 20 (Qwen's non-thinking defaults).
-- gpt-oss-120b: decision deferred until the two above have run (budget).
+- gpt-oss-120b: not in this study (PI 2026-10-27, budget); a possible later replication.
 - One route per model per analysis (API and pod outputs differed for Gemma-3-12B).
 - Both main models passed fishing rule v2 (she among he+she 25–75% in both pilot conditions).
 
@@ -56,11 +56,12 @@ place. Items marked **[OPEN]** still need a decision.
   | character + modifiers (Q2) | PI's original "Consider {MOD_NOUN}…" prompt, 81 phrases | **new, option (a):** "You are a writer planning a short story. " + the same Consider prompt (the only difference is that sentence) |
   | Casey/Riley (Q3) | PI's "Imagine a fictional character named…" prompt | "You are a writer planning a short story. " + the same prompt |
 
-  **[OPEN: PI to check the new Consider-frame writer wording]** (draft):
+  Consider-frame writer wording (PI-approved 2026-10-27; "your character" as in the writer frame,
+  so the frames differ only in the persona/opening sentences):
   > Consider {WORD}. Invent a character for a short story who is the human embodiment of {WORD}.
-  > Everything about the character is inspired by the nature of {WORD}: behavior, personality,
+  > Everything about your character is inspired by the nature of {WORD}: behavior, personality,
   > appearance, and other traits reflect {WORD} as you understand it. Write an English-language
-  > paragraph about the character. Do not use the word {WORD} or its English translation in the
+  > paragraph about your character. Do not use the word {WORD} or its English translation in the
   > paragraph. {NAME_INSTR}
 
   ({WORD} quoted; English-word arm without the translation clause, as in the writer frame.)
@@ -134,12 +135,12 @@ completions per hour thinking off at $2.49/h, ≈ 1.5× the time thinking on.
 | pod setup, downloads | | | ~$2 | (same pod) |
 | **total** | | **~$16** | **~$23** | **~$28** |
 
-**Expected total ≈ $65; hard cap ≈ $75** (all models at 6 modifier draws). gpt-oss-120b (deferred) would add ≈ $28 at the same scope.
+**Expected total ≈ $65; hard cap ≈ $75** (all models at 6 modifier draws).
 
-## 8. Open items before sign-off
+## 8. Open items
 
-1. The Consider-frame writer wording (§3).
-4. gpt-oss-120b (deferred, budget).
+None for the first main run. Deferred: Casey/Riley (own phase, `casey_riley_deferred.md`);
+gpt-oss-120b (possible later replication).
 
 ## 9. Deviations
 
