@@ -52,7 +52,7 @@ file overrides it**. Status of these overrides: **DRAFT, awaiting PI sign-off** 
   instruct stimulus list. Builders must assert this.
 - Version stimulus/prompt files (`_vN`); don't edit one that has results.
 - Log decisions in the root `docs/decisions.md` with a `[character]` tag (entries before 2026-10-27 use `[instruct]`); terms in
-  `docs/glossary.md`; explainers as `docs/explainers/I0-…md`.
+  `docs/glossary.md`; explainers as `docs/explainers/C0-…md`.
 
 ## Layout
 

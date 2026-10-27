@@ -1,0 +1,6 @@
+model,name_condition,thinking,noun,modifier,n,valid,noun_hit,name_ok,name_in_para,truncated,error,no_paragraph,mean_paragraphs,n_valid,she,he,they,neo,mixed,it,none,share_f,name_f,name_m,name_ambiguous,name_notfound,cot_gender,cot_lang,cot_ship_she
+openai/gpt-6-luna,free_noted,False,door,consider|english,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+openai/gpt-6-luna,free_noted,False,door,consider|ja:foreign,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,,,
+openai/gpt-6-luna,free_noted,False,door,writer|ja:english,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,,,
+openai/gpt-6-luna,free_noted,False,door,writer|ja:foreign,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0
+openai/gpt-6-luna,free_noted,False,door,writer|plain,1,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,,,

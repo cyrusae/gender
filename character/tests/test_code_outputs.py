@@ -239,3 +239,30 @@ def test_main_stimuli_phrases():
     assert phrase("", "familiar to you", "{article} {noun} familiar to you", "dust") == (
         "dust familiar to you"
     )
+
+
+def test_main_prompt_builders():
+    import json
+    import sys
+    from pathlib import Path
+
+    here = Path(__file__).resolve().parents[1]
+    sys.path.insert(0, str(here))
+    from gen import LANG_NAMES, load_translations
+    from main_prompts import PERSONA, build_character_main, build_writer_main
+
+    w = json.loads((here / "configs/main_writer_v1.json").read_text())
+    tr = load_translations(here / "stimuli/main_translations_v1.csv")
+    it = build_writer_main(w, ["bridge" if "bridge" in tr else next(iter(tr))], tr, LANG_NAMES)
+    assert len(it) == 26 and len({x["modifier"] for x in it}) == 26
+    assert sum(x["frame"] == "consider" for x in it) == 9
+    eng = [x for x in it if x["arm"].endswith("english")]
+    assert all("English translation" not in x["prompt"] for x in eng)
+    assert all(not x["prompt"].startswith("You are") for x in it if x["frame"] == "consider")
+    c = json.loads((here / "configs/main_character_v1.json").read_text())
+    ic = build_character_main(c, ["milk"])
+    cons = {x["arm"]: x["prompt"] for x in ic if x["frame"] == "consider"}
+    wri = {x["arm"]: x["prompt"] for x in ic if x["frame"] == "writer"}
+    assert cons.keys() == wri.keys() and len(cons) == 81
+    assert all(wri[k] == PERSONA + cons[k] for k in cons)
+    assert "Consider great milk:" in cons["a great"]
