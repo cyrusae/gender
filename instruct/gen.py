@@ -46,6 +46,82 @@ def check_reserved(nouns: list[str], cfg_name: str) -> None:
             raise SystemExit(f"noun {r['noun']!r} is reserved by {r['reserved_by']}")
 
 
+LANG_NAMES = {"de": "German", "ru": "Russian", "es": "Spanish", "hi": "Hindi", "ar": "Arabic",
+              "fi": "Finnish", "ja": "Japanese", "tr": "Turkish"}  # fmt: skip
+
+
+def plain_spelling(w: str, lang: str) -> str:
+    """Everyday spelling: Wiktionary headwords mark Russian stress (клавиату́ра) and Arabic short
+    vowels (مِطْرَقَة); ordinary text does not."""
+    import re
+    import unicodedata
+
+    w = unicodedata.normalize("NFC", w)
+    if lang == "ru":
+        w = unicodedata.normalize(
+            "NFC", unicodedata.normalize("NFD", w).replace("\u0301", "").replace("\u0300", "")
+        )
+    elif lang == "ar":
+        w = re.sub("[\u064b-\u065f\u0670]", "", w)
+    return w
+
+
+def load_translations(path: Path) -> dict[str, dict[str, str]]:
+    """{english noun: {lang: foreign word}} from a *_translations_*.csv (blank = arm skipped)."""
+    lines = [ln for ln in path.read_text().splitlines() if not ln.startswith("#")]
+    out = {}
+    for r in csv.DictReader(lines):
+        out[r["en"]] = {lg: plain_spelling(r[f"{lg}_word"], lg) for lg in LANG_NAMES
+                        if r.get(f"{lg}_word")}  # fmt: skip
+    return out
+
+
+def build_writer(cfg: dict, nouns: list[str], trans: dict) -> list[dict]:
+    """Writer arms (2026-10-26): per language, the foreign word and the English word, both in
+    quotes and without an article; plus one plain-English arm with no persona. Arms whose
+    translation failed are skipped. 'modifier' holds the arm id (lang:foreign|english|plain)."""
+    instr = cfg["name_conditions"][cfg["writer_name_condition"]]
+    out = []
+    for noun in nouns:
+        arms = [("plain", None, noun)]
+        for lg, fw in trans.get(noun, {}).items():
+            arms += [(f"{lg}:foreign", lg, fw), (f"{lg}:english", lg, noun)]
+        for arm, lg, word in arms:
+            t = cfg["template_plain"] if lg is None else cfg["template"]
+            if arm.endswith(":english"):  # the word IS English: no "or its English translation"
+                t = cfg.get("template_english", t)
+            p = t.replace("{LANGUAGE}", LANG_NAMES.get(lg, "")).replace("{WORD}", f'"{word}"')
+            p = p.replace("{NOUN}", noun).replace("{NAME_INSTR}", instr)
+            out.append({"noun": noun, "modifier": arm, "mod_noun": word, "lang": lg or "",
+                        "foreign_word": trans.get(noun, {}).get(lg, "") if lg else "",
+                        "prompt": p, "name_condition": cfg["writer_name_condition"]})  # fmt: skip
+    return out
+
+
+def build_casey(cfg: dict, nouns: list[str], n: int, seed: int) -> list[dict]:
+    """Casey/Riley frames: name x pronoun crossed; role and genre drawn at random per sample
+    (seeded by noun/name/pronoun/sample), so each sample is its own prompt."""
+    out = []
+    for noun in nouns:
+        for mk, mt in cfg["modifiers"].items():
+            mod_noun = mt.format(a=article(noun), noun=noun)
+            for name in cfg["names"]:
+                for pk, (subj, poss) in cfg["pronouns"].items():
+                    for j in range(n):
+                        rng = random.Random(f"{seed}|{noun}|{mk}|{name}|{pk}|{j}")
+                        role, genre = rng.choice(cfg["roles"]), rng.choice(cfg["genres"])
+                        p = cfg["template"].replace("{SUBJ}", subj).replace("{POSS}", poss)
+                        p = p.replace("{NAME}", name).replace("{ROLE}", role)
+                        p = p.replace("{GENRE_NOVEL}", f"{genre} novel" if genre else "novel")
+                        p = p.replace("{MOD_NOUN}", mod_noun).replace("{NOUN}", noun)
+                        p = p.replace("{A_GENRE}", "an" if genre and genre[0] in "aeiou" else "a")
+                        out.append({"noun": noun, "modifier": mk, "mod_noun": mod_noun,
+                                    "name_condition": f"{name}|{pk}", "given_name": name,
+                                    "given_pron": pk, "role": role, "genre": genre or "none",
+                                    "prompt": p, "fixed_sample": j})  # fmt: skip
+    return out
+
+
 def build_prompts(cfg: dict, nouns: list[str], mods: list[str] | None) -> list[dict]:
     """noun x modifier (x name_condition when the config has them: the template's {NAME_INSTR}
     is filled per condition)."""
@@ -209,13 +285,15 @@ def run_openrouter(ocfg: dict, prompts: list[str], sp: dict, n: int, seed: int, 
 
 
 def row_key(r: dict) -> tuple:
-    return (r.get("name_condition"), r["noun"], r["modifier"], bool(r["thinking"]), r["sample"])
+    return (r.get("name_condition"), r["noun"], r["modifier"], bool(r["thinking"]), r["sample"],
+            r.get("fixed_sample"))  # fmt: skip
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", type=Path, required=True)
     ap.add_argument("--nouns", type=Path, required=True)
+    ap.add_argument("--translations", type=Path, help="writer configs: pilot translations csv")
     ap.add_argument("--model", required=True)
     ap.add_argument("--family", help="override (qwen3|gemma3); else from config")
     ap.add_argument("--backend", choices=["vllm", "hf", "openrouter"], default="vllm")
@@ -237,10 +315,18 @@ def main() -> None:
     if args.only_nouns:
         nouns = [x for x in nouns if x in args.only_nouns.split(",")]
     check_reserved(nouns, cfg["name"])
-    items = build_prompts(cfg, nouns, args.only_mods.split(",") if args.only_mods else None)
+    kind = cfg.get("kind", "character")
+    if kind == "writer":
+        items = build_writer(cfg, nouns, load_translations(args.translations))
+    elif kind == "casey":
+        items = build_casey(cfg, nouns, args.n or cfg["samples_per_cell"], args.seed)
+    else:
+        items = build_prompts(cfg, nouns, args.only_mods.split(",") if args.only_mods else None)
     if args.only_conds:
         items = [x for x in items if x.get("name_condition") in args.only_conds.split(",")]
     n = args.n or cfg["samples_per_cell"]
+    if kind == "casey":
+        n = 1  # each sample is its own prompt (role/genre drawn per sample)
     if args.backend != "openrouter":
         from transformers import AutoTokenizer
 

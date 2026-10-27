@@ -1,0 +1,351 @@
+{
+  "name": "pilot0_v9_writer",
+  "kind": "writer",
+  "writer_name_condition": "free_noted",
+  "samples_per_cell": 10,
+  "_note": "PI writer prompt 2026-10-26 (pilot, burned nouns). Typo \"langauge\" fixed. Word quoted in every arm (PI option a); ban covers the foreign word and the English noun (regex). Output ending = character prompt free_noted.",
+  "template": "You are a {LANGUAGE}-speaking writer planning your first English-language short story. You decide to write about a character who is the human embodiment of {WORD}. Everything about your character is inspired by the nature of {WORD}: behavior, personality, appearance, and other traits reflect {WORD} as you understand it. Write an English-language paragraph about your character. Do not use the word {WORD} or its English translation in the paragraph. {NAME_INSTR}",
+  "template_plain": "You are a writer planning a short story. You decide to write about a character who is the human embodiment of {WORD}. Everything about your character is inspired by the nature of {WORD}: behavior, personality, appearance, and other traits reflect {WORD} as you understand it. Write a paragraph about your character. Do not use the word {WORD} in the paragraph. {NAME_INSTR}",
+  "sampling": {
+    "_source": "model cards / generation_config.json recommended defaults; not tuned. max_tokens generous: Qwen3 card recommends 32768 for thinking. Llama 3.3: generation_config.json (T 0.6, top-p 0.9, no top-k). Gemma 4: generation_config.json + card (T 1.0, top-p 0.95, top-k 64). GPT-6-Luna: reasoning model, takes no sampling parameters; max_tokens covers hidden reasoning too. Gemma 4 thinking: same sampling, max_tokens 32768 (room for reasoning).",
+    "qwen3_thinking": {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "max_tokens": 32768
+    },
+    "qwen3_nothinking": {
+      "temperature": 0.7,
+      "top_p": 0.8,
+      "top_k": 20,
+      "min_p": 0.0,
+      "max_tokens": 4096
+    },
+    "gemma3": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 64,
+      "min_p": 0.0,
+      "max_tokens": 4096
+    },
+    "llama33": {
+      "temperature": 0.6,
+      "top_p": 0.9,
+      "max_tokens": 4096
+    },
+    "gemma4": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 64,
+      "max_tokens": 4096
+    },
+    "gpt6": {
+      "max_tokens": 16384
+    },
+    "gemma4_thinking": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 64,
+      "max_tokens": 24576,
+      "_note": "2026-10-26: 32768 -> 24576; KV cache on a 96 GB card holds at most 27,600 tokens for Gemma-4-31B bf16 (32768 was our choice, not a vendor value); length-truncated outputs are flagged by finish_reason"
+    },
+    "gptoss": {
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 16384,
+      "_source": "OpenAI gpt-oss model card: temperature 1.0, top_p 1.0; reasoning effort = template default (medium), always on"
+    },
+    "eurollm": {
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "max_tokens": 4096,
+      "_source": "EuroLLM-22B-Instruct-2512 generation_config.json: do_sample only, so transformers defaults (temperature 1.0, top_p 1.0); no vendor recommendation"
+    },
+    "deepseek41": {
+      "max_tokens": 16384
+    },
+    "qwen38": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "max_tokens": 16384
+    },
+    "qwen38flash": {
+      "max_tokens": 16384
+    },
+    "mistral2603": {
+      "max_tokens": 16384
+    },
+    "haiku55": {
+      "max_tokens": 16384
+    },
+    "glm53flash": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "max_tokens": 16384
+    }
+  },
+  "models": {
+    "google/gemma-3-12b-it": {
+      "family": "gemma3",
+      "thinking": [
+        false
+      ],
+      "openrouter": {
+        "id": "google/gemma-3-12b-it",
+        "provider": {
+          "order": [
+            "deepinfra"
+          ],
+          "quantizations": [
+            "bf16"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "tier": "full"
+    },
+    "meta-llama/llama-3.3-70b-instruct": {
+      "family": "llama33",
+      "thinking": [
+        false
+      ],
+      "tier": "full",
+      "openrouter": {
+        "id": "meta-llama/llama-3.3-70b-instruct",
+        "provider": {
+          "order": [
+            "novita"
+          ],
+          "quantizations": [
+            "bf16"
+          ],
+          "allow_fallbacks": false
+        }
+      }
+    },
+    "google/gemma-4-31b-it": {
+      "family": "gemma4",
+      "thinking": [
+        false
+      ],
+      "tier": "full",
+      "openrouter": {
+        "id": "google/gemma-4-31b-it",
+        "reasoning_param": true,
+        "provider": {
+          "order": [
+            "crusoe"
+          ],
+          "quantizations": [
+            "bf16"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "_note": "Pinned to Crusoe bf16: Novita bf16 returned upstream 429s on the check run (2026-10-25)."
+    },
+    "openai/gpt-6-luna": {
+      "family": "gpt6",
+      "thinking": [
+        false
+      ],
+      "tier": "unknown-precision (closed)",
+      "_note": "'thinking' false = no reasoning setting passed (OpenAI default effort); reasoning is hidden, only token counts/summaries come back.",
+      "openrouter": {
+        "id": "openai/gpt-6-luna",
+        "service_tier": "flex",
+        "provider": {
+          "order": [
+            "openai"
+          ],
+          "allow_fallbacks": false
+        }
+      }
+    },
+    "Qwen/Qwen3-8B": {
+      "family": "qwen3",
+      "thinking": [
+        false,
+        true
+      ],
+      "tier": "full (pod, vLLM bf16)"
+    },
+    "google/gemma-4-31B-it": {
+      "family": "gemma4",
+      "thinking": [
+        false,
+        true
+      ],
+      "tier": "full (pod, vLLM bf16)",
+      "_note": "pod run: thinking off on all 4 conditions; thinking on free_noted only (--only-conds)"
+    },
+    "Qwen/Qwen3-14B": {
+      "family": "qwen3",
+      "thinking": [
+        false,
+        true
+      ],
+      "tier": "full (pod, vLLM bf16)"
+    },
+    "openai/gpt-oss-20b": {
+      "family": "gptoss",
+      "thinking": [
+        false
+      ],
+      "tier": "trained precision (MXFP4 MoE weights, pod vLLM)",
+      "_note": "reasoning always on (medium); thinking=False only means no enable_thinking switch"
+    },
+    "utter-project/EuroLLM-22B-Instruct-2512": {
+      "family": "eurollm",
+      "thinking": [
+        false
+      ],
+      "tier": "full (pod, vLLM bf16)",
+      "_note": "cross-family behaviour check (base study used EuroLLM-1.7B base)"
+    },
+    "utter-project/EuroLLM-9B-Instruct": {
+      "family": "eurollm",
+      "thinking": [
+        false
+      ],
+      "tier": "full (pod, vLLM bf16)",
+      "_note": "closest EuroLLM instruct to the base-study sizes; extraction candidate; context window 4096, so max_tokens 2048 (outputs are ~200-400 tokens)",
+      "sampling_override": {
+        "max_tokens": 2048
+      }
+    },
+    "deepseek/deepseek-v4.1-flash": {
+      "family": "deepseek41",
+      "thinking": [
+        false
+      ],
+      "tier": "trained precision (probably fp8)",
+      "openrouter": {
+        "id": "deepseek/deepseek-v4.1-flash",
+        "provider": {
+          "order": [
+            "crusoe"
+          ],
+          "allow_fallbacks": false,
+          "quantizations": [
+            "fp8"
+          ]
+        }
+      }
+    },
+    "qwen/qwen3.8-27b": {
+      "family": "qwen38",
+      "thinking": [
+        false
+      ],
+      "tier": "full",
+      "openrouter": {
+        "id": "qwen/qwen3.8-27b",
+        "provider": {
+          "order": [
+            "deepinfra"
+          ],
+          "allow_fallbacks": false,
+          "quantizations": [
+            "bf16"
+          ]
+        }
+      }
+    },
+    "qwen/qwen3.8-flash": {
+      "family": "qwen38flash",
+      "thinking": [
+        false
+      ],
+      "tier": "unknown (closed-like)",
+      "openrouter": {
+        "id": "qwen/qwen3.8-flash",
+        "provider": {
+          "order": [
+            "alibaba"
+          ],
+          "allow_fallbacks": false
+        }
+      }
+    },
+    "mistralai/mistral-small-2603": {
+      "family": "mistral2603",
+      "thinking": [
+        false
+      ],
+      "tier": "unknown",
+      "openrouter": {
+        "id": "mistralai/mistral-small-2603",
+        "provider": {
+          "order": [
+            "mistral"
+          ],
+          "allow_fallbacks": false
+        }
+      }
+    },
+    "openai/gpt-oss-120b": {
+      "family": "gptoss",
+      "thinking": [
+        false
+      ],
+      "tier": "trained precision",
+      "openrouter": {
+        "id": "openai/gpt-oss-120b",
+        "provider": {
+          "order": [
+            "deepinfra"
+          ],
+          "allow_fallbacks": false,
+          "quantizations": [
+            "bf16"
+          ]
+        }
+      }
+    },
+    "anthropic/claude-haiku-5.5": {
+      "family": "haiku55",
+      "thinking": [
+        false
+      ],
+      "tier": "unknown (closed)",
+      "openrouter": {
+        "id": "anthropic/claude-haiku-5.5",
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      }
+    },
+    "z-ai/glm-5.3-flash": {
+      "family": "glm53flash",
+      "thinking": [
+        false
+      ],
+      "tier": "variety (fp8)",
+      "openrouter": {
+        "id": "z-ai/glm-5.3-flash",
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false,
+          "quantizations": [
+            "fp8"
+          ]
+        }
+      }
+    }
+  },
+  "name_conditions": {
+    "free_noted": "After the paragraph, write one final line in the form \"Name: <the character's name>\". Respond with only the paragraph and the name line.",
+    "none": "Do not give the character a name. Respond with only the paragraph.",
+    "before": "First write one line in the form \"Name: <the character's name>\". Then write the paragraph. Do not mention the character's name in the paragraph. Respond with only the name line and the paragraph.",
+    "after": "Do not mention the character's name in the paragraph. After the paragraph, write one final line in the form \"Name: <the character's name>\". Respond with only the paragraph and the name line."
+  },
+  "template_english": "You are a {LANGUAGE}-speaking writer planning your first English-language short story. You decide to write about a character who is the human embodiment of {WORD}. Everything about your character is inspired by the nature of {WORD}: behavior, personality, appearance, and other traits reflect {WORD} as you understand it. Write an English-language paragraph about your character. Do not use the word {WORD} in the paragraph. {NAME_INSTR}"
+}

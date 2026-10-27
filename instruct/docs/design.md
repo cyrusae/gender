@@ -94,3 +94,8 @@ thinking mode closes its `<think>` block within budget, and how variable outputs
   foreign word on the page) pull pronouns toward the noun's gender in that language? PI's null:
   no effect. Contrast with the bare-foreign-word arm separates "persona" from "word" effects.
 - Writer arms: bare word, no modifiers; article form = de/es secondary.
+
+## Later idea (PI, 2026-10-26)
+
+- Bare-word embedding anchors: embed "The concept of {WORD}" rather than the bare word, to get
+  away from the dictionary sense. A measurement choice: fix it on principle before scoring.

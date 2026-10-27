@@ -26,6 +26,7 @@ import json
 import os
 import re
 import subprocess
+import unicodedata
 from collections import Counter
 from pathlib import Path
 
@@ -227,7 +228,12 @@ def spot_names(text: str) -> list[str]:
 
 
 def code_v2(
-    answer: str, noun: str, finish_reason: str, think: str | None = None, name_pos: str = "after"
+    answer: str,
+    noun: str,
+    finish_reason: str,
+    think: str | None = None,
+    name_pos: str = "after",
+    extra_banned: tuple[str, ...] = (),
 ) -> dict:
     """name_pos: 'after' / 'before' (Name line required there), 'none' (told not to name),
     'free' (no name instruction; names spotted in the text), 'plan' (= after + "decide on a name
@@ -239,7 +245,8 @@ def code_v2(
     spotted = spot_names(para) if name_pos == "free" else []
     if spotted:
         name = spotted[0]
-    hit = re.search(rf"\b({re.escape(noun)}|{re.escape(plural(noun))})\b", para, re.IGNORECASE)
+    banned = [re.escape(noun), re.escape(plural(noun))] + [re.escape(w) for w in extra_banned if w]
+    hit = re.search(rf"(?<!\w)({'|'.join(banned)})(?!\w)", para, re.IGNORECASE)
     gates = {
         "noun_hit": bool(hit),
         "name_ok": name is not None or name_pos in ("none", "free"),
@@ -315,17 +322,35 @@ def main() -> None:
             # reasoning text: thinking runs, or summaries a closed model returns unasked (GPT)
             th = (r.get("think") or None) if (r["thinking"] or r.get("reasoning")) else None
             pos = r.get("name_condition") or ("after" if "Name:" in r["prompt"] else None)
+            if r.get("given_pron"):  # Casey/Riley: name is given in the prompt, no Name line
+                pos = "none"
             if pos:
-                c = code_v2(r["answer"], r["noun"], r["finish_reason"], th, pos)
+                fw = r.get("foreign_word") or ""
+                extra = (fw, unicodedata.normalize("NFD", fw).replace("\u0301", "")) if fw else ()
+                c = code_v2(r["answer"], r["noun"], r["finish_reason"], th, pos, extra)
+                if r.get("given_pron"):  # Casey/Riley: did the model keep the given pronoun?
+                    c["kept_pron"] = c["pron"] == r["given_pron"]
+                    c["kept_name"] = r.get("given_name", "") in (r["answer"] or "")
             else:
                 c = code(r["answer"], th)
             keep = ("model", "name_condition", "noun", "modifier", "thinking", "sample",
-                    "finish_reason", "provider")  # fmt: skip
+                    "finish_reason", "provider", "lang", "foreign_word", "given_name",
+                    "given_pron", "role", "genre", "fixed_sample")  # fmt: skip
             rows.append({k: r.get(k) for k in keep} | c)
     d = pd.DataFrame(rows)
     # resumed runs append: per completion keep the last non-error row (errors only if no retry won)
     kc = [
-        k for k in ("model", "name_condition", "noun", "modifier", "thinking", "sample") if k in d
+        k
+        for k in (
+            "model",
+            "name_condition",
+            "noun",
+            "modifier",
+            "thinking",
+            "sample",
+            "fixed_sample",
+        )
+        if k in d
     ]
     d["_err"] = d["finish_reason"] == "error"
     d = d.iloc[d.reset_index().sort_values(["_err", "index"], ascending=[False, True]).index]
