@@ -1,0 +1,49 @@
+---
+title: "qmd_scratchpad"
+format: html
+editor: visual
+---
+
+
+
+```{r}
+install.packages("pacman")
+library(pacman) # good Lord I can't remember how to use Pacman? help
+install.packages(c("ggplot2", "data.table", "tidyverse"))
+install.packages(c("here", "tinytex"))
+
+pacman::p_load("ggplot2", "data.table", "tidyverse", "here", "tinytex")
+```
+
+For later: "`tlmgr` itself needs to be updated. Please do this via `tlmgr update --self` but then that didn't work.
+
+what if next time we *didn't* load in the whole tidyverse though
+
+```{r}
+#| echo: false
+layers_path <- here::here("eda", "layers_wide.csv")
+layers <- data.table::fread(layers_path)
+
+summary(layers)
+
+layers_facs <- c("model", "lang", "test")
+
+as.data.table(layers)
+layers[, names(.SD) := lapply(.SD, as_factor), .SDcols = layers_facs]
+# should layers also be considered factors?
+
+layers_long <- layers |> pivot_longer(c(auc_last, auc_after), names_to = "position", values_to = "auc")
+
+layers_sum <- layers |> group_by(model, params_b, test) |> summarise(auc = mean(auc_last))
+```
+
+```{r}
+plt_sum <- layers_sum |> aes(x = params_b, y = auc, shape = model, color = test)
+plt <- ggplot2::ggplot(data = layers_sum, mapping = plt_sum) + geom_point()
+plt
+```
+```{r}
+plt_int <- layers_long |> ggplot()
+plt_int_plt <- plt_int + geom_line(aes(depth, auc, colour = model)) + geom_hline(yintercept = .5, linetype = 2) + facet_wrap(~test) + facet_grid(test ~ position) # + geom_ribbon(aes(ymin = lo_last, ymax = hi_last, fill = model), alpha = .15) # this doesn't work
+plt_int_plt
+```
