@@ -25,11 +25,43 @@ from build_main_stimuli import IDIOMS, phrase
 PERSONA = "You are a writer planning a short story. "
 
 
+VOWELS = "aeiouáéíóúü"
+
+
+def es_stressed_a(w: str) -> bool:
+    """Spanish feminine nouns starting with stressed a/ha take "el" (el arma, el agua, el hacha).
+    Stress from the spelling rules: an accent on the first vowel (área), or no written accent, two
+    syllables, and a final vowel, n or s (stress then falls on the first of the two)."""
+    import re
+
+    x = w.lower()
+    if re.match(r"h?á", x):
+        return True
+    if not re.match(r"h?a", x) or re.search("[áéíóú]", x):
+        return False
+    syll = len(re.findall(r"[aeiouü]+", x))  # vowel groups ~ syllables (au, ai count once)
+    return syll == 2 and x[-1] in "aeiouns"
+
+
+def citation_form(word: str, lang: str, gender: str) -> str:
+    """German/Spanish word with its definite article (prereg v1 amendment 1, 2026-10-29)."""
+    if lang == "de":
+        return {"m": "der", "f": "die", "n": "das"}[gender] + " " + word
+    if lang == "es":
+        art = "el" if gender == "m" or es_stressed_a(word) else "la"
+        return f"{art} {word}"
+    raise ValueError(lang)
+
+
 def _q(word: str) -> str:
     return f'"{word}"'
 
 
-def build_writer_main(cfg: dict, nouns: list[str], trans: dict, lang_names: dict) -> list[dict]:
+def build_writer_main(
+    cfg: dict, nouns: list[str], trans: dict, lang_names: dict, genders: dict | None = None
+) -> list[dict]:
+    """genders: {noun: {lang: m/f/n}}; when given, de/es also get citation-form arms
+    ("<lang>:citation", word with its definite article) in both frames."""
     instr = cfg["name_conditions"][cfg["name_condition"]]
     T = cfg["templates"]
     out = []
@@ -40,6 +72,11 @@ def build_writer_main(cfg: dict, nouns: list[str], trans: dict, lang_names: dict
             cells += [("writer", f"{lg}:foreign", lg, fw, T["writer_foreign"]),
                       ("writer", f"{lg}:english", lg, noun, T["writer_english"]),
                       ("consider", f"{lg}:foreign", lg, fw, T["consider_foreign"])]  # fmt: skip
+            g = (genders or {}).get(noun, {}).get(lg, "")
+            if lg in ("de", "es") and g:
+                cf = citation_form(fw, lg, g)
+                cells += [("writer", f"{lg}:citation", lg, cf, T["writer_foreign"]),
+                          ("consider", f"{lg}:citation", lg, cf, T["consider_foreign"])]  # fmt: skip
         cells.append(("consider", "english", None, noun, T["consider_english"]))
         for frame, arm, lg, word, t in cells:
             p = t.replace("{LANGUAGE}", lang_names.get(lg, "")).replace("{WORD}", _q(word))

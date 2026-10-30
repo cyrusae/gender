@@ -266,6 +266,10 @@ def run_openrouter(ocfg: dict, prompts: list[str], sp: dict, n: int, seed: int, 
         body |= {k: sp[k] for k in ("temperature", "top_p", "top_k", "min_p") if k in sp}
         if ocfg.get("reasoning_param"):
             body["reasoning"] = {"enabled": thinking}
+        if ocfg.get(
+            "reasoning_effort"
+        ):  # explicit effort per thinking condition (Luna: medium/none)
+            body["reasoning"] = {"effort": ocfg["reasoning_effort"]["on" if thinking else "off"]}
         if ocfg.get("service_tier"):
             body["service_tier"] = ocfg["service_tier"]
         d = or_call(body, key)
@@ -321,7 +325,14 @@ def main() -> None:
     if kind == "writer_main":
         from main_prompts import build_writer_main
 
-        items = build_writer_main(cfg, nouns, load_translations(args.translations), LANG_NAMES)
+        gpath = args.translations.with_name("main_writer_v1.csv")
+        gend: dict = {}
+        for r in csv.DictReader(gpath.read_text().splitlines()):
+            if r.get("gender"):
+                gend.setdefault(r["en"], {})[r["lang"]] = r["gender"]
+        items = build_writer_main(
+            cfg, nouns, load_translations(args.translations), LANG_NAMES, gend
+        )
     elif kind == "character_main":
         from main_prompts import build_character_main
 

@@ -142,6 +142,22 @@ completions per hour thinking off at $2.49/h, ≈ 1.5× the time thinking on.
 None for the first main run. Deferred: Casey/Riley (own phase, `casey_riley_deferred.md`);
 gpt-oss-120b (possible later replication).
 
+## 8a. Amendment 1 (2026-10-29, before any main-noun output existed)
+
+- **Citation-form arms (research-agent recommendation, PI):** German and Spanish get the word with
+  its definite article, quoted, in both frames ("der Hammer", "el martillo"); German neuter takes
+  *das*; Spanish feminine nouns with initial stressed *a* take *el* (spelling-rule detector; only
+  *el arma* in the pool). **Primary Q1 test uses the citation form for de/es and the bare word for
+  ru/hi/ar** (the form a speaker meets); the bare de/es word is the secondary. The article-vs-bare
+  comparison is reported. Writer prompts: 30 per noun (was 26).
+- **Luna reasoning pinned:** primary = effort `medium` (previously unset; all Luna pilots used the
+  unset default), plus an effort `none` arm (0 reasoning tokens). Luna's reasoning text is hidden.
+- **Thinking (Q4), both families:** Qwen3-14B off/on and Luna none/medium, every experiment. Each
+  of the four model × thinking cells is reported for Q1/Q2 **[open: which cells are confirmatory;
+  see chat 2026-10-29]**. Q4 itself (on − off, per family) stays exploratory pending the PI's
+  literature follow-up.
+- Write-up checklist from the agent's recommendations: `character/docs/writeup_checklist.md`.
+
 ## 9. Deviations
 
 Any change after sign-off is logged in `docs/decisions.md` with date and reason, and reported in the

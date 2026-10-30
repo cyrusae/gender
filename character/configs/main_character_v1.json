@@ -20,10 +20,11 @@
     "openai/gpt-6-luna": {
       "family": "gpt6",
       "thinking": [
+        true,
         false
       ],
       "tier": "unknown-precision (closed)",
-      "_note": "'thinking' false = no reasoning setting passed (OpenAI default effort); reasoning is hidden, only token counts/summaries come back.",
+      "_note": "thinking True = reasoning effort 'medium' (pinned, prereg amendment 1), False = 'none' (0 reasoning tokens, probe 2026-10-29). Reasoning text is hidden; token counts recorded.",
       "openrouter": {
         "id": "openai/gpt-6-luna",
         "service_tier": "flex",
@@ -32,6 +33,10 @@
             "openai"
           ],
           "allow_fallbacks": false
+        },
+        "reasoning_effort": {
+          "on": "medium",
+          "off": "none"
         }
       }
     },
