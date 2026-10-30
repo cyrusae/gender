@@ -99,3 +99,15 @@ thinking mode closes its `<think>` block within budget, and how variable outputs
 
 - Bare-word embedding anchors: embed "The concept of {WORD}" rather than the bare word, to get
   away from the dictionary sense. A measurement choice: fix it on principle before scoring.
+
+## Candidate extra models (PI, 2026-10-30; not adopted, for reference)
+
+- **Qwen3-8B, thinking on/off: replication.** In the pilot, thinking moved 8B toward *she* and 14B
+  toward *they*; a second Qwen size would show whether the thinking effect depends on size. Cost
+  roughly equal to the Qwen3-14B run (~$30–45 on a pod, both thinking conditions). Needs a case
+  for running two Qwen sizes.
+- **Gemma-3-12B-it: slim run as a "lopsided model" case.** It fails the balance rule (pilot:
+  *she* 28% / 21% of he+she; Gemma 4 ~90% *he*), which is the pattern the bias literature expects.
+  A non-pilot run on a subset of prompts (e.g. the writer plain/English-word arms and character
+  plain a/an) would document "some models make almost every character a man" descriptively,
+  without entering the she-vs-he tests. Route: pick one (API or pod) and keep it.
