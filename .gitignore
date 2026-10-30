@@ -91,3 +91,4 @@ worktrees/
 # scratch work (smoke tests, temp outputs)
 scratchpad/
 activations_chat/
+.Rproj.user
