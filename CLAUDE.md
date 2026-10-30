@@ -42,6 +42,19 @@ uv run gbleed phase0-compare [--by freq_bin|set|de_suffix|es_exception]
 
 - Model runs and downloads take minutes: run them in the background, writing to a log.
 - Commit before runs so `git_commit` in result metadata is meaningful (`git_dirty` ignores `results/`).
+### Token hygiene (tool output is the main context cost in this repo)
+
+- Scripts write full results to files and print a short summary: verdict, a few key numbers,
+  the output path, a shape check (≤ ~10 lines). Query the file for specifics afterwards.
+- Filter by default: `| tail -n 20`, `grep -E` for errors/end markers, `pytest -q | tail -1`,
+  `2>/dev/null` for known-noise stderr (HF warnings), `ssh -q` (drops the post-quantum banner).
+- `ls` is aliased to `eza --color=always` (ANSI codes, which have broken paths): use
+  `command ls`, or `find … | wc -l` when a count is enough.
+- Progress bars: `gbleed.models.progress` prints plain one-line status at most once a minute in
+  logs; `GBLEED_QUIET=1` turns it off. Strip `\r` (`tr '\r' '\n' | tail -2`) when reading logs.
+- Small edits with the Edit tool, not inline Python scripts; confirm with `git diff --stat`.
+- Don't re-check status on every monitor event; look closer only on finish or failure.
+
 - Ruff config is strict and `ruff format` rewrites code. Re-read a file before scripted string-replacement edits, and check that the edit actually applied (it has failed silently in this repo before).
 
 ## Current state (update as it changes)
