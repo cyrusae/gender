@@ -3,7 +3,7 @@
 This folder is a separate study: what instruct-tuned (chat) models *say* about things, read as
 characters. It lives on branch `character` (worktree `worktrees/gender-character`) so it doesn't
 collide with base-model work on `main`. The root `CLAUDE.md` applies here **except where this
-file overrides it**. Status of these overrides: **DRAFT, awaiting PI sign-off** (see
+file overrides it**. Status of these overrides: **ADOPTED by the PI (2026-10-29)** (see
 `character/docs/design.md` §Rule changes).
 
 ## Overrides of root rules (inside `character/` only)
