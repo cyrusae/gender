@@ -135,13 +135,20 @@ def stage(msg: str) -> None:
 
 
 def progress(iterable=None, **kw):
-    """tqdm with settings that also work in log files: persistent bars, slower refresh when
-    stderr isn't a terminal (so `tail -f run.log` stays readable)."""
+    """tqdm with settings that also work in log files. When stderr isn't a terminal: a short
+    plain-text status (no bar glyphs) refreshed at most once a minute, so log tails stay small.
+    GBLEED_QUIET=1 turns progress output off entirely."""
+    import os
     import sys
 
     from tqdm import tqdm
 
-    if not sys.stderr.isatty():
-        kw.setdefault("mininterval", 10)
-    kw.setdefault("dynamic_ncols", True)
+    if os.environ.get("GBLEED_QUIET") == "1":
+        kw["disable"] = True
+    elif not sys.stderr.isatty():
+        kw.setdefault("mininterval", 60)
+        kw.setdefault("bar_format", "{desc}: {n_fmt}/{total_fmt} [{elapsed}<{remaining}]")
+        kw.setdefault("ascii", True)
+    else:
+        kw.setdefault("dynamic_ncols", True)
     return tqdm(iterable, **kw)
