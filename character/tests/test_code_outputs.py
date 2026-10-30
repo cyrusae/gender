@@ -266,3 +266,22 @@ def test_main_prompt_builders():
     assert cons.keys() == wri.keys() and len(cons) == 81
     assert all(wri[k] == PERSONA + cons[k] for k in cons)
     assert "Consider great milk:" in cons["a great"]
+
+
+def test_citation_forms():
+    import sys
+    from pathlib import Path
+
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from main_prompts import citation_form, es_stressed_a
+
+    assert citation_form("Hammer", "de", "m") == "der Hammer"
+    assert citation_form("Tür", "de", "f") == "die Tür"
+    assert citation_form("Schiff", "de", "n") == "das Schiff"
+    assert citation_form("martillo", "es", "m") == "el martillo"
+    assert citation_form("puerta", "es", "f") == "la puerta"
+    assert citation_form("arma", "es", "f") == "el arma"
+    assert citation_form("agua", "es", "f") == "el agua"
+    assert citation_form("área", "es", "f") == "el área"
+    for w in ("actividad", "alergia", "autoridad", "anarquía", "amistad", "anchura", "aviación"):
+        assert not es_stressed_a(w), w
