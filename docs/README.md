@@ -9,6 +9,7 @@ collection closed and the write-up began. Code and commands are in the top-level
 |---|---|
 | Get back up to speed after a break | [`project-outline.md`](project-outline.md): everything done so far, in order |
 | See the whole study on one page | [`methods-summary.md`](methods-summary.md) |
+| Pick the project back up after a break | [`handoff.md`](handoff.md) |
 | Look up a term | [`glossary.md`](glossary.md) (*(tool)* marks software terms) |
 | Find out why something was done a certain way | [`decisions.md`](decisions.md): every choice, dated, newest last |
 | Understand one phase's method and numbers | [`explainers/`](#explainers-how-each-method-works) |
@@ -100,6 +101,8 @@ Sheets generated for the PI to review in English, plus the record of what was dr
 | [`2026-10-06-progress-so-far.md`](writeups/2026-10-06-progress-so-far.md) | Early progress post, Phases 0–2 (out of date) |
 | [`2026-10-22-methods-results-draft.md`](writeups/2026-10-22-methods-results-draft.md) | **Main draft**: methods and results for a reader new to the project |
 | [`2026-10-23-methods-paper-style.md`](writeups/2026-10-23-methods-paper-style.md) | Same methods in conventional paper layout (companion, not a replacement) |
+| [`2026-11-07-abstract-intro-discussion-draft.md`](writeups/2026-11-07-abstract-intro-discussion-draft.md) | Claude's first draft of abstract, introduction and discussion (checked citations only) |
+| [`supplement-table.md`](writeups/supplement-table.md) | Every model × test: N, device, result, compiled from the result files |
 
 Related: [`blog/series-outline.md`](blog/series-outline.md), bullet outlines for a blog series
 (numbers as of 2026-10-09).
