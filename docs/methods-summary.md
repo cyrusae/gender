@@ -29,4 +29,7 @@ filtered so spelling can't give gender away (Spanish *-a/-o*, German suffixes, c
 - **Steering (Phase 5):** a small Spanish effect on Qwen3-8B (3/4 layers), "language-specific" by the pre-registered rule because German steering never had a valid test; no positive effect on 14B or Gemma 3. Controls: random, number and social-gender directions, KL damage limits, Holm across co-primaries.
 - **Replication (Gemma 3 4B/12B):** the Phase 3–4 results replicate; Phase 2 was not run there.
 - **German frequency lean:** the German direction aligns with rarer words in Qwen3 only (absent in Gemma and in held-out nouns).
+- **Russian (no articles):** a direction learned from 174 *-ь* nouns lines up one-way with Spanish/German on Qwen3 8B/14B (Spanish–Russian strongest); no frequency lean.
+- **Unsteered article pull (P30/P31):** a feminine article on an invented thing-noun pulls toward feminine-rated adjectives in Spanish on Qwen3 1.7B–14B; in German only on smaller models and EuroLLM. Descriptive; not shown to be social.
+- **Instruct replication (phase 2, pilot):** on Gemma-3-4B-it all Phase 3–4 verdicts match the base model in every chat format.
 - **Practice:** pre-registered before each analysis; amendments dated in the preregs and logged in `docs/decisions.md`.
