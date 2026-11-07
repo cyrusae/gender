@@ -229,6 +229,16 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
 - **Glasgow Norms.** Human ratings of ~5,500 English words on nine scales, including gender
   association (1 = very feminine, 7 = very masculine). Scott et al. 2019.
 
+- **Power.** The chance a study detects an effect that is really there at a given size (here the
+  5-point SESOI). 80% power = a real effect of that size is missed 1 time in 5. Estimated by
+  simulation. *(character/scripts/power_sim*.py)*
+- **Multiple comparisons / Holm correction.** Testing several cells raises the chance of at least one
+  false alarm; Holm tightens each test's threshold (strongest at α/4, next α/3, …) so the overall
+  false-alarm rate stays at 5%. Standard; slightly more generous than Bonferroni.
+- **Gatekeeping (closed testing).** One test of the main question first (here the effect averaged
+  over the four model × thinking cells); only if it passes are individual cells tested (with Holm).
+  Keeps the overall false-alarm rate at 5% and gives the headline the most powerful test.
+
 ## Hardware and precision
 
 - **fp16 / bf16 / fp32.** Number formats. fp32 = full precision (4 bytes/parameter); fp16 and bf16
