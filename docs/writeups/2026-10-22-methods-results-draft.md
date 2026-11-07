@@ -474,7 +474,7 @@ Results:
 | T3 flipped pairs | AUC 0.93 (Spanish direction), 0.83 (German) | AUC 0.91, 0.89 | passes in every layer: one direction follows each language's own grammar |
 | T4 Russian | AUC 0.82 | AUC 0.85 | the Spanish direction sorts Russian gender |
 
-*AUCs and cosines are averages over layers; layer counts are Holm-corrected. Source: `results/phase4/<model>/summary.json` (session-2 worktree).*
+*AUCs and cosines are averages over layers; layer counts are Holm-corrected. Source: `results/phase4/<model>/summary.json`. Every model × test count is in `supplement-table.md`.*
 
 - **T1 fails**, because transfer must work both ways and Spanish→German never does.
 - **Reading: partly shared.** The evidence is uneven. T1, the test that controls German endings, fails. T3 passes, but its pairs don't control German spelling, so the Spanish direction could partly use German endings. T4 (Russian *-ь* nouns, where the ending can't help) is the cleanest sign of transfer. So: some shared component, not a clean common axis.
