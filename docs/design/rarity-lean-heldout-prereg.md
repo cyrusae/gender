@@ -96,6 +96,9 @@ the Gemma pod; about 10 minutes). CPU analysis afterwards. Code: `src/gbleed/rar
 - Feminine dominates H (about 2.5 : 1). The within-gender design doesn't need balance, but the
   masculine estimate is the noisier one.
 - Zipf is from wordfreq. It measures the word's corpus frequency, not the model's exposure.
+- *(Added 2026-11-07.)* 99 of the 100 German Phase 5 steering nouns (`phase5_nouns_v1.csv`,
+  `steer_de`) are also in H. Both are test sets, and no direction is fitted on either, so this
+  isn't leakage, but the two sets aren't independent samples of German nouns.
 
 ## Clarifications before extraction (2026-10-25)
 

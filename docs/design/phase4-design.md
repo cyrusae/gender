@@ -102,9 +102,15 @@ This also decides how Phase 5's English-only readout (R1-EN) can be read: a null
      the with/without difference reported). Sex-associated pairs (6) dropped. Result: **389
      pairs** (239 German-f/Spanish-m, 150 German-m/Spanish-f) before known checks; every drop
      and reason in `docs/reports/flipped-pairs-flags.csv`.
-  3. Known by every model compared (shared set), both nouns.
+  3. Known by every model compared (shared set), both nouns. *As implemented*
+     (`phase4.finalize`, `KNOWN_MODELS`): known to Qwen3-1.7B and 4B, the models with Phase 4
+     known checks when the list was frozen; 8B/14B were not re-filtered. Result: 271 pairs.
+     Gemma later dropped its own unknown pairs (250 / 254). *(Clarified 2026-11-07.)*
   4. Only 4 flipped pairs are cognates, so the planned cognate vs non-cognate comparison is
-     dropped as underpowered.
+     dropped as underpowered. *(Note 2026-11-07: no file reproduces the count of 4; it was
+     written before the English-overlap screen in item 3 above, which found 63
+     English-cognate pairs in the 389-pair pool, 43 in the final 271. Those are kept, with
+     the pre-registered sensitivity analysis without them.)*
 - **Held-out German nouns for T1:** a fresh draw from `phase3_pool_v4` simplex nouns not in any
   training or test set, known by the models, in cells with both m and f.
 - **Held-out Spanish nouns for T1:** Phase 2 regular *test* nouns plus fresh `stratum` nouns.

@@ -416,7 +416,7 @@ This is the index to everything above. §2.1 gives the overall plan; this table 
 | Qwen3-30B-A3B | 0.98 | 0.97 |
 | EuroLLM-1.7B | 0.97 | 0.98 |
 
-*Source: `results/phase0/comparison.csv`. 0.6B–4B and EuroLLM were run on the Mac (fp16); 8B, 14B and 30B on the pod (bf16, `worktrees/gender-pod`). Where the small models were run both ways, the two differ by at most 0.01.*
+*Source: 0.6B–4B and EuroLLM, `results/phase0/comparison.csv` (Mac, fp16); 8B, 14B and 30B, pod (bf16); for 8B and 14B the table shows session 1. They were run twice on the pod (session 1, A100, Oct 8, `results/runpod/phase0/`; session 2, L40S, Oct 12); the two differ by at most 0.008 (8B German 0.973 vs 0.965). Where the small models were run both ways, the two differ by at most 0.01.*
 
 - Confidently **wrong** answers were rare (at most 1.2% of nouns). Almost all the rest were near-ties ("unsure"), not errors. So when a model doesn't pass a noun, it is usually unsure rather than mistaken.
 - Knowledge rises with Qwen3's size up to 8B and then levels off. EuroLLM, a small model built specifically for European languages, knows the most.
