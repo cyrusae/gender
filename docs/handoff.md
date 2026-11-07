@@ -1,4 +1,4 @@
-# Handoff: picking the project back up (written 2026-10-29)
+# Handoff: picking the project back up (written 2026-10-29, updated 2026-11-07)
 
 For a fresh Claude session (after `/clear` or a restart) or for the PI. Read this, then
 `CLAUDE.md`, then the newest rows of `docs/decisions.md`. Verify anything here against the files:
@@ -21,28 +21,25 @@ this is a snapshot, and the repo is the record.
    30 jobs per model via `scripts/queue.sh`). The 4B-it pilot is done and recorded in the prereg.
 2. Stage B (steering) for instruct models: decided later by the prereg's rule; not started.
 
-## 3. Documentation updates to prioritise (in this order)
+## 3. Documentation updates
 
-1. **`CLAUDE.md` "Current state" is partly stale.** It still says the character study lives in
-   `instruct/`, merged with `git merge --no-edit instruct`; the branch was renamed `character`
-   (PI m06125) and the hard-rules line already says `character/`. Check the actual directory and
-   branch name, then fix. Also add one line: instruct stage A pilot done (4B-it: all Phase 3–4
-   verdicts as base; English-instruction formats collapse cross-language measures, exploratory).
-2. **`docs/project-outline.md` "Where things stand"**: confirm it covers, in order, Gemma 12B
-   AFTER check, rarity held-out, Russian direction (+ size follow-up S), the cosine
-   nondeterminism fix (`sorted(set(...))`, c4b0fd1), the internal-review reconciliation (e87906b),
-   and the instruct stage A pilot. Add what's missing.
-3. **Explainers** (`docs/explainers/00–07`): the late work has no explainer yet, as far as I know.
-   Likely needed: one for the Gemma replication + outlier dimension (source:
-   `docs/design/gemma-outlier-dimension.md`), one for the rarity held-out and Russian tests, one
-   for the instruct replication (chat formats raw / A-en / A-something / A-lang / U; known-check
-   flips on rare words). Check the folder before writing.
-4. **`docs/glossary.md`**: check for outlier dimension / variance share, validity gate, estimator
-   limit ("> 1" clipped labels), partial Spearman, chat formats A/U, end-of-turn position.
-5. **Write-up** (`docs/writeups/2026-10-22-methods-results-draft.md` outsider,
-   `2026-10-23-methods-paper-style.md`): still missing abstract, introduction, discussion,
-   citation verification, and a supplement table (model × phase × N × device × result). Instruct
-   results are not in either draft and belong to phase 2, not this write-up, unless the PI says otherwise.
+**Done 2026-11-07** (PI away; commits 2689b02 … 455730b): CLAUDE.md state (character branch and
+worktree, stage A pilot); project outline §18–21 plus a Nov 7 status; glossary (outlier
+dimension, estimator limit, partial Spearman, known-check, matched pairs, AoA, SAE, size control,
+chat formats, boundary merge); explainers 08 (Gemma + outlier dimension), 09 (rarity held-out +
+Russian), 10 (instruct stage A); READMEs and docs index; `writeups/supplement-table.md` (compiled
+from result files; Gemma fixed T2 counts 31/33, 45/47 verified); a first draft of abstract,
+introduction and discussion (`writeups/2026-11-07-abstract-intro-discussion-draft.md`);
+methods-summary lines.
+
+**Still open:**
+1. PI review of the abstract/intro/discussion draft (framing is the PI's call).
+2. Citations still unverified: Elpers Exp 2 n, Samuel 2019 primary figures; no references yet for
+   cross-fitting estimators, LEACE limits, anisotropy, outlier dimensions (find and verify before
+   citing).
+3. The paper-style draft (`2026-10-23-methods-paper-style.md`) has no abstract/intro/discussion of
+   its own; decide whether it gets the same ones or is merged.
+4. Instruct results stay out of the phase-1 write-up unless the PI says otherwise.
 
 ## 4. Where things live
 
@@ -51,7 +48,7 @@ this is a snapshot, and the repo is the record.
 - Bulky data on `/Volumes/Lexar/gbleed` (must be mounted). Qwen 8B/14B activations:
   `GBLEED_ACT_DIR=/Volumes/Lexar/gbleed/gender-s2/activations`. Gemma: `gemma-pod*/extract/`.
   Instruct stage A: `instruct-stageA/`. Rarity: `rarity-pod/`. Old worktrees: `archive/worktrees/`.
-- Only remaining worktree: `worktrees/gender-instruct` (character study session's).
+- Only remaining worktree: `worktrees/gender-character` (character study session's, branch `character`).
 - HF token: `~/.config/huggingface/gender-token`, passed into the pod process env only.
 - EDA exports: `eda/` (CC0-safe, no words) and `results/word_level/` (words + Glasgow, not CC0).
 
