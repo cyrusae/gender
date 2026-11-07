@@ -153,10 +153,28 @@ gpt-oss-120b (possible later replication).
 - **Luna reasoning pinned:** primary = effort `medium` (previously unset; all Luna pilots used the
   unset default), plus an effort `none` arm (0 reasoning tokens). Luna's reasoning text is hidden.
 - **Thinking (Q4), both families:** Qwen3-14B off/on and Luna none/medium, every experiment. Each
-  of the four model × thinking cells is reported for Q1/Q2 **[open: which cells are confirmatory;
-  see chat 2026-10-29]**. Q4 itself (on − off, per family) stays exploratory pending the PI's
+  of the four model × thinking cells is confirmatory under the gatekeeping structure in
+  amendment 2.
   literature follow-up.
 - Write-up checklist from the agent's recommendations: `character/docs/writeup_checklist.md`.
+
+## 8b. Amendment 2 (2026-11-07, before any main-noun output existed): confirmatory structure
+
+Four model × thinking cells: Luna `none`, Luna `medium`, Qwen3-14B off, Qwen3-14B on.
+**Gatekeeping (closed testing)**, for the Q1 pooled test and, the same way, for each Q2 modifier
+contrast and the Q5 frame contrast:
+1. **Headline test:** the effect averaged over the four cells (per noun × language: mean of the four
+   cells' shifts; same noun-clustered model), two-sided α = .05, effect in the predicted direction.
+2. **Only if the headline passes:** each cell is tested on its own, Holm-corrected over the four
+   (α = .05 overall). If it fails, no cell is called significant.
+3. **Every cell is reported as an estimate with a 95% CI regardless** of 1–2. Differences between
+   cells are judged only by their own estimates (e.g. thinking on − off, exploratory), never by which
+   cells passed.
+The equivalence rule (§5) applies to the headline estimate and to each cell estimate.
+Simulation (`character/scripts/power_sim_structures.py`, `character/results/power/power_structures.csv`,
+500 reps per setting, 30 draws, true 5-point effect): headline power 99% at noun spread τ = 0.15 and
+93–99% at τ = 0.20; per-cell power identical to Holm-only (Luna medium 87%, Qwen off 81% at
+τ = 0.15); false alarms ≤ 3% with no effect.
 
 ## 9. Deviations
 
