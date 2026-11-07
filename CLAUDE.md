@@ -79,13 +79,17 @@ stand"), explainers `docs/explainers/00–07`, preregs `docs/design/`. Drafts:
 - **Phase 2 queue (own preregs):** French → Dutch; Russian next steps (*папа*-type, common-gender
   nouns, animacy); **instruct replication** stage A (`instruct-replication-prereg.md`, adopted
   2026-10-26: raw + chat formats A/U, no steering yet; code `chat_format.py`, `gbleed chat-extract`).
-- **Instruct character study:** separate, `instruct/` with its own `instruct/CLAUDE.md`; merge
-  with `git merge --no-edit instruct` (`docs/decisions.md` uses `merge=union`).
+  Stage A pilot done on Gemma-3-4B-it (all Phase 3–4 verdicts as base; English-instruction
+  formats collapse cross-language measures, exploratory); 12B-it and Qwen3-8B/14B await the PI.
+- **Character study:** separate, `character/` with its own `character/CLAUDE.md`, branch
+  `character` (worktree `worktrees/gender-character`); merge with `git merge --no-edit character`
+  (`docs/decisions.md` uses `merge=union`).
+- **Restart briefing and doc priorities:** `docs/handoff.md`.
 - **Data:** bulky files on `/Volumes/Lexar/gbleed` (exFAT) via `src/gbleed/paths.py`
   (`GBLEED_STORE`, `GBLEED_ACT_DIR`, …). Qwen 8B/14B activations:
   `GBLEED_ACT_DIR=/Volumes/Lexar/gbleed/gender-s2/activations`; Gemma under
   `/Volumes/Lexar/gbleed/gemma-pod*/extract/`. Old worktrees' results archived in
-  `archive/worktrees/` there; only `worktrees/gender-instruct` remains.
+  `archive/worktrees/` there; only `worktrees/gender-character` remains.
 - **RunPod:** `runpod/` scripts; HF token file `~/.config/huggingface/gender-token` (pass into the
   pod process env only, never print it).
 

@@ -315,10 +315,80 @@ second Claude session that read along and flagged problems.*
   Power simulation → precision stopping, cap 30 draws, ±2.5-point target. Main run: GPT-6-Luna +
   Qwen3-14B. Explainer `C1-character-design-and-measures.md`; draft pre-registration
   `character/docs/prereg_DRAFT.md` (awaiting PI sign-off).
+
+## 18. German objects, confidence, and a frequency lean (Oct 17–22)
+
+- **P31 (German version of P30):** the object pull replicates on EuroLLM-1.7B and Qwen3 1.7B/4B,
+  not on Qwen3-8B; 14B had no valid test. Which models show it depends on the language.
+- **Confidence control** (after Buttigieg et al.): no steering or article result is an artefact
+  of the model simply flattening its predictions.
+- **German frequency lean:** in Qwen3 8B/14B the German feminine−masculine direction points
+  toward rarer words (cos −0.3 to −0.7; Spanish clean). It survives a flexible frequency
+  control, frequency-matched pairs, dropping 12 complex masculine nouns found on the way, and an
+  age-of-acquisition ("register") control. Phase 4 verdicts don't depend on it (test B). An
+  apparent transfer gain after removing it was a sample-composition effect, retracted.
+- **SAE look (G2, Qwen3-8B):** no valid test. The held-out compound nouns didn't show the lean
+  in the first place (cos +0.11 to +0.26), so there was nothing for the SAE features to remove.
+- Explainer 07; preregs `confidence-ctl-`, `frequency-axis-`, `register-axis-prereg.md`.
+
+## 19. A second model family: Gemma 3 (Oct 22–25)
+
+- **Slim replication** (`gemma-slim-prereg.md`): Gemma 3 4B and 12B base, frozen Qwen-built lists
+  filtered only to nouns Gemma knows (≤ 12% lost per gender). Pods: two hung on a storage volume
+  before one came up (gotcha in CLAUDE.md); runs cost ~$3 (4B) and ~$7 (12B).
+- **Replicates:** compounds follow the head, no markedness, partial (not full) Spanish↔German
+  sharing, effects live at the noun's own token.
+- **Doesn't:** no Spanish steering effect on either size (Qwen3-8B is now the only one of four);
+  **no German frequency lean**, so the lean is a Qwen3 property, not a property of the lists.
+  German steering again had no valid test.
+- **Measurement surprise:** one hidden dimension carries 59–92% of Gemma's variation across nouns
+  and produced impossible cosines (e.g. −3.97). Diagnosed without looking at results, then a
+  pre-registered fix (drop dimensions with > 10% of variance: one in Gemma, none in Qwen) plus a
+  validity gate. `gemma-outlier-dimension.md`.
+- Side work: CC0-safe EDA export (`eda/`), word-level steering tables (`results/word_level/`),
+  a Spanish-months stimulus flaw logged (lists not edited), `lang-audit` semantic-class check.
+
+## 20. Held-out rarity, Russian, and closing phase 1 (Oct 25–27)
+
+- **Rarity held-out** (`rarity-lean-heldout-prereg.md`, 888 fresh simple German nouns, pod
+  ~$0.15): 8B "mixed", 14B "no valid test". The lean doesn't generalise beyond the training
+  nouns.
+- **Russian direction** (`russian-direction-prereg.md`, 174 reviewed -ь nouns): sharing with
+  Spanish/German is one-way on both Qwen3 sizes; no frequency overlap (German-only). A
+  concreteness-matched subset looked weaker, but random subsets of the same size show that's
+  just its smaller size.
+- **A reproducibility bug:** cosines varied by up to 0.03 between identical runs, because
+  permutation strata were built from an unordered Python set. Fixed with `sorted(...)`
+  (c4b0fd1); all verdicts held.
+- **Gemma-12B one-token-later check** (pod, ~$0.10): as 4B and Qwen.
+- **Internal review reconciled** (e87906b): wording tightened (Qwen3-8B steering is
+  "language-specific", not "bleed"; 14B "no positive effect by the rule"), T2 reported by the
+  adopted null, scope of the Gemma replication stated.
+- **Phase 1 closed Oct 26; analysis cutoff Oct 27.**
+
+## 21. Instruct replication, stage A pilot (Oct 26–27)
+
+- **Question:** do the base-model representation results hold in the chat-tuned siblings, and
+  does the chat format matter? Prereg `instruct-replication-prereg.md` (adopted Oct 26).
+- **Gemma-3-4B-it pilot** (pod ~$0.15, five input formats: raw; an English instruction "Say one
+  word." / "Say something."; an in-language instruction; the noun as the user's turn): every
+  Phase 3–4 verdict is the same as the base model's in every format.
+- **Exploratory:** after an English instruction the cross-language measures collapse (German→
+  Spanish transfer 25 → 2 layers), while within-language gender stays intact. Instruct tuning
+  also loses more rare and many-token words on the known-check (21% vs ≤ 11%).
+- Waiting on the PI: stage A on Gemma-12B-it and Qwen3-8B/14B (~$1 each).
+
+## Where things stand (Nov 7)
+
+- **Phase 1 is closed; experiments paused** (PI usage budget). No pods running.
+- **Next:** write-up (abstract, introduction, discussion, citation checks, supplement table);
+  instruct stage A on the other three siblings (PI's call); phase 2 languages (French → Dutch;
+  Russian next steps). Restart briefing: `docs/handoff.md`.
+
 ## Where things stand (Oct 26): phase 1 closed
 
 - **Done:** every pre-registered base-model test has a verdict (Qwen3 0.6B–14B, EuroLLM-1.7B, Gemma 3 4B/12B). Headlines: grammatical gender is read at the noun's own token, tracks grammar not spelling (Qwen; Phase 2 not run on Gemma), compounds follow the head, no support for markedness, partly shared across Spanish/German/Russian (Spanish–Russian strongest); a language-specific Spanish steering effect only on Qwen3-8B (no positive effect on 14B or Gemma; German steering never had a valid test); the German frequency lean is a Qwen3 training-sample property.
-- **Next:** the write-up (`docs/writeups/`). **Phase 2 (later):** French, then Dutch; Russian next steps (masculine *-а* person nouns, common-gender nouns, animacy). Instruct study runs separately (`instruct/`).
+- **Next:** the write-up (`docs/writeups/`). **Phase 2 (later):** French, then Dutch; Russian next steps (masculine *-а* person nouns, common-gender nouns, animacy). The character study runs separately (`character/`).
 
 ## Where things stand (Oct 17)
 
