@@ -154,7 +154,7 @@ gpt-oss-120b (possible later replication).
   unset default), plus an effort `none` arm (0 reasoning tokens). Luna's reasoning text is hidden.
 - **Thinking (Q4), both families:** Qwen3-14B off/on and Luna none/medium, every experiment. Each
   of the four model × thinking cells is confirmatory under the gatekeeping structure in
-  amendment 2.
+  amendment 2. Q4 itself (on − off, per family) stays exploratory pending the PI's
   literature follow-up.
 - Write-up checklist from the agent's recommendations: `character/docs/writeup_checklist.md`.
 
