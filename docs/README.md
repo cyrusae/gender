@@ -40,7 +40,11 @@ to read the numbers, and which limits to state in a write-up.
 | [05](explainers/05-phase5-steering.md) | Phase 5: steering a noun's gender; P29/P30 (the Spanish object test) |
 | [06](explainers/06-english-social-gender.md) | P23/P24: does the gender direction point at "woman"? (English lists) |
 | [07](explainers/07-controls-and-german-objects.md) | P31 (German object test), confidence control, German frequency axis |
-| [I0](explainers/I0-instruct-pilot0.md) | Instruct study, pilot 0: turning things into characters |
+| [08](explainers/08-gemma-replication-and-outlier-dimension.md) | Gemma 3 replication (slim); the outlier dimension and its fix |
+| [09](explainers/09-rarity-heldout-and-russian.md) | Rarity lean on held-out German nouns; the Russian direction (no articles) |
+| [10](explainers/10-instruct-replication-stageA.md) | Instruct replication, stage A: chat formats (Gemma-3-4B-it pilot) |
+| [C0](explainers/C0-character-pilot0.md) | Character study, pilot 0: turning things into characters |
+| [C1](explainers/C1-character-design-and-measures.md) | Character study: design and measures |
 
 ## `design/`: plans and pre-registrations
 

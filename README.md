@@ -16,8 +16,12 @@ Background literature: `sources/SUMMARIES.md`.
 | 4 | Shared across languages? | done: partly (T3, T4 pass; T1 fails) | [04](docs/explainers/04-phase4-shared-gender.md) |
 | 5 | Bleed into social gender? | done: Spanish language-specific effect on Qwen3-8B only; German no valid test | [05](docs/explainers/05-phase5-steering.md) |
 
-Model family: **Qwen3 base** (0.6B/1.7B/4B on the Mac for development; full sequence plus
-8B/14B on RunPod, one GPU type, bf16). Every choice that shapes results, with the reason, is
+| G | Replicates in Gemma 3 (4B/12B)? | done: Phase 3–4 verdicts replicate; no steering effect; no German frequency lean | [08](docs/explainers/08-gemma-replication-and-outlier-dimension.md) |
+| – | Rarity lean on new nouns; Russian | done: lean doesn't generalise; Russian sharing one-way | [09](docs/explainers/09-rarity-heldout-and-russian.md) |
+| I | Same in instruct models? | stage A pilot (Gemma-3-4B-it): all verdicts as base | [10](docs/explainers/10-instruct-replication-stageA.md) |
+
+Model families: **Qwen3 base** (0.6B/1.7B/4B on the Mac for development; full sequence plus
+8B/14B on RunPod, one GPU type, bf16), **Gemma 3** 4B/12B (slim replication, RunPod bf16). Every choice that shapes results, with the reason, is
 in [`docs/decisions.md`](docs/decisions.md); terms are in [`docs/glossary.md`](docs/glossary.md).
 
 ## Setup
