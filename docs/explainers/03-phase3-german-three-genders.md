@@ -54,7 +54,7 @@ Automatic animacy tagging needed three layers plus a human read: a limitation wo
 | **markedness (1)** | **0 layers** | **0 layers** |
 | plain (biased) estimate "feminine longer" | 25 / 27 layers | 31 / 35 layers |
 | cosine interpretable | 0 layers | 0 layers |
-| compounds at AFTER | 1 / 27 | 1 / 35 |
+| compounds at AFTER: follow head / follow first part | 1 / 3 of 27 | 1 / 0 of 35 |
 
 - **Compounds follow their head**, strongly, in every layer, for compounds whose heads the direction never saw. Three-class version: the head's gender is predicted well above chance, the first part's below chance.
 - **Markedness is not supported.** The split-half point estimates even have masculine slightly longer, though not reliably in any layer.

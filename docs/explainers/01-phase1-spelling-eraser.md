@@ -106,22 +106,25 @@ form" if it stays ≥ 0.60.
 
 ## Results (inner-layer averages, AUC)
 
+From `results/phase1/<model>/layers.csv` (the 2026-10-06 rerun with fixed inputs, e8bfb74;
+numbers updated 2026-11-07, an earlier version of this table showed the pre-rerun values).
+
 | | Qwen3-0.6B | 1.7B | 4B |
 |---|---|---|---|
-| verbs: unseen verbs after verb eraser | 0.68 | 0.72 | 0.81 |
+| verbs: unseen verbs after verb eraser | 0.68 | 0.70 | 0.71 |
 | **nonce, pre-registered (accuracy)**: after verb eraser | **0.99** | 1.00 | 1.00 |
 | nonce (CV on unseen stems): verb eraser | 1.00 | 1.00 | 1.00 |
 | … pooled (design fallback) | 0.99 | 1.00 | 1.00 |
-| … rank-2 | 0.82 | 0.84 | 0.84 |
-| … nonce-only | 0.82 | 0.84 | 0.83 |
-| noun gender: none / after rank-2 | 1.00 / 0.97 | 1.00 / 0.97 | 0.99 / 0.98 |
+| … rank-2 | 0.82 | 0.85 | 0.86 |
+| … nonce-only | 0.82 | 0.85 | 0.86 |
+| noun gender: none / after rank-2 | 1.00 / 0.98 | 1.00 / 0.98 | 1.00 / 0.99 |
 
-**Pre-registered outcome: (b), at all three sizes.** The verb eraser leaves nonce endings fully readable at every inner layer (0 of 27 / 27 / 35 layers near chance). Erasure transfers to unseen *verbs* slightly *worse* in bigger models (AUC 0.68 → 0.72 → 0.81).
+**Pre-registered outcome: (b), at all three sizes.** The verb eraser leaves nonce endings fully readable at every inner layer (0 of 27 / 27 / 35 layers near chance). Erasure transfers to unseen *verbs* about equally poorly at every size (AUC 0.68, 0.70, 0.71; 0.70–0.73 on the pod sizes).
 
 **What the corrected numbers say:**
 - **Linear erasure of -a/-o generalises poorly to new words.** Even an eraser fit *on nonce words*
-  leaves *other* nonce words at AUC ~0.8, and the verb eraser only partly hides the ending of verbs
-  it wasn't fit on (~0.68). LEACE's guarantee is exact on the data it was fit on; it just doesn't
+  leaves *other* nonce words at AUC ~0.82–0.86, and the verb eraser only partly hides the ending of
+  verbs it wasn't fit on (~0.7). LEACE's guarantee is exact on the data it was fit on; it just doesn't
   carry over well to new items for this concept.
 - A plausible reason: the ending is usually fused into a stem-specific final token (*it|ra* vs
   *it|ro*, *br|orda* vs *br|ordo*; only 8% of nonce words have the ending as its own token), so

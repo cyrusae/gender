@@ -136,12 +136,19 @@ The primary direction above was underpowered (25 nouns per gender). For the conf
 
 | inner-layer verdicts (LAST) | 1.7B | 4B |
 |---|---|---|
-| **stratified primary (v4)** | **22 G / 3 N / 2 S of 27** | **31 G / 4 N of 35** |
+| **stratified primary (v4, with the word-initial *a-* amendment)** | **22 G / 5 N of 27** | **26 G / 9 N of 35** |
+| same, before the amendment (`probe_strat_noinit`) | 22 G / 4 N / 1 S | 31 G / 4 N |
 | old primary on v4 stimuli (cross-check) | 16 N / 10 G / 1 S | 19 N / 11 G / 5 S |
 | old primary on v3 stimuli (earlier run) | 16 N / 11 G | 20 N / 13 G / 2 S |
 | rank-2-erased regular: homographs beyond spelling | 12 layers (v3: 13) | 26 layers (v3: 25) |
 
 - With the stratified primary, masculine -a exceptions sort with masculine, not with -a: A_f ≈ 0.83, A_m ≈ 0.50 (the "gender" pattern), in most layers of both models.
+- - **The *a-* amendment (2026-10-08, before any 8B/14B data).** Feminine nouns with stressed
+  initial *a-* take *el* (*el agua*) and were filtered out, so none of the 33 feminine training
+  nouns start with *a-* against 17 of 132 masculine; so word-initial *a-* became a nuisance term. It lowers the gender
+  count on 4B (31 → 26) and on the confirmatory sizes (8B 30 → 28, 14B 35 → 26); the verdict is
+  unchanged. Numbers from `results/phase2/<model>/summary.json` (updated 2026-11-07; this table
+  earlier showed pre-amendment values from an older run).
 - The cross-check rows isolate the cause: changing the stimuli barely moved the old estimator,  so the gain comes from the estimator (more nouns, within-cell comparison).
 - The homograph result reproduces on the v4 items.
 - At AFTER, the stratified primary reads gender in only 7 (1.7B) and 2 (4B) layers: **position-dependent**, as the adopted amendment requires saying.
