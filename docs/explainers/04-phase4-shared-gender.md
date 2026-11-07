@@ -57,7 +57,8 @@ first judged with 97.5% intervals; if one passes, the other is judged with 95%.
 ## Confirmatory results (8B/14B, session 2)
 
 LAST position (pre-registered primary); number of inner layers passing after Holm, mean AUC in
-brackets.
+brackets. The design applies Holm to the co-primaries T1 and T3; T4 counts here use the same
+Holm intervals, which is the stricter choice (14B T4-ES at AFTER: 20 layers with Holm, 26 without).
 
 | test | 8B (35 layers) | 14B (39 layers) |
 |---|---|---|
@@ -67,7 +68,7 @@ brackets.
 | T3 DE direction on both nouns of a pair | 35 (0.83) | 39 (0.89) |
 | T4 ES direction on Russian *-ь* nouns | 34 (0.82) | 36 (0.85) |
 | T4 DE direction on Russian *-ь* nouns | 25 (0.67) | 33 (0.74) |
-| T2 overlap above the shuffle null (split-half cosine) | 23 (0.43) | 28 (0.35) |
+| T2 layers where the cross term beats the shuffle null (mean split-half cosine) | 23 (0.43) | 28 (0.35) |
 | **T1 verdict** (both directions must pass) | fails | fails |
 | **T3 verdict** | passes | passes |
 

@@ -36,7 +36,7 @@ unstable at that signal-to-noise level, not that the data are wrong.
 | R2: cos(f−m, Zipf), confidence control (c) | R2's primary test | yes |
 | frequency-axis A/C/D | take (c)'s overlap layers as their reference | yes, through (c) |
 | Phase 4 T2 cosine *values* | descriptive | yes |
-| Phase 4 T2 cross-term layers above the shuffle null (the adopted test, 2026-10-10) | descriptive | raw Gemma 5/33, 4/47; with the fix 31/33, 45/47 (Qwen 23/35, 28/39). The legacy *cosine*-null count is 0 everywhere and is not used |
+| Phase 4 T2 cross-term layers above the shuffle null (the adopted test, 2026-10-10) | descriptive | raw Gemma 5/33, 4/47; with the fix 31/33, 42 of 44 valid layers (12B; layers 3–5 out of range) (Qwen 23/35, 28/39). The legacy *cosine*-null count is 0 everywhere and is not used |
 | Phase 3 "interpretable cosine" layers | descriptive | the same estimator: 0 on Gemma |
 | Phase 3 compounds and markedness, Phase 4 T1/T3, Phase 5 | AUCs, random-direction comparisons | **no** |
 
@@ -135,8 +135,8 @@ Pre-registered reading: **Qwen-specific** (no overlap on either Gemma size). The
 feminine↔rare alignment is a property of Qwen3's representations, not of the German stimulus
 lists. Frequency-axis A/C/D not run (no Gemma German overlap, as the amendment specifies).
 
-**Phase 4 T2 with the fix:** mean cosine 4B 0.47, 12B 0.55 (raw: 1.13, 0.61), in Qwen's range
-(0.43, 0.35). The cross term exceeds the shuffle null at 31/33 (4B) and 45/47 (12B) layers, against 23/35 and 28/39 on Qwen (the legacy cosine-null count is 0 on every model and is not the adopted test).
+**Phase 4 T2 with the fix:** mean cosine over valid layers 4B 0.47 (33/33 valid), 12B 0.50 (44/47 valid) (raw: 1.13, 0.61), in Qwen's range
+(0.43, 0.35). The cross term exceeds the shuffle null at 31/33 (4B) and 42 of the 44 valid (12B) layers, against 23/35 and 28/39 on Qwen (the legacy cosine-null count is 0 on every model and is not the adopted test).
 T1/T3 under the fix are identical to the primary run (descriptive check).
 
 **Reproducibility note.** Qwen's cosines differ from the originally reported ones by up to about 0.03
@@ -192,3 +192,5 @@ range −0.344 to −0.318).
   geometry. That is descriptive, and not part of any verdict.
 - Does the same channel dominate on non-noun inputs (sentences, other languages)? If so, it is a
   model-wide property, not a noun-list artefact.
+
+*(Corrected 2026-11-07: valid layers only, as the amendment specifies; 12B layers 3–5 have out-of-range cosines 1.14/1.47/1.22. Earlier text gave 0.55 and 45/47 counting them.)*

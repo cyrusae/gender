@@ -32,7 +32,7 @@ adopted T2 statistic, descriptive); Gemma T2 from the outlier-fixed rerun
 | Qwen3-8B | pod | 271 | 165 / 91 | 6/35 | 5/35 | fails | 35/35 | 35/35 | passes | 23/35 |
 | Qwen3-14B | pod | 271 | 165 / 91 | 7/39 | 22/39 | fails | 39/39 | 39/39 | passes | 28/39 |
 | Gemma-3-4B | pod | 250 | 156 / 82 | 7/33 | 26/33 | fails | 33/33 | 33/33 | passes | 31/33 (outlier-fixed) |
-| Gemma-3-12B | pod | 254 | 151 / 86 | 11/47 | 27/47 | fails | 43/47 | 38/47 | passes | 45/47 (outlier-fixed) |
+| Gemma-3-12B | pod | 254 | 151 / 86 | 11/47 | 27/47 | fails | 43/47 | 38/47 | passes | 42 of 44 valid (outlier-fixed; layers 3–5 out of range) |
 
 Raw (unfixed) Gemma T2 counts are 5/33 and 4/47; they rest on cosine pieces the outlier
 dimension dominates and are not reported as results.

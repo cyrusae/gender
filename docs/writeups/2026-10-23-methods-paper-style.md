@@ -423,7 +423,7 @@ Unless stated otherwise: LAST position, inner layers, 95% stratified bootstrap i
 - 14B: C4 passed the frame check but failed the gate at every layer. Feminine medians flipped while masculine medians did not, so the push collapsed both genders toward zero rather than swapping them.
 - By rule, no substitute frame was used. All Phase 5 verdicts are Spanish-only and therefore at most "language-specific".
 
-**Table 4.** Spanish R1 bleed score at α\*, averaged over passing layers (noun-position push).
+**Table 4.** Spanish R1 bleed score at α\*, averaged over all gate-passing layers, including any that fail the per-layer test (noun-position push).
 
 | | 8B | 14B |
 |---|---|---|
@@ -528,7 +528,7 @@ Gemma 3 4B and 12B pretrained were run in bf16 (L40S; commits 88cc069 and ecbbee
 | Markedness | not supported | not supported | not supported | not supported | replicates |
 | T1 transfer (ES→DE, DE→ES; Holm) | no (6, 5/35) | no (7, 22/39) | no (7, 26/33) | no (11, 27/47) | replicates |
 | T3 pairs follow gender | yes | yes | yes | yes | replicates |
-| T2 cross term above null (layers; Gemma with outlier fix) | 23/35 | 28/39 | 31/33 | 45/47 | replicates |
+| T2 cross term above null (layers; Gemma with outlier fix) | 23/35 | 28/39 | 31/33 | 42/44 valid | replicates |
 | Phase 5 ES noun-position R1 | 3/4 (+0.020) | 0/3 | 0/3 (−0.004) | 1/3 (+0.029) | 8B positive not replicated |
 | Phase 5 ES all-position R1 (P14) | 3/4 (+0.065) | 0/3 | 0/3 (+0.035) | 0/3 (+0.100) | 8B positive not replicated |
 | Phase 5 DE | no valid test | no valid test | no valid test (C4 m 0.67) | no valid test (gate: random flip ≤ 0.50) | – |

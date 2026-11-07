@@ -28,7 +28,7 @@ worktree, stage A pilot); project outline §18–21 plus a Nov 7 status; glossar
 dimension, estimator limit, partial Spearman, known-check, matched pairs, AoA, SAE, size control,
 chat formats, boundary merge); explainers 08 (Gemma + outlier dimension), 09 (rarity held-out +
 Russian), 10 (instruct stage A); READMEs and docs index; `writeups/supplement-table.md` (compiled
-from result files; Gemma fixed T2 counts 31/33, 45/47 verified); a first draft of abstract,
+from result files; Gemma fixed T2 counts 31/33 and (12B, valid layers) 42/44, corrected from 45/47 after the Feynman draft's check); a first draft of abstract,
 introduction and discussion (`writeups/2026-11-07-abstract-intro-discussion-draft.md`);
 methods-summary lines.
 

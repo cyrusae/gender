@@ -141,7 +141,7 @@ at layers 9/14/20/25; 14B 0.2/0.3/0.2 at 10/16/22; 14B layer 28 never flipped th
 within the random-flip limit and drops out).
 
 **Readouts, noun-only steering (the pre-registered claim):** mean shift in log-probability
-toward feminine-rated adjectives, at the gate dose, averaged over passing layers; "random 95%"
+toward feminine-rated adjectives, at the gate dose, averaged over all gate-passing layers (including any that fail the per-layer test; 8B: the mean of all four layers 9/14/20/25); "random 95%"
 is the 95th percentile of 100 random directions of the same size.
 
 | | 8B | 14B |

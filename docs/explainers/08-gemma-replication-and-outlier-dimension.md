@@ -77,7 +77,10 @@ is far larger (norms of about 7,000–66,000, against 70–240 for Qwen). That o
    one dimension in each Gemma model and none in Qwen, so Qwen results are untouched.
 3. Pre-registered the fix plus a **validity gate**: a layer whose cosine is still impossible
    counts *against* overlap.
-4. Reran. Every layer was valid on all four models; Qwen's verdicts came out the same.
+4. Reran. The German frequency cosine was valid at every layer on all four models, and Qwen's
+   verdicts came out the same. The Phase 4 overlap cosine (T2) was valid at every 4B layer but
+   still out of range at three early 12B layers (3–5), which are excluded (12B: 42 of 44 valid
+   layers beat the null, mean cosine 0.50).
 
 **Practical lesson for anyone using Gemma.** Check how concentrated the variance is before
 trusting any distance or angle. Raw Gemma probes also understate how well gender can be read out
