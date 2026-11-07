@@ -190,6 +190,42 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   model read the noun as a thing.
 - **Positive control** *(standard)*. A condition where the effect is known to be present, used
   as a yardstick. P30: real nouns like *el/la periodista*, where *la* really means a woman.
+- **Outlier dimension** *(standard term; project usage)*. A single coordinate of a model's hidden
+  state that carries a very large share of the variation across inputs. In Gemma 3, one
+  dimension (443 in 4B, 2339 in 12B) carries 59–92% of the variance across nouns, against under
+  2% for any dimension in Qwen3. It swamps distances and angles. Pre-registered fix: zero any
+  dimension with more than 10% of the variance (`outlier_dims.py`,
+  `docs/design/gemma-outlier-dimension.md`).
+- **Estimator limit ("> 1").** A cross-fitted cosine is a ratio of separately estimated pieces,
+  so with noisy data it can fall outside [−1, 1], like a reliability-corrected correlation above
+  1. Such values are reported as "> 1 (estimator limit)" rather than as real cosines, and a
+  layer with one fails the **cosine validity gate** for that analysis (counted against overlap;
+  not the character study's output validity gate below).
+- **Chat formats (instruct replication).** How a noun is wrapped for a chat model in stage A:
+  **raw** (no template, as for base models); **A-en** / **A-something** (assistant turn after an
+  English instruction, "Say one word." / "Say something."); **A-lang** (the same in the noun's
+  language: *Dime algo.* / *Sag etwas.*); **U** (the noun as the user's turn). In A formats,
+  "AFTER" is the end-of-turn token. *(`chat_format.py`, `instruct-replication-prereg.md`)*
+- **Boundary merge.** When the tokenizer fuses a noun's last piece with the chat template's next
+  token, so "the noun's own token" no longer exists. Checked for every item; 0 found so far.
+- **Partial Spearman correlation** *(standard)*. A rank correlation between two variables after
+  removing what other variables explain: here, ranks residualised on token count and ending
+  before correlating (rarity held-out test).
+- **Known-check / portable list.** Before a frozen noun list is used on a new model, each noun is
+  checked with the article test (does the model pick the right article?). Unknown nouns are
+  dropped. A list is "portable" if it loses no more than 30% of either gender
+  (`known_filter.py`).
+- **Matched pairs** *(standard)*. Feminine/masculine nouns paired so they agree on a nuisance
+  variable (here word frequency within 0.3 Zipf), so a difference can't come from it.
+- **Age of acquisition (AoA)** *(standard, psycholinguistics)*. The age at which a word is
+  typically learned; used as a stand-in for "register" (everyday vs learned words). Measured
+  through English glosses (Kuperman norms), which is a limitation for German.
+- **Sparse autoencoder (SAE)** *(standard, interpretability)*. A model trained to rewrite
+  hidden states as a few active "features" out of many, each hopefully meaning one thing. Used
+  in G2 to look for features behind the German frequency lean (Qwen-Scope; Gemma Scope 2).
+- **Random-subset (size) control.** To tell whether a smaller filtered set looks weaker because
+  of *what* was filtered or just because it's smaller, compare it with many random subsets of
+  the same size and composition (Russian follow-up S).
 
 ## Instruct study (`character/`)
 
