@@ -24,10 +24,24 @@ OUT = ROOT / "embeddings/results/gg_heldout_es"
 EXTRA = r'''
 import json as _json
 from statistics import mean as _mean
-_held = rest[:1000]
+# Their noun lists keep duplicates (the de-dup test `word not in L or word_raw not in L` is
+# always true for lowercase words) and 48 words appear in both gender lists, so `rest` shares
+# ~150 words with the training pairs: keep only held-out pairs with neither word in training.
+_trw = set(sum(map(list, shortened_3000), []))
+_clean = [p for p in rest if p[0] not in _trw and p[1] not in _trw]
+_held = _clean[:1000]
 _sets = {"train": (masc_n, fem_n), "heldout": ([p[1] for p in _held], [p[0] for p in _held])}
-assert not set(_sets["heldout"][0] + _sets["heldout"][1]) & set(sum(map(list, shortened_3000), []))
-_out = {"num_iter": num_iter}
+assert not set(_sets["heldout"][0] + _sets["heldout"][1]) & _trw
+_out = {"num_iter": num_iter, "n_rest_pairs": len(rest), "n_clean_heldout_pairs": len(_clean)}
+# Their in-loop "test accuracy" fills a 6000-row matrix with len(rest)*2 real rows; the rest stay
+# zero vectors with alternating labels. Score the final classifier on real rows only.
+_n = len(rest) * 2
+_out["loop_test_acc_reported"] = float(clf_3000_after.score(X_rest_after, y_rest_after))
+_out["loop_test_acc_real_rows"] = float(clf_3000_after.score(X_rest_after[:_n], y_rest_after[:_n]))
+_Xc = np.array([WEAT_gender_removed_embeddings_2[my_word2id[w]] for q in _clean for w in q])
+_out["final_acc_clean_heldout"] = float(clf_3000_after.score(_Xc, np.tile([1, 2], len(_clean))))
+print("accuracy reported", _out["loop_test_acc_reported"], "real rows", _out["loop_test_acc_real_rows"],
+      "clean held-out", _out["final_acc_clean_heldout"])
 for _name, (_m, _f) in _sets.items():
     _o1 = operations(10, my_embeddings, my_word2id, "normal", man, wom, _m)
     _o2 = operations(10, WEAT_gender_removed_embeddings_2, my_word2id, "normal", man, wom, _m)
