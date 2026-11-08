@@ -115,9 +115,11 @@ def _ci(vals) -> tuple[float, float]:
 
 
 def analyze(model_id: str, position: str = "last", out_root: str | None = None,
-            known_only: bool = False) -> dict:  # fmt: skip
+            known_only: bool = False, drop_complex: bool = False) -> dict:  # fmt: skip
     """known_only: pre-registered per-model sensitivity analysis (nouns this model knows, from
-    its own three-way known check; the article-reading `multi` words aren't in that check)."""
+    its own three-way known check; the article-reading `multi` words aren't in that check).
+    drop_complex: exploratory check (2026-11-07) dropping the strat3 training nouns the
+    frequency-axis complexity rule flags (12 masculine, 0 feminine)."""
     from .lexicon import load_lexicon
     from .norms import rate
 
@@ -132,7 +134,15 @@ def analyze(model_id: str, position: str = "last", out_root: str | None = None,
         keep = df.lemma.isin(known) | (df.set == "multi")
         stage(f"{model_id}: known-only sensitivity, dropping {int((~keep).sum())} of {len(df)}")
         df = df[keep].reset_index(drop=True)
-    kn = "_knownonly" if known_only else ""
+    if drop_complex:
+        from .frequency_axis import complexity_rule
+
+        why = complexity_rule()
+        cx = (df.set == "strat3") & (df.lemma.map(why) != "")
+        stage(f"{model_id}: dropping {int(cx.sum())} complex strat3 nouns "
+              f"({df[cx].gender.value_counts().to_dict()})")  # fmt: skip
+        df = df[~cx].reset_index(drop=True)
+    kn = ("_knownonly" if known_only else "") + ("_nocomplex" if drop_complex else "")
     out_root = out_root or f"results/phase3{kn}{_suffix(position)}"
     Xall, meta = acts.load(model_id, "phase3_bare" + _suffix(position))
     row = {w: i for i, w in enumerate(meta["words"])}

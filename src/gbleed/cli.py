@@ -88,6 +88,8 @@ def main() -> None:
     p3.add_argument("--extract-only", action="store_true")
     p3.add_argument("--known-only", action="store_true",
                     help="sensitivity: only nouns this model knows (results/phase3_known)")  # fmt: skip
+    p3.add_argument("--drop-complex", action="store_true",
+                    help="exploratory: drop strat3 nouns flagged by the complexity rule")  # fmt: skip
     sub.add_parser("phase2-stimuli", help="Build Phase 2 pools (data/stimuli/phase2_pool_v3.csv)")
     sub.add_parser("phase1-stimuli", help="Build Phase 1 verb / nonce / noun lists (v1)")
     p1 = sub.add_parser("phase1", help="Extract activations and fit/validate the spelling eraser")
@@ -293,7 +295,7 @@ def main() -> None:
                 phase3.extract(m, a.device, a.dtype)  # both positions in one pass
                 _free_memory()
             if not a.extract_only:
-                phase3.analyze(m, a.position, known_only=a.known_only)
+                phase3.analyze(m, a.position, known_only=a.known_only, drop_complex=a.drop_complex)
         return
     if a.cmd == "phase4-pairs":
         from .phase4 import build_pairs
