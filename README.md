@@ -63,7 +63,8 @@ before unplugging it (exFAT has no journal).
 - **Measurement choices are fixed on grammatical grounds and pre-registered** in
   `decisions.md` before results; analyses added afterwards are labelled exploratory.
 - **Held-out test sets are frozen before training**, split by stem, and asserted disjoint.
-- **Cross-model comparisons use the shared set**: items known by every model compared.
+- **Cross-model comparisons use the shared set**: items known by the models whose checks froze
+  the list (Qwen3-1.7B and 4B); Gemma and instruct models drop their own unknown items.
 - **Stimulus lists are versioned** (`_vN`); a list with results is never edited.
 - **Commit before runs**: result metadata records `git_commit` and `git_dirty`.
 - **Strict filtering**: anything that would need a manual check is dropped; anything a person

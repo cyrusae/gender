@@ -21,9 +21,16 @@ Research project: does an LLM's representation of grammatical gender (learned fr
 - **One device and precision per model** for activations; never compare activations across hardware. Final cross-size runs all go on RunPod (CUDA, bf16); the Mac (M1, 16 GB, MPS, fp16) is for development.
 - Base (pretrained) models only; no 4-bit/8-bit quantization. (Exceptions: the character study in `character/`, branch `character`, scoped rules in `character/CLAUDE.md`; the instruct replication, `docs/design/instruct-replication-prereg.md`.)
 - Stimulus lists are versioned (`data/stimuli/phase0_vN.csv`). Don't edit a list that has results; sample a new version and rerun.
-- Cross-model comparisons use the **shared set** (items known by every model compared).
+- Cross-model comparisons use the **shared set**: items known by the models whose known checks
+  froze the list (for Phases 2–4, Qwen3-1.7B and 4B; 8B/14B were not re-filtered). Gemma and the
+  instruct models then drop their own unknown items (`known_filter.py`), so their N is smaller.
 - **Held-out test sets are frozen before training and never trained on.** Every stimulus file for
-  Phases 1–5 carries a `split` column (train/test), assigned once with a fixed seed, by stem.
+  Phases 1–5 that a direction or probe is fitted on carries a `split` column (train/test),
+  assigned once with a fixed seed, by stem. Lists used only as test sets or behavioural inputs
+  (nothing fitted on them: e.g. `rarity_heldout_v1`, `phase0_v3`, classics, multigender, the
+  pooled Spanish and nonce/adjective lists) need none; a list described as *held out*
+  must be checked disjoint from the training lists it's compared with (wording clarified
+  2026-11-07).
   Test sets: Phase 1 nonce stems; Phase 2 exceptions (-ma, clippings, día/mano), homographs,
   el/la mar; Phase 3 suffix-marked nouns and der/die See; Phases 4–5 flipped pairs + classics.
   Training code must assert no test item appears in its training data. Candidate extra test:

@@ -349,8 +349,9 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
 - **Frame.** A sentence template with slots for article and noun (Phase 0).
 - **known / wrong / unsure / conflict.** Phase 0 noun statuses (see the
   [Phase 0 explainer](explainers/00-phase0-behavioural-check.md)).
-- **Shared set.** Nouns known by every model in a comparison; the default basis for cross-size
-  analyses.
+- **Shared set.** Nouns known by the models whose known checks froze the list (Qwen3-1.7B and 4B
+  for Phases 2–4; the 8B/14B confirmatory models were not re-filtered); the default basis for
+  cross-size analyses. Gemma and instruct models then drop their own unknown nouns.
 - **Eligible.** A lexicon noun that passes every automatic filter for stimuli.
 - **Strict pair.** An auto-matched translation pair that needs no checking: dominant gloss match,
   similar frequency, not a cognate.

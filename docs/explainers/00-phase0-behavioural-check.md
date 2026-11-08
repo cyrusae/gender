@@ -129,8 +129,10 @@ hand-picked and always included.
 ## Decision: compare sizes on the shared set
 
 Each model gets its own Phase 0 result, so each ends up with a slightly different set of
-known nouns. Cross-model comparisons in later phases use **the nouns known by every model
-compared**, so differences can't come from different items. Per-model sets are a secondary
+known nouns. Cross-model comparisons in later phases use **one shared list**, so differences can't come
+from different items. In practice the lists were frozen on the nouns Qwen3-1.7B and 4B both
+know (the development models), and the larger Qwen3 models use the same lists unfiltered;
+Gemma and the instruct models drop the nouns they don't know. Per-model sets are a secondary
 check. (Recorded in [decisions.md](../decisions.md).)
 
 ## Limits worth stating in a write-up
