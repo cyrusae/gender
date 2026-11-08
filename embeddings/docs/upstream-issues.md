@@ -38,6 +38,18 @@ evidence lives. "Verified" = checked against code output or the paper text; "fro
 | Z7 | French word-similarity check cites SemEval-2017 Task 2, which has no French data. | verified | `docs/feynman/outputs/zhao-gender-bibliography-guide.verification.md` |
 | Z8 | No licence file. | verified | — |
 
+
+## Results of checks
+
+- **O1 + O4 (held-out nouns), Spanish, 14 iterations** (`results/gg_heldout_es/scores_iter14.json`;
+  1,000 + 1,000 held-out pairs with no word in training, from 1,689 clean pairs): the effect
+  **generalises**. Masculine-minus-feminine SC-GG-WEAT gap: training nouns 1.741 → 0.050,
+  held-out 1.516 → −0.026; weakening rate 99.8% / 93.5% held-out (99.8% / 96.8% training).
+  Held-out nouns start with a ~13% smaller gap. Both groups end negative (masc −0.36, fem −0.34),
+  consistent with O8.
+- **O5 (zero-padded accuracy)**: low impact. Final held-out accuracy 0.506 as reported, 0.510 on
+  real rows, 0.510 on clean held-out pairs: all at chance.
+
 ## Consequences for our design (to pre-register)
 
 - Deduplicated noun lists, gold genders from Wiktionary, nouns in both genders dropped;
