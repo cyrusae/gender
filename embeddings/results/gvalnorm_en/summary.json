@@ -1,0 +1,30 @@
+{
+ "muse_wiki_en": {
+  "n_words": 4641,
+  "n_glasgow": 4675,
+  "mean_diff": {
+   "pearson_r": 0.5840020227420887,
+   "p": 0.0,
+   "spearman_rho": 0.4779830310556287
+  },
+  "sc_weat": {
+   "pearson_r": 0.5326050561347455,
+   "p": 0.0,
+   "spearman_rho": 0.4694478620037039
+  }
+ },
+ "fasttext_cc_en": {
+  "n_words": 4674,
+  "n_glasgow": 4675,
+  "mean_diff": {
+   "pearson_r": 0.6394880639770965,
+   "p": 0.0,
+   "spearman_rho": 0.5385587959193291
+  },
+  "sc_weat": {
+   "pearson_r": 0.5753345659091229,
+   "p": 0.0,
+   "spearman_rho": 0.5284520726508322
+  }
+ }
+}
