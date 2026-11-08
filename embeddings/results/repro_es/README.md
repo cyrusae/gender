@@ -1,8 +1,8 @@
 # Reproduction: Omrani Sabbaghi & Caliskan (2022) notebook, Spanish (2026-11-08)
 
 `main.ipynb` from `external/GG_Disentangling` (commit 725d813) executed unchanged with `lang = "es"`,
-fastText Common Crawl `cc.es.300.vec` (store, checksummed). Executed copy: `main_es_executed.ipynb`;
-files the notebook wrote: `notebook_outputs/`. Environment: Python 3.12, current numpy/scipy/
+fastText Common Crawl `cc.es.300.vec` (store, checksummed). Executed copy with all outputs: `main_es_executed.ipynb` (the xlsx/txt files it
+wrote into the clone's `Results/` were discarded when the upstream originals were restored). Environment: Python 3.12, current numpy/scipy/
 scikit-learn/pandas (uv, no pins; the repo has no requirements file). Mac CPU, ~20 min.
 
 | output | upstream saved | rerun |
