@@ -19,6 +19,11 @@ social-gender association once grammatical gender is removed? Related: Omrani Sa
   https://github.com/shaoxia57/Bias_in_Gendered_Languages (commit 6392702, 2019-09-05). Read-only
   reference; git-ignored. It has no licence file, so don't copy its lists into tracked files
   without checking with the PI; cite it instead.
+- `external/GG_Disentangling/`: Omrani Sabbaghi & Caliskan (2022) code, cloned from
+  https://github.com/shivaomrani/GG_Disentangling (commit 725d813, 2023-05-08). Notebook
+  `main.ipynb` + `ValNorm.py`/`calcValNorm.py`/`utils.py`; noun lists and eval sets in `data/`;
+  per-language results (es, fr, de, it, pl) in `Results/`. Needs FastText crawl vectors in
+  `data/embeddings/` (not downloaded). Git-ignored; no licence file, same caution as above.
 - Design docs, code and results for this study go in this folder (`docs/`, `results/`), not in
   the root `docs/design/` or `results/`.
 
