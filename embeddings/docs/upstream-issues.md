@@ -16,7 +16,11 @@ evidence lives. "Verified" = checked against code output or the paper text; "fro
 | O6 | The paper's text/figures say **15** removal iterations; its tables match iteration **28** of `Results/es.xlsx`; the notebook default for Spanish is **14**. Spanish GG-WEAT: 1.83 → 1.305 (iter 15), 1.235 (iter 28), 1.32 (our 14-iter rerun). | verified | `results/repro_es/`, lit-verification table |
 | O7 | Removal is applied to **every** vocabulary word, including the man/woman attribute words used to score the nouns. | verified (code) | cell 40 |
 | O8 | After removal both noun groups lean the same way (Spanish: masc −0.24, fem −0.29), so raw means mostly reflect an attribute/baseline shift; the masculine-minus-feminine difference is the interpretable quantity. | interpretation | `results/repro_es/README.md` |
-| O9 | ValNorm word lists: Polish `"smród,atak"` (missing comma merges two words); German `"das Gefängnis"` (with article), *faul* for "rotten", all lowercased (German fastText keeps capitalised nouns, so most German nouns likely drop out); duplicates (*prigione*, *paradis*). | from code reading | `ValNorm.py` |
+| O9 | ValNorm word lists: Polish `"smród,atak"` (missing comma merges two words); German `"das Gefängnis"` (with article) and *faul* for "rotten"; duplicates (*prigione*, *paradiso*, *paradis*, *accident*, *prison*, *glücklich*); French multi-word items (*arc en ciel*, *lever du soleil*) can't be in a word vocabulary. **Words silently dropped** (not in the first 1M vectors): attributes es 7/47, fr 2/50, de 10/50, pl 17/49, it 0/50; rated words de 55/371 (54 exist capitalised: lowercasing drops German nouns), fr 37, it 11, pl 10, es 1. | verified 2026-11-08 | coverage check (`/tmp/o9.py` logic, see O16) |
+| O16 | **Unicode bug:** the Spanish and Polish attribute words in `ValNorm.py` are stored in decomposed form (NFD: *a* + combining accent) while fastText uses composed form (NFC), so every accented attribute word fails lookup: Spanish *ánimo, ponzoña, cárcel, cáncer, vómito, agonía, prisión*; Polish *miłość, pokój, tęcza*… (36 combining marks in `ValNorm.py`; no other file affected). The Spanish notebook's own output prints these words as missing. ValNorm Spanish therefore runs on 40 of 47 attributes, mostly losing *unpleasant* words. | verified 2026-11-08 | NFC vs NFD lookup test |
+| O13 | **Contradictory labels in training:** 24 Spanish words appear in the 3,000 training pairs under both labels. Some are genuine homographs whose gender changes meaning (*capital, corte, orden, frente, guía, editorial*), some are adjectives or plurals (*central, final, personal, canales, finales*), and some are just mislabelled (*madera, mano, motos* are feminine; *cero, aplazamiento* masculine). | verified 2026-11-08 | count on the loaded lists |
+| O14 | Training pairs aren't distinct: 3,000 pairs contain 2,951 distinct feminine and 2,941 distinct masculine words (O2's duplicates). The 1,000 + 1,000 SC-GG-WEAT nouns contain 991 / 990 distinct words, 4 scored under both genders. | verified 2026-11-08 | same |
+| O15 | The noun lists aren't restricted to singular inanimate nouns: plurals and adjectives occur (see O13). | verified (examples) | same |
 | O10 | No requirements file, no seeds (LinearSVC refits, permutation nulls): reruns differ in the 3rd decimal. | verified | `results/repro_es/README.md` |
 | O11 | No licence file in the repo. | verified | — |
 | O12 | The method is essentially INLP (Ravfogel et al. 2020), which the paper doesn't cite. | verified (full text) | lit-verification table |
@@ -36,7 +40,10 @@ evidence lives. "Verified" = checked against code output or the paper text; "fro
 
 ## Consequences for our design (to pre-register)
 
-- Deduplicated noun lists, gold genders from Wiktionary, nouns in both genders dropped.
+- Deduplicated noun lists, gold genders from Wiktionary, nouns in both genders dropped;
+  singular nouns only; homographs excluded (static vectors have one vector per spelling).
+- NFC-normalise every word list and assert full vocabulary coverage (fail, don't silently drop);
+  case-sensitive lookup for German.
 - Held-out nouns with zero overlap with training, checked by assertion.
 - Accuracy on real rows only; report both stopping rules (chance and fixed iteration count).
 - Report masculine-minus-feminine differences, not raw group means; consider English attributes
