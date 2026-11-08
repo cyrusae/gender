@@ -16,7 +16,7 @@ this is a snapshot, and the repo is the record.
 ## 2. Waiting on the PI
 
 1. **Instruct stage A on the other three siblings**: Gemma-3-12B-it, Qwen3-8B, Qwen3-14B
-   (`docs/design/instruct-replication-prereg.md`). ~$1 each on an L40S pod (`runpod/instruct_stageA.sh`)
+   (`docs/design/instruct/instruct-replication-prereg.md`). ~$1 each on an L40S pod (`runpod/instruct_stageA.sh`)
    plus a few hours of Mac analysis each (`scripts/instruct_stageA_analysis.py MODEL FORMAT JOB`,
    30 jobs per model via `scripts/queue.sh`). The 4B-it pilot is done and recorded in the prereg.
 2. Stage B (steering) for instruct models: decided later by the prereg's rule; not started.

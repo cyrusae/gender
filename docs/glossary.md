@@ -95,7 +95,7 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   the reason early layers may reflect token identity rather than the word.
 - **Readout position.** Which token's vector represents a word: its last token (current), or a
   fixed token after it (e.g. a following newline: same token type for every word). To be chosen on
-  gender-blind criteria before Phase 3 (`docs/design/phases-3-5-plan.md`).
+  gender-blind criteria before Phase 3 (`docs/design/base/phases-3-5-plan.md`).
 - **`hidden_states`** *(transformers)*. What a Hugging Face model returns with
   `output_hidden_states=True`: one array per layer boundary. For Qwen3: index 0 = token
   embeddings, 1…L−1 = layer outputs, L = last layer *after* the final normalisation (different
@@ -195,7 +195,7 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   dimension (443 in 4B, 2339 in 12B) carries 59–92% of the variance across nouns, against under
   2% for any dimension in Qwen3. It swamps distances and angles. Pre-registered fix: zero any
   dimension with more than 10% of the variance (`outlier_dims.py`,
-  `docs/design/gemma-outlier-dimension.md`).
+  `docs/design/followups/gemma-outlier-dimension.md`).
 - **Estimator limit ("> 1").** A cross-fitted cosine is a ratio of separately estimated pieces,
   so with noisy data it can fall outside [−1, 1], like a reliability-corrected correlation above
   1. Such values are reported as "> 1 (estimator limit)" rather than as real cosines, and a

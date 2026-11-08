@@ -1,5 +1,5 @@
 """Phase 5: does steering grammatical gender move social-gender content? (design:
-docs/design/phase5-design.md, P1-P22). This module runs the steering; analysis is separate.
+docs/design/base/phase5-design.md, P1-P22). This module runs the steering; analysis is separate.
 
 Steering vectors (P2): per language and layer, the stratified difference of means (Phase 4's
 `class_betas` on the Phase 2 `strat` / Phase 3 `strat3` m/f sets), unit length, pointing

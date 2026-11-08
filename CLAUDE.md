@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Research project: does an LLM's representation of grammatical gender (learned from inanimate nouns) overlap with social gender? Design: `Grammatical Gender Bleedthrough in LLMs Project Design.pdf` (phases 0–5, each gated). Background papers: `sources/SUMMARIES.md`. Usage and layout: `README.md`.
+Research project: does an LLM's representation of grammatical gender (learned from inanimate nouns) overlap with social gender? Design: `docs/design/base/original-design.pdf` (phases 0–5, each gated). Background papers: `sources/SUMMARIES.md`. Usage and layout: `README.md`.
 
 ## Working with the PI
 
@@ -19,7 +19,7 @@ Research project: does an LLM's representation of grammatical gender (learned fr
 - **Gold linguistic labels never come from a language model**, including Claude. Genders come from Wiktionary (kaikki.org dumps) via `gbleed lexicon`. Hand-written labels must be marked unverified (`source = claude-unverified`).
 - **Don't tune measurement choices on a model's scores** (frames, thresholds, prompts). Fix them on linguistic/grammatical grounds, then *check* on at least two model families (currently Qwen3 + EuroLLM). If a check reveals a flaw, fix the flaw on principle and say so.
 - **One device and precision per model** for activations; never compare activations across hardware. Final cross-size runs all go on RunPod (CUDA, bf16); the Mac (M1, 16 GB, MPS, fp16) is for development.
-- Base (pretrained) models only; no 4-bit/8-bit quantization. (Exceptions: the character study in `character/`, branch `character`, scoped rules in `character/CLAUDE.md`; the instruct replication, `docs/design/instruct-replication-prereg.md`.)
+- Base (pretrained) models only; no 4-bit/8-bit quantization. (Exceptions: the character study in `character/`, branch `character`, scoped rules in `character/CLAUDE.md`; the instruct replication, `docs/design/instruct/instruct-replication-prereg.md`.)
 - Stimulus lists are versioned (`data/stimuli/phase0_vN.csv`). Don't edit a list that has results; sample a new version and rerun.
 - Cross-model comparisons use the **shared set**: items known by the models whose known checks
   froze the list (for Phases 2–4, Qwen3-1.7B and 4B; 8B/14B were not re-filtered). Gemma and the
@@ -81,7 +81,7 @@ stand"), explainers `docs/explainers/00–07`, preregs `docs/design/`. Drafts:
 - **Gemma:** one outlier residual dimension (443 / 2339) needs the pre-registered fix for any
   geometry (`gemma-outlier-dimension.md`); Gemma prompts need exactly one `<bos>`.
 - **Lists:** frozen versioned files in `data/stimuli/`; known flaws logged, not edited (German
-  complex masculines, Spanish months). New languages: `docs/design/new-language-playbook.md`
+  complex masculines, Spanish months). New languages: `docs/design/followups/new-language-playbook.md`
   (`gbleed lang-audit`).
 - **Phase 2 queue (own preregs):** French → Dutch; Russian next steps (*папа*-type, common-gender
   nouns, animacy); **instruct replication** stage A (`instruct-replication-prereg.md`, adopted
@@ -92,6 +92,11 @@ stand"), explainers `docs/explainers/00–07`, preregs `docs/design/`. Drafts:
   `character` (worktree `worktrees/gender-character`); merge with `git merge --no-edit character`
   (`docs/decisions.md` uses `merge=union`).
 - **Restart briefing and doc priorities:** `docs/handoff.md`.
+- **Repo map (2026-11-08):** studies are listed in the root `README.md` table. Preregs are grouped
+  `docs/design/{base,followups,instruct}/`; the original design PDF is
+  `docs/design/base/original-design.pdf`. **Embeddings study** (Zhou et al. 2019 follow-up):
+  `embeddings/` with its own draft `embeddings/CLAUDE.md`; upstream code cloned (git-ignored) in
+  `embeddings/external/`.
 - **Data:** bulky files on `/Volumes/Lexar/gbleed` (exFAT) via `src/gbleed/paths.py`
   (`GBLEED_STORE`, `GBLEED_ACT_DIR`, …). Qwen 8B/14B activations:
   `GBLEED_ACT_DIR=/Volumes/Lexar/gbleed/gender-s2/activations`; Gemma under

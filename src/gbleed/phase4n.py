@@ -1,4 +1,4 @@
-"""Phase 4 for N languages (`docs/design/new-language-playbook.md`, one-time tooling).
+"""Phase 4 for N languages (`docs/design/followups/new-language-playbook.md`, one-time tooling).
 
 The same estimators and bootstrap as `phase4.analyze`, over any set of languages with a training
 loader in `TRAIN`:

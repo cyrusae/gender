@@ -161,7 +161,7 @@ def extract(model_id: str, device=None, dtype=None) -> None:
 
 def analyze(model_id: str, out_root: str = "results/suffix_followup") -> dict:
     """S1 (confirmatory at 8B/14B; exploratory here) and S2 (descriptive), per the adopted
-    pre-registration (docs/design/suffix-followup-prereg.md).
+    pre-registration (docs/design/base/suffix-followup-prereg.md).
 
     Direction: the single-root m/f probe of Phase 3 (stratified, strat3, residualised on cells +
     covariates), unchanged. S1: AUC of feminine borrowed-suffix nouns (-tät/-enz/-anz/-ik/-ur, v3

@@ -1,11 +1,26 @@
 # Grammatical Gender Bleedthrough in LLMs
 
-Does a model's representation of grammatical gender, learned from inanimate nouns,
-overlap with its representation of social gender? Study design:
-`Grammatical Gender Bleedthrough in LLMs Project Design.pdf` (gated phases 0–5).
-Background literature: `sources/SUMMARIES.md`.
+A monorepo of related studies on whether models' representations of **grammatical** gender
+overlap with **social** gender. Shared infrastructure (lexicons from Wiktionary, Glasgow norms,
+the `gbleed` package, RunPod tooling) lives at the top level; each study has its own design
+docs, results and status.
 
-## Status
+## Studies: where to find what
+
+| study | question | status | design / preregs | write-up / explainers | code | results |
+|---|---|---|---|---|---|---|
+| **1. Base-model study** | Does an LLM's grammatical-gender direction overlap with social gender? (Qwen3 0.6B–14B, EuroLLM) | **closed 2026-10-26**; write-up in progress | `docs/design/base/` (original design PDF, Phases 4–5, P29–P31) | `docs/writeups/`, explainers 00–07 | `src/gbleed/` | `results/phase*`, `results/p2*`–`p31*` |
+| **2. Follow-ups** | Controls and replications: confidence, German frequency lean, register, SAE, Gemma 3, rarity held-out, Russian | done; feed the base write-up | `docs/design/followups/` | explainers 07–09 | `src/gbleed/` | `results/<follow-up>/`, `results/gemma_slim/` |
+| **3. Instruct replication** | Do the base results hold in chat-tuned siblings and chat formats? | stage A pilot done (Gemma-3-4B-it); rest waits on PI | `docs/design/instruct/` | explainer 10 | `src/gbleed/chat_format.py` | `results/instruct_stageA/` |
+| **4. Character study** | What do chat models *say* when asked to turn a thing into a character? | prereg stage | `character/docs/` | explainers C0–C1 | `character/` (own CLAUDE.md; branch `character`) | `character/results/` |
+| **5. Embeddings study** | Does Zhou et al. (2019)'s removal of grammatical gender leave social-gender associations on inanimate nouns? | idea; reading | `embeddings/` | – | `embeddings/` | – |
+
+Shared across studies: `docs/decisions.md` (every choice, dated), `docs/glossary.md`,
+`docs/project-outline.md` (narrative history), `docs/handoff.md` (restart briefing),
+`sources/` (reading library; verification ledgers in `sources/verification/`).
+The original design document: `docs/design/base/original-design.pdf`.
+
+## Base-model study: status by phase
 
 | phase | question | status | explainer |
 |---|---|---|---|
@@ -15,7 +30,6 @@ Background literature: `sources/SUMMARIES.md`.
 | 3 | German gender direction | done: compounds follow the head; markedness not supported | [03](docs/explainers/03-phase3-german-three-genders.md) |
 | 4 | Shared across languages? | done: partly (T3, T4 pass; T1 fails) | [04](docs/explainers/04-phase4-shared-gender.md) |
 | 5 | Bleed into social gender? | done: Spanish language-specific effect on Qwen3-8B only; German no valid test | [05](docs/explainers/05-phase5-steering.md) |
-
 | G | Replicates in Gemma 3 (4B/12B)? | done: Phase 3–4 verdicts replicate; no steering effect; no German frequency lean | [08](docs/explainers/08-gemma-replication-and-outlier-dimension.md) |
 | – | Rarity lean on new nouns; Russian | done: lean doesn't generalise; Russian sharing one-way | [09](docs/explainers/09-rarity-heldout-and-russian.md) |
 | I | Same in instruct models? | stage A pilot (Gemma-3-4B-it): all verdicts as base | [10](docs/explainers/10-instruct-replication-stageA.md) |
@@ -183,7 +197,7 @@ leaves nonce endings fully readable at every layer and size, and even nonce-fitt
 new nonce words at AUC ~0.8, because the -a/-o contrast is largely word-specific. Results:
 `results/phase1/<model>/`.
 
-## Phase 2: Spanish gender direction (in progress)
+## Phase 2: Spanish gender direction
 
 Because erasure doesn't generalise, the main spelling control is the training set itself:
 
@@ -204,10 +218,17 @@ pre-registered reading (including the amendment made before results) is in `deci
 data/stimuli/     stimulus lists and hand-picked specs (versioned, tracked)
 data/lexicon/     pairs, multi-gender candidates, metadata (full noun tables git-ignored)
 data/raw/         NLTK data, norms, name lists (git-ignored); the Wiktionary dumps are on the store
-src/gbleed/       models, scoring, stimuli, lexicon, phase0, multigender, activations,
-                  phase1(_stimuli), phase2(_stimuli), cli
-results/          small result tables (tracked): phase0/, multigender/, phase1/, phase2_known/, phase2/
+src/gbleed/       the `gbleed` package: models, scoring, stimuli, lexicon, one module per phase/test, cli
+results/          small result tables (tracked), one folder per phase or test
 activations/      extracted hidden states: on the store by default (see Setup; one device and precision per model)
-docs/             start at docs/README.md (map): outline, decisions log, glossary, explainers/, design/, writeups/
-sources/          papers (PDFs git-ignored) + SUMMARIES.md
+docs/             start at docs/README.md (map): outline, decisions log, glossary, explainers/,
+                  design/{base,followups,instruct}/, writeups/
+sources/          papers (PDFs git-ignored) + SUMMARIES.md; verification/ = accuracy-pass ledgers
+scripts/         one-off analysis drivers (outlier fix, word-level export, EDA export, stage A)
+runpod/          pod drivers and setup (see runpod/README.md)
+eda/             CC0-safe word-free export for EDA
+character/       character study (own CLAUDE.md, branch `character`)
+embeddings/      embeddings study (Zhou et al. 2019 follow-up); external/ = cloned upstream code, not tracked
+notes/           PI's scratch notes
+logs/, scratchpad/, worktrees/   untracked working space
 ```

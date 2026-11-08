@@ -52,29 +52,34 @@ to read the numbers, and which limits to state in a write-up.
 Written **before** the data they describe. A title marked "ADOPTED, PI date" is binding; later
 changes are amendments inside the file or entries in `decisions.md`.
 
+Grouped by study: `design/base/` (the base-model study and its pre-registered P29–P31 tests,
+plus `original-design.pdf`), `design/followups/` (controls and replications run after the base
+study), `design/instruct/` (instruct replication). The character study's designs are in
+`character/docs/`; the embeddings study's will be in `embeddings/`.
+
 **Big plans**
-- [`phases-3-5-plan.md`](design/phases-3-5-plan.md): the plan that extended the original design doc to Phases 3–5.
-- [`phase4-design.md`](design/phase4-design.md) (Q1–Q6) and [`phase5-design.md`](design/phase5-design.md) (P1–P28).
-- [`runpod-session-plan.md`](design/runpod-session-plan.md): pod sessions 1 and 2, plans and outcomes.
-- [`new-language-playbook.md`](design/new-language-playbook.md): checklist for adding French, Dutch etc. (each step comes from something that went wrong once).
+- [`phases-3-5-plan.md`](design/base/phases-3-5-plan.md): the plan that extended the original design doc to Phases 3–5.
+- [`phase4-design.md`](design/base/phase4-design.md) (Q1–Q6) and [`phase5-design.md`](design/base/phase5-design.md) (P1–P28).
+- [`runpod-session-plan.md`](design/base/runpod-session-plan.md): pod sessions 1 and 2, plans and outcomes.
+- [`new-language-playbook.md`](design/followups/new-language-playbook.md): checklist for adding French, Dutch etc. (each step comes from something that went wrong once).
 
 **Pre-registrations, in the order they were run**
 
 | file | question |
 |---|---|
-| [`suffix-followup-prereg.md`](design/suffix-followup-prereg.md) | German suffix follow-up (D1–D4) |
-| [`pooling-neutrality-prereg.md`](design/pooling-neutrality-prereg.md) | P29: is the pooled adjective readout neutral to the article? (failed) |
-| [`p30-object-context-prereg.md`](design/p30-object-context-prereg.md) | P30: does *la* pull toward feminine adjectives on an object? (Spanish) |
-| [`p31-german-object-context-prereg.md`](design/p31-german-object-context-prereg.md) | P31: the German version of P30 |
-| [`confidence-ctl-prereg.md`](design/confidence-ctl-prereg.md) | Confidence/flattening control for every steering result |
-| [`frequency-axis-prereg.md`](design/frequency-axis-prereg.md) | Why the German direction points toward rarer words |
-| [`register-axis-prereg.md`](design/register-axis-prereg.md) | Is that frequency axis partly register? |
-| [`rarity-lean-heldout-prereg.md`](design/rarity-lean-heldout-prereg.md) | Does the rarity lean reach new simple nouns? |
-| [`gemma-slim-prereg.md`](design/gemma-slim-prereg.md) | Gemma 3 replication (+ companion note [`gemma-outlier-dimension.md`](design/gemma-outlier-dimension.md)) |
-| [`russian-direction-prereg.md`](design/russian-direction-prereg.md) | A Russian gender direction: does it align, does it lean? |
-| [`instruct-replication-prereg.md`](design/instruct-replication-prereg.md) | The base-model study rerun on instruct models, stage A (phase 2 queue) |
+| [`suffix-followup-prereg.md`](design/base/suffix-followup-prereg.md) | German suffix follow-up (D1–D4) |
+| [`pooling-neutrality-prereg.md`](design/base/pooling-neutrality-prereg.md) | P29: is the pooled adjective readout neutral to the article? (failed) |
+| [`p30-object-context-prereg.md`](design/base/p30-object-context-prereg.md) | P30: does *la* pull toward feminine adjectives on an object? (Spanish) |
+| [`p31-german-object-context-prereg.md`](design/base/p31-german-object-context-prereg.md) | P31: the German version of P30 |
+| [`confidence-ctl-prereg.md`](design/followups/confidence-ctl-prereg.md) | Confidence/flattening control for every steering result |
+| [`frequency-axis-prereg.md`](design/followups/frequency-axis-prereg.md) | Why the German direction points toward rarer words |
+| [`register-axis-prereg.md`](design/followups/register-axis-prereg.md) | Is that frequency axis partly register? |
+| [`rarity-lean-heldout-prereg.md`](design/followups/rarity-lean-heldout-prereg.md) | Does the rarity lean reach new simple nouns? |
+| [`gemma-slim-prereg.md`](design/followups/gemma-slim-prereg.md) | Gemma 3 replication (+ companion note [`gemma-outlier-dimension.md`](design/followups/gemma-outlier-dimension.md)) |
+| [`russian-direction-prereg.md`](design/followups/russian-direction-prereg.md) | A Russian gender direction: does it align, does it lean? |
+| [`instruct-replication-prereg.md`](design/instruct/instruct-replication-prereg.md) | The base-model study rerun on instruct models, stage A (phase 2 queue) |
 
-[`confidence-direction-control-spec.md`](design/confidence-direction-control-spec.md) is an
+[`confidence-direction-control-spec.md`](design/followups/confidence-direction-control-spec.md) is an
 identical copy of the research-agent spec in `feynman/`; the adopted version is
 `confidence-ctl-prereg.md`.
 
@@ -123,7 +128,7 @@ Related: [`blog/series-outline.md`](blog/series-outline.md), bullet outlines for
 
 ## Elsewhere in the repo
 
-- The original design (phases 0–5): `Grammatical Gender Bleedthrough in LLMs Project Design.pdf` (repo root).
+- The original design (phases 0–5): `docs/design/base/original-design.pdf` (repo root).
 - Result summaries: `results/` (pod results under `results/runpod/`, `results/runpod2/`, `results/p29/`).
 - Instruct study's own design notes: `instruct/docs/` and rules in `instruct/CLAUDE.md`.
 - Bulky data (activations, sweeps, dumps): the external drive, `/Volumes/Lexar/gbleed`.

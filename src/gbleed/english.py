@@ -1,5 +1,5 @@
 """P23 (English base case) and P24 (cross-domain transfer, §5.1 cosine); exploratory, adopted
-2026-10-09 (PI). Design: docs/design/phase5-design.md P23/P24.
+2026-10-09 (PI). Design: docs/design/base/phase5-design.md P23/P24.
 
 Words (bare, same input format as Phases 2-3; LAST and AFTER from one pass):
   social pairs   the fixed female/male English pairs that define the social direction

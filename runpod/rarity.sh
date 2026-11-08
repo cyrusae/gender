@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Rarity held-out (docs/design/rarity-lean-heldout-prereg.md): extract H on 8B/14B (CUDA bf16, as their Phase 3 training activations).
+# Rarity held-out (docs/design/followups/rarity-lean-heldout-prereg.md): extract H on 8B/14B (CUDA bf16, as their Phase 3 training activations).
 # Run from the repo root after setup.sh:  nohup bash runpod/rarity.sh > /dev/null 2>&1 < /dev/null &
 # End markers (wait on these, never on pgrep): "=== RARITY done" / "RARITY FAILED" in logs/rarity.log.
 # No pod-side self-stop: the pod's injected RUNPOD_API_KEY is rejected by runpodctl (tested

@@ -1,4 +1,4 @@
-"""Instruct replication stage A analyses (docs/design/instruct-replication-prereg.md), one job.
+"""Instruct replication stage A analyses (docs/design/instruct/instruct-replication-prereg.md), one job.
 
     uv run python scripts/instruct_stageA_analysis.py MODEL FORMAT JOB
       FORMAT: raw | A-en | A-something | A-lang | U

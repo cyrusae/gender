@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Instruct replication stage A (docs/design/instruct-replication-prereg.md): gates + raw and chat-format
+# Instruct replication stage A (docs/design/instruct/instruct-replication-prereg.md): gates + raw and chat-format
 # extraction, no steering. Analyses run on the Mac. Needs HF_TOKEN (Gemma) in the environment only.
 # Run from the repo root after setup.sh:  nohup bash runpod/instruct_stageA.sh > /dev/null 2>&1 < /dev/null &
 # End markers: "=== STAGEA all done" / "=== STAGEA FAILED" in logs/stageA.log.

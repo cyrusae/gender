@@ -2,7 +2,7 @@
 
 Gemma's residual stream has one dimension carrying most of the variance across nouns (59–92% at
 the Phase 5 layers; Qwen3 ≤ 1.6%), and the split-half cosine estimator breaks on it. Fix
-(`docs/design/gemma-slim-prereg.md`, "Amendment: outlier-dimension fix"): per model and layer,
+(`docs/design/followups/gemma-slim-prereg.md`, "Amendment: outlier-dimension fix"): per model and layer,
 zero every dimension with more than OUTLIER_SHARE of the variance across all Phase 3 bare nouns
 (`phase3_bare`, the reference file; outcome-blind). Zeroing is the same as dropping for every
 dot product, length and regression the cosines use. No dimension qualifies on Qwen3, so Qwen

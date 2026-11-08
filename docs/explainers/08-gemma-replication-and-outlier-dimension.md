@@ -1,8 +1,8 @@
 # 08: Replicating in a second model family (Gemma 3), and an outlier dimension
 
-Work from 2026-10-22 to 10-25. Pre-registered in `docs/design/gemma-slim-prereg.md`, with an
+Work from 2026-10-22 to 10-25. Pre-registered in `docs/design/followups/gemma-slim-prereg.md`, with an
 amendment (outlier fix + validity gate) added before the affected analyses were rerun. The full
-account of the measurement problem is in `docs/design/gemma-outlier-dimension.md`.
+account of the measurement problem is in `docs/design/followups/gemma-outlier-dimension.md`.
 
 ## 1. Why a second family, and why "slim"
 

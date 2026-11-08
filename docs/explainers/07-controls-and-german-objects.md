@@ -1,7 +1,7 @@
 # 07: The German object test (P31), the confidence control, and the German frequency axis
 
 Three pieces of work from 2026-10-21/22. Each was pre-registered before its data:
-`docs/design/p31-german-object-context-prereg.md`, `confidence-ctl-prereg.md` and
+`docs/design/base/p31-german-object-context-prereg.md`, `confidence-ctl-prereg.md` and
 `frequency-axis-prereg.md`. P29/P30, the Spanish version, are in explainer 05.
 
 ## 1. P31: does a feminine article on a *thing* pull toward feminine-rated adjectives, in German?

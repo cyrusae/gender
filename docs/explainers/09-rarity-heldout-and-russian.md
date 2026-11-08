@@ -1,7 +1,7 @@
 # 09: Does the German rarity lean generalise? And a third language without articles (Russian)
 
 Two follow-ups from 2026-10-22 to 10-26, both pre-registered before any activations existed:
-`docs/design/rarity-lean-heldout-prereg.md` and `docs/design/russian-direction-prereg.md`.
+`docs/design/followups/rarity-lean-heldout-prereg.md` and `docs/design/followups/russian-direction-prereg.md`.
 
 ## 1. The rarity lean on new nouns
 

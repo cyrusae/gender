@@ -196,13 +196,13 @@ P26, P27, the wug test, `FROM=` resume. Lists all signed off (2026-10-10, reconf
 ## What it's for
 
 Confirmatory runs for everything designed and adopted on 2026-10-08, on **Qwen3-8B and 14B**:
-- **Phase 4** (`docs/design/phase4-design.md`): activations for the 389 flipped pairs (both
+- **Phase 4** (`docs/design/base/phase4-design.md`): activations for the 389 flipped pairs (both
   languages), fresh held-out German/Spanish draws, and the Russian *-ь* list (174 nouns), plus
   the Russian known check on 8B/14B.
-- **Phase 5** (`docs/design/phase5-design.md`, P1–P17): the agreement gate, baseline, dose-response
+- **Phase 5** (`docs/design/base/phase5-design.md`, P1–P17): the agreement gate, baseline, dose-response
   with damage, specificity, social-gender steering, the English-only readouts, the nonce sets
   (R-NONCE 600 words, English-style 100), noun-only and every-position steering.
-- **Suffix follow-up** (`docs/design/suffix-followup-prereg.md`): `suffix_ctrl` known check +
+- **Suffix follow-up** (`docs/design/base/suffix-followup-prereg.md`): `suffix_ctrl` known check +
   extraction (83 nouns), for the confirmatory S1.
 - **Behavioural checks** in the pre-registered fallback precision (fp32 output layer), including
   a **rerun of session 1's known checks for 8B/14B** (minutes). Only behavioural statuses near the

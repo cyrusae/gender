@@ -1,6 +1,6 @@
 """Phase 3: German grammatical gender (m/f/n), separate masculine and feminine vectors.
 
-Pre-registration: docs/design/phases-3-5-plan.md ("Phase 2 (v4) and Phase 3 analysis", adopted
+Pre-registration: docs/design/base/phases-3-5-plan.md ("Phase 2 (v4) and Phase 3 analysis", adopted
 2026-10-07). Stimuli: data/stimuli/phase3_final_v3.csv. All analyses use activations residualised
 on the stratification cells (ending x loan status) + frequency, token count and concreteness.
 

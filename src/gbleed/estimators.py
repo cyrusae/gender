@@ -1,6 +1,6 @@
 """Shared estimators for the stratified Phase 2 (v4) and Phase 3 analyses.
 
-Pre-registration: docs/design/phases-3-5-plan.md ("Phase 2 (v4) and Phase 3 analysis").
+Pre-registration: docs/design/base/phases-3-5-plan.md ("Phase 2 (v4) and Phase 3 analysis").
 
 - `nuisance(cells, covs)`: design matrix of cell indicators (one per stratification cell; they
   also act as the intercept) plus centred covariates (frequency, token count, concreteness...).

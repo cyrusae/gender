@@ -1,4 +1,4 @@
-"""Phase 5 stimuli (design: docs/design/phase5-design.md, P1-P22).
+"""Phase 5 stimuli (design: docs/design/base/phase5-design.md, P1-P22).
 
 Built here, all fixed before any Phase 5 model output:
   adjectives  Glasgow-rated English adjectives (Scott et al. 2019): WordNet senses >= 50%

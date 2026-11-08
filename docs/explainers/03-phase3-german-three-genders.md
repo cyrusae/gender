@@ -1,7 +1,7 @@
 # Phase 3 explained: German, three genders, and separate masculine and feminine vectors
 
 *Code: `src/gbleed/phase3_stimuli.py`, `phase3_known.py`, `phase3.py`, `estimators.py`.
-Pre-registration: `docs/design/phases-3-5-plan.md` ("Phase 2 (v4) and Phase 3 analysis").
+Pre-registration: `docs/design/base/phases-3-5-plan.md` ("Phase 2 (v4) and Phase 3 analysis").
 Every decision: `docs/decisions.md` (2026-10-07/08). Terms in **bold** are in the
 [glossary](../glossary.md). Results here are **exploratory** (Qwen3-1.7B/4B on the Mac); the
 confirmatory runs are 8B/14B on RunPod.*

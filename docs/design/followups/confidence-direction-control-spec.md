@@ -228,7 +228,7 @@ Per model, per steering layer k:
 
 ## B4. Pre-registration & reporting requirements
 
-- Before running anything: `docs/design/confidence-ctl-prereg.md` (what, why, the §A4 rule,
+- Before running anything: `docs/design/followups/confidence-ctl-prereg.md` (what, why, the §A4 rule,
   fixed item rules, thresholds) + the dated entry in `docs/decisions.md`.
 - After results: add new terms to `docs/glossary.md` (confidence direction, list entropy,
   Kendall τ); optionally a short section in `docs/explainers/05-phase5-steering.md`; write the

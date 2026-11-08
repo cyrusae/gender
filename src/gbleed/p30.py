@@ -1,5 +1,5 @@
 """P30: does a feminine article pull toward feminine-rated adjectives when the noun is clearly an
-object? (exploratory; `docs/design/p30-object-context-prereg.md`)
+object? (exploratory; `docs/design/base/p30-object-context-prereg.md`)
 
 Unsteered. Nonce nouns (R-NONCE Spanish, all endings) and real common-gender person nouns behind
 *El* / *La* in object, neutral and person contexts; read at the adjective slot after *muy*:

@@ -1,4 +1,4 @@
-"""German rarity-lean held-out test (docs/design/rarity-lean-heldout-prereg.md).
+"""German rarity-lean held-out test (docs/design/followups/rarity-lean-heldout-prereg.md).
 
 Stage 1: freeze the held-out simplex list H (`build`). Stage 2: extract H at LAST on the same
 device/precision as the training activations (`extract`, pod). Stage 3: the within-gender rank

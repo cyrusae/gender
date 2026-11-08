@@ -224,8 +224,8 @@ Suggested order (chronological = your repo's own logic):
 | Stimuli | `README.md` (lexicon section); `docs/screening/`; `docs/reports/` |
 | Estimator | `docs/methods-summary.md`; `src/gbleed/estimators.py`; decisions 2026-10-06/07 entries |
 | Phase results | `docs/explainers/00–06`; `results/runpod{,2}/` |
-| Phase 5 steering | `docs/explainers/05`; `docs/design/phase5-design.md`; `src/gbleed/phase5.py` |
-| P29/P30 | `docs/explainers/05` (P29/P30 sections); `docs/design/pooling-neutrality-prereg.md`, `p30-object-context-prereg.md`; outline §16 |
+| Phase 5 steering | `docs/explainers/05`; `docs/design/base/phase5-design.md`; `src/gbleed/phase5.py` |
+| P29/P30 | `docs/explainers/05` (P29/P30 sections); `docs/design/base/pooling-neutrality-prereg.md`, `p30-object-context-prereg.md`; outline §16 |
 | Confidence controls | **this spec** (`outputs/confidence-direction-control-spec.md`) + 2610.08559 |
 | Limits | each explainer's "Limits worth stating"; outline §15–16 |
 | Narrative/chronology | `docs/project-outline.md` |

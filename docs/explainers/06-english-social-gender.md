@@ -1,6 +1,6 @@
 # P23/P24 explained: does the grammatical gender direction point at "woman"?
 
-Exploratory side study of Phase 5 (design: `docs/design/phase5-design.md` P23, P24, P24b; code:
+Exploratory side study of Phase 5 (design: `docs/design/base/phase5-design.md` P23, P24, P24b; code:
 `src/gbleed/english.py`). Laptop numbers below are development results (Mac, fp16, LAST
 position, Qwen3 1.7B/4B; word list v3).
 

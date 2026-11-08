@@ -1,7 +1,7 @@
 # Phase 4 explained: is grammatical gender one direction across languages?
 
 *Code: `src/gbleed/phase4.py` (pairs, known checks, extraction, analysis), `phase4_ru.py`
-(Russian list). Design and pre-registered rules: `docs/design/phase4-design.md` (Q1–Q6) and
+(Russian list). Design and pre-registered rules: `docs/design/base/phase4-design.md` (Q1–Q6) and
 `docs/decisions.md` (2026-10-08/09). Terms in **bold** are in the [glossary](../glossary.md).
 Laptop numbers (Qwen3-1.7B/4B, Mac fp16) are exploratory; the confirmatory 8B/14B results
 (cloud session 2, L40S bf16) are in [their own section](#confirmatory-results-8b14b-session-2).*

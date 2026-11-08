@@ -17,7 +17,7 @@ import pandas as pd
 from .models import model_slug
 
 FILTERED_PREFIXES = ("google/gemma",)
-# instruct replication (docs/design/instruct-replication-prereg.md): the lists were built on the
+# instruct replication (docs/design/instruct/instruct-replication-prereg.md): the lists were built on the
 # Qwen3 base models, so their instruct siblings are filtered like Gemma
 FILTERED_MODELS = {"Qwen/Qwen3-8B", "Qwen/Qwen3-14B"}
 ROOTS = {"es": "results/phase2_known", "de": "results/phase3_known"}

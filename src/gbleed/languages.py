@@ -1,4 +1,4 @@
-"""One place for what differs between languages (`docs/design/new-language-playbook.md`).
+"""One place for what differs between languages (`docs/design/followups/new-language-playbook.md`).
 
 Each `LangSpec` names the language's genders, its `wordfreq` code, its stratification cell rule
 (spelling held constant within a cell) and, where one exists, its word-structure rule (compounds,

@@ -1,4 +1,4 @@
-"""Russian gender direction (docs/design/russian-direction-prereg.md, adopted PI 2026-10-25).
+"""Russian gender direction (docs/design/followups/russian-direction-prereg.md, adopted PI 2026-10-25).
 
 R-A: does a direction fitted on the Russian -ь nouns score Spanish/German nouns by gender, and
 vice versa (four co-primary within-cell AUCs, Bonferroni 98.75% bootstrap intervals, majority of

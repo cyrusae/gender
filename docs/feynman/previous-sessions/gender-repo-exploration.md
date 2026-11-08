@@ -21,7 +21,7 @@ measurement choices fixed before data, every decision dated in `docs/decisions.m
 ~/GitHere/gender                     main checkout (branch main)
 ├── README.md                        status table, setup, pipeline, lexicon docs
 ├── CLAUDE.md                        working rules + current-state log (updated Oct 17)
-├── Grammatical Gender Bleedthrough in LLMs Project Design.pdf
+├── docs/design/base/original-design.pdf
 ├── src/gbleed/                      cli.py, lexicon, stimuli, models, activations, scoring,
 │                                   phase0–phase5, steering, estimators, sae, p22, p29, p30, p31…
 ├── tests/                           stimulus validation, heuristics, analysis-logic guards
@@ -179,7 +179,7 @@ but `sae.py` shows you don't need it: raw tensors suffice).
 - `docs/decisions.md` (decision log)
 - `docs/methods-summary.md`
 - `docs/explainers/00…06` (phase explainers)
-- `docs/design/phase5-design.md`, `pooling-neutrality-prereg.md`, `p30-object-context-prereg.md`, `p31-german-object-context-prereg.md`
+- `docs/design/base/phase5-design.md`, `pooling-neutrality-prereg.md`, `p30-object-context-prereg.md`, `p31-german-object-context-prereg.md`
 - `results/runpod/README.md`, `results/runpod2/README.md`
 - `src/gbleed/sae.py` (existing Qwen-Scope loader)
 - git history, 262 commits, branches: `main`, `batched-solver`, `phase5-build`, `pod-analysis`, `s2-analysis`, `russian`

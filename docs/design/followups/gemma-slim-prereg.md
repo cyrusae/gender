@@ -282,7 +282,7 @@ fix + validity gate): see "Amendment results".
 ## Amendment: outlier-dimension fix with a validity gate (PI, 2026-10-24; before any rerun)
 
 **Why.** The cross-fitted cosines (R2, Phase 4 T2) gave impossible values on Gemma (outside
-[−1, 1], or undefined). Outcome-blind diagnostics (`docs/design/gemma-outlier-dimension.md`;
+[−1, 1], or undefined). Outcome-blind diagnostics (`docs/design/followups/gemma-outlier-dimension.md`;
 `scripts/outlier_fix_diagnostics.py`, `results/outlier_fix/diagnostics.csv`) traced it to one
 residual dimension carrying 59–92% of the variance across nouns (dimension 443 in 4B, 2339 in
 12B, at every layer from 3 on; Qwen3 ≤ 1.6%). The fix was chosen on those diagnostics only, with

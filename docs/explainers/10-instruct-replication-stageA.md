@@ -1,6 +1,6 @@
 # 10: Do the results hold in chat models? (instruct replication, stage A)
 
-Work from 2026-10-26/27. Pre-registered in `docs/design/instruct-replication-prereg.md` (adopted
+Work from 2026-10-26/27. Pre-registered in `docs/design/instruct/instruct-replication-prereg.md` (adopted
 by the PI 2026-10-26, amendment 1 on 2026-10-27). So far only the Gemma-3-4B-it pilot has run;
 Gemma-3-12B-it and Qwen3-8B/14B (non-thinking) await the PI.
 

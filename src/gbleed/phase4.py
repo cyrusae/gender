@@ -1,4 +1,4 @@
-"""Phase 4: is grammatical gender shared across languages? (design: docs/design/phase4-design.md,
+"""Phase 4: is grammatical gender shared across languages? (design: docs/design/base/phase4-design.md,
 adopted Q1-Q6, 2026-10-08).
 
 Directions (fitted per layer with the Phase 2/3 stratified estimators, f = positive):

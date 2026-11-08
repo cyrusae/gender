@@ -1,4 +1,4 @@
-"""Why the German gender direction points toward "rarer" (`docs/design/frequency-axis-prereg.md`;
+"""Why the German gender direction points toward "rarer" (`docs/design/followups/frequency-axis-prereg.md`;
 diagnostic). A: flexible frequency control; B: frequency axis projected out, Phase 4 rerun;
 C: frequency-matched pairs (no regression); D: complex nouns dropped (D1) / as a covariate (D2).
 Cosines are cross-fitted and judged by the confidence control's (c) overlap rule.

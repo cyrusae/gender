@@ -1,4 +1,4 @@
-"""Is the German "frequency" axis partly register? (`docs/design/register-axis-prereg.md`)
+"""Is the German "frequency" axis partly register? (`docs/design/followups/register-axis-prereg.md`)
 
 Register proxy: age of acquisition (Kuperman et al. 2012) of each noun's English gloss.
 E1 AoA by gender (no model); E2 (primary) gender-frequency overlap with vs without an AoA

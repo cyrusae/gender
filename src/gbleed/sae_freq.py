@@ -1,6 +1,6 @@
 """G2 (R3): SAE features behind the German f−m / frequency overlap (Qwen3-8B first).
 
-Pre-registered in `docs/design/gemma-slim-prereg.md` (G2 + "G2 implementation notes").
+Pre-registered in `docs/design/followups/gemma-slim-prereg.md` (G2 + "G2 implementation notes").
 Discovery on the strat3 training nouns; the confirmatory test on the held-out `compound_test`
 m/f nouns: remove the 20 candidate features (x' = x − Σ f_i W_dec[:, i], SAE error kept) and ask
 whether the refit f−m direction's |cos| with the Zipf coefficient halves, while gender decoding

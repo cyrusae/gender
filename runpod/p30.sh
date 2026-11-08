@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# P30 (docs/design/p30-object-context-prereg.md): unsteered object/person-context scoring on 8B/14B.
+# P30 (docs/design/base/p30-object-context-prereg.md): unsteered object/person-context scoring on 8B/14B.
 # Run from the repo root after setup.sh:  nohup bash runpod/p30.sh > /dev/null 2>&1 < /dev/null &
 # End markers (wait on these, never on pgrep): "=== P30 done" / "P30 FAILED" in logs/p30.log.
 # No pod-side self-stop: the pod's injected RUNPOD_API_KEY is rejected by runpodctl (tested

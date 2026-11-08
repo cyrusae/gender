@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# P31 (docs/design/p31-german-object-context-prereg.md): German object/person-context scoring on 8B/14B.
+# P31 (docs/design/base/p31-german-object-context-prereg.md): German object/person-context scoring on 8B/14B.
 # Run from the repo root after setup.sh:  nohup bash runpod/p31.sh > /dev/null 2>&1 < /dev/null &
 # End markers (wait on these, never on pgrep): "=== P31 done" / "P31 FAILED" in logs/p31.log.
 # No pod-side self-stop: the pod's injected RUNPOD_API_KEY is rejected by runpodctl (tested

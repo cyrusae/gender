@@ -1,4 +1,4 @@
-"""Chat-template inputs for the instruct replication (docs/design/instruct-replication-prereg.md).
+"""Chat-template inputs for the instruct replication (docs/design/instruct/instruct-replication-prereg.md).
 
 Formats (stage A, sensitivity to the raw primary):
   A-en         user "Say one word."   / assistant: the noun, then end-of-turn

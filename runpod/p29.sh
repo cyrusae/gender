@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# P29 (docs/design/pooling-neutrality-prereg.md): unsteered agreement-neutrality scoring on 8B/14B.
+# P29 (docs/design/base/pooling-neutrality-prereg.md): unsteered agreement-neutrality scoring on 8B/14B.
 # Run from the repo root after setup.sh:  nohup bash runpod/p29.sh > /dev/null 2>&1 < /dev/null &
 # End markers (wait on these, never on pgrep): "=== P29 done" / "P29 FAILED" in logs/p29.log.
 # No pod-side self-stop: the pod's injected RUNPOD_API_KEY is rejected by runpodctl (tested

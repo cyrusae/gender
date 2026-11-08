@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Gemma slim (prereg: docs/design/gemma-slim-prereg.md): G0 gates, known-check filter, and the GPU
+# Gemma slim (prereg: docs/design/followups/gemma-slim-prereg.md): G0 gates, known-check filter, and the GPU
 # steps for G1 (R1 Phase 3-5 verdicts, R2 frequency overlap) on gemma-3-4b-pt / gemma-3-12b-pt.
 # One chip (A100 80GB), bf16 on CUDA (models.py default). Analyses (R2 A/C/D, G2 SAE) run on the
 # Mac from the copied-back activations. 27B is off unless the PI OKs it (MODELS="...").

@@ -1,6 +1,6 @@
 """Gemma slim prereg G0: technical gates before any Gemma 3 result is computed.
 
-Per model (`docs/design/gemma-slim-prereg.md`, G0 table):
+Per model (`docs/design/followups/gemma-slim-prereg.md`, G0 table):
   dtype     parameters are bf16
   loading   20 fixed German/Spanish prompts give finite next-token log-probs; top-1 continuations
             of "Der Hund" / "El perro" are recorded for a plausibility read

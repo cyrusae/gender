@@ -1,4 +1,4 @@
-"""Confidence/flattening control (`docs/design/confidence-ctl-prereg.md`; diagnostic).
+"""Confidence/flattening control (`docs/design/followups/confidence-ctl-prereg.md`; diagnostic).
 
 (a) Every graded score gets one more covariate, the adjective's midpoint log-probability (mean of
     the two compared conditions, per row). Implemented by running each experiment's own analysis

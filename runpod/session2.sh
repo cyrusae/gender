@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Session 2 (plan: docs/design/runpod-session-plan.md): Phases 4-5 + suffix follow-up on 8B/14B,
+# Session 2 (plan: docs/design/base/runpod-session-plan.md): Phases 4-5 + suffix follow-up on 8B/14B,
 # one chip for everything (the Phase 2/3 training activations are re-extracted here, so the
 # steering directions are fitted on this chip). GPU steps only; analysis on the Mac.
 # Run from the repo root after setup.sh:  nohup bash runpod/session2.sh > /dev/null 2>&1 < /dev/null &

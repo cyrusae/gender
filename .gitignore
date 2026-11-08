@@ -95,3 +95,6 @@ activations_chat/
 
 # R session history
 .Rhistory
+
+# embeddings study: cloned upstream repos (read-only reference)
+embeddings/external/

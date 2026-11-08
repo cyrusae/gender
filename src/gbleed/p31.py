@@ -1,4 +1,4 @@
-"""P31: the German version of P30 (exploratory; `docs/design/p31-german-object-context-prereg.md`).
+"""P31: the German version of P30 (exploratory; `docs/design/base/p31-german-object-context-prereg.md`).
 
 Does *die* (vs *der*) on a made-up German noun pull toward feminine-rated adjectives when the noun
 is clearly a thing? German predicative adjectives don't inflect (*ist sehr groß* for every

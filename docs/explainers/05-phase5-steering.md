@@ -2,7 +2,7 @@
 
 *Code: `src/gbleed/steering.py` (the split forward pass), `phase5.py` (gate, sweeps, readouts,
 damage), `phase5_stimuli.py` (word lists), `phase5_analysis.py` (scores, tests, verdicts).
-Design and every pre-registered choice: `docs/design/phase5-design.md` (P1–P27) and
+Design and every pre-registered choice: `docs/design/base/phase5-design.md` (P1–P27) and
 `docs/decisions.md`. Terms in **bold** are in the [glossary](../glossary.md). Confirmatory
 results (8B/14B, cloud session 2, L40S bf16) are in [Results](#results-session-2-confirmatory-8b14b);
 the 4B numbers elsewhere are laptop development runs.*

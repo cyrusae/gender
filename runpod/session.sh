@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Confirmatory session (plan: docs/design/runpod-session-plan.md). GPU steps only: every model on
+# Confirmatory session (plan: docs/design/base/runpod-session-plan.md). GPU steps only: every model on
 # the same GPU type, bf16; analysis happens on the Mac (a worktree at BUNDLE_COMMIT.txt).
 # Run from the repo root after setup.sh:  nohup bash runpod/session.sh > /dev/null 2>&1 < /dev/null &
 # Watch:  tail -f logs/session.log      Resume after a failure: MODELS="..." bash runpod/session.sh

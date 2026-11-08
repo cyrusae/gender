@@ -1,5 +1,5 @@
 """P29: is the R3-POOL pooled adjective readout agreement-neutral? (PI 2026-10-17;
-`docs/design/pooling-neutrality-prereg.md`)
+`docs/design/base/pooling-neutrality-prereg.md`)
 
 Unsteered. Nonce nouns (the R-NONCE Spanish set) behind a masculine or feminine article, so that
 only agreement differs between the two prompts of a word; read at the adjective slot after *muy*:

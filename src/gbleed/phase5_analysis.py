@@ -1,4 +1,4 @@
-"""Phase 5 analysis (design: docs/design/phase5-design.md §5.3-5.4, §5.7, P9, P14, P18, P25).
+"""Phase 5 analysis (design: docs/design/base/phase5-design.md §5.3-5.4, §5.7, P9, P14, P18, P25).
 
 Reads the sweep outputs of `phase5.sweep` (one directory per model x language x layer x
 positions) and computes, per readout:
