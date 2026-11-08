@@ -285,3 +285,13 @@ def test_citation_forms():
     assert citation_form("área", "es", "f") == "el área"
     for w in ("actividad", "alergia", "autoridad", "anarquía", "amistad", "anchura", "aviación"):
         assert not es_stressed_a(w), w
+
+
+def test_style_and_leak():
+    from style_measures import leaked, style
+
+    s = style("She was quiet. However, she was strong and kind.")
+    assert s["n_words"] == 9 and s["mean_sent_len"] == 4.5 and s["formal_markers"] > 0
+    assert leaked("Okay, let me think about a door. She is ...")
+    assert not leaked("She stands in the doorway, patient and solid.")
+    assert not leaked("Name: Elara\nShe stands ...")
