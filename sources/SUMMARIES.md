@@ -478,6 +478,20 @@ Analyzes hundreds of story completions to quantify the proportion of *he*, *she*
 
 **Relevance to bleedthrough in LLMs.** Quantifies the default baseline male skew in LLM story generation. In our character study, the effect of foreign grammatical gender must be measured against this established empirical baseline.
 
+---
+
+## 28. Mihaylov & Shtedritski (2024)
+
+**Citation:** Mihaylov, Viktor; Shtedritski, Aleksandar (2024). "What an Elegant Bridge: Multilingual LLMs are Biased Similarly in Different Languages." *Proceedings of the 1st Workshop on NLP for Science (NLP4Science)*, pages 16–23, November 16, 2024. Association for Computational Linguistics.
+
+**File:** `02_Gender_in_Embeddings_and_LLMs/[Mihaylov & Shtedritski 2024] What an Elegant Bridge - Multilingual LLMs are Biased Similarly in Different Languages.pdf`
+
+**Summary.** Revisits and scales Boroditsky et al.'s (2003) foundational bridge experiment in modern open-weight multilingual LLMs (Llama-2 and Mistral) across 10 languages with grammatical gender systems (including German, Spanish, French, Italian, Polish, Russian, etc.). Prompts models to generate descriptive adjectives for concrete nouns across languages, analyzing adjective co-occurrence matrices and training binary classifiers to predict grammatical gender from LLM-generated adjectives.
+
+**Findings.** Demonstrates that a linear classifier trained on LLM-generated adjectives predicts the grammatical gender of nouns significantly above chance. Crucially, the learned gender biases transfer cross-lingually: classifiers trained on adjectives elicited in one language (e.g., German) successfully predict gender in other languages (e.g., Spanish or Italian), indicating shared latent representations of grammatical gender associations across multilingual models.
+
+**Relevance to bleedthrough in LLMs.** Highly significant direct prior art for this project. Provides empirical evidence that multilingual LLMs exhibit cross-lingual grammatical gender bleedthrough in descriptive adjectives. Serves as a primary reference point and comparative benchmark for measuring the strength, persistence, and steering of gender representations in generative text.
+
 ## Cross-cutting themes
 
 - **Agreement vs. semantics.** Across human psycholinguistics (Mickan et al., Elpers et al., Brand et al.) and embedding studies (Kann, Gonen et al., Flint & Ivanova), grammatical gender in inanimate nouns reflects syntactic agreement morphology rather than deep conceptual sex associations. In humans, high-powered replications show near-zero conceptual warping. In models, surface agreement signals readily leak into embeddings and downstream generations unless explicitly neutralized.

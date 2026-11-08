@@ -92,3 +92,6 @@ worktrees/
 scratchpad/
 activations_chat/
 .Rproj.user
+
+# R session history
+.Rhistory

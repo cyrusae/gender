@@ -17,6 +17,8 @@ Standardized for research workflows and Google NotebookLM in `[Author year] Shor
 | [`05_Lexical_Norms_and_Evaluation/`](05_Lexical_Norms_and_Evaluation/) | Psycholinguistic norm datasets (Glasgow, Dutch), concreteness covariates, and coreference benchmarks | 8 |
 | [`06_Story_Generation_and_Personification/`](06_Story_Generation_and_Personification/) | LLM personification, open-ended character generation, gender bias in generated stories, and anthropomorphism | 27 |
 | [`07_Reasoning_Mode_and_Chain_of_Thought/`](07_Reasoning_Mode_and_Chain_of_Thought/) | Thinking mode (Qwen3, R1), test-time compute, reasoning faithfulness, overthinking, and persona degradation | 45 |
+| ├── [`07A_CoT_Faithfulness_and_Latent_Dynamics/`](07_Reasoning_Mode_and_Chain_of_Thought/07A_CoT_Faithfulness_and_Latent_Dynamics/) | **NB5A**: Internal representations, SAEs, commitment boundaries, and causal faithfulness | 22 |
+| └── [`07B_CoT_Compute_Scaling_and_Bias/`](07_Reasoning_Mode_and_Chain_of_Thought/07B_CoT_Compute_Scaling_and_Bias/) | **NB6B**: Test-time compute budget, overthinking, entropy collapse, and bias amplification | 23 |
 | [`08_Statistical_and_Experimental_Methodology/`](08_Statistical_and_Experimental_Methodology/) | Equivalence testing, linear mixed models, contrast coding, sample sizing, and preregistration in NLP | 5 |
 | `_archive_duplicates/` | Byte-for-byte identical redundant downloads safely archived | 5 |
 
