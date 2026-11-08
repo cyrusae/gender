@@ -1,7 +1,7 @@
-# C1: Zhou et al.'s inanimate-noun bias score, after Zhou et al.'s own mitigation (DRAFT pre-registration)
+# C1: Zhou et al.'s inanimate-noun bias score, after Zhou et al.'s own mitigation (pre-registration)
 
-*Status: DRAFT, 2026-11-08, written by Claude for the PI. Nothing here is adopted. No C1 data
-have been computed. Written after the reproduction work in `results/zhou_shift_es/` (which scores
+*Status: **ADOPTED by the PI, 2026-11-08** (decisions below). Written by Claude. No C1 data
+had been computed at adoption. Written after the reproduction work in `results/zhou_shift_es/` (which scores
 occupations only) and the audits in `docs/upstream-issues.md`.*
 
 ## Question
@@ -25,10 +25,11 @@ any data): **the masculine-minus-feminine gap survives Shift Ori.**
 - **Test nouns** (from our Wiktionary lexicon, `data/lexicon/es_nouns.csv`, by rule):
   `gender` m or f (single gender); `animacy` = inanimate; no `multi_type` (no two-gender or
   meaning-split nouns); `also_form` empty (a lemma, not an inflected form of something else);
-  in the 50k MUSE vocabulary; **not** in Zhou et al.'s noun lists, definitional pairs, attribute
+  `also_pos` empty (not also another part of speech; PI decision 3); in the MUSE vocabulary; **not** in Zhou et al.'s noun lists, definitional pairs, attribute
   words or occupation pairs (so nothing was used to build a direction or was shifted directly).
-  Count at this filter: **2,815 nouns** (1,753 m, 1,062 f; endings: m-o 799, f-a 719, other 1,234,
-  exceptions m-a 15, f-o 8, -ma 40). List frozen as `data/c1_nouns_es_v1.csv` before scoring.
+  Frozen before scoring as `embeddings/data/c1_nouns_es_v1.csv` (`scripts/c1_nouns.py`; sha256
+  2c58b883…d4c0c2): **2,459 nouns in the 50k vocabulary (1,456 m, 1,003 f; primary)**, 8,126 in
+  200k (sensitivity; column `in_50k`).
 - **Attributes:** (a) Zhou et al.'s Spanish male/female words (8 + 8; they carry grammatical gender
   themselves); (b) their English definitional words (*man, woman, he, she…*) in the aligned space,
   which carry social gender without grammatical gender.
@@ -62,11 +63,8 @@ any data): **the masculine-minus-feminine gap survives Shift Ori.**
 - English attributes: same rule; if the arm-1 gap with English attributes is itself not
   distinguishable from 0, report "no social-gender lean to remove" rather than a mitigation verdict.
 
-## Open decisions for the PI
+## PI decisions (2026-11-08)
 
-1. Run both arm 2 (as implemented) and arm 3 (as specified)? Recommended: yes, they answer
-   different questions (what their released method does vs what their equation says).
-2. Vocabulary: 50k (Zhou's setting, 2,815 nouns) or 200k (8,815 nouns, rarer words)? Recommended
-   50k primary, 200k as sensitivity.
-3. Exclude nouns that are also another part of speech (`also_pos`, e.g. *cuenta*, also a verb
-   form)? Recommended: yes for the primary analysis (1,290 of 23,790 base nouns).
+1. Run both Shift Ori arms, as implemented and as specified ("both, because they ran both").
+2. 50k vocabulary primary, 200k as sensitivity.
+3. Drop nouns that are also another part of speech.
