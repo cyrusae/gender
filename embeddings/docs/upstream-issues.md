@@ -73,7 +73,7 @@ evidence lives. "Verified" = checked against code output or the paper text; "fro
   | ValNorm r before / after | 0.807 / 0.818 | **0.796 / 0.833** |
   The bugs don't change the GG-WEAT or SC-GG-WEAT conclusions. ValNorm moves most (now on all 47
   attributes): slightly lower before, higher after, so the "removal preserves meaning" result gets
-  a little stronger.
+  a little stronger. 28 iterations: same conclusions (results in `scores_iter28.json`).
 
 ## Consequences for our design (to pre-register)
 
