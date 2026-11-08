@@ -10,19 +10,19 @@ The papers in this collection are organized into two priority tiers based on the
 
 | Priority Tier | Paper | Core Methodological Contribution | Role in Project Pipeline |
 | :--- | :--- | :--- | :--- |
-| **Tier 1: Core Anchors** | **Lakens & Delacre (2020)**<br>*(Equivalence Testing & TOST)* | Two One-Sided Tests (TOST) against a Smallest Effect Size of Interest (SESOI); critique of second-generation p-values. | **Inference on Nulls**: Governs the reporting of negative steering results (German Phase 5, Qwen3-14B) and the character study's 5-point SESOI; prevents illicit claims of "good nulls." |
-| **Tier 1: Core Anchors** | **Schad et al. (2020)**<br>*(A Priori Contrast Coding)* | Definitive tutorial on specifying orthogonal, hypothesis-driven contrast matrices in linear mixed-effects models. | **Regression Specification**: Dictates the contrast coding matrix for Q1/Q2/Q5 mixed regressions; enforces centered sum coding over default dummy treatment coding. |
-| **Tier 1: Core Anchors** | **van Miltenburg et al. (2021)**<br>*(Preregistering NLP Research)* | Protocol for preregistration in NLP: separating confirmatory from exploratory analyses, freezing stimuli, and audit logging. | **Methodological Governance**: Authoritative framework defending the project's preregistration audit trail, version-controlled amendments, and sample-flow reporting. |
+| **Tier 1: Core Anchors** | **Lakens & Delacre (2020)**<br>*(Equivalence Testing & TOST)* | Compares the second generation p-value (SGPV) with Two One-Sided Tests (TOST) equivalence testing; concludes TOST is more consistent and gives easier Type I/II error control. | **Inference on Nulls**: Governs the reporting of negative steering results (German Phase 5, Qwen3-14B) and the character study's 5-point SESOI; prevents illicit claims of "good nulls." |
+| **Tier 1: Core Anchors** | **Schad et al. (2020)**<br>*(A Priori Contrast Coding)* | Tutorial on specifying a priori contrast matrices in linear mixed models. **The local PDF is not this paper (see inventory entry 2).** | **Regression Specification**: Dictates the contrast coding matrix for Q1/Q2/Q5 mixed regressions; enforces centered sum coding over default dummy treatment coding. |
+| **Tier 1: Core Anchors** | **van Miltenburg et al. (2021)**<br>*(Preregistering NLP Research)* | Discussion paper on preregistration in NLP: what it is, how NLP work could be preregistered, preregistration questions for different study types, and an argument for registered reports. | **Methodological Governance**: Authoritative framework defending the project's preregistration audit trail, version-controlled amendments, and sample-flow reporting. |
 | **Tier 2: Foundational Standards** | **Baayen, Davidson & Bates (2008)**<br>*(Crossed Random Effects)* | Introduction of mixed-effects modeling with simultaneous crossed random effects for subjects and items. | **Variance Partitioning**: Justifies crossed random intercepts `(1 \| noun_lemma) + (1 \| prompt_template)` in LLM story generation, preventing Clark's language-as-fixed-effect fallacy. |
-| **Tier 2: Foundational Standards** | **Fitts (2023)**<br>*(Sequential Precision & Stopping)* | Sequential stopping rules (SSR) for absolute confidence interval precision; warns of coverage degradation and $\alpha'$ inflation. | **Sample Size Discipline**: Validates the character study's precision-based stopping rule with hard caps, providing the required coverage degradation caveats. |
+| **Tier 2: Foundational Standards** | **Fitts (2023)**<br>*(Sequential Precision & Stopping)* | Sequential stopping rules (SSR) for fixed-width CIs on mean differences; improper sequential sampling can degrade coverage (about 90% for a nominal 95% CI). | **Sample Size Discipline**: source for the coverage-degradation caveat on precision-based stopping. Whether a hard cap is part of Fitts's methods is not confirmed (entry 5). |
 
 ```mermaid
 flowchart TD
     subgraph Protocol ["Design & Governance"]
         vanMiltenburg["van Miltenburg et al. (2021)<br>Preregistration in NLP & Audit Trails"]
-        Fitts["Fitts (2023)<br>Sequential Stopping on CI Precision with Cap"]
+        Fitts["Fitts (2023)<br>Sequential Stopping on CI Precision"]
         vanMiltenburg --> PreregDesign["Frozen Protocol & Amendments<br>(prereg_v1.md & decisions.md)"]
-        Fitts --> SampleCollection["Sample Size Execution<br>(Precision Gate with Max N Cap)"]
+        Fitts --> SampleCollection["Sample Size Execution<br>(Precision Gate)"]
     end
 
     subgraph StatisticalModels ["Mixed-Effects Modeling Architecture"]
@@ -64,11 +64,8 @@ flowchart TD
 
 ### Cluster C: Design Discipline, Sequential Stopping, and Preregistration
 * **Sample Size Determination vs Optional Stopping:** Classical power analysis requires a fixed sample size decided before data collection. In computationally intensive LLM sampling, researchers often seek sequential stopping to save API or compute costs.
-* **The Risk (Fitts 2023):** Stopping data collection as soon as a confidence interval narrows to a target width without adjusting critical values degrades true coverage. A nominal 95% CI can shrink to $\sim 90\%$ empirical coverage. Fitts establishes that valid sequential precision requires:
-  1. An explicit minimum sample size ($N_{\min}$) before any interim stopping evaluation.
-  2. A hard upper sample ceiling ($N_{\max}$) where sampling halts regardless of width.
-  3. Transparent reporting of sequential stopping rules and potential coverage attenuation.
-* **Preregistration Architecture in NLP (van Miltenburg et al. 2021):** Preregistration is only effective if changes are logged transparently. It provides the normative standard for our project's audit logs: distinguishing confirmatory hypotheses from exploratory discoveries, time-stamping git commits before and after data collection, and maintaining immutable versions of stimulus sets.
+* **The Risk (Fitts 2023):** Improper use of sequential sampling can give a CI that contains the population value only about 90% of the time for a nominal 95% CI. Fitts describes SSR methods that stay within a tolerance of nominal coverage (or reach it on average), obtained by manipulating the minimum sample size, the desired width, or the practical confidence coefficient used during the SSR experiment.
+* **Preregistration Architecture in NLP (van Miltenburg et al. 2021):** The paper discusses preregistration in NLP and argues for registered reports. Our audit-log practice (separating confirmatory from exploratory work, versioned stimulus sets) is the project's own and is only loosely motivated by it.
 
 ---
 
@@ -123,10 +120,9 @@ flowchart TD
 * **Core Theoretical Objective:** To provide a comprehensive comparison between the Two One-Sided Tests (TOST) equivalence testing framework and the Second Generation P-Value (SGPV), demonstrating how researchers can formally test for the absence of meaningful effects.
 * **Methodology & Key Arguments:**
   - Evaluates mathematical behavior and error-rate control of TOST versus SGPV across varied sample sizes, effect sizes, and confidence interval widths.
-  - Demonstrates that a non-significant traditional p-value ($p > .05$) is statistically ambiguous: it cannot distinguish between true equivalence to zero and uninformative data resulting from high variance or inadequate sample size.
-  - SGPV defines an indifference zone $[-\Delta, +\Delta]$ and computes the proportion of the CI overlapping that zone. Lakens & Delacre demonstrate that SGPV behaves inconsistently when confidence intervals are asymmetric or wider than the equivalence bound, whereas TOST maintains rigorous Type I error control ($\alpha$).
-  - Proposes TOST as the gold standard for testing whether an observed effect is statistically smaller than the Smallest Effect Size of Interest (SESOI).
-* **Limitations:** Requires researchers to explicitly justify an a priori SESOI; TOST requires slightly higher sample sizes than traditional two-sided NHST to achieve equivalent statistical power ($1 - \beta = .80$ or $.90$).
+  - Motivates equivalence testing: a null-hypothesis test can only reject an exact zero effect, so it cannot support equivalence.
+  - Finds the SGPV and TOST give almost identical results under optimal conditions; under suboptimal ones (CI wider than the equivalence range, asymmetric CIs) the SGPV becomes difficult to interpret. TOST yields more consistent p-values, distinguishes datasets with the same SGPV, and allows easier control of Type I and II error rates.
+* **Limitations:** Requires an explicitly justified equivalence range (the SESOI wording is the project's; not in the abstract).
 * **Relevance to Project:** Direct methodological governance for reporting negative results. Governs the interpretation of failed steering in German Phase 5, Qwen3-14B null steering, and the character study's 5-point SESOI boundary tests.
 
 ---
@@ -135,7 +131,7 @@ flowchart TD
 * **Full Citation:** Schad, D. J., Vasishth, S., Hohenstein, S., & Kliegl, R. (2020). How to capitalize on a priori contrasts in linear mixed models: A tutorial. *Journal of Memory and Language*, 110, 104038. [DOI: 10.1016/j.jml.2019.104038](https://doi.org/10.1016/j.jml.2019.104038)
 * **File:** [`[Schad et al. 2020] How to Capitalize on a Priori Contrasts in LMMs.pdf`](file:///Users/watcher/githere/gender/sources/08_Statistical_and_Experimental_Methodology/[Schad%20et%20al.%202020]%20How%20to%20Capitalize%20on%20a%20Priori%20Contrasts%20in%20LMMs.pdf)
   > [!NOTE]
-  > *Bibliographic Note:* An earlier automated repository download mis-associated this filename with an unrelated arXiv preprint (`1904.09843`). The authoritative entry corresponds to the definitive 2020 *Journal of Memory and Language* tutorial cited here.
+  > *Bibliographic Note:* The local PDF under this file name is NOT the Schad et al. paper. It is an unrelated computer-vision paper ("GestARLite", Jain et al., arXiv:1904.09843). The citation above is the intended reference; the details below were not checked against a local copy and are *[unverified against local PDF]*.
 * **Core Theoretical Objective:** To teach psycholinguistic and cognitive science researchers how to translate specific, hypothesis-driven research questions into orthogonal linear contrast coding matrices within linear mixed-effects models (LMMs).
 * **Methodology & Mathematical Formulations:**
   - Systematically dissects five primary contrast coding systems:
@@ -154,22 +150,13 @@ flowchart TD
 ---
 
 ### 3. van Miltenburg et al. (2021)
-* **Full Citation:** van Miltenburg, E., van der Lee, C., & Krahmer, E. (2021). Preregistering NLP research: An evaluation and recommendations. In *Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT 2021)*, pp. 412–423. [DOI: 10.18653/v1/2021.naacl-main.51](https://aclanthology.org/2021.naacl-main.51.pdf)
+* **Full Citation:** van Miltenburg, E., van der Lee, C., & Krahmer, E. (2021). Preregistering NLP research. In *Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT 2021)*, pp. 613–623. [DOI: 10.18653/v1/2021.naacl-main.51](https://aclanthology.org/2021.naacl-main.51.pdf)
 * **File:** [`[van Miltenburg et al. 2021] Preregistering NLP Research.pdf`](file:///Users/watcher/githere/gender/sources/08_Statistical_and_Experimental_Methodology/[van%20Miltenburg%20et%20al.%202021]%20Preregistering%20NLP%20Research.pdf)
-* **Core Theoretical Objective:** To introduce, evaluate, and formalize the practice of study preregistration within natural language processing, establishing standards for methodological transparency and reproducible experimental NLP.
-* **Methodology & Analysis:**
-  - Audits the historical adoption of preregistration across psychology and medicine, identifying common failure modes (e.g., outcome switching, retrospective HARKing, and unacknowledged exploratory analysis).
-  - Surveys NLP methodologies and identifies domains that critically require preregistration: human evaluation of generated text, behavioral probing of language models, and benchmark evaluation suites.
-  - Proposes a structured NLP Preregistration Template addressing:
-    1. Confirmatory vs. exploratory hypotheses.
-    2. Data provenance, train/test split hygiene, and leakage prevention.
-    3. Model hyperparameters, random seeds, and compute environment specifications.
-    4. Exact statistical tests, contrast matrices, and decision thresholds.
-* **Key Findings:**
-  - Preregistration in NLP significantly enhances empirical credibility, prevents researcher degrees of freedom from distorting benchmark comparisons, and provides a clear mechanism for publishing null results.
-  - Emphasizes that preregistration is a "plan, not a prison": amendments are fully legitimate provided they are transparently logged with timestamps and clear rationales.
-* **Limitations:** Focuses on general NLP evaluation; does not provide formal guidelines for internal mechanistic transformer probing.
-* **Relevance to Project:** Directly establishes the methodological governance of our study. Validates our split between `prereg_v1.md`, subsequent decision logs (`decisions.md`), and frozen stimulus sets, providing the formal citation defending our preregistration discipline.
+* **Core Theoretical Objective:** A discussion paper: explains preregistration, explores how NLP researchers could preregister their work, presents preregistration questions for different kinds of studies, and argues for registered reports. It aims to elicit discussion toward a future general NLP preregistration form.
+* **Methodology & Content:** Discussion and proposed question sets (e.g. a data collection plan, including what determines when to stop data collection); it is not an empirical audit of adoption.
+* **Key Points:** Preregistration is common in medicine and psychology but rarely discussed in NLP; registered reports could support "slow science". The paper does not use the phrase "plan, not a prison".
+* **Limitations:** Self-described as a starting point for community discussion.
+* **Relevance to Project:** General background citation for preregistering NLP work. That it validates our specific split between `prereg_v1.md`, `decisions.md` and frozen stimuli is our own framing, not a claim of the paper.
 
 ---
 
@@ -182,29 +169,24 @@ flowchart TD
   - Formulates the mathematical model for crossed random factors:
     $$y_{ijk} = X_i \beta + u_j + w_k + \epsilon_{ijk}$$
     where $u_j \sim \mathcal{N}(0, \sigma_u^2)$ represents random subject adjustments and $w_k \sim \mathcal{N}(0, \sigma_w^2)$ represents random item adjustments.
-  - Conducts extensive Monte Carlo simulations demonstrating the statistical properties and Type I error rates across balanced and unbalanced psycholinguistic datasets.
+  - Simulation studies compare mixed-effects analyses with quasi-F tests, by-subjects analyses, combined by-subjects and by-items analyses, and random regression.
 * **Key Findings:**
-  - Separate $F_1$ and $F_2$ ANOVAs are statistically flawed: combining them does not guarantee valid error control, especially when item designs are unbalanced or data are missing.
-  - Crossed mixed-effects models provide exact Type I error control, naturally handle missing observations, accommodate continuous item covariates (concreteness, frequency) alongside categorical factors, and allow simultaneous estimation of random slopes.
-* **Limitations:** Computationally intensive for extremely large datasets; requires careful specification of maximal random-effects structures to avoid non-convergence.
-* **Relevance to Project:** The primary statistical reference justifying our mixed-effects regression architecture. In LLM generation experiments where personification prompts act as "subjects" and inanimate nouns act as "items," specifying crossed random intercepts `(1 | noun_lemma) + (1 | prompt_template)` is mathematically mandatory to avoid false-positive inferences.
+  - Simulations illustrate advantages of mixed-effects analyses over the traditional alternatives listed above (per the abstract); details not re-checked beyond the abstract.
+* **Limitations:** *[unverified]* not checked beyond the abstract.
+* **Relevance to Project:** The primary statistical reference justifying our mixed-effects regression architecture. In LLM generation experiments where personification prompts act as "subjects" and inanimate nouns act as "items," specifying crossed random intercepts `(1 | noun_lemma) + (1 | prompt_template)` is a standard way to handle both sources of variation (the paper does not address LLM generation).
 
 ---
 
 ### 5. Fitts (2023)
 * **Full Citation:** Fitts, D. A. (2023). Absolute precision confidence intervals for unstandardized mean differences using sequential stopping rules. *Behavior Research Methods*, 55(4), 1839–1862. [DOI: 10.3758/s13428-022-01896-3](https://doi.org/10.3758/s13428-022-01896-3)
-* **File:** [`[Fitts 2023] Precision and Sample Size in Mixed-Effects Models.pdf`](file:///Users/watcher/githere/gender/sources/08_Statistical_and_Experimental_Methodology/[Fitts%202023]%20Precision%20and%20Sample%20Size%20in%20Mixed-Effects%20Models.pdf)
+* **File:** [`[Fitts 2023] Precision and Sample Size in Mixed-Effects Models.pdf`] (file name does not match the paper's title; the paper is not about mixed-effects models)(file:///Users/watcher/githere/gender/sources/08_Statistical_and_Experimental_Methodology/[Fitts%202023]%20Precision%20and%20Sample%20Size%20in%20Mixed-Effects%20Models.pdf)
 * **Core Theoretical Objective:** To evaluate sequential stopping rules (SSR) for constructing confidence intervals of fixed absolute precision (half-width $w$) on unstandardized mean differences, identifying conditions under which sequential sampling degrades nominal confidence coverage.
 * **Methodology & Simulations:**
-  - Evaluates Accuracy in Parameter Estimation (AIPE) under fixed-sample rules (FSR) versus sequential stopping rules (SSR) using large-scale Monte Carlo simulations (up to 1,000,000 iterations per condition).
-  - Tests experimental designs with varying population standard deviations, desired half-widths $w$, minimum sample sizes ($N_{\min}$), and maximum sample caps ($N_{\max}$).
-  - Quantifies coverage degradation: measures the true proportion of simulated 95% confidence intervals that actually contain the true population parameter $\mu_1 - \mu_2$ when sampling halts at the precision threshold.
+  - Compares the fixed-sample rule (FSR; sample size decided a priori, with "assurance") with the sequential stopping rule (SSR) for CIs of a desired unstandardized width on a mean difference.
+  - Assesses SSR methods by simulation (e.g. 1 million simulated SSR experiments per condition), manipulating the minimum sample size, the desired width, or the practical confidence coefficient.
 * **Key Findings:**
-  - Naive sequential stopping on CI width degrades coverage: a nominal 95% CI frequently exhibits an empirical coverage of only $90\%$ to $92\%$ due to optional stopping dynamics.
-  - Coverage degradation can be effectively mitigated by:
-    1. Enforcing an adequate minimum sample size ($N_{\min}$) prior to initiating sequential checks.
-    2. Enforcing a strict sample ceiling ($N_{\max}$) where sampling halts regardless of whether precision is achieved.
-    3. Applying adjusted critical values ($\alpha'$) during interim evaluations.
-  - On average, sequential stopping achieves desired CI precision with fewer total observations than fixed-sample designs with assurance.
-* **Limitations:** Evaluated primarily on two-sample normal mean comparisons; extensions to deep multi-level GLMMs rely on asymptotic normality.
-* **Relevance to Project:** Directly underpins and justifies our character study's sample-sizing protocol. The study utilizes sequential precision-based stopping on pronoun CI width with an explicit hard cap per condition; Fitts (2023) provides the required citation and the necessary methodological caveats concerning coverage degradation.
+  - An SSR can give a CI that is always the desired width, with average sample use about the same as the FSR sample size without assurance.
+  - Improper sequential sampling can give a CI that contains the population value only about 90% of the time for a nominal 95% CI.
+  - SSR methods exist that stay within a tolerance of nominal coverage or reach at least nominal coverage on average. A maximum-N cap and adjusted critical values are not reported in the abstract and were *[not verified]* in the full text.
+* **Limitations:** Two-group mean differences; more exact CIs when the population SD can be estimated accurately.
+* **Relevance to Project:** Directly underpins and justifies our character study's sample-sizing protocol. The study utilizes sequential precision-based stopping on pronoun CI width with an explicit hard cap per condition; Fitts (2023) is the citation for the coverage-degradation caveat; whether the project's hard cap follows from Fitts is our own design choice.

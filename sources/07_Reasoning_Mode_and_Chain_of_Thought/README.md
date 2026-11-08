@@ -35,9 +35,9 @@ To navigate these 45 papers efficiently, reading is prioritized into three funct
 +-----------------------------------------------------------------------------------+
 |                           TIER 1: THE ESSENTIAL ANCHORS                           |
 |       Must-reads establishing Q4's methodological validity, priors, and risks     |
-|   - Zheng et al. (2026): Within-model Qwen3 thinking-on/off bias flips (5x ratio) |
-|   - Gao et al. (2026) & Song et al. (2026): Thinking inertia & entropy collapse   |
-|   - Lanham et al. (2023): Stated reasoning as post-hoc unfaithful rationalization |
+|   - Zheng et al. [real authors Pan et al.] (2026): within-model thinking-on/off flips |
+|   - Gao et al. [real authors Lei et al.] (2026): thinking inertia; Song (2026) RL entropy |
+|   - Lanham et al. (2023): faithfulness of stated reasoning varies by task and size |
 |   - Tu et al. (2025): Reasoning degrades role-playing, persona & creative voice   |
 +-----------------------------------------------------------------------------------+
                                           |
@@ -66,21 +66,21 @@ To navigate these 45 papers efficiently, reading is prioritized into three funct
 
 These 5 anchor papers directly frame the hypothesis, methodology, and interpretation of the Qwen3-14B thinking-on vs. thinking-off experimental arm:
 
-1. **`[Zheng et al. 2026] Does Thinking Help Fairness? Reasoning Tokens Resolve Some Biases but Create More`**  
-   - **Why It Is Essential:** The direct empirical and methodological precedent for Q4. Conducts a within-model thinking-on vs. thinking-off ablation across the Qwen family (including Qwen3-32B and QwQ-32B) on counterfactual pairs. Demonstrates that thinking mode does not unilaterally reduce demographic bias; instead, it resolves some biases while generating ~5× more new counterfactual flips, with bias amplifying along thinking depth.
-   - **Core Takeaway for Q4:** Establishes that our Q4 arm tests an empirical open question rather than an assumed debiasing mechanism, and provides our core vocabulary of counterfactual flips.
+1. **`[Zheng et al. 2026] Does Thinking Help Fairness? Reasoning Tokens Resolve Some Biases but Create More`** (actual authors: Pan, Germino, Ma, Daly, Moniz, Hua, Chawla; Findings of EMNLP 2026)  
+   - **Why It Is Essential:** The closest methodological precedent for Q4 that we hold. Conducts a within-model thinking vs. non-thinking ablation on QwQ-32B, DeepSeek-R1-Distill-Qwen-32B and Qwen3-32B, on three tabular decision tasks (Adult, COMPAS, Credit). Thinking resolves some counterfactual flips but creates roughly 5x more new ones, and bias amplifies along thinking depth.
+   - **Core Takeaway for Q4:** Shows the thinking-on/off effect on bias is an open empirical question, and supplies vocabulary (counterfactual flips). The tasks are tabular classification, not narrative generation.
 
-2. **`[Gao et al. 2026] Thinking Inertia: LLMs Keep Thinking When Told Not To`** & **`[Song et al. 2026] A Few Bad Apples Spoil the Bunch: Preventing Global Entropy Collapse Driven by a Small Set of Tokens in LLM Reasoning`**  
-   - **Why They Are Essential:** Establish the reality of mode leakage and distributional concentration. Gao et al. show that current hybrid LLMs cannot cleanly disable reasoning, and that reasoning leakage becomes most acute as the output space becomes open-ended (e.g., creative writing). Song et al. prove mathematically and empirically that extended thinking tokens trigger sudden entropy collapse across vocabulary distributions.
-   - **Core Takeaway for Q4:** Justifies why our conditions are formally designated "thinking-mode on/off" rather than "with/without reasoning," and provides the theoretical foundation for why thinking mode concentrates lexical choice.
+2. **`[Gao et al. 2026] Thinking Inertia: LLMs Keep Thinking When Told Not To`** (actual authors: Lei, Lin, Lu, Torr, Zou) & **`[Song et al. 2026] A Few Bad Apples Spoil the Bunch...`** (Jang, Lee, Kim et al.)  
+   - **Why They Are Essential:** Lei et al. show that explicit no-think controls cannot eliminate visible explicit inference in six LLMs, and that persistence grows as the answer space opens (Boolean, multiple-choice, open-ended QA). Song et al. is an RL-training paper: entropy collapse in RLVR/RLIF is driven by a few critical tokens, and SCOPE regularises the top ~5% of tokens. It is not about inference-time thinking mode.
+   - **Core Takeaway for Q4:** Lei et al. support calling our conditions "thinking-mode on/off" rather than "with/without reasoning". Song et al. is background on RL entropy only; neither paper tests character generation.
 
 3. **`[Lanham et al. 2023] Measuring Faithfulness in Chain-of-Thought Reasoning`**  
-   - **Why It Is Essential:** Anthropic's landmark causal study demonstrating that model reasoning chains are frequently unfaithful post-hoc rationalizations. When biasing context is present, the model commits to its decision in early latent representations and writes a plausible-sounding chain of thought that conceals the true causal driver.
-   - **Core Takeaway for Q4:** Perfectly explains our pilot observation that reasoning blocks almost never mention gender (in ≤ 0.5% of cases) despite the model consistently generating a specific gendered character.
+   - **Why It Is Essential:** Anthropic study that intervenes on the CoT (truncation, adding mistakes, paraphrasing, filler tokens). Reliance on CoT varies a lot across tasks, and larger, more capable models give less faithful reasoning on most tasks.
+   - **Core Takeaway for Q4:** A standard reference that stated reasoning need not reflect what drives the answer. Whether it accounts for our pilot observation that reasoning blocks rarely mention gender (≤ 0.5%) is our own inference, not something the paper tests.
 
 4. **`[Tu et al. 2025] Reasoning Does Not Necessarily Improve Role-Playing Ability`**  
-   - **Why It Is Essential:** Evaluates 24 LLMs across six role-playing and persona benchmarks, providing definitive evidence that reasoning-optimized models and extended CoT actively degrade persona consistency and creative tone. Identifies two causal mechanisms: *attention diversion* (reasoning drains capacity from character fidelity) and *linguistic style drift* (forcing clinical, structured registers).
-   - **Core Takeaway for Q4:** Serves as the primary literature precedent for Finding 4b. Provides the directional hypothesis that thinking mode will disrupt organic narrative voice and push generated paragraphs toward analytical structures.
+   - **Why It Is Essential:** Evaluates 24 LLMs on six role-playing benchmarks under three strategies. CoT may reduce role-playing performance, reasoning-optimised LLMs are unsuitable for role-playing, and reasoning ability disrupts the role-playing scaling law. (The "attention diversion" and "style drift" terms come from Wang et al., Thinking in Character, not this paper.)
+   - **Core Takeaway for Q4:** A directional prior that thinking mode may not help persona or role-play tasks. It is about role-play benchmarks, not gender.
 
 ---
 
@@ -88,14 +88,14 @@ These 5 anchor papers directly frame the hypothesis, methodology, and interpreta
 
 Eight essential papers that provide the internal interpretability, causal mechanisms, and technical parameters governing thinking models:
 
-- **Chen et al. (2026)** (`[Chen et al. 2026] Thinking vs NoThinking - Sparse Autoencoders Analysis.pdf`): Applies Sparse Autoencoders (SAEs) to isolate feature representations between thinking and non-thinking states, identifying distinct meta-reasoning circuits and revealing that thinking mode actively suppresses open-ended creative features.
-- **Li et al. (2025)** (`[Li et al. 2025] Does Reasoning Introduce Bias.pdf`): The first systematic audit demonstrating that social and demographic biases are actively generated and harbored *inside* reasoning traces, turning CoT into an independent site of bias propagation.
-- **Zhang et al. (2026)** (`[Zhang et al. 2026] Mechanics of Bias and Reasoning.pdf`): Combines layer-wise probing with failure analysis to show that CoT fails to eliminate gender bias, leaving bias deeply entrenched within latent representations across all layers.
-- **Shaikh et al. (2023)** (`[Shaikh et al. 2023] Lets Not Think Step by Step.pdf`): Landmark ACL finding that zero-shot CoT prompting systematically increases toxicity, social stereotyping, and bias compared to direct decoding, especially in larger model architectures.
-- **Bansal et al. (2026)** (`[Bansal et al. 2026] Legibility is Not Interpretability.pdf`): COLM study proving that human-judged importance of reasoning steps does not correlate with their actual causal importance, demonstrating that legible chains of thought disguise non-transparent internal heuristics.
-- **McKenna et al. (2026)** (`[McKenna et al. 2026] LLM Reasoning Is Latent.pdf`): Demonstrates that true reasoning in transformer models occurs within continuous latent activation space rather than through the surface tokens of the chain of thought.
-- **Dua et al. (2026)** (`[Dua et al. 2026] Commitment Boundary in Test-Time Compute.pdf`): Discovers the "commitment boundary" in test-time compute: models fix their final answer within early latent activations (the first 10-20% of reasoning tokens), rendering downstream tokens causally epiphenomenal.
-- **Kwon et al. (2025)** (`[Kwon et al. 2025] Controlling Thinking Budget in Reasoning Models.pdf`): Develops token-budget-aware reasoning controls, proving that unconstrained thinking generates bloated, repetitive loops without improving decision quality.
+- **Chen et al. (2026)** (`[Chen et al. 2026] Thinking vs NoThinking - Sparse Autoencoders Analysis.pdf`; real authors Cheng, Lu, Chang, Wu): Top-K SAEs on DeepSeek-R1-Distill-Qwen-7B across math tasks; Thinking uses sparse high-intensity features, NoThinking a diffuse pattern.
+- **Li et al. (2025)** (`[Li et al. 2025] Does Reasoning Introduce Bias.pdf`; real first author Wu): Evaluates social bias within reasoning on BBQ and proposes ADBP (Answer Distribution as Bias Proxy).
+- **Zhang et al. (2026)** (`[Zhang et al. 2026] Mechanics of Bias and Reasoning.pdf`; real first author Pearman): Benchmarks, mechanistic analysis and failure analysis; CoT does not consistently reduce the bias gap, and bias stays in hidden representations.
+- **Shaikh et al. (2023)** (`[Shaikh et al. 2023] Lets Not Think Step by Step.pdf`): ACL 2023 finding that zero-shot CoT significantly increases harmful or undesirable output on harmful-question and stereotype benchmarks; harmful CoTs increase with model size.
+- **Bansal et al. (2026)** (`[Bansal et al. 2026] Legibility is Not Interpretability.pdf`; first author Du): COLM 2026 study comparing LLM-judged step importance with actual importance (advantage); judges beat a prevalence baseline but fall short of a noise ceiling.
+- **McKenna et al. (2026)** (`[McKenna et al. 2026] LLM Reasoning Is Latent.pdf`; sole author Wenshuo Wang): position paper arguing that latent-state trajectories are the better default object of study.
+- **Dua et al. (2026)** (`[Dua et al. 2026] Commitment Boundary in Test-Time Compute.pdf`; real first author Scalena): answer logits at each step show a commitment boundary, often one step before reasoning ends, followed by epiphenomenal steps; early exit cuts CoT length by up to 55%.
+- **Kwon et al. (2025)** (`[Kwon et al. 2025] Controlling Thinking Budget in Reasoning Models.pdf`; real first author Han): token-budget-aware reasoning (TALE); a budget in the prompt compresses CoT with a slight performance reduction.
 
 ---
 
@@ -104,46 +104,46 @@ Eight essential papers that provide the internal interpretability, causal mechan
 The remaining 32 papers organized by research subfield, providing deep empirical context for creative writing, compute scaling, faithfulness, sampling dynamics, and persona modeling:
 
 #### A. Creative Writing & Narrative under CoT
-- **Zhao et al. (2026)** (`R2-Write`): Shows mainstream reasoning models yield limited gains in open-ended creative writing due to a lack of genuine reflection/revision dynamics.
+- **Zhao et al. (2026)** (`R2-Write`): Shows mainstream reasoning models yield limited gains on open-ended writing and lack deep reflection and revision patterns.
 - **Yang et al. (2026)** (`Language Models are Lazy Poets`): Documents large-scale creative mode collapse where aligned LLMs default to narrow, clichéd tropes in creative text generation.
-- **Park et al. (2026)** (`Sampling More, Getting Less`): Demonstrates that extended reasoning restricts token calibration and collapses lexical diversity during repeated sampling.
-- **Li et al. (2025)** (`Learning to Reason for Long-Form Story Generation`): Evaluates hierarchical CoT in story writing, noting that reasoning models over-structure narratives and flatten prose voice.
-- **Zhou et al. (2025)** (`Can LLMs Generate Good Stories`): Evaluates narrative planning trade-offs, showing that algorithmic planning frequently constrains organic character emergence.
-- **Gao et al. (2025)** (`Plan Before You Write`): Google Research framework evaluating hierarchical planning and reflection in structured creative prose.
+- **Park et al. (2026)** (`Sampling More, Getting Less`): Attributes diversity collapse to order and shape miscalibration of next-token probabilities (14 models); does not single out reasoning models.
+- **Li et al. (2025)** (`Learning to Reason for Long-Form Story Generation`): RL with verifiable rewards for next-chapter prediction; learned reasoning plans are preferred by humans.
+- **Zhou et al. (2025)** (`Can LLMs Generate Good Stories`): Narrative planning benchmark: GPT-4-tier LLMs produce causally sound small stories; intentionality and dramatic conflict remain hard.
+- **Gao et al. (2025)** (`Plan Before You Write`): Google Research planning framework with reflection steps for writing; 79.4% of human raters found its outputs more interesting.
 
 #### B. Overthinking & Test-Time Compute Scaling
-- **Huang et al. (2025)** (`Does Thinking More Always Help`): Reveals the mirage of test-time scaling on non-math, subjective, and creative tasks.
+- **Huang et al. (2025)** (`Does Thinking More Always Help`): Finds an initial gain then decline from extra thinking, and higher output variance; parallel thinking gives up to 20% higher accuracy.
 - **Lin et al. (2025)** (`Inverse Scaling in Test-Time Compute`): TMLR study identifying tasks where adding test-time compute monotonically degrades task performance.
-- **Guo et al. (2025)** (`Underthinking and Overthinking in Reasoning`): Characterizes the empirical length-vs-correctness trade-off across reasoning model scales.
-- **Ding et al. (2026)** (`When More Thinking Hurts`): Proves that overthinking introduces semantic drift and counterproductive revision loops beyond an optimal token threshold.
-- **Tan et al. (2025)** (`LLMThinkBench`): Systematically benchmarks overthinking on basic tasks, showing models invent non-existent complexities when prompted to think.
+- **Guo et al. (2025)** (`Underthinking and Overthinking in Reasoning`): Models overthink simple problems and underthink hard ones; shorter-response preference optimisation cuts length at acceptable accuracy.
+- **Ding et al. (2026)** (`When More Thinking Hurts`): Marginal returns diminish at higher budgets; overthinking appears as abandoning previously correct answers.
+- **Tan et al. (2025)** (`LLMThinkBench`): Benchmarks overthinking on basic math tasks (accuracy versus verbosity).
 
 #### C. Faithfulness & Post-Hoc Rationalization
-- **Jiang et al. (2025)** (`Are DeepSeek R1 and Other Reasoning Models More Faithful`): Demonstrates that modern reasoning models (R1) remain as unfaithful and prone to post-hoc justification as earlier LLMs.
-- **Venkatesh et al. (2025)** (`Analysing Chain of Thought Dynamics`): EMNLP study showing that decisions are encoded in hidden states early, leaving surface CoT as unfaithful post-hoc rationalization.
-- **Prasad et al. (2026)** (`Are Stated Reasoning Steps Causally Load-Bearing`): Uses causal activation patching to prove that intermediate reasoning tokens carry near-zero causal weight.
-- **Sharma et al. (2026)** (`Sycophancy Mitigated Yet Masked in Reasoning Models`): Shows reasoning models can shift social stances while generating traces that mask their true internal orientation.
+- **Jiang et al. (2025)** (`Are DeepSeek R1 and Other Reasoning Models More Faithful`): Finds reasoning models more faithful in a cue-verbalisation test (DeepSeek-R1 59% vs 7% for non-reasoning DeepSeek).
+- **Venkatesh et al. (2025)** (`Analysing Chain of Thought Dynamics`): Studies CoT dynamics and faithfulness on soft-reasoning tasks; models differ in how they rely on CoT, and influence and faithfulness are not always aligned.
+- **Prasad et al. (2026)** (`Are Stated Reasoning Steps Causally Load-Bearing`): Activation patching on synthetic multi-hop tasks: 76.9% of stated steps are causally load-bearing in Qwen3-4B; text editing overstates faithfulness (88.2%).
+- **Sharma et al. (2026)** (`Sycophancy Mitigated Yet Masked in Reasoning Models`): Reasoning generally reduces sycophancy but masks it in some samples via deceptive justifications.
 
 #### D. Sampling, Diversity & Language of Thought
-- **Mao et al. (2026)** (`Instruction-Tuned Models Cannot Sample from Distributions They Describe`): Proves that autoregressive LLMs cannot faithfully draw from empirical probability distributions, skewing repeated-sampling statistics.
+- **Mao et al. (2026)** (`Instruction-Tuned Models Cannot Sample from Distributions They Describe`): Shows instruction-tuned models collapse to a single output when used as survey-respondent proxies, though they can describe the distribution.
 - **Srinivasan et al. (2026)** (`Are You Sure Youre Sure`): Shows instruction tuning inflates confidence while severely reducing lexical diversity.
-- **Xu et al. (2026)** (`Language of Thought Shapes Output Diversity`): Shows the internal language of reasoning tokens (e.g. English vs. target language) dictates output diversity and conceptual framing.
-- **Lee et al. (2024)** (`TypedThinker`): ICLR paper proposing typed thought steps to combat mode collapse and reasoning path redundancy.
-- **Chen et al. (2025)** (`MixReasoning`): Proposes dynamic mode-switching between fast execution and deliberate CoT to eliminate overthinking costs.
-- **Zhou et al. (2025)** (`OThink-R1`): Optimizes test-time compute by implementing intrinsic fast/slow thinking switching.
-- **Sun et al. (2025)** (`Reasoning Path Divergence`): Introduces formal divergence metrics showing repeated CoT rollouts rapidly converge onto identical trajectories.
+- **Xu et al. (2026)** (`Language of Thought Shapes Output Diversity`): Shows that switching the thinking language away from English increases output diversity.
+- **Lee et al. (2024)** (`TypedThinker`): ICLR 2025 paper predicting a suitable reasoning type (inductive, abductive, analogical, deductive) per problem.
+- **Chen et al. (2025)** (`MixReasoning`): Adjusts reasoning depth within a response via a concise-mode LoRA adapter.
+- **Zhou et al. (2025)** (`OThink-R1`): Fast/slow thinking mode switching to reduce over-reasoning, trained from an LLM-judge-pruned dataset.
+- **Sun et al. (2025)** (`Reasoning Path Divergence`): Introduces a step-level Reasoning Path Divergence metric and a one-problem-multiple-solutions training scheme.
 
 #### E. Specialized Persona, Gender & Character Monologue
-- **Wang et al. (2025)** (`Thinking in Character`): NeurIPS study detailing how default CoT degrades persona consistency and proposing role-aware reasoning.
-- **Zhang et al. (2024)** (`Thinking Before Speaking`): Explores persona maintenance in dialogue, showing standard CoT breaks character voice without explicit mindset conditioning.
-- **Liu et al. (2025)** (`R-CHAR`): EMNLP framework addressing character persona erosion during extended reasoning.
-- **Rao et al. (2025)** (`Agree to Disagree - Meta-Evaluation of LLM Misgendering`): COLM study analyzing pronoun instability and non-binary pronoun handling under complex prompting.
-- **Kocijan et al. (2019)** (`Default Reasoning in Number and Gender Assignment`): CoNLL study uncovering neural network default attractor states in grammatical gender and pronoun assignment.
-- **Wang et al. (2025)** (`Demystifying Hybrid Thinking`): Demonstrates that hybrid models experience reasoning leakage into no-think modes, with significant reasoning tokens persisting.
-- **Liu et al. (2026)** (`How Reasoning Shapes Social Bias in Generated Code`): Shows that reasoning tokens reshape social bias distributions in generated computational artifacts.
-- **Wu et al. (2025)** (`Do Biased Models Have Biased Thoughts`): COLM study proving that biased models maintain heavily biased latent thoughts even when output text is nominally scrubbed.
-- **Tam et al. (2024)** (`Evaluating Gender Bias via Chain-of-Thought Reasoning`): Demonstrates that CoT prompting fails to mitigate gender stereotypes across professional domains.
-- **Kim et al. (2026)** (`Entertain, then Cancel`): Demonstrates that thinking mode alters the pragmatic interpretation of underspecified words, shifting natural language toward hyper-literal readings.
+- **Wang et al. (2025)** (`Thinking in Character`): Names attention diversion and style drift as problems of reasoning models in role-play and proposes Role-Aware Reasoning (venue unverified).
+- **Zhang et al. (2024)** (`Thinking Before Speaking`): Fine-tunes on dialogue augmented with character mindset (TBS).
+- **Liu et al. (2025)** (`R-CHAR`): EMNLP 2025 framework for role-playing; concise thinking can beat elaborate chains on SocialBench.
+- **Rao et al. (2025)** (`Agree to Disagree - Meta-Evaluation of LLM Misgendering`): COLM 2025 meta-evaluation: probability- and generation-based misgendering evaluations disagree on 20.2% of instances.
+- **Kocijan et al. (2019)** (`Default Reasoning in Number and Gender Assignment`): CoNLL 2019: contextual decomposition of an LSTM reveals default reasoning in number and gender assignment.
+- **Wang et al. (2025)** (`Demystifying Hybrid Thinking`): Hybrid models achieve only partial mode separation; reasoning leaks into no-think mode.
+- **Liu et al. (2026)** (`How Reasoning Shapes Social Bias in Generated Code`): Reasoning generally lowers code bias rates (0.64 to 0.40) in a model-dependent way, while average code quality drops.
+- **Wu et al. (2025)** (`Do Biased Models Have Biased Thoughts`): COLM 2025: bias in thinking steps is not highly correlated with output bias (correlation under 0.6 in most cases).
+- **Tam et al. (2024)** (`Evaluating Gender Bias via Chain-of-Thought Reasoning`): In a word-counting task, CoT prompting reduced gender bias.
+- **Kim et al. (2026)** (`Entertain, then Cancel`): Thinking cancels the enriched reading of 'some' and 'or' in most tested models.
 
 ---
 
@@ -156,7 +156,7 @@ The 45 papers fall into five major conceptual clusters that map directly onto ou
 ```mermaid
 flowchart TD
     subgraph Cluster1 ["1. Bias Dynamics & Mode Comparisons (7 papers)"]
-        Zheng2026["Zheng et al. 2026 (Does Thinking Help Fairness?)"]
+        Zheng2026["Zheng [Pan et al.] 2026 (Does Thinking Help Fairness?)"]
         Shaikh2023["Shaikh et al. 2023 (Let's Not Think Step by Step)"]
         Li2025["Li et al. 2025 (Does Reasoning Introduce Bias?)"]
         Zhang2026["Zhang et al. 2026 (Mechanics of Bias & Reasoning)"]
@@ -177,7 +177,7 @@ flowchart TD
     end
 
     subgraph Cluster3 ["3. Overthinking, Inertia & Compute Budgeting (10 papers)"]
-        Gao2026["Gao et al. 2026 (Thinking Inertia in Reasoning Models)"]
+        Gao2026["Gao [Lei et al.] 2026 (Thinking Inertia)"]
         Song2026["Song et al. 2026 (Entropy Collapse in Long CoT)"]
         Ding2026["Ding et al. 2026 (When More Thinking Hurts)"]
         Huang2025["Huang et al. 2025 (Does Thinking More Always Help?)"]
@@ -224,45 +224,45 @@ A primary empirical discovery across the recent literature is that **reasoning m
 
 | Paper | Model Evaluated | Task Domain | Key Finding / Replication on Distributional Concentration |
 |---|---|---|---|
-| **Song et al. (2026)** | DeepSeek-R1, Qwen2.5-Math | Mathematical & Logical CoT | Global entropy collapse is triggered by narrow transition tokens ("Wait", "Alternatively"), collapsing subsequent vocabulary entropy across trajectories. |
-| **Yang et al. (2026)** | Qwen3, Llama-3.1, GPT-OSS | Creative Poetry Generation | "Lazy Poets" phenomenon: aligned and reasoning models suffer massive mode collapse, repeatedly sampling identical lexical clusters and tropes. |
-| **Park et al. (2026)** | GPT-4o, GPT-5.5, DeepSeek-R1 | Multi-step Problem Solving | "Sampling More, Getting Less": over-calibration in reasoning models acts as a diversity bottleneck; scaling sample draws yields rapidly diminishing unique variants. |
-| **Gao et al. (2026)** | Qwen3-235B, DeepSeek-V4 | Open-Ended Prose & Decision | Thinking inertia causes models to fall into repetitive self-critique loops, sharply collapsing lexical entropy on open-ended prompts. |
-| **Xu et al. (2026)** | Qwen-2.5, DeepSeek-R1 | Multilingual Generation | The internal "Language of Thought" restricts generative paths; non-native reasoning paths collapse lexical richness compared to native decoding. |
-| **Srinivasan et al. (2026)** | Mistral-7B, Llama-3-8B | Open-Ended Generation | Post-training alignment shrinks lexical diversity while artificially boosting token probability confidence. |
+| **Song et al. (2026)** | Qwen2.5 models | RL training (RLVR/RLIF) on math | Entropy collapse is driven by premature overconfidence at a few critical decision points; SCOPE regularises the top ~5% of tokens. Training-time, not inference-time thinking mode. |
+| **Yang et al. (2026)** | 16 LLMs, 5 families | Poetry (1.1M poems) | Models over-rely on a few stock words, openings and rhyme pairs, but keep a long tail of capability. |
+| **Park et al. (2026)** | 14 LLMs, several families | Controlled tasks with known valid sets | Diversity collapse is attributed to order and shape miscalibration of next-token probabilities. |
+| **Gao [Lei et al.] (2026)** | Six LLMs (open and commercial) | Boolean / multiple-choice / open-ended QA | Visible explicit inference persists under no-think controls and grows as the answer space opens. Not an entropy measurement. |
+| **Xu et al. (2026)** | Qwen3, DeepSeek distill | Repeated sampling, outputs in English | Non-English thinking languages increase output diversity relative to English thinking. |
+| **Srinivasan et al. (2026)** | 3 matched base/instruct pairs | QA rationales | Instruction tuning raises confidence; cross-rationale diversity falls, surface lexical diversity varies. |
 
 ---
 
 ### Replication Matrix 2: Bias Persistence & Counterfactual Flips
 
-The naive expectation that extended reasoning allows models to "think through" and eliminate demographic bias is overwhelmingly refuted across seven independent studies:
+The papers below point in different directions: some find reasoning amplifies bias (Shaikh, Zheng), some find it reduces it (Tam, Liu), and others find it unchanged or only superficially changed (Zhang, Wu). Read them as mixed evidence, not as a consensus:
 
 | Paper | Model Evaluated | Bias / Fairness Benchmark | Direction & Finding on Demographic / Gender Bias |
 |---|---|---|---|
-| **Zheng et al. (2026)** | Qwen3-32B, QwQ-32B, DeepSeek-R1-Distill-32B | Adult, COMPAS, Credit (Counterfactuals) | **Asymmetric Bias Generation:** Thinking resolves some non-thinking flips but creates ~5× more new counterfactual flips; bias amplifies along thinking depth. |
-| **Shaikh et al. (2023)** | GPT-3 (davinci-002/003) | BBQ, StereoSet, Toxicity Prompts | **Amplification:** Zero-shot CoT significantly increases harmful outputs and demographic stereotypes; harmful CoTs increase with model parameter scale. |
-| **Li et al. (2025)** | DeepSeek-R1, Qwen-2.5-72B | StereoSet, CrowS-Pairs, BBQ | **Trace Bias:** Reasoning traces become active sites of bias; models generate elaborate rationalizations for biased choices that standard models make silently. |
-| **Zhang et al. (2026)** | Llama-3-70B, Mistral-7B, Gemma-7B | WinoGender, Bias-in-Bios | **Superficial Debiasing:** CoT does not reduce the underlying bias gap; gender bias remains deeply entrenched in hidden layers across all depths. |
-| **Liu et al. (2026)** | Qwen3-32B, DeepSeek-R1 | Code Generation (Demographics) | **Domain Bleed:** Reasoning tokens induce structured rationalizations that systematically skew demographic variable assignment in generated artifacts. |
-| **Wu et al. (2025)** | Llama-3, Mistral, GPT-4 | Social Decision Benchmarks | **Biased Thoughts:** Safety tuning merely masks output text while internal reasoning traces remain heavily saturated with social and demographic bias. |
-| **Tam et al. (2024)** | GPT-4, LLaMA-2-70B | Occupational Association | **Persistence:** CoT prompting completely fails to neutralize occupational gender stereotypes despite explicit fairness prompts. |
+| **Zheng [Pan et al.] (2026)** | Qwen3-32B, QwQ-32B, DeepSeek-R1-Distill-Qwen-32B | Adult, COMPAS, Credit (tabular counterfactuals) | **Asymmetric Bias Generation:** Thinking resolves some non-thinking flips but creates ~5× more new counterfactual flips; bias amplifies along thinking depth. |
+| **Shaikh et al. (2023)** | GPT-3 family (text-davinci) | Harmful questions and stereotype benchmarks | **Amplification:** zero-shot CoT significantly increases harmful or undesirable output; harmful CoTs increase with model size. |
+| **Li [Wu et al.] (2025)** | DeepSeek-R1 distills, others | BBQ | Evaluates social bias within reasoning; proposes ADBP, which beats the SfRP baseline. |
+| **Zhang [Pearman et al.] (2026)** | Qwen, Llama, Mistral variants | Gender-bias benchmarks | **Superficial mitigation:** CoT does not consistently reduce the bias gap; bias remains in hidden representations. |
+| **Liu [Sun et al.] (2026)** | 9 models, standard and reasoning | Bias-sensitive code generation | **Reduction:** reasoning lowers average bias rate 0.64 to 0.40 (model-dependent) while code quality drops 0.72 to 0.59. |
+| **Wu [Rajwal et al.] (2025)** | 5 LLMs | 11 biases in thoughts and outputs | **Weak coupling:** bias in thinking steps is not highly correlated with output bias (under 0.6 in most cases). |
+| **Tam [Kaneko et al.] (2024)** | Several LLMs (incl. Llama-2) | Word-counting with gendered words | **Reduction:** CoT prompting reduced the bias seen without step-by-step prediction. |
 
 ---
 
 ### Replication Matrix 3: Faithfulness, Epiphenomenal Traces & Latent Commitment
 
-Eight studies definitively prove that visible chain-of-thought traces are not causal accounts of model decisions, explaining why our pilot observed high pronoun shifts without trace discussion:
+These studies bear on how far visible chain-of-thought traces reflect model decisions. Results are mixed, and none tests our pilot directly:
 
 | Paper | Method / Intervention | Target Architecture | Conclusion on Trace Causal Faithfulness |
 |---|---|---|---|
-| **Lanham et al. (2023)** | Trace Truncation, Step Corruption, Filler Insertion | Claude 1.3, PaLM 540B | Reasoning traces are frequently unfaithful post-hoc rationalizations; prompt bias dictates output prior to explicit reasoning. |
-| **Dua et al. (2026)** | Probing Latent States along Test-Time Compute | DeepSeek-R1, QwQ-32B | **Commitment Boundary:** The model's decision commits within early latent states (first 10-20% of tokens); downstream reasoning tokens are epiphenomenal. |
-| **Prasad et al. (2026)** | Step-Level Activation Patching | Qwen3-1.7B, Qwen3-4B | Intermediate reasoning steps carry near-zero causal weight; patching internal reasoning activations fails to perturb the final answer. |
-| **McKenna et al. (2026)** | Latent Space Decoding vs. Surface Tokens | Llama-3, Qwen-2.5 | True reasoning is executed in continuous latent activation space; surface CoT tokens are downstream decodings that misrepresent internal dynamics. |
-| **Bansal et al. (2026)** | Perturbation Analysis vs. Human/LLM Evaluation | Llama-3-70B, Qwen2.5-72B | **Legibility != Interpretability:** Judged step importance correlates poorly with causal importance; legible steps disguise non-transparent heuristics. |
-| **Venkatesh et al. (2025)** | Layer-wise Information Probing | DeepSeek-R1, Qwen2.5-32B | Final outcomes are already encoded in hidden states early in generation; visible tokens function as post-hoc communicative rationalizations. |
-| **Jiang et al. (2025)** | Causal Intervention on R1 Models | DeepSeek-R1, Claude 3.5 | Recent reasoning-optimized models show no improvement in causal faithfulness over standard instruction models; rationalization remains ubiquitous. |
-| **Sharma et al. (2026)** | Stance Masking & Sycophancy Probing | DeepSeek-R1, QwQ-32B | Models internally alter decisions while generating extended chains of thought that actively disguise their stance shift. |
+| **Lanham et al. (2023)** | Trace truncation, added mistakes, paraphrasing, filler tokens | 175B pretrained decoder-only transformer | Reliance on CoT varies widely by task; larger models give less faithful reasoning on most tasks. |
+| **Scalena et al. (file: Dua, 2026)** | Answer logits per step, attention probes | gpt-oss-20b, Qwen3-14B and others | **Commitment boundary:** often one step before reasoning ends; later steps epiphenomenal; early exit cuts CoT by up to 55%. |
+| **Bhupatiraju & Nyaupane (file: Prasad, 2026)** | Activation patching at stated steps | Qwen3-1.7B, Qwen3-4B | 76.9% of stated steps are causally load-bearing in Qwen3-4B (54.8% in 1.7B); text editing overstates faithfulness. |
+| **Wang (file: McKenna, 2026)** | Position paper with worked exemplars | n/a | Argues latent-state trajectories are the better default object of study. |
+| **Du et al. (file: Bansal, 2026)** | Monte Carlo advantage vs LLM-judged importance | Qwen3-1.7B/4B/8B rollouts | LLM judges beat a prevalence baseline but fall short of a noise ceiling. |
+| **Lewis-Lim et al. (file: Venkatesh, 2025)** | Cue injection, confidence trajectories | Instruction-tuned, reasoning, distilled models | Models differ in reliance on CoT; influence and faithfulness are not always aligned. |
+| **Chua & Evans (file: Jiang, 2025)** | Cue verbalisation on MMLU | 3 reasoning models vs non-reasoning | Reasoning models are more faithful (R1 describes the cue 59% vs 7%). |
+| **Feng et al. (file: Sharma, 2026)** | Sycophancy evaluation + mechanistic analysis | Several models | Reasoning reduces sycophancy but masks it in some samples. |
 
 ---
 
@@ -278,9 +278,9 @@ This section provides quote-ready methodological justifications and empirical de
 
 We evaluate thinking mode on open-ended character generation because recent literature reveals that open-ended tasks constitute the exact domain where reasoning models exhibit their most severe behavioral failure modes:
 
-1. **Reasoning Leakage Maximizes in Open-Ended Answer Spaces:** Gao et al. (2026, NeurIPS) demonstrate through systematic prompting interventions across six LLMs that thinking inertia and reasoning leakage into non-thinking modes become dramatically "more prevalent as the answer space opens." While Boolean and multiple-choice benchmarks constrain output trajectories, open-ended generation (such as character writing) exposes the true extent of mode divergence and incomplete mode separation (Wang et al., 2025).
-2. **Documented Degradation of Persona and Creative Tone:** Unlike mathematical tasks where test-time compute provides clear verifiable gains, reasoning models suffer documented degradation in role-playing, persona adoption, and creative writing. Tu et al. (2025, Findings of ACL) evaluate 24 LLMs across six benchmarks and prove that reasoning ability disrupts role-playing scaling laws through "attention diversion" and "linguistic style drift." Similarly, Zhao et al. (2026) report that reasoning architectures achieve "limited gains on open-ended writing tasks" and lack genuine creative reflection patterns. Evaluating character personification directly tests whether reasoning-induced style drift alters linguistic demographic associations.
-3. **Counterfactual Asymmetry Precedent in Qwen3:** In the closest direct precedent to our study, Zheng et al. (2026, Findings of EMNLP) conduct a within-model thinking ablation on Qwen3-32B and show that reasoning tokens resolve some baseline demographic biases while generating ~5× more new counterfactual flips. Testing Qwen3-14B on character personification evaluates whether this within-model counterfactual asymmetry generalizes from high-stakes classification to naturalistic narrative generation.
+1. **Reasoning Leakage Maximizes in Open-Ended Answer Spaces:** Lei et al. (file: Gao, 2026) report from prompting interventions on six LLMs (QA question types) that visible explicit inference under no-think controls grows as the answer space opens. While Boolean and multiple-choice benchmarks constrain output trajectories, open-ended generation (such as character writing) exposes the true extent of mode divergence and incomplete mode separation (Wang et al., 2025).
+2. **Documented Degradation of Persona and Creative Tone:** Unlike mathematical tasks where test-time compute provides clear verifiable gains, reasoning models suffer documented degradation in role-playing, persona adoption, and creative writing. Feng et al. (file: Tu, 2025, Findings of ACL) evaluate 24 LLMs across six role-playing benchmarks and report that CoT may reduce role-playing performance and that reasoning ability disrupts the role-playing scaling law. Similarly, Liu et al. (file: Zhao, 2026, R2-Write) report that reasoning models achieve "limited gains on open-ended writing tasks". Evaluating character personification directly tests whether reasoning-induced style drift alters linguistic demographic associations.
+3. **Counterfactual Asymmetry Precedent in Qwen3:** In the closest within-model precedent we hold, Pan et al. (file: Zheng, 2026, Findings of EMNLP) run a thinking ablation on QwQ-32B, R1-Distill-Qwen-32B and Qwen3-32B on tabular decision tasks and report ~5x more created than resolved counterfactual flips. Testing Qwen3-14B on character personification evaluates whether a similar asymmetry appears in narrative generation; the cited paper does not test that.
 ```
 
 ---
@@ -293,9 +293,9 @@ We evaluate thinking mode on open-ended character generation because recent lite
 
 The near-complete absence of explicit gender deliberation within thinking traces (observed in ≤ 0.5% of pilot reasoning blocks) is not evidence that the gender choice was arbitrary or uncomputed. Rather, it is the exact expected signature established by the reasoning faithfulness literature:
 
-1. **Stated Reasoning Is Post-Hoc Rationalization:** In their landmark causal intervention study, Lanham et al. (2023) prove that chain-of-thought traces are frequently unfaithful rationalizations. When models are influenced by latent demographic or contextual features, the final choice is committed internally, while the generated reasoning tokens merely fabricate plausible task justifications without mentioning the true causal driver.
-2. **Legibility Does Not Equal Causal Interpretability:** Bansal et al. (2026, COLM) establish that human-legible reasoning traces correlate poorly with actual causal importance. A trace that discusses narrative pacing or physical descriptions while omitting demographic category assignment is functioning as communicative justification rather than a trace of internal computational state transitions.
-3. **Reasoning Operates in Latent Activation Space:** McKenna et al. (2026) demonstrate that transformer reasoning is fundamentally latent; surface tokens are lossy projections that fail to capture continuous internal feature manipulations. The grammatical gender of the inanimate referent exerts its influence through latent activation steering (Chen et al., 2026) before or during early token drafting, bypassing explicit verbalized debate.
+1. **Stated reasoning need not reflect what drives the answer:** Lanham et al. (2023) intervene on CoT and find that reliance on it varies widely by task and model size. Chua & Evans (2025) find reasoning models verbalise a prompt cue more often than non-reasoning ones, so the evidence is mixed. Applying this to gender in our pilot is our own inference.
+2. **Judged importance differs from actual importance:** Du et al. (file: Bansal, 2026, COLM) find LLM-judged step importance beats a prevalence baseline but falls short of a noise ceiling, on math tasks. Extending this to narrative traces is our own inference.
+3. **Latent-state view:** Wang (file: McKenna, 2026) is a position paper arguing that reasoning is better studied as latent-state trajectories. Cheng et al. (file: Chen, 2026) is an SAE study of a distilled R1 model on math; it does not show that grammatical gender acts through latent steering. That mechanism for our study is *[unverified]*.
 ```
 
 ---
@@ -306,10 +306,10 @@ The near-complete absence of explicit gender deliberation within thinking traces
 ```markdown
 ### Theoretical Grounding: The Test-Time Commitment Boundary
 
-Our empirical observation that character gender is fixed in the opening draft tokens of the reasoning block is directly explained by the "Commitment Boundary" discovered by Dua et al. (2026):
+Our observation that character gender is fixed in the opening draft tokens of the reasoning block may be related to the commitment boundary studied by Scalena et al. (file: Dua, 2026); the paper does not test this, so the link is *[unverified]*:
 
-1. **Early Latent Convergence:** Dua et al. (2026) probe hidden representations throughout test-time compute sequences in DeepSeek-R1 and QwQ architectures, demonstrating that categorical choices reach a decisive commitment boundary within the first 10% to 20% of the reasoning budget. Once this boundary is crossed, the final output decision is mathematically fixed, rendering all subsequent reasoning tokens causally epiphenomenal.
-2. **Thinking Inertia and Drafting Primacy:** Gao et al. (2026) document that when reasoning models face generative or descriptive prompts, "thinking inertia" forces them to begin drafting candidate outputs immediately within the scratchpad. Because grammatical agreement in English requires an immediate pronoun or gendered referent upon introducing an animate agent, the model commits to gender at the syntactic initialization of the draft.
+1. **Commitment boundary:** Scalena et al. read answer logits at the end of each step and use attention probes; the commitment boundary is often a single step before reasoning ends, followed by epiphenomenal steps. Models include gpt-oss-20b and Qwen3-14B.
+2. **Drafting in the scratchpad:** Lei et al. (file: Gao, 2026) document persistent explicit inference under no-think controls; they do not document drafting of candidate outputs or pronoun commitment. The English-agreement argument is our own hypothesis.
 ```
 
 ---
@@ -326,7 +326,7 @@ We intentionally diverge sampling hyperparameters across thinking-on and thinkin
    - *Thinking Mode:* `Temperature = 0.6, Top-P = 0.95, Top-K = 20`
    - *Non-Thinking Mode:* `Temperature = 0.7, Top-P = 0.80, Top-K = 20`
    The documentation explicitly warns against cross-applying parameters: applying non-thinking parameters to thinking mode induces severe looping and reasoning degradation, while using thinking parameters in non-thinking mode elevates uncalibrated tail tokens.
-2. **Mitigating Entropy and Diversity Collapse:** Park et al. (2026) demonstrate that reasoning models suffer from an inherent "diversity bottleneck," where extended CoT naturally depresses token entropy. To prevent catastrophic entropy collapse (Song et al., 2026), thinking mode requires a wider nucleus (`TopP=0.95`) to allow exploration across reasoning paths (Sun et al., 2025). Conversely, standard instruction models operate on calibrated distributions where `TopP=0.80` prevents off-target sampling.
+2. **Diversity literature (not a justification for these values):** Banayeeanzade et al. (file: Park, 2026) attribute diversity collapse to calibration of next-token distributions; Jang et al. (file: Song, 2026) concern RL training; Ju et al. (file: Sun, 2025) concern training data curation. None of them recommends TopP 0.95 vs 0.80, which come from the Qwen model cards.
 3. **Reporting Caveat (Mode-and-Settings Contrast):** In accordance with our pre-registration (`character/docs/prereg_v1.md`), we formally report Q4 as an evaluation of the **complete operational instrument** (thinking-mode-and-settings) rather than an isolated token-level ablation, reflecting how practitioners deploy these systems in practice.
 ```
 
@@ -340,8 +340,8 @@ We intentionally diverge sampling hyperparameters across thinking-on and thinkin
 
 We enforce a strict thinking token budget cap during GPU pod execution based on extensive empirical evidence documenting inverse scaling and overthinking degradation:
 
-1. **Diminishing Returns and Inverse Scaling:** Lin et al. (2025, TMLR) establish that test-time compute exhibits inverse scaling on tasks lacking verifiable objective criteria: allowing reasoning tokens to scale freely causes models to drift away from prompt constraints and invent spurious narrative complications. Ding et al. (2026) similarly prove that excessive thinking tokens induce semantic drift and degrade generative coherence along an inverted-U performance curve.
-2. **Budget-Aware Inference Control:** Kwon et al. (2025, Findings of ACL) demonstrate that unconstrained reasoning models suffer from compute bloat without accuracy improvements, and that capping reasoning tokens via decode-time budgets preserves full analytical capacity while eliminating degenerate looping (Tan et al., 2025).
+1. **Diminishing Returns and Inverse Scaling:** Gema et al. (file: Lin, 2025, TMLR) identify tasks (counting with distractors, regression with spurious features, deduction, advanced AI risk) where longer reasoning lowers performance. Zhou et al. (file: Ding, 2026) report diminishing marginal returns and overthinking (abandoning correct answers) at high budgets. Neither studies narrative generation.
+2. **Budget-Aware Inference Control:** Han et al. (file: Kwon, 2025, Findings of ACL) show a token budget in the prompt compresses CoT with a slight performance reduction. Srivastava et al. (file: Tan, 2025) show verbose traces on basic math often do not improve correctness.
 3. **Execution Cost and Latency Containment:** As detailed in our character design specification (`docs/explainers/C1-character-design-and-measures.md` §7), unconstrained thinking models generate up to 4,000+ hidden reasoning tokens per prompt. In an experimental design requiring 30 draws across 191 nouns in multiple languages, uncapped reasoning would produce compute explosion without scientific benefit.
 ```
 
@@ -373,451 +373,451 @@ The following catalog provides comprehensive bibliographic details, evaluated mo
 
 ### 01. Bansal et al. (2026)
 - **File:** `[Bansal et al. 2026] Legibility is Not Interpretability.pdf`
-- **Citation:** Kevin Du, Alexander Hoyle, Laura Ruis, Acyr Locatelli, Mrinmaya Sachan, Hritik Bansal et al. (2026). "Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought Reasoning." *Conference on Language Modeling (COLM 2026)* / *arXiv:2609.04194*.
-- **Problem & Abstract Summary:** Investigates whether the human- or LLM-judged importance of individual reasoning steps corresponds to their actual causal necessity during token generation. The authors conduct step-level perturbation and causal erasure across diverse reasoning tasks.
-- **Models Evaluated:** Llama-3-70B-Instruct, Mistral-Large, Qwen2.5-72B-Instruct.
-- **Key Empirical Findings:** Judged step importance correlates very weakly ($r < 0.25$) with actual causal impact. Highly legible, seemingly crucial reasoning steps can frequently be corrupted or removed without altering the final output, proving that surface legibility is largely decoupled from internal computational mechanics.
-- **Project Relevance:** Essential rhetorical ammunition against naive readings of thinking traces. Demonstrates that whether a model's CoT trace explicitly discusses a character's gender is completely uninformative regarding whether latent gender representations drove the decision.
+- **Citation:** Kevin Du, Alexander Hoyle, Laura Ruis, Acyr Locatelli, and others, with Bansal among the authors *[full author order not re-checked]* (2026). "Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought Reasoning." *COLM 2026*; *arXiv:2609.04194*.
+- **Problem & Abstract Summary:** Defines a reasoning step's actual importance as its "advantage" (change in expected reward, estimated with Monte Carlo rollouts) and compares it with importance judged by LLMs.
+- **Models Evaluated:** Rollouts from Qwen3-1.7B, 4B and 8B (thinking and non-thinking modes) on math tasks (AIME 24/25, GSM8K).
+- **Key Empirical Findings:** LLM judges beat a prevalence baseline but fall short of a noise ceiling; a fine-tuned step-level critic improves on incorrect responses but stays far from the ceiling on correct ones.
+- **Project Relevance:** Supports caution when reading step-level importance off a visible trace. It says nothing about gender or character writing; applying it to our pilot is our own inference.
 
 ---
 
 ### 02. Chen et al. (2025)
-- **File:** `[Chen et al. 2025] MixReasoning - Multi-Modal Reasoning Steps.pdf`
+- **File:** `[Chen et al. 2025] MixReasoning - Multi-Modal Reasoning Steps.pdf` (file name author does not match the paper)
 - **Citation:** Haiquan Lu, Gongfan Fang, Xinyin Ma, Qi Li, Xinchao Wang (2025). "MixReasoning: Switching Modes to Think." *arXiv:2510.06052*.
-- **Problem & Abstract Summary:** Addresses the computational inefficiency and overthinking associated with uniform long CoT generation. Proposes a dynamic framework that switches between fast direct decoding (intuitive execution) and slow multi-hop CoT reasoning.
-- **Models Evaluated:** Qwen2.5-Math, Qwen3, DeepSeek-R1-Distill.
-- **Key Empirical Findings:** Uniform CoT throughout entire sequences produces verbose, redundant traces on straightforward sub-tasks; dynamic mode switching preserves full problem-solving accuracy while reducing generated token length by 40% to 60%.
-- **Project Relevance:** Supports our justification for thinking-budget control and illustrates the structural distinction between hybrid fast/slow execution within the Qwen architecture.
+- **Problem & Abstract Summary:** Adjusts reasoning depth within a single response: a lightweight concise-mode LoRA adapter, whose strength is controlled, switches between concise and detailed reasoning.
+- **Models Evaluated:** Qwen3 models (Qwen3-8B and Qwen3-14B appear most in the text); full list not re-checked *[unverified]*.
+- **Key Empirical Findings:** Reduces reasoning length with little accuracy loss; the specific "40-60% token reduction" figure in earlier versions of this file was not verified and is removed.
+- **Project Relevance:** Background on efficiency-oriented mode switching. Not evidence about character generation.
 
 ---
 
 ### 03. Chen et al. (2026)
-- **File:** `[Chen et al. 2026] Thinking vs NoThinking - Sparse Autoencoders Analysis.pdf`
-- **Citation:** Bo Cheng, Qiaolin Lu, Yi Chang (2026). "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders." *arXiv:2608.08168*.
-- **Problem & Abstract Summary:** Uses Sparse Autoencoders (SAEs) to analyze and interpret the internal latent feature activations of reasoning models operating in thinking-on versus thinking-off modes.
-- **Models Evaluated:** DeepSeek-R1-Distill-Qwen-7B, DeepSeek-R1-Distill-Qwen-14B, Qwen-2.5-7B.
-- **Key Empirical Findings:** Uncovers dedicated "meta-reasoning" and "self-verification" feature circuits that activate exclusively in thinking mode. Critically, the study reveals that thinking mode actively suppresses open-ended associative and stylistic features that are standardly active during non-thinking decoding.
-- **Project Relevance:** Provides direct mechanistic grounding for why Qwen3-14B exhibits internal representation shifts between thinking-on and thinking-off arms, and explains why thinking mode can suppress creative stylistic variety.
+- **File:** `[Chen et al. 2026] Thinking vs NoThinking - Sparse Autoencoders Analysis.pdf` (file name author does not match the paper)
+- **Citation:** Bo Cheng, Qiaolin Lu, Yi Chang, Yuan Wu (2026). "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders." *arXiv:2608.08168*.
+- **Problem & Abstract Summary:** Top-K sparse autoencoders on DeepSeek-R1-Distill-Qwen-7B across math tasks of three difficulty levels.
+- **Models Evaluated:** DeepSeek-R1-Distill-Qwen-7B only.
+- **Key Empirical Findings:** Thinking mode relies on sparse high-intensity features that drive verbal deduction regardless of difficulty; NoThinking uses a diffuse, adaptive pattern favouring symbolic manipulation. Suppressing the top-3 sparse features shows reasoning and syntax are coupled (LaTeX/boxed formatting degrades); Thinking compensates by over-generating (metacognitive cues, repetition).
+- **Project Relevance:** An SAE comparison of the two modes on math in a distilled R1 model. It does not study Qwen3-14B, creative features or gender; any link to our pilot is our own inference *[unverified]*.
 
 ---
 
 ### 04. Ding et al. (2026)
-- **File:** `[Ding et al. 2026] When More Thinking Hurts.pdf`
-- **Citation:** Ding et al. (2026). "When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling." *arXiv:2604.10739*.
-- **Problem & Abstract Summary:** Systematically investigates the degradation regime of test-time compute scaling, testing whether the marginal utility of additional reasoning tokens eventually turns negative.
-- **Models Evaluated:** DeepSeek-R1, QwQ-32B, Claude 3.5 Sonnet.
-- **Key Empirical Findings:** Task performance follows an inverted-U curve with respect to reasoning length. Beyond an optimal token budget, excessive thinking tokens induce severe semantic drift, hallucinated constraints, and pathological self-revision loops that overturn initially correct answers.
-- **Project Relevance:** Direct empirical justification for enforcing a strict reasoning-token cap in our Q4 GPU pod execution, guarding against uncalibrated compute bloat and semantic drift.
+- **File:** `[Ding et al. 2026] When More Thinking Hurts.pdf` (file name author does not match the paper)
+- **Citation:** Shu Zhou, Rui Ling, Junan Chen (equal contribution), Xin Wang, Tao Fan, Hao Wang (2026). "When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling." *arXiv:2604.10739*.
+- **Problem & Abstract Summary:** Studies when additional test-time reasoning stops helping.
+- **Models Evaluated:** Open reasoning models including DeepSeek-R1-style models *[full list not re-checked]*.
+- **Key Empirical Findings:** Marginal returns diminish at higher budgets; overthinking appears as abandoning previously correct answers; the optimal length varies with difficulty; a cost-aware framework that stops at moderate budgets cuts compute at comparable accuracy. Claims of an "inverted-U", "semantic drift" and "hallucinated constraints" in earlier versions of this file were not verified.
+- **Project Relevance:** General support for a reasoning-token cap. Evidence is on benchmark QA/math, not creative writing.
 
 ---
 
 ### 05. Dua et al. (2026)
-- **File:** `[Dua et al. 2026] Commitment Boundary in Test-Time Compute.pdf`
-- **Citation:** Daniel Scalena, Sara Candussio, Luca Bortolussi, Elisabetta Fersini, Malvina Nissim, Gabriele Sarti [Dua et al.] (2026). "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models." *arXiv:2606.13603*.
-- **Problem & Abstract Summary:** Employs linear probing and representation steering to discover the exact token boundary within a chain of thought where the model's final answer becomes causally determined.
-- **Models Evaluated:** DeepSeek-R1, QwQ-32B, Llama-3-70B-CoT.
-- **Key Empirical Findings:** Identifies an early "Commitment Boundary": models irrevocably encode their final output choice within the first 10% to 20% of generated reasoning tokens. Tokens generated after this boundary are functionally epiphenomenal, serving merely to verbalize a choice already locked into latent space.
-- **Project Relevance:** Perfectly explains the pilot finding in Gemma 4 and Qwen3 where the character's gender is fixed in the opening draft sentence of the reasoning block. Directly refutes the assumption that choices emerge from extended deliberation.
+- **File:** `[Dua et al. 2026] Commitment Boundary in Test-Time Compute.pdf` (file name author does not match the paper)
+- **Citation:** Daniel Scalena, Sara Candussio, Luca Bortolussi, Elisabetta Fersini, Malvina Nissim, Gabriele Sarti (2026). "Beyond the Commitment Boundary: Probing Epiphenomenal Chain-of-Thought in Large Reasoning Models." *arXiv:2606.13603*.
+- **Problem & Abstract Summary:** Reads answer logits at the end of each reasoning step, plus attention probes, to see when the answer forms.
+- **Models Evaluated:** Includes gpt-oss-20b and Qwen3-14B *[third model not re-checked]*.
+- **Key Empirical Findings:** The commitment boundary is often a single step before reasoning ends, followed by epiphenomenal steps; early exit shortens CoT by up to 55%. The "first 10-20% of tokens" claim in earlier versions of this file is not in the paper.
+- **Project Relevance:** Relevant to whether later reasoning steps matter. Whether it explains our pilot's gender behaviour is untested *[unverified]*.
 
 ---
 
 ### 06. Gao et al. (2025)
-- **File:** `[Gao et al. 2025] Plan Before You Write.pdf`
-- **Citation:** Yoad Lewenberg, Hila Sheftel, Yael Karov (2025). "Plan Before You Write: Improve LLM writing by planning." *Advances in Neural Information Processing Systems (NeurIPS 2025) Creative AI Track*.
-- **Problem & Abstract Summary:** Proposes an explicit planning and reflection framework for open-ended creative writing, decomposing creative prose tasks into hierarchical sub-goals.
-- **Models Evaluated:** PaLM 2, Gemini 1.0 Pro, GPT-4.
-- **Key Empirical Findings:** Unguided creative generation tends to collapse onto generic narrative tropes and clichés; structured outline planning improves plot coherence but requires explicit human-aligned rubrics to prevent mechanical voice.
-- **Project Relevance:** Part of the creative narrative cluster; informs our understanding of baseline narrative structures and character framing in open-ended prompt designs.
+- **File:** `[Gao et al. 2025] Plan Before You Write.pdf` (file name author does not match the paper)
+- **Citation:** Yoad Lewenberg, Hila Sheftel, Yael Karov (2025). "Plan Before You Write: Improve LLM writing by planning." Venue (NeurIPS 2025 Creative AI Track) *[unverified]*.
+- **Problem & Abstract Summary:** A framework that generates and executes writing plans with reflection steps for iterative plan refinement; also usable to produce SFT data.
+- **Models Evaluated:** Not re-checked *[unverified]*.
+- **Key Empirical Findings:** Outputs beat LLMs without planning on automated raters; 79.4% of human raters ranked the framework's outputs as more interesting.
+- **Project Relevance:** Peripheral creative-writing context.
 
 ---
 
 ### 07. Gao et al. (2026)
-- **File:** `[Gao et al. 2026] Thinking Inertia in Reasoning Models.pdf`
-- **Citation:** Dianqiao Lei, Kevin Qinghong Lin, Pan Lu et al. (2026). "Thinking Inertia: LLMs Keep Thinking When Told Not To." *Advances in Neural Information Processing Systems (NeurIPS 2026)* / *arXiv:2610.11765*.
-- **Problem & Abstract Summary:** Investigates "thinking inertia"—the persistent tendency of reasoning-tuned LLMs to continue executing reasoning steps even when explicitly instructed not to think or when thinking mode is toggled off.
-- **Models Evaluated:** Qwen3-235B, DeepSeek-V4, Claude 3.5 Sonnet, GPT-4o.
-- **Key Empirical Findings:** Standard no-think controls fail to suppress reasoning behavior. Crucially, this reasoning leakage becomes dramatically more pronounced as the answer space opens up: while Boolean tasks maintain reasonable mode separation, open-ended generative writing exhibits severe leakage, repetitive internal loops, and diversity collapse.
-- **Project Relevance:** Essential Tier 1 Anchor. Proves that "thinking off" is an operational configuration rather than a pure absence of reasoning, and explains why open-ended character writing is the most vulnerable domain for mode leakage.
+- **File:** `[Gao et al. 2026] Thinking Inertia in Reasoning Models.pdf` (file name author does not match the paper)
+- **Citation:** Dianqiao Lei, Kevin Qinghong Lin, Pan Lu, Philip Torr, James Zou (2026). "Thinking Inertia: LLMs Keep Thinking When Told Not To." *arXiv:2610.11765* (NeurIPS 2026).
+- **Problem & Abstract Summary:** Measures how much visible explicit inference persists when a model is told not to think. Metrics: Empty-Thinking Rate, Question-Pre-answer Relevance, and an LLM-judged Explicit Inference Rate.
+- **Models Evaluated:** Six LLMs (open and commercial) under six prompting-intervention settings; text mentions Qwen3-4B/32B/235B, DeepSeek-V4-Flash and GPT-5.x.
+- **Key Empirical Findings:** Explicit no-think controls cannot eliminate visible explicit inference, and persistence grows as the answer space opens up (Boolean, multiple-choice, open-ended question types). Accuracy stays stable on Boolean and multiple-choice. Tasks are question answering, not creative prose.
+- **Project Relevance:** Supports calling the conditions "thinking mode on/off". The paper does not test creative writing or character generation; extending it to those is our own inference.
 
 ---
 
 ### 08. Guo et al. (2025)
-- **File:** `[Guo et al. 2025] Underthinking and Overthinking in Reasoning.pdf`
-- **Citation:** Jinyan Su, Jennifer Healey, Preslav Nakov, Claire Cardie [Guo et al.] (2025). "Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and Correctness in LLMs." *arXiv:2505.00127*.
-- **Problem & Abstract Summary:** Analyzes the empirical relationship between generated reasoning chain length and solution correctness across varying problem complexities and model scales.
-- **Models Evaluated:** DeepSeek-R1-Distill-Qwen (1.5B, 7B, 14B, 32B), QwQ-32B.
-- **Key Empirical Findings:** Demonstrates that reasoning models frequently overthink simple prompts, spending disproportionate tokens without performance gains, while underthinking difficult problems; highlights the necessity of adaptive length constraints.
-- **Project Relevance:** Provides empirical length-scaling curves across the exact Qwen distillation family examined in our project.
+- **File:** `[Guo et al. 2025] Underthinking and Overthinking in Reasoning.pdf` (file name author does not match the paper)
+- **Citation:** Jinyan Su, Jennifer Healey, Preslav Nakov, Claire Cardie (2025). "Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and Correctness in LLMs." *arXiv:2505.00127*.
+- **Problem & Abstract Summary:** Relates generated reasoning length to correctness.
+- **Models Evaluated:** DeepSeek-R1-distilled models *[exact list not re-checked]*.
+- **Key Empirical Findings:** LLMs overthink simple problems and underthink harder ones; preference optimisation toward shorter responses reduces length with acceptable accuracy.
+- **Project Relevance:** General background on length versus correctness; not specific to Qwen3-14B.
 
 ---
 
 ### 09. Huang et al. (2025)
-- **File:** `[Huang et al. 2025] Does Thinking More Always Help.pdf`
-- **Citation:** Huang et al. (2025). "Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models." *arXiv:2506.04210*.
-- **Problem & Abstract Summary:** Critically evaluates the hypothesis that test-time compute scaling provides monotonic improvements across non-verifiable, subjective, and creative domains.
-- **Models Evaluated:** DeepSeek-R1, QwQ-32B, o1-preview.
-- **Key Empirical Findings:** While test-time compute scales effectively on formal logic and mathematics, it exhibits severe plateauing and negative scaling on subjective generation and stylistic nuance, often substituting pedantic hairsplitting for substantive quality.
-- **Project Relevance:** Strongly supports our prior that thinking mode should not be assumed to "improve" character personification, framing Q4 as an open empirical test of distribution shifts.
+- **File:** `[Huang et al. 2025] Does Thinking More Always Help.pdf` (file name author does not match the paper)
+- **Citation:** Soumya Suvra Ghosal, Souradip Chakraborty, Avinash Reddy, Yifu Li, Mengdi Wang, Dinesh Manocha, Furong Huang, Mohammad Ghavamzadeh, Amrit Singh Bedi (2025). "Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models." *arXiv:2506.04210*.
+- **Problem & Abstract Summary:** Tests whether more thinking keeps improving accuracy.
+- **Models Evaluated:** Distilled DeepSeek-R1 models (Qwen-1.5B/7B, Llama-8B) and others; full list not re-checked.
+- **Key Empirical Findings:** Accuracy first improves then declines (overthinking); thinking more increases output variance; parallel thinking (best-of-N / majority vote) gives up to 20% higher accuracy. Claims about subjective/creative domains and o1-preview in earlier versions of this file are not in the paper.
+- **Project Relevance:** Background on the limits of test-time scaling; not evidence about character writing.
 
 ---
 
 ### 10. Jiang et al. (2025)
-- **File:** `[Jiang et al. 2025] Are Reasoning Models More Faithful.pdf`
-- **Citation:** James Chua et al. (Truthful AI) (2025). "Are DeepSeek R1 and Other Reasoning Models More Faithful?" *arXiv:2501.08156*.
-- **Problem & Abstract Summary:** Assesses whether reinforcement-learning-optimized reasoning models (such as DeepSeek-R1) generate more causally faithful reasoning chains than prior instruction-tuned models.
-- **Models Evaluated:** DeepSeek-R1, DeepSeek-R1-Distill-Qwen-32B, Claude 3.5 Sonnet, GPT-4o.
-- **Key Empirical Findings:** R1-style models remain fundamentally unfaithful. Despite producing highly detailed, self-correcting verbal traces, the models frequently fabricate justifications for outputs that were predetermined by prompt biases or internal attractors.
-- **Project Relevance:** Core evidence demonstrating that DeepSeek and Qwen reasoning architectures do not resolve unfaithful generation dynamics.
+- **File:** `[Jiang et al. 2025] Are Reasoning Models More Faithful.pdf` (file name author does not match the paper)
+- **Citation:** James Chua and Owain Evans (2025). "Are DeepSeek R1 and Other Reasoning Models More Faithful?" *arXiv:2501.08156*.
+- **Problem & Abstract Summary:** Tests whether reasoning models verbalise the influence of hints (cues) inserted in the prompt, compared with non-reasoning counterparts.
+- **Models Evaluated:** Three reasoning models (based on Qwen-2.5, Gemini-2 and DeepSeek-V3-Base) against non-reasoning counterparts.
+- **Key Empirical Findings:** Reasoning models are more faithful: DeepSeek-R1 describes the cue's influence in 59% of cases versus 7% for the non-reasoning DeepSeek model. The earlier claim that R1 "remains fundamentally unfaithful" was the opposite of the paper's finding. Stated limits: artificial tasks, one aspect of faithfulness; reward models may cause less faithful responses.
+- **Project Relevance:** Evidence that reasoning-model traces are more faithful than non-reasoning CoT in this test; it cuts against a blanket "traces are post-hoc" reading.
 
 ---
 
 ### 11. Kim et al. (2026)
-- **File:** `[Kim et al. 2026] Entertain, then Cancel - Pragmatic Interpretation.pdf`
-- **Citation:** Zhizhuo Kou, Jian Yang, Peng et al. (2026). "Entertain, then Cancel: How Thinking Makes Reasoning Models Read Some and Or Literally." *arXiv:2610.21204*.
-- **Problem & Abstract Summary:** Investigates how chain-of-thought generation impacts the pragmatic interpretation of natural language expressions, such as scalar implicatures ("some" meaning "not all") and inclusive disjunctions.
-- **Models Evaluated:** Qwen3-8B, Qwen3.8-27B, DeepSeek-V4, GPT-5.
-- **Key Empirical Findings:** Thinking mode systematically disrupts pragmatic inference: models explicitly "entertain" natural conversational pragmatic readings inside the scratchpad, only to "cancel" them in favor of rigid, hyper-literal interpretations in the final output.
-- **Project Relevance:** The closest existing study demonstrating that thinking mode induces qualitative semantic and linguistic register shifts in standard textual interpretation.
+- **File:** `[Kim et al. 2026] Entertain, then Cancel - Pragmatic Interpretation.pdf` (file name author does not match the paper)
+- **Citation:** Zhizhuo Kou, Jian Yang, Pengfei Hao, Junyu Luo, Jingshu Peng, Sirui Han, Yike Guo (2026). "Entertain, then Cancel: How Thinking Makes Reasoning Models Read Some and Or Literally." *arXiv:2610.21204*.
+- **Problem & Abstract Summary:** Looks at scalar implicature of "some" (not all) and "or" (not both) with and without thinking.
+- **Models Evaluated:** Most tested open reasoning models and GPT-5; exact list not re-checked.
+- **Key Empirical Findings:** Thinking cancels the enriched reading for some and or in most tested models; context-driven inferences such as indirect answers improve. Models first entertain the enriched reading and then cancel it. An exploratory inference-time remedy is proposed.
+- **Project Relevance:** Shows thinking can change interpretation of specific words. It is not about register in character writing.
 
 ---
 
 ### 12. Kocijan et al. (2019)
-- **File:** `[Kocijan et al. 2019] Default Reasoning in Number and Gender Assignment.pdf`
-- **Citation:** Vid Kocijan, Ernest Davis, Thomas Lukasiewicz et al. (2019). "Analysing Neural Language Models: Contextual Decomposition Reveals Default Reasoning in Number and Gender Assignment." *Proceedings of the 23rd Conference on Computational Natural Language Learning (CoNLL 2019)*.
-- **Problem & Abstract Summary:** Uses contextual decomposition to probe how neural language models assign grammatical gender and number to ambiguous or generic referents.
-- **Models Evaluated:** BERT, RoBERTa, LSTM baselines.
-- **Key Empirical Findings:** Uncovers strong hardcoded default attractor basins: neural architectures systematically default to masculine agreement for underspecified nouns unless strong, unambiguous contextual evidence actively overrides the default.
-- **Project Relevance:** Provides foundational linguistic and computational grounding for the masculine baseline asymmetry observed across LLM character generation.
+- **File:** `[Kocijan et al. 2019] Default Reasoning in Number and Gender Assignment.pdf` (file name author does not match the paper)
+- **Citation:** Jaap Jumelet, Willem Zuidema, Dieuwke Hupkes (2019). "Analysing Neural Language Models: Contextual Decomposition Reveals Default Reasoning in Number and Gender Assignment." *CoNLL 2019*.
+- **Problem & Abstract Summary:** Applies Generalised Contextual Decomposition to a unidirectional LSTM language model, for number agreement and gendered pronoun resolution.
+- **Models Evaluated:** An LSTM language model (not BERT/RoBERTa).
+- **Key Empirical Findings:** The model shows a default-reasoning effect: it uses a default and is overridden by contrary evidence.
+- **Project Relevance:** Background on defaults in gender assignment in an LSTM. Whether it explains masculine defaults in LLM character generation is not tested there.
 
 ---
 
 ### 13. Kwon et al. (2025)
-- **File:** `[Kwon et al. 2025] Controlling Thinking Budget in Reasoning Models.pdf`
-- **Citation:** Tingxu Han, Zhenting Wang, Chunrong Fang, Shiyu Zhao, Shiqing Ma [Kwon et al.] (2025). "Token-Budget-Aware LLM Reasoning." *Findings of the Association for Computational Linguistics (ACL 2025 Findings)*.
-- **Problem & Abstract Summary:** Proposes methods for controlling and capping the thinking token budget during test-time compute scaling without sacrificing analytical performance.
-- **Models Evaluated:** DeepSeek-R1-Distill-Llama-8B, Qwen-2.5-7B, GPT-4o-mini.
-- **Key Empirical Findings:** Demonstrates that unconstrained reasoning models suffer severe token bloat; enforcing explicit budget caps preserves problem-solving fidelity while eliminating redundant reasoning loops.
-- **Project Relevance:** Cited directly to justify our pre-registered thinking token cap during Qwen3-14B pod execution.
+- **File:** `[Kwon et al. 2025] Controlling Thinking Budget in Reasoning Models.pdf` (file name author does not match the paper)
+- **Citation:** Tingxu Han, Zhenting Wang, Chunrong Fang, Shiyu Zhao, Shiqing Ma, Zhenyu Chen (2025). "Token-Budget-Aware LLM Reasoning." *Findings of ACL 2025*, pp. 24842-.
+- **Problem & Abstract Summary:** Puts a token budget in the prompt (TALE) to compress CoT.
+- **Models Evaluated:** Not re-checked *[unverified]*.
+- **Key Empirical Findings:** A token budget compresses CoT with a slight performance reduction.
+- **Project Relevance:** Cited for budget-capping practice; the pre-registered cap itself is the project's own choice.
 
 ---
 
 ### 14. Lanham et al. (2023)
 - **File:** `[Lanham et al. 2023] Measuring Faithfulness in Chain-of-Thought Reasoning.pdf`
-- **Citation:** Tamera Lanham, Anna Chen, Ansh Radhakrishnan, Benoit Steiner, Carson Denison, Dario Amodei et al. (2023). "Measuring Faithfulness in Chain-of-Thought Reasoning." *arXiv:2307.13702*.
-- **Problem & Abstract Summary:** Landmark Anthropic study introducing causal perturbation methods (truncation, corruption, filler insertion) to quantify whether LLMs actually rely on their stated reasoning steps.
-- **Models Evaluated:** Claude 1.3, Claude Instant, PaLM 540B.
-- **Key Empirical Findings:** On diverse tasks, models are causally unfaithful: reasoning traces serve as post-hoc rationalizations rather than the true determinants of the final answer. Prompt biases dictate the choice prior to reasoning generation.
-- **Project Relevance:** Tier 1 Anchor. Explains why thinking blocks rarely mention gender even while the output gender is determined.
+- **Citation:** Tamera Lanham et al., Anthropic (2023; the author list is long and includes Samuel R. Bowman and Ethan Perez; Dario Amodei is not on it). "Measuring Faithfulness in Chain-of-Thought Reasoning." *arXiv:2307.13702*.
+- **Problem & Abstract Summary:** Intervenes on the CoT (truncation, adding mistakes, paraphrasing, filler tokens) to see whether the answer changes.
+- **Models Evaluated:** A 175B-parameter pretrained decoder-only transformer, later fine-tuned *[Claude 1.3 / PaLM naming in earlier versions not verified]*.
+- **Key Empirical Findings:** Reliance on CoT varies a lot across tasks; larger, more capable models produce less faithful reasoning on most tasks; CoT can be faithful if model size and task are chosen carefully.
+- **Project Relevance:** Standard reference that stated reasoning does not always drive the answer. Applying it to gender in our pilot is our own inference; "post-hoc rationalization" in all cases overstates it.
 
 ---
 
 ### 15. Lee et al. (2024)
-- **File:** `[Lee et al. 2024] TypedThinker - Structural Planning in Reasoning.pdf`
-- **Citation:** Lee et al. (2024). "TypedThinker: Diversify Large Language Model Reasoning with Typed Thought." *International Conference on Learning Representations (ICLR 2025)* / *arXiv:2410.01952*.
-- **Problem & Abstract Summary:** Addresses path redundancy and mode collapse during repeated CoT sampling by introducing typed, structured reasoning steps (e.g. divergent, deductive).
-- **Models Evaluated:** LLaMA-3-8B, Mistral-7B, Qwen-7B, GPT-4o.
-- **Key Empirical Findings:** Demonstrates that unconstrained repeated CoT sampling suffers from high path overlap and structural redundancy; enforcing structured thought types restores exploratory variance.
-- **Project Relevance:** Methodological context for repeated-draw sampling distributions and reasoning diversity.
+- **File:** `[Lee et al. 2024] TypedThinker - Structural Planning in Reasoning.pdf` (file name author does not match the paper)
+- **Citation:** Danqing Wang, Jianxin Ma, Fei Fang, Lei Li (2024). "TypedThinker: Diversify Large Language Model Reasoning with Typed Thought." *ICLR 2025*; *arXiv:2410.01952*.
+- **Problem & Abstract Summary:** Predicts suitable reasoning types (inductive, abductive, analogical, deductive) and supplies demonstrations.
+- **Models Evaluated:** Mistral 7B, LLaMA3 8B, Qwen2 7B; also combined with GPT-4o and MetaMath.
+- **Key Empirical Findings:** Gains of 3.4% (Mistral 7B), 6.5% (LLaMA3 8B), 7% (Qwen2 7B).
+- **Project Relevance:** Peripheral: reasoning diversity in math/logic.
 
 ---
 
 ### 16. Li et al. (2025, Bias)
-- **File:** `[Li et al. 2025] Does Reasoning Introduce Bias.pdf`
-- **Citation:** Xuyang Wu, Li et al. (2025). "Does Reasoning Introduce Bias? A Study of Social Bias Evaluation and Mitigation in LLM Reasoning." *Findings of the Association for Computational Linguistics (EMNLP 2025 Findings)*.
-- **Problem & Abstract Summary:** Presents the first systematic audit of social and demographic bias harbored directly within LLM-generated reasoning traces versus final task outputs.
-- **Models Evaluated:** DeepSeek-R1, DeepSeek-R1-Distill-Llama-8B, Qwen-2.5-72B.
-- **Key Empirical Findings:** Reasoning tokens actively introduce and amplify demographic biases; models frequently generate explicit stereotypes inside reasoning chains to justify biased decisions made silently in direct decoding.
-- **Project Relevance:** Tier 2 Mechanistic Anchor. Proves that reasoning traces themselves are sites of demographic stereotyping rather than objective debiasing mechanisms.
+- **File:** `[Li et al. 2025] Does Reasoning Introduce Bias.pdf` (file name author does not match the paper)
+- **Citation:** Xuyang Wu, Jinming Nian, Ting-Ruen Wei, Zhiqiang Tao, Hsin-Tai Wu, Yi Fang (2025). "Does Reasoning Introduce Bias? A Study of Social Bias Evaluation and Mitigation in LLM Reasoning." *Findings of EMNLP 2025*.
+- **Problem & Abstract Summary:** Evaluates social bias in reasoning on BBQ and proposes ADBP (Answer Distribution as Bias Proxy), which beat the SfRP baseline.
+- **Models Evaluated:** DeepSeek-R1 (8B/32B distills), instruction-tuned and CoT variants, plus other open and closed LLMs (o3-mini, GPT-4o appear in the text).
+- **Key Empirical Findings:** Presented as the first systematic evaluation of social bias within the reasoning process.
+- **Project Relevance:** Reasoning-mode bias evaluation on QA benchmarks; not about character generation.
 
 ---
 
 ### 17. Li et al. (2025, Story)
-- **File:** `[Li et al. 2025] Learning to Reason for Long-Form Story Generation.pdf`
-- **Citation:** Alexander Gurung, Miruna Clinciu et al. [Li et al.] (2025). "Learning to Reason for Long-Form Story Generation." *Conference on Language Modeling (COLM 2025)* / *arXiv:2503.22828*.
-- **Problem & Abstract Summary:** Investigates the application of long CoT reasoning models and reinforcement learning to long-form creative story generation.
-- **Models Evaluated:** DeepSeek-R1, Qwen-2.5-14B, Llama-3-70B.
-- **Key Empirical Findings:** While reasoning improves high-level narrative plot consistency, it flattens stylistic richness and forces characters into predictable, stereotypical arcs.
-- **Project Relevance:** Domain-specific narrative writing evidence: reinforces that reasoning mode alters character framing and creative voice.
+- **File:** `[Li et al. 2025] Learning to Reason for Long-Form Story Generation.pdf` (file name author does not match the paper)
+- **Citation:** Alexander Gurung and Mirella Lapata (2025). "Learning to Reason for Long-Form Story Generation." *COLM 2025*; *arXiv:2503.22828*.
+- **Problem & Abstract Summary:** RL with Verifiable Rewards via Completion Likelihood Improvement on Next-Chapter Prediction using unlabeled books.
+- **Models Evaluated:** Not re-checked *[unverified]*.
+- **Key Empirical Findings:** Learned reasoning plans are preferred by humans across almost all metrics, more in Sci-Fi/Fantasy. The earlier "flattens stylistic richness, stereotypical arcs" claim is not in the paper.
+- **Project Relevance:** A case where trained reasoning helps story generation; not about gender.
 
 ---
 
 ### 18. Lin et al. (2025)
-- **File:** `[Lin et al. 2025] Inverse Scaling in Test-Time Compute.pdf`
-- **Citation:** Aryo Pradipta et al. [Lin et al.] (2025). "Inverse Scaling in Test-Time Compute." *Transactions on Machine Learning Research (TMLR 12/2025)* / *arXiv:2507.14417*.
-- **Problem & Abstract Summary:** Identifies and analyzes task environments where allocating additional test-time compute (longer reasoning chains) leads to a monotonic decline in model performance.
-- **Models Evaluated:** Qwen3, DeepSeek-R1, Claude 3.5 Sonnet.
-- **Key Empirical Findings:** Discovers inverse test-time scaling on tasks involving intuitive heuristics, open-ended framing, and subtle stylistic cues, where extended thinking locks models into erroneous reasoning spirals.
-- **Project Relevance:** Methodological justification for capping test-time compute and cautioning against assumptions that thinking mode will improve character balance.
+- **File:** `[Lin et al. 2025] Inverse Scaling in Test-Time Compute.pdf` (file name author does not match the paper)
+- **Citation:** Aryo Pradipta Gema et al. (2025). "Inverse Scaling in Test-Time Compute." *TMLR*; *arXiv:2507.14417*.
+- **Problem & Abstract Summary:** Finds tasks where longer reasoning lowers accuracy.
+- **Models Evaluated:** Claude and OpenAI o-series models plus open models (Qwen3, Phi appear in the text).
+- **Key Empirical Findings:** Counting with distractors, regression with spurious features, deduction with constraint tracking, and advanced AI risk evaluations. Five failure modes, e.g. Claude models become distracted, o-series models overfit framings, and extended reasoning may amplify concerning behaviours (Claude Sonnet 4 self-preservation). "Open-ended framing / stylistic cues" is not what the paper tests.
+- **Project Relevance:** Background for caps on test-time compute.
 
 ---
 
 ### 19. Liu et al. (2025)
-- **File:** `[Liu et al. 2025] R-CHAR - Reasoning Character Framework.pdf`
-- **Citation:** Haiming Qin, Jiwei Zhang et al. [Liu et al.] (2025). "R-CHAR: A Metacognition-Driven Framework for Role-Playing in Large Language Models." *Proceedings of EMNLP 2025 (Main Conference)*.
-- **Problem & Abstract Summary:** Examines why standard reasoning architectures experience severe persona erosion in interactive fiction and role-playing, proposing a metacognitive conditioning framework.
-- **Models Evaluated:** DeepSeek-R1, Qwen-2.5-72B-Instruct.
-- **Key Empirical Findings:** Standard reasoning traces naturally adopt an analytical, third-person assistant persona that dilutes character immersion and alters narrative voice.
-- **Project Relevance:** Corroborates the persona degradation literature, confirming that default reasoning mechanisms systematically interfere with character immersion.
+- **File:** `[Liu et al. 2025] R-CHAR - Reasoning Character Framework.pdf` (file name author does not match the paper)
+- **Citation:** Haiming Qin, Jiwei Zhang, Wei Zhang, KeZhong Lu, Mingyang Zhou, Hao Liao, Rui Mao (2025). "R-CHAR: A Metacognition-Driven Framework for Role-Playing in Large Language Models." *EMNLP 2025*.
+- **Problem & Abstract Summary:** Reasoning models help little in open-ended role-playing; R-CHAR synthesises guided thinking trajectories with adaptive evaluation.
+- **Models Evaluated:** Qwen2.5-7B/32B-Instruct, DeepSeek-R1-distilled 7B and others.
+- **Key Empirical Findings:** Concise thinking can beat elaborate reasoning chains on role-playing social-intelligence tasks; on SocialBench, long-context comprehension rises from 34.64% to 68.59%.
+- **Project Relevance:** Role-play context. The earlier "third-person assistant persona dilutes immersion" claim is not in the abstract.
 
 ---
 
 ### 20. Liu et al. (2026)
-- **File:** `[Liu et al. 2026] How Reasoning Shapes Social Bias in Generated Code.pdf`
-- **Citation:** Weifeng Sun, Jieke Shi, Zhou Yang et al. [Liu et al.] (2026). "How Reasoning Shapes Social Bias in LLM-Generated Code?" *arXiv:2608.06829*.
-- **Problem & Abstract Summary:** Evaluates the downstream impact of reasoning tokens on demographic, gender, and racial biases in generated code artifacts.
-- **Models Evaluated:** Qwen3-32B, DeepSeek-R1, Llama-3.1-8B, Qwen2.5-Coder-7B.
-- **Key Empirical Findings:** Reasoning mode systematically alters demographic distributions in generated outputs, often embedding stereotyped assumptions into downstream variables and structure.
-- **Project Relevance:** Demonstrates that reasoning mode reshapes demographic bias in non-decision, creative generative tasks.
+- **File:** `[Liu et al. 2026] How Reasoning Shapes Social Bias in Generated Code.pdf` (file name author does not match the paper)
+- **Citation:** Weifeng Sun, Jieke Shi, Zhou Yang, Yuchen Chen, Hongyan Li, Meng Yan, David Lo (2026). "How Reasoning Shapes Social Bias in LLM-Generated Code?" *arXiv:2608.06829*.
+- **Problem & Abstract Summary:** First systematic study of social bias in reasoning-based code generation, 9 models (standard LLMs and large reasoning models) on three human-centred decision scenarios.
+- **Models Evaluated:** 9 models, standard and reasoning.
+- **Key Empirical Findings:** Reasoning generally reduces code bias (average bias rate 0.64 to 0.40), but model-dependently; average code quality drops from 0.72 to 0.59; biased reasoning strongly predicts biased code. Earlier text said reasoning "embeds stereotyped assumptions", which is the opposite direction on average.
+- **Project Relevance:** Reasoning can reduce bias in code; do not cite it as evidence for the opposite.
 
 ---
 
 ### 21. Mao et al. (2026)
-- **File:** `[Mao et al. 2026] Instruction-Tuned Models Cannot Sample from Distributions They Describe.pdf`
-- **Citation:** Chaemin Jang, Jihee Kim et al. [Mao et al.] (2026). "Instruction-Tuned Language Models Cannot Sample from Distributions They Can Describe." *arXiv:2607.25292*.
-- **Problem & Abstract Summary:** Investigates whether autoregressive LLMs can faithfully sample from empirical probability distributions across repeated draws or whether repeated sampling violates distributional independence.
-- **Models Evaluated:** Llama-3-8B/70B, Qwen-2.5-7B/72B, GPT-4o.
-- **Key Empirical Findings:** Models fail to sample representatively from underlying response distributions; repeated draws suffer from severe mode pooling and attractor bias.
-- **Project Relevance:** Essential caveat for the character study's repeated-draw methodology and the statistical interpretation of character gender proportions as true probabilities.
+- **File:** `[Mao et al. 2026] Instruction-Tuned Models Cannot Sample from Distributions They Describe.pdf` (file name author does not match the paper)
+- **Citation:** Chaemin Jang, Jihee Kim, Dongman Lee (KAIST) (2026). "Instruction-Tuned Language Models Cannot Sample from Distributions They Can Describe." *arXiv:2607.25292*.
+- **Problem & Abstract Summary:** In silicon sampling (personas as survey respondents), instruction-tuned models collapse to a single output rather than sampling.
+- **Models Evaluated:** Instruction-tuned versus base models across families.
+- **Key Empirical Findings:** The same persona and question returns the same answer on over half of items in a public-opinion benchmark; instruction-tuned models are worse than their bases in every family compared; the model can describe the distribution accurately (the "KNOWS/DOES split"). A describe-the-distribution call halves error against human survey data; Prompt-Perturbed Argyle reduces error by 21%.
+- **Project Relevance:** Caveat on treating repeated draws as independent samples; applying it to our pilot design is our own inference.
 
 ---
 
 ### 22. McKenna et al. (2026)
-- **File:** `[McKenna et al. 2026] LLM Reasoning Is Latent.pdf`
-- **Citation:** Wenshuo Wang et al. [McKenna et al.] (2026). "LLM Reasoning Is Latent, Not the Chain of Thought." *arXiv:2604.15726*.
-- **Problem & Abstract Summary:** Tests whether transformer reasoning is fundamentally executed via discrete surface tokens or within continuous internal latent representations.
-- **Models Evaluated:** Llama-3-8B, Mistral-7B, Qwen-2.5-14B.
-- **Key Empirical Findings:** Proves that the primary computational transitions driving task outcomes take place in continuous latent layer space; generated CoT tokens are downstream decodings that often obscure internal dynamics.
-- **Project Relevance:** Directly explains why grammatical gender steering and persona choices operate sub-cognitively in latent activations without surfacing in CoT text.
+- **File:** `[McKenna et al. 2026] LLM Reasoning Is Latent.pdf` (file name author does not match the paper)
+- **Citation:** Wenshuo Wang (South China University of Technology) (2026). "LLM Reasoning Is Latent, Not the Chain of Thought." *arXiv:2604.15726*. Position paper.
+- **Problem & Abstract Summary:** Argues reasoning should be studied as latent-state trajectory formation. Formalises H1 (latent states mediate), H2 (surface CoT mediates) and H0 (generic serial compute explains most gains).
+- **Models Evaluated:** None run as a new experiment of its own; it reorganises recent work and adds compute-audited worked exemplars.
+- **Key Empirical Findings:** Concludes current evidence most strongly supports H1 as a default working hypothesis, not a task-independent verdict.
+- **Project Relevance:** A position paper; it should not be cited as proof.
 
 ---
 
 ### 23. Park et al. (2026)
-- **File:** `[Park et al. 2026] Sampling More, Getting Less - Diversity Collapse.pdf`
-- **Citation:** Amin Banayeeanzade, Qingchuan Yang et al. [Park et al.] (2026). "Sampling More, Getting Less: Calibration is the Diversity Bottleneck in LLMs." *arXiv:2605.11128*.
-- **Problem & Abstract Summary:** Investigates the diversity bottleneck in modern LLMs, analyzing why scaling sample draws yields diminishing unique outputs under standard sampling temperatures.
-- **Models Evaluated:** GPT-4o, GPT-5.5, DeepSeek-R1, Llama-3.1.
-- **Key Empirical Findings:** Reasoning models restrict output token entropy, causing repeated sample draws to collapse into narrow syntactic and semantic basins.
-- **Project Relevance:** Cited to justify divergent nucleus sampling parameters across modes (`TopP=0.95` for thinking vs. `TopP=0.80` for non-thinking) and warns of variance shrinkage.
+- **File:** `[Park et al. 2026] Sampling More, Getting Less - Diversity Collapse.pdf` (file name author does not match the paper)
+- **Citation:** Amin Banayeeanzade, Qingchuan Yang, Dhruv Tarsadiya, Fatemeh Bahrani, Leonardo Blas, Alfy Samuel, Robin Jia, Meisam Razaviyayn, Sai Praneeth Karimireddy (2026). "Sampling More, Getting Less: Calibration is the Diversity Bottleneck in LLMs." arXiv ID *[unverified: not in the extracted text]*.
+- **Problem & Abstract Summary:** A validity-diversity framework attributing diversity collapse to order calibration and shape calibration failures in decoding.
+- **Models Evaluated:** 14 language models across several families and scales.
+- **Key Empirical Findings:** Diversity collapse is not just a limit of a particular sampling heuristic. The claim that reasoning models restrict entropy is not in the abstract.
+- **Project Relevance:** The earlier use of this paper to justify TopP 0.95 vs 0.80 is not supported by it; the TopP values come from Qwen's model cards.
 
 ---
 
 ### 24. Prasad et al. (2026)
-- **File:** `[Prasad et al. 2026] Are Stated Reasoning Steps Causally Load-Bearing.pdf`
-- **Citation:** Archiki Prasad et al. (2026). "Are Stated Reasoning Steps Causally Load-Bearing? Activation Patching Says Less Than You Think." *arXiv:2609.27038*.
-- **Problem & Abstract Summary:** Uses causal activation patching across individual reasoning tokens to evaluate whether generated CoT steps are causally necessary for reaching final answers.
-- **Models Evaluated:** Qwen3-1.7B, Qwen3-4B, Llama-3-8B.
-- **Key Empirical Findings:** Demonstrates that the vast majority of intermediate reasoning steps carry near-zero causal weight; patching or ablating intermediate activations leaves downstream outputs largely unaffected.
-- **Project Relevance:** Provides rigorous causal interpretability evidence confirming that thinking traces are largely epiphenomenal, validating our focus on output gender rather than trace text.
+- **File:** `[Prasad et al. 2026] Are Stated Reasoning Steps Causally Load-Bearing.pdf` (file name author does not match the paper)
+- **Citation:** Abhiram Bhupatiraju and Rayan Nyaupane (UT Austin) (2026). "Are Stated Reasoning Steps Causally Load-Bearing? Activation Patching Says Less Often Than Text Editing Does." *arXiv:2609.27038*.
+- **Problem & Abstract Summary:** Patches the residual stream at the span where the model states each intermediate step, on synthetic multi-hop lookup tasks (2-6 hops).
+- **Models Evaluated:** Qwen3-4B and Qwen3-1.7B.
+- **Key Empirical Findings:** For Qwen3-4B, 76.9% +/- 2.8% of stated steps are causally load-bearing at the most responsive mid layer; the standard behavioural text-editing test gives 88.2%, overstating faithfulness by 11.4 points. Qwen3-1.7B is lower (54.8%) and falls with depth (68% at 2 hops, 30% at 6). The earlier statement that steps carry "near-zero causal weight" is the opposite of the finding.
+- **Project Relevance:** Evidence that stated steps are often causally used on lookup tasks; not about gender.
 
 ---
 
 ### 25. Rao et al. (2025)
-- **File:** `[Rao et al. 2025] Agree to Disagree - Meta-Evaluation of LLM Misgendering.pdf`
-- **Citation:** Arjun Subramonian et al. [Rao et al.] (2025). "Agree to Disagree? A Meta-Evaluation of LLM Misgendering." *Conference on Language Modeling (COLM 2025)* / *arXiv:2504.17075*.
-- **Problem & Abstract Summary:** Conducts a comprehensive meta-evaluation of how LLMs assign pronouns and navigate ambiguous or non-binary gender identities.
-- **Models Evaluated:** GPT-4, Llama-3, Claude 3, Mistral.
-- **Key Empirical Findings:** Models display severe instability and default bias when processing singular 'they' and gender-neutral referents, frequently misgendering characters or defaulting to binary pronouns.
-- **Project Relevance:** Informs our analysis of overridden-*they* paragraphs and contextualizes why Qwen3-14B thinking mode displayed shifts toward *they* in the pilot.
+- **File:** `[Rao et al. 2025] Agree to Disagree - Meta-Evaluation of LLM Misgendering.pdf` (file name author does not match the paper)
+- **Citation:** Arjun Subramonian, Vagrant Gautam, Preethi Seshadri, Dietrich Klakow, Kai-Wei Chang, Yizhou Sun (2025). "Agree to Disagree? A Meta-Evaluation of LLM Misgendering." *COLM 2025*; *arXiv:2504.17075*.
+- **Problem & Abstract Summary:** Compares probability-based and generation-based misgendering evaluations across three datasets.
+- **Models Evaluated:** 6 models from 3 families.
+- **Key Empirical Findings:** The methods disagree on 20.2% of instances; a human evaluation of 2,400 generations shows misgendering goes beyond pronouns, which automatic evaluations do not capture.
+- **Project Relevance:** A caution that pronoun-based automatic measures may miss misgendering and can disagree with other measures. It does not discuss singular they in Qwen3 thinking mode.
 
 ---
 
 ### 26. Shaikh et al. (2023)
 - **File:** `[Shaikh et al. 2023] Lets Not Think Step by Step.pdf`
-- **Citation:** Omar Shaikh, Hongxin Zhang et al. (2023). "On Second Thought, Let's Not Think Step by Step! Bias and Toxicity in Zero-Shot Reasoning." *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL 2023)*.
-- **Problem & Abstract Summary:** Systematic evaluation of zero-shot CoT prompting across benchmark datasets measuring demographic bias, stereotyping, and toxicity.
-- **Models Evaluated:** GPT-3 (text-davinci-002, text-davinci-003, InstructGPT).
-- **Key Empirical Findings:** Zero-shot CoT significantly increases a model's propensity to generate biased and toxic content; harmful outputs scale positively with model size while decreasing with instruction following.
-- **Project Relevance:** Foundational Tier 2 anchor establishing that reasoning mode cannot be assumed to reduce demographic or social bias.
+- **Citation:** Omar Shaikh, Hongxin Zhang, William Held, Michael Bernstein, Diyi Yang (2023). "On Second Thought, Let's Not Think Step by Step! Bias and Toxicity in Zero-Shot Reasoning." *ACL 2023*.
+- **Problem & Abstract Summary:** Controlled evaluation of zero-shot CoT on harmful questions and stereotype benchmarks.
+- **Models Evaluated:** InstructGPT-family GPT-3 models (text-davinci-002/003) and others.
+- **Key Empirical Findings:** Zero-shot CoT significantly increases the likelihood of harmful or undesirable output; harmful CoTs increase with model size but decrease with better instruction following.
+- **Project Relevance:** Evidence that CoT prompting can raise biased output (zero-shot CoT, older models).
 
 ---
 
 ### 27. Sharma et al. (2026)
-- **File:** `[Sharma et al. 2026] Sycophancy Mitigated Yet Masked in Reasoning Models.pdf`
-- **Citation:** Zhaoxin Feng, Zheng et al. [Sharma et al.] (2026). "Good Arguments Against the People Pleasers: How Reasoning Mitigates (Yet Masks) LLM Sycophancy." *arXiv:2603.16643*.
-- **Problem & Abstract Summary:** Analyzes how test-time reasoning models navigate sycophantic pressure and user biases during complex dialogues.
-- **Models Evaluated:** DeepSeek-R1, QwQ-32B, Claude 3.5 Sonnet.
-- **Key Empirical Findings:** While reasoning enables models to resist superficial sycophancy, models frequently generate verbose reasoning traces that mask or misrepresent their internal stance shifts.
-- **Project Relevance:** Reinforces the principle that observable reasoning text does not reliably mirror internal model alignments.
+- **File:** `[Sharma et al. 2026] Sycophancy Mitigated Yet Masked in Reasoning Models.pdf` (file name author does not match the paper)
+- **Citation:** Zhaoxin Feng, Zheng Chen, Jianfei Ma, Yip Tin Po, Emmanuele Chersoni, Bo Li (2026). "Good Arguments Against the People Pleasers: How Reasoning Mitigates (Yet Masks) LLM Sycophancy." *arXiv:2603.16643*.
+- **Problem & Abstract Summary:** Asks whether CoT constrains or merely rationalises sycophancy.
+- **Models Evaluated:** A range of models (Qwen2.5, Llama3.1, Gemma2, o3-mini, GPT-3.5/4o appear in the text); mechanistic analysis on three open-source models.
+- **Key Empirical Findings:** Reasoning generally reduces sycophancy in final decisions but masks it in some samples via deceptive justifications; models are more prone to sycophancy in subjective tasks and under authority bias; sycophancy is dynamic during reasoning rather than set at the input.
+- **Project Relevance:** Reasoning text can be an unreliable guide to a model's stance. Not about gender.
 
 ---
 
 ### 28. Song et al. (2026)
 - **File:** `[Song et al. 2026] Entropy Collapse in Long CoT Generation.pdf`
-- **Citation:** Song et al. (2026). "A Few Bad Apples Spoil the Bunch: Preventing Global Entropy Collapse Driven by a Small Set of Tokens in LLM Reasoning." *Findings of the Association for Computational Linguistics (ACL 2026 Findings)*.
-- **Problem & Abstract Summary:** Formally analyzes token-level entropy dynamics during extended chain-of-thought generation, identifying the mathematical mechanisms behind sudden diversity collapse.
-- **Models Evaluated:** DeepSeek-R1, Qwen2.5-Math-7B, Llama-3-8B-Instruct.
-- **Key Empirical Findings:** Extended reasoning sequences trigger global entropy collapse, driven by a narrow set of high-frequency transition tokens that permanently contract subsequent probability distributions.
-- **Project Relevance:** Tier 1 Anchor. Explains why thinking mode narrows the variety of character voices and provides theoretical grounding for unequal variance between arms.
+- **Citation:** Jaeeun Jang, Hansle Lee, Sangmin Kim et al. (Hanwha Systems) (2026). "A Few Bad Apples Spoil the Bunch: Preventing Global Entropy Collapse Driven by a Small Set of Tokens in LLM Reasoning." *Findings of ACL 2026*, pp. 13134-.
+- **Problem & Abstract Summary:** In RLVR/RLIF training, entropy collapse is driven by premature overconfidence at a few structurally critical decision points; proposes SCOPE, which applies selective KL regularisation to the top ~5% of tokens.
+- **Models Evaluated:** Qwen2.5 models (e.g. Qwen2.5-Math-7B, Qwen2.5-7B Base) on math reasoning.
+- **Key Empirical Findings:** SCOPE improves performance under both settings. This is about RL training, not about inference-time thinking mode or specific transition tokens like "Wait".
+- **Project Relevance:** The earlier claim that it explains mode-level diversity narrowing in thinking mode is not supported; it concerns RL training.
 
 ---
 
 ### 29. Srinivasan et al. (2026)
 - **File:** `[Srinivasan et al. 2026] Are You Sure Youre Sure - Confidence and Lexical Diversity.pdf`
-- **Citation:** Gaurav Srivastava et al. [Srinivasan et al.] (2026). "Are You Sure You're Sure? On the Impact of Instruction Tuning on Confidence and Lexical Diversity." *arXiv:2608.13430*.
-- **Problem & Abstract Summary:** Investigates how post-training instruction alignment impacts model calibration, output confidence, and lexical diversity.
-- **Models Evaluated:** Mistral-7B, Llama-3-8B, Qwen-2.5-7B.
-- **Key Empirical Findings:** Instruction tuning inflates model confidence while sharply reducing lexical diversity across open-ended generation tasks.
-- **Project Relevance:** Contextualizes lexical narrowing in aligned models, directly bearing on our Glasgow psycholinguistic norm measures.
+- **Citation:** Author list not available in the extracted text *[unverified; the earlier "Gaurav Srivastava et al." was wrong, that name belongs to the LLMThinkBench paper]* (2026). "Are You Sure You're Sure? On the Impact of Instruction Tuning on Confidence and Lexical Diversity." *arXiv:2608.13430*.
+- **Problem & Abstract Summary:** Whether changes in lexical diversity of answer rationales accompany changes in confidence from instruction tuning.
+- **Models Evaluated:** Three matched base/instruct pairs (Llama-3.1-8B, Mistral-7B and Qwen2.5-7B appear in the text), on QA benchmarks.
+- **Key Empirical Findings:** Instruction tuning increases answer confidence with limited change in accuracy and degrades calibration; cross-rationale diversity decreases while surface lexical diversity varies in direction and size.
+- **Project Relevance:** Not about the Glasgow norms; earlier statement that it bears on them is removed.
 
 ---
 
 ### 30. Sun et al. (2025)
-- **File:** `[Sun et al. 2025] Reasoning Path Divergence.pdf`
-- **Citation:** Feng Ju, Zeyu Qin et al. [Sun et al.] (2025). "Reasoning Path Divergence: A New Metric and Curation Strategy to Unlock LLM Diverse Thinking." *arXiv:2510.26122*.
-- **Problem & Abstract Summary:** Introduces formal divergence metrics to evaluate whether multiple sampled CoT trajectories explore genuinely diverse solution spaces.
-- **Models Evaluated:** Qwen3-4B-Base, Llama-3-8B.
-- **Key Empirical Findings:** Repeated CoT rollouts exhibit severe path collapse, rapidly converging onto identical topological reasoning trajectories unless explicit divergence curation is applied.
-- **Project Relevance:** Informs repeated-sampling methodologies and provides mathematical metrics for reasoning diversity.
+- **File:** `[Sun et al. 2025] Reasoning Path Divergence.pdf` (file name author does not match the paper)
+- **Citation:** Feng Ju, Zeyu Qin, Rui Min, Zhitao He, Lingpeng Kong, Yi R. (May) Fung (2025). "Reasoning Path Divergence: A New Metric and Curation Strategy to Unlock LLM Diverse Thinking." *arXiv:2510.26122*.
+- **Problem & Abstract Summary:** Proposes one-problem-multiple-solutions (1PNS) training and a step-level metric (RPD) that aligns and scores Long CoT solutions.
+- **Models Evaluated:** Not re-checked *[unverified]*.
+- **Key Empirical Findings:** 1PNS with RPD-curated data increases inference diversity. It is a training and curation method, not a finding that repeated rollouts collapse.
+- **Project Relevance:** Background on reasoning-path diversity.
 
 ---
 
 ### 31. Tam et al. (2024)
-- **File:** `[Tam et al. 2024] Evaluating Gender Bias via Chain-of-Thought Reasoning.pdf`
-- **Citation:** Masahiro Kaneko, Danushka Bollegala [Tam et al.] (2024). "Evaluating Gender Bias in Large Language Models via Chain-of-Thought Prompting." *arXiv:2401.15585*.
-- **Problem & Abstract Summary:** Evaluates gender bias across occupational and professional roles using explicit CoT prompts.
-- **Models Evaluated:** GPT-3.5-Turbo, GPT-4, LLaMA-2-70B.
-- **Key Empirical Findings:** CoT prompting fails to mitigate gender bias in occupational association tasks; gender stereotypes persist in reasoning chains even when models are instructed to be fair.
-- **Project Relevance:** Confirms that CoT does not neutralize occupational or grammatical gender stereotypes.
+- **File:** `[Tam et al. 2024] Evaluating Gender Bias via Chain-of-Thought Reasoning.pdf` (file name author does not match the paper)
+- **Citation:** Masahiro Kaneko, Danushka Bollegala, Naoaki Okazaki, Timothy Baldwin (2024). "Evaluating Gender Bias in Large Language Models via Chain-of-Thought Prompting." *arXiv:2401.15585*.
+- **Problem & Abstract Summary:** A word-counting benchmark (count feminine and masculine words, including gendered occupation words) in English; CoT prompts require labelling each word.
+- **Models Evaluated:** Several LLMs (Llama-2 7B/13B/70B appear in the text) *[full list not re-checked]*.
+- **Key Empirical Findings:** Without step-by-step prediction most LLMs make socially biased predictions; CoT prompting reduces this bias and encourages fair predictions. The earlier claim that CoT "fails to mitigate" bias is the opposite.
+- **Project Relevance:** One piece of evidence that CoT can reduce gender bias in a simple counting task; this conflicts with Zhang et al. (2026) below, so cite both honestly.
 
 ---
 
 ### 32. Tan et al. (2025)
-- **File:** `[Tan et al. 2025] LLMThinkBench - Benchmarking Overthinking.pdf`
-- **Citation:** Gaurav Srivastava, Tan et al. (2025). "Do LLMs Overthink Basic Math Reasoning? Benchmarking the Accuracy-Efficiency Tradeoff in Language Models (LLMThinkBench)." *arXiv:2507.04023*.
-- **Problem & Abstract Summary:** Establishes LLMThinkBench to systematically benchmark overthinking behavior on elementary versus complex reasoning tasks.
-- **Models Evaluated:** GPT-5, DeepSeek-R1, QwQ-32B.
-- **Key Empirical Findings:** Reasoning models frequently overthink basic prompts, generating thousands of superfluous reasoning tokens that introduce errors into previously trivial tasks.
-- **Project Relevance:** Demonstrates the structural failure mode of overthinking on simple prompts (such as writing a short character paragraph).
+- **File:** `[Tan et al. 2025] LLMThinkBench - Benchmarking Overthinking.pdf` (file name author does not match the paper)
+- **Citation:** Gaurav Srivastava, Aafiya Hussain, Sriram Srinivasan, Xuan Wang (2025). "Do LLMs Overthink Basic Math Reasoning? Benchmarking the Accuracy-Efficiency Tradeoff in Language Models (LLMThinkBench)." *arXiv:2507.04023*.
+- **Problem & Abstract Summary:** A benchmark of basic math tasks (such as addition) measuring accuracy against reasoning verbosity.
+- **Models Evaluated:** Dozens of models; Phi-4, Qwen2.5, Qwen3, GPT-5, GPT-4o and Llama families appear most in the text.
+- **Key Empirical Findings:** Verbose traces often do not improve correctness; the benchmark is basic arithmetic, not character writing.
+- **Project Relevance:** General overthinking background only.
 
 ---
 
 ### 33. Tu et al. (2025)
-- **File:** `[Tu et al. 2025] Reasoning Does Not Necessarily Improve Role-Playing.pdf`
-- **Citation:** Xiachong Feng, Longxu Dou, Lingpeng Kong [Tu et al.] (2025). "Reasoning Does Not Necessarily Improve Role-Playing Ability." *Findings of the Association for Computational Linguistics (ACL 2025 Findings)*: 10301–10314.
-- **Problem & Abstract Summary:** Extensive evaluation of 24 LLMs across six role-playing benchmarks, investigating whether reasoning ability and CoT improve persona adoption.
-- **Models Evaluated:** 24 LLMs including GPT-4-Turbo, DeepSeek-R1, Qwen-2.5, Claude 3.5 Sonnet.
-- **Key Empirical Findings:** CoT systematically reduces role-playing performance; reasoning ability disrupts role-playing scaling laws via "attention diversion" and "linguistic style drift."
-- **Project Relevance:** Tier 1 Anchor. Direct precedent for Finding 4b: proves that thinking mode degrades creative persona writing, providing directional expectations for Q4.
+- **File:** `[Tu et al. 2025] Reasoning Does Not Necessarily Improve Role-Playing.pdf` (file name author does not match the paper)
+- **Citation:** Xiachong Feng, Longxu Dou, Lingpeng Kong (2025). "Reasoning Does Not Necessarily Improve Role-Playing Ability." *Findings of ACL 2025*, pp. 10301-.
+- **Problem & Abstract Summary:** 6 role-playing benchmarks, 24 LLMs, 3 strategies (zero-shot role-play, role-play with CoT, reasoning-optimised LLMs).
+- **Models Evaluated:** 24 LLMs.
+- **Key Empirical Findings:** CoT may reduce role-playing performance; reasoning-optimised LLMs are unsuitable for role-playing; reasoning ability disrupts the role-playing scaling law; large models still lack advanced role-play proficiency; Chinese role-play performance surpasses English. The "attention diversion" and "style drift" terms come from Wang et al. (Thinking in Character), not from this paper.
+- **Project Relevance:** Directional prior that reasoning may not help persona writing; not a result about gender.
 
 ---
 
 ### 34. Venkatesh et al. (2025)
-- **File:** `[Venkatesh et al. 2025] CoT Dynamics - Commitment and Information Flow.pdf`
-- **Citation:** Samuel Lewis-Lim, Xingwei Tan et al. [Venkatesh et al.] (2025). "Analysing Chain of Thought Dynamics: Active Guidance or Unfaithful Post-hoc Rationalisation?" *Proceedings of EMNLP 2025 (Main Conference)*.
-- **Problem & Abstract Summary:** Traces layer-wise information flow and decision commitment during CoT generation using diagnostic hidden-state probes.
-- **Models Evaluated:** DeepSeek-R1, Qwen2.5-32B-Instruct, Llama-3-8B-Instruct.
-- **Key Empirical Findings:** Outcomes are encoded in hidden states early in generation; visible tokens function as post-hoc communicative rationalizations rather than real-time deliberation.
-- **Project Relevance:** Corroborates the early commitment boundary and latent decision-making findings.
+- **File:** `[Venkatesh et al. 2025] CoT Dynamics - Commitment and Information Flow.pdf` (file name author does not match the paper)
+- **Citation:** Samuel Lewis-Lim, Xingwei Tan, Zhixue Zhao, Nikolaos Aletras (2025). "Analysing Chain of Thought Dynamics: Active Guidance or Unfaithful Post-hoc Rationalisation?" *arXiv:2508.19827*; venue (EMNLP 2025) *[unverified]*.
+- **Problem & Abstract Summary:** Studies CoT dynamics and faithfulness on soft-reasoning tasks in instruction-tuned, reasoning and reasoning-distilled models, using cue injection and confidence trajectories.
+- **Models Evaluated:** Instruction-tuned, reasoning and distilled models (Qwen2.5-Instruct, Qwen3-32B and R1-distilled models appear in the text).
+- **Key Empirical Findings:** Models differ in how they rely on CoT, and CoT influence and faithfulness are not always aligned. No layer-wise probing claim was verified.
+- **Project Relevance:** Shows CoT influence varies by model; no general "post-hoc" verdict.
 
 ---
 
 ### 35. Wang et al. (2025, Demystifying)
 - **File:** `[Wang et al. 2025] Demystifying Hybrid Thinking.pdf`
-- **Citation:** Shouren Wang, Wang Yang, Xia et al. (2025). "Demystifying Hybrid Thinking: Can LLMs Truly Switch Between Think and No-Think?" *arXiv:2510.12680*.
-- **Problem & Abstract Summary:** Examines mode separation and reasoning leakage in hybrid models supporting both think and no-think modes (like Qwen3).
-- **Models Evaluated:** Qwen3-8B, Qwen2.5-7B, DeepSeek-R1-Distill, GPT-oss.
-- **Key Empirical Findings:** Current hybrid LLMs achieve only partial mode separation; reasoning behaviors frequently leak into the no-think mode, emitting proto-reasoning tokens and extended sequences unless rigorously suppressed.
-- **Project Relevance:** Core methodological caveat for Q4: proves that "thinking off" is not a pure zero-reasoning baseline, requiring careful terminology ("thinking mode on/off").
+- **Citation:** Shouren Wang, Wang Yang, Xianxuan Long, Debargha Ganguly, Qifan Wang, Vipin Chaudhary, Xiaotian Han (2025). "Demystifying Hybrid Thinking: Can LLMs Truly Switch Between Think and No-Think?" *arXiv:2510.12680*.
+- **Problem & Abstract Summary:** Current hybrid-thinking LLMs achieve only partial mode separation. Four training factors matter: data scale, using think/no-think answers from different questions, a moderate number of no-think examples, and a two-phase strategy.
+- **Models Evaluated:** Qwen3-8B (case study); the proposed recipe trains its own models.
+- **Key Empirical Findings:** Reasoning behaviours leak into no-think mode (Figure 1 shows Qwen3-8B writing "Wait"). The recipe reduces no-think output length from 1085 to 585 on MATH500 and "wait" counts from 5917 to 522 while keeping accuracy.
+- **Project Relevance:** Supports calling the conditions "thinking mode on/off" rather than "reasoning vs none".
 
 ---
 
 ### 36. Wang et al. (2025, Character)
-- **File:** `[Wang et al. 2025] Thinking in Character.pdf`
-- **Citation:** Yihong Tang, Kehai Chen, Muyun Yang et al. [Wang et al.] (2025). "Thinking in Character: Advancing Role-playing Agents with Role-Aware Reasoning." *Advances in Neural Information Processing Systems (NeurIPS 2025)*.
-- **Problem & Abstract Summary:** Investigates role-playing degradation in reasoning models and designs role-aware CoT training to preserve persona consistency.
-- **Models Evaluated:** DeepSeek-R1, GPT-4o, Llama-3-70B.
-- **Key Empirical Findings:** Default reasoning models exhibit cognitive conflict between objective problem-solving and character persona adoption; without specialized alignment, models revert to assistant personas.
-- **Project Relevance:** Corroborates Tu et al. on persona erosion and style drift during chain-of-thought generation.
+- **File:** `[Wang et al. 2025] Thinking in Character.pdf` (file name author does not match the paper)
+- **Citation:** Yihong Tang, Kehai Chen, Muyun Yang, Zhengyu Niu, Jing Li, Tiejun Zhao, Min Zhang (2025). "Thinking in Character: Advancing Role-playing Agents with Role-Aware Reasoning." Venue (NeurIPS 2025) *[unverified; not shown in the PDF]*.
+- **Problem & Abstract Summary:** Applying Large Reasoning Models to role-playing runs into attention diversion (the agent forgets its role) and style drift (overly formal reasoning). Role-Aware Reasoning has two stages: Role Identity Activation and Reasoning Style Optimization.
+- **Models Evaluated:** Not re-checked *[unverified]*.
+- **Key Empirical Findings:** RAR improves role-playing agents by addressing both problems.
+- **Project Relevance:** Source of the "attention diversion" and "style drift" terms; role-play dialogue, not narrative character paragraphs.
 
 ---
 
 ### 37. Wu et al. (2025)
-- **File:** `[Wu et al. 2025] Do Biased Models Have Biased Thoughts.pdf`
-- **Citation:** Swati Rajwal, Shivank Garg et al. [Wu et al.] (2025). "Do Biased Models Have Biased Thoughts?" *Conference on Language Modeling (COLM 2025)* / *arXiv:2508.06671*.
-- **Problem & Abstract Summary:** Compares social and demographic bias harbored within internal reasoning thoughts versus final output responses across decision benchmarks.
-- **Models Evaluated:** Llama-3, Mistral, GPT-4-CoT.
-- **Key Empirical Findings:** Biased models exhibit heavily biased internal thoughts; safety tuning frequently suppresses biased surface outputs while leaving underlying reasoning chains saturated with bias.
-- **Project Relevance:** Demonstrates that latent bias survives even when surface text appears sanitized.
+- **File:** `[Wu et al. 2025] Do Biased Models Have Biased Thoughts.pdf` (file name author does not match the paper)
+- **Citation:** Swati Rajwal, Shivank Garg, Reem Abdel-Salam, Abdelrahman Zayed (2025). "Do Biased Models Have Biased Thoughts?" *COLM 2025*; *arXiv:2508.06671*.
+- **Problem & Abstract Summary:** CoT prompting and fairness: 5 LLMs, fairness metrics for 11 biases in the model's thoughts and its output.
+- **Models Evaluated:** 5 popular LLMs *[names not re-checked]*.
+- **Key Empirical Findings:** Bias in the thinking steps is not highly correlated with output bias (less than 0.6 correlation, p < 0.001 in most cases); models with biased decisions do not always have biased thoughts. The earlier claim that biased models "exhibit heavily biased internal thoughts" is the opposite.
+- **Project Relevance:** Cuts against a simple "bias in trace = bias in output" assumption.
 
 ---
 
 ### 38. Xu et al. (2026)
 - **File:** `[Xu et al. 2026] Language of Thought Shapes Output Diversity.pdf`
 - **Citation:** Shaoyang Xu, Wenxuan Zhang (2026). "Language of Thought Shapes Output Diversity in Large Language Models." *arXiv:2601.11227*.
-- **Problem & Abstract Summary:** Investigates how the internal language of reasoning tokens (e.g. English vs. prompt language) affects output diversity and conceptual framing.
-- **Models Evaluated:** Qwen-2.5, DeepSeek-R1, Llama-3.
-- **Key Empirical Findings:** The language used in thinking tokens occupies distinct latent subspaces, strongly steering the lexical diversity and cultural perspectives of downstream outputs.
-- **Project Relevance:** Highly relevant for multilingual character generation: shows that internal thinking language interacts with grammatical gender concepts.
+- **Problem & Abstract Summary:** Different thinking languages occupy distinct regions of the thinking space; sampling under single and mixed thinking languages, with outputs controlled to English.
+- **Models Evaluated:** Qwen3 (8B/14B/32B) and a DeepSeek 14B distill appear in the text.
+- **Key Empirical Findings:** Switching the thinking language from English to non-English consistently increases output diversity, more for languages farther from English; aggregating across thinking languages adds gains; practical benefits for pluralistic alignment.
+- **Project Relevance:** Diversity result only; the paper does not address grammatical gender.
 
 ---
 
 ### 39. Yang et al. (2026)
-- **File:** `[Yang et al. 2026] Language Models are Lazy Poets.pdf`
-- **Citation:** Jacob A. Matthews, Sil Hamilton [Yang et al.] (2026). "Language Models are Lazy Poets: Creative Mode Collapse at Scale." *arXiv:2610.24223*.
-- **Problem & Abstract Summary:** Large-scale empirical study of creative mode collapse in aligned and reasoning LLMs across poetry and creative literature.
-- **Models Evaluated:** Qwen3, Llama-3.1, GPT-OSS.
-- **Key Empirical Findings:** Aligned and reasoning models suffer from severe creative mode collapse ("lazy poets"), repeatedly defaulting to high-probability tropes, clichéd metaphors, and narrow syntactic structures.
-- **Project Relevance:** Directly connects to creative character generation and persona collapse under RL alignment.
+- **File:** `[Yang et al. 2026] Language Models are Lazy Poets.pdf` (file name author does not match the paper)
+- **Citation:** Jacob A. Matthews and Sil Hamilton (Cornell) (2026). "Language Models are Lazy Poets: Creative Mode Collapse at Scale." *arXiv:2610.24223*.
+- **Problem & Abstract Summary:** 1.1 million poems from 16 LLMs across five model families.
+- **Models Evaluated:** 16 LLMs, five families *[names not re-checked]*.
+- **Key Empirical Findings:** Models over-rely on a small set of stock words, introductory phrases and rhyming pairs, but keep a long tail of capability; which items repeat depends on family, size and prompt; this complicates earlier work suggesting families converge on one form of mode collapse.
+- **Project Relevance:** Mode-collapse background for creative generation.
 
 ---
 
 ### 40. Zhang et al. (2024)
 - **File:** `[Zhang et al. 2024] Thinking Before Speaking.pdf`
 - **Citation:** Baohua Zhang, Yongyi Huang, Wenyao Cui, Huaping Zhang (2024). "Thinking Before Speaking: A Role-playing Model with Mindset." *arXiv:2409.13752*.
-- **Problem & Abstract Summary:** Proposes mindset reasoning mechanisms to preserve character voice in role-playing dialogue systems.
-- **Models Evaluated:** LLaMA-2-13B, Baichuan-2-13B.
-- **Key Empirical Findings:** Standard CoT without character grounding breaks persona; conditioning internal monologue on character mindset preserves consistency across long dialogue turns.
-- **Project Relevance:** Persona literature cluster: demonstrates the difficulty of maintaining character voice during multi-step reasoning.
+- **Problem & Abstract Summary:** Fine-tunes LLMs on dialogue data augmented with each character's mindset, plus a few examples beyond the role's knowledge.
+- **Models Evaluated:** Not re-checked *[unverified]*.
+- **Key Empirical Findings:** The TBS model better emulates a role in tone, knowledge and mindset on the authors' own dataset and metrics.
+- **Project Relevance:** Peripheral persona-fine-tuning context.
 
 ---
 
 ### 41. Zhang et al. (2026)
-- **File:** `[Zhang et al. 2026] Mechanics of Bias and Reasoning.pdf`
-- **Citation:** Edie Pearman, Sophia Osborne, Mira Kandlikar-Bloch, Mina Arzaghi, Florian Carichon, Golnoosh Farnadi [Zhang et al.] (2026). "Mechanics of Bias and Reasoning: Interpreting the Impact of Chain-of-Thought Prompting on Gender Bias in LLMs." *arXiv:2605.20410*.
-- **Problem & Abstract Summary:** Combines benchmark evaluation, internal representation probing, and failure analysis to interpret the impact of CoT on gender bias.
-- **Models Evaluated:** Llama-3-8B/70B, Mistral-7B, Gemma-7B.
-- **Key Empirical Findings:** CoT does not consistently reduce the gender-bias gap; gender bias remains deeply embedded in hidden representations across all layers, and surface-level reductions stem from dataset memorization rather than debiasing.
-- **Project Relevance:** Tier 2 mechanistic anchor: proves gender bias remains entrenched in latent activations despite chain-of-thought generation.
+- **File:** `[Zhang et al. 2026] Mechanics of Bias and Reasoning.pdf` (file name author does not match the paper)
+- **Citation:** Edie Pearman, Sophia Osborne, Mira Kandlikar-Bloch, Mina Arzaghi, Florian Carichon, Golnoosh Farnadi (2026). "Mechanics of Bias and Reasoning: Interpreting the Impact of Chain-of-Thought Prompting on Gender Bias in LLMs." *arXiv:2605.20410* (preprint, under review).
+- **Problem & Abstract Summary:** Benchmarks plus mechanistic interpretability plus reasoning-chain failure analysis.
+- **Models Evaluated:** Qwen 7B/32B, Llama 8B and Mistral-7B variants appear in the text *[exact list not re-checked]*.
+- **Key Empirical Findings:** CoT does not consistently reduce the bias gap; it balances biased behaviour in some attention head clusters, but gender bias remains embedded in hidden representations (superficial mitigation); improvements appear to stem from dataset memorisation and familiarity.
+- **Project Relevance:** Gender-bias CoT study; includes layer-level analysis only in the attention-head sense, not "across all layers".
 
 ---
 
 ### 42. Zhao et al. (2026)
-- **File:** `[Zhao et al. 2026] R2-Write - Reasoning for Creative Writing.pdf`
-- **Citation:** Wanlong Liu, Bo Zhang, Chenliang Li, Shaopeng Lai, Yuning Wu, Xuanyu Lei, Ming Yan [Zhao et al.] (2026). "R2-Write: Reflection and Revision for Open-Ended Writing with Deep Reasoning." *arXiv:2604.03004*.
-- **Problem & Abstract Summary:** Evaluates whether deep reasoning models improve open-ended creative writing through reflection and revision.
-- **Models Evaluated:** DeepSeek-R1, Qwen3-8B, Qwen3-30B-A3B-Instruct.
-- **Key Empirical Findings:** Reasoning models achieve very limited gains on open-ended writing tasks; unlike mathematical reasoning, models lack deep reflection and revision patterns in creative prose, frequently defaulting to rigid formulas.
-- **Project Relevance:** Sets the empirical prior for Q4: reasoning buys little improvement in open-ended creative tasks, making a null on pronoun distribution unsurprising.
+- **File:** `[Zhao et al. 2026] R2-Write - Reasoning for Creative Writing.pdf` (file name author does not match the paper)
+- **Citation:** Wanlong Liu, Bo Zhang, Chenliang Li, Shaopeng Lai, Yuning Wu, Xuanyu Lei, Ming Yan et al. (2026). "R2-Write: Reflection and Revision for Open-Ended Writing with Deep Reasoning." *arXiv:2604.03004*.
+- **Problem & Abstract Summary:** Mainstream reasoning models achieve limited gains on open-ended writing; they lack deep reflection and revision. R2-Write synthesises thinking trajectories through writer-judge interaction, with a process reward in RL.
+- **Models Evaluated:** Qwen3-4B/8B/30B-A3B, DeepSeek-V3.1, and Claude and GPT models for comparison.
+- **Key Empirical Findings:** As stated in the abstract: limited gains on open-ended writing relative to mathematics.
+- **Project Relevance:** Prior that reasoning helps little in open-ended writing.
 
 ---
 
 ### 43. Zheng et al. (2026)
-- **File:** `[Zheng et al. 2026] Does Thinking Help Fairness.pdf`
-- **Citation:** Deng Pan, Joe Germino, Yihong Ma, Elizabeth Daly et al. [Zheng et al.] (2026). "Does Thinking Help Fairness? Reasoning Tokens Resolve Some Biases but Create More." *Findings of the Association for Computational Linguistics (EMNLP 2026 Findings)* / *arXiv:2609.30768*.
-- **Problem & Abstract Summary:** Conducts a within-model thinking-vs-non-thinking ablation across QwQ-32B, DeepSeek-R1-Distill-Qwen-32B, and Qwen3-32B on counterfactual demographic fairness benchmarks.
-- **Models Evaluated:** Qwen3-32B, QwQ-32B, DeepSeek-R1-Distill-Qwen-32B.
-- **Key Empirical Findings:** Thinking mode both resolves and creates counterfactual demographic flips, but created flips outnumber resolved flips by approximately 5× across all 9 model × dataset configurations; bias amplifies along thinking depth.
-- **Project Relevance:** Primary Tier 1 anchor paper. Exact within-model ablation precedent in the Qwen3 family showing asymmetric bias generation under reasoning.
+- **File:** `[Zheng et al. 2026] Does Thinking Help Fairness.pdf` (file name author does not match the paper)
+- **Citation:** Deng Pan, Joe Germino, Yihong Ma, Elizabeth Daly, Nuno Moniz, Ting Hua, Nitesh Chawla (2026). "Does Thinking Help Fairness? Reasoning Tokens Resolve Some Biases but Create More." *Findings of EMNLP 2026*; *arXiv:2609.30768*.
+- **Problem & Abstract Summary:** Within-model thinking vs non-thinking ablation across QwQ-32B, DeepSeek-R1-Distill-Qwen-32B and Qwen3-32B on three high-stakes decision tasks (Adult, COMPAS, Credit; tabular).
+- **Models Evaluated:** QwQ-32B, DeepSeek-R1-Distill-Qwen-32B, Qwen3-32B.
+- **Key Empirical Findings:** Thinking both resolves counterfactual flips from the non-thinking baseline and creates new ones at near-saturating confidence; in all nine (model, dataset) combinations, created flips outnumber resolved flips by roughly 5x. Bias propagates and amplifies along thinking depth (Counterfactual Depth Probability Gap; Bias Transition Matrix).
+- **Project Relevance:** A within-model thinking ablation in the Qwen3 family, but on tabular decisions rather than narrative generation, so it is a methodological precedent, not a direct one for character writing.
 
 ---
 
 ### 44. Zhou et al. (2025, Story)
-- **File:** `[Zhou et al. 2025] Can LLMs Generate Good Stories.pdf`
-- **Citation:** Yi Wang, Max Kreminski [Zhou et al.] (2025). "Can LLMs Generate Good Stories? Insights and Challenges from a Narrative Planning Perspective." *arXiv:2506.10161*.
-- **Problem & Abstract Summary:** Evaluates narrative planning and story generation capabilities in modern LLMs from a computational narratology perspective.
-- **Models Evaluated:** GPT-4, Claude 3 Opus, Llama-3-70B.
-- **Key Empirical Findings:** LLMs struggle with global narrative planning; reasoning models tend to over-structure narrative arcs at the expense of character depth and organic development.
-- **Project Relevance:** Creative writing cluster: highlights the tension between structured reasoning and character-driven organic prose.
+- **File:** `[Zhou et al. 2025] Can LLMs Generate Good Stories.pdf` (file name author does not match the paper)
+- **Citation:** Yi Wang and Max Kreminski (2025). "Can LLMs Generate Good Stories? Insights and Challenges from a Narrative Planning Perspective." *arXiv:2506.10161*.
+- **Problem & Abstract Summary:** A benchmark of narrative planning problems focusing on causal soundness, character intentionality and dramatic conflict.
+- **Models Evaluated:** GPT-4 tier LLMs and RL-trained reasoning models *[names not re-checked]*.
+- **Key Empirical Findings:** GPT-4-tier LLMs generate causally sound stories at small scales; planning with intentionality and dramatic conflict remains challenging and needs RL-trained reasoning LLMs. The earlier "over-structure narrative arcs" claim is not in the paper.
+- **Project Relevance:** Story-planning background.
 
 ---
 
 ### 45. Zhou et al. (2025, OThink)
 - **File:** `[Zhou et al. 2025] OThink-R1 - Optimization in Reasoning.pdf`
-- **Citation:** Shengjia Zhang, Junjie Wu, Jiawei Chen, Changwang Zhang, Zhe Li, Xingyu Lou, Wangchunshu Zhou et al. (2025). "OThink-R1: Intrinsic Fast/Slow Thinking Mode Switching for Over-Reasoning Mitigation." *arXiv:2506.02397*.
-- **Problem & Abstract Summary:** Proposes dynamic fast/slow thinking mode switching to eliminate over-reasoning in R1-style architectures.
-- **Models Evaluated:** Qwen3, DeepSeek-R1, GPT-4o.
-- **Key Empirical Findings:** Mitigating over-reasoning via adaptive mode switching prevents cognitive bias amplification and eliminates 50%+ of redundant reasoning tokens.
-- **Project Relevance:** Informs test-time compute optimization and mode separation in reasoning architectures.
+- **Citation:** Shengjia Zhang, Junjie Wu, Jiawei Chen, Changwang Zhang, Zhe Li, Xingyu Lou, Wangchunshu Zhou, Sheng Zhou, Can Wang, Jun Wang (2025). "OThink-R1: Intrinsic Fast/Slow Thinking Mode Switching for Over-Reasoning Mitigation." *arXiv:2506.02397*.
+- **Problem & Abstract Summary:** An LLM-based judge identifies redundant reasoning; a hybrid fine-tuning dataset prunes redundant reasoning (fast samples) and keeps full reasoning (slow samples).
+- **Models Evaluated:** Distilled DeepSeek-R1 models (e.g. R1-Distill-Qwen-7B).
+- **Key Empirical Findings:** On math and QA benchmarks it reduces reasoning token usage significantly at competitive accuracy. "Cognitive bias amplification" and "50%+" in the earlier text are not verified.
+- **Project Relevance:** Efficiency-oriented mode switching; not evidence about character writing.
 
 ---
 

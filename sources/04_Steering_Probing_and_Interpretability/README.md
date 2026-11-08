@@ -19,10 +19,10 @@ These papers provide the direct methodological scaffolding, control baselines, a
 | **[Li et al. 2023]**<br>*(Inference-Time Intervention / ITI)* | Head-specific activation shifts; data-efficient vector extraction; quantifying truthfulness vs. helpfulness trade-offs. | **Tier 2 Causal Framework**<br>Informs Phase 5 dose calibration and the concept of a "working window" before damage. | **High Priority** |
 | **[Buttigieg et al. 2026]**<br>*(Bias Directions Capture Confidence)* | Bias steering vectors often capture token likelihood/confidence rather than bias, driving abstention. | **Tier 2 Critical Confound Warning**<br>Mandates the Phase 5 grammatical agreement gate and P29 nonce controls to rule out confidence artifacts. | **High Priority** |
 | **[Jorgensen et al. 2023]**<br>*(Mean-Centring Activation Steering)* | Subtracting dataset mean activations from steering vectors removes common unspecific offsets. | **Tier 2 Technical Refinement**<br>Directly justifies within-language mean-centering in Phase 4/5 POOLED directions. | **High Priority** |
-| **[Sun et al. 2024]**<br>*(Massive Activations in LLMs)* | Tiny fractions of hidden dimensions exhibit massive activation magnitudes (>1000×) across layers. | **Tier 2 Geometric Confound**<br>Explains why unit-normalization and median-norm scaling ($\alpha \times \text{median}$) are required. | **High Priority** |
-| **[Xiao et al. 2023]**<br>*(Attention Sinks in LLMs)* | Initial tokens (BOS) absorb disproportionate attention mass to stabilize softmax distributions. | **Tier 2 Attention Dynamics**<br>Explains why steering must isolate the noun tokens and avoid corrupting initial attention sinks. | **High Priority** |
-| **[Hu & Lévy 2023]**<br>*(Prompting vs. Probing / Probabilities)* | Metalinguistic prompting fails to reflect internal knowledge; direct probability scoring is vastly superior. | **Tier 3 Evaluation Justification**<br>Validates Phase 5's "scoring, not sampling" protocol across fixed adjectival candidate distributions. | **Medium Priority** |
-| **[Robinson et al. 2024]**<br>*(First-Token Probabilities vs. Text)* | Multiple-choice first-token probabilities decouple from full text answers in instruction-tuned LLMs. | **Tier 3 Readout Diagnostic**<br>Explains why forced-choice R2 (man/woman) diverges from continuous adjective scoring R1. | **Medium Priority** |
+| **[Sun et al. 2024]**<br>*(Massive Activations in LLMs)* | A very few activations are far larger than the rest (e.g. 100,000×), in fixed dimensions and at the starting token and first delimiter token. | **Tier 2 Geometric Confound**<br>Explains why unit-normalization and median-norm scaling ($\alpha \times \text{median}$) are required. | **High Priority** |
+| **[Xiao et al. 2023]**<br>*(Attention Sinks in LLMs)* | Initial tokens absorb disproportionate attention mass even when semantically unimportant ("attention sinks"); keeping their KV states enables streaming. | **Tier 2 Attention Dynamics**<br>Explains why steering must isolate the noun tokens and avoid corrupting initial attention sinks. | **High Priority** |
+| **[Hu & Levy 2023]**<br>*(Prompting vs. Probing / Probabilities)* | Metalinguistic prompting gives judgments inferior to direct probability readouts of the same knowledge. | **Tier 3 Evaluation Justification**<br>Validates Phase 5's "scoring, not sampling" protocol across fixed adjectival candidate distributions. | **Medium Priority** |
+| **[Wang et al. 2024]** (PDF labelled Robinson)<br>*(First-Token Probabilities vs. Text)* | Multiple-choice first-token probabilities mismatch the text answers of instruction-tuned LLMs (mismatch rates over 60%). | **Tier 3 Readout Diagnostic**<br>Explains why forced-choice R2 (man/woman) diverges from continuous adjective scoring R1. | **Medium Priority** |
 
 ---
 
@@ -43,14 +43,14 @@ These papers provide the direct methodological scaffolding, control baselines, a
          ├────────────────────────┐               ├────────────────────────┐               ├────────────────────────┐
          ▼                        ▼               ▼                        ▼               ▼                        ▼
 【Probe Selectivity】     【Confidence Bias】   【Concept Erasure】      【Activation Add】    【Massive Outliers】     【Probability vs Prompt】
-Hewitt & Liang (2019)     Buttigieg et al.(2026) Belrose et al. (2023)    Turner et al. (2023)  Sun et al. (2024)        Hu & Lévy (2023)
+Hewitt & Liang (2019)     Buttigieg et al.(2026) Belrose et al. (2023)    Turner et al. (2023)  Sun et al. (2024)        Hu & Levy (2023)
 • Linguistic vs control   • Vectors encode       • LEACE closed-form      • Forward pass edit   • Channel-specific peaks • Metalinguistic prompts
 • Probe memorization risk   model confidence     • Minimum distortion     • Linear activation   • Distorts raw norms       fail to reflect knowledge
-• Requires shuffle nulls  • Induces abstention   • Oblique projection       addition (CAA)      • Mandates median scale  • Scoring > sampling
+• Requires shuffle nulls  • Induces abstention   • Oblique projection       addition      • Mandates median scale  • Scoring > sampling
          │                        │               │                        │                       │                        │
          │                        │               ▼                        ▼                       ▼                        ▼
          │                        │      【Intervention Window】  【Mean-Centring】        【Attention Sinks】      【First-Token Bias】
-         │                        │      Li et al. (2023 / ITI)   Jorgensen et al. (2023)  Xiao et al. (2023)       Robinson/Wang et al. (2024)
+         │                        │      Li et al. (2023 / ITI)   Jorgensen et al. (2023)  Xiao et al. (2023)       Wang et al. (2024)    
          │                        │      • Steering trade-offs    • Unspecific bias removal• BOS token sink         • MC logits decouple from
          │                        │      • Damage vs efficacy     • Functional vectors     • Contextual stability     generation trajectories
          │                        │               │                        │                       │                        │
@@ -78,7 +78,7 @@ Hewitt & Liang (2019)     Buttigieg et al.(2026) Belrose et al. (2023)    Turner
 
 ### 2.3 Activation Outliers & Rigorous Readout Design
 * **Outlier Suppression (Sun et al. 2024; Xiao et al. 2023):** Transformer activations contain massive outlier dimensions and attention sinks that dwarf typical token vectors. Consequently, steering doses ($\alpha$) cannot be defined in arbitrary Euclidean norms; they must be calibrated against the **median layer norm** of noun tokens, and steering must be injected exclusively at the target noun to prevent destabilizing initial attention sinks.
-* **Scoring vs. Sampling (Hu & Lévy 2023; Robinson et al. 2024):** Open-ended generation and metalinguistic prompting are noisy and subject to generation-order artifacts. Measuring the exact log-probability distribution across psycholinguistically calibrated candidate sets (Glasgow Norms) provides a direct, unconfounded readout of representational shift.
+* **Scoring vs. Sampling (Hu & Levy 2023; Wang et al. 2024):** Open-ended generation and metalinguistic prompting are noisy and subject to generation-order artifacts. Measuring the exact log-probability distribution across psycholinguistically calibrated candidate sets (Glasgow Norms) provides a direct, unconfounded readout of representational shift.
 
 ---
 
@@ -111,7 +111,7 @@ When defending experimental rigor, probe selectivity, and steering mechanics in 
 ### 3.4 Justifying "Scoring, Not Sampling" and Rejecting First-Token Multiple-Choice Shortcuts
 * **The Reviewer Objection:** *"Why didn't you evaluate bleedthrough by asking the model in free text: 'Describe a bridge' or asking it multiple-choice questions like 'A bridge is: (A) Strong, (B) Elegant'?"*
 * **The Counter-Argument / Citation:**
-  > Free-text sampling and multiple-choice prompting introduce severe methodological confounds. As **Hu & Lévy (2023)** demonstrate, metalinguistic prompting tests emergent task comprehension rather than direct linguistic representations, frequently producing false negatives. Furthermore, **Robinson et al. (2024)** show that first-token multiple-choice probabilities systematically decouple from underlying semantic preferences due to superficial token biases. By evaluating exact log-probabilities over a broad, pre-registered lexicon of human-normed adjectives (Glasgow Norms) with linear regression controlling for valence, arousal, and size, we obtain an unconfounded, continuous measurement of semantic drift.
+  > Free-text sampling and multiple-choice prompting introduce severe methodological confounds. As **Hu & Levy (2023)** demonstrate, metalinguistic prompting tests a separate emergent ability (metalinguistic judgment), and its judgments are inferior to direct probability measurements, so negative results from prompts are not conclusive. Furthermore, **Wang et al. (2024; catalogued as Robinson)** show that, for instruction-tuned models, first-token multiple-choice probabilities are severely misaligned with the text answers the models give (mismatch rates over 60%). By evaluating exact log-probabilities over a broad, pre-registered lexicon of human-normed adjectives (Glasgow Norms) with linear regression controlling for valence, arousal, and size, we obtain an unconfounded, continuous measurement of semantic drift.
 
 ---
 
@@ -143,13 +143,13 @@ When defending experimental rigor, probe selectivity, and steering mechanics in 
   * Introduces Activation Addition (ActAdd), modifying forward-pass hidden states during inference without updating model weights or altering prompt prefixes.
   * Extracts steering vectors by taking the difference in intermediate activations between pairs of contrasting prompts (e.g., "Love" vs. "Hate") and adds them scaled by a steering coefficient $\alpha$ at target transformer layers.
 * **Key Findings:**
-  * Linear activation addition reliably controls sentiment, topic, high-level behavioral goals, and style in generative LLMs.
-  * Demonstrates that steering vectors exhibit compositional properties and remain effective across varied prompt contexts.
-  * Provides an efficient, training-free mechanism to explore latent causal representations.
+  * Reports SOTA on negative-to-positive sentiment shift and detoxification, and control over high-level output properties such as topic and sentiment.
+  * Works with as few as one pair of prompts, needs no optimization, and preserves performance on off-target tasks (models include GPT-2-XL, OPT, LLaMA-3).
+  * Reports that forward passes can be algebraically composed (h+, h−, h*), taken as evidence for compositional representations.
 * **Limitations:**
-  * Applies vectors globally across all token positions, which can distort the generation of target tokens and cause grammar collapse at high doses.
+  * The user must supply the injection coefficient and layer (and sequence alignment); these free hyperparameters make it less user-friendly than prompt engineering, though the paper reports they are fairly stable.
 * **Project Relevance:**
-  * **Foundational Architecture for Phase 5.** Supplies the core mechanism of `src/gbleed/steering.py`. Our implementation refines Turner et al. by restricting the intervention strictly to **noun tokens** (preventing direct distortion of generated continuation tokens) and establishing an agreement-flipping gate.
+  * **Foundational Architecture for Phase 5.** Supplies the core mechanism of `src/gbleed/steering.py`. Our implementation restricts the intervention to **noun tokens** and adds an agreement-flipping gate (project design choices, not from Turner et al.). ActAdd itself adds the vector at a chosen subset of positions.
 
 ---
 
@@ -162,10 +162,10 @@ When defending experimental rigor, probe selectivity, and steering mechanics in 
   * Pairs linguistic probing tasks (e.g., part-of-speech tagging) with randomized control tasks that associate word types with arbitrary synthetic labels, forcing the probe to rely on memorization.
   * Selectivity is defined as the difference between linguistic task accuracy and control task accuracy.
 * **Key Findings:**
-  * High probe accuracy is insufficient evidence that a representation encodes linguistic structure; high-capacity linear and MLP probes achieve high accuracy on completely random control tasks.
-  * Linear probes with restricted capacity achieve superior selectivity, proving that simpler probes provide more faithful diagnostic reflections of latent geometry.
+  * High probe accuracy is insufficient evidence that a representation encodes linguistic structure; with popular settings, MLP probes reach 97.3 POS accuracy but also 92.8 on the control task (selectivity 4.5).
+  * Linear and bilinear probes have much higher selectivity (linear: 97.2 accuracy, 71.2 control, selectivity 26.0), suggesting the MLP's small accuracy gain may reflect extra expressivity; dropout did not improve MLP selectivity but other regularization did.
 * **Limitations:**
-  * Focused on word-level static representations (ELMo, GloVe) and syntactic tagging tasks; does not evaluate generative transformer hidden states.
+  * Only English part-of-speech tagging and dependency edge prediction on ELMo representations; no transformer LLM hidden states.
 * **Project Relevance:**
   * **Core Probing Defense.** Justifies the methodological strictness of Phase 2, 3, and 4: utilizing minimal-parameter difference-of-means estimators, testing against within-cell shuffle nulls, and validating on held-out spelling-controlled classes.
 
@@ -196,13 +196,13 @@ When defending experimental rigor, probe selectivity, and steering mechanics in 
 * **File:** [`[Buttigieg et al. 2026] Bias Directions in LLMs Capture Confidence Not Fairness.pdf`]([Buttigieg%20et%20al.%202026]%20Bias%20Directions%20in%20LLMs%20Capture%20Confidence%20Not%20Fairness.pdf)
 * **Methodology:**
   * Investigates what linear debiasing steering vectors—extracted by contrasting biased and anti-biased prompt activations—actually encode in LLM hidden states.
-  * Evaluates steering interventions across both social bias benchmarks and general knowledge question-answering datasets.
+  * Evaluates steering interventions across bias benchmarks (e.g. BBQ) and general knowledge benchmarks (Llama-3.1-8B-Instruct is used in the main illustration).
 * **Key Findings:**
   * The primary axis separating biased from anti-biased prompt activations corresponds to **model confidence and token probability**, not an abstract concept of fairness or social bias.
-  * Steering along this axis reduces measured bias scores solely because it suppresses model confidence, inducing the model to abstain from answering or output generic tokens.
+  * Steering along this axis reduces measured bias scores solely because it suppresses model confidence, inducing the model to abstain from answering on QA benchmarks.
   * Shows that debiasing interventions can easily be misinterpreted when directional vectors conflate semantic features with certainty gradients.
 * **Limitations:**
-  * Evaluates contrastive debiasing on QA and classification benchmarks; does not study grammatical morphology.
+  * Evaluates contrastive debiasing on bias and QA benchmarks; does not study grammatical morphology.
 * **Project Relevance:**
   * **Critical Methodological Warning.** Directly motivates the dual verification in Phase 5: steering vectors must flip functional grammar (the agreement gate) and must be tested on nonce nouns (P29) and orthogonal directions (number, social) to ensure shifts do not reflect confidence suppression.
 
@@ -213,13 +213,13 @@ When defending experimental rigor, probe selectivity, and steering mechanics in 
 * **ArXiv / Venue:** arXiv:2312.03813v1 [cs.CL], December 2023.
 * **File:** [`[Jorgensen et al. 2023] Improving Activation Steering with Mean-Centring.pdf`]([Jorgensen%20et%20al.%202023]%20Improving%20Activation%20Steering%20with%20Mean-Centring.pdf)
 * **Methodology:**
-  * Proposes mean-centring for activation steering: subtracting the mean activation vector of the general training/evaluation corpus from target concept activations before computing steering directions.
-  * Benchmarks mean-centred steering vectors against standard activation addition on detoxification, story genre steering, and function vector elicitation.
+  * Proposes mean-centring: the steering vector is the mean activation of a target dataset minus the mean of all training activations.
+  * Tests it on GPT-2 (Small to XL), GPT-J-6B, GPT-NeoX-20B and Llama-2 for detoxification, steering story genre, and extracting function vectors.
 * **Key Findings:**
-  * Uncentered difference vectors are dominated by the global centroid of the representation space, introducing spurious offsets that degrade generation quality.
-  * Mean-centring isolates the clean functional direction, dramatically improving steering efficacy and reducing off-target behavioral degradation across diverse natural language tasks.
+  * Reports effective steering vectors from mean-centring, and function vectors that trigger tasks more effectively than previous baselines by a significant margin.
+  * The paper hypothesizes that the benefit is largest for models where activations are most anisotropic, but does not establish this.
 * **Limitations:**
-  * Requires estimating the activation mean across a representative corpus sample.
+  * Mean-centring does not improve performance at all layers (e.g. GPT-J); the factors predicting its success are left to future work.
 * **Project Relevance:**
   * **Direct Mathematical Justification.** Validates the within-language mean-centring implemented in Phase 4 for the POOLED direction (centering Spanish and German activations independently to eliminate language-origin confounds) and Phase 5 vector extraction.
 
@@ -230,16 +230,16 @@ When defending experimental rigor, probe selectivity, and steering mechanics in 
 * **ArXiv / Venue:** arXiv:2402.17762v2 [cs.LG], February 2024.
 * **File:** [`[Sun et al. 2024] Massive Activations in Large Language Models.pdf`]([Sun%20et%20al.%202024]%20Massive%20Activations%20in%20Large%20Language%20Models.pdf)
 * **Methodology:**
-  * Systematic empirical audit of activation distributions across hidden states and MLP intermediate layers in mainstream LLMs (LLaMA, Falcon, Mistral).
-  * Tracks the emergence and behavior of extreme activation values across sequence positions and depth.
+  * Empirical audit of hidden-state activations across LLMs (e.g. LLaMA2-7B/13B/70B, Mistral-7B, Mixtral-8x7B, Falcon-40B, Phi-2), plus Vision Transformers.
+  * Locates massive activations by layer, feature dimension and token position, and tests their role by intervention.
 * **Key Findings:**
-  * LLMs consistently exhibit "massive activations": a minute fraction of hidden dimensions (<0.1%) output values up to 1,000–10,000× larger than typical dimensions.
-  * These massive activations emerge in specific middle layers, acting as persistent bias terms or memory registers for global context.
-  * Unnormalized Euclidean operations or raw vector magnitudes are heavily skewed by these outlier channels, distorting standard cosine similarity metrics.
+  * Very few activations are far larger than the rest (the abstract says e.g. 100,000× larger), found in a few fixed feature dimensions and at the starting token and the first period or newline token.
+  * They appear abruptly in early layers (layer 2 in LLaMA2-7B), stay largely constant through the middle layers and diminish in the last few; their values are nearly input-independent and they act as indispensable bias terms.
+  * They concentrate attention probabilities on their tokens and act as implicit bias terms in the self-attention output.
 * **Limitations:**
-  * Focuses on diagnosing the phenomenon and its pruning implications; does not propose an alternative probing framework.
+  * Diagnostic study; does not propose a probing or steering framework.
 * **Project Relevance:**
-  * Dictates our normalization strategy: steering dose $\alpha$ is calibrated as a multiple of the **median token activation norm** rather than mean or max norms, preventing massive outlier channels from distorting the intervention scale.
+  * Motivates (project design choice, not a recommendation of the paper) our normalization strategy: steering dose $\alpha$ is calibrated as a multiple of the **median token activation norm** rather than mean or max norms, preventing massive outlier channels from distorting the intervention scale.
 
 ---
 
@@ -251,45 +251,45 @@ When defending experimental rigor, probe selectivity, and steering mechanics in 
   * Investigates multi-round dialogue and streaming generation failure when caching limited KV windows.
   * Analyzes attention map distributions across autoregressive decoding steps.
 * **Key Findings:**
-  * Autoregressive transformers assign an extraordinarily large proportion of attention weights to the very first tokens of a sequence (the BOS token and initial positions), regardless of their semantic relevance.
-  * These "attention sinks" are an architectural consequence of Softmax normalization requiring probabilities to sum to 1; the model parks unneeded attention mass on initial tokens.
-  * Removing or perturbing these initial tokens causes catastrophic collapse in downstream attention distributions and output perplexity.
+  * Autoregressive transformers assign an extraordinarily large proportion of attention weights to the very first tokens of a sequence (the initial tokens), regardless of their semantic relevance.
+  * These "attention sinks" arise, in the paper's explanation, because softmax scores must sum to one, so surplus attention is parked on initial tokens.
+  * Window attention that evicts the initial tokens' KV states fails once text exceeds the cache size; keeping them largely recovers performance (StreamingLLM).
 * **Limitations:**
   * Primarily focused on KV-cache compression and streaming inference architectures.
 * **Project Relevance:**
-  * Clarifies why Phase 5 steering must be injected **strictly at the noun's subword tokens** rather than all sequence positions. Perturbing initial prompt tokens alters attention sinks, destroying the contextual stability required for measuring next-token probabilities.
+  * Clarifies why Phase 5 steering must be injected **strictly at the noun's subword tokens** rather than all sequence positions. Project reasoning, not a claim of the paper: leaving the initial tokens unperturbed avoids disturbing the attention sinks.
 
 ---
 
-### 9. Hu & Lévy (2023)
+### 9. Hu & Levy (2023)
 * **Title:** *Prompting is not a substitute for probability measurements in large language models*
-* **ArXiv / Venue:** EMNLP 2023, pp. 5040–5055.
+* **ArXiv / Venue:** EMNLP 2023, pp. 5040–5060.
 * **File:** [`[Hu & Lévy 2023] Prompting vs Probing - Measuring LLM Knowledge.pdf`]([Hu%20&%20L%C3%A9vy%202023]%20Prompting%20vs%20Probing%20-%20Measuring%20LLM%20Knowledge.pdf)
 * **Methodology:**
-  * Compares metalinguistic prompting (asking models to explicitly judge linguistic acceptability or properties) against direct probability measurements over target strings across diverse linguistic phenomena.
+  * Compares metalinguistic prompting against direct probability measurements in four experiments on tasks including word prediction, semantic plausibility and BLiMP grammaticality.
 * **Key Findings:**
-  * Direct probability readouts derived from internal representations are vastly more consistent, robust, and sensitive than metalinguistic prompting.
-  * LLMs frequently fail metalinguistic judgment tasks despite having perfect internal probability distributions that reflect the exact linguistic distinction.
+  * Metalinguistic judgments are inferior to quantities directly derived from representations (next-word probabilities).
+  * Consistency gets worse as the prompt query diverges from direct next-word probability measurements.
   * Concludes that negative results obtained via prompting cannot be interpreted as evidence that the model lacks the targeted linguistic representation.
 * **Limitations:**
-  * Evaluated on syntax and linguistic acceptability benchmarks; does not evaluate latent steering.
+  * Does not evaluate steering or gender; the paper also stresses the loss of probability access with closed APIs.
 * **Project Relevance:**
   * **Primary Methodological Justification for Readout Design.** Directly validates our Phase 5 "scoring, not sampling" paradigm: instead of prompting the model to generate text or select answers, we measure exact next-word log-probabilities over curated psycholinguistic adjectives.
 
 ---
 
-### 10. Robinson et al. / Wang, Ma, Hu, Weber-Genzel, Röttger, Kreuter, Hovy & Plank (2024)
+### 10. Wang, Ma, Hu, Weber-Genzel, Röttger, Kreuter, Hovy & Plank (2024)
 * **Title:** *“My Answer is C”: First-Token Probabilities Do Not Match Text Answers in Instruction-Tuned Language Models*
-* **ArXiv / Venue:** Findings of ACL 2024, pp. 7406–7419.
+* **ArXiv / Venue:** Findings of ACL 2024, pp. 7407–7416.
 * **File:** [`[Robinson et al. 2024] My Answer is C - First-Token Probabilities vs Full Text.pdf`]([Robinson%20et%20al.%202024]%20My%20Answer%20is%20C%20-%20First-Token%20Probabilities%20vs%20Full%20Text.pdf)
-* *(Note: Cataloged as Robinson et al. 2024; authored by Wang et al., 2024).*
+* *(Note: the PDF file name says "Robinson et al. 2024" but the paper is by Xinpeng Wang et al.; file name left unchanged.)*
 * **Methodology:**
-  * Evaluates instruction-tuned LLMs on multiple-choice question answering, comparing the first-token probability distribution over option labels (A, B, C, D) against the option selected when generating full text responses.
+  * Evaluates instruction-tuned LLMs on multiple-choice questions (MMLU and OpinionQA-style survey questions, five test datasets in total), comparing the first-token prediction with the option chosen in the generated text, along final choice, refusal rate, choice distribution and robustness to prompt perturbation.
 * **Key Findings:**
-  * First-token probabilities exhibit severe misalignment with the actual content generated during autoregressive text rollout.
-  * Instruction tuning induces strong label biases and formatting priors on the first token that do not reflect the model's latent preferences or semantic understanding.
-  * Multiple-choice token scoring can drastically mischaracterize model capabilities and beliefs.
+  * First-token and text answers are severely misaligned on all dimensions, with mismatch rates over 60%; models heavily fine-tuned on conversational or safety data are most affected (responses may start with "Sure" or a refusal).
+  * They remain misaligned even when prompts are increasingly constrained (forcing an option letter or an example template).
+  * The authors caution against relying solely on first-token evaluation.
 * **Limitations:**
-  * Focuses on multiple-choice reasoning benchmarks (MMLU, QA).
+  * Studies instruction-tuned models on multiple-choice benchmarks; not base models or adjective scoring.
 * **Project Relevance:**
-  * Explains our Phase 5 empirical findings: forced-choice R2 readouts ("man" vs. "woman") show superficial sensitivity to immediate token context, whereas continuous regression over the full adjectival distribution (R1) provides the true measure of whether semantic gender associations moved.
+  * Cautions against relying on a first-token forced-choice readout in instruction-tuned models; the paper does not cover our R1/R2 readouts, so any link to our Phase 5 findings is our own interpretation *[unverified]*.
