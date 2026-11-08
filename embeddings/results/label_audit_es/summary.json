@@ -1,0 +1,386 @@
+{
+ "omrani2022": {
+  "label_audit": {
+   "distinct_words": 10056,
+   "categories": {
+    "two_gender_in_wiktionary": 96,
+    "not_a_lemma": 4141,
+    "agree": 5709,
+    "listed_both": 96,
+    "disagree": 14
+   },
+   "disagree_share_of_lexicon_nouns": 0.0024,
+   "label_matches_ending_rule_among_agree": 0.996,
+   "label_matches_ending_rule_among_disagree": 0.0,
+   "animacy_of_agree": {
+    "inanimate": 4924,
+    "animate": 508,
+    "uncertain": 277
+   },
+   "disagree_examples": [
+    [
+     "iniciación",
+     "m",
+     "f"
+    ],
+    [
+     "supergigante",
+     "m",
+     "f"
+    ],
+    [
+     "duermevela",
+     "m",
+     "f"
+    ],
+    [
+     "radiotelevisión",
+     "m",
+     "f"
+    ],
+    [
+     "plumas",
+     "f",
+     "m"
+    ],
+    [
+     "bolsas",
+     "f",
+     "m"
+    ],
+    [
+     "siete",
+     "f",
+     "m"
+    ],
+    [
+     "piernas",
+     "f",
+     "m"
+    ],
+    [
+     "patas",
+     "f",
+     "m"
+    ],
+    [
+     "nueve",
+     "f",
+     "m"
+    ],
+    [
+     "jet",
+     "f",
+     "m"
+    ],
+    [
+     "cuatro",
+     "f",
+     "m"
+    ],
+    [
+     "cercanías",
+     "f",
+     "m"
+    ],
+    [
+     "sitcom",
+     "f",
+     "m"
+    ]
+   ]
+  },
+  "exception_test": {
+   "exception_ma": {
+    "n": 9,
+    "accuracy_vs_wiktionary_gender": 1.0,
+    "items": [
+     [
+      "dilema",
+      "m",
+      "m"
+     ],
+     [
+      "paradigma",
+      "m",
+      "m"
+     ],
+     [
+      "telegrama",
+      "m",
+      "m"
+     ],
+     [
+      "enigma",
+      "m",
+      "m"
+     ],
+     [
+      "emblema",
+      "m",
+      "m"
+     ],
+     [
+      "estigma",
+      "m",
+      "m"
+     ],
+     [
+      "prisma",
+      "m",
+      "m"
+     ],
+     [
+      "teorema",
+      "m",
+      "m"
+     ],
+     [
+      "genoma",
+      "m",
+      "m"
+     ]
+    ]
+   },
+   "exception_true": {
+    "n": 3,
+    "accuracy_vs_wiktionary_gender": 1.0,
+    "items": [
+     [
+      "tranvía",
+      "m",
+      "m"
+     ],
+     [
+      "sofá",
+      "m",
+      "m"
+     ],
+     [
+      "mano",
+      "f",
+      "f"
+     ]
+    ]
+   },
+   "homograph": {
+    "n": 25,
+    "accuracy_vs_wiktionary_gender": 1.0
+   },
+   "matched": {
+    "n": 37,
+    "accuracy_vs_wiktionary_gender": 1.0
+   },
+   "regular": {
+    "n": 150,
+    "accuracy_vs_wiktionary_gender": 1.0
+   },
+   "strat": {
+    "n": 79,
+    "accuracy_vs_wiktionary_gender": 1.0
+   }
+  }
+ },
+ "zhou2019": {
+  "label_audit": {
+   "distinct_words": 12233,
+   "categories": {
+    "agree": 6244,
+    "listed_both": 860,
+    "not_a_lemma": 4888,
+    "disagree": 56,
+    "two_gender_in_wiktionary": 185
+   },
+   "disagree_share_of_lexicon_nouns": 0.0089,
+   "label_matches_ending_rule_among_agree": 0.997,
+   "label_matches_ending_rule_among_disagree": 0.077,
+   "animacy_of_agree": {
+    "inanimate": 5194,
+    "animate": 587,
+    "uncertain": 463
+   },
+   "disagree_examples": [
+    [
+     "acta",
+     "m",
+     "f"
+    ],
+    [
+     "alma",
+     "m",
+     "f"
+    ],
+    [
+     "agua",
+     "m",
+     "f"
+    ],
+    [
+     "área",
+     "m",
+     "f"
+    ],
+    [
+     "ansia",
+     "m",
+     "f"
+    ],
+    [
+     "pe",
+     "m",
+     "f"
+    ],
+    [
+     "alba",
+     "m",
+     "f"
+    ],
+    [
+     "pi",
+     "m",
+     "f"
+    ],
+    [
+     "hambre",
+     "m",
+     "f"
+    ],
+    [
+     "irlanda",
+     "m",
+     "f"
+    ],
+    [
+     "meda",
+     "m",
+     "f"
+    ],
+    [
+     "aula",
+     "m",
+     "f"
+    ],
+    [
+     "alfa",
+     "m",
+     "f"
+    ],
+    [
+     "inicial",
+     "m",
+     "f"
+    ],
+    [
+     "magdalena",
+     "m",
+     "f"
+    ],
+    [
+     "ama",
+     "m",
+     "f"
+    ],
+    [
+     "ancla",
+     "m",
+     "f"
+    ],
+    [
+     "ascua",
+     "m",
+     "f"
+    ],
+    [
+     "alca",
+     "m",
+     "f"
+    ],
+    [
+     "arca",
+     "m",
+     "f"
+    ],
+    [
+     "asma",
+     "m",
+     "f"
+    ],
+    [
+     "postre",
+     "f",
+     "m"
+    ],
+    [
+     "echo",
+     "f",
+     "m"
+    ],
+    [
+     "siete",
+     "f",
+     "m"
+    ],
+    [
+     "green",
+     "f",
+     "m"
+    ]
+   ]
+  },
+  "exception_test": {
+   "exception_ma": {
+    "n": 3,
+    "accuracy_vs_wiktionary_gender": 1.0,
+    "items": [
+     [
+      "poema",
+      "m",
+      "m"
+     ],
+     [
+      "enigma",
+      "m",
+      "m"
+     ],
+     [
+      "teorema",
+      "m",
+      "m"
+     ]
+    ]
+   },
+   "exception_true": {
+    "n": 2,
+    "accuracy_vs_wiktionary_gender": 1.0,
+    "items": [
+     [
+      "tranvía",
+      "m",
+      "m"
+     ],
+     [
+      "sofá",
+      "m",
+      "m"
+     ]
+    ]
+   },
+   "homograph": {
+    "n": 19,
+    "accuracy_vs_wiktionary_gender": 0.947
+   },
+   "matched": {
+    "n": 14,
+    "accuracy_vs_wiktionary_gender": 0.929
+   },
+   "regular": {
+    "n": 95,
+    "accuracy_vs_wiktionary_gender": 0.937
+   },
+   "strat": {
+    "n": 42,
+    "accuracy_vs_wiktionary_gender": 1.0
+   }
+  }
+ }
+}

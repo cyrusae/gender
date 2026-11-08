@@ -21,6 +21,8 @@ evidence lives. "Verified" = checked against code output or the paper text; "fro
 | O13 | **Contradictory labels in training:** 24 Spanish words appear in the 3,000 training pairs under both labels. Some are genuine homographs whose gender changes meaning (*capital, corte, orden, frente, guía, editorial*), some are adjectives or plurals (*central, final, personal, canales, finales*), and some are just mislabelled (*madera, mano, motos* are feminine; *cero, aplazamiento* masculine). | verified 2026-11-08 | count on the loaded lists |
 | O14 | Training pairs aren't distinct: 3,000 pairs contain 2,951 distinct feminine and 2,941 distinct masculine words (O2's duplicates). The 1,000 + 1,000 SC-GG-WEAT nouns contain 991 / 990 distinct words, 4 scored under both genders. | verified 2026-11-08 | same |
 | O15 | The noun lists aren't restricted to singular inanimate nouns: plurals and adjectives occur (see O13). | verified (examples) | same |
+| O17 | ~40% of the noun-list entries aren't singular nouns: 3,021 of 10,056 distinct Spanish words are plurals, plus adjectives/participles; ~9% of the dictionary nouns are animate. Gender labels on real nouns are 99.8% right vs Wiktionary. | verified 2026-11-08 | `results/label_audit_es/` |
+| O18 | Training X is column-normalised (`normalize(X, axis=0)`) with its own column norms, held-out X with *its* own; the in-loop matrices aren't normalised at all. | from code reading | cells 23, 27, 40 |
 | O10 | No requirements file, no seeds (LinearSVC refits, permutation nulls): reruns differ in the 3rd decimal. | verified | `results/repro_es/README.md` |
 | O11 | No licence file in the repo. | verified | — |
 | O12 | The method is essentially INLP (Ravfogel et al. 2020), which the paper doesn't cite. | verified (full text) | lit-verification table |
@@ -37,6 +39,7 @@ evidence lives. "Verified" = checked against code output or the paper text; "fro
 | Z6 | Inanimate-noun bias score b_w is defined (§2.1) but never reported; Table 1 scores occupation pairs only. | verified (full text) | lit-verification table |
 | Z7 | French word-similarity check cites SemEval-2017 Task 2, which has no French data. | verified | `docs/feynman/outputs/zhao-gender-bibliography-guide.verification.md` |
 | Z8 | No licence file. | verified | — |
+| Z9 | Noun lists: 860 of 12,233 distinct words listed under both genders; 4,888 not noun lemmas (adjectives, determiners, abbreviations, numerals, quote-tokens). Disagreements with Wiktionary (56) include 18 feminine *el agua*-type nouns labelled masculine: labels look tagger/agreement-derived. | verified 2026-11-08 | `results/label_audit_es/` |
 
 
 ## Results of checks
@@ -49,6 +52,9 @@ evidence lives. "Verified" = checked against code output or the paper text; "fro
   consistent with O8.
 - **O5 (zero-padded accuracy)**: low impact. Final held-out accuracy 0.506 as reported, 0.510 on
   real rows, 0.510 on clean held-out pairs: all at chance.
+
+- **Ending-exception test**: neither paper's direction is a pure -o/-a spelling direction
+  (exceptions classified 100%, n = 2–9). `results/label_audit_es/`.
 
 ## Consequences for our design (to pre-register)
 
