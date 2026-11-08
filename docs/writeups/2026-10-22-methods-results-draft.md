@@ -682,7 +682,7 @@ Grouped by what they limit. The explainers in `docs/explainers/` each end with a
 - The flipped-pair test (T1) scores each language's training nouns with the other's direction, because no fresh held-out draw was possible.
 
 **Known flaws in the stimuli (logged, lists frozen)**
-- German training list: 12 of 64 masculine nouns are complex words (numerals, compounds), none of the feminine ones. Tested (frequency-axis D), not fixed.
+- German training list: 12 of 64 masculine nouns are complex words (numerals, compounds), none of the feminine ones. Tested, not fixed: the frequency overlap survives dropping them (frequency-axis D), and so does the compound result (8B 35/35, 14B 39/39 layers; exploratory, 2026-11-07).
 - Spanish months (*marzo*, *noviembre*) take masculine gender by meaning; one is a training noun. Negligible, and now caught automatically by `lang-audit`.
 - Concreteness norms for German and Russian are English-gloss approximations.
 
