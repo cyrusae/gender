@@ -19,7 +19,7 @@ These papers provide the theoretical scaffolding and empirical justification for
 | **[Huang et al. 2025]**<br>*(Platonic Representations)* | Concept steering vectors transfer across distinct LLM families via simple linear transformations. | **Tier 2 Architectural Transfer**<br>Supports cross-model generalization (Qwen3 vs. LLaMA vs. EuroLLM). | **High Priority** |
 | **[Pokharel et al. 2026]**<br>*(Cross-Lingual Activation Steering)* | Steering non-dominant languages via activation offsets without degrading English capabilities; functional divergence. | **Tier 2 Methodological Analog**<br>Empirical precedent for cross-lingual vector arithmetic and steering gates. | **High Priority** |
 | **[Kirtane & Huang 2026]**<br>*(Language Steering for Multilingual ICL)* | Mean difference vectors isolate language identity and steer cross-lingual transfer in context. | **Tier 3 Contextual Extension**<br>Validates difference-of-means vector extraction across language pairs. | **Medium Priority** |
-| **[Flint et al. 2026]**<br>*(Failure of Contextual Invariance)* | LLMs fail to maintain contextual invariance under surrounding prompt variations and discourse embeddings. | **Tier 3 Critical Control / Risk**<br>Mandates minimal, tightly matched prompt templates (W1–W4, nonce frames). | **Medium Priority** |
+| **[Flint et al. 2026]**<br>*(Failure of Contextual Invariance)* | In a pronoun-selection (gender inference) task, minimal added discourse context shifts LLM outputs; stereotype correlations weaken or vanish. | **Tier 3 Critical Control / Risk**<br>Mandates minimal, tightly matched prompt templates (W1–W4, nonce frames). | **Medium Priority** |
 
 ---
 
@@ -58,12 +58,12 @@ Wendler et al. (2024)             Dumas et al. (2024)                           
 ### 2.1 The "English Pivot" Hypothesis vs. Language-Agnostic Concept Spaces
 A fundamental debate within mechanistic interpretability is whether multilingual LLMs translate through an English internal lingua franca or maintain abstract, language-neutral conceptual hubs:
 * **The English Pivot Model (Wendler et al. 2024):** Multilingual models trained on heavily skewed corpora (e.g., LLaMA, Qwen) project non-English inputs into an English-dominated intermediate space in middle layers. When applying logit lenses at layers 40–70%, the model predicts the English translation of a non-English query *before* translating back into the target surface language.
-* **The Language-Agnostic Space Model (Dumas et al. 2024):** Language identity and conceptual semantics are orthogonal. Activation patching demonstrates that the model chooses the output language in earlier layers than the actual conceptual content. Furthermore, substituting a concept representation with the *mean activation vector across four languages* preserves or improves downstream translation, proving that the deepest latent representations are genuinely shared and language-free.
+* **The Language-Agnostic Space Model (Dumas et al. 2024):** Language identity and conceptual semantics are orthogonal. Activation patching demonstrates that the model chooses the output language in earlier layers than the actual conceptual content. Furthermore, substituting a concept representation with the *mean activation vector across four languages* preserves or improves downstream translation, which the authors take as evidence for language-agnostic concept representations.
 * **Reconciliation for This Project:** These two perspectives are complementary rather than contradictory. The conceptual space is geometric and language-agnostic in structure (as Dumas et al. show), but because English represents the overwhelming majority of pre-training tokens, the geometry of that concept space is heavily aligned with English lexical semantic distributions (as Wendler et al. show). This explains precisely why injecting a grammatical gender feature into a Spanish concept (e.g., *el puente*) can project into English adjectival evaluations (e.g., *sturdy* vs. *elegant*).
 
 ### 2.2 Cross-Lingual Activation Transferability
 * **Platonic Convergence (Huang et al. 2025):** The geometry of concept representations converges across different LLM architectures and families. Simple linear maps bridge steering vectors across disparate models, confirming that representation spaces reflect underlying conceptual invariants rather than idiosyncratic training noise.
-* **Functional Divergence in Steering (Pokharel et al. 2026; Kirtane & Huang 2026):** Cross-lingual transfer does not require 100% cosine alignment across languages. Pokharel et al. prove that effective steering operates through *functional divergence*: modulating shared latent subspaces unlocks capabilities in non-dominant languages while keeping dominant (English) pathways stable. Kirtane & Huang show that simple activation offsets (difference-of-means) effectively steer task execution across languages in in-context learning.
+* **Functional Divergence in Steering (Pokharel et al. 2026; Kirtane & Huang 2026):** Cross-lingual transfer does not require 100% cosine alignment across languages. Pokharel et al. report that effective transfer operates through *functional divergence*: modulating shared latent subspaces unlocks capabilities in non-dominant languages while keeping dominant (English) pathways stable. Kirtane & Huang show that simple activation offsets (difference-of-means) effectively steer task execution across languages in in-context learning.
 
 ---
 
@@ -77,7 +77,7 @@ When drafting papers, pre-registrations, or rebuttal letters for Phase 4 and Pha
   > Citing **Wendler et al. (2024)** and **Dumas et al. (2024)**, we establish that multilingual autoregressive transformers do not process non-English inputs in isolated language silos. Rather, information passes through an intermediate, shared conceptual representation in middle layers (Dumas et al., 2024) that is strongly aligned with English distributional semantics (Wendler et al., 2024). If an inanimate noun's representation in Spanish (*el puente*) or German (*die Brücke*) carries grammatical gender features into this shared bottleneck, those features can interact with latent semantic associations before surface detokenization occurs.
 
 ### 3.2 Explaining Layerwise Dynamics: Why Probing and Steering Succeed at 40%–70% Depth
-* **The Reviewer Objection:** *"Your probe accuracy and steering effects peak in the middle layers (layers 9–25 in 8B, layers 10–22 in 14B) and collapse in early or late layers. Does this indicate that your findings are an artifact of layer choice?"*
+* **The Reviewer Objection:** *"Your probe accuracy and steering effects peak in the middle layers (layers 9–25 in 8B, layers 10–22 in 14B) and collapse in early or late layers. Does this indicate that your findings are an artifact of layer choice?"* *[Layer numbers are this project's own results, not from the cited papers.]*
 * **The Counter-Argument / Citation:**
   > This layerwise trajectory is directly predicted by the three-phase processing model of **Wendler et al. (2024)** and the activation patching timeline of **Dumas et al. (2024)**. In early layers (0–25%), representations operate in "input space", dominated by language-specific surface orthography and BPE tokenization artifacts. In middle layers (40–70%), representations transition into language-agnostic "concept space", where cross-lingual concept transfer and shared semantic directions emerge. In late layers (75–100%), representations shift into "output space" to resolve exact next-token surface forms in the target language. Intervening at middle depths targets the representations when they are most conceptually malleable and cross-lingually active.
 
@@ -89,7 +89,7 @@ When drafting papers, pre-registrations, or rebuttal letters for Phase 4 and Pha
 ### 3.4 Defending Rigorous Lexical and Context Controls Against Invariance Failures
 * **The Reviewer Objection:** *"Could the observed effects simply be driven by arbitrary variations in sentence framing or prompt syntax?"*
 * **The Counter-Argument / Citation:**
-  > As demonstrated by **Flint et al. (2026)**, LLM representations frequently suffer from a failure of contextual invariance, where extraneous discourse tokens alter latent representations. To prevent contextual artifacts, our Phase 5 evaluation relies on tightly controlled minimal frames (e.g., *Mi {noun} es muy ___* and *The {noun} is very ___*), systematic averaging across pre-registered wording variations (W1–W4), explicit nonce-noun controls (P29/P30), and residualization of lexical covariates (frequency, length, concreteness) as established in psycholinguistic literature.
+  > As demonstrated by **Flint et al. (2026)**, LLM outputs in a pronoun-selection task are not invariant to added discourse context. To prevent contextual artifacts, our Phase 5 evaluation relies on tightly controlled minimal frames (e.g., *Mi {noun} es muy ___* and *The {noun} is very ___*), systematic averaging across pre-registered wording variations (W1–W4), explicit nonce-noun controls (P29/P30), and residualization of lexical covariates (frequency, length, concreteness) as established in psycholinguistic literature.
 
 ---
 
@@ -110,7 +110,7 @@ When drafting papers, pre-registrations, or rebuttal letters for Phase 4 and Pha
 * **Limitations:**
   * Focuses primarily on LLaMA-2 architectures; studied primarily on single-token factual generation prompts.
 * **Project Relevance:**
-  * **Primary Theoretical Pillar.** Directly explains why a Spanish or German gender feature could bleed into English adjective evaluation: middle layers map concepts through an English-dominated conceptual bottleneck.
+  * Primary pillar in this project's framing. The paper shows an English-leaning intermediate 'concept space' in Llama-2; it does not address grammatical gender, so any link to gender bleedthrough is our inference.
 
 ---
 
@@ -125,7 +125,7 @@ When drafting papers, pre-registrations, or rebuttal letters for Phase 4 and Pha
 * **Key Findings:**
   * Language identity is determined earlier in the network than conceptual content.
   * Activation patching can alter the concept while keeping output language fixed, and alter output language while keeping the concept fixed.
-  * Patching intermediate layers with the cross-lingual *mean concept representation* does not harm translation accuracy, but frequently improves it, demonstrating that transformers construct a unified, language-agnostic conceptual representation.
+  * Patching intermediate layers with the cross-lingual *mean concept representation* does not harm translation accuracy, but frequently improves it, which the authors take as evidence for language-agnostic concept representations.
 * **Limitations:**
   * Evaluated primarily on translation and concept generation; does not directly evaluate grammatical morphology or gender.
 * **Project Relevance:**
@@ -148,7 +148,7 @@ When drafting papers, pre-registrations, or rebuttal letters for Phase 4 and Pha
 * **Limitations:**
   * Focuses on lexical understanding in English; does not address gender inflection across morphologically rich languages.
 * **Project Relevance:**
-  * **Critical Methodological Foundation.** Confirms our protocol of extracting activations and injecting steering vectors at the **LAST subword token** of each noun, explaining why probes at the AFTER position exhibit severe degradation.
+  * Relevant to extracting at the last token of a word: the paper reports whole-word representations forming at the last subword token. Its claim about AFTER-position probes is not made in the paper.
 
 ---
 
@@ -157,16 +157,16 @@ When drafting papers, pre-registrations, or rebuttal letters for Phase 4 and Pha
 * **ArXiv / Venue:** arXiv:2501.02009v2 [cs.CL], May 2025.
 * **File:** [`[Huang et al. 2025] Cross-Model Transferability on Platonic Representations.pdf`]([Huang%20et%20al.%202025]%20Cross-Model%20Transferability%20on%20Platonic%20Representations.pdf)
 * **Methodology:**
-  * Evaluates whether concept steering vectors (SVs) extracted from one LLM family can be transferred to steer behavior in completely different LLM families (e.g., LLaMA, Vicuna, Mistral, Gemma).
-  * Formalizes the alignment between model activation spaces using linear transformations (orthogonal Procrustes and affine mappings), motivated by the "Platonic Representation Hypothesis".
+  * Evaluates whether concept steering vectors (SVs) extracted from one LLM family can be transferred to steer behavior in completely different LLM families (Qwen2 and LLaMA appear in the paper's figures; other families *[unverified]*).
+  * Formalizes the alignment between model activation spaces using linear transformations (the abstract describes simple linear transformations; the exact variants were not checked), motivated by the "Platonic Representation Hypothesis".
 * **Key Findings:**
   * Concept representations across distinct LLM architectures share fundamental geometric structures.
   * Simple linear transformations allow steering vectors extracted from model $A$ to steer generation in model $B$ with high efficacy.
-  * Concept representations become more linearly transferable in the middle and deeper layers of the networks.
+  * Also reported (abstract): the transformation generalizes across concepts, and steering vectors from smaller LLMs can control larger LLMs. *[Layer-wise claim not verified.]*
 * **Limitations:**
   * Cross-model mappings require a small set of anchor concepts to fit the linear projection; does not evaluate cross-lingual transfer within a single model.
 * **Project Relevance:**
-  * Supports the cross-architecture validity of our findings across Qwen3-1.7B, 4B, 8B, 14B, and EuroLLM, proving that learned gender and semantic directions reflect shared geometric manifolds rather than idiosyncratic single-model artifacts.
+  * Supports the cross-architecture validity of our findings across Qwen3-1.7B, 4B, 8B, 14B, and EuroLLM, Related to cross-model comparisons, but the paper studies concept steering vectors such as happiness, not gender, and does not show that this project's directions are shared.
 
 ---
 
@@ -182,7 +182,7 @@ When drafting papers, pre-registrations, or rebuttal letters for Phase 4 and Pha
   * Effective cross-lingual transfer does not require forcing identical alignment; it operates via *functional divergence*, where steering shared directions unlocks latent capacity without disrupting high-resource (English) capabilities.
   * Performance improvements correlate with structured separation in intermediate activation clusters.
 * **Limitations:**
-  * Targets task accuracy and language generation benchmarks (XNLI, TyDiQA) rather than sociolinguistic or grammatical bias.
+  * Targets task accuracy and language generation benchmarks *[benchmarks not verified]* rather than sociolinguistic or grammatical bias.
 * **Project Relevance:**
   * Validates activation steering as a viable mechanism for modulating cross-lingual behaviors and demonstrates that latent steering in one language produces measurable downstream effects across languages.
 
@@ -206,17 +206,17 @@ When drafting papers, pre-registrations, or rebuttal letters for Phase 4 and Pha
 
 ---
 
-### 7. Flint, Kumar, Aiello & Baronchelli (2026)
+### 7. Kumar, Flint, Aiello & Baronchelli (2026)
 * **Title:** *Failure of Contextual Invariance in Large Language Models*
 * **ArXiv / Venue:** arXiv:2603.23485v2 [cs.CL], June 2026.
 * **File:** [`[Flint et al. 2026] Failure of Contextual Invariance in Multilingual Representations.pdf`]([Flint%20et%20al.%202026]%20Failure%20of%20Contextual%20Invariance%20in%20Multilingual%20Representations.pdf)
 * **Methodology:**
-  * Tests the implicit assumption that LLM semantic representations remain stable under contextually equivalent prompt variations, conversational histories, and discourse embeddings.
-  * Systematically varies surrounding context while holding task-relevant information constant across multiple model families and languages.
+  * Tests whether LLM outputs stay stable when a fixed target sentence is embedded in minimally varied, theoretically uninformative discourse context, using a controlled pronoun-selection task on gender inference.
+  * Uses a Contextuality-by-Default analysis. Open models other than Gemma were run locally at 4-bit quantization; Gemma unquantized (per the paper). Languages tested not verified; the paper does not appear to be multilingual.
 * **Key Findings:**
-  * LLMs consistently fail the assumption of contextual invariance: introducing semantically irrelevant surrounding discourse triggers substantial drift in internal representations and output distributions.
-  * Multilingual prompts are particularly vulnerable, as small changes in phrasing alter attention allocation across language-specific subspaces.
+  * Minimal context induces large, systematic shifts in outputs; correlations with cultural gender stereotypes weaken or disappear, and an unrelated referent's pronoun gender becomes the most informative predictor. In 19-52% of cases across models the context dependence persists after accounting for marginal effects (abstract).
+  * The paper analyses outputs, not internal representations, and does not report multilingual results.
 * **Limitations:**
-  * Diagnostic and critical paper; does not propose an internal architecture to solve contextual instability.
+  * Diagnostic paper on pronoun-selection outputs; does not examine hidden states.
 * **Project Relevance:**
-  * **Critical Methodological Safeguard.** Warns against unconstrained prompt formulations. Directly motivates our strict experimental controls: evaluating multiple balanced wordings (W1–W4), testing against nonce-word baselines, and holding syntax strictly invariant across comparisons.
+  * **Critical Methodological Safeguard.** Warns against unconstrained prompt formulations. Relevant as a caution that outputs can depend on surrounding context in gender-inference tasks; any link to this project's wording controls is our inference, not the paper's.
