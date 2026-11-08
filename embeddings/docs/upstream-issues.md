@@ -59,6 +59,22 @@ evidence lives. "Verified" = checked against code output or the paper text; "fro
 - **Ending-exception test**: neither paper's direction is a pure -o/-a spelling direction
   (exceptions classified 100%, n = 2–9). `results/label_audit_es/`.
 
+- **Minimal-fix run, 14 iterations** (`results/gg_minfix_es/`; dedup + drop 48 both-gender words,
+  unpadded accuracy, NFC ValNorm; method otherwise unchanged). Lists: masc 5,381 → 5,213, fem
+  4,837 → 4,688, 4,640 pairs; held-out 1,640 pairs, none overlapping training. Compared with the
+  as-published rerun (14 iter):
+  | | as published | minimal fix |
+  |---|---|---|
+  | SVC accuracy train / held-out, before | 0.992 / 0.985 | 0.997 / 0.991 |
+  | held-out accuracy after removal | 0.506 (padded) | 0.519 |
+  | GG-WEAT after 14 iter | 1.32 | 1.32 |
+  | SC-GG-WEAT gap, scored (training) nouns | 1.741 → 0.050 | 1.750 → 0.034 |
+  | SC-GG-WEAT gap, held-out nouns | 1.516 → −0.026 | 1.526 → −0.031 |
+  | ValNorm r before / after | 0.807 / 0.818 | **0.796 / 0.833** |
+  The bugs don't change the GG-WEAT or SC-GG-WEAT conclusions. ValNorm moves most (now on all 47
+  attributes): slightly lower before, higher after, so the "removal preserves meaning" result gets
+  a little stronger.
+
 ## Consequences for our design (to pre-register)
 
 - Deduplicated noun lists, gold genders from Wiktionary, nouns in both genders dropped;
