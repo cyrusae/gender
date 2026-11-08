@@ -330,6 +330,11 @@ def main() -> None:
         for r in csv.DictReader(gpath.read_text().splitlines()):
             if r.get("gender"):
                 gend.setdefault(r["en"], {})[r["lang"]] = r["gender"]
+        # pilot translation files carry genders as <lang>_g columns (smoke tests on burned nouns)
+        for r in csv.DictReader(args.translations.read_text().splitlines()):
+            for lg in ("de", "es"):
+                if r.get(f"{lg}_g") in ("m", "f", "n"):
+                    gend.setdefault(r["en"], {}).setdefault(lg, r[f"{lg}_g"])
         items = build_writer_main(
             cfg, nouns, load_translations(args.translations), LANG_NAMES, gend
         )
