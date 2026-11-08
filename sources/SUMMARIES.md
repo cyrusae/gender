@@ -156,19 +156,19 @@ Experiment 1 used 24 inanimate objects (12 masculine/feminine pairs crossing Ger
 
 ## 8. Saeed et al. (2025)
 
-**Citation:** Saeed, Mohammed; et al. (2025). "Beyond Content: The Implicit Effect of Grammatical Gender in Text-to-Image Generation." *Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP 2025 Findings)* / *arXiv:2508.03199*.
+**Citation:** Saeed, Muhammed; Raza, Shaina; Vayani, Ashmal; Abdul-Mageed, Muhammad; Emami, Ali; Shehata, Shady (2025). "Beyond Content: How Grammatical Gender Shapes Visual Representation in Text-to-Image Models." *arXiv:2508.03199* (v4, Feb 2026; the arXiv page lists no venue, so the EMNLP 2025 Findings attribution is unverified).
 
 **File:** `06_Story_Generation_and_Personification/[Saeed et al. 2025] Beyond Content - Grammatical Gender in Text-to-Image.pdf`
 
-**Summary.** The paper investigates whether grammatical gender in prompt texts bleeds into the demographic attributes of images produced by text-to-image (T2I) diffusion models (e.g. Stable Diffusion, Midjourney, DALL-E 3). When prompting models with inanimate objects in languages with grammatical gender (e.g. Spanish, German, French, Italian, Arabic), does the visual depiction of personified or associated characters match the noun's grammatical gender?
+*(Entry corrected 2026-11-07 against the arXiv record: the earlier citation and summary did not match the paper. Summary below is from the arXiv abstract only; the PDF has not been read. The PDF file name still carries the old attribution.)*
 
-The authors construct parallel prompts across five gender-marking languages and English as a gender-neutral control. Independent human annotators and automated VQA classifiers score the perceived gender (male/female/neutral) of humans or humanized characters rendered alongside or as the personified object.
+**Summary.** A multilingual benchmark of words whose grammatical gender conflicts with the gender stereotypically linked to the concept (e.g. French *une sentinelle* "guard", feminine). Five gendered languages (French, Spanish, German, Italian, Russian) and two controls without grammatical gender (English, Chinese); 800 prompts, 28,800 images, three text-to-image models.
 
-**Findings.** A massive and consistent bleedthrough effect is observed: objects with masculine grammatical gender yielded male depictions in 73% of generations across gendered languages (compared to 22% in English baseline), while feminine nouns strongly shifted generation toward female depictions. The effect persisted even when prompts were explicitly translated or evaluated across cross-lingual embeddings.
+**Findings.** Masculine grammatical markers raised male depictions to 73% on average (22% for neutral English prompts); feminine markers raised female depictions to 38% (28% for English). Effects were stronger in high-resource languages and varied by model.
 
-**Limitations.** Restricted to multimodal text-to-image generators; evaluated primarily on personified or co-occurring figures rather than pure textual pronoun selection.
+**Limitations.** Text-to-image models only; the prompts are about people-like referents (role nouns), not inanimate objects. (Abstract-level; check the paper for annotation method.)
 
-**Relevance to bleedthrough in LLMs.** Provides immediate empirical proof that cross-lingual grammatical gender signals survive conditioning layers and guide latent generative choices. It serves as direct conceptual motivation for testing whether text LLMs exhibit the same bias when turning foreign-language nouns into story characters.
+**Relevance to bleedthrough in LLMs.** Evidence that grammatical gender in a prompt shifts a generative model's depiction of gender, asymmetrically (the masculine effect is much larger). Closest to the character study; it does not test inanimate nouns or hidden states.
 
 ---
 
@@ -190,39 +190,39 @@ Prompts were designed where only the grammatical inflection of the interlocutor 
 
 ---
 
-## 10. Pucci et al. (2026) / "Neutrality Bites"
+## 10. Finkley et al. (2026) / "Neutrality Bites"
 
-**Citation:** Pucci, Flavio; et al. (2026). "Neutrality Bites: Gender Representation in AI-Generated Animal Stories." *arXiv:2606.07969*.
+**Citation:** Finkley, Imani; Li, Yuanxi; Walsh, Melanie (2026). "Neutrality Bites: Gender Representation in AI-Generated Animal Stories." FAccT 2026. *arXiv:2606.07969*. (Earlier listed as "Pucci, Flavio et al.", which is not an author.)
 
 **File:** `06_Story_Generation_and_Personification/[Pucci et al. 2026] Neutrality Bites - Gender Representation in AI Animal Stories.pdf`
 
-**Summary.** The authors audit pronoun assignment and character gender when LLMs generate stories about non-human entities (specifically animals) from gender-neutral prompts (e.g., "Write a story about a bear and a fox").
+*(Entry corrected 2026-11-07 against the arXiv record: the earlier citation and summary did not match the paper. Summary below is from the arXiv abstract only; the PDF has not been read. The PDF file name still carries the old attribution.)*
 
-Evaluating models across thousands of generated stories in English and multilingual prompts, the paper quantifies the ratio of *he* vs. *she* pronouns assigned to animal protagonists.
+**Summary.** Six LLMs finish English-language stories about seven anthropomorphic animals whose gender is never stated, across four narrative settings and several temperatures (about 23.8K stories).
 
-**Findings.** Pronoun assignment exhibits an overwhelming default-male skew (often >75% male pronouns across standard open-weights and commercial models). However, when prompts include nouns that carry grammatical gender in the source language or cultural gender associations, the distribution shifts significantly, revealing an interplay between baseline androcentric default bias and linguistic priming.
+**Findings.** Models often leave the character ungendered (19% on average) or use *it/its* (38.2%); when they do gender it, the skew is heavily male (40.6% male vs 2.2% female). The authors call this "neutrality bites": neutrality-first debiasing can erase marginalised identities.
 
-**Limitations.** Evaluates animal entities rather than completely inanimate objects; focuses primarily on overt pronoun count frequencies.
+**Limitations.** English prompts only; animals, not inanimate objects; no grammatical-gender manipulation. (The earlier summary's multilingual prompts and grammatical-gender shift are not in the abstract.)
 
-**Relevance to bleedthrough in LLMs.** Directly examines the same behavioral outcome as the character study: pronoun selection (*he* / *she* / *it* / *they*) in open-ended narrative generation. Documents the strong baseline male default that any grammatical gender effect must be separated from.
+**Relevance to bleedthrough in LLMs.** The same outcome as the character study (pronoun choice for a non-human character in open-ended stories) and a baseline: a strong male default plus frequent *it*, which any grammatical-gender effect must be separated from.
 
 ---
 
-## 11. Gautam et al. (2026) / GRUFF
+## 11. Mewes et al. (2026) / GRUFF
 
-**Citation:** Gautam, Vasu; et al. (2026). "GRUFF: LLM Pronoun Fidelity, Reasoning, and Biases in German." *arXiv:2605.30214*.
+**Citation:** Mewes, Fabian; Lauscher, Anne; Gautam, Vagrant (2026). "GRUFF: LLM Pronoun Fidelity, Reasoning, and Biases in German." *arXiv:2605.30214*. (Earlier listed as "Gautam, Vasu et al."; Vagrant Gautam is the third author.)
 
 **File:** `06_Story_Generation_and_Personification/[Gautam et al. 2026] GRUFF - LLM Pronoun Fidelity Reasoning and Biases in German.pdf`
 
-**Summary.** Introduces GRUFF, a benchmark evaluating whether multilingual LLMs maintain grammatical pronoun fidelity in German when referents have grammatical genders that conflict with stereotypical or natural gender (such as the grammatically neuter noun *das Mädchen* [the girl] or inanimate masculine/feminine nouns).
+*(Entry corrected 2026-11-07 against the arXiv record: the earlier citation and summary did not match the paper. Summary below is from the arXiv abstract only; the PDF has not been read. The PDF file name still carries the old attribution.)*
 
-Tests both masked pronoun prediction and generation under zero-shot, few-shot, and reasoning (chain-of-thought) conditions across open and proprietary models.
+**Summary.** A large German dataset for pronoun fidelity (does a model keep using the pronoun introduced for a person when other people are mentioned in between?), covering four gender-agreement systems for nouns and four pronoun sets, including the neopronouns *xier* and *en*.
 
-**Findings.** Models frequently fail grammatical pronoun agreement in generation, defaulting to semantic or stereotypical gender shortcuts. Crucially, prompting models to "think" or generate reasoning traces sometimes exacerbated semantic bias rather than enforcing strict grammatical concord.
+**Findings.** Without intervening context, LLMs agree well for masculine and feminine entities but not for the neopronouns. Intervening mentions generally throw models off; encoder-only models hold up better in German than in English, which the authors link to grammatical gender. Occupational stereotypes correlate poorly across grammatical cases and across most models.
 
-**Limitations.** Evaluated within German text rather than cross-lingual code-switched English generation.
+**Limitations.** About people and pronouns, not inanimate nouns. (The earlier summary's *das Mädchen* framing, chain-of-thought conditions and "thinking worsens bias" finding are not in the abstract.)
 
-**Relevance to bleedthrough in LLMs.** Establishes the German linguistic baseline for pronoun selection and shows how grammatical gender and semantic gender interact in generation.
+**Relevance to bleedthrough in LLMs.** German baseline for how models track grammatical vs referential gender on people; useful context for German pronoun outcomes, not direct evidence about objects.
 
 ---
 
@@ -242,35 +242,39 @@ Tests both masked pronoun prediction and generation under zero-shot, few-shot, a
 
 ---
 
-## 13. Zheng et al. (2026)
+## 13. Pan et al. (2026)
 
-**Citation:** Zheng, et al. (2026). "Does Thinking Help Fairness?" *arXiv:2609.30768*.
+**Citation:** Pan, Deng; Germino, Joe; Ma, Yihong; Daly, Elizabeth; Moniz, Nuno; Hua, Ting; Chawla, Nitesh (2026). "Does Thinking Help Fairness? Reasoning Tokens Resolve Some Biases but Create More." Findings of ACL: EMNLP 2026. *arXiv:2609.30768*. (Earlier listed as "Zheng et al."; no Zheng is an author.)
 
 **File:** `07_Reasoning_Mode_and_Chain_of_Thought/[Zheng et al. 2026] Does Thinking Help Fairness.pdf`
 
-**Summary.** A comprehensive investigation of whether test-time compute (reasoning/thinking tokens as in Qwen-Reasoning and DeepSeek-R1) mitigates or amplifies social and linguistic biases. Compares standard instruction-tuned generation against thinking-enabled generation on social fairness benchmarks and open-ended generation tasks.
+*(Entry corrected 2026-11-07 against the arXiv record: the earlier citation and summary did not match the paper. Summary below is from the arXiv abstract only; the PDF has not been read. The PDF file name still carries the old attribution.)*
 
-**Findings.** Enabling reasoning tokens has an inconsistent and task-dependent effect: while thinking mode can improve accuracy on explicit rule-based debiasing benchmarks, on open-ended generation tasks reasoning traces frequently rationalize or even intensify latent demographic stereotypes. Reasoning models generate longer rationalizations that mask latent bias without eliminating it.
+**Summary.** Each model is run with thinking on and off to test counterfactual fairness: three 32B-scale models (QwQ-32B, DeepSeek-R1-Distill-Qwen-32B, Qwen3-32B) on three high-stakes tabular decision datasets (Adult, COMPAS, Credit).
 
-**Limitations.** Evaluates primarily explicit fairness datasets (BBQ, StereoSet); creative persona generation evaluated on smaller exploratory subsets.
+**Findings.** Thinking fixes some counterfactual flips but introduces more new ones, often at near-full confidence: new flips outnumber fixed ones about 5 to 1 across all nine model–dataset pairs. Two analysis tools (Counterfactual Depth Probability Gap; Bias Transition Matrix) trace the bias growing with thinking depth.
 
-**Relevance to bleedthrough in LLMs.** Directly informs our Q4 thinking-mode arm (comparing Qwen3 thinking-on vs. thinking-off). It demonstrates why thinking mode cannot be assumed to reduce grammatical gender bleedthrough and provides theoretical grounding for observed mode shifts.
+**Limitations.** Tabular decision tasks, not open-ended generation or language-specific gender. (The earlier summary's BBQ/StereoSet and open-ended generation are not in the abstract.)
+
+**Relevance to bleedthrough in LLMs.** Supports not assuming that thinking mode reduces bias, for the character study's thinking-on/off comparison; the tasks are far from ours, so it is motivation, not a prediction.
 
 ---
 
-## 14. Gao et al. (2026) / "Thinking Inertia"
+## 14. Lei et al. (2026) / "Thinking Inertia"
 
-**Citation:** Gao, et al. (2026). "Thinking Inertia: Overthinking in Test-Time Compute." *Advances in Neural Information Processing Systems (NeurIPS 2026)* / *arXiv:2610.11765*.
+**Citation:** Lei, Dianqiao; Lin, Kevin Qinghong; Lu, Pan; Torr, Philip; Zou, James (2026). "Thinking Inertia: LLMs Keep Thinking When Told Not To." NeurIPS 2026 (accepted). *arXiv:2610.11765*. (Earlier listed as "Gao et al." with the subtitle "Overthinking in Test-Time Compute"; neither matches the record.)
 
 **File:** `07_Reasoning_Mode_and_Chain_of_Thought/[Gao et al. 2026] Thinking Inertia in Reasoning Models.pdf`
 
-**Summary.** Explores the phenomenon of "thinking inertia," where reasoning models allocate excessive thinking tokens to simple or open-ended prompts that do not require complex logical deduction. The authors analyze how extended chain-of-thought generation impacts output entropy, lexical diversity, and task adherence.
+*(Entry corrected 2026-11-07 against the arXiv record: the earlier citation and summary did not match the paper. Summary below is from the arXiv abstract only; the PDF has not been read. The PDF file name still carries the old attribution.)*
 
-**Findings.** On open-ended creative tasks (such as character descriptions and stories), thinking inertia causes models to drift into repetitive self-critique loops, collapsing lexical diversity and leading to rigid, formulaic generations. The model's final choice often commits early in the reasoning trace, rendering subsequent reasoning steps redundant.
+**Summary.** Common stand-ins for "no thinking" (a switched-off thinking mode, short outputs) are unreliable. Responses are split into a pre-answer trace and a final answer and scored at three levels (empty-thinking rate, question–pre-answer relevance, an LLM-judge explicit-inference rate), for six prompting interventions on six LLMs over Boolean, multiple-choice and open-ended questions.
 
-**Limitations.** Focuses on mathematical and reasoning benchmarks alongside creative prose; does not measure grammatical gender specifically.
+**Findings.** Explicit no-think instructions don't reliably stop visible reasoning ("thinking inertia"), more so as the answer space widens. Accuracy holds on Boolean and multiple-choice questions; on open-ended ones, answering without reasoning costs accuracy.
 
-**Relevance to bleedthrough in LLMs.** Explains why our thinking-mode pilot showed early commitment to gender in the first few draft tokens of the reasoning block, and justifies enforcing a strict thinking-token budget during generation.
+**Limitations.** QA tasks, not creative generation or gender. (The earlier summary's creative-prose self-critique loops and lexical-diversity collapse are not in the abstract.)
+
+**Relevance to bleedthrough in LLMs.** A caution for the character study's thinking-off condition: switching thinking off may not remove reasoning, so "thinking off" should be checked in the outputs rather than assumed. (The earlier claim that this paper explains our pilot's early gender commitment is unsupported.)
 
 ---
 
