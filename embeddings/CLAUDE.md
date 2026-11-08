@@ -27,6 +27,12 @@ social-gender association once grammatical gender is removed? Related: Omrani Sa
 - Design docs, code and results for this study go in this folder (`docs/`, `results/`), not in
   the root `docs/design/` or `results/`.
 
+## Logging what we find
+
+Every problem found in the upstream code, data or papers goes into `docs/upstream-issues.md`
+the moment it's found (numbered, with status and evidence), and every reproduction gets a
+README in its `results/` folder.
+
 ## Rule notes (draft, for the PI)
 
 - **Base-models-only rule:** not applicable as written (static embeddings, not LLMs). The point
