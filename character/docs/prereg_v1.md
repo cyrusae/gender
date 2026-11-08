@@ -176,6 +176,34 @@ Simulation (`character/scripts/power_sim_structures.py`, `character/results/powe
 93–99% at τ = 0.20; per-cell power identical to Holm-only (Luna medium 87%, Qwen off 81% at
 τ = 0.15); false alarms ≤ 3% with no effect.
 
+## 8c. Amendment 3 (2026-11-07, before any main-noun output existed): thinking-mode details
+
+Informed by two literature reviews (`docs/feynman/outputs/thinking-gender-verdict.md`,
+`thinking-style-fulltext.md`), which were blind to the pilot results.
+1. **Q4 prediction for the pronoun: none.** No study has manipulated thinking mode and coded gender
+   in generated prose; decision-task evidence runs in both directions. Q4's pronoun contrast
+   (on − off, per family) is exploratory with no directional prediction.
+2. **Style (descriptive secondary, one directional expectation):** the literature names
+   style drift toward structured/formal prose under reasoning (Feng, Dou & Kong 2025, asserted not
+   measured). Measures fixed now, model-free (`character/style_measures.py`): words, mean sentence
+   length, type-token ratio over the first 100 words, formal-connective rate per 100 words, list-like
+   formatting. Expected: thinking-on longer sentences, more connectives, more list-like; reported as
+   on − off estimates with CIs per family.
+3. **Qwen mode vs settings:** Qwen's recommended sampling differs by mode (off T 0.7 / top-p 0.8;
+   on T 0.6 / top-p 0.95), so the Qwen on − off contrast is "mode plus settings". Control cell
+   `off_thinkset` = thinking off with the thinking-mode settings, on a subset (writer plain and
+   English-word arms, character plain a/an; both frames; same draws as the main cells). It enters no
+   confirmatory test; it splits the on − off difference into a settings part and a mode part.
+   Luna takes no sampling settings, so its contrast is mode only.
+4. **Leakage flag:** thinking-off outputs whose answer opens with a reasoning phrase or contains
+   think tags (`style_measures.leaked`) are flagged and their rate reported per cell (0 of 4,800 in
+   the Qwen pilot). Flagged outputs stay in the primary analysis; a sensitivity excludes them.
+5. **Coder agreement check (validation, not outcome):** FastCoref on a random 300 valid outputs per
+   model × thinking cell; agreement % and Cohen's kappa with the regex class
+   (`character/scripts/coref_check.py`). The regex stays the outcome whatever the agreement; low
+   agreement (kappa < 0.6) is reported as a limitation with the confusion table.
+Terminology: arms are "thinking mode on/off", not "with/without reasoning" (the off mode can leak).
+
 ## 9. Deviations
 
 Any change after sign-off is logged in `docs/decisions.md` with date and reason, and reported in the

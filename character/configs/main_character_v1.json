@@ -46,7 +46,8 @@
         false,
         true
       ],
-      "tier": "full (pod, vLLM bf16)"
+      "tier": "full (pod, vLLM bf16)",
+      "_sampling_control": "Amendment 3: extra cell 'off_thinkset' = thinking off with the thinking-mode sampling (qwen3_thinking: T 0.6, top-p 0.95, top-k 20) on a subset (writer: plain + English-word arms, both frames; character: plain a/an, both frames). Separates mode from settings."
     }
   },
   "sampling": {
