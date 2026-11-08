@@ -283,7 +283,7 @@ def run_openrouter(ocfg: dict, prompts: list[str], sp: dict, n: int, seed: int, 
                  "reasoning": msg.get("reasoning"), "native_finish_reason":
                  ch.get("native_finish_reason"), "service_tier": d.get("service_tier")})  # fmt: skip
 
-    with ThreadPoolExecutor(max_workers=8) as ex:
+    with ThreadPoolExecutor(max_workers=int(os.environ.get("GEN_WORKERS", "8"))) as ex:
         futs = {ex.submit(one, ij): ij for ij in jobs}
         for f in as_completed(futs):
             on_result(*futs[f], f.result())
