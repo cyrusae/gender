@@ -50,8 +50,11 @@ evidence lives. "Verified" = checked against code output or the paper text; "fro
   held-out 1.516 → −0.026; weakening rate 99.8% / 93.5% held-out (99.8% / 96.8% training).
   Held-out nouns start with a ~13% smaller gap. Both groups end negative (masc −0.36, fem −0.34),
   consistent with O8.
+- **Same at 28 iterations** (`scores_iter28.json`): gap training 1.741 → 0.056, held-out 1.516 →
+  0.007; both groups drift further negative (held-out masc −0.41, fem −0.42). More iterations
+  don't change the gap, only the shared shift.
 - **O5 (zero-padded accuracy)**: low impact. Final held-out accuracy 0.506 as reported, 0.510 on
-  real rows, 0.510 on clean held-out pairs: all at chance.
+  real rows, 0.510 on clean held-out pairs (28 iter: 0.514 / 0.523 / 0.523): all at chance.
 
 - **Ending-exception test**: neither paper's direction is a pure -o/-a spelling direction
   (exceptions classified 100%, n = 2–9). `results/label_audit_es/`.
