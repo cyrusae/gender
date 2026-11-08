@@ -1,0 +1,29 @@
+{
+ "n_equalised_pairs": 43,
+ "n_dict_pairs": 5000,
+ "orthogonality_error": 2.55351295663786e-15,
+ "original": [
+  3.6918226717199594,
+  0.0
+ ],
+ "de_align": [
+  3.6918226717199585,
+  0.0
+ ],
+ "shift_ori_recomputed": [
+  0.30874774283122,
+  0.757
+ ],
+ "shift_ori_recomputed_cos_sem_gram": 0.3885095526907955,
+ "hybrid_ori": [
+  0.30874774278730754,
+  0.012
+ ],
+ "hybrid_ori_cos_sem_gram": 0.38850955273506643,
+ "dict_cos_before": 0.6331343769901586,
+ "dict_cos_after": 0.6621397507479484,
+ "shift_ori_from_zhou_shift": [
+  0.30874774283122,
+  0.757
+ ]
+}

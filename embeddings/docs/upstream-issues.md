@@ -40,6 +40,8 @@ evidence lives. "Verified" = checked against code output or the paper text; "fro
 | Z7 | French word-similarity check cites SemEval-2017 Task 2, which has no French data. | verified | `docs/feynman/outputs/zhao-gender-bibliography-guide.verification.md` |
 | Z8 | No licence file. | verified | — |
 | Z9 | Noun lists: 860 of 12,233 distinct words listed under both genders; 4,888 not noun lemmas (adjectives, determiners, abbreviations, numerals, quote-tokens). Disagreements with Wiktionary (56) include 18 feminine *el agua*-type nouns labelled masculine: labels look tagger/agreement-derived. | verified 2026-11-08 | `results/label_audit_es/` |
+| Z10 | **MWEAT p-values after Shift are tie artefacts.** The statistic is ‖Σ_m| − |Σ_f‖; whenever a random re-partition gives the two sums opposite signs it equals \|Σ_m + Σ_f\|, which is the same for every partition. After Shift Ori, **75.7% of the 1,000 permutations give exactly the observed statistic**, so p is anywhere between 0 and 0.757 depending on floating-point noise. Our Shift rebuild gets 0.757; the same statistic in a rotated copy of the space gets 0.012; Table 1 reports 0.113 (Shift Ori) and 0.733 (Hybrid Ori) for the identical 0.3090. "Non-significant after mitigation" is not a test result. | verified 2026-11-08 | `results/zhou_hybrid_es/README.md` |
+| Z11 | **Hybrid Ori = Shift Ori on Table 1's statistic, mathematically, if the alignment is orthogonal** (rotations preserve every Spanish-internal dot product; Procrustes rebuild: identical to 1e-10). That explains Table 1's identical 0.3090. But then De-Align must equal Original (3.6918), while Table 1 says 3.5748: their alignment was not a pure rotation (or another setting differed); the paper doesn't say how it aligned. | verified 2026-11-08 | `results/zhou_hybrid_es/` |
 
 
 ## Results of checks
@@ -76,6 +78,11 @@ evidence lives. "Verified" = checked against code output or the paper text; "fro
   a little stronger. 28 iterations: same conclusions (results in `scores_iter28.json`).
 
 ## Consequences for our design (to pre-register)
+
+- Never use the MWEAT ‖Σ_m| − |Σ_f‖ permutation p-value (Z10); C1's Δ with bootstrap CI and
+  label permutation has a continuous null.
+- Hybrid differs from Shift only cross-lingually (Z11): in C1 the Hybrid arm is informative only
+  with English attribute words in the debiased-English space.
 
 - Deduplicated noun lists, gold genders from Wiktionary, nouns in both genders dropped;
   singular nouns only; homographs excluded (static vectors have one vector per spelling).
