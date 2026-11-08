@@ -32,13 +32,15 @@ passed on both sizes before anything else ran.
 |---|---|---|---|---|
 | German compounds take the head's gender | yes | yes | yes (33/33 layers) | yes (47/47) |
 | masculine as a "default" (markedness) | no | no | no | no |
-| Spanish ↔ German transfer (T1) | partial | partial | partial | partial |
+| Spanish ↔ German transfer (T1, must work both ways) | fails | fails (DE→ES only) | fails (DE→ES only) | fails (DE→ES only) |
 | each language's direction sorts its pair nouns (T3) | yes | yes | yes | yes |
 | Spanish steering moves social-gender adjectives | **yes** | no | **no** | **no** |
 | German steering | no valid test | no valid test | no valid test | no valid test |
 | German direction leans toward rarer words | **yes** | **yes** | **no** | **no** |
 
-**How to read it.** Everything about how grammatical gender is *stored* replicates. Two things
+**How to read it.** Everything about how grammatical gender is *stored* replicates, including the asymmetry: the
+German direction sorts Spanish nouns but not the reverse, so the strict transfer test fails
+everywhere and the sharing is partial (T3, T4). Two things
 don't:
 
 - **Steering.** Qwen3-8B is now the only one of four models with a Spanish steering effect, so it
