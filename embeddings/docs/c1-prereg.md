@@ -68,3 +68,33 @@ any data): **the masculine-minus-feminine gap survives Shift Ori.**
 1. Run both Shift Ori arms, as implemented and as specified ("both, because they ran both").
 2. 50k vocabulary primary, 200k as sensitivity.
 3. Drop nouns that are also another part of speech.
+
+## Results (2026-11-08; script `scripts/c1_run.py` committed 1be8c7a before the run; outputs `results/c1_es/`)
+
+Primary (50k, all 2,459 nouns). Δ = mean s(masculine) − mean s(feminine), in cosine units; all 95%
+CIs exclude 0 and all permutation p < 0.0001.
+
+| arm | Δ, Spanish attributes | verdict | Δ, English attributes | verdict |
+|---|---|---|---|---|
+| 1 original | 0.0305 [0.0286, 0.0326] | — | 0.0139 [0.0117, 0.0162] | — |
+| 2 Shift Ori as implemented | 0.0261 (0.86×) | **survives** | 0.0139 (1.00×) | **survives** |
+| 3 Shift Ori as specified | 0.0258 (0.84×) | **survives** | 0.0082 (0.59×) | **survives** |
+| 4a Hybrid Ori as implemented | 0.0261 (0.86×) | **survives** | 0.0249 (1.79×) | **survives** |
+| 4b Hybrid Ori as specified | 0.0258 (0.84×) | **survives** | 0.0195 (1.40×) | **survives** |
+
+- **The prediction holds: the masculine/feminine gap survives every version of Zhou et al.'s
+  mitigation** (8/8 pre-registered verdicts "survives"; 200k sensitivity the same direction, Δ
+  0.007–0.026, all CIs exclude 0). The smallest remaining gap is arm 3 with English attributes, 59%
+  of the original.
+- **Hybrid with Spanish attributes is identical to Shift**, as expected (rotation invariance,
+  `results/zhou_hybrid_es/`). With English attributes, aligning to hard-debiased English
+  **increases** the gap (1.79× as implemented): Spanish things move toward the English gender words
+  that hard debiasing deliberately keeps gendered.
+- **Arm 2 changes the Spanish-attribute gap although our nouns are untouched**: 12 of the 16
+  Spanish attribute words (*mujer, hombre, madre…*) are in Zhou et al.'s "inanimate" noun list, so
+  their own mitigation projects the semantic direction out of the attribute words (upstream Z12).
+- **Spelling control:** the gap is larger for regular *-o/-a* nouns (original, Spanish attributes
+  0.038 vs 0.021 for other endings) but present in both and survives in both (all CIs exclude 0).
+  Exceptions (45 nouns) descriptive only: `results/c1_es/c1_info.json`.
+- Scale: Δ ≈ 0.03 against a mean |s| of 0.023 per noun; small in cosine terms, consistent across
+  2,459 nouns.
