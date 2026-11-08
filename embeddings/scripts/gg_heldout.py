@@ -8,18 +8,28 @@ never used to fit any direction) and writes before/after effect sizes for both s
 Runs in a scratch copy of the clone so the upstream Results/ folder is untouched.
 
     uv run --no-project --python 3.12 --with numpy,scipy,scikit-learn,pandas,openpyxl,statsmodels,\
-matplotlib,nbconvert,ipykernel python embeddings/scripts/gg_heldout.py 14 28
+matplotlib,nbconvert,ipykernel python embeddings/scripts/gg_heldout.py [--minfix] 14 28
+
+--minfix (2026-11-08): "bugs fixed, method unchanged" (see embeddings/docs/upstream-issues.md):
+  O2/O3/O14 deduplicate the noun lists and drop words listed under both genders;
+  O5 score held-out accuracy on real rows only (no zero padding);
+  O16 NFC-normalise ValNorm.py so accented attribute words are found.
+Everything else (vectors, SVC, iterations, WEATs, attributes) is unchanged. Output: gg_minfix_es/.
 """
 
 import json
 import shutil
 import subprocess
 import sys
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "embeddings/external/GG_Disentangling"
 OUT = ROOT / "embeddings/results/gg_heldout_es"
+MINFIX = "--minfix" in sys.argv
+if MINFIX:
+    OUT = ROOT / "embeddings/results/gg_minfix_es"
 
 EXTRA = r'''
 import json as _json
@@ -54,6 +64,30 @@ for _name, (_m, _f) in _sets.items():
 _json.dump(_out, open("heldout_scores.json", "w"))
 '''
 
+DEDUP = r'''
+# minfix O2/O3/O14: distinct words, first occurrence kept; drop words in both gender lists
+_m = list(dict.fromkeys(expanded_m_nouns)); _f = list(dict.fromkeys(expanded_f_nouns))
+_both = set(_m) & set(_f)
+print("minfix: masc", len(expanded_m_nouns), "->", len(_m), "| fem", len(expanded_f_nouns), "->", len(_f),
+      "| in both genders, dropped:", len(_both))
+expanded_m_nouns = [w for w in _m if w not in _both]; expanded_f_nouns = [w for w in _f if w not in _both]
+grammar_pair_expanded = [[f, m] for f, m in zip(expanded_f_nouns, expanded_m_nouns)]
+print("minfix pairs:", len(grammar_pair_expanded))
+'''
+
+
+def patch(work: Path, cells: list) -> None:
+    i = next(k for k, c in enumerate(cells) if "expanded_m_nouns = []" in "".join(c["source"]))
+    cells.insert(i + 1, {"cell_type": "code", "metadata": {}, "outputs": [],
+                         "execution_count": None, "source": DEDUP})  # fmt: skip
+    k = next(k for k, c in enumerate(cells) if "X_rest_after = np.zeros((6000, 300))" in "".join(c["source"]))
+    src = "".join(cells[k]["source"])
+    old = "X_rest_after = np.zeros((6000, 300))\n    y_rest_after = np.tile([1,2],3000)"
+    assert old in src
+    cells[k]["source"] = src.replace(old, "X_rest_after = np.zeros((len(rest)*2, 300))\n    y_rest_after = np.tile([1,2],len(rest))")
+    vn = work / "ValNorm.py"
+    vn.write_text(unicodedata.normalize("NFC", vn.read_text(encoding="utf-8")), encoding="utf-8")
+
 
 def run(n: int) -> None:
     work = OUT / f"work_iter{n}"
@@ -67,6 +101,8 @@ def run(n: int) -> None:
                          "execution_count": None, "source": f"num_iter = {n}\n"})  # fmt: skip
     cells.append({"cell_type": "code", "metadata": {}, "outputs": [], "execution_count": None,
                   "source": EXTRA})  # fmt: skip
+    if MINFIX:
+        patch(work, cells)
     (work / "main.ipynb").write_text(json.dumps(nb))
     subprocess.run(["jupyter", "nbconvert", "--to", "notebook", "--execute", "main.ipynb",
                     "--ExecutePreprocessor.timeout=-1", "--output", "executed.ipynb"],
@@ -79,5 +115,5 @@ def run(n: int) -> None:
 
 if __name__ == "__main__":
     OUT.mkdir(parents=True, exist_ok=True)
-    for n in map(int, sys.argv[1:]):
+    for n in (int(a) for a in sys.argv[1:] if a != "--minfix"):
         run(n)
