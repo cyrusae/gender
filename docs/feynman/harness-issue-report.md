@@ -11,9 +11,10 @@ The reading library generated in one run of the `feynman-to-sources` workflow (S
 contained widespread fabricated content: wrong authors, wrong titles and venues, invented
 statistics, models and datasets, and in several cases findings that are the **opposite** of what
 the paper reports. The PDFs themselves were mostly the right papers. The upstream research
-outputs (the Feynman literature reviews the library was built from) had the citations right, in
-one case explicitly noting the correct author ("Finkley, Li, Walsh (not 'Pucci')"). The errors
-were introduced at the library-generation step.
+outputs (the Feynman literature reviews the library was built from) were much more accurate, in
+one case explicitly correcting an author ("Finkley, Li, Walsh (not 'Pucci')"), so most errors were
+introduced at the library-generation step. But the research outputs aren't error-free either (see
+"Follow-up: the research outputs themselves" below).
 
 ## Scale
 
@@ -94,6 +95,36 @@ review's citation, not from the PDF.
    arXiv record (CrossRef or arXiv API), not from the `[Author Year]` pattern or `SUMMARIES.md`.
 5. **A verification pass as a final stage**, writing a per-paper ledger
    (VERIFIED / CORRECTED / UNVERIFIABLE + evidence), so the user can see what was checked.
+
+## Follow-up: the research outputs themselves (2026-11-08)
+
+Two later Feynman outputs (a reading guide to a paper's 11 cited works, and a forward-citation
+review) were fact-checked the same way, against full texts. They were far better than the library,
+but not clean:
+
+| output | claims checked | correct | partly | wrong | unverifiable |
+|---|---|---|---|---|---|
+| bibliography reading guide | 65 | 40 | 12 | 8 | 5 |
+| forward-citation review (+ a planning handoff) | ~67 | 48 | 12 | 4 | 3 |
+
+The errors are a different kind from the library's: metadata was right (every venue, DOI and ID
+for the 11 cited papers checked out), but specifics were wrong or invented:
+- **an invented statistic**: "balanced 95.12% ± 1.46% accuracy" for Bolukbasi et al. 2016; the
+  string doesn't occur in the paper, which reports an F-score of .627 ± .102;
+- **a wrong arXiv ID** for a key paper (it resolves to an unrelated physics paper), even though the
+  same output says it read that paper's full text from Zotero;
+- **a doubled sample size** (2,000 per gender instead of 2,000 per language);
+- **a guessed method** presented as a differentiator ("GloVe-style setups (check their
+  embeddings)", but they used the same fastText vectors);
+- **misattributed provenance** (which paper a word list came from), a mislabelled statistic, wrong
+  coverage claims (a paper said to cover a language it doesn't), and conflated definitions (a
+  per-word score vs a set-level statistic).
+
+The pattern fits the same mechanism at smaller scale: where the output quotes the paper it's right;
+where it summarises from memory or fills a gap, it invents plausible specifics. The fixes above
+apply here too: numbers should be quoted with a page/section reference and checked against the
+extracted text, and IDs should come from the record actually read (the PDF header shows the arXiv
+ID).
 
 ## What we did locally
 
