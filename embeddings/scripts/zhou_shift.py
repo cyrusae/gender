@@ -7,7 +7,9 @@ _weat_pval cell 230). Notebook quirks kept deliberately (they define the publish
   - doPCA's centre is `a + b/2` (operator precedence), not the pair midpoint;
   - MWEAT uses raw dot products on the (unit-norm) MUSE vectors; test statistic is
     | |sum male-form assoc| - |sum female-form assoc| |;
-  - p-value: 1000 random re-partitions of the occupation words, random.seed(520).
+  - p-value: 1000 random re-partitions of the occupation words, random.seed(520); the share of
+    permutations tying the observed statistic is reported too (upstream Z10).
+Usage: `... zhou_shift.py [es|fr]` (French attributes = the French definitional pairs, as cell 215).
 Table 1 (ES): Original 3.6918 (p 0.000); Shift Ori 0.3090 (p 0.113); Hybrid Ori 0.3090 (p 0.733).
 
     uv run --no-project --python 3.12 --with numpy,scikit-learn python embeddings/scripts/zhou_shift.py
@@ -60,25 +62,28 @@ def nouns(name, w2i):
     return out
 
 
-def mweat(E, w2i, pairs):
+def mweat(E, w2i, pairs, am=WEAT_M, af=WEAT_F):
     tm = tf = 0.0
     for m, f in pairs:
-        tm += np.mean([E[w2i[a]] @ E[w2i[m]] for a in WEAT_M]) - np.mean([E[w2i[a]] @ E[w2i[m]] for a in WEAT_F])
-        tf += np.mean([E[w2i[a]] @ E[w2i[f]] for a in WEAT_M]) - np.mean([E[w2i[a]] @ E[w2i[f]] for a in WEAT_F])
+        tm += np.mean([E[w2i[a]] @ E[w2i[m]] for a in am]) - np.mean([E[w2i[a]] @ E[w2i[m]] for a in af])
+        tf += np.mean([E[w2i[a]] @ E[w2i[f]] for a in am]) - np.mean([E[w2i[a]] @ E[w2i[f]] for a in af])
     return abs(abs(tm) - abs(tf))
 
 
-def pval(E, w2i, pairs, n=1000, seed=520):
+def pval(E, w2i, pairs, n=1000, seed=520, am=WEAT_M, af=WEAT_F):
     random.seed(seed)
-    stat = mweat(E, w2i, pairs)
+    stat = mweat(E, w2i, pairs, am, af)
     tw1 = [m for m, _ in pairs]
+    ties = []
     allw = tw1 + [f for _, f in pairs]
     over = []
     for _ in range(n):
         c = random.sample(allw, len(tw1))
         rest = list(filterfalse(lambda x, c=c: x in c, allw))
-        over.append(mweat(E, w2i, list(zip(c, rest))) > stat)
-    return stat, float(np.mean(over))
+        v = mweat(E, w2i, list(zip(c, rest)), am, af)
+        over.append(v > stat)
+        ties.append(abs(v - stat) < 1e-6)
+    return stat, float(np.mean(over)), float(np.mean(ties))
 
 
 def shift(E, w2i, pairs, ds):
@@ -91,14 +96,17 @@ def shift(E, w2i, pairs, ds):
     return E2
 
 
-def main():
-    OUT.mkdir(parents=True, exist_ok=True)
-    E, w2i = load_vec(Z / "data/wiki.multi.es.vec.txt")
-    occ = [line.rstrip("\n").split("\t") for line in open(Z / "ES_occupation_words_with_EN_translations")]
+def main(lang="es"):
+    out = OUT.parent / f"zhou_shift_{lang}"
+    out.mkdir(parents=True, exist_ok=True)
+    E, w2i = load_vec(Z / f"data/wiki.multi.{lang}.vec.txt")
+    occ = [line.rstrip("\n").split("\t") for line in open(Z / f"{lang.upper()}_occupation_words_with_EN_translations")]
     pairs = [(m, f) for f, m, _ in occ]
-    defs = json.load(open(Z / "ES_definitional_pairs.json"))
+    defs = json.load(open(Z / f"{lang.upper()}_definitional_pairs.json"))
+    # attributes: ES_WEAT_male/female for Spanish; the definitional pairs for French (notebook cell 215)
+    am, af = (WEAT_M, WEAT_F) if lang == "es" else ([b for _, b in defs], [a for a, _ in defs])
     d_pca = pca_dir(defs, E, w2i)
-    m_n, f_n = nouns("masculine_nouns_es", w2i), nouns("feminine_nouns_es", w2i)
+    m_n, f_n = nouns(f"masculine_nouns_{lang}", w2i), nouns(f"feminine_nouns_{lang}", w2i)
     gp = list(zip(f_n, m_n))[:3000]
     X = np.array([E[w2i[w]] for p in gp for w in p])
     y = np.tile([1, 2], len(gp))
@@ -109,14 +117,16 @@ def main():
         g = clf.coef_.reshape(-1)
         dirs[name] = g / np.linalg.norm(g)
         res[f"cos_pca_grammatical_{name}"] = float(abs(d_pca @ dirs[name]))
-    res["original"] = pval(E, w2i, pairs)
+    res["original"] = pval(E, w2i, pairs, am=am, af=af)
     for name, g in dirs.items():
         ds = d_pca - (d_pca @ g) * g / (g @ g)
-        res[f"shift_ori_{name}"] = pval(shift(E, w2i, pairs, ds), w2i, pairs)
-    res["shift_ori_pca_unorthogonalised"] = pval(shift(E, w2i, pairs, d_pca), w2i, pairs)
-    json.dump(res, open(OUT / "results.json", "w"), indent=1)
+        res[f"shift_ori_{name}"] = pval(shift(E, w2i, pairs, ds), w2i, pairs, am=am, af=af)
+    res["shift_ori_pca_unorthogonalised"] = pval(shift(E, w2i, pairs, d_pca), w2i, pairs, am=am, af=af)
+    json.dump(res, open(out / "results.json", "w"), indent=1)
     print(json.dumps(res, indent=1))
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    main(sys.argv[1] if len(sys.argv) > 1 else "es")

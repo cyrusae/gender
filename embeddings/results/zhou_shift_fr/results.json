@@ -1,0 +1,29 @@
+{
+ "n_nouns_in_vocab": [
+  3402,
+  3192
+ ],
+ "n_occupation_pairs": 23,
+ "cos_pca_grammatical_svc": 0.3627691017530251,
+ "cos_pca_grammatical_lda": 0.3598460010872125,
+ "original": [
+  2.3957851954656606,
+  0.0,
+  0.001
+ ],
+ "shift_ori_svc": [
+  0.06501930579704629,
+  0.005,
+  0.945
+ ],
+ "shift_ori_lda": [
+  0.08724278654724582,
+  0.002,
+  0.923
+ ],
+ "shift_ori_pca_unorthogonalised": [
+  0.4316385372666378,
+  0.01,
+  0.531
+ ]
+}
