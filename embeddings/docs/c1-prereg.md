@@ -98,3 +98,18 @@ CIs exclude 0 and all permutation p < 0.0001.
   Exceptions (45 nouns) descriptive only: `results/c1_es/c1_info.json`.
 - Scale: Δ ≈ 0.03 against a mean |s| of 0.023 per noun; small in cosine terms, consistent across
   2,459 nouns.
+
+## Addendum A: French (frozen 2026-11-08, before any French C1 score; PI decision: same design)
+
+- Lexicon: `data/lexicon/fr_nouns.csv`, built by the same rules (`gbleed lexicon --langs fr`;
+  French dump sha256 in `data/lexicon/metadata.json`). Same noun filter (m/f only, inanimate, no
+  multi_type, no also_form, no also_pos), MUSE `wiki.multi.fr.vec`, excluding all of Zhou et
+  al.'s French lists (nouns, definitional pairs, occupations).
+- Frozen list `embeddings/data/c1_nouns_fr_v1.csv` (sha256 0e8687a3…0196e51c): **3,505 nouns in
+  50k (2,022 m, 1,483 f; primary)**, 8,446 in 200k.
+- Attributes: (a) Zhou et al.'s French attribute words = their 10 French definitional pairs
+  (notebook cell 215); (b) the same English definitional words as Spanish.
+- Hybrid alignment: Procrustes on the MUSE fr-en dictionary (5,000 most frequent French entries).
+- Spelling control: nouns with a gender-predicting suffix (`fr_suffix`, a fixed list of 16
+  textbook suffixes: -tion, -ité, -ment, -age…; 1,179 nouns) vs nouns without (2,326).
+- Same arms, measures, prediction (gap survives) and reading rule.

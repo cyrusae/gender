@@ -73,3 +73,13 @@ Per arm × attribute set, OLS on standardised variables:
 2. Bring in Omrani Sabbaghi & Caliskan's erasure (section above).
 3. French: build the French Wiktionary lexicon first; French C1 and French gender ValNorm follow
    the same designs, frozen as addenda before they run.
+
+## Addendum A: French (frozen 2026-11-08, before any French score; PI decision 3)
+
+- Nouns: frozen `embeddings/data/c1_nouns_fr_v1.csv` ∩ Glasgow (concept_en): **813 in 50k
+  (474 m, 339 f; primary)**, 1,276 in 200k.
+- MUSE arms and attributes as French C1 (Addendum A of `c1-prereg.md`); English anchor as Spanish.
+- Omrani Sabbaghi & Caliskan arm: `cc.fr.300.vec`, bugs-fixed inputs, their notebook's French
+  setting of **27** iterations (no table-matching count is known for French); French attributes
+  as in their notebook.
+- Same model and reading rule.
