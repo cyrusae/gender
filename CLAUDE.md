@@ -87,6 +87,13 @@ uv run gbleed phase0-compare [--by freq_bin|set|de_suffix|es_exception]
 - **A pod can't stop itself**: the pod's injected `RUNPOD_API_KEY` (in `/proc/1/environ`, not in ssh sessions) is rejected by `runpodctl` ("Unauthorized"). Stopping is the Mac side's job; keep this session attended while a pod bills.
 - **A local `pgrep -f PATTERN` inside a Monitor script matches the script itself** (its command line contains PATTERN): wait on an output file or log marker instead.
 - **German `strat3` simplex filter gap:** compounds with an agent/instrument head (*Wasserkocher*) and numeral nouns (*Vierer*) passed Phase 3's "simplex" rule; `frequency_axis.complexity_rule` catches them. Any new German set should apply it.
+- **OpenRouter keeps hung requests alive with filler bytes, so a socket `timeout=` never fires**:
+  a 32-worker batch stalled twice (2026-11-08) with the process alive. `gen.py` now enforces a
+  600 s wall-clock deadline per request. Watch batch progress by row count (stall = no new rows),
+  never by "process exists".
+- **A runner must print its end marker only if every step exited 0**: a killed `gen.py` let
+  `run_main_batch.sh` print `MAIN BATCH DONE` anyway, and a waiter took it as the finish. Also,
+  don't edit a bash script while it runs (bash reads it as it goes).
 - **Don't edit a job list a running bash `while read` loop is reading** (it buffers); start a new runner instead.
 
 - **Lengths and cosines of mean differences are noise-biased** (smaller group looks longer; shared reference pushes cosines up): use split-half estimates + a within-cell shuffle null (`estimators.py`).
