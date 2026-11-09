@@ -81,7 +81,8 @@ def main(lang="es"):
         att_m, att_f = WEAT_M, WEAT_F
         regular = nl["es_ending"].isin(["o", "a"]).to_numpy() & nl["es_exception"].isna().to_numpy()
         other = (nl["es_ending"] == "other").to_numpy()
-        else:  # Addendum A: French attributes = Zhou et al.'s French definitional pairs
+        exc = nl["es_exception"].notna().to_numpy()
+    else:  # Addendum A: French attributes = Zhou et al.'s French definitional pairs
         fdefs = json.load(open(Z / "FR_definitional_pairs.json"))
         att_m, att_f = [b for _, b in fdefs], [a for a, _ in fdefs]
         regular = nl["fr_suffix"].notna().to_numpy()
