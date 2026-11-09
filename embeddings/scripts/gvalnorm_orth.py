@@ -1,4 +1,4 @@
-"""Gender ValNorm Addendum B: the ds-orthogonal yardstick (docs/gvalnorm-prereg.md, frozen 63c5812).
+"""Gender ValNorm Addendum B (and C with --fixed-en): the ds-orthogonal yardstick (docs/gvalnorm-prereg.md, frozen 63c5812).
 
 Rebuilds C1's MUSE arms exactly as c1_run.py does, then scores each Glasgow-matched noun with
 s⊥(w) = unit(w) · a⊥, a⊥ = a − (a·ds)ds, a = mean(unit male attr) − mean(unit female attr),
@@ -58,6 +58,9 @@ def main(lang="es"):
             if name:
                 spaces[name] = (S, EN, ds)
 
+    fixed = "--fixed-en" in sys.argv  # Addendum C: Hybrid arms scored with ORIGINAL English attributes
+    if fixed:
+        spaces = {k: (S, en, ds) for k, (S, _, ds) in spaces.items() if k.startswith(("1_", "4"))}
     rows, desc = [], []
     for arm, (E, EN, ds) in spaces.items():
         for att, (M, F) in {lang: (E[[w2i[w] for w in att_m]], E[[w2i[w] for w in att_f]]),
@@ -65,15 +68,19 @@ def main(lang="es"):
             a = unit(M).mean(0) - unit(F).mean(0)
             a_perp = a - (a @ ds) * ds
             gn[f"{arm}|{att}|perp"] = unit(E[test_rows]) @ a_perp
+            gn[f"{arm}|{att}|full"] = unit(E[test_rows]) @ a
             desc.append({"arm": arm, "attributes": att, "cos_a_ds": float(a @ ds / np.linalg.norm(a))})
             for vocab in ("50k", "200k"):
                 dv = gn[gn["in_50k"]] if vocab == "50k" else gn
+                main_col = f"{arm}|{att}|full" if fixed else f"{arm}|{att}"
+                fm = fit(dv, main_col)
                 rows.append({"vocab": vocab, "arm": arm, "attributes": att, **fit(dv, f"{arm}|{att}|perp"),
-                             "beta_H_main": fit(dv, f"{arm}|{att}")["beta_H"]})  # fmt: skip
+                             "beta_H_main": fm["beta_H"], "beta_H_main_lo": fm["beta_H_lo"], "beta_H_main_hi": fm["beta_H_hi"]})  # fmt: skip
     res = pd.DataFrame(rows)
     res["share_beta_H_off_axis"] = res["beta_H"] / res["beta_H_main"]
-    res.to_csv(out / "gvalnorm_orth_fits.csv", index=False)
-    pd.DataFrame(desc).to_csv(out / "gvalnorm_orth_cos.csv", index=False)
+    tag = "fixed_en" if fixed else "orth"
+    res.to_csv(out / f"gvalnorm_{tag}_fits.csv", index=False)
+    pd.DataFrame(desc).to_csv(out / f"gvalnorm_{tag}_cos.csv", index=False)
     ver = []
     for att in res["attributes"].unique():
         p = res.query("vocab=='50k' and attributes==@att").set_index("arm")
@@ -83,8 +90,13 @@ def main(lang="es"):
                         "beta_H_lo": p.loc[arm].beta_H_lo, "beta_H_hi": p.loc[arm].beta_H_hi,
                         "tracks_off_axis": bool(p.loc[arm].beta_H_lo > 0) if arm == "1_original" else None,
                         "beta_H_verdict": None if arm == "1_original" else verdict(p.loc[arm], base, "beta_H"),
-                        "share_off_axis": p.loc[arm].share_beta_H_off_axis})  # fmt: skip
-    pd.DataFrame(ver).to_csv(out / "gvalnorm_orth_verdicts.csv", index=False)
+                        "share_off_axis": p.loc[arm].share_beta_H_off_axis,
+                        "beta_H_full": p.loc[arm].beta_H_main, "beta_H_full_lo": p.loc[arm].beta_H_main_lo,
+                        "beta_H_full_hi": p.loc[arm].beta_H_main_hi,
+                        "full_verdict": None if arm == "1_original" else verdict(
+                            {"beta_H": p.loc[arm].beta_H_main, "beta_H_lo": p.loc[arm].beta_H_main_lo,
+                             "beta_H_hi": p.loc[arm].beta_H_main_hi}, {"beta_H": base.beta_H_main}, "beta_H")})  # fmt: skip
+    pd.DataFrame(ver).to_csv(out / f"gvalnorm_{tag}_verdicts.csv", index=False)
     with pd.option_context("display.width", 220, "display.max_columns", 30):
         print(pd.DataFrame(desc).round(3).to_string(index=False))
         print(pd.DataFrame(ver).round(3).to_string(index=False))
@@ -92,4 +104,4 @@ def main(lang="es"):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "es")
+    main(next((a for a in sys.argv[1:] if not a.startswith("--")), "es"))
