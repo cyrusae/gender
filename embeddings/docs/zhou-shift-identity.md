@@ -115,3 +115,30 @@ Verdicts PARTLY / PARTLY / PARTLY. Refinements adopted here (spot-checked agains
   offset; cell 211 appends doctora/doctor (59 pairs in that list; the released file has 58).
 - The agent's own reconstruction gave 0.1155 (not 0.3087) because it didn't have our d_s/pair
   choices; the identity matched to machine precision on its numbers too.
+
+## 6. Second blind check (Gemini, different model family; `~/zhou-blind-check/REPORT.md`, 2026-11-08)
+
+Verdicts CONFIRMED / CONFIRMED / CONFIRMED, with its own derivation, code and cell citations (it
+matched the original 3.6918 exactly and the identity to 3.6e-15 across 10 random directions).
+- Its derivation assumes the opposite-sign case; the Sonnet check's same-sign branch (§5) still
+  applies.
+- **New, and it extends Z10 to the Original column.** For any split of the 2n words into two
+  halves with sums x, y (x + y = S_all fixed), ‖x| − |y‖ ≤ |x + y| = |S_all|, with equality iff x, y
+  have opposite signs. So whenever the *observed* masculine and feminine totals have opposite
+  signs, the observed statistic **is the maximum of its own permutation distribution**: the strict
+  `stat > test_stat` p-value is 0 by construction, and a `≥` p-value equals the tie share. This
+  holds **before** mitigation too: original ES T_m = +2.990, T_f = −6.682 (opposite signs);
+  20,000 permutations: 0 greater, 5 ties, max permutation statistic 3.691823 = observed. FR:
+  T_m = +1.011, T_f = −3.407; 0 greater, 12 ties, max = observed 2.395785
+  (`scripts/zhou_perm_max.py`). **Table 1's "Original p = 0.000" is therefore also guaranteed,
+  not evidence.** In this configuration the statistic equals |Σ over all occupation words of
+  w·a|: the net lean of all occupation forms together (here: feminine forms lean female more
+  strongly than masculine forms lean male), not a test of masculine-vs-feminine asymmetry.
+- Notebook detail it found, verified by us: the LDA attempts **crashed** (cells 75 and 86:
+  `ValueError: Internal work array size computation failed: -10`); the 0.389 comes from LinearSVC
+  (cells 73, 77). Strengthens Z1.
+- Its cell index 217 for `modified_WEAT` is also correct: the function is defined twice (cells 217
+  and 222, slightly different sources).
+- Its remark that the paper's displayed formula without absolute values would give exactly 0
+  change under Shift is right algebraically (Shift leaves T_m − T_f unchanged); which formula the
+  paper displays in §4.2 is recorded in the lit-verification table (absolute values inside each sum).
