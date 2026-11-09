@@ -1,6 +1,6 @@
-# Gender ValNorm on Spanish inanimate nouns (DRAFT pre-registration)
+# Gender ValNorm on Spanish inanimate nouns (pre-registration)
 
-*Status: DRAFT, 2026-11-08, written by Claude for the PI. Nothing adopted. The English pilot
+*Status: **ADOPTED by the PI, 2026-11-08** (decisions below). Written by Claude. The English pilot
 (`results/gvalnorm_en/`) is a validity check and is done (r = 0.584 vs Lewis & Lupyan's 0.59).
 C1's per-noun scores exist (`results/c1_es/c1_per_noun.csv`), but **no score has been compared
 with Glasgow ratings**; only the coverage count below was computed.*
@@ -53,11 +53,23 @@ Per arm × attribute set, OLS on standardised variables:
 - If the English anchor's r on these concepts is itself < 0.2 (the human signal isn't in the
   English embeddings for this noun set), report "no valid test" for β_H.
 
-## Open decisions for the PI
+## Arm added at adoption: Omrani Sabbaghi & Caliskan's erasure
 
-1. Primary vocabulary 50k (547 nouns) with 200k (1,139) as sensitivity, matching C1? Recommended.
-2. Add Omrani Sabbaghi & Caliskan's erasure (fastText Common Crawl, a different space) as a further
-   arm, using the same nouns and English Glasgow ratings with Spanish attributes only (CC spaces
-   aren't aligned to English)? Recommended as a second step once this one is adopted.
-3. French: needs a French Wiktionary lexicon first (dump downloading now); the same design would
-   apply.
+- Space: fastText Common Crawl `cc.es.300.vec` (first 1M words, as their notebook), their
+  iterative LinearSVC erasure with the **bugs-fixed** inputs (`scripts/gg_heldout.py --minfix`:
+  deduplicated noun lists, two-gender words dropped), applied to every word as in their method.
+- Stopping points: **14** iterations (their notebook) and **28** (their tables), both reported
+  (upstream O6).
+- Attributes: their (= Zhou's) Spanish 8 + 8 words, which are erased too, as in their method. CC
+  spaces aren't aligned to English, so no English-attribute version and no English anchor here.
+- Nouns: the same Glasgow-matched C1 nouns, restricted to the CC vocabulary; any C1 noun in their
+  erasure training pairs is dropped from this arm (counted and reported).
+- Same model, measures and reading rule; "original" for this arm = CC before erasure.
+
+## PI decisions (2026-11-08)
+
+1. 50k primary, 200k sensitivity, as C1. (50k = the slice of the MUSE file Zhou et al. load;
+   200k = the whole MUSE file. Not a ratio, the two natural boundaries of these files.)
+2. Bring in Omrani Sabbaghi & Caliskan's erasure (section above).
+3. French: build the French Wiktionary lexicon first; French C1 and French gender ValNorm follow
+   the same designs, frozen as addenda before they run.
