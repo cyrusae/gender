@@ -168,3 +168,25 @@ arm 2 ("as implemented") is **our reconstruction**, not Zhou et al.'s released c
 notebook never applies Eq. (2) and loads its Spanish Shift Ori file from outside (Z15). Read arm 2
 as "Eq. (2) on Zhou et al.'s own noun list only" and arm 3 as "Eq. (2) on every inanimate noun".
 Results are unchanged; only the label's claim about their code is withdrawn.
+
+## Addendum C: fixed English yardstick for the Hybrid arms (frozen 2026-11-08, before any C score)
+
+**Why.** In Hybrid, the English attribute words come from the hard-debiased English space.
+Bolukbasi's equalize step rebuilds 16 of our 20 English attribute words (woman/man, she/he, her/his,
+mother/father…; all but gal/guy, mary/john) so each pair differs only along the English gender
+direction, and neutralizes mary/john. So "Hybrid removes the off-axis signal" (Addendum B) may be
+the yardstick moving (the O7/Z12 pattern on the English side), not the nouns changing.
+
+**Test.** Hybrid arms (4a, 4b) re-scored with the **original, un-debiased English MUSE** attribute
+vectors (same coordinate system: hard debiasing edits individual vectors, it doesn't rotate the
+space). Both the full yardstick a and the ds-orthogonal a⊥ (Addendum B). Same nouns, model,
+bootstrap and reading rule; reference = the original arm with original English attributes.
+
+**Reading, fixed now:** if β_H (full, and off-axis) under Hybrid with the fixed yardstick
+"survives" relative to the original arm, Hybrid's earlier "removed" was the yardstick moving;
+if it is "removed" with the fixed yardstick too, Hybrid changed the nouns.
+
+**Stated caveat (not tested here):** an English yardstick in an aligned space can carry English
+stereotypes into the measurement; "present with the English yardstick" may be partly English
+stereotype imported by the alignment. This test separates yardstick movement from noun movement,
+not Spanish from English stereotype.
