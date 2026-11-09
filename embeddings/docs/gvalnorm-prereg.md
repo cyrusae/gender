@@ -190,3 +190,27 @@ if it is "removed" with the fixed yardstick too, Hybrid changed the nouns.
 stereotypes into the measurement; "present with the English yardstick" may be partly English
 stereotype imported by the alignment. This test separates yardstick movement from noun movement,
 not Spanish from English stereotype.
+
+### Addendum C results (2026-11-08; runner committed before the run; `results/gvalnorm_{es,fr}/gvalnorm_fixed_en_*.csv`)
+
+English attributes taken from the **original** English space for every arm (50k). Reference = original arm.
+
+| β_H, English yardstick | Spanish off-axis | Spanish full | French off-axis | French full |
+|---|---|---|---|---|
+| original | 0.150 [0.074, 0.228] | 0.337 | 0.206 [0.141, 0.274] | 0.279 |
+| Hybrid, debiased-English yardstick (Addendum B / main) | −0.035 removed | 0.171 | −0.022 removed | 0.077 |
+| **Hybrid, fixed original yardstick** | **−0.043 [−0.126, 0.035] reduced*** | 0.182 survives | **−0.004 [−0.068, 0.061] removed** | 0.104 reduced |
+| Hybrid as specified, fixed yardstick | −0.044 reduced* | −0.044 removed | −0.004 removed | −0.004 removed |
+
+\* "reduced" only because |−0.043| is 0.29× the original, just above the 0.25 bar; the CI covers 0
+and the sign has flipped.
+
+- **The off-axis stereotype signal stays gone with the fixed yardstick.** Hybrid's removal was not
+  the English yardstick being rebuilt by equalization; swapping the yardstick back changes the
+  off-axis β_H by < 0.02.
+- What Hybrid changes is the **cross-lingual** relation: Spanish/French nouns are rotated onto
+  hard-debiased English, so their position relative to the (original) English gender words moves.
+  Spanish-internal geometry is untouched (rotation), which is why no Spanish-only measure,
+  including Table 1, can see it (Z11).
+- Caveat from the addendum stands: an English yardstick can import English stereotype through the
+  alignment; this test rules out yardstick movement, not that.
