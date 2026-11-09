@@ -162,3 +162,9 @@ bootstrap and reading rules; MUSE arms only (Omrani's erasure doesn't use ds).
 - Shift arms with native attributes: cos(a, ds) falls to 0.09 (ES) / 0.68 (FR) because Zhou's
   noun list contains the attribute words, which get projected (Z12); shares of 1.0 in the
   as-specified arms are trivial (ds already removed from the nouns).
+
+**Correction (2026-11-08, after reading the notebook cell by cell, `docs/zhou-shift-identity.md`):**
+arm 2 ("as implemented") is **our reconstruction**, not Zhou et al.'s released code: the released
+notebook never applies Eq. (2) and loads its Spanish Shift Ori file from outside (Z15). Read arm 2
+as "Eq. (2) on Zhou et al.'s own noun list only" and arm 3 as "Eq. (2) on every inanimate noun".
+Results are unchanged; only the label's claim about their code is withdrawn.

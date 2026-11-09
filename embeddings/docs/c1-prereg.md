@@ -131,3 +131,9 @@ CIs exclude 0 and all permutation p < 0.0001.
   it comes from suffix-less nouns (0.0074). Aligning to hard-debiased English again inflates it
   (2.5–2.9×).
 - Spelling control (French attributes): suffixed 0.027, no suffix 0.026; both survive.
+
+**Correction (2026-11-08, after reading the notebook cell by cell, `docs/zhou-shift-identity.md`):**
+arm 2 ("as implemented") is **our reconstruction**, not Zhou et al.'s released code: the released
+notebook never applies Eq. (2) and loads its Spanish Shift Ori file from outside (Z15). Read arm 2
+as "Eq. (2) on Zhou et al.'s own noun list only" and arm 3 as "Eq. (2) on every inanimate noun".
+Results are unchanged; only the label's claim about their code is withdrawn.

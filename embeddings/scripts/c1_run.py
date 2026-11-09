@@ -1,7 +1,8 @@
 """C1: Zhou et al.'s inanimate-noun score after Zhou et al.'s mitigation (embeddings/docs/c1-prereg.md,
 adopted 2026-11-08). Test nouns: frozen embeddings/data/c1_nouns_es_v1.csv.
 
-Arms: 1 original; 2 Shift Ori as implemented (occupation pairs shifted, the semantic direction
+Arms: 1 original; 2 Shift Ori "as implemented" = OUR RECONSTRUCTION (released code never applies
+Eq. 2; see docs/zhou-shift-identity.md) (occupation pairs shifted, the semantic direction
 projected out of Zhou et al.'s own noun lists only, so our nouns are untouched); 3 Shift Ori as
 specified (Eq. 2: semantic direction projected out of every inanimate noun, ours included);
 4 Hybrid Ori (Spanish mapped onto hard-debiased English, `zhou_hybrid.py`), as implemented and as
