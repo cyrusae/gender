@@ -233,8 +233,15 @@ def or_call(body: dict, key: str, tries: int = 9) -> dict:
     err = ""
     for i in range(tries):
         try:
+            # wall-clock deadline: OpenRouter keeps idle connections alive with whitespace, so a
+            # per-read socket timeout alone never fires on a hung request (stall 2026-11-08)
+            t0, buf = time.monotonic(), b""
             with urllib.request.urlopen(req, timeout=180) as r:
-                d = json.loads(r.read())
+                while chunk := r.read(65536):
+                    buf += chunk
+                    if time.monotonic() - t0 > 600:
+                        raise TimeoutError("request exceeded 600 s wall clock")
+            d = json.loads(buf)
             if "choices" in d:
                 return d
             err = json.dumps(d.get("error", d))[:500]
@@ -283,7 +290,7 @@ def run_openrouter(ocfg: dict, prompts: list[str], sp: dict, n: int, seed: int, 
                  "reasoning": msg.get("reasoning"), "native_finish_reason":
                  ch.get("native_finish_reason"), "service_tier": d.get("service_tier")})  # fmt: skip
 
-    with ThreadPoolExecutor(max_workers=8) as ex:
+    with ThreadPoolExecutor(max_workers=int(os.environ.get("GEN_WORKERS", "8"))) as ex:
         futs = {ex.submit(one, ij): ij for ij in jobs}
         for f in as_completed(futs):
             on_result(*futs[f], f.result())
@@ -330,6 +337,11 @@ def main() -> None:
         for r in csv.DictReader(gpath.read_text().splitlines()):
             if r.get("gender"):
                 gend.setdefault(r["en"], {})[r["lang"]] = r["gender"]
+        # pilot translation files carry genders as <lang>_g columns (smoke tests on burned nouns)
+        for r in csv.DictReader(args.translations.read_text().splitlines()):
+            for lg in ("de", "es"):
+                if r.get(f"{lg}_g") in ("m", "f", "n"):
+                    gend.setdefault(r["en"], {}).setdefault(lg, r[f"{lg}_g"])
         items = build_writer_main(
             cfg, nouns, load_translations(args.translations), LANG_NAMES, gend
         )
