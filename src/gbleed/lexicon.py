@@ -34,7 +34,7 @@ from . import paths
 
 NLTK_DIR = Path("data/raw/nltk_data")
 LEX_DIR = Path("data/lexicon")
-LANG_NAMES = {"de": "German", "es": "Spanish", "ru": "Russian"}
+LANG_NAMES = {"de": "German", "es": "Spanish", "ru": "Russian", "fr": "French"}
 URL = "https://kaikki.org/dictionary/{name}/kaikki.org-dictionary-{name}.jsonl"
 
 GENDER_TAGS = {"masculine": "m", "feminine": "f", "neuter": "n"}
@@ -59,6 +59,7 @@ WORD_RE = {
     "de": re.compile(r"^[A-ZÄÖÜ][a-zäöüß]+$"),  # nouns are capitalised; no compounds w/ hyphens
     "es": re.compile(r"^[a-záéíóúüñ]+$"),
     "ru": re.compile(r"^[а-яё]+$"),  # page titles are unstressed and lowercase
+    "fr": re.compile(r"^[a-zàâäçéèêëîïôöùûüÿœæ]+$"),  # no elided, hyphenated or multiword forms
 }
 
 # ---- animacy heuristics -----------------------------------------------------
@@ -131,6 +132,24 @@ def es_morphology(word: str, gender: str, etymology: str, sense_tags: set[str]) 
         # Stress isn't in the data, so flag every feminine a-/ha- noun.
         "initial_a_f": gender == "f" and bool(re.match(r"^h?[aá]", word)),
     }
+
+
+# French suffixes with a strong gender tendency (standard grammar-book lists); used to split
+# the spelling cue from the rest. -e alone is a weak feminine cue, recorded separately.
+FR_SUFFIXES = [
+    ("tion", "f"), ("sion", "f"), ("ité", "f"), ("té", "f"), ("ure", "f"), ("ette", "f"),
+    ("ence", "f"), ("ance", "f"), ("ise", "f"), ("ade", "f"),
+    ("ment", "m"), ("age", "m"), ("isme", "m"), ("eau", "m"), ("oir", "m"), ("ier", "m"),
+]  # fmt: skip
+
+
+def fr_morphology(word: str, gender: str) -> dict:
+    suf, cue = next(((s, g) for s, g in FR_SUFFIXES if word.endswith(s) and len(word) >= len(s) + 2), ("", ""))
+    if suf:
+        regular = "yes" if gender == cue else "no" if gender in ("m", "f") else ""
+    else:
+        regular = ""
+    return {"fr_suffix": "-" + suf if suf else "", "fr_suffix_regular": regular, "fr_final_e": word.endswith("e")}
 
 
 def ru_head(expansion: str) -> str:
@@ -516,6 +535,8 @@ def build_lexicon(lang: str, force_download: bool = False) -> pd.DataFrame:
             row["de_suffix"] = de_suffix(word)
         elif lang == "ru":
             row.update(ru_morphology(word, gender, tags, [h for e in ents for h in e["heads"]]))
+        elif lang == "fr":
+            row.update(fr_morphology(word, gender))
         else:
             row.update(es_morphology(word, gender, first["etymology"], tags))
         rows.append(row)

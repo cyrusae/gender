@@ -51,5 +51,22 @@
       "animate": 5540,
       "uncertain": 3032
     }
+  },
+  "fr": {
+    "url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+    "dump_mtime": "2026-11-08T23:29:46.550000+00:00",
+    "dump_sha256": "9053b1845fb3e045fa1fbe3f749122fa43e21b49bfa741cadd50255ae6ca0126",
+    "built": "2026-11-09T04:36:17+00:00",
+    "n_lemmas": 38583,
+    "by_gender": {
+      "m": 20656,
+      "f": 15768,
+      "multi": 2159
+    },
+    "by_animacy": {
+      "inanimate": 20629,
+      "uncertain": 10325,
+      "animate": 7629
+    }
   }
 }

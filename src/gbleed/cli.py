@@ -32,7 +32,7 @@ def main() -> None:
     )
 
     pl = sub.add_parser("lexicon", help="Build noun lexicons from Wiktionary (kaikki.org)")
-    pl.add_argument("--langs", nargs="*", default=["de", "es"], choices=["de", "es", "ru"])
+    pl.add_argument("--langs", nargs="*", default=["de", "es"], choices=["de", "es", "ru", "fr"])
     pl.add_argument("--redownload", action="store_true")
 
     sub.add_parser("classics", help="Look up genders for data/stimuli/classics_spec.csv")
