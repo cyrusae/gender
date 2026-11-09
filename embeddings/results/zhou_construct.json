@@ -1,0 +1,30 @@
+{
+ "es": {
+  "cos_attr_axis_ds": 0.822659567374267,
+  "cos_attr_axis_d_pca": 0.9103822630929524,
+  "cos_attr_axis_grammatical": 0.3921318464612398,
+  "share_of_attr_axis_along_ds": 0.6767687637924162,
+  "mweat_original": 3.691822671719958,
+  "mweat_original_ds_part_removed_from_attr_axis": 0.3087477428312233,
+  "mweat_after_shift": 0.30874774283122175,
+  "mweat_after_shift_ds_part_removed": 0.3087477428312231,
+  "after_shift_Tm_Tf": [
+   4.990122215685754,
+   -4.681374472854532
+  ]
+ },
+ "fr": {
+  "cos_attr_axis_ds": 0.8767061942845372,
+  "cos_attr_axis_d_pca": 0.9667542199987014,
+  "cos_attr_axis_grammatical": 0.4128523536523749,
+  "share_of_attr_axis_along_ds": 0.7686137510968767,
+  "mweat_original": 2.3957851954656615,
+  "mweat_original_ds_part_removed_from_attr_axis": 0.06501930579704651,
+  "mweat_after_shift": 0.06501930579704673,
+  "mweat_after_shift_ds_part_removed": 0.0650193057970464,
+  "after_shift_Tm_Tf": [
+   2.2415700685820488,
+   -2.176550762785002
+  ]
+ }
+}
