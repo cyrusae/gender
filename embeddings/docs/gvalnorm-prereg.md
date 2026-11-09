@@ -114,3 +114,26 @@ translation) beyond grammatical gender and frequency; β_G = grammatical gender.
 - In French the human-rated component is smaller and more resistant: Shift as implemented leaves
   it at 85% (the French attribute words sit in Zhou's French noun list, Z12).
 - Limitation: ratings are British judgments of the English translation.
+
+## Addendum B: a yardstick independent of the shifted direction (PI, 2026-11-08; frozen before any B score)
+
+**Why.** Zhou et al.'s Shift moves words only along the orthogonalised semantic direction ds, and
+the Spanish/French attribute axis lies mostly along ds (cos 0.82 ES, 0.88 FR; upstream Z14). So
+part of what the main analysis reads as "the stereotype component removed" is built in.
+
+**Score.** For each arm and attribute set, a = mean(unit male attribute vectors) − mean(unit
+female attribute vectors) is replaced by a⊥ = a − (a·ds)ds, with ds the arm's own orthogonalised
+semantic direction (as computed in C1); s⊥(w) = unit(w) · a⊥. Same nouns (Glasgow-matched C1,
+50k primary, 200k sensitivity), same model (s⊥_z = β_G·masc + β_H·GEND_z + β_F·zipf_z),
+bootstrap and reading rules; MUSE arms only (Omrani's erasure doesn't use ds).
+
+**Questions and readings, fixed now:**
+1. **Primary: is there stereotype information off the semantic axis?** In the original space,
+   "tracks human ratings off-axis" if β_H(s⊥) has a 95% CI excluding 0 and is > 0, separately for
+   each language × attribute set.
+2. Mitigation verdicts on s⊥ use the main rule. **Expected by construction, so not counted as
+   evidence:** the Shift arms change s⊥ only through renormalising the shifted words, so they
+   should leave β_H(s⊥) nearly unchanged. Hybrid arms are the informative ones here (different
+   space, debiased-English attributes).
+3. Reported descriptively: cos(a, ds) per arm × attribute set, and the share of the original
+   β_H that remains on s⊥ (β_H(s⊥) / β_H(s)).
