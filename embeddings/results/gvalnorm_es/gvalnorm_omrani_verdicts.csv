@@ -1,0 +1,3 @@
+iters,beta_H_before,beta_H_after,tracks_human_ratings_before,beta_H_verdict,beta_G_before,beta_G_after,beta_G_verdict
+14,0.13344256206368085,0.2607664236836943,True,survives,1.8260850140510236,1.0790966448417978,survives
+28,0.13344256206368085,0.25466942562812533,True,survives,1.8260850140510236,1.0454691237487375,survives

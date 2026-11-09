@@ -1,0 +1,56 @@
+{
+ "14": {
+  "in_cc_vocab": 1119,
+  "dropped_in_training_pairs": 114,
+  "final_heldout_acc": 0.5189024390243903,
+  "attributes": [
+   [
+    "hombre",
+    "niño",
+    "padre",
+    "masculino",
+    "abuelo",
+    "esposo",
+    "hijo",
+    "tio"
+   ],
+   [
+    "niña",
+    "femenina",
+    "tía",
+    "hija",
+    "esposa",
+    "mujer",
+    "madre",
+    "abuela"
+   ]
+  ]
+ },
+ "28": {
+  "in_cc_vocab": 1119,
+  "dropped_in_training_pairs": 114,
+  "final_heldout_acc": 0.5259146341463414,
+  "attributes": [
+   [
+    "hombre",
+    "niño",
+    "padre",
+    "masculino",
+    "abuelo",
+    "esposo",
+    "hijo",
+    "tio"
+   ],
+   [
+    "niña",
+    "femenina",
+    "tía",
+    "hija",
+    "esposa",
+    "mujer",
+    "madre",
+    "abuela"
+   ]
+  ]
+ }
+}

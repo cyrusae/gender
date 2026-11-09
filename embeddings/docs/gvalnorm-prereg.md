@@ -214,3 +214,27 @@ and the sign has flipped.
   including Table 1, can see it (Z11).
 - Caveat from the addendum stands: an English yardstick can import English stereotype through the
   alignment; this test rules out yardstick movement, not that.
+
+## Results, Omrani Sabbaghi & Caliskan erasure arm, Spanish (2026-11-08; `scripts/gvalnorm_omrani.py` committed 64b4b4e before results; `results/gvalnorm_es/gvalnorm_omrani_*`)
+
+CC fastText (`cc.es.300.vec`), bugs-fixed inputs, their Spanish attributes (erased too). Nouns:
+Glasgow-matched C1 nouns in the CC vocabulary (1,119), minus 114 in their training pairs →
+**460 at 50k**, 1,005 at 200k. Held-out accuracy after erasure 0.519 (14) / 0.526 (28).
+
+| 50k | before | after 14 iter | after 28 iter |
+|---|---|---|---|
+| β_H (standardised) | 0.133 [0.084, 0.178] | 0.261 **survives** | 0.255 **survives** |
+| β_G (standardised) | 1.826 | 1.079 **survives** | 1.045 **survives** |
+| raw m − f gap in s (cosine units) | 0.112 | 0.032 | 0.032 |
+| SD of s | 0.060 | 0.028 | 0.030 |
+| β_H in raw units (β_H × SD of s) | 0.0080 | 0.0072 | 0.0076 |
+
+- Pre-registered verdicts: **both components "survive"**; 200k agrees.
+- **Read with the raw numbers:** the erasure removes ~72% of the raw masculine/feminine gap on
+  these held-out nouns but leaves a residual 0.03 (Omrani's own SC-WEAT effect sizes go to ≈ 0,
+  a per-word normalised score; ours is the raw mean-cosine difference). The stereotype component
+  is **unchanged in raw units** (0.0080 → 0.0072–0.0076); it only grows in standardised terms
+  because the grammatical variance it sits beside shrinks.
+- So the erasure targets grammatical gender and does not touch the human-rated (stereotype)
+  component, as designed. The standardised rule's "survives" for β_G overstates what remains;
+  note for the write-up that the standardised verdicts are relative to the remaining variance.
