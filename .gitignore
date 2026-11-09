@@ -87,3 +87,6 @@ results/confidence_ctl/p31/
 
 # ---- Parallel git worktrees (git worktree list) ----
 worktrees/
+
+# main-run raw outputs: too big for git; gzipped copies on the external drive (MANIFEST.sha256)
+character/results/main_v1/*.jsonl
