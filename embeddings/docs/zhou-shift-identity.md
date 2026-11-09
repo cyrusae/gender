@@ -94,3 +94,24 @@ attribute axis orthogonal to d_s. It doesn't depend on which word of a pair is "
 `embeddings/scripts/zhou_construct.py` → `embeddings/results/zhou_construct.json` (MUSE
 `wiki.multi.{es,fr}.vec`, first 50k words; LinearSVC grammatical direction, which reproduces the
 paper's 0.389, see Z1).
+
+## 5. Blind check (fresh Claude Sonnet agent, no access to this repo; `~/zhou-blind-check-claude/REPORT.md`, 2026-11-08)
+
+Verdicts PARTLY / PARTLY / PARTLY. Refinements adopted here (spot-checked against the notebook):
+- **Same-sign branch:** if T_m, T_f have the same sign after Shift, the statistic equals |T_m − T_f|,
+  which Shift also leaves unchanged (the common offset cancels). So in *either* case the post-Shift
+  value is fixed before shifting; only which fixed number depends on the sign pattern.
+- **Conditions:** raw dot products (notebook cell 222, lines 15–19; the paper says cosine; with
+  cosines the identity breaks because shifting changes norms); each word in one pair; d_s fixed.
+- **"Fixed by the original embeddings" is too strong:** the value depends on the estimated d_s and
+  the chosen attribute words. "Fixed before the shift, given d_s and the attributes" is accurate.
+- **The definitional pairs are shifted too** (cells 279, 292; FR 293, 296, 297), and 10 of the 16
+  Spanish WEAT attribute words are definitional words (hija, hijo, hombre, madre, masculino, mujer,
+  niña, niño, padre, tía). So in the notebook's own pipeline the **attribute words are moved along
+  d_s via Eq. (4)** (not via Eq. 2). The identity still holds with the post-shift a (agent checked).
+  This upgrades the part of Z12 that concerns Eq. (4) from inference to observed code; which
+  embedding produced Table 1 remains unknown (cell 14).
+- Further slips: cell 274 line 4 mixes the aligned and the original French embeddings in one
+  offset; cell 211 appends doctora/doctor (59 pairs in that list; the released file has 58).
+- The agent's own reconstruction gave 0.1155 (not 0.3087) because it didn't have our d_s/pair
+  choices; the identity matched to machine precision on its numbers too.
