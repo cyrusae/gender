@@ -238,3 +238,23 @@ Glasgow-matched C1 nouns in the CC vocabulary (1,119), minus 114 in their traini
 - So the erasure targets grammatical gender and does not touch the human-rated (stereotype)
   component, as designed. The standardised rule's "survives" for β_G overstates what remains;
   note for the write-up that the standardised verdicts are relative to the remaining variance.
+
+## Results, Omrani erasure arm, French (2026-11-08; same script; 27 iterations, Addendum A)
+
+`cc.fr.300.vec`, bugs-fixed inputs, their French attributes. 1,270 Glasgow-matched C1 nouns in the
+CC vocabulary minus 317 in their training pairs → **510 at 50k**, 953 at 200k. Held-out accuracy
+after erasure 0.463.
+
+| 50k | before | after 27 iter |
+|---|---|---|
+| β_H (standardised) | 0.122 [0.070, 0.171] | 0.272 **survives** |
+| β_G (standardised) | 1.734 | 0.143 [−0.029, 0.327] **removed** |
+| raw m − f gap in s | 0.092 | 0.004 |
+| SD of s | 0.052 | 0.024 |
+| β_H in raw units | 0.0064 | 0.0066 |
+
+- French erasure removes the grammatical gap almost completely (−95% raw; standardised verdict
+  "removed"; 200k: β_G 0.28, CI excludes 0, "reduced"), more than Spanish (−72%, a 0.03 residual).
+- The stereotype component is again **unchanged in raw units** (0.0064 → 0.0066): Omrani
+  Sabbaghi & Caliskan's erasure removes grammatical gender and leaves the human-rated part, in
+  both languages.

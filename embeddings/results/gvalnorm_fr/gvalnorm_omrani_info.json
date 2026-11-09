@@ -1,0 +1,29 @@
+{
+ "27": {
+  "in_cc_vocab": 1270,
+  "dropped_in_training_pairs": 317,
+  "final_heldout_acc": 0.46278941565600884,
+  "attributes": [
+   [
+    "garçon",
+    "père",
+    "masculin",
+    "mari",
+    "fils",
+    "oncle",
+    "homme",
+    "mâle"
+   ],
+   [
+    "demoiselle",
+    "féminin",
+    "tante",
+    "fille",
+    "femme",
+    "mère",
+    "épouse",
+    "femelle"
+   ]
+  ]
+ }
+}
