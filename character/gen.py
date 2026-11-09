@@ -233,8 +233,15 @@ def or_call(body: dict, key: str, tries: int = 9) -> dict:
     err = ""
     for i in range(tries):
         try:
+            # wall-clock deadline: OpenRouter keeps idle connections alive with whitespace, so a
+            # per-read socket timeout alone never fires on a hung request (stall 2026-11-08)
+            t0, buf = time.monotonic(), b""
             with urllib.request.urlopen(req, timeout=180) as r:
-                d = json.loads(r.read())
+                while chunk := r.read(65536):
+                    buf += chunk
+                    if time.monotonic() - t0 > 600:
+                        raise TimeoutError("request exceeded 600 s wall clock")
+            d = json.loads(buf)
             if "choices" in d:
                 return d
             err = json.dumps(d.get("error", d))[:500]
