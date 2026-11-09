@@ -18,6 +18,11 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+from gbleed.lexicon import _wordnet  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
 Z = ROOT / "embeddings/external/Bias_in_Gendered_Languages"
 OUT = ROOT / "embeddings/data"
@@ -44,16 +49,41 @@ def excluded(lang):
     return ex
 
 
+def person_share(wn, concept):
+    """Share of WordNet (SemCor-tagged) usage of the English gloss that is noun.person; when no
+    sense has a usage count, the share of senses that are noun.person. The lexicon's own animacy
+    flag deliberately errs toward 'animate' (safe for inanimate lists, wrong for person lists):
+    'licuado' (smoothie) is animate there because WordNet's first sense of smoothie is a person."""
+    for c in (str(concept).replace(" ", "_"), str(concept).split(" of ")[0].split()[-1] if str(concept).strip() else ""):
+        lem = wn.lemmas(c, pos="n") if c else []
+        if lem:
+            cnt = [x.count() for x in lem]
+            per = [x.synset().lexname() == "noun.person" for x in lem]
+            if sum(cnt):
+                return sum(n for n, p in zip(cnt, per) if p) / sum(cnt)
+            return sum(per) / len(per)
+    return np.nan
+
+
 def build(lang):
     d = pd.read_csv(ROOT / f"data/lexicon/{lang}_nouns.csv", low_memory=False)
+    wn = _wordnet()
+    d["person_share"] = d["concept_en"].map(lambda c: person_share(wn, c))
+    # persons: most (> half) WordNet usage of the gloss is a person, or the gloss itself says person (no WordNet entry)
+    personish = (d["person_share"] > 0.5) | (d["person_share"].isna() & d["animacy_reason"].astype(str).str.contains("gloss"))
     ex = excluded(lang)
     reason = d["animacy_reason"].astype(str)
     base = (d["zipf"] >= 3) & d["marked"].isna() & d["also_pos"].isna() & ~d["lemma"].isin(ex)
     gloss_ok = ~d["gloss"].astype(str).str.contains(SEXED)
-    epi = d[base & gloss_ok & d["gender"].isin(["m", "f"]) & (reason.str.contains("noun.person")
+    # animacy == animate: the lexicon's overall judgement (WordNet first-sense lexname alone made
+    # "licuado" (smoothie) a person, from WordNet's first sense "someone with an ingratiating
+    # manner"); persons only, so animal-category nouns are dropped.
+    epi = d[base & gloss_ok & personish & d["gender"].isin(["m", "f"]) & (d["animacy"] == "animate")
+            & ~reason.str.contains("animal") & (reason.str.contains("noun.person")
             | ((d["animacy"] == "animate") & reason.str.contains("gloss|people-category") & ~reason.str.contains("animal")))
             & ~reason.str.contains("counterpart|personal-gender")].assign(set="epicene")  # fmt: skip
-    com = d[base & gloss_ok & (d["gender"] == "multi") & reason.str.contains("by-personal-gender")
+    com = d[base & gloss_ok & personish & (d["gender"] == "multi") & (d["animacy"] == "animate")
+            & reason.str.contains("by-personal-gender")
             & (d["multi_type"] == "free_variation")].assign(set="common")  # fmt: skip
     c1 = pd.read_csv(OUT / f"c1_nouns_{lang}_v1.csv")
     c1 = c1[c1["in_50k"]]
@@ -75,7 +105,7 @@ def build(lang):
         x["pi_keep"] = ""  # PI review: y / n
     epi.sort_values("zipf", ascending=False, inplace=True)
     com.sort_values("zipf", ascending=False, inplace=True)
-    cols = ["set", "lemma", "gender", "concept_en", "gloss", "zipf", "animacy_reason", "in_zhou_lists", "pi_keep"]
+    cols = ["set", "lemma", "gender", "concept_en", "gloss", "zipf", "animacy_reason", "person_share", "in_zhou_lists", "pi_keep"]
     out = pd.concat([epi.reindex(columns=cols), com.reindex(columns=cols), ina.reindex(columns=cols)])
     path = OUT / f"zero_ref_candidates_{lang}_v0.csv"
     out.to_csv(path, index=False)

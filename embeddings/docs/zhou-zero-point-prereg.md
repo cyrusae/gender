@@ -35,16 +35,20 @@ Shift Ori change that offset-corrected asymmetry?
 - **Reference sets** (built by rule from our Wiktionary lexicons; all exclude the occupation words
   and the attribute/definitional words; Zipf ≥ 3, unmarked, not another part of speech):
   1. **Epicene person nouns (primary anchor):** one grammatical gender, refer to anyone
-     (*la víctima, la celebridad, el genio, el personaje*). Rule: single gender; person by WordNet
-     or gloss; no gendered counterpart and not common-gender; gloss doesn't denote a sex. The rule
+     (*la víctima, la celebridad, el genio, el personaje*). Rule: single gender; animate in the lexicon; **persons only** (animal-category nouns dropped;
+     animals would be a separate, untested anchor); more than half of the English gloss's WordNet
+     usage is noun.person (or, absent WordNet, the gloss says person); no gendered counterpart and
+     not common-gender; gloss doesn't denote a sex. (The lexicon's animacy flag deliberately errs
+     toward 'animate', safe for inanimate lists but not for person lists: *licuado* 'smoothie' was
+     animate because WordNet's first sense of *smoothie* is a person.) The rule
      pool is noisy (printer-type senses, proper names, plurals) and misses some core words that
      fail other filters (*persona*: also_pos; *individuo*, *criatura*: WordNet-inanimate), so
      **the PI marks `pi_keep` and may add words the rule missed**; additions and drops are logged.
-     Pools: ES 117 m / 57 f, FR 153 m / 72 f before review.
+     Pools: see the CSV counts (rebuilt 2026-11-08 with the person-share rule) before review.
   2. **Common-gender person nouns (check):** one spelling for both sexes (*el/la estudiante,
      periodista, testigo*). Same PI review (the pool also catches two-gender inanimates such as
      *cámara, marca*). Their lean includes occupation stereotypes, so they check the anchor rather
-     than define it. Pools: ES 195, FR 129.
+     than define it. Same person-share rule.
   3. **Inanimate nouns (check):** the frozen C1 nouns (50k), frequency-matched masculine/feminine in
      0.25-Zipf bins: ES 1,000 + 1,000, FR 1,455 + 1,455.
 
