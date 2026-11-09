@@ -133,7 +133,9 @@ matched the original 3.6918 exactly and the identity to 3.6e-15 across 10 random
   (`scripts/zhou_perm_max.py`). **Table 1's "Original p = 0.000" is therefore also guaranteed,
   not evidence.** In this configuration the statistic equals |Σ over all occupation words of
   w·a|: the net lean of all occupation forms together (here: feminine forms lean female more
-  strongly than masculine forms lean male), not a test of masculine-vs-feminine asymmetry.
+  strongly than masculine forms lean male), which with opposite signs *is* the magnitude asymmetry their Figure 1 describes
+  (feminine forms lean further); what is broken is the null, not the number. The number is still
+  offset-sensitive (a per-word tilt c changes it by 2nc): see `docs/zhou-zero-point-prereg.md`.
 - Notebook detail it found, verified by us: the LDA attempts **crashed** (cells 75 and 86:
   `ValueError: Internal work array size computation failed: -10`); the 0.389 comes from LinearSVC
   (cells 73, 77). Strengthens Z1.
