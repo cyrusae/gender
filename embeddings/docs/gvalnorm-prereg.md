@@ -137,3 +137,28 @@ bootstrap and reading rules; MUSE arms only (Omrani's erasure doesn't use ds).
    space, debiased-English attributes).
 3. Reported descriptively: cos(a, ds) per arm × attribute set, and the share of the original
    β_H that remains on s⊥ (β_H(s⊥) / β_H(s)).
+
+### Addendum B results (2026-11-08; runner committed 20a066e before the run; `results/gvalnorm_{es,fr}/gvalnorm_orth_*.csv`)
+
+β_H on the ds-orthogonal yardstick s⊥ (50k), with the share of the main β_H it keeps:
+
+| | Spanish, Spanish attr. | Spanish, English attr. | French, French attr. | French, English attr. |
+|---|---|---|---|---|
+| cos(attribute axis, ds), original | 0.82 | 0.77 | 0.88 | 0.64 |
+| **β_H off-axis, original** | 0.009 [−0.058, 0.072] **no** | **0.150** [0.074, 0.228] **yes** | 0.038 [−0.010, 0.089] **no** | **0.206** [0.141, 0.274] **yes** |
+| share of main β_H off-axis | 4% | 45% | 22% | 74% |
+| Shift arms (expected unchanged) | 0.023 | 0.150 survives | 0.057 | 0.206 survives |
+| Hybrid arms | 0.023 | −0.035 **removed** | 0.057 | −0.022 **removed** |
+
+- **Primary question:** stereotype information off the semantic axis is present with the English
+  yardstick (both languages) and absent with the native-language yardstick (both languages).
+  With Spanish/French attribute words, the human-rated component lies entirely along the semantic
+  direction, so Zhou's Spanish/French-attribute "removed" results are close to built in (Z14).
+- With English attribute words, roughly half (ES) to three quarters (FR) of the stereotype signal
+  is off the semantic axis; **Shift cannot touch it** and doesn't (as pre-stated).
+- **Hybrid removes it.** Hybrid leaves our nouns' Spanish geometry unchanged (rotation), so the
+  removal comes from the English side, i.e. Bolukbasi's hard debiasing of the English attribute
+  space, not from Zhou's shift.
+- Shift arms with native attributes: cos(a, ds) falls to 0.09 (ES) / 0.68 (FR) because Zhou's
+  noun list contains the attribute words, which get projected (Z12); shares of 1.0 in the
+  as-specified arms are trivial (ds already removed from the nouns).
