@@ -113,3 +113,21 @@ CIs exclude 0 and all permutation p < 0.0001.
 - Spelling control: nouns with a gender-predicting suffix (`fr_suffix`, a fixed list of 16
   textbook suffixes: -tion, -ité, -ment, -age…; 1,179 nouns) vs nouns without (2,326).
 - Same arms, measures, prediction (gap survives) and reading rule.
+
+### Addendum A results: French (2026-11-08; runner fixed and committed before the run, fc382f4 + 2 follow-ups; `results/c1_fr/`)
+
+| arm | Δ, French attributes | verdict | Δ, English attributes | verdict |
+|---|---|---|---|---|
+| 1 original | 0.0239 [0.0222, 0.0254] | — | 0.0038 [0.0019, 0.0056] | — |
+| 2 Shift Ori as implemented | 0.0266 (1.11×) | **survives** | 0.0038 (1.00×) | **survives** |
+| 3 Shift Ori as specified | 0.0277 (1.16×) | **survives** | 0.0054 (1.41×) | **survives** |
+| 4a Hybrid Ori as implemented | 0.0266 (1.11×) | **survives** | 0.0094 (2.47×) | **survives** |
+| 4b Hybrid Ori as specified | 0.0277 (1.16×) | **survives** | 0.0109 (2.87×) | **survives** |
+
+- **Replicates Spanish: 8/8 "survives"**; in French the mitigation never reduces the gap, it
+  slightly increases it (1.11–1.16× with French attributes). 200k sensitivity: same pattern.
+- **The English-attribute (social-gender-only) gap is small in French** (0.0038, a quarter of
+  Spanish) and **absent for nouns with a gender-predicting suffix** (0.0014, CI [−0.0016, 0.0044]);
+  it comes from suffix-less nouns (0.0074). Aligning to hard-debiased English again inflates it
+  (2.5–2.9×).
+- Spelling control (French attributes): suffixed 0.027, no suffix 0.026; both survive.
