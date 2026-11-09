@@ -83,3 +83,34 @@ Per arm × attribute set, OLS on standardised variables:
   setting of **27** iterations (no table-matching count is known for French); French attributes
   as in their notebook.
 - Same model and reading rule.
+
+## Results, MUSE arms (2026-11-08; `scripts/gvalnorm_run.py` committed b9cd402 before the run; `results/gvalnorm_{es,fr}/`)
+
+Standardised coefficients, 50k primary. β_H = human rating (Glasgow GEND of the English
+translation) beyond grammatical gender and frequency; β_G = grammatical gender.
+
+| | Spanish, Spanish attr. | Spanish, English attr. | French, French attr. | French, English attr. |
+|---|---|---|---|---|
+| nouns (m/f) | 547 (362/185) | | 813 (474/339) | |
+| English anchor r (validity; ≥ 0.2 needed) | 0.581 | | 0.513 | |
+| **β_H original** | **0.250** [0.175, 0.321] | **0.337** [0.246, 0.423] | **0.172** [0.102, 0.238] | **0.279** [0.210, 0.353] |
+| β_G original | 1.127 | 0.502 | 0.943 | 0.146 |
+| β_H Shift Ori as implemented | 0.048 **removed** | 0.337 survives | 0.146 survives | 0.279 survives |
+| β_H Shift Ori as specified | 0.023 **removed** | 0.150 reduced | 0.057 reduced | 0.206 survives |
+| β_H Hybrid Ori as implemented | 0.048 **removed** | 0.171 survives | 0.146 survives | 0.077 reduced |
+| β_H Hybrid Ori as specified | 0.023 **removed** | −0.036 **removed** | 0.057 reduced | −0.023 **removed** |
+| β_G, all arms | survives (1.46–1.47) | survives (0.41–0.86) | survives (1.34–1.54) | survives (0.15–0.49) |
+
+- **Embeddings of Spanish and French things track how people rate those things' gender, beyond
+  grammatical gender** (β_H > 0 in all four original cells; pre-registered "tracks human ratings").
+  The plain correlation r(s, GEND) is 0.20–0.36, below the English 0.58 on the same concepts.
+- **Zhou et al.'s mitigation removes or reduces this human-rated (stereotype) component and keeps
+  the grammatical one**, which is what their method intends. With the Spanish attributes it's
+  removed in every arm; with English attributes it depends on the arm, and only Hybrid as
+  specified removes it in both languages.
+- **This qualifies C1:** C1's surviving masculine/feminine gap is mostly the grammatical component
+  (β_G survives and grows once the human-rated part is gone; coefficients are standardised, so
+  "grows" means it explains more of what's left).
+- In French the human-rated component is smaller and more resistant: Shift as implemented leaves
+  it at 85% (the French attribute words sit in Zhou's French noun list, Z12).
+- Limitation: ratings are British judgments of the English translation.
