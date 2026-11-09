@@ -143,7 +143,7 @@ def main(lang="es"):
                                  "mean_abs_bw": float(np.abs(s_all[mask]).mean())})  # fmt: skip
     res = pd.DataFrame(rows)
     res.to_csv(OUT / "c1_deltas.csv", index=False)
-    pn = nl[["lemma", "gender", "es_ending", "in_50k"]].copy()
+    pn = nl[["lemma", "gender", "es_ending" if lang == "es" else "fr_suffix", "concept_en", "zipf", "in_50k"]].copy()
     for k, v in per_noun.items():
         pn[k] = v
     pn.to_csv(OUT / "c1_per_noun.csv", index=False)
