@@ -65,6 +65,26 @@ Shift Ori change that offset-corrected asymmetry?
   C1's frozen list is not edited (the flaw is logged in decisions.md).
 - PI additions and drops: `data/zero_ref_additions_{lang}.csv`, merged after review.
 
+**Sensitivity analyses (PI, 2026-11-10: "all sensitivity checks possible"; fixed before scoring).**
+Each recomputes every anchor's zero point and A; any verdict that changes is reported as
+"depends on <check>":
+- S1 drop reference words spelled identically to their English gloss (loan/cognate; ES inanimate:
+  23% of m vs 7% of f, a gender-correlated loan confound);
+- S2 drop words more frequent in English than in the language (lexicon `zipf_en > zipf`);
+- S3 drop the PI's own English/loanword-flagged words (reinstated in v1, see below);
+- S4 broad tier instead of strict (above);
+- S5 drop reference words that appear in Zhou et al.'s noun lists (`in_zhou_lists`);
+- S6 drop the PI-flagged borderline keeps (comments with "?", e.g. *militante, sargento, edil*);
+- S7 leave-one-out (reading rule 0).
+Monolingual vectors are separate per language, so a shared spelling doesn't merge vectors; the
+loan checks target English text inside each language's training corpus.
+
+**PI review record.** Spanish marks: `data/zero_ref_candidates_es_v0_edited.csv` (PI, 2026-11-10).
+French: `data/zero_ref_candidates_fr_v1.csv` = the PI's edited v0 with exclusions whose only reason
+was "English"/"language" reinstated at the PI's request (covered by S1–S3), other exclusions kept;
+French marks rest on English glosses (PI doesn't read French) and can be checked by a French reader.
+Additions: `data/zero_ref_additions_es.csv`.
+
 ## Measures
 
 - **Zero point** for a reference set R: c_R = ½(mean s over R's masculine words + mean s over R's
