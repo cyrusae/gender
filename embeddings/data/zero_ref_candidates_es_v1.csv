@@ -47,7 +47,7 @@ epicene,alien,m,alien,alien; extraterrestrial life form,3.52,wordnet:noun.person
 epicene,soul,m,soul,"soul, soul music",3.5,wordnet:noun.person,0.666666666666667,False,False,English,
 epicene,celebridad,f,celebrity,celebrity,3.5,wordnet:noun.person,1.0,False,True,,
 epicene,spoiler,m,spoiler,spoiler (a device to reduce lift and increase drag),3.44,wordnet:noun.person,0.6,False,False,English,
-epicene,hada,f,fairy,fairy,3.43,wordnet:noun.person,1.0,False,True,Good one,"PI: RAE may now class hada as común en cuanto al género (unverified here: RAE blocks automated access); note 'el hada' is the el-agua article, not masculine"
+epicene,hada,f,fairy,fairy,3.43,wordnet:noun.person,1.0,False,True,Good one,PI 2026-11-10: epicene (earlier común reading was a misread news item)
 epicene,brigadier,m,brigadier,brigadier,3.43,wordnet:noun.person,1.0,False,False,English,
 epicene,pontífice,m,pontiff,pontiff,3.42,wordnet:noun.person,1.0,False,False,Male role,
 epicene,alguacil,m,bailiff,bailiff,3.41,wordnet:noun.person,1.0,False,False,,

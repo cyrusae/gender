@@ -14,3 +14,7 @@ epicene,gárgola,f,,drop_suggested,"animated-gargoyle sense is sex-neutral but u
 epicene,vástago,m,,drop_suggested,"'offspring' vs 'plant shoot / piston rod'; in the inanimate set"
 epicene,ser,m,,drop_suggested,"collides with the verb ser"
 epicene,cadáver,m,,drop_suggested,"a dead body; person-ness arguable"
+common,aristócrata,multi,strict,add,"PI (RAE m. y f.); rule missed it at Zipf 2.98 (cut is 3.0); MUSE rank 13,497 (inside 50k)"
+collective,élite,f,broad,add_broad,"PI (RAE); group noun like gente; lexicon: WordNet noun.group; MUSE rank 7,548"
+epicene,espíritu,m,broad,add_broad,"PI: RAE first sense 'ser inmaterial dotado de razón' (sex-neutral); but 'Espíritu Santo' adds male-coded usage and the vector mixes 'mood/spirit of'; broad tier only"
+common,gánster,multi,,not_usable,"PI (RAE prefers gánster, m. y f.); MUSE rank 79,100 (outside the 50k primary vocabulary) and not in our lexicon; 200k sensitivity only if added"
