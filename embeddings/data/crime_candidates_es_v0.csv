@@ -1,0 +1,46 @@
+kind,lemma,gender,concept_en,gloss,zipf,also_pos,multi_type,pi_keep,has_counterpart,feminine_form,in_50k,muse_rank
+common,criminal,multi,criminal,criminal,4.48,adj,free_variation,,False,,True,5799.0
+pair_m,asesino,m,murderer,"murderer, killer (person who commits murder)",4.35,adj,,,True,asesina,True,4907.0
+pair_m,condenado,m,convict,convict,4.28,adj,,,True,condenada,True,5214.0
+common,terrorista,multi,terrorist,terrorist (one who uses violence to further political goals),4.23,adj,free_variation,,False,,True,7334.0
+pair_m,ladrón,m,thief,thief; robber; rogue; crook,4.11,adj,,,True,,True,10114.0
+common,delincuente,multi,delinquent,"delinquent, criminal, felon",3.99,adj,free_variation,,False,,True,24750.0
+common,pirata,multi,pirate,pirate (person who commits robbery at sea against other ships),3.96,adj,free_variation,,False,,True,8898.0
+epicene_m,forzado,m,convict,convict,3.89,adj,,,False,,True,10129.0
+common,cómplice,multi,accomplice,accomplice,3.87,adj,free_variation,,False,,True,25986.0
+pair_m,narco,m,drug trafficker,"drug trafficker, drug lord",3.8,,,,True,,False,54394.0
+epicene_m,capo,m,gangster,gangster,3.71,,,,False,,True,19761.0
+pair_m,violador,m,rapist,rapist,3.7,adj,,,True,,False,59993.0
+epicene_m,porro,m,member of a criminal shock group,"a member of a criminal shock group, mainly targeting student protesters",3.57,adj,,,False,,True,46749.0
+pair_m,verdugo,m,executioner,"executioner, hangman (official person who carries out the capital punishment of a criminal)",3.46,,,,True,,True,18421.0
+pair_m,pillo,m,cheeky or naughty person,"cheeky or naughty person, crook or thief; scoundrel",3.43,adj,,,True,,False,93531.0
+pair_m,bandido,m,outlaw,"outlaw, bandit",3.35,,,,True,,True,29631.0
+common,narcotraficante,multi,drug trafficker,drug trafficker,3.27,,free_variation,,False,,True,34186.0
+pair_m,matador,m,slaughterer,"a slaughterer, a killer",3.26,,,,True,,True,25699.0
+common,homicida,multi,murderer,murderer,3.24,adj,free_variation,,False,,False,50761.0
+pair_m,estafador,m,conman,"conman, swindler",3.18,,,,True,,True,47180.0
+pair_m,secuestrador,m,kidnapper,kidnapper (of a person),3.16,,,,True,,False,51012.0
+pair_m,sicario,m,hitman,hitman (hired killer),3.12,,,,True,,True,47290.0
+pair_m,penado,m,delinquent,delinquent,3.12,adj,,,True,,False,85499.0
+pair_m,convicto,m,convict,convict,3.09,adj,,,True,,True,48221.0
+epicene_m,tenorio,m,don juan,Don Juan; lady-killer,3.02,,,,False,,True,19347.0
+common,asaltante,multi,raider,"raider, burglar",2.97,,free_variation,,False,,False,72465.0
+pair_m,incendiario,m,incendiary,"incendiary, arsonist",2.86,adj,,,True,,False,78221.0
+pair_m,ratero,m,petty thief,"petty thief, pickpocket",2.86,,,,True,,False,106729.0
+pair_m,orca,f,orca,"orca, killer whale",2.81,,,,True,,True,39980.0
+common,contrabandista,multi,smuggler,"smuggler, contrabandist, bootlegger",2.79,,free_variation,,False,,False,56699.0
+pair_m,raptor,m,kidnapper,kidnapper; abductor,2.79,,,,True,,True,46202.0
+pair_m,torturador,m,torturer,torturer,2.78,adj,,,True,,False,98413.0
+epicene_m,furtivo,m,poacher,poacher,2.77,adj,,,False,,False,57875.0
+pair_m,destripador,m,ripper,ripper (murderer who kills and often mutilates victims with a blade),2.75,,,,True,,True,29448.0
+pair_m,bandolero,m,bandit,"bandit, outlaw",2.7,,,,True,,True,41951.0
+pair_m,perpetrador,m,perpetrator,perpetrator (one who perpetrates a crime or offense),2.69,,,,True,,False,58488.0
+common,reincidente,multi,recidivist,"recidivist, repeat offender",2.67,adj,free_variation,,False,,True,40927.0
+pair_m,mañoso,m,thief,a thief,2.65,adj,,,True,,False,
+pair_m,proscrito,m,outlaw,outlaw,2.62,adj,,,True,,False,51003.0
+epicene_m,infanticidio,m,infanticide,infanticide (act),2.61,,,,False,,False,76505.0
+pair_m,pandillero,m,gangster,"gangster, gang member",2.6,,,,True,,False,107367.0
+pair_m,victimario,m,killer,"killer, homicide",2.6,,,,True,,False,132353.0
+common,penalista,multi,expert in criminal law,expert in criminal law,2.56,,free_variation,,False,,False,107920.0
+epicene_m,forajido,m,outlaw,outlaw,2.54,adj,,,False,,False,92083.0
+pair_m,vándalo,m,vandal,vandal,2.52,,,,True,,True,4826.0

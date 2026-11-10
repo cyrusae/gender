@@ -1,0 +1,40 @@
+kind,lemma,gender,concept_en,gloss,zipf,also_pos,multi_type,pi_keep,has_counterpart,feminine_form,in_50k,muse_rank
+common,coupable,multi,culprit,culprit,4.46,adj,free_variation,,False,,True,6761
+common,terroriste,multi,terrorist,terrorist,4.3,adj,free_variation,,False,,True,9555
+pair_m,criminel,m,criminal,criminal (someone who commits a crime),4.22,adj,,,True,criminelle,True,9280
+pair_m,prévenu,m,accused,"accused, defendant, prisoner, suspect (the one who appears before a criminal court, after the suspected commission of one or more crimes)",4.19,adj,,,True,,True,16682
+pair_m,tueur,m,killer,killer,4.05,,,,True,tueuse,True,6424
+common,complice,multi,accomplice,accomplice,3.95,adj,free_variation,,False,,True,14949
+common,pirate,multi,pirate,pirate,3.94,,free_variation,,False,,True,8492
+pair_m,voleur,m,robber,"robber, thief",3.92,adj,,,True,voleuse,True,11026
+pair_m,meurtrier,m,murderer,murderer (person who commits murder),3.83,adj,,,True,meurtrière,True,12112
+pair_m,assassin,m,assassin or other murderer,an assassin or other murderer,3.82,adj,,,True,assassine,True,7980
+common,homicide,multi,homicide,"homicide (killing of one person by another, whether premeditated or unintentional)",3.81,adj,free_variation,,False,,True,18710
+pair_m,bourreau,m,torturer,torturer,3.58,,,,True,,True,17695
+pair_m,violeur,m,rapist,rapist,3.57,,,,True,,False,53494
+epicene_m,escroc,m,crook,crook (a criminal who steals),3.57,,,,False,,True,29477
+pair_m,délinquant,m,delinquent,delinquent,3.45,adj,,,True,,True,44763
+epicene_m,bandit,m,bandit,bandit,3.3,,,,False,,True,18433
+epicene_m,gangster,m,gangster,gangster,3.27,,,,False,,True,19824
+pair_m,cambrioleur,m,burglar,burglar,3.16,,,,True,,True,37204
+pair_m,trafiquant,m,trafficker,trafficker,3.15,,,,True,,True,31297
+pair_m,braqueur,m,robber,"robber (especially, an armed robber)",3.1,,,,True,,False,71658
+common,récidiviste,multi,repeat offender,repeat offender,3.03,adj,free_variation,,False,,False,56240
+epicene_m,compère,m,partner,"partner, accomplice",3.02,,,,False,,True,36901
+epicene_m,incendiaire,m,arsonist,arsonist,2.96,adj,,,False,,True,44673
+pair_m,tombeur,m,seducer,"seducer, heartbreaker, lady-killer (person who succeeds in seducing)",2.94,,,,True,,False,61198
+pair_m,contrevenant,m,offender,offender,2.85,,,,True,,False,72822
+pair_m,fraudeur,m,fraudster,fraudster (a person who practices fraud),2.83,,,,True,,False,141771
+common,faussaire,multi,forger,forger,2.83,,free_variation,,False,,True,45675
+pair_m,ravisseur,m,robber,robber,2.73,,,,True,,False,61422
+common,régicide,multi,regicide,regicide (the killing of a king),2.71,,free_variation,,False,,True,44420
+common,tortionnaire,multi,torturer,torturer (one who tortures),2.7,adj,free_variation,,False,,False,80858
+pair_m,scélérat,m,villain,"villain, criminal, scoundrel; evildoer",2.7,adj,,,True,,False,142223
+common,orque,multi,killer whale,killer whale; orca,2.69,,free_variation,,False,,False,50541
+epicene_m,fratricide,m,fratricide,fratricide (crime of killing one's brother),2.69,adj,,,False,,False,55489
+pair_m,arnaqueur,m,swindler,swindler,2.68,adj,,,True,,False,91745
+common,infanticide,multi,infanticide,infanticide (murder of an infant),2.65,,free_variation,,False,,False,67053
+epicene_m,pickpocket,m,pickpocket,pickpocket,2.6,,,,False,,False,81256
+epicene_m,malfrat,m,crook,"crook, outlaw, criminal",2.59,,,,False,,False,81522
+pair_m,braconnier,m,poacher,poacher,2.59,,,,True,,False,58146
+common,multirécidiviste,multi,multirecidivist,"multirecidivist, persistent offender",2.5,,free_variation,,False,,False,135576
