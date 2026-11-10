@@ -21,8 +21,9 @@ CUDA = '["12.9","13.0","13.1","13.2"]'
 def check() -> list[tuple]:
     out = []
     for secure in ("true", "false"):
-        q = ("query { gpuTypes { id memoryInGb lowestPrice(input:{gpuCount:1, secureCloud:%s, "
-             "allowedCudaVersions:%s}) { uninterruptablePrice stockStatus } } }") % (secure, CUDA)  # fmt: skip
+        q = ("query { gpuTypes { id memoryInGb lowestPrice(input:{gpuCount:1, "
+             f"secureCloud:{secure}, allowedCudaVersions:{CUDA}}}) "
+             "{ uninterruptablePrice stockStatus } } }")  # fmt: skip
         req = urllib.request.Request(
             "https://api.runpod.io/graphql",
             data=json.dumps({"query": q}).encode(),
