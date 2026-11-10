@@ -157,3 +157,28 @@ Implementation details fixed now:
   homicida, parricida, fratricida, infanticida…*) are grammatically neutral but share one strongly
   male-tilted stereotype; measuring their lean against the zero point would be a gender-ValNorm
   style test of a single stereotype class.
+
+## Results (2026-11-10; script a40cd18, committed before scoring; `results/zhou_zero_point_{es,fr}/`)
+
+A = offset-corrected |T_m| − |T_f| (negative: feminine forms lean further); primary anchor =
+strict epicenes (floor met: ES 17/17, FR 74/23 after dropping words outside the 50k vocabulary:
+ES *garante, inversionista, nutricionista, oligarca, prestamista, prole, yihadista*; FR
+*automobiliste, dupe, gamer, gourmet, guette*). Anchors agree (zero-point CIs overlap) in every cell.
+
+| original space | raw | A, epicene anchor [95% CI] | verdict | robustness |
+|---|---|---|---|---|
+| ES, Spanish attributes | −3.69 | −1.99 [−5.63, 1.34] | **inconclusive** | LOO and S1–S6 stable; broad tier same |
+| ES, English attributes | −4.33 | −3.15 [−6.35, 0.17] | **inconclusive** | **depends on *bebé*, *hada*** (LOO); broad tier: feminine further |
+| FR, French attributes | −2.40 | −1.91 [−3.42, −0.30] | **feminine forms lean further** | LOO, S1–S6 stable; inanimate anchor: inconclusive [−4.28, 0.36] |
+| FR, English attributes | −2.44 | −2.03 [−3.39, −0.63] | **feminine forms lean further** | LOO, S1–S6 stable; inanimate anchor agrees |
+
+After Shift Ori (algebraically constrained, Z14): inconclusive in all four cells (FR English:
+S1/S5 change it).
+
+- The zero-point correction shrinks Zhou's statistic modestly (ES ×0.54–0.73, FR ×0.80–0.83);
+  the offset doesn't explain it (|A| > 0.25 × raw everywhere).
+- **French: the asymmetry Zhou describes survives** an honest test with both yardsticks.
+- **Spanish: inconclusive**, mainly because the interval, which resamples the 8 + 8 attribute
+  words (Zhou's permutation test held them fixed), is wide. Direction agrees with French.
+- The pre-adoption precision estimate (±0.4) omitted attribute-word resampling; that term
+  dominates the interval (ES ≈ ±3.7).
