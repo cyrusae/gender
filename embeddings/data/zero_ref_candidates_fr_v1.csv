@@ -61,7 +61,7 @@ epicene,capteur,m,catcher,catcher,3.53,wordnet:noun.person,1.0,False,,,
 epicene,monarque,m,monarch,monarch,3.53,wordnet:noun.person,1.0,True,,,
 epicene,commando,m,commando,"commando (troop, trooper)",3.53,wordnet:noun.person,1.0,False,,,
 epicene,adjointe,f,deputy,"deputy, assistant",3.53,wordnet:noun.person,1.0,False,,,
-epicene,shérif,m,sheriff,sheriff (all meanings),3.53,people-category;wordnet:noun.person,1.0,False,False,loanword,PI to decide (kept excluded for now): Spanish sheriff dropped as English; male-coded?
+epicene,shérif,m,sheriff,sheriff (all meanings),3.53,people-category;wordnet:noun.person,1.0,False,,loanword,reinstated by PI 2026-11-10
 epicene,soprano,m,soprano,soprano,3.52,wordnet:noun.person,1.0,False,False,most sopranos are female,
 epicene,licorne,f,unicorn,unicorn,3.52,people-category;wordnet:noun.person,1.0,False,False,dropped unicorn in spanish so should be consistent about magic horse,
 epicene,altesse,f,highness,"highness, Highness (title of respect)",3.5,wordnet:noun.person,1.0,False,,,
@@ -99,10 +99,10 @@ epicene,prélat,m,prelate,prelate,3.3,wordnet:noun.person,1.0,False,False,mascul
 epicene,gamer,m,person whose hobby is video games,a person whose hobby is video games,3.29,gloss,,False,,loanword,reinstated (PI request): only reason was English/language; covered by loanword sensitivity rules
 epicene,recruteur,m,recruiter,"recruiter, talent scout",3.29,wordnet:noun.person,1.0,False,,,
 epicene,guignol,m,fool,fool,3.28,wordnet:noun.person,1.0,False,,,
-epicene,barman,m,barman,"barman, bartender",3.28,people-category;wordnet:noun.person,1.0,False,False,loanword,"PI to decide (kept excluded for now): '-man'; French has barmaid, so gendered pair, not epicene?"
+epicene,barman,m,barman,"barman, bartender",3.28,people-category;wordnet:noun.person,1.0,False,False,loanword,dropped by PI (gendered pair with barmaid)
 epicene,gogo,m,dupe,dupe,3.27,wordnet:noun.person,1.0,False,,,
 epicene,guette,f,watchman,"watchman, sentinel",3.27,wordnet:noun.person,1.0,True,,,
-epicene,gangster,m,gangster,gangster,3.27,wordnet:noun.person,1.0,False,False,loanword,PI to decide (kept excluded for now): male-coded like Spanish capo (dropped as male role)?
+epicene,gangster,m,gangster,gangster,3.27,wordnet:noun.person,1.0,False,False,loanword,dropped (PI neutral; parallel to capo)
 epicene,serrurier,m,locksmith,locksmith (lock maker),3.26,people-category;wordnet:noun.person,1.0,False,,,
 epicene,gouvernante,f,governess,governess,3.26,wordnet:noun.person,1.0,True,False,female,
 epicene,bistrot,m,publican,publican,3.26,wordnet:noun.person,1.0,False,,,
@@ -114,7 +114,7 @@ epicene,pope,m,orthodox priest,an Orthodox priest.,3.23,wordnet:noun.person,1.0,
 epicene,dep,m,gay,gay; faggot,3.2,wordnet:noun.person,1.0,False,False,slur?,
 epicene,archiduc,m,archduke,archduke (high nobiliary title),3.19,wordnet:noun.person,1.0,False,False,gendered,
 epicene,pitre,m,clown,"clown, buffoon",3.19,wordnet:noun.person,1.0,False,,,
-epicene,apache,m,apache,Apache (language),3.19,wordnet:noun.person,1.0,False,False,language,PI to decide (kept excluded for now): Apache people vs 'ruffian' sense: sex-neutral?
+epicene,apache,m,apache,Apache (language),3.19,wordnet:noun.person,1.0,False,False,language,dropped by PI (gloss: mostly the language)
 epicene,houlette,f,crook,"crook, shepherd's staff",3.19,wordnet:noun.person,0.666666666666667,True,False,object,
 epicene,commanditaire,m,sponsor,a sponsor,3.18,wordnet:noun.person,1.0,False,,,
 epicene,gué,m,ford,ford (crossing),3.18,wordnet:noun.person,0.75,False,False,location,
@@ -202,7 +202,7 @@ common,généraliste,multi,generalist,generalist (person with a broad general kn
 common,touriste,multi,tourist,"tourist, holidaymaker, sightseer (someone who travels for pleasure rather than for business)",3.64,by-personal-gender;wordnet:noun.person,1.0,True,,,
 common,guitariste,multi,guitarist,guitarist,3.64,by-personal-gender;wordnet:noun.person,1.0,False,,,
 common,juriste,multi,jurist,jurist,3.61,people-category;by-personal-gender;wordnet:noun.person,1.0,True,,,
-common,imam,multi,imam,imam,3.61,by-personal-gender;wordnet:noun.person,1.0,False,False,many languages I think,kept excluded: male role
+common,imam,multi,imam,imam,3.61,by-personal-gender;wordnet:noun.person,1.0,False,False,many languages I think,dropped by PI (male role in most usage)
 common,ancêtre,multi,ancestor,"ancestor, forebear, forefather",3.59,by-personal-gender;wordnet:noun.person,1.0,False,,,
 common,finaliste,multi,finalist,finalist,3.59,by-personal-gender;wordnet:noun.person,1.0,False,,,
 common,analyste,multi,analyst,analyst (person who analyzes),3.59,by-personal-gender;wordnet:noun.person,1.0,False,,,
