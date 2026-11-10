@@ -52,6 +52,19 @@ Shift Ori change that offset-corrected asymmetry?
   3. **Inanimate nouns (check):** the frozen C1 nouns (50k), frequency-matched masculine/feminine in
      0.25-Zipf bins: ES 1,000 + 1,000, FR 1,455 + 1,455.
 
+**Two tiers (added 2026-11-10, PI discussion; before any score):**
+- **Strict** (primary): main sense is a person, routinely used today for either sex, no
+  competing sense that dominates usage. Single-sex roles by convention (clergy/monastic titles,
+  beauty titles, nobility forms; *apóstol, caudillo, heraldo* as historically single-sex roles) and
+  sex-coded mythic beings (*hada, sirena, ninfa*) are excluded.
+- **Broad** (sensitivity): strict + PI-accepted mixed-sense person nouns (*autoridad,
+  personalidad*) + sex-neutral collectives (*gente, población, clientela*). Reported alongside
+  strict; if the two tiers' zero points disagree (CIs don't overlap), say so and keep strict as
+  primary.
+- A word moved into a person set is removed from the inanimate reference set (*eminencia*);
+  C1's frozen list is not edited (the flaw is logged in decisions.md).
+- PI additions and drops: `data/zero_ref_additions_{lang}.csv`, merged after review.
+
 ## Measures
 
 - **Zero point** for a reference set R: c_R = ½(mean s over R's masculine words + mean s over R's
