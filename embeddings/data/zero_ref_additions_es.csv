@@ -1,0 +1,12 @@
+set,lemma,gender,pi_status,claude_note_unverified
+epicene,persona,f,add,"core epicene; rule missed it (also another part of speech: persona as adj? no; excluded by also_pos filter)"
+epicene,criatura,f,add,"lexicon tags inanimate (WordNet 'creature'); 'baby/child' and 'creature' senses both sex-neutral"
+epicene,personalidad,f,add,"person sense ('a celebrity') coexists with 'personality' (trait); collision risk like estrella"
+epicene,figura,f,unsure,"main sense 'shape/figure'; person sense secondary: collision"
+epicene,eminencia,f,unsure,"'eminence' (title/expert) vs 'prominence' (anatomy, terrain); already in the inanimate C1 list, so it can't be in both"
+epicene,autoridad,f,unsure,"mostly the abstract 'authority' or the institution; person sense secondary: collision"
+epicene,gárgola,f,unsure,"a gargoyle is a carved figure, not a person: suggest drop unless a person sense was meant"
+epicene,vástago,m,unsure,"'offspring' vs 'plant shoot / piston rod'; already in the inanimate C1 list"
+epicene,individuo,m,add,"core epicene; lexicon tags inanimate (WordNet 'individual' first sense)"
+epicene,ser,m,drop_suggested,"collides with the verb ser in a static vector; very high frequency"
+epicene,cadáver,m,unsure,"sex-neutral but a dead body; person-ness is arguable"
