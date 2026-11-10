@@ -1,7 +1,7 @@
 # Where is "zero lean"? An offset-corrected asymmetry test for Zhou et al.'s occupation pairs (DRAFT pre-registration)
 
-*Status: DRAFT, 2026-11-08, written by Claude for the PI's review (expected 2026-11-09). Nothing
-adopted; no score in this design has been computed. Candidate reference lists are built
+*Status: **ADOPTED by the PI 2026-11-10** (drafted 2026-11-08). No score in this design had been
+computed at adoption. Candidate reference lists are built
 (`data/zero_ref_candidates_{es,fr}_v0.csv`, `scripts/zero_ref_lists.py`) but not frozen.*
 
 ## Why
@@ -125,3 +125,35 @@ Additions: `data/zero_ref_additions_es.csv`.
    ±0.40 to A at 15 vs ±0.36 at 20 (≈12% wider); fragility is handled by the leave-one-out rule.
 2. Primary anchor epicene (recommended) vs inanimate.
 3. Run French alongside Spanish (recommended; same design).
+
+
+## Adoption record (2026-11-10, before any score)
+
+PI decisions: primary anchor = strict-tier epicenes (inanimate = check); French runs alongside
+Spanish (French marks rest on English glosses); *gangster* dropped; crime nouns (*delincuente,
+homicida, criminal…*) excluded from every set (a shared male-tilted stereotype class would bias a
+check set) and noted as a follow-up probe (below).
+
+Frozen lists (`scripts/zero_ref_freeze.py`):
+- `data/zero_ref_es_frozen_v1.csv` sha256 fec29734937518fb0c1e191553e82b845e5654d38c19a039c0785256b2c6d7ee: strict epicenes 17 m / 18 f; broad adds
+  3 epicene + 4 collective; common 104; inanimate 1,000 m / 999 f (*eminencia* moved out).
+- `data/zero_ref_fr_frozen_v1.csv` sha256 a13fce8e54655e9c8f73b1c679a6adb740d1b45d4d0b6ec81f8cdb0107a44c1e: strict epicenes 76 m / 25 f; common 105;
+  inanimate 1,452 m / 1,452 f.
+
+Implementation details fixed now:
+- Vocabulary: MUSE first 50k (as Zhou et al.); reference words outside it, or overlapping the
+  occupation/attribute words, are dropped and counted; the floor (15 per gender) is checked after
+  this.
+- Leave-one-out (rule 0): exact point estimates for every dropped word; the LOO interval is the
+  full-sample bootstrap interval shifted by (A_loo − A) (a full bootstrap per dropped word is
+  impractical for the 2,000-word inanimate set).
+- Sensitivity S1–S6 use 2,000 bootstrap draws (main analysis 10,000), seed 0.
+- Yardsticks: native attributes (primary), English attributes in the aligned MUSE space
+  (secondary). Spaces: original and Shift Ori (our rebuild, `scripts/zhou_shift.py`).
+
+## Follow-up (not part of this study)
+
+- **Crime nouns as a stereotype probe:** common-gender/epicene crime nouns (*delincuente, criminal,
+  homicida, parricida, fratricida, infanticida…*) are grammatically neutral but share one strongly
+  male-tilted stereotype; measuring their lean against the zero point would be a gender-ValNorm
+  style test of a single stereotype class.
