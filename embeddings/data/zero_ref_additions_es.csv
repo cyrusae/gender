@@ -1,5 +1,5 @@
 set,lemma,gender,pi_status,claude_note_unverified
-epicene,persona,f,add,"core epicene; rule missed it (also another part of speech: persona as adj? no; excluded by also_pos filter)"
+epicene,persona,f,add,"core epicene; rule missed it because Wiktionary also lists a verb form 'persona' (also_pos=verb), which the filter excludes"
 epicene,criatura,f,add,"lexicon tags inanimate (WordNet 'creature'); 'baby/child' and 'creature' senses both sex-neutral"
 epicene,personalidad,f,add,"person sense ('a celebrity') coexists with 'personality' (trait); collision risk like estrella"
 epicene,figura,f,unsure,"main sense 'shape/figure'; person sense secondary: collision"
