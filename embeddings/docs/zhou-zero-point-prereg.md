@@ -80,6 +80,11 @@ Shift Ori change that offset-corrected asymmetry?
 
 ## Reading (fixed before data)
 
+0. **Leave-one-out robustness (PI, 2026-11-10):** for each anchor, recompute the zero point and A
+   with each reference word dropped in turn. A verdict in rules 2–3 counts only if it holds in
+   every leave-one-out version; otherwise report it as "depends on <word(s)>" with those words
+   named. The leave-one-out range of A is reported for every anchor and tier.
+
 1. **Anchors agree** if the epicene and inanimate zero points' 95% CIs overlap. If they don't,
    report each anchor's result and give no single verdict ("zero point not identified").
 2. With the epicene anchor (primary): **asymmetry present** if A's 95% CI excludes 0; its sign
@@ -94,7 +99,9 @@ Shift Ori change that offset-corrected asymmetry?
 
 1. Review `pi_keep` in the epicene and common-gender pools (ES and FR); add missed words
    (candidates the rule missed: *persona, personne, individuo, criatura, ser humano* is multiword
-   so excluded). Minimum to run: ≥ 20 kept epicenes per gender per language; otherwise the epicene
-   anchor is "too few" and the inanimate anchor becomes primary.
+   so excluded). Minimum to run (PI, 2026-11-10): ≥ **15** kept strict-tier epicenes per gender per
+   language; otherwise the epicene anchor is "too few" and the inanimate anchor becomes primary.
+   Rationale: with the per-word spread seen in C1 (SD ≈ 0.025), the zero-point SE contributes
+   ±0.40 to A at 15 vs ±0.36 at 20 (≈12% wider); fragility is handled by the leave-one-out rule.
 2. Primary anchor epicene (recommended) vs inanimate.
 3. Run French alongside Spanish (recommended; same design).
