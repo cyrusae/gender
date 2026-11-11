@@ -1,6 +1,6 @@
 # Word-pair intrusion: intervals and mechanism (DRAFT pre-registration)
 
-*Status: DRAFT, 2026-11-10, written by Claude for the PI's review. Nothing in Part B has been
+*Status: **ADOPTED 2026-11-10** (PI settled the last open item; adoption record at the end). Nothing in Part B has been
 scored. Part A puts intervals on numbers already seen (exploratory run, commit cd7693c), so its
 point estimates are not confirmatory; its value is the uncertainty.*
 
@@ -93,3 +93,22 @@ Readings, fixed now:
    occupation from US labor statistics (BLS), which covers more jobs but is American and about
    who does the job, not the word. Glasgow only, BLS only, or both?
 3. French: 23 pairs is too few for the regression; report it descriptively only?
+
+
+## Adoption record (2026-11-10, before any Part B score)
+
+- Mapping frozen: `data/occupation_mapping_v1.csv`, sha256
+  e1ae7b3e9f6786f8788d66e8c605a9017cf9122cc2a3d07a0e5ab92d776cf457. *ouvrier* and *obrero* both use
+  US production workers / ISCO 93 (PI).
+- Primary list: `clean_keep` rows (ES 54, FR 22). Secondary: Zhou's lists as published (ES 58, FR 23).
+- Homograph predictor H_o = 1 if `fem_also_nonperson` is filled (ES 17, FR 2). Regression terms
+  (Part B test 1): I ~ D + R + H (all occupations) and I ~ D + R + H + S (per stereotype source).
+  Sensitivity: the same without H, on pairs with H = 0.
+- Female-stereotyped subset (Part B test 2), per source: BLS ≥ 60% women (primary); Glasgow GEND
+  ≤ 3.5; Eurostat EU-27 ≥ 60%.
+- Part A and Part B use the fixed scoring rules (misses = reciprocal rank 0). Part A intervals are
+  for the clean list; the as-published list is reported alongside.
+- Ablation spaces: ES (and FR, descriptive) aligned by orthogonal Procrustes onto the original MUSE
+  English, fitted on the 5,000 most frequent source entries of the MUSE dictionary, three ways
+  (as is; occupation forms and their English words removed; each English occupation paired only
+  with the feminine form). "No change" = change CI includes 0 and |mean change| < 0.05.

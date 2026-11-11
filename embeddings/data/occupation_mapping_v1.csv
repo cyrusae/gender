@@ -65,7 +65,7 @@ fr,auteure,auteur,author,True,,Writers and authors,66.8,26,,,yes,62.2,60.8,66.5
 fr,serveuse,serveur,waiter,True,,Waiters and waitresses,69.8,51,,,yes,58.3,55.0,57.6
 fr,chercheuse,chercheur,researcher,True,,"Life, physical, and social science occupations",49.4,21,,,yes,30.3,30.9,34.8
 fr,professeure,professeur,professor,True,,Postsecondary teachers,52.3,23,,,yes,72.9,69.0,66.9
-fr,ouvrière,ouvrier,worker,True,,"Total, 16 years and over",47.1,TOTAL,,PI 2026-11-10: generic; whole-workforce share,yes,46.5,46.4,48.9
+fr,ouvrière,ouvrier,worker,True,,Production occupations,28.4,93,,"PI 2026-11-10: ouvrier = manual worker, same as obrero (production workers)",yes,29.6,28.1,37.0
 fr,cuisinière,cuisinier,cook,True,,Cooks,43.7,51,,,yes,58.3,55.0,57.6
 fr,infirmière,infirmier,nurse,True,,Registered nurses,87.3,22,,,yes,70.4,70.5,62.4
 fr,avocate,avocat,lawyer,True,,Lawyers,42.9,26,,,yes,62.2,60.8,66.5
