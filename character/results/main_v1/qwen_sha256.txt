@@ -1,0 +1,13 @@
+1e57a04f2dbc712a1e4893ffa1fa6c583c1c724f30d1c90d1f4786e7b5caee20  character_qwen3-14b_off.jsonl
+2eed19c8195723df68fe67e4d84ac0163f32bab5efd22e65dfe8ee22f490a6e4  character_qwen3-14b_offthinkset.jsonl
+1eb12713011754ea0401b9e8c5d77262eb28fbf28283ea70c97a0139edceede5  character_qwen3-14b_on.jsonl
+a9c5144012e34217c68fce9519868a31e7d7600c81906d83fc601ec839995723  writer_qwen3-14b_off.jsonl
+56588c503c0650492966f9b63b7667432a972656ea511ee7ec5f1196039ed190  writer_qwen3-14b_offthinkset.jsonl
+594f8f5bf66f328af17f1e9d111c65ac0e4323da2c1286b10f4c768ba2dc807e  writer_qwen3-14b_on.jsonl
+   64940 character_qwen3-14b_off.jsonl
+    3820 character_qwen3-14b_offthinkset.jsonl
+   64940 character_qwen3-14b_on.jsonl
+   57300 writer_qwen3-14b_off.jsonl
+   19100 writer_qwen3-14b_offthinkset.jsonl
+   57300 writer_qwen3-14b_on.jsonl
+  267400 total
