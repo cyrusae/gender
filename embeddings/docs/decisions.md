@@ -23,3 +23,4 @@
 | 2026-11-10 | **Crime-noun probe ADOPTED** (PI): 200k, floor 8, capo/gangster sensitivity, act set; lists frozen. | Follow-up from zero-point study. | adopted |
 | 2026-11-10 | **Crime probe results**: ES crime nouns male-leaning (L ≈ +0.04, both yardsticks, robust); FR same direction, CI touches 0 (inconclusive); crime-specificity (K) not shown; act words not more male. | Pre-registered. | done |
 | 2026-11-10 | Generic-masculine prereg DRAFTED (Zhou skew; ES already seen → replication, FR confirmatory). | PI request after exploratory singular/plural check. | draft |
+| 2026-11-10 | Zhou Table 2 word-pair test rerun 3 ways (exploratory): Original/Shift reproduce, Hybrid doesn't; with feminine cues masculine forms still win (ES 0.58 vs 0.37) → bias real, test flawed. | PI request after Z17. | done |
