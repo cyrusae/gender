@@ -162,10 +162,18 @@ def render(tok, prompt: str, thinking: bool, family: str) -> str:
     return tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True, **kw)
 
 
+_LLM: dict = {}
+
+
 def run_vllm(model, texts, sp, n, seed):
     from vllm import LLM, SamplingParams
 
-    llm = LLM(model=model, dtype="bfloat16", seed=seed, max_model_len=sp["max_tokens"] + 2048)
+    key = (model, sp["max_tokens"])  # one engine per process (main run calls this per chunk)
+    if key not in _LLM:
+        _LLM.clear()
+        _LLM[key] = LLM(model=model, dtype="bfloat16", seed=seed,
+                        max_model_len=sp["max_tokens"] + 2048)  # fmt: skip
+    llm = _LLM[key]
     params = SamplingParams(n=n, temperature=sp["temperature"], top_p=sp.get("top_p", 1.0),
                             top_k=sp.get("top_k", -1), min_p=sp.get("min_p", 0.0),
                             max_tokens=sp["max_tokens"], seed=seed,
@@ -317,6 +325,10 @@ def main() -> None:
     ap.add_argument("--mods-regex", help="keep items whose modifier matches (any kind)")
     ap.add_argument("--only-conds", help="comma-separated name conditions")
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--sampling-key", help="override the config sampling block (e.g. the amendment-3 "
+                    "control: thinking off with qwen3_thinking settings)")  # fmt: skip
+    ap.add_argument("--chunk", type=int, default=2000,
+                    help="local backends: prompts per generate call; results written after each")  # fmt: skip
     ap.add_argument("--fresh", action="store_true", help="overwrite --out instead of resuming")
     args = ap.parse_args()
 
@@ -411,6 +423,8 @@ def main() -> None:
         sk = sampling_key(family, th)
         if th and f"{family}_thinking" in cfg["sampling"]:
             sk = f"{family}_thinking"
+        if args.sampling_key:
+            sk = args.sampling_key
         sp = cfg["sampling"][sk] | mcfg.get("sampling_override", {})  # e.g. a short context window
         t0 = time.time()
         skip = {(i, j) for i, it in enumerate(items) for j in range(n)
@@ -420,14 +434,20 @@ def main() -> None:
             run_openrouter(mcfg["openrouter"], [it["prompt"] for it in items], sp, n, args.seed, th,
                            skip, lambda i, j, r, th=th, sp=sp: write(items[i], th, sp, j, r))  # fmt: skip
         elif todo:
-            texts = [render(tok, it["prompt"], th, family) for it in items]
-            res = (run_vllm if args.backend == "vllm" else run_hf)(
-                args.model, texts, sp, n, args.seed
-            )
-            for i, outs in enumerate(res):
-                for j, r in enumerate(outs):
-                    if (i, j) not in skip:
-                        write(items[i], th, sp, j, r)
+            # only prompts with a missing sample; chunked so an interrupted run keeps its output
+            need = [i for i in range(len(items)) if any((i, j) not in skip for j in range(n))]
+            for c0 in range(0, len(need), args.chunk):
+                idx = need[c0 : c0 + args.chunk]
+                texts = [render(tok, items[i]["prompt"], th, family) for i in idx]
+                res = (run_vllm if args.backend == "vllm" else run_hf)(
+                    args.model, texts, sp, n, args.seed
+                )
+                for i, outs in zip(idx, res):
+                    for j, r in enumerate(outs):
+                        if (i, j) not in skip:
+                            write(items[i], th, sp, j, r)
+                print(f"chunk {c0 // args.chunk + 1}/{-(-len(need) // args.chunk)} done "
+                      f"({time.time() - t0:.0f} s)", flush=True)  # fmt: skip
         print(f"thinking={th}: {todo} of {len(items) * n} requested in {time.time() - t0:.0f} s",
               flush=True)  # fmt: skip
     fh.close()
