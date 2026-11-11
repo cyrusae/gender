@@ -1,0 +1,33 @@
+masc,fem,masc_pl,fem_pl,concept_en,zipf,fem_rank,pi_keep,claude_suggest_unverified
+premier,première,premiers,premières,first,5.74,100,,"drop: 'first', not an occupation"
+petit,petite,petits,petites,small one,5.67,538,,drop: 'small one'
+général,générale,généraux,générales,general,5.48,861,,drop: mostly adjective / army general only
+principal,principale,principaux,principales,someone or something which is important,4.83,543,,drop: mostly adjective
+acteur,actrice,acteurs,actrices,actor,4.64,780,,keep
+représentant,représentante,représentants,représentantes,representative,4.62,21000,,keep
+gardien,gardienne,gardiens,gardiennes,guard,4.46,20764,,keep
+réalisateur,réalisatrice,réalisateurs,réalisatrices,director,4.37,7924,,keep
+expert,experte,experts,expertes,expert,4.37,39269,,keep
+lecteur,lectrice,lecteurs,lectrices,reader,4.34,58974,,drop: also a device; Zhou's 'reader' dropped
+producteur,productrice,producteurs,productrices,producer,4.28,8905,,keep
+conducteur,conductrice,conducteurs,conductrices,driver of a vehicle or of a group of animated creatures,4.26,59284,,keep
+habitant,habitante,habitants,habitantes,inhabitant of some place,4.23,63475,,drop: not an occupation
+assistant,assistante,assistants,assistantes,assistant,4.17,12105,,keep
+porteur,porteuse,porteurs,porteuses,carrier,4.04,19343,,drop: also 'carrier/holder' (non-person)
+conjoint,conjointe,conjoints,conjointes,spouse or unmarried,4.0,16024,,drop: not an occupation
+boucher,bouchère,bouchers,bouchères,butcher,3.98,67854,,keep
+provincial,provinciale,provinciaux,provinciales,person from the provinces/regions,3.97,6102,,drop: not an occupation
+compositeur,compositrice,compositeurs,compositrices,composer,3.94,12990,,keep
+travailleur,travailleuse,travailleurs,travailleuses,worker,3.94,67922,,keep
+magistrat,magistrate,magistrats,magistrates,magistrate,3.93,82127,,keep
+rédacteur,rédactrice,rédacteurs,rédactrices,editor,3.91,23682,,keep
+comédien,comédienne,comédiens,comédiennes,actor,3.89,8360,,keep
+passager,passagère,passagers,passagères,passenger,3.87,36145,,drop: not an occupation
+assassin,assassine,assassins,assassines,assassin or other murderer,3.82,29854,,"drop: crime, not occupation; assassine rare/literary"
+concurrent,concurrente,concurrents,concurrentes,competitor,3.79,22270,,drop: not an occupation
+forestier,forestière,forestiers,forestières,male forester,3.71,8870,,drop: mostly adjective
+fermier,fermière,fermiers,fermières,farmer,3.66,54143,,keep
+présentateur,présentatrice,présentateurs,présentatrices,announcer,3.53,16908,,keep
+gourmand,gourmande,gourmands,gourmandes,person who eats a lot,3.44,59440,,drop: not an occupation
+animalier,animalière,animaliers,animalières,artist who draws or sculpts animals,3.14,50222,,drop: mostly adjective
+douanier,douanière,douaniers,douanières,customs officer,3.1,33569,,keep
