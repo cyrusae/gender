@@ -71,8 +71,13 @@ Readings, fixed now:
 - Cleaned occupation list is primary (non-occupations and duplicates dropped); Zhou's list as
   published is a secondary replication of their setup.
 - French: descriptive only.
-- Stereotype measure: labor statistics from several countries (scope being settled), alongside
-  Glasgow GEND.
+- Stereotype measures (S_o), each run as its own regression: **primary** US BLS 2025 share of
+  women by detailed occupation (finest public grain); **second** Glasgow GEND of the English word
+  (32 of 54); **check** Eurostat 2024 share of women at ISCO-08 2-digit, EU-27 and Spain
+  (coarse: doctors and nurses share a group). French descriptive uses the France 2-digit share.
+  Finer European data (EU-LFS 3-digit scientific-use files, INE detailed EPA) would need an
+  institutional application or a paid request; named as a planned replication if obtained.
+  Agreement across sources at mapping time: BLS vs EU-27 r = 0.77 (Spanish occupations).
 
 - Mapping `data/occupation_mapping_v1.csv` approved: generic *trabajador, empleado* (FR
   *employé, ouvrier*) use whole-workforce shares; *jefe* uses all managers.
