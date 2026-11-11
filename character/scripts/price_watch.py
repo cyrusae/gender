@@ -6,6 +6,7 @@ Usage: python character/scripts/price_watch.py [MAX] [INTERVAL] [LOG]
 """
 
 import json
+import os
 import sys
 import time
 import urllib.request
@@ -15,6 +16,11 @@ MAX = float(sys.argv[1]) if len(sys.argv) > 1 else 2.00
 INTERVAL = int(sys.argv[2]) if len(sys.argv) > 2 else 1800
 LOG = Path(sys.argv[3]) if len(sys.argv) > 3 else Path("price_watch.log")
 KEY = (Path.home() / ".config/runpod/price-check-key").read_text().strip()
+# PW_IGNORE="GPU_ID:Cloud@UNTIL_EPOCH,..." skips listings that failed to book (stale stock)
+IGNORE = {}
+for part in filter(None, os.environ.get("PW_IGNORE", "").split(",")):
+    k, _, until = part.rpartition("@")
+    IGNORE[k] = float(until)
 CUDA = '["12.9","13.0","13.1","13.2"]'
 
 
@@ -58,7 +64,7 @@ while True:
         ", ".join(f"{i} {m}GB {c} ${p:.2f} ({s})" for p, i, m, c, s in rows[:4]) or "none in stock"
     )
     LOG.open("a").write(f"{stamp} {best}\n")
-    hits = [r for r in rows if r[0] <= MAX]
+    hits = [r for r in rows if r[0] <= MAX and IGNORE.get(f"{r[1]}:{r[3]}", 0) < time.time()]
     if hits:
         p, i, m, c, s = hits[0]
         print(f"HIT {stamp}: {i} ({m} GB, {c}) ${p:.2f}/h, stock {s}", flush=True)
