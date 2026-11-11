@@ -68,5 +68,12 @@ while True:
     if hits:
         p, i, m, c, s = hits[0]
         print(f"HIT {stamp}: {i} ({m} GB, {c}) ${p:.2f}/h, stock {s}", flush=True)
+        try:  # macOS banner too (zero-token alert on the Mac itself)
+            import subprocess
+
+            msg = f"{i.replace('NVIDIA ', '')} {c} ${p:.2f}/h in stock"
+            subprocess.run(["osascript", "-e", f'display notification "{msg}" with title "RunPod price hit" sound name "Glass"'], check=False)  # fmt: skip
+        except OSError:
+            pass
         sys.exit(0)
     time.sleep(INTERVAL)
