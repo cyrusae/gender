@@ -27,7 +27,13 @@ grammatical gender in the way: a positive control for the gender-ValNorm machine
   neutral: common-gender (one form, both sexes) or single-gender epicene with no gendered
   counterpart. Rule-pool noise to review (e.g. *porro* 'joint', *tenorio* 'womanizer',
   *forzado* 'galley slave', *orca/orque* 'killer whale', *compère*, *penalista* 'criminal
-  lawyer'; *homicide/régicide/infanticide* are also the crime itself).
+  lawyer'; act-dominant words go to the act set below).
+- **Act-dominant set (sensitivity, PI 2026-11-10):** words whose main sense is the crime itself,
+  which is grammatically gendered (FR *homicide, infanticide, régicide, fratricide*: masculine as
+  the act, also the perpetrator; ES *infanticidio*: the act only). Scored separately, never in
+  the crime set. Reported: L_act and the difference L_act − L. If act words lean more male than the
+  person crime nouns, that is read as the grammatical (masculine) cue entering through the act
+  sense, not as stereotype. Marked `act` in the `kind` column.
 - **Gendered crime pairs** (*asesino/asesina*): **not analysed.** Feminine forms are mostly
   absent from the 50k vocabulary (ES 2 of 14 pairs, FR 5 of 10 have both forms), itself a
   descriptive finding worth reporting.
