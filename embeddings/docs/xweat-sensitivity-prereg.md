@@ -1,9 +1,8 @@
 # XWEAT T7/T8 sensitivity (pre-registration)
 
-*Status: **DRAFT, written by Claude 2026-11-11, for the PI to adopt.** Script:
+*Status: **adopted, written by Claude 2026-11-11.** Script:
 `scripts/xweat_sensitivity.py`. It was smoke-tested on **random fake vectors only** (mechanics,
-and an independent check that the effect size equals XWEAT's formula); **no score on real
-embeddings has been computed.***
+and an independent check that the effect size equals XWEAT's formula)
 
 ## Question
 

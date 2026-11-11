@@ -1,0 +1,43 @@
+{
+ "xweat_commit": "4f9548435aa0690d96c3e3b69e073b4d27b63c29",
+ "similarity": "cosine",
+ "nmax": 200000,
+ "vectors": {
+  "en": {
+   "path": "/Volumes/Lexar/gbleed/shared/embeddings/muse/wiki.multi.en.vec",
+   "bytes": 628614720,
+   "found": 47
+  },
+  "de": {
+   "path": "/Volumes/Lexar/gbleed/shared/embeddings/muse/wiki.multi.de.vec",
+   "bytes": 629072844,
+   "found": 47
+  },
+  "es": {
+   "path": "/Volumes/Lexar/gbleed/shared/embeddings/muse/wiki.multi.es.vec",
+   "bytes": 628826336,
+   "found": 43
+  },
+  "it": {
+   "path": "/Volumes/Lexar/gbleed/shared/embeddings/muse/wiki.multi.it.vec",
+   "bytes": 628718043,
+   "found": 44
+  },
+  "hr": {
+   "path": "/Volumes/Lexar/gbleed/shared/embeddings/muse/wiki.multi.hr.vec",
+   "bytes": 628820917,
+   "found": 46
+  },
+  "ru": {
+   "path": "/Volumes/Lexar/gbleed/shared/embeddings/muse/wiki.multi.ru.vec",
+   "bytes": 630591038,
+   "found": 45
+  },
+  "tr": {
+   "path": "/Volumes/Lexar/gbleed/shared/embeddings/muse/wiki.multi.tr.vec",
+   "bytes": 629019415,
+   "found": 42
+  }
+ },
+ "missing": []
+}

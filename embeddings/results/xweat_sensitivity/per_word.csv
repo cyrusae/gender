@@ -1,0 +1,436 @@
+lang,test,en,form,word,set,in_vocab,clean_kept,drop_reason,gram_gender,s_clean
+en,7,math,math,math,T1,True,True,,none,-0.01660520226955707
+en,7,algebra,algebra,algebra,T1,True,True,,none,-0.009704065893552993
+en,7,geometry,geometry,geometry,T1,True,True,,none,0.027848481024855168
+en,7,calculus,calculus,calculus,T1,True,True,,none,0.028541441643556945
+en,7,equations,equations,equations,T1,True,True,,none,0.003803088944965019
+en,7,computation,computation,computation,T1,True,True,,none,0.01138288466091518
+en,7,numbers,numbers,numbers,T1,True,True,,none,0.01810870991427503
+en,7,addition,addition,addition,T1,True,True,,none,0.0005478171746520211
+en,7,poetry,poetry,poetry,T2,True,True,,none,-0.018029770874417844
+en,7,art,art,art,T2,True,True,,none,-0.02220203351420519
+en,7,dance,dance,dance,T2,True,True,,none,-0.06965704762303848
+en,7,literature,literature,literature,T2,True,True,,none,-0.018620609260547927
+en,7,novel,novel,novel,T2,True,True,,none,-0.041988863915973174
+en,7,symphony,symphony,symphony,T2,True,True,,none,0.009843020900353883
+en,7,drama,drama,drama,T2,True,True,,none,-0.025341815997284994
+en,7,sculpture,sculpture,sculpture,T2,True,True,,none,-0.010099302205971217
+en,7,male,male,male,A1,True,True,,none,
+en,7,man,man,man,A1,True,True,,none,
+en,7,boy,boy,boy,A1,True,True,,none,
+en,7,brother,brother,brother,A1,True,True,,none,
+en,7,he,he,he,A1,True,True,,none,
+en,7,him,him,him,A1,True,True,,none,
+en,7,his,his,his,A1,True,True,,none,
+en,7,son,son,son,A1,True,True,,none,
+en,7,female,female,female,A2,True,True,,none,
+en,7,woman,woman,woman,A2,True,True,,none,
+en,7,girl,girl,girl,A2,True,True,,none,
+en,7,sister,sister,sister,A2,True,True,,none,
+en,7,she,she,she,A2,True,True,,none,
+en,7,her,her,her,A2,True,True,,none,
+en,7,hers,hers,hers,A2,True,True,,none,
+en,7,daughter,daughter,daughter,A2,True,True,,none,
+en,8,science,science,science,T1,True,True,,none,-0.009677612901735216
+en,8,technology,technology,technology,T1,True,True,,none,0.0017437920419204195
+en,8,physics,physics,physics,T1,True,True,,none,0.03248727201845639
+en,8,chemistry,chemistry,chemistry,T1,True,True,,none,-0.012236612701359284
+en,8,Einstein,Einstein,einstein,T1,True,True,,none,0.013754347567149716
+en,8,NASA,NASA,nasa,T1,True,True,,none,0.013357180454294001
+en,8,experiment,experiment,experiment,T1,True,True,,none,-0.012125980053384222
+en,8,astronomy,astronomy,astronomy,T1,True,True,,none,0.02556957493829856
+en,8,poetry,poetry,poetry,T2,True,True,,none,-0.024094209120634758
+en,8,art,art,art,T2,True,True,,none,-0.022492154178537505
+en,8,Shakespeare,Shakespeare,shakespeare,T2,True,True,,none,0.005252686452599659
+en,8,dance,dance,dance,T2,True,True,,none,-0.06316032857521517
+en,8,literature,literature,literature,T2,True,True,,none,-0.02142958679899437
+en,8,novel,novel,novel,T2,True,True,,none,-0.04908208823610802
+en,8,symphony,symphony,symphony,T2,True,True,,none,-0.0013025846824882559
+en,8,drama,drama,drama,T2,True,True,,none,-0.029737170835129
+en,8,brother,brother,brother,A1,True,True,,none,
+en,8,father,father,father,A1,True,True,,none,
+en,8,uncle,uncle,uncle,A1,True,True,,none,
+en,8,grandfather,grandfather,grandfather,A1,True,True,,none,
+en,8,son,son,son,A1,True,True,,none,
+en,8,he,he,he,A1,True,True,,none,
+en,8,his,his,his,A1,True,True,,none,
+en,8,him,him,him,A1,True,True,,none,
+en,8,sister,sister,sister,A2,True,True,,none,
+en,8,mother,mother,mother,A2,True,True,,none,
+en,8,aunt,aunt,aunt,A2,True,True,,none,
+en,8,grandmother,grandmother,grandmother,A2,True,True,,none,
+en,8,daughter,daughter,daughter,A2,True,True,,none,
+en,8,she,she,she,A2,True,True,,none,
+en,8,hers,hers,hers,A2,True,True,,none,
+en,8,her,her,her,A2,True,True,,none,
+de,7,math,Mathematik,mathematik,T1,True,True,,f,0.011844734847013094
+de,7,algebra,Algebra,algebra,T1,True,True,,f,0.0006688072949350976
+de,7,geometry,Geometrie,geometrie,T1,True,True,,f,-0.004083691246156096
+de,7,calculus,Infinitesimalrechnung,infinitesimalrechnung,T1,True,True,,unknown,0.0383896944267237
+de,7,equations,Gleichungen,gleichungen,T1,True,True,,unknown,-0.00027909613434715097
+de,7,computation,Berechnung,berechnung,T1,True,True,,f,-0.022474154178572014
+de,7,numbers,Zahlen,zahlen,T1,True,True,,unknown,0.017489407706384824
+de,7,addition,Zusatz,zusatz,T1,True,True,,m,0.03607340199096226
+de,7,poetry,Poesie,poesie,T2,True,True,,f,0.008636708334082838
+de,7,art,Kunst,kunst,T2,True,True,,f,-0.00013758312852787946
+de,7,dance,tanzen,tanzen,T2,True,True,,unknown,-0.0714586206779419
+de,7,literature,Literatur,literatur,T2,True,True,,f,0.01589904281159321
+de,7,novel,Roman,roman,T2,True,True,,m,0.02620682074023667
+de,7,symphony,Symphonie,symphonie,T2,True,True,,f,0.016001029145504997
+de,7,drama,Theater,theater,T2,True,True,,n,-0.00953543382467012
+de,7,sculpture,Skulptur,skulptur,T2,True,True,,f,0.001074176219014511
+de,7,male,männlich,männlich,A1,True,True,,unknown,
+de,7,man,Mann,mann,A1,True,True,,m,
+de,7,boy,Junge,junge,A1,True,True,,m,
+de,7,brother,Bruder,bruder,A1,True,True,,m,
+de,7,he,er,er,A1,True,True,,m,
+de,7,him,ihm,ihm,A1,True,True,,unknown,
+de,7,his,seine,seine,A1,True,True,,unknown,
+de,7,son,Sohn,sohn,A1,True,True,,m,
+de,7,female,weiblich,weiblich,A2,True,True,,unknown,
+de,7,woman,Frau,frau,A2,True,True,,f,
+de,7,girl,Mädchen,mädchen,A2,True,True,,n,
+de,7,sister,Schwester,schwester,A2,True,True,,f,
+de,7,she,sie,sie,A2,True,True,,unknown,
+de,7,her,ihr,ihr,A2,True,True,,unknown,
+de,7,hers,ihres,ihres,A2,True,True,,unknown,
+de,7,daughter,Tochter,tochter,A2,True,True,,f,
+de,8,science,Wissenschaft,wissenschaft,T1,True,True,,f,0.005780621067042413
+de,8,technology,Technologie,technologie,T1,True,True,,f,0.009992203365886548
+de,8,physics,Physik,physik,T1,True,True,,f,-0.0006998057729553642
+de,8,chemistry,Chemie,chemie,T1,True,True,,f,0.006943455313121821
+de,8,Einstein,Einstein,einstein,T1,True,False,untranslated English name,m,
+de,8,NASA,NASA,nasa,T1,True,False,untranslated English name,unknown,
+de,8,experiment,Experiment,experiment,T1,True,True,,n,-0.01252064621541657
+de,8,astronomy,Astronomie,astronomie,T1,True,True,,f,0.02908730079008176
+de,8,poetry,Poesie,poesie,T2,True,True,,f,0.005334982081866779
+de,8,art,Kunst,kunst,T2,True,True,,f,0.002233820212652976
+de,8,Shakespeare,Shakespeare,shakespeare,T2,True,False,untranslated English name,unknown,
+de,8,dance,tanzen,tanzen,T2,True,True,,unknown,-0.06545146780516298
+de,8,literature,Literatur,literatur,T2,True,True,,f,-0.012891365149442752
+de,8,novel,Roman,roman,T2,True,True,,m,0.037527459798337826
+de,8,symphony,Symphonie,symphonie,T2,True,True,,f,0.032235406231791525
+de,8,drama,Theater,theater,T2,True,True,,n,-0.019207069641873936
+de,8,brother,Bruder,bruder,A1,True,True,,m,
+de,8,father,Vater,vater,A1,True,True,,m,
+de,8,uncle,Onkel,onkel,A1,True,True,,m,
+de,8,grandfather,Großvater,großvater,A1,True,True,,m,
+de,8,son,Sohn,sohn,A1,True,True,,m,
+de,8,he,er,er,A1,True,True,,m,
+de,8,his,seine,seine,A1,True,True,,unknown,
+de,8,him,ihm,ihm,A1,True,True,,unknown,
+de,8,sister,Schwester,schwester,A2,True,True,,f,
+de,8,mother,Mutter,mutter,A2,True,True,,f,
+de,8,aunt,Tante,tante,A2,True,True,,f,
+de,8,grandmother,Oma,oma,A2,True,True,,f,
+de,8,daughter,Tochter,tochter,A2,True,True,,f,
+de,8,she,sie,sie,A2,True,True,,unknown,
+de,8,hers,ihres,ihres,A2,True,True,,unknown,
+de,8,her,ihr,ihr,A2,True,True,,unknown,
+es,7,math,matemáticas,matemáticas,T1,True,True,,unknown,0.024064950645761196
+es,7,algebra,álgebra,álgebra,T1,True,True,,f,0.015876481268708165
+es,7,geometry,geometría,geometría,T1,True,True,,f,-0.003622590274995105
+es,7,calculus,cálculo,cálculo,T1,True,True,,m,0.024978051782187885
+es,7,equations,ecuaciones,ecuaciones,T1,True,True,,unknown,0.0018937059803819656
+es,7,numbers,números,números,T1,True,True,,unknown,0.02231799194283572
+es,7,addition,adición,adición,T1,True,True,,f,0.0006932525046331739
+es,7,poetry,poesía,poesía,T2,True,True,,f,-0.029377945754245266
+es,7,art,arte,arte,T2,True,True,,unknown,0.02750272044946503
+es,7,dance,danza,danza,T2,True,True,,f,-0.060121329934253565
+es,7,literature,literatura,literatura,T2,True,True,,f,-0.032114845465046366
+es,7,novel,novela,novela,T2,True,True,,f,-0.05436753142231787
+es,7,symphony,sinfonía,sinfonía,T2,True,True,,f,-0.02013218705693562
+es,7,drama,drama,drama,T2,True,True,,m,0.011080702701828732
+es,7,sculpture,escultura,escultura,T2,True,True,,f,-0.02311156877016865
+es,7,male,masculino,masculino,A1,True,True,,unknown,
+es,7,man,hombre,hombre,A1,True,True,,m,
+es,7,boy,niño,niño,A1,True,True,,m,
+es,7,brother,hermano,hermano,A1,True,True,,m,
+es,7,he,él,él,A1,True,True,,unknown,
+es,7,him,su,su,A1,True,False,in both sets,unknown,
+es,7,son,hijo,hijo,A1,True,True,,m,
+es,7,female,hembra,hembra,A2,True,True,,f,
+es,7,woman,mujer,mujer,A2,True,True,,f,
+es,7,girl,niña,niña,A2,True,True,,f,
+es,7,sister,hermana,hermana,A2,True,True,,f,
+es,7,she,ella,ella,A2,True,True,,unknown,
+es,7,her,su,su,A2,True,False,in both sets,unknown,
+es,7,hers,de ella,de ella,A2,False,False,multi-word,unknown,
+es,7,daughter,hija,hija,A2,True,True,,f,
+es,8,science,ciencia,ciencia,T1,True,True,,f,0.013871855239888903
+es,8,technology,tecnología,tecnología,T1,True,True,,f,-0.032233344323475285
+es,8,physics,física,física,T1,True,True,,f,0.006750083777353144
+es,8,chemistry,química,química,T1,True,True,,f,-0.011535032109326215
+es,8,Einstein,Einstein,einstein,T1,True,False,untranslated English name,unknown,
+es,8,NASA,NASA,nasa,T1,True,False,untranslated English name,f,
+es,8,experiment,experimento,experimento,T1,True,True,,m,0.02753224262537915
+es,8,astronomy,astronomía,astronomía,T1,True,True,,f,0.015332733041858088
+es,8,poetry,poesía,poesía,T2,True,True,,f,-0.0256884752525689
+es,8,art,arte,arte,T2,True,True,,unknown,-0.018678543684357757
+es,8,Shakespeare,Shakespeare,shakespeare,T2,True,False,untranslated English name,unknown,
+es,8,dance,danza,danza,T2,True,True,,f,-0.06112568476401231
+es,8,literature,literatura,literatura,T2,True,True,,f,-0.028214725001802665
+es,8,novel,novela,novela,T2,True,True,,f,-0.051607293197083376
+es,8,symphony,sinfonía,sinfonía,T2,True,True,,f,-0.007543205490819993
+es,8,drama,drama,drama,T2,True,True,,m,-0.014575607029499671
+es,8,brother,hermano,hermano,A1,True,True,,m,
+es,8,father,padre,padre,A1,True,True,,m,
+es,8,uncle,tío,tío,A1,True,True,,m,
+es,8,grandfather,abuelo,abuelo,A1,True,True,,m,
+es,8,son,hijo,hijo,A1,True,True,,m,
+es,8,he,él,él,A1,True,True,,unknown,
+es,8,his,su,su,A1,True,False,in both sets,unknown,
+es,8,sister,hermana,hermana,A2,True,True,,f,
+es,8,mother,madre,madre,A2,True,True,,f,
+es,8,aunt,tía,tía,A2,True,True,,f,
+es,8,grandmother,abuela,abuela,A2,True,True,,f,
+es,8,daughter,hija,hija,A2,True,True,,f,
+es,8,she,ella,ella,A2,True,True,,unknown,
+es,8,hers,de ella,de ella,A2,False,False,multi-word,unknown,
+es,8,her,su,su,A2,True,False,in both sets,unknown,
+it,7,math,matematica,matematica,T1,True,True,,no lexicon,-0.029911140752923726
+it,7,algebra,algebra,algebra,T1,True,True,,no lexicon,-0.003546040398416467
+it,7,geometry,geometria,geometria,T1,True,True,,no lexicon,-0.0036176079251369897
+it,7,calculus,calcolo,calcolo,T1,True,True,,no lexicon,0.0307644704544488
+it,7,equations,equazioni,equazioni,T1,True,True,,no lexicon,-0.0034444086144861663
+it,7,numbers,numeri,numeri,T1,True,True,,no lexicon,0.010432846186045508
+it,7,addition,aggiunta,aggiunta,T1,True,True,,no lexicon,-0.023315710015471405
+it,7,poetry,poesia,poesia,T2,True,True,,no lexicon,-0.05703966887591791
+it,7,art,arte,arte,T2,True,True,,no lexicon,0.016141973077585137
+it,7,dance,danza,danza,T2,True,True,,no lexicon,-0.08195009109407264
+it,7,literature,letteratura,letteratura,T2,True,True,,no lexicon,-0.03113733067525895
+it,7,novel,romanzo,romanzo,T2,True,True,,no lexicon,-0.004579988020771725
+it,7,symphony,sinfonia,sinfonia,T2,True,True,,no lexicon,-0.04613578510863969
+it,7,drama,dramma,dramma,T2,True,True,,no lexicon,-0.004861405562332971
+it,7,sculpture,scultura,scultura,T2,True,True,,no lexicon,-0.021142935297744164
+it,7,male,maschio,maschio,A1,True,True,,no lexicon,
+it,7,man,uomo,uomo,A1,True,True,,no lexicon,
+it,7,boy,ragazzo,ragazzo,A1,True,True,,no lexicon,
+it,7,brother,fratello,fratello,A1,True,True,,no lexicon,
+it,7,he,lui,lui,A1,True,True,,no lexicon,
+it,7,his,suo,suo,A1,True,True,,no lexicon,
+it,7,son,figlio,figlio,A1,True,True,,no lexicon,
+it,7,female,femmina,femmina,A2,True,True,,no lexicon,
+it,7,woman,donna,donna,A2,True,True,,no lexicon,
+it,7,girl,ragazza,ragazza,A2,True,True,,no lexicon,
+it,7,sister,sorella,sorella,A2,True,True,,no lexicon,
+it,7,she,lei,lei,A2,True,True,,no lexicon,
+it,7,her,sua,sua,A2,True,True,,no lexicon,
+it,7,daughter,figlia,figlia,A2,True,True,,no lexicon,
+it,8,science,scienza,scienza,T1,True,True,,no lexicon,-0.0057871940313653225
+it,8,technology,tecnologia,tecnologia,T1,True,True,,no lexicon,-0.03564084701910278
+it,8,physics,fisica,fisica,T1,True,True,,no lexicon,-0.03915462979840115
+it,8,chemistry,chimica,chimica,T1,True,True,,no lexicon,-0.013808184471863605
+it,8,Einstein,Einstein,einstein,T1,True,False,untranslated English name,no lexicon,
+it,8,NASA,NASA,nasa,T1,True,False,untranslated English name,no lexicon,
+it,8,experiment,esperimento,esperimento,T1,True,True,,no lexicon,0.026145674329520557
+it,8,astronomy,astronomia,astronomia,T1,True,True,,no lexicon,-0.0053773462250863435
+it,8,poetry,poesia,poesia,T2,True,True,,no lexicon,-0.046572580163223076
+it,8,art,arte,arte,T2,True,True,,no lexicon,0.015603508928356408
+it,8,Shakespeare,Shakespeare,shakespeare,T2,True,False,untranslated English name,no lexicon,
+it,8,dance,danza,danza,T2,True,True,,no lexicon,-0.05883573144590051
+it,8,literature,letteratura,letteratura,T2,True,True,,no lexicon,-0.021246420915269154
+it,8,novel,romanzo,romanzo,T2,True,True,,no lexicon,-0.00864013715458703
+it,8,symphony,sinfonia,sinfonia,T2,True,True,,no lexicon,-0.05057969157479869
+it,8,drama,dramma,dramma,T2,True,True,,no lexicon,0.005508890644436659
+it,8,brother,fratello,fratello,A1,True,True,,no lexicon,
+it,8,father,padre,padre,A1,True,True,,no lexicon,
+it,8,uncle,zio,zio,A1,True,True,,no lexicon,
+it,8,grandfather,nonno,nonno,A1,True,True,,no lexicon,
+it,8,son,figlio,figlio,A1,True,True,,no lexicon,
+it,8,he,lui,lui,A1,True,True,,no lexicon,
+it,8,his,suo,suo,A1,True,True,,no lexicon,
+it,8,sister,sorella,sorella,A2,True,True,,no lexicon,
+it,8,mother,madre,madre,A2,True,True,,no lexicon,
+it,8,aunt,zia,zia,A2,True,True,,no lexicon,
+it,8,grandmother,nonna,nonna,A2,True,True,,no lexicon,
+it,8,daughter,figlia,figlia,A2,True,True,,no lexicon,
+it,8,she,lei,lei,A2,True,True,,no lexicon,
+it,8,hers,sua,sua,A2,True,True,,no lexicon,
+hr,7,math,matematika,matematika,T1,True,True,,no lexicon,-0.05402717197080567
+hr,7,algebra,algebra,algebra,T1,True,True,,no lexicon,-0.020280699883813313
+hr,7,geometry,geometrija,geometrija,T1,True,True,,no lexicon,-0.017119309562801277
+hr,7,calculus,aritmetika,aritmetika,T1,True,True,,no lexicon,-0.046048509582794495
+hr,7,equations,jednadžbe,jednadžbe,T1,True,True,,no lexicon,0.025661855914416914
+hr,7,computation,izračun,izračun,T1,True,True,,no lexicon,0.0009067505299632794
+hr,7,numbers,brojevi,brojevi,T1,True,True,,no lexicon,0.009087652919811229
+hr,7,addition,dodatak,dodatak,T1,True,True,,no lexicon,0.04090440294142769
+hr,7,poetry,poezija,poezija,T2,True,True,,no lexicon,-0.059871004703614755
+hr,7,art,umjetnost,umjetnost,T2,True,True,,no lexicon,-0.072703795741799
+hr,7,dance,ples,ples,T2,True,True,,no lexicon,-0.0397078275655989
+hr,7,literature,književnost,književnost,T2,True,True,,no lexicon,-0.06747774488740213
+hr,7,novel,roman,roman,T2,True,True,,no lexicon,0.049939135766267684
+hr,7,symphony,simfonija,simfonija,T2,True,True,,no lexicon,-0.009398200953718794
+hr,7,drama,drama,drama,T2,True,True,,no lexicon,-0.026747387799235967
+hr,7,sculpture,skulptura,skulptura,T2,True,True,,no lexicon,-0.0421854826445093
+hr,7,male,muški,muški,A1,True,True,,no lexicon,
+hr,7,man,čovjek,čovjek,A1,True,True,,no lexicon,
+hr,7,boy,dječak,dječak,A1,True,True,,no lexicon,
+hr,7,brother,brat,brat,A1,True,True,,no lexicon,
+hr,7,he,on,on,A1,True,True,,no lexicon,
+hr,7,him,njega,njega,A1,True,True,,no lexicon,
+hr,7,his,njegov,njegov,A1,True,True,,no lexicon,
+hr,7,son,sin,sin,A1,True,True,,no lexicon,
+hr,7,female,žena,žena,A2,True,True,,no lexicon,
+hr,7,girl,djevojka,djevojka,A2,True,True,,no lexicon,
+hr,7,sister,sestra,sestra,A2,True,True,,no lexicon,
+hr,7,she,ona,ona,A2,True,True,,no lexicon,
+hr,7,her,nju,nju,A2,True,True,,no lexicon,
+hr,7,hers,njen,njen,A2,True,True,,no lexicon,
+hr,7,daughter,kći,kći,A2,True,True,,no lexicon,
+hr,8,science,znanost,znanost,T1,True,True,,no lexicon,-0.041511193057410856
+hr,8,technology,tehnologija,tehnologija,T1,True,True,,no lexicon,-0.057983508119625646
+hr,8,physics,fizika,fizika,T1,True,True,,no lexicon,-0.01725364274125951
+hr,8,chemistry,kemija,kemija,T1,True,True,,no lexicon,-0.03946014304688242
+hr,8,Einstein,Einstein,einstein,T1,True,False,untranslated English name,no lexicon,
+hr,8,NASA,NASA,nasa,T1,True,False,untranslated English name,no lexicon,
+hr,8,experiment,eksperiment,eksperiment,T1,True,True,,no lexicon,0.04919790801648072
+hr,8,astronomy,astronomija,astronomija,T1,True,True,,no lexicon,-0.05327204864216101
+hr,8,poetry,poezija,poezija,T2,True,True,,no lexicon,-0.04706225452893342
+hr,8,art,umjetnost,umjetnost,T2,True,True,,no lexicon,-0.07902332572248838
+hr,8,Shakespeare,Shakespeare,shakespeare,T2,True,False,untranslated English name,no lexicon,
+hr,8,dance,ples,ples,T2,True,True,,no lexicon,-0.03188284868919222
+hr,8,literature,književnost,književnost,T2,True,True,,no lexicon,-0.043847351954257235
+hr,8,novel,roman,roman,T2,True,True,,no lexicon,0.057784647878459106
+hr,8,symphony,simfonija,simfonija,T2,True,True,,no lexicon,-0.01778694072829745
+hr,8,drama,drama,drama,T2,True,True,,no lexicon,-0.009005141219402546
+hr,8,brother,brat,brat,A1,True,True,,no lexicon,
+hr,8,father,otac,otac,A1,True,True,,no lexicon,
+hr,8,uncle,ujak,ujak,A1,True,True,,no lexicon,
+hr,8,grandfather,djed,djed,A1,True,True,,no lexicon,
+hr,8,son,sin,sin,A1,True,True,,no lexicon,
+hr,8,he,on,on,A1,True,True,,no lexicon,
+hr,8,his,njegov,njegov,A1,True,True,,no lexicon,
+hr,8,him,njega,njega,A1,True,True,,no lexicon,
+hr,8,sister,sestra,sestra,A2,True,True,,no lexicon,
+hr,8,mother,majka,majka,A2,True,True,,no lexicon,
+hr,8,aunt,tetka,tetka,A2,True,True,,no lexicon,
+hr,8,grandmother,baka,baka,A2,True,True,,no lexicon,
+hr,8,daughter,kći,kći,A2,True,True,,no lexicon,
+hr,8,she,ona,ona,A2,True,True,,no lexicon,
+hr,8,hers,njen,njen,A2,True,True,,no lexicon,
+hr,8,her,nju,nju,A2,True,True,,no lexicon,
+ru,7,math,математический,математический,T1,True,True,,unknown,0.03944378160831813
+ru,7,math,математическая,математическая,T1,True,True,,unknown,-0.061374760561732356
+ru,7,algebra,алгебра,алгебра,T1,True,True,,f,-0.0554413943245332
+ru,7,geometry,геометрия,геометрия,T1,True,True,,f,-0.033578144178155855
+ru,7,calculus,исчисление,исчисление,T1,True,True,,n,0.012090755791110297
+ru,7,equations,уравнения,уравнения,T1,True,True,,unknown,-0.00014570923482767895
+ru,7,computation,вычисление,вычисление,T1,True,True,,n,0.018592136108771348
+ru,7,numbers,числа,числа,T1,True,True,,unknown,0.0075075834082861115
+ru,7,addition,сложение,сложение,T1,True,True,,n,0.002695124080187239
+ru,7,poetry,поэзия,поэзия,T2,True,True,,f,-0.05793743082052949
+ru,7,art,искусство,искусство,T2,True,True,,n,0.00683570508984882
+ru,7,dance,танец,танец,T2,True,True,,m,-0.012950642846656896
+ru,7,literature,литература,литература,T2,True,True,,f,-0.07856282698316222
+ru,7,novel,роман,роман,T2,True,True,,m,0.021876637559975515
+ru,7,symphony,симфония,симфония,T2,True,True,,f,-0.04391273073601576
+ru,7,drama,драма,драма,T2,True,True,,f,-0.0343025589314602
+ru,7,sculpture,скульптура,скульптура,T2,True,True,,f,-0.05146330103112515
+ru,7,male,мужчина,мужчина,A1,True,True,,m,
+ru,7,boy,мальчик,мальчик,A1,True,True,,m,
+ru,7,brother,брат,брат,A1,True,True,,m,
+ru,7,he,он,он,A1,True,True,,unknown,
+ru,7,him,ему,ему,A1,True,True,,unknown,
+ru,7,his,его,его,A1,True,True,,unknown,
+ru,7,son,сын,сын,A1,True,True,,m,
+ru,7,female,женщина,женщина,A2,True,True,,f,
+ru,7,girl,девочка,девочка,A2,True,True,,f,
+ru,7,sister,сестра,сестра,A2,True,True,,f,
+ru,7,she,она,она,A2,True,True,,unknown,
+ru,7,her,ее,ее,A2,True,True,,unknown,
+ru,7,daughter,дочь,дочь,A2,True,True,,f,
+ru,8,science,наука,наука,T1,True,True,,f,-0.05627498180051815
+ru,8,technology,технология,технология,T1,True,True,,f,-0.05924813396206961
+ru,8,physics,физика,физика,T1,True,True,,f,0.00042522290201874036
+ru,8,chemistry,химия,химия,T1,True,True,,f,-0.027274584864877688
+ru,8,Einstein,Einstein,einstein,T1,True,False,untranslated English name,unknown,
+ru,8,NASA,NASA,nasa,T1,True,False,untranslated English name,unknown,
+ru,8,experiment,эксперимент,эксперимент,T1,True,True,,m,0.019465373169745448
+ru,8,astronomy,астрономия,астрономия,T1,True,True,,f,-0.04060182791060221
+ru,8,poetry,поэзия,поэзия,T2,True,True,,f,-0.04652193280147335
+ru,8,art,искусство,искусство,T2,True,True,,n,0.003102452582869092
+ru,8,Shakespeare,Shakespeare,shakespeare,T2,True,False,untranslated English name,unknown,
+ru,8,dance,танец,танец,T2,True,True,,m,-0.03017215983244334
+ru,8,literature,литература,литература,T2,True,True,,f,-0.06677797657814089
+ru,8,novel,роман,роман,T2,True,True,,m,0.00850763201905938
+ru,8,symphony,симфония,симфония,T2,True,True,,f,-0.032436256684602816
+ru,8,drama,драма,драма,T2,True,True,,f,-0.03443939864689419
+ru,8,brother,брат,брат,A1,True,True,,m,
+ru,8,father,отец,отец,A1,True,True,,m,
+ru,8,uncle,дядя,дядя,A1,True,True,,m,
+ru,8,grandfather,дед,дед,A1,True,True,,m,
+ru,8,son,сын,сын,A1,True,True,,m,
+ru,8,he,он,он,A1,True,True,,unknown,
+ru,8,his,его,его,A1,True,True,,unknown,
+ru,8,him,ему,ему,A1,True,True,,unknown,
+ru,8,sister,сестра,сестра,A2,True,True,,f,
+ru,8,mother,мать,мать,A2,True,True,,f,
+ru,8,aunt,тетя,тетя,A2,True,True,,unknown,
+ru,8,grandmother,бабушка,бабушка,A2,True,True,,f,
+ru,8,daughter,дочь,дочь,A2,True,True,,f,
+ru,8,she,она,она,A2,True,True,,unknown,
+ru,8,hers,ее,ее,A2,True,True,,unknown,
+tr,7,math,matematik,matematik,T1,True,True,,no lexicon,-0.022268552129006053
+tr,7,algebra,cebir,cebir,T1,True,True,,no lexicon,-0.032626367350617747
+tr,7,geometry,geometri,geometri,T1,True,True,,no lexicon,-0.0376874222864107
+tr,7,calculus,hesap,hesap,T1,True,True,,no lexicon,0.002430770001815158
+tr,7,equations,denklemler,denklemler,T1,True,True,,no lexicon,0.0013654635297436213
+tr,7,computation,hesaplama,hesaplama,T1,True,True,,no lexicon,-0.011788309787883033
+tr,7,numbers,sayılar,sayılar,T1,True,True,,no lexicon,0.005600468247464935
+tr,7,addition,ilave,ilave,T1,True,True,,no lexicon,0.016526987659766235
+tr,7,poetry,şiir,şiir,T2,True,True,,no lexicon,-0.0010499516470631187
+tr,7,art,sanat,sanat,T2,True,True,,no lexicon,0.01767605882241957
+tr,7,dance,dans,dans,T2,True,True,,no lexicon,-0.04052086715351397
+tr,7,literature,Edebiyat,edebiyat,T2,True,True,,no lexicon,-0.0071561846443290444
+tr,7,novel,roman,roman,T2,True,True,,no lexicon,0.01766171178325382
+tr,7,symphony,senfoni,senfoni,T2,True,True,,no lexicon,0.011270512708174835
+tr,7,drama,dram,dram,T2,True,True,,no lexicon,-0.022487055016111923
+tr,7,sculpture,heykel,heykel,T2,True,True,,no lexicon,-0.000543199410071471
+tr,7,male,erkek,erkek,A1,True,True,,no lexicon,
+tr,7,man,adam,adam,A1,True,True,,no lexicon,
+tr,7,boy,oğlan,oğlan,A1,True,True,,no lexicon,
+tr,7,brother,erkek kardeş,erkek kardeş,A1,False,False,multi-word,no lexicon,
+tr,7,he,o,o,A1,True,False,in both sets,no lexicon,
+tr,7,him,onu,onu,A1,True,True,,no lexicon,
+tr,7,his,onun,onun,A1,True,True,,no lexicon,
+tr,7,son,oğul,oğul,A1,True,True,,no lexicon,
+tr,7,female,kadın,kadın,A2,True,True,,no lexicon,
+tr,7,girl,kız,kız,A2,True,True,,no lexicon,
+tr,7,sister,kız kardeş,kız kardeş,A2,False,False,multi-word,no lexicon,
+tr,7,she,o,o,A2,True,False,in both sets,no lexicon,
+tr,7,her,ona,ona,A2,True,True,,no lexicon,
+tr,7,hers,onunki,onunki,A2,True,True,,no lexicon,
+tr,7,daughter,kız evlat,kız evlat,A2,False,False,multi-word,no lexicon,
+tr,8,science,Bilim,bilim,T1,True,True,,no lexicon,0.03213942045394996
+tr,8,technology,teknoloji,teknoloji,T1,True,True,,no lexicon,-0.009213202495708894
+tr,8,physics,fizik,fizik,T1,True,True,,no lexicon,0.019092305995349862
+tr,8,chemistry,kimya,kimya,T1,True,True,,no lexicon,0.007224856906449778
+tr,8,Einstein,Einstein,einstein,T1,True,False,untranslated English name,no lexicon,
+tr,8,NASA,NASA,nasa,T1,True,False,untranslated English name,no lexicon,
+tr,8,experiment,deney,deney,T1,True,True,,no lexicon,0.010828398736547562
+tr,8,astronomy,astronomi,astronomi,T1,True,True,,no lexicon,0.015411372058407896
+tr,8,poetry,şiir,şiir,T2,True,True,,no lexicon,-0.0152956337677847
+tr,8,art,sanat,sanat,T2,True,True,,no lexicon,0.0070934397888261225
+tr,8,Shakespeare,Shakespeare,shakespeare,T2,True,False,untranslated English name,no lexicon,
+tr,8,dance,dans,dans,T2,True,True,,no lexicon,-0.06038710904962066
+tr,8,literature,Edebiyat,edebiyat,T2,True,True,,no lexicon,-0.005593440869094718
+tr,8,novel,roman,roman,T2,True,True,,no lexicon,-0.01359988379335303
+tr,8,symphony,senfoni,senfoni,T2,True,True,,no lexicon,0.02365540837583907
+tr,8,drama,dram,dram,T2,True,True,,no lexicon,-0.04977060144124572
+tr,8,brother,erkek kardeş,erkek kardeş,A1,False,False,multi-word,no lexicon,
+tr,8,father,baba,baba,A1,True,True,,no lexicon,
+tr,8,uncle,amca,amca,A1,True,True,,no lexicon,
+tr,8,grandfather,büyükbaba,büyükbaba,A1,True,True,,no lexicon,
+tr,8,son,oğul,oğul,A1,True,True,,no lexicon,
+tr,8,he,o,o,A1,True,False,in both sets,no lexicon,
+tr,8,his,onun,onun,A1,True,True,,no lexicon,
+tr,8,him,onu,onu,A1,True,True,,no lexicon,
+tr,8,sister,kız kardeş,kız kardeş,A2,False,False,multi-word,no lexicon,
+tr,8,mother,anne,anne,A2,True,True,,no lexicon,
+tr,8,aunt,teyze,teyze,A2,True,True,,no lexicon,
+tr,8,grandmother,büyükanne,büyükanne,A2,True,True,,no lexicon,
+tr,8,daughter,kız evlat,kız evlat,A2,False,False,multi-word,no lexicon,
+tr,8,she,o,o,A2,True,False,in both sets,no lexicon,
+tr,8,hers,onunki,onunki,A2,True,True,,no lexicon,
+tr,8,her,ona,ona,A2,True,True,,no lexicon,
