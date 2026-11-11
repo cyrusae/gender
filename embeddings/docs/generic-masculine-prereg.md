@@ -1,0 +1,55 @@
+# Generic masculine and Zhou's skew (DRAFT pre-registration)
+
+*Status: DRAFT, 2026-11-10, written by Claude for the PI's review. **Spanish has already been
+looked at** (exploratory check, 2026-11-10, 46 pairs, numbers below), so Spanish is reported as a
+replication of an exploratory observation; **French is the confirmatory test** (not looked at).*
+
+## Question
+
+Zhou et al.'s Figure 1 skew: feminine occupation forms sit about twice as far from neutral on
+the semantic gender axis as masculine forms (ES, our redraw: +0.10 vs −0.21 from the epicene zero
+point; 45/58 pairs). **Is this because the masculine form doubles as the generic (sex-unspecified)
+form?** If so, the masculine plural, the most generic form (*los médicos* for mixed groups),
+should move toward neutral far more than the feminine plural does.
+
+Exploratory Spanish numbers that motivated this (semantic PCA axis, 46 pairs): singular m +0.122,
+f −0.242; plural m +0.019, f −0.142; common-gender person nouns +0.024.
+
+## Materials
+
+- MUSE `wiki.multi.{es,fr}`, first 200k words; unit vectors; raw projection onto the semantic
+  axis d_s (true-midpoint PCA of the 10 definitional pairs, grammatical direction from the C1
+  Wiktionary nouns removed, as `scripts/zhou_figures.py` panel B).
+- Zero point z: strict-epicene anchor, frozen list `data/zero_ref_{lang}_frozen_v1.csv`.
+- Pairs: Zhou's occupation pairs (ES 58, FR 23). Plurals by rule (ES: +s after a vowel, +es after
+  a consonant; FR: +s, -al → -aux, -eau → -eaux, words ending in s/x/z unchanged), kept only if
+  all four forms are in the 200k vocabulary and the plural is not identical to the singular.
+- Floor: ≥ 15 pairs per language with all four forms (FR may fail with 23; then "too few").
+
+## Measures
+
+For each pair, distances from the zero point: Ms, Fs (singular), Mp, Fp (plural).
+- **Shrink ratios** (pooled): ρ_m = mean(Mp) / mean(Ms), ρ_f = mean(Fp) / mean(Fs).
+- **Primary statistic: Δρ = ρ_f − ρ_m** (> 0: the masculine form moves toward neutral more in the
+  plural than the feminine form does).
+- Secondary: is the masculine plural at neutral? mean(Mp) vs the common-gender person nouns' mean
+  distance from z (difference and CI).
+- 95% bootstrap (10,000, seed 0) over pairs, epicene reference words (within gender) and the 10
+  definitional pairs (re-estimating the axis in every draw, so the axis choice is in the CI).
+
+## Reading (fixed before data)
+
+1. **Generic-masculine supported** if Δρ's CI is above 0.
+2. **Masculine plural ≈ generic** if the CI of mean(Mp) − mean(common nouns) includes 0 and lies
+   within ±0.05 (≈ a quarter of the singular skew).
+3. Otherwise inconclusive. A Δρ CI below 0 counts against the account.
+4. French is the confirmatory language; Spanish is replication of the exploratory observation
+   and is reported as such whatever it shows.
+
+## Known limits
+
+- A static vector can't separate generic from male-specific uses of a form; this tests a
+  prediction of the generic account, not the account itself.
+- Plurals also differ from singulars in other ways (frequency, contexts); comparing the two
+  genders' shrink ratios, not raw plural values, is meant to cancel what they share.
+- Plural forms are built by rule; the PI may review the generated list before freezing.
