@@ -121,3 +121,38 @@ confirmations.
   occupations independently. Q3 slope is standardised; prediction is a positive slope (more
   masculine adjective → more intrusion), but the reading is two-sided.
 - Script: `scripts/wordpair_cues.py`.
+
+## Results (2026-11-11, run at 8ccf23c; `results/wordpair_cues/`)
+
+**Q1, intrusion with the full list (Spanish, original): present.** 0.291 [0.181, 0.395] with 87
+feminine cues, against 0.236 [−0.011, 0.449] with Zhou's 3. Unchanged without the 18 pairs whose
+feminine form is also a noun (0.288 [0.181, 0.394]). Agreement gap 0.391 [0.300, 0.475] and
+invariant gap 0.484 [0.389, 0.571] also present.
+
+**Q2, mitigations: all three gaps shrink but none closes.** Shift Ori: intrusion −0.109
+[−0.150, −0.070], agreement −0.063, invariant −0.084; Hybrid Ori: −0.095 [−0.155, −0.040],
+−0.042, −0.038. With Zhou's 7 cues only the invariant gap's reduction was detectable; the larger
+cue set shows a reduction of about a third in intrusion, with intrusion still present after both
+(Shift 0.182 [0.066, 0.296]).
+
+**Q3, the adjective's own stereotype: not shown.** Standardised slope of per-pair intrusion on
+Williams & Best −0.145 [−0.390, 0.144] (64 pairs); Glasgow −0.097 [−0.361, 0.198]. If anything the
+sign is opposite to the prediction. Masculine-rated adjectives (*agresiva, fuerte*) don't pull
+toward the masculine occupation more than feminine-rated ones.
+
+**Q4, occupation stereotype: not replicated by the pre-registered rule.** S_BLS 0.302 [−0.007,
+0.524]: the same estimate as the mechanism study (0.297) but the interval now just touches 0.
+Frequency R 0.318 [−0.009, 0.595] likewise; dictionary D 0.055 [−0.200, 0.289] null again. Only the
+cue side changed; the 54 occupations still limit this regression.
+
+**Disability subset (descriptive):** intrusion 0.18–0.38 per cue (*ciego* 0.18, *loco* 0.21,
+*sordo* 0.24, *enfermo* 0.26, *sano* 0.34, *mudo* 0.38), within the range of the main list; the
+contrast word *sano* is no lower. No sign of a disability-specific effect at this size.
+
+**French (descriptive):** intrusion 0.191 [0.007, 0.371]; after Shift and Hybrid inconclusive.
+
+**Reading.** The intrusion is real and robust: with a feminine adjective, the masculine occupation
+form is still retrieved better. It doesn't depend on which adjective is used, including its gender
+stereotype; it is a property of the occupation pairs, not the cues. Zhou's mitigations reduce it by
+about a third. Whether it tracks occupational stereotype is now borderline (same size, interval
+touching 0).
