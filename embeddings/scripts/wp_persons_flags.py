@@ -6,6 +6,10 @@ merged by masc at freeze. Outcome-blind: nothing is scored here.
   (gloss matches neither the person pattern nor any English person word from the candidate glosses
   or Bolukbasi's professions list, and isn't "male equivalent of ..."), e.g. a thing or field.
 - language_name: one of those senses names a language (el portugués 'Portuguese language').
+- place_name (added 2026-11-11, PI): either form is also a Spanish place name in Wiktionary (country,
+  region, city…), e.g. argentina, siria. Computed by a one-off pass recorded in the commit; rule:
+  a pos "name" entry whose glosses mention country/region/city/province/state/island/kingdom/etc.
+  PI: drop identity nouns with this flag.
 - masc_identical_en: the masculine form is spelled exactly like its English gloss (doctor, director).
   Spanish Wikipedia also contains English uses of such strings, which can pull the Spanish vector
   toward the English word and favour the masculine form for a reason unrelated to gender.
