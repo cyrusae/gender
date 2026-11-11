@@ -103,3 +103,30 @@ is specific to occupations, not that it is stereotype. French is not included (t
 - Sensitivity set: drops every noun with any of `fem_also_noun`, `masc_also_noun`, `language_name`,
   `masc_identical_en`, `place_name` (all rule-built before scoring).
 - P2 uses one cue resample per draw for both groups. Script: `scripts/wordpair_persons.py`.
+
+## Results (2026-11-11, run at 5f887d7; `results/wordpair_persons/`)
+
+**P1, intrusion for non-occupation person nouns: none.** −0.005 [−0.077, 0.070] (107 nouns, 87
+feminine cues). With a feminine cue, *vecina, amiga, huérfana* are retrieved as well as their
+masculine forms (mean RR 0.369 vs 0.364).
+
+**P2, occupations vs persons: occupations carry extra intrusion.** Occupations 0.290 [0.221, 0.357]
+(115 nouns, rule-built list; matches the expanded-cue study's 0.291 on Zhou's 54); difference
+−0.294 [−0.389, −0.197]. Unchanged without any flagged noun: persons −0.020 [−0.103, 0.063],
+occupations 0.321 [0.228, 0.409], difference −0.341 [−0.459, −0.224].
+
+**P3, within nouns (101 with a Glasgow rating, group indicators included):** both track. Frequency
+ratio of the forms (rarer feminine → more intrusion) β 0.350 [0.176, 0.500]; Glasgow GEND (more
+masculine-rated English noun → more intrusion) β 0.215 [0.026, 0.389].
+
+**Identity nouns (descriptive):** reversed, −0.144 [−0.222, −0.065]; the feminine form wins
+(*mexicana, cubana*), plausibly because the feminine adjective form is common (agreement with
+feminine nouns such as *la cocina mexicana*), the confound that kept this group descriptive.
+
+**Reading.** The masculine intrusion is not a general property of gendered person nouns: it is
+absent for ordinary person nouns and specific to occupations. That rules out the simple
+generic-masculine explanation (and the non-blind Gemini notebook's §4 conclusion). Within nouns,
+both a frequency imbalance between the forms and the English noun's gender stereotype contribute.
+What makes occupations different is not settled here: occupations are the nouns whose feminine
+forms are rarest relative to the masculine (as P3's frequency term shows), and that rarity itself
+plausibly reflects who has held the jobs, so frequency and stereotype are entangled.
