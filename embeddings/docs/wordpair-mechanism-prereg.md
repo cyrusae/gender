@@ -112,3 +112,36 @@ Readings, fixed now:
   English, fitted on the 5,000 most frequent source entries of the MUSE dictionary, three ways
   (as is; occupation forms and their English words removed; each English occupation paired only
   with the feminine form). "No change" = change CI includes 0 and |mean change| < 0.05.
+
+## Results (2026-11-10, run at 3dbc629; `results/wordpair_mechanism/`)
+
+**Part A (clean list, 95% CI).** ES original: intrusion 0.236 [−0.011, 0.449] inconclusive (3
+feminine cues); agreement gap 0.353 [0.224, 0.483] present; invariant gap 0.478 [0.383, 0.569]
+present. Shift Ori and Hybrid Ori reduce only the invariant gap (−0.081 [−0.139, −0.036];
+−0.088 [−0.178, −0.018]); no clear change in intrusion or agreement gap. FR: original intrusion
+0.216 inconclusive, agreement 0.326 and invariant 0.397 present; Shift reduces all three, Hybrid
+reduces intrusion and invariant gap.
+
+**Part B (ES, original space, clean list, n = 54).** R and S barely correlate (BLS r = −0.11,
+Glasgow 0.14), so effects are identifiable.
+- Anchoring: **not supported.** D's coefficient includes 0 in every model (primary 0.051
+  [−0.208, 0.298]); removing occupation entries from the alignment changes nothing (−0.016
+  [−0.042, 0.005]). Pairing each occupation only with its feminine form does lower intrusion
+  (−0.289 [−0.361, −0.223]), so the alignment *could* carry it, but the dictionary MUSE uses lists
+  both forms for half the jobs and dropping the entries doesn't matter. (The feminine-only version
+  also trains on the scored pairs, so its size is an upper bound.)
+- Stereotype: **supported in the primary model** (BLS β 0.297 [0.012, 0.508]; Glasgow 0.324
+  [0.001, 0.694]); not with EU-27 2-digit (0.150, includes 0). Sensitivity without homographs:
+  Glasgow holds (0.503), BLS does not (0.140). Female-stereotyped jobs show no intrusion (BLS
+  ≥ 60% women: mean I 0.058 [−0.141, 0.247]; Glasgow ≤ 3.5: −0.169 [−0.459, 0.116]).
+- Generic-masculine usage: **not supported by the pre-registered rule** (needs intrusion in
+  female-stereotyped jobs; there is none). Frequency R is positive but its CI includes 0 in the
+  primary models; it is above 0 once homographs are excluded (0.453 [0.074, 0.711]).
+- Homographs H: positive in every model (0.24–0.43), CIs just include 0.
+- FR (descriptive): Glasgow female-stereotyped jobs mean I −0.241 [−0.509, −0.052] (feminine form
+  retrieved better); R and Glasgow correlate 0.72 there.
+
+**Reading.** The intrusion tracks how male-dominated the job is, not how the dictionary lists it;
+for female-dominated jobs it disappears. Frequency and the homograph confound add to it. The
+generic-masculine account isn't needed to explain the word-pair result; it remains the leading
+account of the monolingual Fig. 1 skew, which the singular/plural prereg tests.

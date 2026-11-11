@@ -26,3 +26,4 @@
 | 2026-11-10 | Zhou Table 2 word-pair test rerun 3 ways (exploratory): Original/Shift reproduce, Hybrid doesn't; with feminine cues masculine forms still win (ES 0.58 vs 0.37) → bias real, test flawed. | PI request after Z17. | done |
 | 2026-11-10 | Word-pair intervals + mechanism prereg DRAFTED (anchoring vs generic-masculine usage vs stereotype; dictionary lists both forms for 29/58 ES). | PI request; other Claude's suggested checks. | draft |
 | 2026-11-10 | Word-pair intervals + mechanism prereg ADOPTED; occupation mapping v1 frozen (sha e1ae7b3e…). | PI settled last item (obrero/ouvrier). | adopted |
+| 2026-11-10 | Word-pair mechanism results: anchoring not supported (D null, removing occupation entries no change); stereotype supported (BLS β 0.30, Glasgow 0.32; fragile without homographs for BLS); no intrusion in female-dominated jobs. Mitigations reduce only the invariant gap in ES. | prereg e928283 | done |

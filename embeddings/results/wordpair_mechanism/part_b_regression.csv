@@ -1,0 +1,39 @@
+lang,model,term,beta,sig,n,lo,hi,words
+es,R~S_bls correlation,r,-0.11321983178518066,,54,,,
+es,I~D+R+H+S_bls,D,0.05112608621341491,includes 0,54,-0.20768008124346987,0.29821503268926913,
+es,I~D+R+H+S_bls,R,0.2756490687571233,includes 0,54,-0.0909157410394143,0.5591738795708765,
+es,I~D+R+H+S_bls,H,0.24429113857993653,includes 0,54,-0.03257461119650809,0.5414864148601073,
+es,I~D+R+H+S_bls,S_bls,0.2970977881214308,above 0,54,0.01183842167040671,0.5082357197865409,
+es,sens H=0: I~D+R+S_bls,D,0.186962962040051,includes 0,40,-0.11368595391157232,0.4499809153105052,
+es,sens H=0: I~D+R+S_bls,R,0.45349314736122176,above 0,40,0.07431894036825931,0.7111508156327263,
+es,sens H=0: I~D+R+S_bls,S_bls,0.14014592623473043,includes 0,40,-0.18658849927880727,0.41550483805840227,
+es,female-stereotyped (S_bls) mean I,mean_I,0.057588910130555636,includes 0,14,-0.1409045910140628,0.24718065477730647,"administrador, autor, camarero, secretario, editor, educador, maestro, bibliotecario, enfermero, farmacéutico, psicólogo, redactor, veterinario, escritor"
+es,R~S_glasgow correlation,r,0.14163979155647796,,32,,,
+es,I~D+R+H+S_glasgow,D,0.1677612822729066,includes 0,32,-0.19570111838307466,0.4553595853583605,
+es,I~D+R+H+S_glasgow,R,0.29199578115393793,includes 0,32,-0.2064666274904808,0.6273760260681112,
+es,I~D+R+H+S_glasgow,H,0.42798787164130353,includes 0,32,-0.012995326518286209,0.7625819875912796,
+es,I~D+R+H+S_glasgow,S_glasgow,0.3236617462990419,above 0,32,0.0009743887577346879,0.6941803145124941,
+es,sens H=0: I~D+R+S_glasgow,D,0.0005672037839655803,includes 0,26,-0.40638950440906835,0.37401136367848037,
+es,sens H=0: I~D+R+S_glasgow,R,0.3029896463565433,includes 0,26,-0.19103322767421146,0.6241296264842946,
+es,sens H=0: I~D+R+S_glasgow,S_glasgow,0.5026046611087492,above 0,26,0.14916927857866363,0.8478760444755582,
+es,female-stereotyped (S_glasgow) mean I,mean_I,-0.1693681494843328,includes 0,6,-0.45925925925925926,0.11581703570085239,"cocinero, bailarín, diseñador, bibliotecario, enfermero, psicólogo"
+es,R~S_eu27 correlation,r,-0.09939100426503342,,54,,,
+es,I~D+R+H+S_eu27,D,0.0843006415895563,includes 0,54,-0.1862785780583818,0.3484345211487133,
+es,I~D+R+H+S_eu27,R,0.2613646164684335,includes 0,54,-0.11499230684532279,0.5746977297783569,
+es,I~D+R+H+S_eu27,H,0.23299841826405335,includes 0,54,-0.07534141071679612,0.5912121084539229,
+es,I~D+R+H+S_eu27,S_eu27,0.1499281087241681,includes 0,54,-0.14533659130822035,0.4140618466337073,
+es,sens H=0: I~D+R+S_eu27,D,0.2223927039483569,includes 0,40,-0.08150421600323147,0.4724098799746652,
+es,sens H=0: I~D+R+S_eu27,R,0.4687432593273583,above 0,40,0.08613478067843382,0.7424166028792839,
+es,sens H=0: I~D+R+S_eu27,S_eu27,-0.00876927694565304,includes 0,40,-0.28949847584847316,0.22452581797690635,
+es,female-stereotyped (S_eu27) mean I,mean_I,0.17239897444426153,includes 0,23,-0.005761175231484843,0.3501193038553448,"locutor, autor, coreógrafo, profesor, secretario, bailarín, editor, vendedor, animador, educador, médico, juez, maestro, abogado, bibliotecario, enfermero, músico, reportero, farmacéutico, psicólogo, redactor, veterinario, escritor"
+es,I~D+R+H,D,0.08691457072403068,includes 0,54,-0.18181797868554456,0.3430820739007323,
+es,I~D+R+H,R,0.2605056220817192,includes 0,54,-0.13148016115137295,0.5700794403205481,
+es,I~D+R+H,H,0.2804134810070344,includes 0,54,-0.037160015351261275,0.5783814696564809,
+fr,R~S_bls correlation,r,-0.0826752535217124,,21,,,
+fr,female-stereotyped (S_bls) mean I,mean_I,0.09556950691144003,includes 0,7,-0.360071499491121,0.5296971266447501,"administrateur, auteur, serveur, infirmier, enseignant, éditeur, écrivain"
+fr,R~S_glasgow correlation,r,0.714834176378793,not identifiable (|r|>0.6),14,,,
+fr,female-stereotyped (S_glasgow) mean I,mean_I,-0.2408563972061962,below 0,6,-0.5086039318116524,-0.052298810724511514,"cuisinier, infirmier, enseignant, chanteur, danseur, dessinateur"
+fr,R~S_eu27 correlation,r,-0.008711265694682672,,21,,,
+fr,female-stereotyped (S_eu27) mean I,mean_I,0.2812323412876344,includes 0,11,-0.04972372915707244,0.582488167953332,"auteur, professeur, infirmier, avocat, enseignant, chanteur, danseur, éditeur, vendeur, musicien, écrivain"
+fr,R~S_fr2d correlation,r,-0.10159426335687122,,21,,,
+fr,female-stereotyped (S_fr2d) mean I,mean_I,0.26203709184854235,includes 0,12,-0.046011402719831514,0.5341206125200686,"administrateur, auteur, professeur, infirmier, avocat, enseignant, chanteur, danseur, éditeur, vendeur, musicien, écrivain"
