@@ -1,0 +1,82 @@
+lang,fem,masc,en,clean_keep,drop_reason,bls_row,bls_pct_women,isco08_2d,fem_also_nonperson,note_claude_unverified,pi_ok,eu27_pct_women,es_pct_women,fr_pct_women
+es,operadora,operador,operator,True,,Production occupations,28.4,81,operator company,generic; ambiguous,,32.7,33.3,36.1
+es,técnica,técnico,technician,True,,"Life, physical, and social science occupations",49.4,31,technique,generic; no single BLS row (fallback: science group),,19.1,23.4,18.2
+es,trabajadora,trabajador,employee,True,,Office and administrative support occupations,70.5,41,,generic,,78.8,74.2,87.8
+es,directora,director,director,True,,Producers and directors,43.6,12,,film/stage sense in BLS; ES directora also 'manager',,43.3,43.2,51.9
+es,ingeniera,ingeniero,engineer,True,,Architecture and engineering occupations,19.3,21,,,,30.3,30.9,34.8
+es,mecánica,mecánico,mechanic,True,,Automotive service technicians and mechanics,1.8,72,mechanics,,,4.3,2.2,4.1
+es,conductora,conductor,driver,True,,Driver/sales workers and truck drivers,7.7,83,,,,5.2,5.3,7.1
+es,administradora,administrador,admin,True,,Office and administrative support occupations,70.5,33,administering company,,,55.6,48.1,66.5
+es,entrenadora,entrenador,trainer,True,,Coaches and scouts,47.4,34,,sports coach sense,,58.9,48.6,63.3
+es,locutora,locutor,announcer,True,,"Arts, design, entertainment, sports, and media occupations",50.4,26,,BLS row too small; fallback group,,62.2,60.8,66.5
+es,arquitecta,arquitecto,architect,True,,"Architects, except landscape and naval",29.8,21,,,,30.3,30.9,34.8
+es,astrónoma,astrónomo,astronomer,True,,"Life, physical, and social science occupations",49.4,21,,BLS row too small; fallback,,30.3,30.9,34.8
+es,científica,científico,scientist,True,,"Life, physical, and social science occupations",49.4,21,scientific (adj.),,,30.3,30.9,34.8
+es,autora,autor,author,True,,Writers and authors,66.8,26,,,,62.2,60.8,66.5
+es,barbera,barbero,barber,True,,Barbers,17.7,51,,,,58.3,55.0,57.6
+es,camarera,camarero,waiter,True,,Waiters and waitresses,69.8,51,,,,58.3,55.0,57.6
+es,empleada,empleado,employee,True,,Office and administrative support occupations,70.5,41,,generic,,78.8,74.2,87.8
+es,capitana,capitán,captain,True,,Transportation and material moving occupations,21.5,31,flagship,ship captain row too small; ES capitán also military,,19.1,23.4,18.2
+es,encargada,encargado,commissioned,False,not an occupation (encargado 'person in charge'),,,,,,,,,
+es,química,químico,chemist,True,,Chemists and materials scientists,31.1,21,chemistry,,,30.3,30.9,34.8
+es,coreógrafa,coreógrafo,choreographer,True,,"Entertainers and performers, sports and related workers, all other",47.8,26,,dancers/choreographers row too small,,62.2,60.8,66.5
+es,investigadora,investigador,researcher,True,,"Life, physical, and social science occupations",49.4,21,,,,30.3,30.9,34.8
+es,profesora,profesor,professor,True,,Postsecondary teachers,52.3,23,,,,72.9,69.0,66.9
+es,obrera,obrero,worker,True,,Production occupations,28.4,93,,obrero = manual worker,,29.6,28.1,37.0
+es,cocinera,cocinero,cook,True,,Cooks,43.7,51,,,,58.3,55.0,57.6
+es,consejera,consejero,adviser,True,,Personal financial advisors,32.8,24,,"two ES pairs (consejero, asesor)",,53.6,56.5,50.5
+es,secretaria,secretario,registrar,True,,"Secretaries and administrative assistants, except legal, medical, and executive",91.9,41,secretariat,ES pair is secretaria/secretario,,78.8,74.2,87.8
+es,conservadora,conservador,tory,False,not an occupation (conservador 'conservative'),,,,conservative (adj.),,,,,
+es,bailarina,bailarín,dancer,True,,"Entertainers and performers, sports and related workers, all other",47.8,26,,row too small; fallback,,62.2,60.8,66.5
+es,diseñadora,diseñador,designer,True,,Other designers,45.6,21,,,,30.3,30.9,34.8
+es,editora,editor,publisher,True,,Editors,63.2,26,publishing house,ES pair is editora/editor,,62.2,60.8,66.5
+es,vendedora,vendedor,vendor,True,,Retail salespersons,47.0,52,,,,65.8,60.7,64.2
+es,grabadora,grabador,recorder,False,not an occupation (grabador 'engraver/recording device'),,,,recorder (device),,,,,
+es,animadora,animador,entertainer,True,,"Entertainers and performers, sports and related workers, all other",47.8,26,,,,62.2,60.8,66.5
+es,constructora,constructor,builder,True,,Construction and extraction occupations,4.3,71,construction company,,,1.9,1.7,1.9
+es,educadora,educador,educator,True,,"Education, training, and library occupations",74.4,23,,,,72.9,69.0,66.9
+es,médica,médico,physician,True,,Other physicians,41.7,22,,,,70.4,70.5,62.4
+es,cazadora,cazador,hunter,True,,"Farming, fishing, and forestry occupations",26.8,62,,row too small; fallback,,7.2,14.3,
+es,jueza,juez,judge,True,,"Judges, magistrates, and other judicial workers",50.5,26,,,,62.2,60.8,66.5
+es,maestra,maestro,maestro,True,,Elementary and middle school teachers,79.2,23,,maestro = schoolteacher,,72.9,69.0,66.9
+es,abogada,abogado,lawyer,True,,Lawyers,42.9,26,,,,62.2,60.8,66.5
+es,bibliotecaria,bibliotecario,librarian,True,,Librarians and media collections specialists,84.9,26,,,,62.2,60.8,66.5
+es,enfermera,enfermero,nurse,True,,Registered nurses,87.3,22,,,,70.4,70.5,62.4
+es,matemática,matemático,mathematician,True,,Other mathematical science occupations,41.8,21,mathematics,row too small; fallback,,30.3,30.9,34.8
+es,lectora,lector,reader,False,not an occupation (lector 'reader'; also university lecturer),,,,reader (device),,,,,
+es,música,músico,musician,True,,Musicians and singers,34.1,26,music,,,62.2,60.8,66.5
+es,reportera,reportero,reporter,True,,"News analysts, reporters, and journalists",41.1,26,,,,62.2,60.8,66.5
+es,asesora,asesor,adviser,True,,Personal financial advisors,32.8,24,,"two ES pairs (consejero, asesor)",,53.6,56.5,50.5
+es,farmacéutica,farmacéutico,pharmacist,True,,Pharmacists,62.7,22,,,,70.4,70.5,62.4
+es,jefa,jefe,chief,True,,Chief executives,33.0,11,,,,29.5,29.7,35.3
+es,promotora,promotor,promoter,True,,Advertising and promotions managers,53.7,12,developer company,,,43.3,43.2,51.9
+es,psicóloga,psicólogo,psychologist,True,,Other psychologists,71.3,26,,,,62.2,60.8,66.5
+es,herrera,herrero,blacksmith,True,,"Welding, soldering, and brazing workers",5.8,72,,no blacksmith row; closest metal trade,,4.3,2.2,4.1
+es,desarrolladora,desarrollador,developer,True,,Software developers,20.3,25,,,,19.3,23.9,18.2
+es,estadística,estadístico,statistician,True,,Statisticians,32.8,21,statistics,,,30.3,30.9,34.8
+es,redactora,redactor,editor,True,,Editors,63.2,26,,,,62.2,60.8,66.5
+es,veterinaria,veterinario,vet,True,,Veterinarians,70.9,22,,,,70.4,70.5,62.4
+es,escritora,escritor,writer,True,,Writers and authors,66.8,26,,,,62.2,60.8,66.5
+fr,employée,employé,employee,True,,Office and administrative support occupations,70.5,41,,generic,,78.8,74.2,87.8
+fr,directrice,directeur,director,True,,Producers and directors,43.6,12,,film/stage sense in BLS; ES directora also 'manager',,43.3,43.2,51.9
+fr,administratrice,administrateur,admin,True,,Office and administrative support occupations,70.5,33,,,,55.6,48.1,66.5
+fr,savante,savant,scientist,True,,"Life, physical, and social science occupations",49.4,21,learned (adj.),,,30.3,30.9,34.8
+fr,auteure,auteur,author,True,,Writers and authors,66.8,26,,,,62.2,60.8,66.5
+fr,serveuse,serveur,waiter,True,,Waiters and waitresses,69.8,51,,,,58.3,55.0,57.6
+fr,chercheuse,chercheur,researcher,True,,"Life, physical, and social science occupations",49.4,21,,,,30.3,30.9,34.8
+fr,professeure,professeur,professor,True,,Postsecondary teachers,52.3,23,,,,72.9,69.0,66.9
+fr,ouvrière,ouvrier,worker,True,,Production occupations,28.4,93,,obrero = manual worker,,29.6,28.1,37.0
+fr,cuisinière,cuisinier,cook,True,,Cooks,43.7,51,,,,58.3,55.0,57.6
+fr,infirmière,infirmier,nurse,True,,Registered nurses,87.3,22,,,,70.4,70.5,62.4
+fr,avocate,avocat,lawyer,True,,Lawyers,42.9,26,,,,62.2,60.8,66.5
+fr,enseignante,enseignant,teacher,True,,Elementary and middle school teachers,79.2,23,,,,72.9,69.0,66.9
+fr,chanteuse,chanteur,singer,True,,Musicians and singers,34.1,26,,,,62.2,60.8,66.5
+fr,danseuse,danseur,dancer,True,,"Entertainers and performers, sports and related workers, all other",47.8,26,,row too small; fallback,,62.2,60.8,66.5
+fr,conseillère,conseiller,adviser,True,,Personal financial advisors,32.8,24,,"two ES pairs (consejero, asesor)",,53.6,56.5,50.5
+fr,conservatrice,conservateur,tory,False,not an occupation (conservador 'conservative'),,,,conservative (adj.),,,,,
+fr,dessinatrice,dessinateur,designer,True,,Other designers,45.6,21,,,,30.3,30.9,34.8
+fr,éditrice,éditeur,publisher,True,,Editors,63.2,26,,ES pair is editora/editor,,62.2,60.8,66.5
+fr,vendeuse,vendeur,vendor,True,,Retail salespersons,47.0,52,,,,65.8,60.7,64.2
+fr,mathématicienne,mathématicien,mathematician,True,,Other mathematical science occupations,41.8,21,,row too small; fallback,,30.3,30.9,34.8
+fr,musicienne,musicien,musician,True,,Musicians and singers,34.1,26,,,,62.2,60.8,66.5
+fr,écrivaine,écrivain,writer,True,,Writers and authors,66.8,26,,,,62.2,60.8,66.5
