@@ -44,7 +44,8 @@ grammatical gender, but never measures inanimate nouns (Z6), and the projection 
 Wiktionary-labelled nouns that are in none of Zhou's lists. (`c1-prereg.md`)
 
 - **The gap survives every version of the mitigation, 16 of 16 verdicts.** Spanish with Spanish
-  gender words keeps 84–86% of it; French keeps all of it (1.11–1.16×).
+  gender words keeps 84% of it; French keeps all of it (1.09–1.13×). (Corrected attribute words,
+  Z19; with Zhou's uncorrected lists 84–86% and 1.11–1.16×.)
 - **Hybrid makes the gap bigger when measured with English gender words** (Spanish 1.4–1.8×,
   French 2.5–2.9×). Aligning to debiased English moves Spanish things toward the English gender
   words that hard debiasing deliberately leaves gendered (*woman, mother*).
@@ -57,10 +58,11 @@ Question: does a noun's lean track how people rate the thing (Glasgow GEND of it
 translation), after accounting for grammatical gender and frequency? (`gvalnorm-prereg.md`)
 
 - **Yes, in both languages.** β (human rating) is 0.25 (Spanish words) / 0.34 (English words) in
-  Spanish, 0.17 / 0.28 in French; all CIs above 0. Grammatical gender is much bigger (β ≈ 1).
+  Spanish, 0.18 / 0.28 in French (corrected attribute words); all CIs above 0. Grammatical gender is much bigger (β ≈ 1).
   English vectors track the same ratings more strongly (r 0.58).
-- **Where it lives depends on the yardstick.** With Spanish/French gender words, the stereotype
-  signal sits entirely along Zhou's semantic axis. With English gender words, about half (ES) to
+- **Where it lives depends on the yardstick.** With Spanish gender words, the stereotype signal
+  sits entirely along Zhou's semantic axis; with French gender words about a third lies off it
+  (detectable only with the corrected word list, Z19). With English gender words, about half (ES) to
   three quarters (FR) lies off it. (Addendum B.)
 
 ## 4. What each mitigation does to the social part

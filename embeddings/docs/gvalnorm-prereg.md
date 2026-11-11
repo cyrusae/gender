@@ -258,3 +258,20 @@ after erasure 0.463.
 - The stereotype component is again **unchanged in raw units** (0.0064 → 0.0066): Omrani
   Sabbaghi & Caliskan's erasure removes grammatical gender and leaves the human-rated part, in
   both languages.
+
+
+## Deviation (2026-11-11): corrected attribute lists are now primary
+
+*Post hoc, decided after both results were seen; reported as a deviation with both versions shown.*
+Zhou et al.'s attribute words, which this study inherited, contain errors found by an open-ended
+blind check (upstream issue Z19): the Spanish male list has *tio*, a rare misspelling (rank 35,247),
+for *tío* (rank 3,243); the French list (their definitional pairs) has *femme* and *fille* twice and
+the first-name pair *louise/gabriel*. **Corrected lists, primary from now on:** Spanish *tío*;
+French de-duplicated with the names dropped (9 male, 7 female words), the same name rule used for the
+word-pair cues. Nothing else changed. Reasons: the fix is objective and outcome-blind; the changes
+it produces go in both directions across our studies. Original-list results stay in the frozen
+result files; corrected results are in `results/attrfix_sensitivity/`.
+
+**Effect here:** main verdicts unchanged. Addendum B/C, French attributes: the off-axis stereotype
+part in the original space becomes detectable (β_H 0.038 [−0.010, 0.089] → 0.064 [0.007, 0.123]);
+all mitigation verdicts unchanged.

@@ -12,9 +12,9 @@ Grammatical Gender", EMNLP 2019 (arXiv 1909.02224). Code: `Bias_in_Gendered_Lang
 Zhou et al. claim that in Spanish and French word embeddings, feminine occupation forms
 (*médica*) lean further toward female words than masculine forms (*médico*) lean toward male
 words, and propose mitigations (Shift, Hybrid) that remove this asymmetry while keeping
-inanimate nouns' grammatical gender. **The bias is real.** With a fair zero point it holds in
-French and is inconclusive in Spanish; in the cross-lingual test it is stronger than the
-paper's own test could show. **The quantitative evidence for it and for the mitigations mostly
+inanimate nouns' grammatical gender. **The bias is real** in the cross-lingual test, where it is stronger than the paper's own
+test could show; the monolingual asymmetry is inconclusive in both languages once a fair zero
+point is used and the paper's attribute-word errors are corrected (Z19). **The quantitative evidence for it and for the mitigations mostly
 does not hold.** Every Table 1 p-value is guaranteed by construction; the headline Shift result
 (3.69 → 0.31) is an algebraic identity fixed before anything moves; Hybrid's Table 1 number is
 Shift's by rotation invariance; the Table 2 bias test never uses a feminine cue; and the stated
@@ -28,7 +28,7 @@ effect, which comes from Bolukbasi's English debiasing.
 |---|---|---|
 | Semantic and grammatical directions, cos 0.389 (§2.1) | Reproduces, but with a linear SVM (paper says LDA, whose cells crashed) and a centring slip `a + b/2` | Z1, Z3 |
 | Inanimate nouns sit near zero on the semantic axis (Fig. 1) | Holds: masc −0.011, fem −0.012 on 2,000 Wiktionary-labelled nouns | `results/zhou_figures/` |
-| Feminine occupation forms lean further (Fig. 1, MWEAT 3.69) | Number reproduces exactly. Against an epicene zero point with attribute words resampled: FR −1.91 [−3.42, −0.30], holds; ES −1.99 [−5.63, 1.34], inconclusive | `zhou-zero-point-prereg.md` |
+| Feminine occupation forms lean further (Fig. 1, MWEAT 3.69) | Number reproduces exactly, but depends on errors in their attribute words (Z19: correcting *tío* alone gives 2.25). Against an epicene zero point with corrected attribute words, resampled: ES −1.90 [−5.51, 1.39], FR −1.53 [−3.25, 0.41], both inconclusive. (With their uncorrected lists French had held, −1.91 [−3.42, −0.30].) | `zhou-zero-point-prereg.md` deviation, Z19 |
 | p = 0.000 (Table 1) | Guaranteed: with opposite-sign totals the observed statistic is the permutation maximum. After Shift, most permutations tie, so the p-values reflect rounding | Z10, Z2 |
 | Shift Ori cuts MWEAT 3.69 → 0.31 | Identity: the post-shift value equals the original with the attribute axis's d_s component deleted (0.308748 = 0.308748) | Z14, `zhou-shift-identity.md` |
 | Shift preserves inanimate nouns' grammatical gender (aim) | Never evaluated in the paper; Eq. 2 is in no released cell. Our C1: grammatical gender survives every arm | Z6, Z15, `c1-prereg.md` |
@@ -56,7 +56,8 @@ effect, which comes from Bolukbasi's English debiasing.
   Bolukbasi's English debiasing carried over by alignment, not anything Table 1 can show.
   `gvalnorm-prereg.md` addenda B–C
 - **A positive control.** Grammatically neutral crime nouns (*delincuente*) lean male in Spanish
-  (+0.040 [0.008, 0.074]); French inconclusive; not shown to be crime-specific.
+  (+0.039 [0.008, 0.070]); French borderline (male-leaning with corrected attribute words,
+  0.037 [0.001, 0.079]; inconclusive if the name pair is kept); not shown to be crime-specific.
   `crime-noun-probe-prereg.md`
 
 ## Limits of our checks

@@ -1,4 +1,4 @@
-# Attribute-word correction sensitivity (exploratory, 2026-11-11)
+# Corrected attribute lists: PRIMARY results from 2026-11-11 (deviation, see each prereg)
 
 Prompted by Z19 (open-ended blind check): Zhou's Spanish male attribute list has *tio* (misspelling,
 rank 35,247) for *tío* (rank 3,243); the French attribute list (their definitional pairs) has
@@ -19,3 +19,7 @@ Nothing else changed. Frozen results are untouched; these are the corrected-list
 
 Not affected (don't use these lists): generic masculine, word-pair studies, figures, Hybrid rebuild,
 Omrani reruns.
+
+Duplicates removed but names kept (French only): zero point −1.74 [−3.37, 0.05] (inconclusive);
+crime epicene lean 0.034 [−0.001, 0.073] (inconclusive). The zero-point change doesn't depend on the
+name rule; the crime change does.

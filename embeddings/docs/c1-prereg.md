@@ -137,3 +137,19 @@ arm 2 ("as implemented") is **our reconstruction**, not Zhou et al.'s released c
 notebook never applies Eq. (2) and loads its Spanish Shift Ori file from outside (Z15). Read arm 2
 as "Eq. (2) on Zhou et al.'s own noun list only" and arm 3 as "Eq. (2) on every inanimate noun".
 Results are unchanged; only the label's claim about their code is withdrawn.
+
+
+## Deviation (2026-11-11): corrected attribute lists are now primary
+
+*Post hoc, decided after both results were seen; reported as a deviation with both versions shown.*
+Zhou et al.'s attribute words, which this study inherited, contain errors found by an open-ended
+blind check (upstream issue Z19): the Spanish male list has *tio*, a rare misspelling (rank 35,247),
+for *tío* (rank 3,243); the French list (their definitional pairs) has *femme* and *fille* twice and
+the first-name pair *louise/gabriel*. **Corrected lists, primary from now on:** Spanish *tío*;
+French de-duplicated with the names dropped (9 male, 7 female words), the same name rule used for the
+word-pair cues. Nothing else changed. Reasons: the fix is objective and outcome-blind; the changes
+it produces go in both directions across our studies. Original-list results stay in the frozen
+result files; corrected results are in `results/attrfix_sensitivity/`.
+
+**Effect here:** none on any verdict; all 16 still "survives". Spanish retention with Spanish
+attributes 84–86% → 84%; French 1.11–1.16× → 1.09–1.13×.

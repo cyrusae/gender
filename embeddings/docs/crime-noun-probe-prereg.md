@@ -111,3 +111,21 @@ dropped (LOO), i.e. it sits on the boundary.
 - Reading: the yardstick does pick up a male lean on grammatically neutral words with a male
   stereotype (positive control passes in Spanish, borderline in French); the size (~0.04) is
   comparable to C1's per-noun leans and to the zero-point offset.
+
+
+## Deviation (2026-11-11): corrected attribute lists are now primary
+
+*Post hoc, decided after both results were seen; reported as a deviation with both versions shown.*
+Zhou et al.'s attribute words, which this study inherited, contain errors found by an open-ended
+blind check (upstream issue Z19): the Spanish male list has *tio*, a rare misspelling (rank 35,247),
+for *tío* (rank 3,243); the French list (their definitional pairs) has *femme* and *fille* twice and
+the first-name pair *louise/gabriel*. **Corrected lists, primary from now on:** Spanish *tío*;
+French de-duplicated with the names dropped (9 male, 7 female words), the same name rule used for the
+word-pair cues. Nothing else changed. Reasons: the fix is objective and outcome-blind; the changes
+it produces go in both directions across our studies. Original-list results stay in the frozen
+result files; corrected results are in `results/attrfix_sensitivity/`.
+
+**Effect here: the French verdict changes, in the other direction.** FR epicene lean: inconclusive
+(0.030 [−0.004, 0.068]) becomes **male-leaning** (0.037 [0.001, 0.079]). This one depends on the name
+rule: with duplicates removed but the names kept it stays inconclusive (0.034 [−0.001, 0.073]), so
+treat the French result as borderline. Spanish unchanged (male-leaning, 0.040 → 0.039).

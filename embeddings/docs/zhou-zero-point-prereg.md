@@ -182,3 +182,22 @@ S1/S5 change it).
   words (Zhou's permutation test held them fixed), is wide. Direction agrees with French.
 - The pre-adoption precision estimate (±0.4) omitted attribute-word resampling; that term
   dominates the interval (ES ≈ ±3.7).
+
+
+## Deviation (2026-11-11): corrected attribute lists are now primary
+
+*Post hoc, decided after both results were seen; reported as a deviation with both versions shown.*
+Zhou et al.'s attribute words, which this study inherited, contain errors found by an open-ended
+blind check (upstream issue Z19): the Spanish male list has *tio*, a rare misspelling (rank 35,247),
+for *tío* (rank 3,243); the French list (their definitional pairs) has *femme* and *fille* twice and
+the first-name pair *louise/gabriel*. **Corrected lists, primary from now on:** Spanish *tío*;
+French de-duplicated with the names dropped (9 male, 7 female words), the same name rule used for the
+word-pair cues. Nothing else changed. Reasons: the fix is objective and outcome-blind; the changes
+it produces go in both directions across our studies. Original-list results stay in the frozen
+result files; corrected results are in `results/attrfix_sensitivity/`.
+
+**Effect here: the French verdict changes.** FR, French attributes: "feminine forms lean further"
+(A −1.91 [−3.42, −0.30]) becomes **inconclusive** (−1.53 [−3.25, 0.41]). With duplicates removed but
+the names kept it is also inconclusive (−1.74 [−3.37, 0.05]), so this doesn't depend on the name
+rule. Spanish unchanged (inconclusive; −1.99 → −1.90). **Reading now: Zhou's asymmetry is
+inconclusive in both languages.**
