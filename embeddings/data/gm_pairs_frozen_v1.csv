@@ -1,0 +1,93 @@
+lang,source,masc,fem,masc_pl,fem_pl,fem_also_nonperson,claude_suggest_unverified,pi_ok,H
+es,zhou,operador,operadora,operadores,operadoras,operator company,,yes (PI 2026-11-10),1
+es,zhou,técnico,técnica,técnicos,técnicas,technique,,yes (PI 2026-11-10),1
+es,zhou,trabajador,trabajadora,trabajadores,trabajadoras,,,yes (PI 2026-11-10),0
+es,zhou,director,directora,directores,directoras,,,yes (PI 2026-11-10),0
+es,zhou,ingeniero,ingeniera,ingenieros,ingenieras,,,yes (PI 2026-11-10),0
+es,zhou,mecánico,mecánica,mecánicos,mecánicas,mechanics,,yes (PI 2026-11-10),1
+es,zhou,conductor,conductora,conductores,conductoras,,,yes (PI 2026-11-10),0
+es,zhou,administrador,administradora,administradores,administradoras,administering company,,yes (PI 2026-11-10),1
+es,zhou,entrenador,entrenadora,entrenadores,entrenadoras,,,yes (PI 2026-11-10),0
+es,zhou,locutor,locutora,locutores,locutoras,,,yes (PI 2026-11-10),0
+es,zhou,arquitecto,arquitecta,arquitectos,arquitectas,,,yes (PI 2026-11-10),0
+es,zhou,astrónomo,astrónoma,astrónomos,astrónomas,,,yes (PI 2026-11-10),0
+es,zhou,científico,científica,científicos,científicas,scientific (adj.),,yes (PI 2026-11-10),1
+es,zhou,autor,autora,autores,autoras,,,yes (PI 2026-11-10),0
+es,zhou,barbero,barbera,barberos,barberas,,,yes (PI 2026-11-10),0
+es,zhou,camarero,camarera,camareros,camareras,,,yes (PI 2026-11-10),0
+es,zhou,empleado,empleada,empleados,empleadas,,,yes (PI 2026-11-10),0
+es,zhou,capitán,capitana,capitanes,capitanas,flagship,,yes (PI 2026-11-10),1
+es,zhou,químico,química,químicos,químicas,chemistry,,yes (PI 2026-11-10),1
+es,zhou,coreógrafo,coreógrafa,coreógrafos,coreógrafas,,,yes (PI 2026-11-10),0
+es,zhou,investigador,investigadora,investigadores,investigadoras,,,yes (PI 2026-11-10),0
+es,zhou,profesor,profesora,profesores,profesoras,,,yes (PI 2026-11-10),0
+es,zhou,obrero,obrera,obreros,obreras,,,yes (PI 2026-11-10),0
+es,zhou,cocinero,cocinera,cocineros,cocineras,,,yes (PI 2026-11-10),0
+es,zhou,consejero,consejera,consejeros,consejeras,,,yes (PI 2026-11-10),0
+es,zhou,secretario,secretaria,secretarios,secretarias,secretariat,,yes (PI 2026-11-10),1
+es,zhou,bailarín,bailarina,bailarines,bailarinas,,,yes (PI 2026-11-10),0
+es,zhou,diseñador,diseñadora,diseñadores,diseñadoras,,,yes (PI 2026-11-10),0
+es,zhou,editor,editora,editores,editoras,publishing house,,yes (PI 2026-11-10),1
+es,zhou,vendedor,vendedora,vendedores,vendedoras,,,yes (PI 2026-11-10),0
+es,zhou,animador,animadora,animadores,animadoras,,,yes (PI 2026-11-10),0
+es,zhou,constructor,constructora,constructores,constructoras,construction company,,yes (PI 2026-11-10),1
+es,zhou,educador,educadora,educadores,educadoras,,,yes (PI 2026-11-10),0
+es,zhou,médico,médica,médicos,médicas,,,yes (PI 2026-11-10),0
+es,zhou,cazador,cazadora,cazadores,cazadoras,,,yes (PI 2026-11-10),0
+es,zhou,juez,jueza,jueces,juezas,,,yes (PI 2026-11-10),0
+es,zhou,maestro,maestra,maestros,maestras,,,yes (PI 2026-11-10),0
+es,zhou,abogado,abogada,abogados,abogadas,,,yes (PI 2026-11-10),0
+es,zhou,bibliotecario,bibliotecaria,bibliotecarios,bibliotecarias,,,yes (PI 2026-11-10),0
+es,zhou,enfermero,enfermera,enfermeros,enfermeras,,,yes (PI 2026-11-10),0
+es,zhou,matemático,matemática,matemáticos,matemáticas,mathematics,,yes (PI 2026-11-10),1
+es,zhou,músico,música,músicos,músicas,music,,yes (PI 2026-11-10),1
+es,zhou,reportero,reportera,reporteros,reporteras,,,yes (PI 2026-11-10),0
+es,zhou,asesor,asesora,asesores,asesoras,,,yes (PI 2026-11-10),0
+es,zhou,farmacéutico,farmacéutica,farmacéuticos,farmacéuticas,,,yes (PI 2026-11-10),0
+es,zhou,jefe,jefa,jefes,jefas,,,yes (PI 2026-11-10),0
+es,zhou,promotor,promotora,promotores,promotoras,developer company,,yes (PI 2026-11-10),1
+es,zhou,psicólogo,psicóloga,psicólogos,psicólogas,,,yes (PI 2026-11-10),0
+es,zhou,herrero,herrera,herreros,herreras,,,yes (PI 2026-11-10),0
+es,zhou,desarrollador,desarrolladora,desarrolladores,desarrolladoras,,,yes (PI 2026-11-10),0
+es,zhou,estadístico,estadística,estadísticos,estadísticas,statistics,,yes (PI 2026-11-10),1
+es,zhou,redactor,redactora,redactores,redactoras,,,yes (PI 2026-11-10),0
+es,zhou,veterinario,veterinaria,veterinarios,veterinarias,,,yes (PI 2026-11-10),0
+es,zhou,escritor,escritora,escritores,escritoras,,,yes (PI 2026-11-10),0
+fr,zhou,employé,employée,employés,employées,,,yes (PI 2026-11-10),0
+fr,zhou,directeur,directrice,directeurs,directrices,,,yes (PI 2026-11-10),0
+fr,zhou,administrateur,administratrice,administrateurs,administratrices,,,yes (PI 2026-11-10),0
+fr,zhou,savant,savante,savants,savantes,learned (adj.),,yes (PI 2026-11-10),1
+fr,zhou,auteur,auteure,auteurs,auteures,,,yes (PI 2026-11-10),0
+fr,zhou,serveur,serveuse,serveurs,serveuses,,,yes (PI 2026-11-10),0
+fr,zhou,chercheur,chercheuse,chercheurs,chercheuses,,,yes (PI 2026-11-10),0
+fr,zhou,professeur,professeure,professeurs,professeures,,,yes (PI 2026-11-10),0
+fr,zhou,ouvrier,ouvrière,ouvriers,ouvrières,,,yes (PI 2026-11-10),0
+fr,zhou,cuisinier,cuisinière,cuisiniers,cuisinières,,,yes (PI 2026-11-10),0
+fr,zhou,infirmier,infirmière,infirmiers,infirmières,,,yes (PI 2026-11-10),0
+fr,zhou,avocat,avocate,avocats,avocates,,,yes (PI 2026-11-10),0
+fr,zhou,enseignant,enseignante,enseignants,enseignantes,,,yes (PI 2026-11-10),0
+fr,zhou,chanteur,chanteuse,chanteurs,chanteuses,,,yes (PI 2026-11-10),0
+fr,zhou,danseur,danseuse,danseurs,danseuses,,,yes (PI 2026-11-10),0
+fr,zhou,conseiller,conseillère,conseillers,conseillères,,,yes (PI 2026-11-10),0
+fr,zhou,dessinateur,dessinatrice,dessinateurs,dessinatrices,,,yes (PI 2026-11-10),0
+fr,zhou,éditeur,éditrice,éditeurs,éditrices,,,yes (PI 2026-11-10),0
+fr,zhou,vendeur,vendeuse,vendeurs,vendeuses,,,yes (PI 2026-11-10),0
+fr,zhou,mathématicien,mathématicienne,mathématiciens,mathématiciennes,,,yes (PI 2026-11-10),0
+fr,zhou,musicien,musicienne,musiciens,musiciennes,,,yes (PI 2026-11-10),0
+fr,zhou,écrivain,écrivaine,écrivains,écrivaines,,,yes (PI 2026-11-10),0
+fr,extra (rule),acteur,actrice,acteurs,actrices,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),représentant,représentante,représentants,représentantes,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),gardien,gardienne,gardiens,gardiennes,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),réalisateur,réalisatrice,réalisateurs,réalisatrices,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),expert,experte,experts,expertes,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),producteur,productrice,producteurs,productrices,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),conducteur,conductrice,conducteurs,conductrices,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),assistant,assistante,assistants,assistantes,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),boucher,bouchère,bouchers,bouchères,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),compositeur,compositrice,compositeurs,compositrices,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),magistrat,magistrate,magistrats,magistrates,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),rédacteur,rédactrice,rédacteurs,rédactrices,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),comédien,comédienne,comédiens,comédiennes,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),fermier,fermière,fermiers,fermières,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),présentateur,présentatrice,présentateurs,présentatrices,,keep,yes (PI 2026-11-10),0
+fr,extra (rule),douanier,douanière,douaniers,douanières,,keep,yes (PI 2026-11-10),0

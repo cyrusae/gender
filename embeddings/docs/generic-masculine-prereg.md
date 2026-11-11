@@ -1,6 +1,6 @@
 # Generic masculine and Zhou's skew (DRAFT pre-registration)
 
-*Status: DRAFT, 2026-11-10, written by Claude for the PI's review. **Spanish has already been
+*Status: **ADOPTED 2026-11-10** (PI checked the plural list; adoption record at the end). **Spanish has already been
 looked at** (exploratory check, 2026-11-10, 46 pairs, numbers below), so Spanish is reported as a
 replication of an exploratory observation; **French is the confirmatory test** (not looked at).*
 
@@ -71,3 +71,15 @@ For each pair, distances from the zero point: Ms, Fs (singular), Mp, Fp (plural)
 - Plurals also differ from singulars in other ways (frequency, contexts); comparing the two
   genders' shrink ratios, not raw plural values, is meant to cancel what they share.
 - Plural forms are built by rule; the PI may review the generated list before freezing.
+
+
+## Adoption record (2026-11-10, before any score)
+
+- Pairs frozen: `data/gm_pairs_frozen_v1.csv`, sha256
+  1dfc6c399d9f9746eced15a4ce11061fade383964c5f19b4d07b4b99b4d4b3cd (ES 54 Zhou clean; FR 22 Zhou
+  clean + 16 extra). Plural spellings checked by the PI.
+- Margin: relative (± half the masculine singular's lean in the same draw).
+- The "as published" secondary list is not run for this test: it differs from the clean list only by
+  non-occupations (*tory, commissioned, recorder, reader*), to which the generic-masculine
+  prediction doesn't apply. A no-homograph subset (H = 0) is reported as descriptive.
+- Script: `scripts/generic_masculine.py`.
