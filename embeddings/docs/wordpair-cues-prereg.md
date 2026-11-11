@@ -1,7 +1,7 @@
 # Word-pair test with a full adjective list (DRAFT pre-registration)
 
-*Status: DRAFT, 2026-11-11, written by Claude for the PI's review. Nothing has been scored with the
-new cues.*
+*Status: **ADOPTED 2026-11-11** (PI reviewed the cue lists; adoption record at the end). Nothing
+scored with the new cues before adoption.*
 
 ## Why
 
@@ -103,3 +103,21 @@ confirmations.
 - French: same rule; the MUSE es-fr dictionary match (`es_match`) is reported as a sanity signal.
 - Merging at freeze is by (lang, masculine form), never by row order; the PI's candidate file is
   only read, never rewritten.
+
+## Adoption record (2026-11-11, before any score)
+
+- Cues frozen: `data/wp_cues_frozen_v1.csv`, sha256
+  4617e638fdb570c3e51d384af329a4fa7082fc45cb71ea84cd7d2fcfa99cda0e. Built from the PI's review
+  (`data/wp_cues_{es,fr}_candidates_v0_edited.csv`; Spanish marked true/false with notes, French
+  blanks = accept the rule and Claude's suggestions, *queer, sexy, spirituel* dropped), the name
+  rule, and the PI's further drops (*abandonado, paciente*). Gloss corrections for kept words whose
+  matched sense was wrong: *primitivo* → primitive, *típico* → typical.
+- Spanish primary: 87 gendered pairs + 67 invariant (incl. *brillante*); 39 pairs have a feminine
+  form that is also a noun (sensitivity set). Disability subset: *sordo, mudo, ciego, enfermo,
+  loco, sano* (descriptive). French: 86 + 60, descriptive.
+- Second-sense glosses are kept where the PI marked the word true (the per-word review replaces the
+  blanket first-sense question).
+- Bootstrap resamples gendered pairs (masculine and feminine cue together), invariant cues and
+  occupations independently. Q3 slope is standardised; prediction is a positive slope (more
+  masculine adjective → more intrusion), but the reading is two-sided.
+- Script: `scripts/wordpair_cues.py`.
