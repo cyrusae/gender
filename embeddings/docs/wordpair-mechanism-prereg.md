@@ -74,6 +74,11 @@ Readings, fixed now:
 - Stereotype measure: labor statistics from several countries (scope being settled), alongside
   Glasgow GEND.
 
+- Mapping `data/occupation_mapping_v1.csv` approved: generic *trabajador, empleado* (FR
+  *employé, ouvrier*) use whole-workforce shares; *jefe* uses all managers.
+- Feminine homographs (*química* 'chemistry', etc.; column `fem_also_nonperson`): kept in, entered
+  as a predictor H_o in the regression (primary); excluding them is a sensitivity check.
+
 ## Earlier open decisions (kept for the record)
 
 1. Zhou's ES list includes entries that are not occupations or are duplicates (*tory*,
