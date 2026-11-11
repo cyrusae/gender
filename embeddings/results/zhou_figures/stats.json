@@ -1,0 +1,19 @@
+{
+ "cos_dpca_dg_published": 0.3885095526907957,
+ "cos_dpca_dg_corrected": 0.4092562700798156,
+ "epicene_zero_point_semantic_axis": -0.008496951948346836,
+ "inanimate_mean_semantic_axis": {
+  "m": -0.010571467523298057,
+  "f": -0.011775742750022822
+ },
+ "occupations_mean_distance_from_zero": {
+  "m": 0.09933423201688595,
+  "f": -0.20825795242790687
+ },
+ "occupations_mean_distance_from_origin": {
+  "m": 0.0908372800685391,
+  "f": -0.21675490437625372
+ },
+ "pairs_where_feminine_further_from_zero": 45,
+ "n_pairs": 58
+}
