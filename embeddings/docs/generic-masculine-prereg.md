@@ -83,3 +83,24 @@ For each pair, distances from the zero point: Ms, Fs (singular), Mp, Fp (plural)
   non-occupations (*tory, commissioned, recorder, reader*), to which the generic-masculine
   prediction doesn't apply. A no-homograph subset (H = 0) is reported as descriptive.
 - Script: `scripts/generic_masculine.py`.
+
+## Results (2026-11-10, run at 52cc9ed; `results/generic_masculine/`)
+
+Distances from the epicene zero point on the semantic axis (95% CI; axis re-estimated per draw):
+
+| | Ms | Fs | Mp | Fp | ρ_m | ρ_f | Δρ | reading 1 | reading 2 |
+|---|---|---|---|---|---|---|---|---|---|
+| **FR (confirmatory, 32 pairs)** | +0.076 [0.023, 0.101] | −0.249 | +0.041 [−0.002, 0.078] | −0.166 | 0.54 [−0.06, 1.24] | 0.67 [0.54, 0.76] | 0.13 [−0.65, 0.78] | **inconclusive** | **not shown** |
+| ES (replication, 43 pairs) | +0.104 [0.050, 0.134] | −0.205 | +0.024 [−0.020, 0.058] | −0.152 | 0.23 [−0.34, 0.49] | 0.74 [0.58, 0.86] | **0.51 [0.14, 1.14]** | supported | **at neutral** |
+
+- French, the confirmatory test, is **inconclusive**. Its masculine singular already sits close
+  to neutral (+0.076, lower bound 0.023), so ρ_m divides by a small, uncertain number and its
+  interval spans −0.06 to 1.24. The ratio design is badly conditioned when the masculine singular
+  lean is small; that is a weakness of the pre-registered measure, recorded here, not fixed after
+  the fact. Descriptively the French masculine plural (+0.041) is about half its singular, and
+  sits slightly more male than common-gender nouns (G +0.041 [0.001, 0.086], margin 0.038).
+- Spanish replicates the exploratory observation: the masculine plural keeps about a quarter of its
+  singular lean and is at neutral by the relative-margin rule; the feminine plural keeps three
+  quarters. Holds without homographs (descriptive). Spanish was seen before the prereg, so this is
+  replication, not confirmation.
+- Missing forms were almost all feminine plurals in Spanish (*ingenieras, juezas, psicólogas…*).

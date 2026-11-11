@@ -28,3 +28,4 @@
 | 2026-11-10 | Word-pair intervals + mechanism prereg ADOPTED; occupation mapping v1 frozen (sha e1ae7b3e…). | PI settled last item (obrero/ouvrier). | adopted |
 | 2026-11-10 | Word-pair mechanism results: anchoring not supported (D null, removing occupation entries no change); stereotype supported (BLS β 0.30, Glasgow 0.32; fragile without homographs for BLS); no intrusion in female-dominated jobs. Mitigations reduce only the invariant gap in ES. | prereg e928283 | done |
 | 2026-11-10 | Generic-masculine prereg ADOPTED; pairs frozen (sha 1dfc6c39…); relative margin. | PI checked plurals. | adopted |
+| 2026-11-10 | Generic-masculine results: FR (confirmatory) inconclusive (ratio ill-conditioned: masc singular only +0.076); ES replicates (Δρ 0.51 [0.14,1.14]; masc plural at neutral). | prereg 52cc9ed | done |
