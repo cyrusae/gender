@@ -66,7 +66,15 @@ Readings, fixed now:
 - **Stereotype supported** if S's coefficient CI is above 0 with R in the model.
 - These are not exclusive; each is reported separately.
 
-## Open decisions for the PI
+## PI decisions (2026-11-10)
+
+- Cleaned occupation list is primary (non-occupations and duplicates dropped); Zhou's list as
+  published is a secondary replication of their setup.
+- French: descriptive only.
+- Stereotype measure: labor statistics from several countries (scope being settled), alongside
+  Glasgow GEND.
+
+## Earlier open decisions (kept for the record)
 
 1. Zhou's ES list includes entries that are not occupations or are duplicates (*tory*,
    *commissioned*, *reader*, *recorder*; *employee* and *adviser* appear twice). Drop them
