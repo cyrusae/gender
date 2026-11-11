@@ -1,0 +1,8 @@
+lang,masc,fem,type,en,subset,source,in_vocab,pi_keep
+es,brillante,,invariant,brilliant,primary,PI 2026-11-11,True,
+es,sordo,sorda,gendered,deaf,disability,PI 2026-11-11 (gloss corrected from 'dull'),True,
+es,mudo,muda,gendered,mute,disability,gloss corrected from 'silent',True,
+es,ciego,ciega,gendered,blind,disability,disability subset,True,
+es,enfermo,enferma,gendered,sick,disability,disability subset,True,
+es,sano,sana,gendered,healthy,disability,disability subset (contrast),True,
+es,loco,loca,gendered,crazy,disability,disability subset,True,
