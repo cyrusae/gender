@@ -45,12 +45,13 @@ effect, which comes from Bolukbasi's English debiasing.
   the feminine plural keeps three quarters (pre-registered replication; French confirmatory test
   inconclusive because its masculine singular is already near neutral).
   `generic-masculine-prereg.md`
-- **Why English "doctor" lands on *médico* (cross-lingual).** Not the bilingual dictionary
-  (D null twice; removing occupations from the alignment changes nothing). Occupational stereotype
-  is suggestive, not established: US labor share β 0.30 in both the mechanism study (CI above 0)
-  and the expanded-cue replication (CI just touching 0); female-dominated jobs showed no intrusion
-  with Zhou's cues. Feminine forms that also name a field (*química* 'chemistry') add to
-  it. `wordpair-mechanism-prereg.md`
+- **Why English "doctor" lands on *médico* (cross-lingual).** It is specific to occupations: for
+  107 ordinary person nouns (*vecino/vecina, amigo/amiga*) there is no intrusion (−0.005 [−0.077,
+  0.070]) against 0.290 [0.221, 0.357] for occupations (pre-registered, robust to every homograph
+  flag), so the generic masculine alone doesn't explain it. Within nouns, both how much rarer the
+  feminine form is (β 0.35) and how male the English noun is rated (β 0.22) predict intrusion; the
+  two are entangled for occupations. Not the bilingual dictionary (D null twice). Feminine forms that
+  also name a field (*química*) add to it. `wordpair-mechanism-prereg.md`, `wordpair-persons-prereg.md`
 - **What Hybrid really does.** Measured against English gender words, it removes stereotype
   signal that lies off Zhou's axis, even with the original English yardstick. That is
   Bolukbasi's English debiasing carried over by alignment, not anything Table 1 can show.
@@ -65,7 +66,7 @@ effect, which comes from Bolukbasi's English debiasing.
 - Hybrid and De-Align are rebuilt (orthogonal Procrustes onto hard-debiased English), because no
   mitigated embeddings were released (Z4). Results on those spaces are approximate.
 - Several of our analyses were exploratory (figure redraw, word-pair rerun, §4.3–4.4); the
-  zero-point, generic-masculine, crime, word-pair mechanism and expanded-cue studies were
+  zero-point, generic-masculine, crime, word-pair mechanism, expanded-cue and person-noun studies were
   pre-registered.
 - French judgments rely on English glosses and Wiktionary; the PI doesn't read French.
 - Spanish generic-masculine evidence is replication of an observation we had already seen.
