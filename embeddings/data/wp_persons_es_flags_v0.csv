@@ -1,0 +1,445 @@
+masc,en,masc_also_noun,language_name,masc_identical_en,masc_other_senses
+afgano,afghan,False,False,False,
+africano,african,False,False,False,
+albanés,albanian,False,False,False,
+alejandrino,alexandrian,True,False,False,alexandrine
+alemán,german,False,False,False,
+americano,american,False,False,False,
+andaluz,andalusian,False,False,False,
+andino,andean,False,False,False,
+arcadio,arcadian,False,False,False,
+argelino,algerian,False,False,False,
+argentine,argentinian,False,False,False,
+asirio,assyrian,False,False,False,
+asiático,asian,False,False,False,
+asturiano,asturian,False,False,False,
+australiano,australian,False,False,False,
+austriaco,austrian,False,False,False,
+bizantino,byzantine,False,False,False,
+bohemio,bohemian,False,False,False,
+boliviano,bolivian,True,False,False,boliviano (monetary unit)
+bosnio,bosnian,False,False,False,
+brasilero,brazilian,False,False,False,
+brasileño,brazilian,False,False,False,
+británico,briton,False,False,False,
+californiano,californian,False,False,False,
+caribeño,caribbean,False,False,False,
+castellano,castilian,True,False,False,"a color of marbleized black and white, specifically associat | spanish (the spanish language generally) | castellano (a traditional unit of mass, equivalent to about "
+catalán,catalan,False,False,False,
+caucásico,caucasian,False,False,False,
+checoslovaco,czechoslovakian,False,False,False,
+colombiano,colombian,False,False,False,
+coreano,korean,False,False,False,
+danés,dane,True,True,False,danish (language)
+dominicano,dominican,False,False,False,
+ecuatoriano,ecuadorian,False,False,False,
+escandinavo,scandinavian,False,False,False,
+europeo,european,False,False,False,
+filipino,filipino,False,False,True,
+flamenco,fleming,True,False,False,flamingo (bird) | flamenco (music) | flamenco (dance)
+florentino,florentine,False,False,False,
+galileo,galilean,False,False,False,
+gato,cat,True,False,False,c-clamp | jack (mechanical device) | tic-tac-toe
+granadino,grenadian,True,False,False,grenadinese
+haitiano,haitian,False,False,False,
+hondureño,honduran,False,False,False,
+indonesio,indonesian,False,False,False,
+libanés,lebanese,False,False,False,
+libio,libyan,False,False,False,
+lombardo,lombard,False,False,False,
+macedonio,macedonian,False,False,False,
+madrileño,madrilenian,False,False,False,
+mexicano,mexican,False,False,False,
+misionero,missionary,False,False,False,
+murciano,murcian,False,False,False,
+napolitano,neapolitan,False,False,False,
+navarro,navarrese,False,False,False,
+nigeriano,nigerian,False,False,False,
+normando,norman,False,False,False,
+palestino,palestinian,True,False,False,foulard | an illegal immigrant
+panameño,panamanian,False,False,False,
+paraguayo,paraguayan,True,False,False,flat peach
+parisino,parisian,False,False,False,
+peruano,peruvian,False,False,False,
+polaco,pole,True,True,False,polish (language)
+prusiano,prussian,False,False,False,
+romano,roman,False,False,False,
+ruso,russian,False,False,False,
+sajón,saxon,False,False,False,
+sardo,sardinian,True,False,False,sard
+sirio,syrian,False,False,False,
+taiwanés,taiwanese,False,False,False,
+toscano,tuscan,False,False,False,
+tracio,thracian,False,False,False,
+turco,turk,True,True,False,turkish (language)
+uruguayo,uruguayan,False,False,False,
+veneciano,venetian,False,False,False,
+victoriano,victorian,False,False,False,
+vienés,viennese,False,False,False,
+yugoslavo,yugoslav,False,False,False,
+abogado,lawyer,False,False,False,
+actor,actor,False,False,True,
+administrador,administrator,False,False,False,
+animador,presenter,True,False,False,animator | cheerleader
+arquitecto,architect,False,False,False,
+asesor,advisor,False,False,False,
+astrónomo,astronomer,False,False,False,
+autor,author,True,False,False,perpetrator of a crime
+bailarín,dancer,True,False,False,white-tailed kite (elanus leucurus)
+barbero,barber,False,False,False,
+camarero,waiter,False,False,False,
+campesino,farmer,True,False,False,peasant
+capitán,captain,False,False,False,
+cartero,postman,False,False,False,
+cazador,hunter,True,False,False,light infantryman | light cavalryman | rifleman
+científico,scientist,False,False,False,
+clínico,physician,False,False,False,
+coautor,coauthor,False,False,False,
+cocinero,cook,False,False,False,
+compositor,composer,False,False,False,
+conductor,driver,True,False,False,motorist
+consejero,adviser,True,False,False,counsellor
+constructor,constructor,False,False,True,
+coreógrafo,choreographer,False,False,False,
+curador,curator,True,False,False,executor | trustee
+desarrollador,developer,False,False,False,
+director,director,False,False,True,
+diseñador,designer,False,False,False,
+doctor,doctor,False,False,True,
+dramaturgo,playwright,False,False,False,
+editor,editor,False,False,True,
+educador,educator,False,False,False,
+embajador,ambassador,False,False,False,
+empleado,employee,False,False,False,
+enfermero,nurse,False,False,False,
+entrenador,trainer,False,False,False,
+escritor,writer,False,False,False,
+escultor,sculptor,False,False,False,
+estadístico,statistician,False,False,False,
+farmacéutico,pharmacist,False,False,False,
+fotógrafo,photographer,False,False,False,
+grabador,engraver,True,False,False,tape recorder
+herrero,blacksmith,False,False,False,
+historiador,historian,False,False,False,
+ingeniero,engineer,False,False,False,
+investigador,researcher,False,False,False,
+jefe,chief,False,False,False,
+lector,reader,False,False,False,
+locutor,announcer,False,False,False,
+lógico,logician,False,False,False,
+maestro,master,True,False,False,gentleman
+matemático,mathematician,False,False,False,
+mecánico,mechanic,False,False,False,
+minero,miner,False,False,False,
+médico,doctor,False,False,False,
+músico,musician,False,False,False,
+obrero,worker,False,False,False,
+operador,operator,False,False,False,
+pastor,shepherd,True,False,False,herder
+pintor,painter,True,False,False,housepainter
+profesor,professor,False,False,False,
+psicólogo,psychologist,False,False,False,
+químico,chemist,False,False,False,
+redactor,editor,False,False,False,
+reportero,reporter,False,False,False,
+sacerdote,priest,False,False,False,
+secretario,secretary,False,False,False,
+teórico,theorist,False,False,False,
+trabajador,worker,True,False,False,wren-like rushbird (phleocryptes melanops)
+traductor,translator,False,False,False,
+técnico,technician,False,False,False,
+veterinario,veterinarian,False,False,False,
+académico,academician,False,False,False,
+acogido,houseguest,False,False,False,
+acusado,accused,False,False,False,
+adicto,addict,True,False,False,junkie (an enthusiast of something)
+adoptado,adoptee,False,False,False,
+adulto,adult,False,False,False,
+aficionado,fan,False,False,False,
+afiliado,affiliate,False,False,False,
+agregado,attaché,True,False,False,addition; add-on | side dish | skandha
+agustino,augustinian,False,False,False,
+alcalde,mayor,True,False,False,"a variation of brisca for three players, that is played with"
+alcohólico,alcoholic,False,False,False,
+alumno,pupil,False,False,False,
+amigo,friend,True,False,False,penis
+amo,master,False,False,False,
+anfitrión,host,False,False,False,
+anglicano,anglican,False,False,False,
+ante,elk,True,False,False,suede | tapir (large odd-toed ungulate with a long prehensile upper 
+antecesor,predecessor,False,False,False,
+archiduque,archduke,False,False,False,
+argentino,argentinian,False,False,False,
+armenio,armenian,False,False,False,
+arqueólogo,archeologist,False,False,False,
+asesino,murderer,True,False,False,traitor
+asociado,associate,False,False,False,
+astrofísico,astrophysicist,False,False,False,
+ateo,atheist,False,False,False,
+autónomo,freelancer,False,False,False,
+bancario,banker,False,False,False,
+barón,baron,False,False,False,
+bebe,baby,False,False,False,
+becerro,calf,True,False,False,calfskin
+benedictino,benedictine,False,False,False,
+bielorruso,belarusian,False,False,False,
+bioquímico,biochemist,False,False,False,
+biólogo,biologist,False,False,False,
+borbónico,bourbon,False,False,False,
+botánico,botanist,False,False,False,
+bruto,brute,False,False,False,
+burgués,bourgeois,False,False,False,
+báltico,balt,False,False,False,
+bárbaro,barbarian,False,False,False,
+caballo,horse,True,False,False,knight | heroin
+campeón,champion,False,False,False,
+candidato,candidate,False,False,False,
+cantábrico,cantabrian,False,False,False,
+carnívoro,carnivore,False,False,False,
+carrero,carter,False,False,False,
+carretero,cartwright,False,False,False,
+casero,landlord,False,False,False,
+catedrático,professor,False,False,False,
+católico,catholic,False,False,False,
+cautivo,captive,False,False,False,
+celestino,celestine,False,False,False,
+cerdo,pig,True,False,False,pork
+checo,czech,True,False,False,car (see checonato)
+chileno,chilean,False,False,False,
+cholo,mestizo,True,False,False,"darling, honey (term of address)"
+ciudadano,citizen,True,False,False,city-dweller
+colaborador,collaborator,False,False,False,
+colector,collector,False,False,False,
+comisario,inspector,False,False,False,
+compañero,companion,False,False,False,
+competidor,competitor,False,False,False,
+concesionario,dealer,True,False,False,dealership
+conde,count,False,False,False,
+condenado,convict,False,False,False,
+conocido,acquaintance,False,False,False,
+consultor,consultant,False,False,False,
+converso,convert,False,False,False,
+coordinador,coordinator,False,False,False,
+copto,copt,True,True,False,coptic (language)
+corso,corsican,True,False,False,privateering
+creador,creator,False,False,False,
+criado,servant,False,False,False,
+cristiano,christian,False,False,False,
+crítico,critic,False,False,False,
+cubano,cuban,False,False,False,
+cuco,bogeyman,True,False,False,cuckoo | bassinet
+curioso,gawker,False,False,False,
+cómico,comedian,False,False,False,
+decano,senior,True,False,False,decane
+defendido,defendant,False,False,False,
+defensor,defender,False,False,False,
+delantero,forward,False,False,False,
+delegado,delegate,True,False,False,"agent, representative"
+desaparecido,missing,False,False,False,
+desconocido,unknown,True,False,False,john doe
+designado,vice,False,False,False,
+detenido,detainee,False,False,False,
+devoto,devotee,True,False,False,admirer
+dios,god,False,False,False,
+diplomático,diplomat,False,False,False,
+diputado,deputy,True,False,False,a representative in a legislative chamber
+directivo,director,False,False,False,
+distribuidor,distributor,True,False,False,"hall, corridor"
+divo,star,False,False,False,
+dueño,owner,False,False,False,
+duque,duke,False,False,False,
+ecléctico,eclectic,False,False,False,
+egipcio,egyptian,False,False,False,
+egresado,graduate,False,False,False,
+ejecutivo,executive,False,False,False,
+emperador,emperor,True,False,False,swordfish
+empírico,empiricist,False,False,False,
+enamorado,lover,False,False,False,
+enano,dwarf,True,False,False,pygmy
+enemigo,foe,False,False,False,
+entendido,expert,False,False,False,
+enviado,delegate,False,False,False,
+escapado,runaway,False,False,False,
+esclavo,slave,False,False,False,
+eslavo,slav,True,True,False,slavic (language family)
+espartano,spartan,False,False,False,
+español,spaniard,True,True,False,spanish (language)
+etrusco,etruscan,False,False,False,
+evacuado,evacuee,False,False,False,
+experto,expert,False,False,False,
+explorador,explorer,False,False,False,
+extranjero,foreigner,True,False,False,"a foreign country or countries, seen as a unit; abroad."
+extraño,foreigner,False,False,False,
+extremeño,extremaduran,False,False,False,
+extremo,winger,True,False,False,extreme | end
+fallecido,deceased,False,False,False,
+famoso,celebrity,False,False,False,
+fanático,fanatic,True,False,False,zealot
+filósofo,philosopher,False,False,False,
+fracasado,loser,False,False,False,
+francés,frenchman,True,True,False,french (language) | blowjob
+funcionario,official,True,False,False,officeholder
+fundador,founder,False,False,False,
+físico,physicist,False,False,False,
+galeno,doc,False,False,False,
+gallego,galician,False,False,False,
+gallo,rooster,True,False,False,"megrim (genus lepidorhombus, a kind of fish) | john dory (edible marine fish; zeus faber or zeus ocellata) | common poppy (papaver rhoeas)"
+ganador,winner,False,False,False,
+gemelo,twin,True,False,False,cufflink | binoculars
+genovés,genoese,False,False,False,
+georgiano,georgian,False,False,False,
+germano,german,False,False,False,
+gestor,manager,False,False,False,
+gitano,gypsy,False,False,False,
+gobernador,governor,False,False,False,
+goleador,goalscorer,False,False,False,
+graduado,graduate,True,False,False,ellipsis of graduado escolar
+guardián,guardian,False,False,False,
+guatemalteco,guatemalan,True,False,False,kaqchikel
+guerrero,warrior,True,False,False,a type of particularly sweet mango.
+habilitado,deputy,False,False,False,
+hechicero,magician,False,False,False,
+heredado,inheritor,False,False,False,
+hermanastro,stepbrother,True,False,False,half brother (half sister for the feminine form)
+homólogo,counterpart,False,False,False,
+hotelero,hotelier,False,False,False,
+humano,human,False,False,False,
+huérfano,orphan,False,False,False,
+héroe,hero,False,False,False,
+ibérico,iberian,False,False,False,
+iluminado,lighting,True,False,False,"visionary, seer, illuminist"
+ilustrador,illustrator,False,False,False,
+impresor,printer,False,False,False,
+ingenuo,naif,False,False,False,
+inglés,englishman,True,True,False,english (language)
+iniciado,initiate,False,False,False,
+innovador,innovator,False,False,False,
+interno,patient,False,False,False,
+invasor,invader,False,False,False,
+invitado,guest,False,False,False,
+irlandés,irishman,True,True,False,irish (language)
+islandés,icelander,True,True,False,icelandic (language)
+judío,jew,True,False,False,smooth-billed ani (crotophaga ani)
+jugador,player,True,False,False,gambler
+lego,layman,True,False,False,lego | lego brick
+letón,latvian,False,False,False,
+libertador,liberator,False,False,False,
+libertario,libertarian,False,False,False,
+lituano,lithuanian,False,False,False,
+llanero,plainsman,False,False,False,
+lobo,wolf,True,False,False,drunkenness
+lolo,kid,False,False,False,
+loro,parrot,True,False,False,chatterbox
+luchador,fighter,True,False,False,struggler
+luterano,lutheran,False,False,False,
+mago,farmer,True,False,False,magi
+malayo,malay,False,False,False,
+malo,devil,False,False,False,
+mano,buddy,True,False,False,hand | front foot | round; hand
+marciano,martian,True,False,False,"alien, extraterrestrial | ice pop, freeze pop"
+marinero,sailor,False,False,False,
+marqués,marquess,False,False,False,
+mesoamericano,mesoamerican,False,False,False,
+millonario,millionaire,False,False,False,
+ministro,minister,False,False,False,
+mixteco,mixtec,False,False,False,
+mongol,mongol,True,True,True,mongolian (language)
+mono,monkey,True,False,False,"boiler suit, coveralls, overall, onesie (a one-piece suit co | jumpsuit, overalls (a one-piece item of clothing originally  | jumpsuit (a female one-piece item of clothing)"
+montañés,highlander,True,True,False,the astur-leonese dialect spoken in western parts of cantabr
+monárquico,monarchist,False,False,False,
+morisco,moor,False,False,False,
+motorizado,biker,True,False,False,motorcycle-using police
+mudo,mute,False,False,False,
+musulmán,muslim,False,False,False,
+muñeco,doll,True,False,False,puppet | attractive male
+míster,mister,False,False,False,
+místico,mystic,False,False,False,
+nadador,swimmer,False,False,False,
+narrador,narrator,True,False,False,storyteller
+navajo,navajo,False,False,True,
+nieto,grandchild,False,False,False,
+niño,child,False,False,False,
+nominado,nominee,False,False,False,
+norteño,northerner,False,False,False,
+olímpico,olympian,False,False,False,
+opositor,opponent,True,False,False,oppositionist
+organizador,organizer,False,False,False,
+oriundo,native,False,False,False,
+oso,bear,False,False,False,
+paco,llama,True,False,False,"masculine singular of paca (rodent of the genus cuniculus) | during spanish occupation in africa, a moroccan sniper | cocaine paste"
+pagano,pagan,False,False,False,
+parlamentario,parliamentarian,False,False,False,
+partidario,supporter,False,False,False,
+pato,duck,True,False,False,"homosexual, faggot | sockpuppet"
+patricio,patrician,False,False,False,
+patrono,patron,True,False,False,employer
+patrón,patron,True,False,False,pattern
+peregrino,pilgrim,True,False,False,traveler
+perro,dog,True,False,False,"clothes peg, clothespin"
+pesado,pest,False,False,False,
+pionero,pioneer,False,False,False,
+político,politician,False,False,False,
+portador,carrier,False,False,False,
+portugués,portuguese,False,False,False,
+poseedor,owner,False,False,False,
+precursor,precursor,False,False,True,
+predecesor,predecessor,False,False,False,
+preferido,favorite,False,False,False,
+presentador,presenter,False,False,False,
+presidente,president,False,False,False,
+preso,prisoner,False,False,False,
+primogénito,firstborn,False,False,False,
+prisionero,prisoner,False,False,False,
+productor,producer,False,False,False,
+profano,amateur,False,False,False,
+propietario,owner,False,False,False,
+protector,protector,False,False,True,
+publicitario,advertiser,False,False,False,
+querido,sweetheart,True,False,False,the letter q in the spanish spelling alphabet
+ranchero,rancher,False,False,False,
+rapero,rapper,False,False,False,
+rector,rector,False,False,True,
+regulador,regulator,False,False,False,
+reo,defendant,True,False,False,delinquent | sea trout | turn (in a game)
+republicano,republican,False,False,False,
+retrasado,moron,False,False,False,
+revolucionario,revolutionary,False,False,False,
+rojo,red,True,False,False,a 1000 colón bill
+rudo,heel,False,False,False,
+rústico,rustic,False,False,False,
+salesiano,salesian,False,False,False,
+salvadoreño,salvadoran,False,False,False,
+senador,senator,False,False,False,
+serbio,serbian,True,False,False,serb
+sereno,nightwatchman,True,False,False,cold humidity in the air that is typical of the night hours
+señor,mister,True,False,False,gentleman
+siciliano,sicilian,False,False,False,
+soberano,sovereign,False,False,False,
+socio,partner,False,False,False,
+soltero,single,False,False,False,
+sospechoso,suspect,False,False,False,
+subordinado,subordinate,False,False,False,
+sucesor,successor,False,False,False,
+sumerio,sumerian,False,False,False,
+superior,boss,False,False,False,
+sureño,southerner,False,False,False,
+sustituto,substitute,False,False,False,
+tibetano,tibetan,False,False,False,
+tirano,tyrant,False,False,False,
+trepador,climber,True,False,False,careerist | male gold digger | nuthatch
+táctico,tactician,False,False,False,
+tártaro,tatar,True,False,False,hell | tartaric acid | tartar
+usuario,user,False,False,False,
+vago,wanderer,True,False,False,"vagabond, bum | slacker | vagus nerve"
+valenciano,valencian,False,False,False,
+vecino,neighbour,False,False,False,
+vegetariano,vegetarian,False,False,False,
+veterano,veteran,True,False,False,"the orange-cheeked waxbill, estrilda melpoda"
+vikingo,viking,False,False,False,
+villano,villain,False,False,False,
+virrey,viceroy,False,False,False,
+visigodo,visigoth,False,False,False,
+vizconde,viscount,False,False,False,
+voluntario,volunteer,False,False,False,
+zar,tsar,False,False,False,
+zorro,fox,True,False,False,opossum | skunk | jack (device used to raise and temporarily support a heavy o
