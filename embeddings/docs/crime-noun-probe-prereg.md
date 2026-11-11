@@ -84,3 +84,30 @@ Frozen lists (`data/crime_{es,fr}_frozen_v1.csv`):
 - Only 7 crime nouns per language are inside 50k, so the 50k-only check is "too few" by the floor;
   noted now, before scoring.
 - Zero point: identical to the zero-point study (reference words restricted to the first 50k).
+
+## Results (2026-11-10; script 48f47a6; `results/crime_probe_{es,fr}/`)
+
+L = crime lean from the epicene zero point (positive: toward male attributes); raw cosine-free
+dot-product units; for scale, the zero point itself is ≈ −0.01.
+
+| | L, Spanish attr. | L, English attr. | K (vs other common nouns) |
+|---|---|---|---|
+| **Spanish** | **+0.040 [0.008, 0.074] male-leaning** | **+0.044 [0.013, 0.076] male-leaning** | +0.022 / +0.034, inconclusive |
+| **French** | +0.030 [−0.004, 0.068] inconclusive | +0.038 [−0.002, 0.078] inconclusive* | +0.019 / +0.034, inconclusive |
+
+\* French English-yardstick verdict flips to "male-leaning" when *pirate* or *terroriste* is
+dropped (LOO), i.e. it sits on the boundary.
+
+- **Spanish: crime nouns lean male** with both yardsticks; robust to leave-one-out and to dropping
+  *capo*. With the inanimate anchor: male-leaning (English), inconclusive (Spanish attr.).
+- **French: same direction and size, CIs just touch 0** (inconclusive); without *gangster* the same.
+- **Crime-specific (K): not shown** in either language. Crime nouns lean more male than the other
+  common-gender person nouns by +0.02–0.03, but the CI includes 0: with 12 words, the probe can't
+  separate "crime" from "person nouns that refer to people in public roles".
+- **Act set:** no sign of a masculine cue entering through the act sense. Act words lean *less*
+  male than the crime person nouns (ES, English attr.: D = −0.093 [−0.160, −0.023], one word,
+  descriptive; FR D −0.009 / −0.029, inconclusive).
+- 50k-only check: too few (7 < 8 per language), as noted before scoring.
+- Reading: the yardstick does pick up a male lean on grammatically neutral words with a male
+  stereotype (positive control passes in Spanish, borderline in French); the size (~0.04) is
+  comparable to C1's per-noun leans and to the zero-point offset.

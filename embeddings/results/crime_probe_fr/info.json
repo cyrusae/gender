@@ -1,0 +1,29 @@
+{
+ "n_crime": 12,
+ "n_act": 4,
+ "crime_words": [
+  "terroriste",
+  "pirate",
+  "escroc",
+  "bandit",
+  "gangster",
+  "récidiviste",
+  "incendiaire",
+  "faussaire",
+  "tortionnaire",
+  "pickpocket",
+  "malfrat",
+  "multirécidiviste"
+ ],
+ "act_words": [
+  "homicide",
+  "régicide",
+  "fratricide",
+  "infanticide"
+ ],
+ "n_epicene": {
+  "m": 74,
+  "f": 23
+ },
+ "floor_met": true
+}

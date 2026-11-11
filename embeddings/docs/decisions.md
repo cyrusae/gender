@@ -21,3 +21,4 @@
 | 2026-11-10 | **Zhou zero-point prereg ADOPTED** (PI): epicene primary anchor, ES+FR, floor 15 + LOO, S1–S7; lists frozen (`zero_ref_{es,fr}_frozen_v1.csv`). Crime nouns excluded; follow-up noted. | PI review complete. | adopted |
 | 2026-11-10 | **Zhou zero-point results**: FR asymmetry (feminine forms lean further) survives (A −1.91 / −2.03, CIs exclude 0, robust); ES inconclusive (A −1.99 / −3.15, CIs include 0; English-yardstick verdict depends on bebé/hada). Offset shrinks Zhou's stat by 17–46%; doesn't explain it. | Pre-registered. | done |
 | 2026-11-10 | **Crime-noun probe ADOPTED** (PI): 200k, floor 8, capo/gangster sensitivity, act set; lists frozen. | Follow-up from zero-point study. | adopted |
+| 2026-11-10 | **Crime probe results**: ES crime nouns male-leaning (L ≈ +0.04, both yardsticks, robust); FR same direction, CI touches 0 (inconclusive); crime-specificity (K) not shown; act words not more male. | Pre-registered. | done |

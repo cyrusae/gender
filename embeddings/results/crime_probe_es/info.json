@@ -1,0 +1,26 @@
+{
+ "n_crime": 12,
+ "n_act": 1,
+ "crime_words": [
+  "criminal",
+  "terrorista",
+  "delincuente",
+  "pirata",
+  "capo",
+  "narcotraficante",
+  "homicida",
+  "asaltante",
+  "contrabandista",
+  "reincidente",
+  "forajido",
+  "fratricida"
+ ],
+ "act_words": [
+  "infanticidio"
+ ],
+ "n_epicene": {
+  "f": 17,
+  "m": 17
+ },
+ "floor_met": true
+}
