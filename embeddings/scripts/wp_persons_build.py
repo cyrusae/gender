@@ -146,7 +146,7 @@ def main():
         eg, ecats = info.get(e, ("", set()))
         person = bool(PERSON.search(eg)) or "People" in ecats or e in prof or any(
             k in lc for k in ("people", "occupation", "demonym", "nationalit", "family", "children"))
-        male_spec = bool(MALE.search(eg)) or (e.endswith("man") and e not in ("human", "woman"))
+        male_spec = bool(MALE.search(eg)) or (e.endswith("man") and e not in ("human", "woman", "german", "layman"))
         grp = ("occupation" if ("occupation" in lc or m in zhou) else
                "demonym" if ("demonym" in lc or "nationalit" in lc) else "other")  # fmt: skip
         rows.append({"lang": "es", "masc": m, "fem": f, "en": e, "group": grp, "rank_m": V[m], "rank_f": V[f],
@@ -167,7 +167,7 @@ def main():
             return "person"
         if r.masc in IDENTITY or r.group == "demonym":
             return "identity"
-        return "identity" if r.rule_keep and r.group == "other" else ("drop: rule (not a person / male-specific)" if not r.rule_keep else "person")
+        return "identity" if r.rule_keep and r.group == "other" else ("check: rule says not a person or male-specific (first English sense only)" if not r.rule_keep else "person")
 
     d["claude_suggest_unverified"] = d.apply(suggest, axis=1)
     d.to_csv(ROOT / "data/wp_persons_es_candidates_v0.csv", index=False)

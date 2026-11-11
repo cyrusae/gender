@@ -1,0 +1,28 @@
+masc,en,old_suggestion,corrected_suggestion
+alcalde,mayor,drop: rule (not a person / male-specific),occupation
+amo,master,drop: rule (not a person / male-specific),drop: male-marked English (master)
+archiduque,archduke,drop: rule (not a person / male-specific),drop: male title
+arqueólogo,archeologist,drop: rule (not a person / male-specific),occupation
+barón,baron,drop: rule (not a person / male-specific),drop: male title
+bielorruso,belarusian,drop: rule (not a person / male-specific),identity
+bioquímico,biochemist,drop: rule (not a person / male-specific),occupation
+borbónico,bourbon,drop: rule (not a person / male-specific),drop: dynasty adjective
+conde,count,drop: rule (not a person / male-specific),drop: male title
+defendido,defendant,drop: rule (not a person / male-specific),person
+duque,duke,drop: rule (not a person / male-specific),drop: male title
+empírico,empiricist,drop: rule (not a person / male-specific),person
+eslavo,slav,drop: rule (not a person / male-specific),identity
+francés,frenchman,drop: rule (not a person / male-specific),drop: male-specific gloss (frenchman)
+germano,german,drop: rule (not a person / male-specific),identity
+hermanastro,stepbrother,drop: rule (not a person / male-specific),drop: male-specific (stepbrother)
+inglés,englishman,drop: rule (not a person / male-specific),drop: male-specific gloss (englishman)
+irlandés,irishman,drop: rule (not a person / male-specific),drop: male-specific gloss (irishman)
+lego,layman,drop: rule (not a person / male-specific),person
+letón,latvian,drop: rule (not a person / male-specific),identity
+lituano,lithuanian,drop: rule (not a person / male-specific),identity
+marqués,marquess,drop: rule (not a person / male-specific),drop: male title
+morisco,moor,drop: rule (not a person / male-specific),identity
+organizador,organizer,drop: rule (not a person / male-specific),occupation
+portugués,portuguese,drop: rule (not a person / male-specific),identity
+reo,defendant,drop: rule (not a person / male-specific),person
+zar,tsar,drop: rule (not a person / male-specific),drop: male title
