@@ -1,8 +1,11 @@
 # XWEAT T7/T8 sensitivity (pre-registration)
 
-*Status: **adopted, written by Claude 2026-11-11.** Script:
+*Status: **adopted, written by Claude 2026-11-11.** Adopted by the PI with the draft thresholds
+unchanged; the adoption was committed together with the first results (1ee6abd), so it is
+recorded as "adopted as written". Anything decided after seeing scores (per-word reading,
+Euclidean follow-up beyond R1) is exploratory. Results: `results/xweat_sensitivity/README.md`. Script:
 `scripts/xweat_sensitivity.py`. It was smoke-tested on **random fake vectors only** (mechanics,
-and an independent check that the effect size equals XWEAT's formula)
+and an independent check that the effect size equals XWEAT's formula) before the real run.*
 
 ## Question
 
