@@ -79,6 +79,27 @@ evidence carries most of the High-severity issues.
 - Found independently: Z17 (as its top issue), Z1, Z3, Z4, Z9's MRR denominator part of Z17, Fig. 3 symmetry by construction (Z14 in part), the origin-as-zero problem (our zero-point study), the Z18 gap (with a wrong cause), and resolved Z13 (above). Reproduced Fig. 1–2 coordinates and §4.4 (0.4498).
 - Wrong or unsupported: (a) "Table 1 contradicts the paper's MWEAT formula" — the paper's text (§4.2) and footnote 3 do define the statistic with nested absolute values, so code and text agree; (b) "the Shift/Hybrid translation numbers are MUSE's CSLS scores" — asserted, not computed; Z18 reproduces them exactly with nearest neighbour over 50k candidates; (c) "p-values are reported as 1 − p" — fits Hybrid (0.733 ≈ 1 − 0.269) but not Shift (0.113); Z10's tie mechanism explains all of them.
 - New, Low: Figure 1's dashed boxes are hard-coded coordinates (cell 170).
+
+## Lauscher & Glavaš 2019, XWEAT (`external/XWEAT`, commit 4f95484)
+
+Found 2026-11-11 while preparing `docs/xweat-sensitivity-prereg.md`. Severity is provisional
+until that study runs (it tests whether these issues change Table 5's T7/T8 comparisons).
+Glosses are given for every non-English word; X4's judgments are Claude's and unverified.
+
+| # | issue | severity | status | evidence |
+|---|---|---|---|---|
+| X1 | **Same word in both attribute sets:** Spanish *su* ("his/her/their") translates him, his **and** her; Turkish *o* (the one third-person pronoun, "he/she/it") translates he **and** she. Italian *lui* (him/he) and *sua* (her/hers) collapse within a set only. | Medium (provisional) | verified (pickled dicts) | `per_word.csv`, drop reason "in both sets" |
+| X2 | **Non-deterministic set balancing:** `translate()` returns `list(set(...))`; unequal sets are then equalised by popping the **last** element, so which word is dropped follows Python's hash-randomised string order (Python 3: the code imports `itertools.filterfalse`). Spanish T7 math loses a word to X6, so the arts set always gets popped. | Medium (provisional) | from code reading | `weat.py` `run_test_precomputed_sims`, `translate` |
+| X3 | Capitalised English entries are skipped when the dictionary is built (`en[0].isupper()`), so *Einstein*, *NASA*, *Shakespeare* stay English in every language. (Same rule made "Brad" → *Puntilla*, Spanish for a small nail, harmless: the name tests are dropped.) | Low–Medium (male persons inside T8 target sets) | verified | `xweat.py` `_parse_translations` |
+| X4 | Candidate mistranslations (claude-unverified, **not** fixed in any arm): "dance" → German *tanzen* (the verb "to dance", not the noun *Tanz*); "addition" → German *Zusatz* / Italian *aggiunta* / Croatian *dodatak* ("an add-on", not arithmetic); "calculus" → Croatian *aritmetika* ("arithmetic"); "female" → Spanish *hembra* (mostly for animals) while "male" → *masculino* (adjective "masculine"); "him" → *su* (see X1); "math" → Russian *математический/математическая* (adjective "mathematical", masc. and fem. forms, both in the math set). | Medium (provisional) | claude-unverified | pickled dicts |
+| X5 | Multi-word translations can't be in a word vocabulary and are silently lost: Spanish *de ella* ("hers"), Turkish *erkek kardeş* / *kız kardeş* ("brother"/"sister") and *kız evlat* ("daughter"). Turkish T7's male/female pronoun sets end up as case forms of one genderless pronoun (*onu* accusative, *ona* dative, *onun* genitive). | Medium (provisional; TR T7 likely) | verified | `per_word.csv` |
+| X6 | Different English words collapse to one translation and are de-duplicated: "calculus" and "computation" → *cálculo* (es) / *calcolo* (it); "female" and "woman" → *kadın* (tr). Sets shrink unevenly. | Low (provisional) | verified | `per_word.csv` |
+| X7 | The committed run script (`fasttext_multiling.sh`) runs **Euclidean** similarity (the cosine line is commented out); the paper says cosine was used after showing the two agree on English. Unclear which produced Table 5. | Low | verified (repo) | script; paper §4 |
+| X8 | The Russian CSV keeps translators' corrections in other columns (code comment: "probably does not work for the russian code"); the pickled dict differs from a re-parse in 38 entries. The pickle is what ran. | Low (we read the pickle) | verified | comparison of pickle vs CSV |
+| X9 | `--lower True` lowercases German nouns, which fastText Wikipedia stores capitalised; lowercase forms may be rare or missing in a 200k vocabulary (cf. O9). Could shrink the German sets and help explain the low German scores. | Medium (provisional) | from code reading | to check: OOV counts on MUSE de |
+| X10 | Topic nouns not balanced for grammatical gender; only person nouns got both forms (paper §2.2). Raised by Goldfarb-Tarrant et al. (2021, §4.3) for Spanish. Hand counts (claude-unverified) give the same masculine:feminine ratios in the Spanish and Italian target sets, so on its own this doesn't explain the ES/IT T8 gap. | Medium | paper text; counts unverified | lexicon labels in `per_word.csv` once run |
+| X11 | No licence file. | Low | verified | — |
+
 ## Results of checks
 
 - **O1 + O4 (held-out nouns), Spanish, 14 iterations** (`results/gg_heldout_es/scores_iter14.json`;
