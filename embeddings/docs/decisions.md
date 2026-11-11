@@ -35,3 +35,4 @@
 | 2026-11-11 | Expanded word-pair cue prereg DRAFTED; cue candidates built by rule (Wiktionary adjectives × published person-adjective lists via Garg et al. 2018). | PI: Zhou's 7 cues too fragile | draft |
 | 2026-11-11 | Expanded word-pair cue prereg ADOPTED; cues frozen (sha 4617e638…; ES 87 gendered + 67 invariant). | PI review | adopted |
 | 2026-11-11 | Expanded cue results: intrusion present (ES 0.291 [0.181,0.395], 87 fem cues); mitigations cut it ~1/3, not closed; adjective stereotype doesn't matter; occupation-stereotype β 0.30 now borderline (CI touches 0). | prereg 8ccf23c | done |
+| 2026-11-11 | Attribute-list correction sensitivity (Z19): French zero-point asymmetry → inconclusive; French crime probe → male-leaning; all else unchanged. Frozen results kept; both versions reported. | open blind check | exploratory |

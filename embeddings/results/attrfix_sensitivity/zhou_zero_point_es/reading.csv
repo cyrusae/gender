@@ -1,0 +1,5 @@
+space,yardstick,anchors_agree,primary,verdict_primary,A,A_lo,A_hi,raw,loo_depends_on,S1-S6_depends_on,S4_broad_verdict,label
+original,english,True,epicene_strict,inconclusive,-3.1493022185877995,-6.351097499556943,0.16569050404427868,-4.324984532107249,"['bebé', 'hada']",[],asymmetry: feminine further,
+original,native,True,epicene_strict,inconclusive,-1.9016934953309592,-5.507205269644002,1.3931575524376776,-2.2455176931177765,[],[],inconclusive,
+shift_ori,english,True,epicene_strict,inconclusive,0.7577713837640521,-2.356676041729674,3.9512172611518177,-0.4179109297553971,[],[],inconclusive,algebraically constrained (Z14)
+shift_ori,native,True,epicene_strict,inconclusive,2.1591609236538996,-1.3305308022854707,5.4765360306282584,1.8153367258670832,[],[],inconclusive,algebraically constrained (Z14)
