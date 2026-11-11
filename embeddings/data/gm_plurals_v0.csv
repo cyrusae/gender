@@ -94,7 +94,7 @@ fr,extra (rule),conjoint,conjointe,conjoints,conjointes,,drop: not an occupation
 fr,extra (rule),boucher,bouchère,bouchers,bouchères,,keep,
 fr,extra (rule),provincial,provinciale,provinciaux,provinciales,,drop: not an occupation,
 fr,extra (rule),compositeur,compositrice,compositeurs,compositrices,,keep,
-fr,extra (rule),travailleur,travailleuse,travailleurs,travailleuses,,keep,
+fr,extra (rule),travailleur,travailleuse,travailleurs,travailleuses,,"drop: PI 2026-11-10, 'worker' is a status, not an occupation",
 fr,extra (rule),magistrat,magistrate,magistrats,magistrates,,keep,
 fr,extra (rule),rédacteur,rédactrice,rédacteurs,rédactrices,,keep,
 fr,extra (rule),comédien,comédienne,comédiens,comédiennes,,keep,

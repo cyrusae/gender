@@ -27,6 +27,13 @@ f −0.242; plural m +0.019, f −0.142; common-gender person nouns +0.024.
   all four forms are in the 200k vocabulary and the plural is not identical to the singular.
 - Floor: ≥ 15 pairs per language with all four forms (FR may fail with 23; then "too few").
 
+## French extra pairs (PI 2026-11-10)
+
+Added by rule to secure the French floor (`data/gm_extra_fr_candidates_v0.csv`): masculine person
+nouns with a feminine counterpart whose English gloss names a US job title and whose four forms are
+in the 200k vocabulary; 32 found, 16 kept after review (*travailleur* dropped by the PI as a status,
+not an occupation). French usable pairs: 16 Zhou + 16 extra = 32.
+
 ## Coverage (counted 2026-11-10, descriptive, before any score)
 
 All four forms in the first 200k MUSE words: **ES 43 of 54** clean pairs (missing feminine plurals:
@@ -50,8 +57,9 @@ For each pair, distances from the zero point: Ms, Fs (singular), Mp, Fp (plural)
 ## Reading (fixed before data)
 
 1. **Generic-masculine supported** if Δρ's CI is above 0.
-2. **Masculine plural ≈ generic** if the CI of mean(Mp) − mean(common nouns) includes 0 and lies
-   within ±0.05 (≈ a quarter of the singular skew).
+2. **Masculine plural ≈ generic** if the CI of mean(Mp) − mean(common nouns) lies entirely within
+   ± half the masculine singular's lean, mean(Ms), computed in the same bootstrap draw (a relative
+   margin, PI 2026-11-10; replaces the earlier fixed ±0.05). Otherwise "not shown".
 3. Otherwise inconclusive. A Δρ CI below 0 counts against the account.
 4. French is the confirmatory language; Spanish is replication of the exploratory observation
    and is reported as such whatever it shows.

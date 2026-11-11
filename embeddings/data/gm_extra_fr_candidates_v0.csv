@@ -18,7 +18,7 @@ conjoint,conjointe,conjoints,conjointes,spouse or unmarried,4.0,16024,,drop: not
 boucher,bouchère,bouchers,bouchères,butcher,3.98,67854,,keep
 provincial,provinciale,provinciaux,provinciales,person from the provinces/regions,3.97,6102,,drop: not an occupation
 compositeur,compositrice,compositeurs,compositrices,composer,3.94,12990,,keep
-travailleur,travailleuse,travailleurs,travailleuses,worker,3.94,67922,,keep
+travailleur,travailleuse,travailleurs,travailleuses,worker,3.94,67922,,"drop: PI 2026-11-10, 'worker' is a status, not an occupation"
 magistrat,magistrate,magistrats,magistrates,magistrate,3.93,82127,,keep
 rédacteur,rédactrice,rédacteurs,rédactrices,editor,3.91,23682,,keep
 comédien,comédienne,comédiens,comédiennes,actor,3.89,8360,,keep
