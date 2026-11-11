@@ -1,0 +1,217 @@
+lang,masc,fem,type,en,sense,wb_score_1990,glasgow_gend,rank_m,rank_f,also_noun,zhou_cue,pi_keep,claude_suggest_unverified
+es,sencillo,sencilla,gendered,simple,2,45.0,4.0,847,6308.0,True,False,,keep
+es,nacido,nacida,gendered,natural,2,53.0,2.5,867,3085.0,True,False,,drop: means 'born'
+es,considerado,considerada,gendered,considerate,1,35.0,,1045,2116.0,False,False,,keep
+es,atlético,atlética,gendered,athletic,1,,4.879,1125,14344.0,False,False,,keep
+es,franco,franca,gendered,frank,1,65.0,4.667,1632,12474.0,True,False,,keep
+es,activo,activa,gendered,active,1,81.0,4.156,1900,3204.0,True,False,,keep
+es,artístico,artística,gendered,artistic,1,34.0,,2287,2586.0,False,False,,keep
+es,verdadero,verdadera,gendered,honest,2,55.0,2.824,2794,3572.0,True,False,,keep
+es,religioso,religiosa,gendered,religious,1,,,2798,2521.0,False,False,,keep
+es,retirado,retirada,gendered,withdrawn,1,40.0,,2840,3096.0,False,False,,keep
+es,organizado,organizada,gendered,organized,1,55.0,,3248,4870.0,False,False,,keep
+es,delgado,delgada,gendered,thin,1,,2.515,3933,12588.0,False,False,,keep
+es,frío,fría,gendered,cold,1,58.0,4.6,3962,5080.0,True,False,,keep
+es,típico,típica,gendered,traditional,2,,,4263,4959.0,True,False,,drop: means 'typical'
+es,pardo,parda,gendered,dull,2,56.0,4.75,4339,33342.0,True,False,,drop: means 'brownish'
+es,abandonado,abandonada,gendered,dirty,2,,5.029,5174,8331.0,False,False,,drop: means 'abandoned'
+es,sufrido,sufrida,gendered,painstaking,1,44.0,,5501,24059.0,False,False,,keep
+es,originario,originaria,gendered,original,1,60.0,,5530,4329.0,False,False,,drop: means 'native'
+es,bello,bella,gendered,beautiful,1,,1.441,5643,3761.0,False,False,,keep
+es,amistoso,amistosa,gendered,friendly,1,42.0,2.879,6403,27730.0,True,False,,keep
+es,serio,seria,gendered,serious,1,74.0,4.686,6422,5075.0,False,False,,keep
+es,calvo,calva,gendered,bald,1,,6.455,6552,39316.0,True,False,,keep
+es,lento,lenta,gendered,slow,1,50.0,3.767,6708,9494.0,False,False,,keep
+es,fresco,fresca,gendered,cool,2,64.0,4.529,6848,16407.0,True,False,,drop: means 'fresh'
+es,sólido,sólida,gendered,strong,2,92.0,5.8,6877,10078.0,True,False,,drop: means 'solid'
+es,progresivo,progresiva,gendered,progressive,1,78.0,,6890,11474.0,False,False,,keep
+es,atractivo,atractiva,gendered,attractive,1,14.0,2.485,6896,14625.0,True,False,,keep
+es,cerdo,cerda,gendered,dirty,1,,5.029,6914,11111.0,True,False,,drop: noun 'pig'
+es,afectado,afectada,gendered,affected,1,20.0,,7695,8684.0,False,False,,keep
+es,nervioso,nerviosa,gendered,nervous,2,28.0,3.294,7888,22191.0,False,False,,keep
+es,preciso,precisa,gendered,precise,1,67.0,3.75,8194,8763.0,False,False,,keep
+es,primitivo,primitiva,gendered,original,2,60.0,,8211,8204.0,False,False,,drop: means 'primitive'
+es,sometido,sometida,gendered,submissive,1,16.0,,8500,13300.0,False,False,,keep
+es,defensivo,defensiva,gendered,defensive,1,43.0,,8595,8955.0,True,False,,keep
+es,lógico,lógica,gendered,logical,1,79.0,,8721,4255.0,True,False,,keep
+es,hermoso,hermosa,gendered,gorgeous,1,,1.686,8723,6856.0,False,False,,keep
+es,listo,lista,gendered,clever,1,64.0,4.0,8766,350.0,False,False,,keep
+es,cálido,cálida,gendered,warm,1,27.0,2.914,8970,23947.0,False,False,,keep
+es,curioso,curiosa,gendered,curious,1,24.0,3.552,9272,18256.0,True,False,,keep
+es,severo,severa,gendered,severe,1,81.0,4.875,9582,13105.0,False,False,,keep
+es,mudo,muda,gendered,silent,2,42.0,3.8,10081,11161.0,True,False,,keep
+es,moderado,moderada,gendered,moderate,1,48.0,,10112,12821.0,False,False,,keep
+es,recto,recta,gendered,honest,2,55.0,2.824,10184,6899.0,True,False,,keep
+es,complicado,complicada,gendered,complicated,1,30.0,3.457,10218,14419.0,False,False,,keep
+es,modesto,modesta,gendered,modest,1,32.0,3.257,10506,15452.0,False,False,,keep
+es,recogido,recogida,gendered,quiet,1,37.0,3.107,10679,8948.0,False,False,,drop: means 'collected/secluded'
+es,alejo,aleja,gendered,aloof,1,50.0,4.063,10790,15919.0,False,False,,drop: not a standard adjective
+es,práctico,práctica,gendered,practical,1,63.0,4.5,11192,1494.0,False,False,,keep
+es,maduro,madura,gendered,mature,2,56.0,,11358,14729.0,True,False,,keep
+es,bruto,bruta,gendered,ignorant,1,,4.727,11405,23921.0,True,False,,keep
+es,cumplido,cumplida,gendered,thoughtful,2,47.0,2.727,11497,33715.0,True,False,,drop: gloss mismatch
+es,gordo,gorda,gendered,fat,1,,3.706,11645,17273.0,True,False,,keep
+es,tranquilo,tranquila,gendered,calm,1,48.0,3.229,12928,16192.0,False,False,,keep
+es,resuelto,resuelta,gendered,determined,1,78.0,4.303,12944,26340.0,False,False,,keep
+es,afecto,afecta,gendered,affected,2,20.0,,13204,6323.0,True,False,,drop: means 'fond of'
+es,ambicioso,ambiciosa,gendered,ambitious,1,82.0,,13968,23388.0,False,False,,keep
+es,reservado,reservada,gendered,reserved,1,41.0,3.647,14422,19154.0,False,False,,keep
+es,agresivo,agresiva,gendered,aggressive,1,88.0,6.033,14639,16959.0,False,False,,keep
+es,impulsor,impulsora,gendered,impulsive,2,44.0,3.971,14985,41729.0,True,False,,drop: means 'driving'
+es,sospechoso,sospechosa,gendered,suspicious,1,35.0,,15053,33810.0,True,False,,keep
+es,amargo,amarga,gendered,bitter,1,51.0,4.294,15552,22180.0,True,False,,keep
+es,confundido,confundida,gendered,confused,1,33.0,3.704,15642,27097.0,False,False,,keep
+es,bonito,bonita,gendered,pretty,1,,1.636,15670,13750.0,True,False,,keep
+es,sano,sana,gendered,healthy,1,69.0,3.5,15851,16058.0,False,False,,keep
+es,feo,fea,gendered,ugly,1,,4.177,17613,25047.0,False,False,,keep
+es,pasivo,pasiva,gendered,passive,1,,3.286,17716,16818.0,True,False,,keep
+es,rígido,rígida,gendered,rigid,1,74.0,4.875,18034,21701.0,False,False,,keep
+es,humorístico,humorística,gendered,humorous,1,73.0,4.212,18058,29025.0,False,False,,keep
+es,atado,atada,gendered,confused,2,33.0,3.704,18190,32385.0,True,False,,drop: means 'tied'
+es,delicado,delicada,gendered,delicate,1,,,18340,18517.0,False,False,,keep
+es,apasionado,apasionada,gendered,passionate,1,,2.6,18643,31617.0,False,False,,keep
+es,lego,lega,gendered,ignorant,1,,4.727,18708,17113.0,True,False,,keep
+es,luminoso,luminosa,gendered,luminous,1,,,19593,17645.0,False,False,,drop: not person-describing
+es,pando,panda,gendered,shallow,2,36.0,3.706,19764,15402.0,True,False,,drop: means 'sagging'
+es,confuso,confusa,gendered,confused,1,33.0,3.704,20089,22068.0,False,False,,keep
+es,robusto,robusta,gendered,robust,1,85.0,,20318,18295.0,False,False,,keep
+es,cándido,cándida,gendered,straightforward,1,,,20858,35203.0,False,False,,keep
+es,discreto,discreta,gendered,discreet,2,49.0,,21055,19312.0,False,False,,keep
+es,sucio,sucia,gendered,dirty,1,,5.029,21472,24493.0,False,False,,keep
+es,aprovechado,aprovechada,gendered,astute,2,,,21530,33814.0,False,False,,keep
+es,folclórico,folclórica,gendered,traditional,2,,,21693,13393.0,False,False,,drop: means 'folkloric'
+es,casero,casera,gendered,homely,2,,,22111,26411.0,True,False,,drop: means 'homemade/homey'
+es,blando,blanda,gendered,soft,1,,2.4,22734,22273.0,False,False,,keep
+es,tímido,tímida,gendered,shy,1,25.0,2.882,23312,25557.0,False,False,,keep
+es,quedo,queda,gendered,quiet,1,37.0,3.107,23626,1372.0,False,False,,drop: archaic
+es,generoso,generosa,gendered,generous,1,55.0,3.257,24127,30960.0,False,False,,keep
+es,cooperativo,cooperativa,gendered,cooperative,1,46.0,,24237,8180.0,False,False,,keep
+es,sordo,sorda,gendered,dull,2,56.0,4.75,24378,27672.0,True,False,,drop: means 'deaf'
+es,confiado,confiada,gendered,confident,1,77.0,4.581,25430,38370.0,False,False,,keep
+es,bárbaro,bárbara,gendered,cruel,2,79.0,4.559,25510,5165.0,True,False,,drop: gloss mismatch
+es,tierno,tierna,gendered,soft,2,,2.4,26075,31150.0,False,False,,keep
+es,simpático,simpática,gendered,sympathetic,2,27.0,,26536,36038.0,False,False,,keep
+es,cuco,cuca,gendered,clever,1,64.0,4.0,26989,44805.0,True,False,,keep
+es,sofisticado,sofisticada,gendered,sophisticated,1,28.0,,27249,33692.0,False,False,,keep
+es,vago,vaga,gendered,lazy,2,73.0,4.647,27718,30808.0,True,False,,keep
+es,precioso,preciosa,gendered,gorgeous,2,,1.686,28421,23438.0,False,False,,keep
+es,honesto,honesta,gendered,honest,1,55.0,2.824,28439,33832.0,False,False,,keep
+es,espontáneo,espontánea,gendered,spontaneous,1,49.0,,28704,16307.0,False,False,,keep
+es,bobo,boba,gendered,stupid,1,,4.273,28838,35942.0,True,False,,keep
+es,silencioso,silenciosa,gendered,silent,1,42.0,3.8,29299,32054.0,False,False,,keep
+es,sombrío,sombría,gendered,gloomy,2,56.0,4.469,30431,42404.0,False,False,,keep
+es,sincero,sincera,gendered,sincere,1,44.0,2.882,30438,36822.0,False,False,,keep
+es,sobrio,sobria,gendered,moderate,2,48.0,,30794,39127.0,False,False,,keep
+es,ingenioso,ingeniosa,gendered,ingenious,1,69.0,,31114,45073.0,False,False,,keep
+es,emotivo,emotiva,gendered,emotional,1,12.0,2.29,32095,34575.0,True,False,,keep
+es,incómodo,incómoda,gendered,awkward,2,64.0,4.121,32873,37130.0,False,False,,keep
+es,cuidadoso,cuidadosa,gendered,cautious,2,33.0,3.758,32987,32957.0,False,False,,keep
+es,enérgico,enérgica,gendered,energetic,1,82.0,,33279,31697.0,False,False,,keep
+es,atrevido,atrevida,gendered,daring,1,86.0,,33575,42268.0,False,False,,keep
+es,ingenuo,ingenua,gendered,naive,1,,3.097,33587,34176.0,True,False,,keep
+es,presto,presta,gendered,quick,1,72.0,3.929,33818,8575.0,False,False,,drop: literary
+es,encantador,encantadora,gendered,charming,1,19.0,5.059,34259,33637.0,True,False,,keep
+es,rudo,ruda,gendered,rude,1,83.0,4.849,34997,38236.0,True,False,,keep
+es,apuesto,apuesta,gendered,handsome,1,69.0,6.171,35380,10919.0,True,False,,keep
+es,precario,precaria,gendered,unstable,2,32.0,,36080,23630.0,False,False,,drop: not person-describing
+es,genuino,genuina,gendered,sincere,2,44.0,2.882,36326,38892.0,False,False,,keep
+es,soberbio,soberbia,gendered,arrogant,2,74.0,5.844,37973,35032.0,False,False,,keep
+es,pacho,pacha,gendered,lazy,1,73.0,4.647,38173,43211.0,False,False,,drop: regional
+es,espléndido,espléndida,gendered,gorgeous,2,,1.686,38773,36336.0,False,False,,keep
+es,minucioso,minuciosa,gendered,thorough,1,59.0,,38835,40289.0,False,False,,keep
+es,inquieto,inquieta,gendered,restless,1,68.0,,39704,45721.0,False,False,,keep
+es,arriesgado,arriesgada,gendered,daring,2,86.0,,40051,41258.0,False,False,,keep
+es,intuitivo,intuitiva,gendered,intuitive,1,,,42086,39351.0,False,False,,keep
+es,relajado,relajada,gendered,relaxed,1,59.0,,42097,49107.0,False,False,,keep
+es,férreo,férrea,gendered,persistent,2,63.0,3.471,43969,9649.0,False,False,,drop: means 'iron'
+es,tenso,tensa,gendered,tense,1,53.0,4.457,44117,24978.0,False,False,,keep
+es,ameno,amena,gendered,pleasant,1,26.0,,45001,45279.0,False,False,,keep
+es,esbelto,esbelta,gendered,slender,1,,,47810,40142.0,False,False,,keep
+es,afectivo,afectiva,gendered,emotional,2,12.0,2.29,48541,43377.0,False,False,,keep
+es,flojo,floja,gendered,lazy,2,73.0,4.647,48943,46869.0,False,False,,keep
+es,original,,invariant,original,1,60.0,,504,,False,False,,drop: not person-describing
+es,musical,,invariant,musical,1,,2.903,557,,True,False,,drop: not person-describing
+es,natural,,invariant,natural,1,53.0,2.5,615,,True,False,,drop: not person-describing
+es,fuerte,,invariant,strong,1,92.0,5.8,850,,True,False,,keep
+es,independiente,,invariant,independent,1,84.0,3.483,1020,,False,False,,keep
+es,particular,,invariant,peculiar,2,50.0,4.394,1262,,True,False,,drop: means 'private'
+es,tradicional,,invariant,traditional,1,,,1288,,False,False,,keep
+es,simple,,invariant,simple,1,45.0,4.0,1813,,True,False,,keep
+es,infantil,,invariant,immature,2,48.0,4.743,2157,,False,False,,keep
+es,responsable,,invariant,responsible,1,65.0,3.235,2196,,True,False,,keep
+es,radical,,invariant,radical,1,,,2932,,True,False,,keep
+es,grave,,invariant,serious,1,74.0,4.686,3116,,False,False,,keep
+es,formal,,invariant,formal,1,61.0,,4547,,False,False,,keep
+es,paciente,,invariant,patient,1,32.0,3.303,4580,,True,False,,keep
+es,estable,,invariant,stable,1,71.0,,5468,,False,False,,keep
+es,débil,,invariant,weak,1,17.0,3.469,5689,,False,False,,keep
+es,dependiente,,invariant,dependent,1,19.0,,5791,,True,False,,keep
+es,fiel,,invariant,faithful,1,,2.486,6068,,False,False,,keep
+es,dominante,,invariant,dominant,1,87.0,,6103,,False,False,,keep
+es,realista,,invariant,realistic,1,75.0,,6154,,True,False,,keep
+es,suave,,invariant,soft,2,,2.4,6301,,False,False,,keep
+es,rebelde,,invariant,rebellious,1,61.0,,6310,,True,False,,keep
+es,inteligente,,invariant,intelligent,1,68.0,3.686,6427,,False,False,,keep
+es,convencional,,invariant,conventional,1,54.0,,6757,,False,False,,keep
+es,superficial,,invariant,shallow,2,36.0,3.706,7337,,False,False,,keep
+es,alerta,,invariant,alert,1,60.0,4.308,7800,,True,False,,keep
+es,eficiente,,invariant,efficient,1,63.0,3.677,8025,,False,False,,keep
+es,muelle,,invariant,soft,1,,2.4,8378,,True,False,,drop: noun 'dock'
+es,progresista,,invariant,progressive,1,78.0,,8707,,True,False,,keep
+es,peculiar,,invariant,peculiar,1,50.0,4.394,9074,,False,False,,keep
+es,emocional,,invariant,emotional,1,12.0,2.29,9144,,False,False,,keep
+es,sensible,,invariant,sensitive,1,14.0,2.118,9196,,False,False,,keep
+es,muscular,,invariant,muscular,1,,5.969,10532,,False,False,,keep
+es,fiable,,invariant,reliable,1,61.0,3.257,10562,,False,True,,keep
+es,racional,,invariant,rational,1,75.0,,10607,,False,False,,keep
+es,cruel,,invariant,cruel,1,79.0,4.559,10833,,False,False,,keep
+es,resistente,,invariant,strong,1,92.0,5.8,10855,,False,False,,keep
+es,sentimental,,invariant,sentimental,1,11.0,1.971,10902,,False,False,,keep
+es,amable,,invariant,kind,1,29.0,2.6,11766,,False,True,,keep
+es,informal,,invariant,informal,1,84.0,,12115,,False,False,,keep
+es,razonable,,invariant,reasonable,1,63.0,3.278,12167,,False,False,,keep
+es,persistente,,invariant,persistent,1,63.0,3.471,12498,,False,False,,keep
+es,solemne,,invariant,solemn,1,,4.519,12687,,False,False,,keep
+es,leve,,invariant,mild,1,22.0,3.364,13218,,False,False,,drop: means 'light/slight'
+es,inestable,,invariant,unstable,1,32.0,,14247,,False,False,,keep
+es,pilas,,invariant,alert,1,60.0,4.308,14435,,True,False,,drop: slang
+es,cool,,invariant,cool,1,64.0,4.529,14993,,False,False,,drop: English loan
+es,hostil,,invariant,hostile,1,66.0,5.618,15597,,False,False,,keep
+es,acre,,invariant,bitter,1,51.0,4.294,16332,,True,False,,drop: means 'acrid'
+es,smart,,invariant,smart,1,,3.735,17114,,False,False,,drop: English loan
+es,fashion,,invariant,fashionable,1,,,17590,,True,False,,drop: English loan
+es,entusiasta,,invariant,enthusiastic,1,51.0,3.206,17755,,True,False,,keep
+es,venerable,,invariant,venerable,1,,,17766,,False,False,,keep
+es,tradicionalista,,invariant,traditional,1,,,20198,,True,False,,keep
+es,mole,,invariant,soft,1,,2.4,20889,,True,False,,drop: means 'soft (archaic)'
+es,susceptible,,invariant,sensitive,2,14.0,2.118,20932,,False,False,,keep
+es,precoz,,invariant,precocious,1,,,21627,,False,False,,keep
+es,prudente,,invariant,wise,2,77.0,4.414,21812,,False,False,,keep
+es,optimista,,invariant,optimistic,1,58.0,3.382,22945,,True,False,,keep
+es,exigente,,invariant,demanding,1,48.0,,24350,,False,False,,keep
+es,arrogante,,invariant,arrogant,1,74.0,5.844,24895,,False,False,,keep
+es,egoísta,,invariant,selfish,2,61.0,4.441,25551,,True,False,,keep
+es,cobarde,,invariant,cowardly,1,45.0,4.364,25760,,True,False,,keep
+es,versátil,,invariant,versatile,1,61.0,,25815,,False,False,,keep
+es,indiferente,,invariant,indifferent,1,69.0,4.242,26281,,False,False,,keep
+es,queer,,invariant,queer,1,63.0,,26420,,False,False,,keep
+es,imperante,,invariant,dominant,1,87.0,,26668,,False,False,,drop: means 'prevailing'
+es,sensual,,invariant,sensual,1,,2.364,26681,,False,False,,keep
+es,gentil,,invariant,kind,1,29.0,2.6,27909,,True,False,,keep
+es,cambiante,,invariant,changeable,2,28.0,,28833,,True,False,,keep
+es,creyente,,invariant,religious,2,,,30134,,False,False,,keep
+es,tolerante,,invariant,tolerant,1,45.0,,30768,,False,False,,keep
+es,idealista,,invariant,idealistic,1,54.0,,32917,,True,False,,keep
+es,ignorante,,invariant,ignorant,1,,4.727,33634,,True,False,,keep
+es,flamante,,invariant,brilliant,1,,3.543,34878,,False,False,,drop: means 'brand-new'
+es,inquietante,,invariant,worrying,1,27.0,,36075,,False,False,,drop: describes situations
+es,individualista,,invariant,individualistic,1,71.0,,36103,,True,False,,keep
+es,parlante,,invariant,talkative,2,22.0,,36285,,True,False,,drop: means 'speaking (device)'
+es,preocupante,,invariant,worrying,1,27.0,,36323,,False,False,,drop: describes situations
+es,juncal,,invariant,handsome,1,69.0,6.171,36363,,True,False,,drop: literary
+es,pesimista,,invariant,pessimistic,1,50.0,,40896,,True,False,,keep
+es,irresponsable,,invariant,irresponsible,1,63.0,,42590,,False,False,,keep
+es,entrañable,,invariant,warm,1,27.0,2.914,43960,,False,False,,keep
+es,oportunista,,invariant,opportunistic,1,72.0,,46589,,True,False,,keep
+es,impaciente,,invariant,impatient,1,59.0,,48100,,False,False,,keep
+es,adaptable,,invariant,adaptable,1,37.0,,49653,,False,False,,keep

@@ -1,0 +1,190 @@
+lang,masc,fem,type,en,sense,wb_score_1990,glasgow_gend,rank_m,rank_f,also_noun,zhou_cue,pi_keep,claude_suggest_unverified
+fr,fin,fine,gendered,thin,1,,2.515,148,4940.0,True,False,,drop: gloss mismatch
+fr,particulier,particulière,gendered,peculiar,2,50.0,4.394,655,3096.0,True,False,,drop: means 'private'
+fr,fort,forte,gendered,strong,1,92.0,5.8,672,1244.0,True,False,,keep
+fr,original,originale,gendered,original,1,60.0,,1008,905.0,True,False,,drop: not person-describing
+fr,gros,grosse,gendered,coarse,2,91.0,5.206,1364,4666.0,True,False,,drop: gloss mismatch (fat)
+fr,religieux,religieuse,gendered,religious,1,,,1376,2285.0,True,False,,keep
+fr,sportif,sportive,gendered,athletic,1,,4.879,1408,1925.0,True,False,,keep
+fr,naturel,naturelle,gendered,natural,1,53.0,2.5,1595,1790.0,True,False,,keep
+fr,beau,belle,gendered,handsome,1,69.0,6.171,2074,1393.0,True,False,,keep
+fr,actif,active,gendered,active,1,81.0,4.156,2297,2901.0,True,False,,keep
+fr,indépendant,indépendante,gendered,independent,1,84.0,3.483,2354,3746.0,True,False,,keep
+fr,sacré,sacrée,gendered,religious,2,,,2954,6805.0,False,False,,drop: means 'sacred'
+fr,travaillé,travaillée,gendered,polished,1,45.0,,3196,41794.0,False,False,,drop: means 'worked'
+fr,sortant,sortante,gendered,outgoing,1,64.0,,3633,25205.0,False,False,,keep
+fr,muet,muette,gendered,silent,2,42.0,3.8,3692,22253.0,True,False,,keep
+fr,traditionnel,traditionnelle,gendered,traditional,1,,,3807,3326.0,False,False,,keep
+fr,froid,froide,gendered,cold,1,58.0,4.6,3961,5544.0,True,False,,keep
+fr,gras,grasse,gendered,fat,1,,3.706,4137,10207.0,True,False,,keep
+fr,sérieux,sérieuse,gendered,serious,1,74.0,4.686,4566,11629.0,True,False,,keep
+fr,radical,radicale,gendered,radical,1,,,5051,10204.0,True,False,,keep
+fr,évolué,évoluée,gendered,intelligent,2,68.0,3.686,5120,43471.0,True,False,,keep
+fr,chaud,chaude,gendered,warm,1,27.0,2.914,5478,9715.0,True,False,,keep
+fr,prononcé,prononcée,gendered,strong,1,92.0,5.8,5704,12725.0,False,False,,drop: means 'pronounced'
+fr,patient,patiente,gendered,patient,1,32.0,3.303,5803,26202.0,True,False,,keep
+fr,réservé,réservée,gendered,reserved,1,41.0,3.647,5820,7788.0,False,False,,keep
+fr,égal,égale,gendered,indifferent,2,69.0,4.242,5929,5058.0,False,False,,drop: means 'equal'
+fr,retenu,retenue,gendered,cautious,1,33.0,3.758,6092,7010.0,False,False,,keep
+fr,dépendant,dépendante,gendered,dependent,1,19.0,,6258,17445.0,True,False,,keep
+fr,allié,alliée,gendered,friendly,1,42.0,2.879,6385,11496.0,True,False,,keep
+fr,doux,douce,gendered,soft,2,,2.4,6505,4797.0,False,False,,keep
+fr,dominant,dominante,gendered,dominant,1,87.0,,7021,7627.0,False,False,,keep
+fr,spirituel,spirituelle,gendered,witty,2,67.0,3.794,7391,8268.0,False,False,,keep
+fr,violent,violente,gendered,severe,2,81.0,4.875,7408,8603.0,False,False,,drop: gloss mismatch
+fr,progressif,progressive,gendered,progressive,1,78.0,,8043,8264.0,False,False,,keep
+fr,déplacé,déplacée,gendered,rude,2,83.0,4.849,8102,11760.0,False,False,,drop: means 'misplaced'
+fr,passionné,passionnée,gendered,passionate,1,,2.6,8289,21973.0,False,False,,keep
+fr,défensif,défensive,gendered,defensive,1,43.0,,8443,11933.0,False,False,,keep
+fr,pertinent,pertinente,gendered,judicious,2,,,8547,11575.0,False,False,,drop: gloss mismatch
+fr,singulier,singulière,gendered,curious,2,24.0,3.552,8622,22591.0,False,False,,drop: gloss mismatch
+fr,amical,amicale,gendered,friendly,1,42.0,2.879,8630,12805.0,False,False,,keep
+fr,déterminé,déterminée,gendered,determined,1,78.0,4.303,8633,10451.0,False,False,,keep
+fr,natif,native,gendered,original,2,60.0,,9304,16094.0,False,False,,drop: means 'native'
+fr,curieux,curieuse,gendered,curious,1,24.0,3.552,9400,23734.0,True,False,,keep
+fr,nerveux,nerveuse,gendered,nervous,2,28.0,3.294,10139,29904.0,False,False,,keep
+fr,compliqué,compliquée,gendered,complicated,1,30.0,3.457,10316,17240.0,False,False,,keep
+fr,ferré,ferrée,gendered,strong,1,92.0,5.8,10534,9542.0,False,False,,drop: means 'shod'
+fr,lent,lente,gendered,slow,1,50.0,3.767,11044,9988.0,False,False,,keep
+fr,ambitieux,ambitieuse,gendered,ambitious,1,82.0,,11622,27906.0,False,False,,keep
+fr,gentil,gentille,gendered,kind,2,29.0,2.6,11821,32445.0,True,False,,keep
+fr,confondu,confondue,gendered,confused,1,33.0,3.704,11868,19074.0,False,False,,keep
+fr,joli,jolie,gendered,pretty,1,,1.636,11871,8073.0,False,False,,keep
+fr,intelligent,intelligente,gendered,intelligent,1,68.0,3.686,11888,19868.0,False,False,,keep
+fr,modéré,modérée,gendered,moderate,1,48.0,,12062,14516.0,False,False,,keep
+fr,emprunté,empruntée,gendered,awkward,1,64.0,4.121,12142,23499.0,False,False,,drop: means 'borrowed'
+fr,discret,discrète,gendered,discreet,1,49.0,,12677,14772.0,False,False,,keep
+fr,suspect,suspecte,gendered,suspicious,1,35.0,,13508,24233.0,True,False,,keep
+fr,passif,passive,gendered,passive,1,,3.286,14634,18781.0,True,False,,keep
+fr,agressif,agressive,gendered,aggressive,1,88.0,6.033,15332,21254.0,False,False,,keep
+fr,délicat,délicate,gendered,delicate,1,,,15466,14555.0,False,False,,keep
+fr,exigeant,exigeante,gendered,demanding,1,48.0,,15494,41070.0,False,False,,keep
+fr,distant,distante,gendered,aloof,2,50.0,4.063,15716,20226.0,False,False,,keep
+fr,conventionnel,conventionnelle,gendered,conventional,1,54.0,,16146,15584.0,True,False,,keep
+fr,mesuré,mesurée,gendered,moderate,2,48.0,,16212,16281.0,False,False,,drop: means 'measured'
+fr,soucieux,soucieuse,gendered,nervous,2,28.0,3.294,16258,46233.0,False,False,,keep
+fr,formel,formelle,gendered,formal,1,61.0,,16295,11618.0,False,False,,keep
+fr,fat,fate,gendered,conceited,1,68.0,,16374,24651.0,False,False,,keep
+fr,amer,amère,gendered,bitter,1,51.0,4.294,16375,28866.0,False,False,,keep
+fr,cruel,cruelle,gendered,cruel,1,79.0,4.559,16764,29450.0,False,False,,keep
+fr,polyvalent,polyvalente,gendered,versatile,1,61.0,,17142,23646.0,True,False,,keep
+fr,sain,saine,gendered,healthy,1,69.0,3.5,17173,23404.0,False,False,,keep
+fr,courageux,courageuse,gendered,courageous,1,86.0,4.419,17353,39638.0,False,False,,keep
+fr,disposé,disposée,gendered,organized,1,55.0,,17579,34126.0,False,False,,drop: means 'willing'
+fr,généreux,généreuse,gendered,generous,1,55.0,3.257,17661,32933.0,False,False,,keep
+fr,poli,polie,gendered,polished,2,45.0,,17782,31971.0,True,False,,drop: means 'polite' (gloss 'polished')
+fr,tendu,tendue,gendered,tense,2,53.0,4.457,18067,18751.0,False,False,,keep
+fr,silencieux,silencieuse,gendered,silent,1,42.0,3.8,18914,29562.0,True,False,,keep
+fr,naïf,naïve,gendered,naive,1,,3.097,19333,19733.0,False,False,,keep
+fr,performant,performante,gendered,efficient,1,63.0,3.677,19457,29627.0,False,False,,keep
+fr,mou,molle,gendered,soft,1,,2.4,20156,21083.0,True,False,,keep
+fr,généralisé,généralisée,gendered,commonplace,1,54.0,,20418,16825.0,False,False,,drop: means 'widespread'
+fr,rationnel,rationnelle,gendered,rational,1,75.0,,21316,16929.0,False,False,,keep
+fr,habillé,habillée,gendered,smart,1,,3.735,22199,31210.0,False,False,,drop: means 'dressed'
+fr,inquiet,inquiète,gendered,anxious,2,23.0,3.056,22867,12611.0,False,False,,keep
+fr,charmant,charmante,gendered,charming,1,19.0,5.059,23304,33016.0,False,False,,keep
+fr,pressé,pressée,gendered,quick,1,72.0,3.929,23308,36195.0,False,False,,keep
+fr,réfléchi,réfléchie,gendered,thoughtful,2,47.0,2.727,23690,31170.0,False,False,,keep
+fr,informel,informelle,gendered,informal,1,84.0,,25871,25873.0,False,False,,keep
+fr,coopératif,coopérative,gendered,cooperative,2,46.0,,25949,9703.0,False,False,,keep
+fr,maladroit,maladroite,gendered,awkward,1,64.0,4.121,26307,34868.0,False,False,,keep
+fr,prématuré,prématurée,gendered,hasty,1,54.0,,26602,18758.0,True,False,,drop: means 'premature'
+fr,persistant,persistante,gendered,persistent,1,63.0,3.471,26898,35404.0,False,False,,keep
+fr,grossier,grossière,gendered,coarse,1,91.0,5.206,27255,29365.0,False,False,,keep
+fr,dévolu,dévolue,gendered,reserved,2,41.0,3.647,27459,37434.0,False,False,,drop: means 'devolved'
+fr,inquiétant,inquiétante,gendered,worrying,1,27.0,,27787,38154.0,False,False,,keep
+fr,galant,galante,gendered,flirtatious,2,35.0,,27864,31658.0,True,False,,keep
+fr,sentimental,sentimentale,gendered,sentimental,1,11.0,1.971,27918,23354.0,False,False,,keep
+fr,prépondérant,prépondérante,gendered,dominant,2,87.0,,28014,24896.0,False,False,,drop: not person-describing
+fr,mûr,mûre,gendered,mature,2,56.0,,28740,43020.0,False,False,,keep
+fr,confus,confuse,gendered,confused,1,33.0,3.704,30778,35392.0,False,False,,keep
+fr,négligé,négligée,gendered,slovenly,2,,,30942,42877.0,True,False,,keep
+fr,émotionnel,émotionnelle,gendered,emotional,1,12.0,2.29,31576,30347.0,False,False,,keep
+fr,raffiné,raffinée,gendered,sophisticated,2,28.0,,33195,37671.0,False,False,,keep
+fr,spontané,spontanée,gendered,spontaneous,1,49.0,,34440,17662.0,False,False,,keep
+fr,attractif,attractive,gendered,attractive,1,14.0,2.485,37458,42949.0,False,False,,keep
+fr,solennel,solennelle,gendered,solemn,1,,4.519,37948,19296.0,False,False,,keep
+fr,délibéré,délibérée,gendered,deliberate,1,61.0,,38196,39888.0,False,False,,keep
+fr,bienveillant,bienveillante,gendered,wholesome,2,57.0,,38640,46292.0,False,False,,drop: gloss mismatch (kind)
+fr,sophistiqué,sophistiquée,gendered,sophisticated,1,28.0,,38841,48114.0,False,False,,keep
+fr,affectif,affective,gendered,emotional,1,12.0,2.29,40564,37067.0,False,False,,keep
+fr,intuitif,intuitive,gendered,intuitive,1,,,42773,31359.0,False,False,,keep
+fr,minutieux,minutieuse,gendered,thorough,1,59.0,,47733,40905.0,False,False,,keep
+fr,simple,,invariant,simple,2,45.0,4.0,493,,True,False,,drop: ambiguous
+fr,gauche,,invariant,awkward,2,64.0,4.121,616,,True,False,,drop: means 'left'
+fr,scientifique,,invariant,scientific,1,,5.086,658,,True,False,,drop: not person-describing
+fr,juste,,invariant,reasonable,2,63.0,3.278,969,,True,False,,drop: means 'fair/just'
+fr,pratique,,invariant,practical,1,63.0,4.5,1076,,True,False,,keep
+fr,artistique,,invariant,artistic,1,34.0,,1253,,False,False,,keep
+fr,faible,,invariant,weak,1,17.0,3.469,1337,,True,False,,keep
+fr,responsable,,invariant,responsible,1,65.0,3.235,1728,,True,False,,keep
+fr,conservatoire,,invariant,conservative,1,53.0,,2794,,True,False,,drop: noun-like
+fr,intègre,,invariant,honest,1,55.0,2.824,2946,,False,False,,keep
+fr,logique,,invariant,logical,1,79.0,,2979,,True,False,,keep
+fr,grave,,invariant,serious,1,74.0,4.686,3164,,False,False,,keep
+fr,solide,,invariant,stout,2,,5.061,4458,,True,False,,drop: gloss mismatch
+fr,fidèle,,invariant,loyal,1,42.0,3.212,4716,,True,False,,keep
+fr,modeste,,invariant,modest,1,32.0,3.257,5366,,False,False,,keep
+fr,sensible,,invariant,sensitive,1,14.0,2.118,5507,,True,False,,keep
+fr,amène,,invariant,pleasant,1,26.0,,5674,,False,False,,keep
+fr,stable,,invariant,stable,1,71.0,,6162,,False,False,,keep
+fr,calme,,invariant,calm,1,48.0,3.229,6234,,True,False,,keep
+fr,bête,,invariant,stupid,1,,4.273,6673,,True,False,,keep
+fr,sévère,,invariant,severe,1,81.0,4.875,6977,,False,False,,keep
+fr,alerte,,invariant,alert,1,60.0,4.308,7257,,True,False,,keep
+fr,rebelle,,invariant,rebellious,1,61.0,,9206,,True,False,,keep
+fr,fiable,,invariant,reliable,1,61.0,3.257,9328,,False,True,,keep
+fr,travailliste,,invariant,working,1,,,9554,,True,False,,drop: means 'Labour (party)'
+fr,réaliste,,invariant,realistic,1,75.0,,9801,,True,False,,keep
+fr,chauve,,invariant,bald,1,,6.455,10037,,True,False,,keep
+fr,sale,,invariant,dirty,1,,5.029,10113,,False,False,,keep
+fr,hostile,,invariant,hostile,1,66.0,5.618,10129,,False,False,,keep
+fr,bizarre,,invariant,peculiar,2,50.0,4.394,10308,,False,False,,drop: gloss mismatch
+fr,cool,,invariant,cool,1,64.0,4.529,10489,,False,False,,drop: English loan
+fr,raisonnable,,invariant,reasonable,1,63.0,3.278,11675,,False,False,,keep
+fr,érotique,,invariant,sensual,1,,2.364,11774,,False,False,,keep
+fr,mince,,invariant,thin,1,,2.515,12019,,False,False,,keep
+fr,tranquille,,invariant,calm,1,48.0,3.229,12542,,False,False,,keep
+fr,rude,,invariant,tough,2,91.0,5.849,12792,,False,False,,drop: gloss mismatch
+fr,brave,,invariant,honest,2,55.0,2.824,14302,,True,False,,drop: means 'good-natured'
+fr,rigide,,invariant,rigid,1,74.0,4.875,14313,,False,False,,keep
+fr,athlétique,,invariant,athletic,1,,4.879,14826,,False,False,,keep
+fr,meuble,,invariant,soft,1,,2.4,14846,,True,False,,drop: means 'loose (soil)'
+fr,instable,,invariant,unstable,1,32.0,,15107,,False,False,,keep
+fr,musculaire,,invariant,muscular,1,,5.969,15684,,False,False,,keep
+fr,sexy,,invariant,sexy,1,14.0,2.0,15857,,False,False,,keep
+fr,vénérable,,invariant,venerable,1,,,16259,,False,False,,keep
+fr,honnête,,invariant,honest,1,55.0,2.824,16434,,False,False,,keep
+fr,lâche,,invariant,cowardly,2,45.0,4.364,16879,,True,False,,keep
+fr,attique,,invariant,delicate,2,,,16965,,True,False,,drop: means 'Attic'
+fr,timide,,invariant,shy,1,25.0,2.882,17551,,False,False,,keep
+fr,robuste,,invariant,robust,1,85.0,,17646,,False,False,,keep
+fr,sioux,,invariant,clever,2,64.0,4.0,17848,,True,False,,drop: slang
+fr,apte,,invariant,apt,1,,,19192,,False,False,,keep
+fr,infantile,,invariant,infantile,1,44.0,,19253,,False,False,,keep
+fr,enthousiaste,,invariant,enthusiastic,2,51.0,3.206,19977,,True,False,,keep
+fr,énergique,,invariant,energetic,1,82.0,,21747,,False,False,,keep
+fr,chic,,invariant,considerate,2,35.0,,21946,,True,False,,drop: gloss mismatch
+fr,stupide,,invariant,stupid,1,,4.273,22406,,False,False,,keep
+fr,mercenaire,,invariant,mercenary,1,,,23797,,True,False,,drop: noun-like
+fr,farouche,,invariant,shy,2,25.0,2.882,24246,,False,False,,keep
+fr,sincère,,invariant,sincere,1,44.0,2.882,24478,,False,False,,keep
+fr,morne,,invariant,gloomy,1,56.0,4.469,24634,,False,False,,keep
+fr,optimiste,,invariant,optimistic,1,58.0,3.382,25771,,True,False,,keep
+fr,méthodique,,invariant,methodical,1,60.0,,26769,,False,False,,keep
+fr,avare,,invariant,stingy,1,69.0,4.667,27720,,True,False,,keep
+fr,candide,,invariant,naive,2,,3.097,27933,,True,False,,keep
+fr,cynique,,invariant,cynical,1,69.0,4.353,28834,,True,False,,keep
+fr,mature,,invariant,mature,1,56.0,,28966,,False,False,,keep
+fr,terne,,invariant,dull,1,56.0,4.75,30448,,True,False,,keep
+fr,égoïste,,invariant,selfish,1,61.0,4.441,31446,,True,False,,keep
+fr,pessimiste,,invariant,pessimistic,1,50.0,,32694,,True,False,,keep
+fr,opportuniste,,invariant,opportunistic,1,72.0,,35040,,True,False,,keep
+fr,queer,,invariant,queer,1,63.0,,35122,,False,False,,keep
+fr,avide,,invariant,greedy,2,67.0,5.121,36656,,False,False,,keep
+fr,placide,,invariant,calm,1,48.0,3.229,37218,,False,False,,keep
+fr,matérialiste,,invariant,materialistic,1,,,37526,,True,False,,keep
+fr,sarcastique,,invariant,sarcastic,1,61.0,,43793,,False,False,,keep
+fr,imbécile,,invariant,stupid,1,,4.273,43891,,True,False,,keep
+fr,immature,,invariant,immature,1,48.0,4.743,47069,,False,False,,keep
+fr,irresponsable,,invariant,irresponsible,2,63.0,,47798,,False,False,,keep
