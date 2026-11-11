@@ -1,0 +1,14 @@
+set,kind,lemma,gender,concept_en,muse_rank,in_50k,sens_sex_coded
+crime,common,criminal,multi,criminal,5799.0,True,False
+crime,common,terrorista,multi,terrorist,7334.0,True,False
+crime,common,delincuente,multi,delinquent,24750.0,True,False
+crime,common,pirata,multi,pirate,8898.0,True,False
+crime,epicene_m,capo,m,gangster,19761.0,True,True
+crime,common,narcotraficante,multi,drug trafficker,34186.0,True,False
+crime,common,homicida,multi,murderer,50761.0,False,False
+crime,common,asaltante,multi,raider,72465.0,False,False
+crime,common,contrabandista,multi,smuggler,56699.0,False,False
+crime,common,reincidente,multi,recidivist,40927.0,True,False
+crime,epicene_m,forajido,m,outlaw,92083.0,False,False
+act,act,infanticidio,m,infanticide,76505.0,False,False
+crime,common,fratricida,multi,fratricide (person),100335.0,False,False

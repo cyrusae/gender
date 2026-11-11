@@ -1,6 +1,6 @@
 # Crime nouns as a single-stereotype probe (DRAFT pre-registration)
 
-*Status: DRAFT, 2026-11-10, written by Claude for the PI's review. Nothing scored. Follow-up named
+*Status: **ADOPTED by the PI 2026-11-10**. Nothing scored at adoption. Follow-up named
 in `docs/zhou-zero-point-prereg.md` (adopted 2026-11-10).*
 
 ## Question
@@ -65,3 +65,22 @@ grammatical gender in the way: a positive control for the gender-ValNorm machine
    in; *sicario, secuestrador* are gendered pairs and excluded).
 2. 200k vocabulary for crime nouns (recommended) vs 50k only.
 3. Floor 8 (recommended, given the pool size).
+
+
+## Adoption record (2026-11-10, before any score)
+
+PI decisions: 200k vocabulary for crime nouns (primary), 50k-only as a check; floor 8; *coupable*
+dropped (mostly the adjective 'guilty'); *capo*, *gangster* kept, with a sensitivity check
+without them (sex-coded by convention); act-dominant words kept as their own test set;
+*fratricida* added (common gender, the person; MUSE rank 100,335).
+
+Frozen lists (`data/crime_{es,fr}_frozen_v1.csv`):
+- ES sha256 4c0ec0185879fd167eae0eb30d57675ae423ed5d5d2f7db9d3f61cdd8869b67a: crime 12 (*criminal, terrorista, delincuente, pirata, capo,
+  narcotraficante, homicida, asaltante, contrabandista, reincidente, forajido, fratricida*); act 1
+  (*infanticidio*).
+- FR sha256 81cada96b4e0a344f56ba829d36b6779e98afe758558fec90729300f2b9081d5: crime 12 (*terroriste, pirate, escroc, bandit, gangster, récidiviste,
+  incendiaire, faussaire, tortionnaire, pickpocket, malfrat, multirécidiviste*); act 4
+  (*homicide, régicide, fratricide, infanticide*).
+- Only 7 crime nouns per language are inside 50k, so the 50k-only check is "too few" by the floor;
+  noted now, before scoring.
+- Zero point: identical to the zero-point study (reference words restricted to the first 50k).
