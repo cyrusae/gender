@@ -30,3 +30,4 @@
 | 2026-11-10 | Generic-masculine prereg ADOPTED; pairs frozen (sha 1dfc6c39…); relative margin. | PI checked plurals. | adopted |
 | 2026-11-10 | Generic-masculine results: FR (confirmatory) inconclusive (ratio ill-conditioned: masc singular only +0.076); ES replicates (Δρ 0.51 [0.14,1.14]; masc plural at neutral). | prereg 52cc9ed | done |
 | 2026-11-10 | Zhou §4.3/§4.4 checked (exploratory, 0421290): word translation reproduces; Original→Shift "gain" is a 200k vs 50k candidate-set artefact (Z18, exact match). §4.4 Spearman reproduces (0.450, p 0.0006 vs paper 0.45/0.0004; clean list 0.42). Our Hybrid ES→EN 76.6 vs 79.2 (rebuild approximate). | PI request | done |
+| 2026-11-10 | Zhou write-up summary (`zhou-summary.md`) and severity-ordered author issue list draft (`issues-for-authors-draft.md`, not sent). | PI request | done |
