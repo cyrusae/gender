@@ -21,10 +21,20 @@ f −0.242; plural m +0.019, f −0.142; common-gender person nouns +0.024.
   axis d_s (true-midpoint PCA of the 10 definitional pairs, grammatical direction from the C1
   Wiktionary nouns removed, as `scripts/zhou_figures.py` panel B).
 - Zero point z: strict-epicene anchor, frozen list `data/zero_ref_{lang}_frozen_v1.csv`.
-- Pairs: Zhou's occupation pairs (ES 58, FR 23). Plurals by rule (ES: +s after a vowel, +es after
-  a consonant; FR: +s, -al → -aux, -eau → -eaux, words ending in s/x/z unchanged), kept only if
+- Pairs: Zhou's occupation pairs, cleaned list primary (ES 54, FR 22; `data/occupation_mapping_v1.csv`
+  `clean_keep`), as published secondary. Plurals by rule (ES: +s after a vowel, -z → -ces, +es after
+  another consonant, dropping a written accent on a final stressed syllable: capitán → capitanes; FR: +s, -al → -aux, -eau → -eaux, words ending in s/x/z unchanged), kept only if
   all four forms are in the 200k vocabulary and the plural is not identical to the singular.
 - Floor: ≥ 15 pairs per language with all four forms (FR may fail with 23; then "too few").
+
+## Coverage (counted 2026-11-10, descriptive, before any score)
+
+All four forms in the first 200k MUSE words: **ES 43 of 54** clean pairs (missing feminine plurals:
+*ingenieras, entrenadoras, locutoras, barberas, capitanas, coreógrafas, consejeras, juezas,
+psicólogas, herreras, redactoras*); **FR 16 of 22** (missing: *administrateur, professeur, avocat,
+dessinateur, éditeur, mathématicien* pairs). French clears the floor of 15 by one pair. That the
+missing forms are almost all feminine plurals is itself descriptive evidence that feminine
+plurals are rare in Wikipedia text.
 
 ## Measures
 
