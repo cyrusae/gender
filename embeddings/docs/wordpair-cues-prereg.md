@@ -156,3 +156,8 @@ form is still retrieved better. It doesn't depend on which adjective is used, in
 stereotype; it is a property of the occupation pairs, not the cues. Zhou's mitigations reduce it by
 about a third. Whether it tracks occupational stereotype is now borderline (same size, interval
 touching 0).
+
+*Correction to the adoption record:* the 39 noun-homograph cues are 18 gendered pairs and 21
+invariant adjectives (for an invariant adjective the "feminine form" is the word itself). The
+sensitivity run drops the 18 pairs; intrusion uses only gendered pairs, so Q1 is fully covered; the
+invariant gap in that run still includes the 21.
