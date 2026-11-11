@@ -1,0 +1,445 @@
+lang,masc,fem,en,group,rank_m,rank_f,name_homograph,fem_also_noun,also_adj,en_person,en_male_specific,en_gloss,glasgow_gend,categories,pi_keep,rule_keep,claude_suggest_unverified
+es,afgano,afgana,afghan,demonym,33345,40043,False,False,True,True,False,"a blanket or throw, usually crocheted or knitted.",,es:Afghanistan; es:Demonyms; es:Ethnonyms; es:Male people; es:Nationalities,,True,identity
+es,africano,africana,african,demonym,6046,6138,False,False,True,True,False,a native of africa; also one ethnologically belonging to an african race.,,es:Africa; es:Demonyms; es:Male people,,True,identity
+es,albanés,albanesa,albanian,demonym,21243,31227,False,False,True,True,False,a native or inhabitant of albania; a person of albanian citizenship or nationality and their descendants.,,es:Albania; es:Demonyms; es:Nationalities,,True,identity
+es,alejandrino,alejandrina,alexandrian,demonym,37818,46370,True,False,True,True,False,a native or inhabitant of alexandria.,,"es:Alexandria; es:Demonyms; es:Egypt; es:Male people; es:United States; es:Virginia, USA",,False,drop: name homograph
+es,alemán,alemana,german,demonym,637,1556,False,True,True,True,True,a native or inhabitant of germany; a person of german citizenship or nationality.,,es:Demonyms; es:Germany; es:Male people; es:Nationalities,,False,identity
+es,americano,americana,american,demonym,2229,2642,False,True,True,True,False,,,es:Demonyms; es:Male people; es:United States,,True,identity
+es,andaluz,andaluza,andalusian,demonym,7556,10093,False,False,True,True,False,"a native or inhabitant of andalusia, spain.",,"es:Andalusia, Spain; es:Demonyms; es:Dialects; es:Male people; es:Spain",,True,identity
+es,andino,andina,andean,demonym,9376,8576,False,False,True,True,False,someone from the andes.,,es:Demonyms,,True,identity
+es,arcadio,arcadia,arcadian,demonym,33086,17538,False,True,True,True,False,an inhabitant of ancient arcadia.,,es:Demonyms,,True,identity
+es,argelino,argelina,algerian,demonym,28234,39372,False,False,True,True,False,"a native or inhabitant of algeria; a person of algerian citizenship, nationality, or ancestry.",,es:Algeria; es:Algiers; es:Demonyms; es:Nationalities,,True,identity
+es,argentine,argentina,argentinian,demonym,36381,146,False,False,False,True,False,a person from argentina or of argentine descent.,,es:Argentina; es:Nationalities,,True,identity
+es,asirio,asiria,assyrian,demonym,31508,21001,False,False,True,True,False,"a person who resided in the ancient region on the upper tigris river, with capital city of assur.",,es:Assyria; es:Demonyms,,True,identity
+es,asiático,asiática,asian,demonym,5975,11842,False,False,True,True,False,"a person from the continent of asia, or a descendant thereof - especially: a person from or with ancestry in east or sou",,es:Asia; es:Demonyms,,True,identity
+es,asturiano,asturiana,asturian,demonym,8181,11551,False,False,True,True,False,"a native or inhabitant of asturias, spain.",,"es:Asturias, Spain; es:Demonyms; es:Male people; es:Spain",,True,identity
+es,australiano,australiana,australian,demonym,5708,6241,False,False,True,True,False,a person from the commonwealth of australia.,,es:Nationalities,,True,identity
+es,austriaco,austriaca,austrian,demonym,10301,14638,False,False,True,True,False,a person from austria or of austrian descent.,,es:Nationalities,,True,identity
+es,bizantino,bizantina,byzantine,demonym,6065,12196,False,False,True,True,False,a native of byzantium (modern-day istanbul) or of the byzantine empire,,es:Byzantine Empire; es:Demonyms,,True,identity
+es,bohemio,bohemia,bohemian,demonym,33175,8280,False,True,True,True,False,"a person, especially an artist or writer, who lives an unconventional or nonconformist lifestyle.",,es:Czech Republic; es:Demonyms; es:Male people,,True,identity
+es,boliviano,boliviana,bolivian,demonym,7844,9178,False,False,True,True,False,a person from bolivia or of bolivian descent.,,es:Currency; es:Nationalities,,True,identity
+es,bosnio,bosnia,bosnian,demonym,29743,5555,False,False,True,True,False,a person from bosnia and herzegovina or of bosnian descent.,,es:Bosnia and Herzegovina; es:Demonyms; es:Male people; es:Nationalities,,True,identity
+es,brasilero,brasilera,brazilian,demonym,21388,35158,False,False,True,True,False,a person from brazil or of brazilian descent.,,es:Nationalities,,True,identity
+es,brasileño,brasileña,brazilian,demonym,2971,5168,False,False,True,True,False,a person from brazil or of brazilian descent.,,es:Brazil; es:Demonyms; es:Male people; es:Nationalities,,True,identity
+es,británico,británica,briton,demonym,1064,1482,False,False,True,True,False,"an inhabitant of great britain, particularly (historical) a celt from the area of roman britain or (obsolete) a welshman",,es:Nationalities; es:United Kingdom,,True,identity
+es,californiano,californiana,californian,demonym,38460,38568,False,False,True,True,False,a native or resident of the state of california in the united states of america.,,"es:California, USA; es:Demonyms",,True,identity
+es,caribeño,caribeña,caribbean,demonym,34278,22783,False,False,True,True,False,a person native to the caribbean region,,es:Demonyms,,True,identity
+es,castellano,castellana,castilian,demonym,1788,5784,False,False,True,True,False,a native of castile.,,"es:Castile and León, Spain; es:Castilla-La Mancha, Spain; es:Coins; es:Community of Madrid, Spain; es:Demonyms; es:Male people; es:Nationalities; es:Spain; es:Units of measure",,True,identity
+es,catalán,catalana,catalan,demonym,2218,3733,False,False,True,True,False,"a native or inhabitant of catalonia, spain.",,"es:Catalonia, Spain; es:Demonyms; es:Male people; es:Spain",,True,identity
+es,caucásico,caucásica,caucasian,demonym,39816,41100,False,False,True,True,False,a native or inhabitant of the caucasus.,,es:Demonyms; es:Male people,,True,identity
+es,checoslovaco,checoslovaca,czechoslovakian,demonym,30242,36320,False,False,True,True,False,a person from czechoslovakia.,,es:Nationalities,,True,identity
+es,colombiano,colombiana,colombian,demonym,2555,4054,False,False,True,True,False,a native or inhabitant of colombia.,,es:Colombia; es:Nationalities,,True,identity
+es,coreano,coreana,korean,demonym,7983,13413,False,False,True,True,False,"a native or resident in north korea or south korea, or a person of korean descent.",,es:Demonyms; es:Male people; es:Nationalities,,True,identity
+es,danés,danesa,dane,demonym,6920,11170,False,False,True,True,False,a person from denmark or of danish descent.,,es:Demonyms; es:Denmark; es:Male people,,True,identity
+es,dominicano,dominicana,dominican,demonym,9539,2480,False,False,True,True,False,a native or inhabitant of the dominican republic or a descendant thereof.,,es:Demonyms; es:Dominican Republic; es:Male people; es:Nationalities,,True,identity
+es,ecuatoriano,ecuatoriana,ecuadorian,demonym,6900,9503,False,False,True,True,False,a person from ecuador or of ecuadorian descent.,,es:Ecuador; es:Nationalities,,True,identity
+es,escandinavo,escandinava,scandinavian,demonym,39476,29239,False,False,True,True,False,someone from scandinavia.,,es:Demonyms; es:Denmark; es:Finland; es:Iceland; es:Male people; es:Norway; es:Sweden,,True,identity
+es,europeo,europea,european,demonym,1280,1239,False,False,True,True,False,a person living or originating from europe.,,es:Demonyms,,True,identity
+es,filipino,filipina,filipino,demonym,11381,15542,False,False,True,True,False,"a citizen or local inhabitant of the philippines, or descendant of such.",,es:Nationalities; es:Philippines,,True,identity
+es,flamenco,flamenca,fleming,demonym,5596,15157,False,False,True,True,False,a native or inhabitant of flanders in belgium.,,es:Birds; es:Dances; es:Demonyms; es:Flamenco; es:Music,,True,identity
+es,florentino,florentina,florentine,demonym,13198,32884,True,False,True,True,False,"a biscuit consisting mostly of nuts and preserved fruit, usually coated with chocolate on one side.",,"es:Demonyms; es:Florence; es:Italy; es:Male people; es:Tuscany, Italy",,False,drop: name homograph
+es,galileo,galilea,galilean,demonym,15399,24282,False,False,True,True,False,a native or resident of galilee.,,es:Demonyms; es:Israel,,True,identity
+es,gato,gata,cat,demonym,4183,14225,False,True,False,True,False,terms relating to animals. a mammal of the family felidae.,2.727,es:Cats; es:Demonyms; es:Games; es:Tools,,True,drop: animal
+es,granadino,granadina,grenadian,demonym,26812,24051,False,False,True,True,False,a person from grenada or of grenadian descent.,,es:Demonyms; es:Male people; es:Nationalities,,True,identity
+es,haitiano,haitiana,haitian,demonym,29232,40767,False,False,True,True,False,a person from haiti or of haitian descent.,,es:Haiti; es:Nationalities,,True,identity
+es,hondureño,hondureña,honduran,demonym,17342,25453,False,False,True,True,False,a person from honduras or of honduran descent.,,es:Nationalities,,True,identity
+es,indonesio,indonesia,indonesian,demonym,23151,3312,False,False,True,True,False,a person living in or coming from indonesia.,,es:Nationalities,,True,identity
+es,libanés,libanesa,lebanese,demonym,26409,24004,False,False,True,True,False,a person from lebanon or of lebanese descent.,,es:Lebanon; es:Nationalities,,True,identity
+es,libio,libia,libyan,demonym,29827,6940,False,False,True,True,False,a person from libya or of libyan descent.,,es:Libya; es:Nationalities,,True,identity
+es,lombardo,lombarda,lombard,demonym,15944,37860,False,False,True,True,False,a member of a germanic people who invaded italy in the 6th century.,,es:Demonyms,,True,identity
+es,macedonio,macedonia,macedonian,demonym,17589,5346,False,True,True,True,False,a person from macedonia (in any sense).,,es:Nationalities; es:North Macedonia,,True,identity
+es,madrileño,madrileña,madrilenian,demonym,11184,10762,False,False,True,True,False,"a native or inhabitant of madrid, spain.",,"es:Community of Madrid, Spain; es:Demonyms; es:Madrid; es:Male people; es:Spain",,True,identity
+es,mexicano,mexicana,mexican,demonym,1236,1331,False,True,True,True,False,a mexica; an aztec.,,es:Nationalities,,True,identity
+es,misionero,misionera,missionary,demonym,11247,22066,False,False,True,True,False,,,es:Demonyms; es:Male people,,True,occupation
+es,murciano,murciana,murcian,demonym,24800,31415,False,False,True,True,False,"a native or inhabitant of murcia, spain.",,es:Demonyms; es:Male people,,True,identity
+es,napolitano,napolitana,neapolitan,demonym,21662,34203,False,True,True,True,False,"a native or inhabitant of the city of naples, capital and largest city of campania, italy, or the surrounding metropolit",,es:Demonyms,,True,identity
+es,navarro,navarra,navarrese,demonym,3399,1842,False,False,True,True,False,"a native or inhabitant of navarre, spain.",,es:Demonyms,,True,identity
+es,nigeriano,nigeriana,nigerian,demonym,33218,45110,False,False,True,True,False,a person from nigeria or of nigerian descent.,,es:Nationalities; es:Nigeria,,True,identity
+es,normando,normanda,norman,demonym,26949,28044,False,False,True,True,True,"a native or inhabitant of normandy, france.",,es:Demonyms; es:France,,False,identity
+es,palestino,palestina,palestinian,demonym,12067,5877,False,False,True,True,False,an inhabitant of palestine or someone descending from that area.,,es:Nationalities; es:Palestine,,True,identity
+es,panameño,panameña,panamanian,demonym,18009,18961,False,False,True,True,False,a person from panama or of panamanian descent.,,es:Nationalities,,True,identity
+es,paraguayo,paraguaya,paraguayan,demonym,7889,11025,False,True,True,True,False,a person from paraguay or of paraguayan descent.,,es:Nationalities; es:Paraguay; es:Prunus genus plants,,True,identity
+es,parisino,parisina,parisian,demonym,24397,26761,False,False,True,True,False,"a native, citizen and/or inhabitant of paris, france",,es:Demonyms; es:France,,True,identity
+es,peruano,peruana,peruvian,demonym,2650,3722,False,False,True,True,False,a person from peru or of peruvian descent.,,es:Demonyms; es:Male people; es:Nationalities; es:Peru,,True,identity
+es,polaco,polaca,pole,demonym,3795,7146,False,False,True,True,False,"originally, a stick; now specifically, a long and slender piece of metal or (especially) wood, used for various construc",3.618,es:Demonyms; es:Male people; es:Nationalities; es:Poland,,True,identity
+es,prusiano,prusiana,prussian,demonym,19871,16659,False,False,True,True,False,a native or inhabitant of the geographical region of prussia.,,es:Demonyms; es:Male people,,True,identity
+es,romano,romana,roman,demonym,1412,1838,False,True,True,True,True,"one of the main three types used for the latin alphabet (the others being italics and blackletter), in which the ascende",,"es:Demonyms; es:Italy; es:Lazio, Italy; es:Male people; es:Rome",,False,identity
+es,ruso,rusa,russian,demonym,1298,2648,False,True,True,True,False,a native or inhabitant of russia.,,es:Nationalities; es:Russia,,True,identity
+es,sajón,sajona,saxon,demonym,31863,43429,False,False,True,True,False,,,es:Demonyms; es:Germany,,True,identity
+es,sardo,sarda,sardinian,demonym,35118,45513,False,False,True,True,False,"a native or inhabitant of sardinia, italy.",,"es:Demonyms; es:Italy; es:Male people; es:Sardinia, Italy",,True,identity
+es,sirio,siria,syrian,demonym,10816,3774,False,False,True,True,False,a person from syria or of syrian descent.,,es:Nationalities; es:Syria,,True,identity
+es,taiwanés,taiwanesa,taiwanese,demonym,38893,46747,False,False,True,True,False,people from taiwan.,,es:Demonyms; es:Male people; es:Nationalities; es:Taiwan,,True,identity
+es,toscano,toscana,tuscan,demonym,23079,10555,False,False,True,True,False,"a native or inhabitant of tuscany, italy.",,"es:Demonyms; es:Dialects; es:Italy; es:Male people; es:Tuscany, Italy",,True,identity
+es,tracio,tracia,thracian,demonym,48340,16304,False,False,True,True,False,"an inhabitant of thrace, regardless of ethnicity.",,es:Demonyms,,True,identity
+es,turco,turca,turk,demonym,5768,7815,False,True,True,True,False,a person of an ethnically diverse linguistic group that speaks the turkic languages.,,es:Ethnonyms; es:Nationalities; es:Turkey,,True,identity
+es,uruguayo,uruguaya,uruguayan,demonym,3792,7366,False,False,True,True,False,a person from uruguay or of uruguayan descent.,,es:Nationalities; es:Uruguay,,True,identity
+es,veneciano,veneciana,venetian,demonym,22152,24071,False,False,True,True,False,"a native or inhabitant of the city of venice or surrounding province, veneto region, northeastern italy.",,es:Demonyms; es:Italy,,True,identity
+es,victoriano,victoriana,victorian,demonym,15451,17474,False,False,True,True,False,"a person born in or living in the victorian period, or exhibiting characteristics of that period.",,"es:Australia; es:Canada; es:Demonyms; es:Historical periods; es:Male people; es:Victoria, Australia",,True,identity
+es,vienés,vienesa,viennese,demonym,43922,45366,False,True,True,True,False,a native or inhabitant of vienna (the capital of austria).,,es:Austria; es:Demonyms; es:Male people; es:Vienna,,True,identity
+es,yugoslavo,yugoslava,yugoslav,demonym,20207,23352,False,False,True,True,False,a native or inhabitant of yugoslavia.,,es:Nationalities,,True,identity
+es,abogado,abogada,lawyer,occupation,1889,14246,False,False,False,True,False,,4.529,es:Occupations,,True,occupation
+es,actor,actriz,actor,occupation,640,763,False,True,False,True,False,,5.588,es:Occupations,,True,occupation
+es,administrador,administradora,administrator,occupation,5424,30740,False,False,False,True,False,"the queen's representative in some commonwealth territories, comparable to a governor general.",,es:Computing,,True,occupation
+es,animador,animadora,presenter,occupation,15644,28494,False,False,False,True,False,someone who presents a broadcast programme; a compere or master of ceremonies.,,es:Animation; es:Cheerleading; es:Sports,,True,occupation
+es,arquitecto,arquitecta,architect,occupation,1766,35276,False,False,False,True,False,"a professional who designs buildings or other structures, or who prepares plans and superintends construction.",5.143,es:Architecture; es:Occupations,,True,occupation
+es,asesor,asesora,advisor,occupation,5410,19695,False,False,False,True,False,one who offers advice.,4.171,,,True,occupation
+es,astrónomo,astrónoma,astronomer,occupation,8202,41597,False,False,False,True,False,"one who studies astronomy, the stars or the physical universe; a scientist whose area of research is astronomy or astrop",5.188,es:Scientists,,True,occupation
+es,autor,autora,author,occupation,631,6163,False,True,False,True,False,"the originator or creator of a work, especially of a literary composition; or, one of the creators of a collaborative wo",3.912,es:Authors; es:Writing,,True,occupation
+es,bailarín,bailarina,dancer,occupation,11987,7816,False,True,True,True,False,,2.114,es:Occupations,,True,occupation
+es,barbero,barbera,barber,occupation,19682,20339,False,True,False,True,True,a person whose profession is cutting the hair and beards of usually male customers.,,es:Hair; es:Occupations,,False,occupation
+es,camarero,camarera,waiter,occupation,22749,25142,False,False,False,True,False,,5.735,es:Occupations,,True,occupation
+es,campesino,campesina,farmer,occupation,11452,13343,False,False,True,True,False,,6.143,es:Agriculture; es:Occupations,,True,occupation
+es,capitán,capitana,captain,occupation,1037,23054,False,True,False,True,False,"the honorific of a captain, especially a ship's captain or a person with the military rank of captain.",,,,True,occupation
+es,cartero,cartera,postman,occupation,35803,12845,False,True,False,True,True,"someone who delivers the post (mail) to, and/or collects the post from, residential or commercial addresses, or from pub",6.364,es:Occupations,,False,drop: postman (male-marked English)
+es,cazador,cazadora,hunter,occupation,10302,25879,False,True,True,True,False,one who hunts game for sport or for food; a huntsman or huntswoman.,,,,True,occupation
+es,científico,científica,scientist,occupation,2141,2591,False,False,True,True,False,,5.091,,,True,occupation
+es,clínico,clínica,physician,occupation,10728,5015,False,True,True,True,False,"a practitioner of physic, i.e. a specialist in internal medicine, especially as opposed to a surgeon; a practitioner who",5.061,es:Medicine; es:Occupations,,True,occupation
+es,coautor,coautora,coauthor,occupation,16896,48879,False,False,False,True,False,an author who collaborates with another to write something.,,es:Occupations,,True,occupation
+es,cocinero,cocinera,cook,occupation,18784,34381,False,False,False,True,False,,3.121,es:Cooking; es:Occupations,,True,occupation
+es,compositor,compositora,composer,occupation,1310,9122,False,False,False,True,False,one who composes; an author.,4.735,es:Occupations,,True,occupation
+es,conductor,conductora,driver,occupation,4880,14345,False,False,False,False,False,,,,,False,occupation
+es,consejero,consejera,adviser,occupation,4316,20393,False,False,False,True,False,one who advises.,,,,True,occupation
+es,constructor,constructora,constructor,occupation,12246,20079,False,False,True,True,False,"a person who, or thing that, constructs.",,,,True,occupation
+es,coreógrafo,coreógrafa,choreographer,occupation,20352,31226,False,False,False,True,False,one who choreographs.,,es:Dance; es:Occupations,,True,occupation
+es,curador,curadora,curator,occupation,24379,35147,False,False,False,True,False,"a person who manages, administers or organizes a collection, either independently or employed by a museum, library, arch",,es:Occupations,,True,occupation
+es,desarrollador,desarrolladora,developer,occupation,18109,38484,False,True,False,True,False,a person or entity engaged in the creation or improvement of certain classes of products.,,es:Computing,,True,occupation
+es,director,directora,director,occupation,339,4094,False,True,False,True,False,,,,,True,occupation
+es,diseñador,diseñadora,designer,occupation,5518,18374,False,False,False,True,False,"a person who designs something, or who designs things as a profession.",2.875,,,True,occupation
+es,doctor,doctora,doctor,occupation,1276,12144,False,True,False,True,False,the title of an academic or medical doctor; used before or instead of the doctor's name.,5.118,es:Healthcare occupations,,True,occupation
+es,dramaturgo,dramaturga,playwright,occupation,6710,36446,False,False,False,True,False,a writer and creator of theatrical plays.,,es:Occupations,,True,occupation
+es,editor,editora,editor,occupation,1646,7494,False,True,False,True,False,a person who edits or makes changes to documents.,4.485,,,True,occupation
+es,educador,educadora,educator,occupation,16188,32321,False,False,True,True,False,"a person distinguished for their educational work, a teacher.",,,,True,occupation
+es,embajador,embajadora,ambassador,occupation,3515,24203,False,False,False,True,False,,5.258,es:Occupations,,True,occupation
+es,empleado,empleada,employee,occupation,3850,8249,False,True,True,True,False,a person who provides labor to a company or another person.,4.2,es:Occupations; es:People,,True,occupation
+es,enfermero,enfermera,nurse,occupation,37160,12319,False,False,False,True,False,a nurse shark or dogfish.,2.129,,,True,occupation
+es,entrenador,entrenadora,trainer,occupation,1102,29756,False,False,False,False,False,,4.813,es:Football (soccer),,False,occupation
+es,escritor,escritora,writer,occupation,791,3706,False,False,False,True,False,"a person who writes, or produces literary work; an author can refer to themselves as ""the writer"".",3.844,es:Authors; es:Occupations; es:Writing,,True,occupation
+es,escultor,escultora,sculptor,occupation,3342,28035,False,False,False,True,False,a person who sculpts; an artist who produces sculpture.,,es:Art; es:Occupations,,True,occupation
+es,estadístico,estadística,statistician,occupation,10880,3424,False,True,True,True,False,"a person who compiles, interprets, or studies statistics.",,,,True,occupation
+es,farmacéutico,farmacéutica,pharmacist,occupation,17389,18631,False,True,True,True,False,"a health professional who controls, formulates, preserves, and dispenses medications and provides medical advice and cou",3.914,,,True,occupation
+es,fotógrafo,fotógrafa,photographer,occupation,6628,24611,False,False,False,True,False,"one who takes photographs, typically as an occupation.",4.613,es:Occupations,,True,occupation
+es,grabador,grabadora,engraver,occupation,15509,31680,False,True,False,True,False,a person who engraves,,,,True,occupation
+es,herrero,herrera,blacksmith,occupation,11423,2769,False,True,False,True,False,a person who forges iron.,6.333,es:Occupations,,True,occupation
+es,historiador,historiadora,historian,occupation,2380,21430,False,False,False,True,False,a writer of history.,,es:Occupations,,True,occupation
+es,ingeniero,ingeniera,engineer,occupation,1576,40395,False,False,False,True,False,,5.727,es:Occupations,,True,occupation
+es,investigador,investigadora,researcher,occupation,4838,11572,False,False,True,True,False,one who researches.,4.29,,,True,occupation
+es,jefe,jefa,chief,occupation,734,16499,False,False,False,True,False,,5.857,es:Heraldic charges; es:Leaders; es:Military ranks; es:Occupations; es:Video games,,True,occupation
+es,lector,lectora,reader,occupation,5275,39851,False,False,True,False,False,alternative form of reader (“a lay or minor cleric who reads lessons in a church service”).,,,,False,occupation
+es,locutor,locutora,announcer,occupation,10533,26689,False,False,False,False,False,,,es:Media,,False,occupation
+es,lógico,lógica,logician,occupation,8721,4255,False,True,True,True,False,a person who studies or teaches logic.,,es:Occupations,,True,occupation
+es,maestro,maestra,master,occupation,1265,5357,False,True,True,True,False,a vessel having a specified number of masts.,5.567,es:Education; es:Occupations,,True,occupation
+es,matemático,matemática,mathematician,occupation,5385,5186,False,True,True,True,False,an expert on mathematics; someone who studies mathematics.,,,,True,occupation
+es,mecánico,mecánica,mechanic,occupation,8217,3653,False,True,True,True,False,a manual worker; a labourer or artisan.,6.265,es:Occupations,,True,occupation
+es,minero,minera,miner,occupation,9541,8096,False,False,True,True,False,a person who works in a mine.,6.147,es:Occupations,,True,occupation
+es,médico,médica,doctor,occupation,1476,4103,False,False,True,True,False,the title of an academic or medical doctor; used before or instead of the doctor's name.,5.118,es:Healthcare occupations,,True,occupation
+es,músico,música,musician,occupation,1821,214,False,True,True,True,False,"a composer, conductor, or performer of music; specifically, a person who sings and/or plays a musical instrument as a ho",4.063,es:Occupations,,True,occupation
+es,obrero,obrera,worker,occupation,4497,8592,False,False,True,True,False,"one who works: a person who performs labor for a living; traditionally, especially, manual labor.",,es:People,,True,occupation
+es,operador,operadora,operator,occupation,4837,11859,False,False,False,True,False,"a person or organisation that operates a device, system, service, etc.",,,,True,occupation
+es,pastor,pastora,shepherd,occupation,4535,18061,False,True,False,True,False,"a person who tends sheep, especially a grazing flock.",,es:Catholicism; es:Occupations,,True,occupation
+es,pintor,pintora,painter,occupation,1553,14336,False,False,False,True,False,a chain or rope used to attach the shank of an anchor to the side of a ship when not in use.,4.853,es:Occupations,,True,occupation
+es,profesor,profesora,professor,occupation,793,4543,False,False,False,True,False,the most senior rank for an academic at a university or similar institution.,5.914,es:Education; es:Occupations; es:Titles,,True,occupation
+es,psicólogo,psicóloga,psychologist,occupation,15395,31148,False,False,False,True,False,an expert in the field of psychology.,3.471,es:Psychology,,True,occupation
+es,químico,química,chemist,occupation,5556,2280,False,True,True,True,False,"a person who specializes in the science of chemistry, especially at a professional level.",4.389,es:Chemistry; es:Scientists,,True,occupation
+es,redactor,redactora,editor,occupation,7347,37111,False,False,False,True,False,a person who edits or makes changes to documents.,4.485,,,True,occupation
+es,reportero,reportera,reporter,occupation,13683,21834,False,False,False,False,False,,4.191,es:Mass media,,False,occupation
+es,sacerdote,sacerdotisa,priest,occupation,2828,29859,False,False,False,True,False,"a religious clergyman (clergywoman, clergyperson) who is trained to perform services or sacrifices at a church or temple",,es:Occupations; es:People; es:Religion,,True,occupation
+es,secretario,secretaria,secretary,occupation,1348,6285,False,False,False,True,False,,2.029,,,True,occupation
+es,teórico,teórica,theorist,occupation,8851,10569,False,False,True,True,False,"someone who constructs theories, especially in the arts or sciences.",,es:Occupations,,True,occupation
+es,trabajador,trabajadora,worker,occupation,8765,16906,False,False,True,True,False,"one who works: a person who performs labor for a living; traditionally, especially, manual labor.",,,,True,occupation
+es,traductor,traductora,translator,occupation,8080,25671,False,False,True,True,False,"a person or thing that translates meaning from one language into another, particularly a person or thing that translates",,es:Occupations,,True,occupation
+es,técnico,técnica,technician,occupation,1612,1113,False,True,True,True,False,,5.273,es:Occupations; es:Professional wrestling; es:Wrestling,,True,occupation
+es,veterinario,veterinaria,veterinarian,occupation,24931,16236,False,True,True,True,False,a medical doctor who treats non-human animals.,,es:Animal welfare; es:Occupations,,True,occupation
+es,académico,académica,academician,other,3323,4564,False,False,True,True,False,a member (especially a senior one) of the faculty at a college or university; an academic.,,,,True,occupation
+es,acogido,acogida,houseguest,other,22230,9102,False,True,False,True,False,"a person who visits and stays at someone else's house, usually for one or more nights.",,,,True,person
+es,acusado,acusada,accused,other,5024,17734,False,False,True,True,False,the person charged with an offense; the defendant in a criminal case.,4.656,,,True,person
+es,adicto,adicta,addict,other,26887,49752,False,False,True,True,False,"a person who is addicted, especially to a harmful drug.",4.886,es:People,,True,person
+es,adoptado,adoptada,adoptee,other,6801,10890,False,False,True,True,True,an adopted son or daughter.,,,,False,person
+es,adulto,adulta,adult,other,6851,10507,False,False,True,True,False,an animal that is full-grown.,4.156,es:Age,,True,person
+es,aficionado,aficionada,fan,other,8880,36951,False,False,True,False,False,"a hand-held device consisting of concertinaed material, or slats of material, gathered together at one end, that may be ",,,,False,person
+es,afiliado,afiliada,affiliate,other,14920,19919,False,False,False,True,False,"someone or something, especially, a television station, that is associated with a larger, related organization, such as ",,,,True,person
+es,agregado,agregada,attaché,other,8029,24919,False,False,False,True,False,"a diplomatic officer, usually one who plays a specific role.",,es:Diplomacy,,True,occupation
+es,agustino,agustina,augustinian,other,35409,22849,True,False,True,True,False,"a follower of st augustine or his doctrines, especially on predestination and grace.",,,,False,drop: name homograph
+es,alcalde,alcaldesa,mayor,other,715,14131,False,True,False,False,False,"the chief executive of the municipal government of a city, borough, etc., formerly (historical) usually appointed as a c",,es:Card games,,False,drop: rule (not a person / male-specific)
+es,alcohólico,alcohólica,alcoholic,other,27237,22988,False,False,True,True,False,,5.229,es:Alcoholism; es:People,,True,person
+es,alumno,alumna,pupil,other,5739,22469,False,False,False,True,False,a learner at a school under the supervision of a teacher.,3.719,es:Education,,True,person
+es,amigo,amiga,friend,other,1222,3619,False,False,False,True,False,a quaker; a member of the society of friends. (see also friends.),3.515,es:People,,True,person
+es,amo,ama,master,other,7598,6542,False,True,False,False,False,a vessel having a specified number of masts.,5.567,,,False,drop: rule (not a person / male-specific)
+es,anfitrión,anfitriona,host,other,8793,23737,False,False,False,False,False,"one which receives or entertains a guest, socially, commercially, or officially.",3.303,,,False,person
+es,anglicano,anglicana,anglican,other,40464,18934,False,False,True,True,False,a member of an anglican church.,,es:Anglicanism,,True,identity
+es,ante,anta,elk,other,331,39940,False,True,False,False,False,"obsolete form of elke (common swan (cygnus cygnus, syn. cygnus ferus)).",4.533,,,False,drop: animal
+es,antecesor,antecesora,predecessor,other,12457,32114,False,False,False,True,False,"one who precedes; one who has preceded another in any state, position, office, etc.; one whom another follows or comes a",,,,True,person
+es,archiduque,archiduquesa,archduke,other,13931,29492,False,False,False,False,True,the son or male-line grandson of an emperor of the austro-hungarian empire.,,es:Monarchy,,False,drop: rule (not a person / male-specific)
+es,argentino,argentina,argentinian,other,726,146,False,False,True,True,False,a person from argentina or of argentine descent.,,es:Argentina,,True,identity
+es,armenio,armenia,armenian,other,11706,4719,False,False,True,True,False,a person from armenia or of armenian descent.,,,,True,identity
+es,arqueólogo,arqueóloga,archeologist,other,12247,49625,False,False,False,False,False,alternative spelling of archaeologist.,,es:Scientists,,False,drop: rule (not a person / male-specific)
+es,asesino,asesina,murderer,other,4907,11988,False,False,True,True,False,a person who commits murder.,5.629,es:Murder,,True,person
+es,asociado,asociada,associate,other,3285,6274,False,False,True,True,False,"a person united with another or others in an act, enterprise, or business; a partner or employee.",,,,True,person
+es,astrofísico,astrofísica,astrophysicist,other,15524,23763,False,True,True,True,False,one who studies astrophysics.,,es:Astrophysics,,True,occupation
+es,ateo,atea,atheist,other,27665,48576,False,False,True,False,False,,,,,False,identity
+es,autónomo,autónoma,freelancer,other,8165,1448,False,False,True,True,False,someone who freelances.,,,,True,occupation
+es,bancario,bancaria,banker,other,17827,15075,False,False,True,True,False,a vessel employed in the cod fishery on the banks of newfoundland.,5.853,,,True,occupation
+es,barón,baronesa,baron,other,5008,23048,False,True,False,True,True,the male ruler of a barony.,,es:Nobility; es:Politics,,False,drop: rule (not a person / male-specific)
+es,bebe,beba,baby,other,15262,44822,False,False,False,False,False,,2.688,,,False,person
+es,becerro,becerra,calf,other,32541,17375,False,True,False,False,False,"a young cow or bull of any bovid, such as domestic cattle or buffalo.",3.889,es:Baby animals; es:Cattle; es:Textiles,,False,drop: animal
+es,benedictino,benedictina,benedictine,other,25354,32925,False,False,True,False,False,a monk or nun belonging to the order founded by saint benedict of nursia.,,es:Monasticism,,False,identity
+es,bielorruso,bielorrusa,belarusian,other,22366,34401,False,False,True,False,False,the slavic language spoken in belarus (formerly called white ruthenia or white russia).,,,,False,drop: rule (not a person / male-specific)
+es,bioquímico,bioquímica,biochemist,other,33647,15307,False,True,True,False,False,a chemist whose speciality is biochemistry,,es:Scientists,,False,drop: rule (not a person / male-specific)
+es,biólogo,bióloga,biologist,other,17385,49901,False,False,False,True,False,a student or professor of biology; one versed in the science of biology.,,es:Scientists,,True,occupation
+es,borbónico,borbónica,bourbon,other,49753,25594,False,False,True,False,False,,,,,False,drop: rule (not a person / male-specific)
+es,botánico,botánica,botanist,other,1730,1643,False,True,True,True,False,"a person engaged in botany, the scientific study of plants.",3.966,es:Botany; es:Scientists,,True,occupation
+es,bruto,bruta,brute,other,11405,23921,False,False,True,True,False,an animal seen as being without human reason; a senseless beast.,5.853,es:People,,True,person
+es,burgués,burguesa,bourgeois,other,24820,21246,False,False,True,True,False,the middle class.,,,,True,person
+es,báltico,báltica,balt,other,11266,44420,False,False,True,True,False,"an ethnic descendant of the indo-european baltic people, especially including ethnic lithuanians, latvians or prussians,",,,,True,identity
+es,bárbaro,bárbara,barbarian,other,25510,5165,True,False,True,False,False,a non-greek or a non-roman citizen.,,,,False,drop: name homograph (Bárbara)
+es,caballo,yegua,horse,other,2665,39233,False,True,False,True,False,heroin (drug).,3.857,es:Astrology; es:Chess; es:Horses; es:People,,True,drop: animal
+es,campeón,campeona,champion,other,630,6003,False,False,False,False,False,,5.471,,,False,person
+es,candidato,candidata,candidate,other,1894,9612,False,False,False,True,False,a person who seeks to be elected or appointed to a position or privilege.,4.467,,,True,person
+es,cantábrico,cantábrica,cantabrian,other,18248,17512,False,False,True,True,False,someone from cantabria.,,,,True,identity
+es,carnívoro,carnívora,carnivore,other,31215,46447,False,False,True,False,False,an organism that feeds chiefly on animals; an animal that feeds on meat as the main part of its diet.,,,,False,drop: animal sense
+es,carrero,carrera,carter,other,31143,312,False,True,False,True,False,a person who transports a load on a cart that is drawn by a beast of burden.,,,,True,occupation
+es,carretero,carretera,cartwright,other,25550,1099,False,True,True,True,False,a craftsman who makes carts.,,,,True,occupation
+es,casero,casera,landlord,other,22111,26411,False,True,True,True,False,a person that leases real property; a lessor.,,,,True,occupation
+es,catedrático,catedrática,professor,other,5785,33711,False,False,False,True,False,the most senior rank for an academic at a university or similar institution.,5.914,,,True,occupation
+es,católico,católica,catholic,other,3220,870,False,False,True,True,False,a member of a catholic (western christian) church.,,,,True,identity
+es,cautivo,cautiva,captive,other,20009,34599,False,False,True,True,False,one who has been captured or is otherwise confined.,4.276,es:People,,True,person
+es,celestino,celestina,celestine,other,20125,31757,True,True,True,True,False,a heavenly being: an angel or other resident of heaven.,,es:Blues,,False,drop: name homograph
+es,cerdo,cerda,pig,other,6914,11111,False,True,True,True,False,"any of several mammalian species of the family suidae, having cloven hooves, bristles and a snout adapted for digging; e",5.0,es:Astrology; es:Pigs,,True,drop: animal
+es,checo,checa,czech,other,8398,3710,True,False,True,True,False,a person from the czech republic (czechia) or of czech descent.,,,,False,drop: name homograph
+es,chileno,chilena,chilean,other,1976,2401,False,True,True,True,False,a person from chile or of chilean descent.,,es:Chile,,True,identity
+es,cholo,chola,mestizo,other,43550,46971,False,True,True,True,False,"a person of mixed ancestry, especially one of spanish and native american heritage.",,,,True,drop: slur sense
+es,ciudadano,ciudadana,citizen,other,5391,8070,False,False,True,True,False,"a personal title denoting citizenship, implicitly of the nation in which it is spoken",,,,True,person
+es,colaborador,colaboradora,collaborator,other,5254,23432,False,False,False,True,False,a person who works with others towards a common goal.,,,,True,person
+es,colector,colectora,collector,other,27264,39848,False,False,False,True,False,"a person who or thing that collects, or which creates or manages a collection.",,,,True,drop: gloss doubtful
+es,comisario,comisaria,inspector,other,7149,49048,False,False,False,True,False,,5.618,es:Law enforcement; es:Motor racing,,True,occupation
+es,compañero,compañera,companion,other,2538,7244,False,False,False,True,False,"a friend, acquaintance or partner; someone with whom one spends time or accompanies",,es:Politics,,True,person
+es,competidor,competidora,competitor,other,16845,49284,False,False,True,True,False,a person or organization against whom one is competing.,,,,True,person
+es,concesionario,concesionaria,dealer,other,38091,28824,False,False,True,False,False,,,,,False,occupation
+es,conde,condesa,count,other,894,4946,False,True,False,False,False,the act of counting or tallying a quantity.,4.235,es:Nobility,,False,drop: rule (not a person / male-specific)
+es,condenado,condenada,convict,other,5214,19837,False,False,True,True,False,a person convicted of a crime by a judicial body.,5.424,,,True,person
+es,conocido,conocida,acquaintance,other,332,628,False,False,True,True,False,"a state of being acquainted with a person; originally indicating friendship, intimacy, but now suggesting a slight knowl",,,,True,person
+es,consultor,consultora,consultant,other,13838,29240,False,False,True,True,False,a person or party that is consulted.,,es:People,,True,occupation
+es,converso,conversa,convert,other,47022,46282,False,True,False,True,False,a person who has converted to a religion.,3.846,es:Religion,,True,person
+es,coordinador,coordinadora,coordinator,other,7040,13667,False,False,True,False,False,,,,,False,occupation
+es,copto,copta,copt,other,40845,37757,False,False,True,True,False,a member of the coptic church.,,,,True,identity
+es,corso,corsa,corsican,other,16960,34774,False,False,True,True,False,"a native or inhabitant of corsica, france.",,,,True,identity
+es,creador,creadora,creator,other,3529,19001,False,False,True,True,False,something or someone which creates or makes something.,4.743,,,True,person
+es,criado,criada,servant,other,10164,16923,False,True,False,True,False,,,,,True,occupation
+es,cristiano,cristiana,christian,other,3449,2722,False,False,True,False,False,uncommon spelling of christian.,,,,False,identity
+es,crítico,crítica,critic,other,2672,1264,False,True,True,True,False,a person who appraises the works of others.,4.486,,,True,occupation
+es,cubano,cubana,cuban,other,5463,5617,False,True,True,True,False,a person from cuba or of cuban descent.,,es:Cuba,,True,identity
+es,cuco,cuca,bogeyman,other,26989,44805,True,True,True,False,True,"a menacing, ghost-like monster in children's stories.",,es:Birds; es:Folklore; es:Mythological creatures,,False,drop: name / bogeyman
+es,curioso,curiosa,gawker,other,9272,18256,False,False,True,True,False,someone who gawks; someone who stares stupidly.,,,,True,person
+es,cómico,cómica,comedian,other,8410,11043,False,True,True,True,False,,5.121,,,True,occupation
+es,decano,decana,senior,other,8509,46221,False,False,False,False,False,,4.656,es:Organic compounds,,False,drop: gloss doubtful
+es,defendido,defendida,defendant,other,13219,18394,False,False,False,False,False,,,es:Law,,False,drop: rule (not a person / male-specific)
+es,defensor,defensora,defender,other,3622,22046,False,False,True,True,False,someone who defends people or property.,,,,True,person
+es,delantero,delantera,forward,other,2624,8315,False,True,True,False,False,"one of the eight players (comprising two props, one hooker, two locks, two flankers and one number eight, collectively k",,es:Football (soccer),,False,drop: sports position
+es,delegado,delegada,delegate,other,6800,25078,False,False,False,True,False,a person authorized to act as representative for another; a deputy.,,,,True,person
+es,desaparecido,desaparecida,missing,other,4552,9896,False,False,True,False,False,a value that is missing.,,,,False,drop: adjective sense
+es,desconocido,desconocida,unknown,other,3769,7306,False,True,True,False,False,"a variable (usually x, y or z) whose value is to be found.",,,,False,drop: adjective sense
+es,designado,designada,vice,other,1898,12021,False,False,False,False,False,"bad or immoral behaviour. (especially often, a habit that harms oneself or others)",,es:Politics,,False,drop: gloss wrong
+es,detenido,detenida,detainee,other,4885,18240,False,False,True,True,False,"someone who is detained, especially in custody or confinement.",,es:People,,True,person
+es,devoto,devota,devotee,other,17918,37003,False,False,True,True,False,an ardent enthusiast or admirer.,,es:People,,True,person
+es,dios,diosa,god,other,823,5027,False,True,False,False,False,a being such as a monotheistic god: a single divine creator and ruler of the universe.,5.212,,,False,drop: deity
+es,diplomático,diplomática,diplomat,other,4940,9051,False,True,True,True,False,"a person, such as an ambassador, who is accredited to represent a government officially in its relations with other gove",5.035,es:Diplomacy,,True,occupation
+es,diputado,diputada,deputy,other,1817,11008,False,False,False,True,False,"one appointed as the substitute of others, and empowered to act for them, in their name or their behalf; a substitute in",,,,True,occupation
+es,directivo,directiva,director,other,11407,4718,False,True,True,True,False,,,,,True,drop: adjective sense
+es,distribuidor,distribuidora,distributor,other,14637,20510,False,True,False,True,False,one who or that which distributes.,,,,True,drop: company sense
+es,divo,diva,star,other,32510,17892,False,True,True,False,False,acronym of standard terminal arrival.,2.588,,,False,drop: star sense
+es,dueño,dueña,owner,other,3705,12530,False,True,False,False,False,,4.939,,,False,person
+es,duque,duquesa,duke,other,1221,6215,False,True,False,False,True,the male ruler of a duchy (female equivalent: duchess).,6.486,es:Nobility,,False,drop: rule (not a person / male-specific)
+es,ecléctico,ecléctica,eclectic,other,25461,33768,False,False,True,True,False,someone who selects according to the eclectic method.,,,,True,drop: not a person noun in practice
+es,egipcio,egipcia,egyptian,other,8616,11114,False,False,True,True,False,a person from egypt or of egyptian descent.,,,,True,identity
+es,egresado,egresada,graduate,other,18867,45163,False,False,False,True,False,a person who is recognized as having completed any of various levels of education. a person who is recognized by a unive,3.941,es:Education; es:People,,True,person
+es,ejecutivo,ejecutiva,executive,other,1967,8046,False,True,True,True,False,"a chief officer or administrator, especially one who can make significant decisions on their own authority.",,,,True,occupation
+es,emperador,emperatriz,emperor,other,1225,8614,True,False,False,True,True,the male monarch or ruler of an empire.,,es:Heads of state; es:Monarchy,,False,drop: name homograph
+es,empírico,empírica,empiricist,other,37716,24758,False,False,True,False,False,an advocate or supporter of empiricism,,,,False,drop: rule (not a person / male-specific)
+es,enamorado,enamorada,lover,other,7519,10065,False,False,True,True,False,obsolete form of louver.,3.2,es:People,,True,person
+es,enano,enana,dwarf,other,15372,14150,False,True,True,True,False,"any member of a race of beings from (especially scandinavian and other germanic) folklore, usually depicted as having so",4.567,es:Fantasy; es:Folklore; es:Mythological creatures; es:Mythology; es:Size,,True,person
+es,enemigo,enemiga,foe,other,2512,13942,False,False,True,True,False,a unit of energy equal to 10⁴⁴ joules.,,,,True,person
+es,entendido,entendida,expert,other,11284,23945,False,False,True,True,False,a person with extensive knowledge or ability in a given subject.,4.464,,,True,person
+es,enviado,enviada,delegate,other,2731,8751,False,False,False,True,False,a person authorized to act as representative for another; a deputy.,,,,True,person
+es,escapado,escapada,runaway,other,22020,38944,False,True,True,True,False,"a person or animal that runs away or has run away; a person, animal, or organization that escapes captivity or restricti",,es:Sports,,True,person
+es,esclavo,esclava,slave,other,12088,21259,False,True,False,True,False,"a person who is held in servitude as the property of another person, and whose labor (and often also whose body and life",4.185,es:People,,True,person
+es,eslavo,eslava,slav,other,23602,18336,False,False,True,False,False,,,,,False,drop: rule (not a person / male-specific)
+es,espartano,espartana,spartan,other,31530,47327,False,False,True,True,False,a citizen of sparta; a native or inhabitant of sparta.,,,,True,identity
+es,español,española,spaniard,other,161,341,False,False,True,True,False,a person from spain or of spanish descent.,,,,True,identity
+es,etrusco,etrusca,etruscan,other,32232,33344,False,False,True,True,False,an inhabitant of ancient etruria.,,,,True,identity
+es,evacuado,evacuada,evacuee,other,41186,47673,False,False,True,True,False,"a person who has been evacuated, especially a civilian evacuated from a dangerous place in time of war",,,,True,person
+es,experto,experta,expert,other,6520,22726,False,False,True,True,False,a person with extensive knowledge or ability in a given subject.,4.464,,,True,person
+es,explorador,exploradora,explorer,other,7363,42043,False,False,True,True,False,one who explores something,5.212,,,True,occupation
+es,extranjero,extranjera,foreigner,other,3103,6690,False,False,True,False,False,,4.581,,,False,person
+es,extraño,extraña,foreigner,other,5427,7785,False,True,True,False,False,,4.581,,,False,person
+es,extremeño,extremeña,extremaduran,other,24718,28082,False,False,True,True,False,"a native or inhabitant of extremadura, spain.",,,,True,identity
+es,extremo,extrema,winger,other,1287,6496,False,False,True,False,False,"one of the casks stowed in the wings of a vessel's hold, being smaller than such as are stowed more amidships.",,es:Football (soccer),,False,drop: sports position
+es,fallecido,fallecida,deceased,other,3232,13846,False,False,True,False,False,synonym of dead (“those who have died”).,,,,False,person
+es,famoso,famosa,celebrity,other,1870,2857,False,False,True,True,False,a rite or ceremony.,3.03,,,True,person
+es,fanático,fanática,fanatic,other,21761,49678,False,False,True,True,False,a person who is zealously enthusiastic for some cause.,,,,True,person
+es,filósofo,filósofa,philosopher,other,4431,44329,False,False,False,True,False,a lover of wisdom.,,es:Philosophy,,True,occupation
+es,fracasado,fracasada,loser,other,18985,39891,False,False,True,False,False,,4.559,,,False,person
+es,francés,francesa,frenchman,other,448,588,False,False,True,False,True,a man of french birth or nationality.,,es:France; es:Sex,,False,drop: rule (not a person / male-specific)
+es,funcionario,funcionaria,official,other,7361,46222,False,False,False,True,False,"an office holder, a person holding an official position in government, sports, or other organization.",,,,True,occupation
+es,fundador,fundadora,founder,other,1545,12108,False,False,True,True,False,"one who founds or establishes (a company, project, organisation, state, etc.).",,,,True,person
+es,físico,física,physicist,other,2702,1489,False,True,True,True,False,"a person whose occupation specializes in the science of physics, especially at a professional level.",,es:Scientists,,True,occupation
+es,galeno,galena,doc,other,41816,46594,False,True,False,False,False,a doctor.,,,,False,drop: colloquial
+es,gallego,gallega,galician,other,4767,9626,False,False,True,True,False,"a native or inhabitant of galicia, spain.",,,,True,identity
+es,gallo,gallina,rooster,other,7089,16652,False,True,False,False,True,a male domestic chicken (gallus gallus domesticus) or other gallinaceous bird.,5.514,es:Astrology; es:Male animals; es:Poultry,,False,drop: animal
+es,ganador,ganadora,winner,other,1598,3741,False,False,True,False,False,,4.618,,,False,person
+es,gemelo,gemela,twin,other,14906,22086,False,True,True,True,False,"either of two people (or, less commonly, animals) who shared the same uterus at the same time; one who was born at the s",3.735,es:Anatomy; es:Muscles,,True,person
+es,genovés,genovesa,genoese,other,28991,48740,False,False,True,True,False,"a native or inhabitant of the city of genoa or surrounding province, liguria, italy.",,,,True,identity
+es,georgiano,georgiana,georgian,other,17231,22495,False,False,True,True,False,"a person or a descendant of a person from georgia, a country in eastern europe and western asia.",,es:Georgia,,True,identity
+es,germano,germana,german,other,13755,23927,False,False,True,True,True,a native or inhabitant of germany; a person of german citizenship or nationality.,,,,False,drop: rule (not a person / male-specific)
+es,gestor,gestora,manager,other,12081,27265,False,False,False,True,False,,5.086,,,True,occupation
+es,gitano,gitana,gypsy,other,20641,20390,False,False,True,True,False,"an itinerant person or any person, not necessarily romani; a tinker, a traveller or a carny.",,,,True,drop: slur sense
+es,gobernador,gobernadora,governor,other,876,25718,False,True,True,True,False,the chief executive officer of a first-level administrative division of a country.,,es:Government,,True,occupation
+es,goleador,goleadora,goalscorer,other,4379,35566,False,False,True,True,False,"a person who scores a goal, or scores goals.",,es:Athletes; es:Football (soccer),,True,occupation
+es,graduado,graduada,graduate,other,11993,30699,False,False,True,True,False,a person who is recognized as having completed any of various levels of education. a person who is recognized by a unive,3.941,,,True,person
+es,guardián,guardiana,guardian,other,10924,45605,False,False,False,False,False,,,es:Catholicism,,False,person
+es,guatemalteco,guatemalteca,guatemalan,other,12751,20389,False,False,True,True,False,a person from guatemala or of guatemalan descent.,,es:Guatemala,,True,identity
+es,guerrero,guerrera,warrior,other,2450,19574,False,True,True,True,False,"a person who is actively engaged in battle, conflict or warfare; a soldier or combatant.",,es:Fruits; es:People; es:War,,True,person
+es,habilitado,habilitada,deputy,other,20767,34800,False,False,True,True,False,"one appointed as the substitute of others, and empowered to act for them, in their name or their behalf; a substitute in",,es:Law,,True,drop: gloss doubtful
+es,hechicero,hechicera,magician,other,25984,30609,False,False,True,True,False,a person who plays with or practices allegedly supernatural magic.,,es:Fantasy; es:Male people; es:Occult,,True,occupation
+es,heredado,heredada,inheritor,other,16387,25672,False,False,False,True,False,someone who inherits something; an heir.,,,,True,person
+es,hermanastro,hermanastra,stepbrother,other,24196,40260,False,False,False,True,True,the son of one's stepparent by a previous relationship.,,es:Family members,,False,drop: rule (not a person / male-specific)
+es,homólogo,homóloga,counterpart,other,26765,46816,False,False,True,False,False,either of two parts that fit together or otherwise complement one another.,,,,False,person
+es,hotelero,hotelera,hotelier,other,44548,26461,False,False,True,True,False,someone who owns or runs a hotel.,,,,True,occupation
+es,humano,humana,human,other,1613,1926,False,False,True,False,False,"a highly intelligent ape with fine and short body hair; the most abundant species of primate, with members found on ever",3.839,,,False,drop: adjective sense dominates
+es,huérfano,huérfana,orphan,other,18609,29996,False,False,True,True,False,"a person, especially a minor, both or (rarely) one of whose parents have died.",,,,True,person
+es,héroe,heroína,hero,other,3641,12339,False,True,False,True,False,somebody who possesses great bravery and carries out extraordinary or noble deeds.,5.743,es:Stock characters,,True,person
+es,ibérico,ibérica,iberian,other,9182,3805,False,False,True,True,False,"a native of modern-day iberia (the european peninsula): a person native to spain, portugal, andorra, or gibraltar,.",,,,True,identity
+es,iluminado,iluminada,lighting,other,22703,28899,False,False,True,False,False,the equipment used to provide illumination; the illumination so provided.,3.719,,,False,drop: gloss wrong
+es,ilustrador,ilustradora,illustrator,other,13476,45171,False,False,False,True,False,,,,,True,occupation
+es,impresor,impresora,printer,other,28625,25103,False,True,True,True,False,one who makes prints.,,,,True,occupation
+es,ingenuo,ingenua,naif,other,33587,34176,False,True,True,False,False,alternative spelling of naïf.,,,,False,drop: adjective sense
+es,inglés,inglesa,englishman,other,147,2198,False,False,True,True,True,"a native or inhabitant of england; a man who is english by ancestry, birth, descent, or naturalisation.",,es:England,,False,drop: rule (not a person / male-specific)
+es,iniciado,iniciada,initiate,other,5627,8370,False,False,True,True,False,a new member of an organization.,,,,True,person
+es,innovador,innovadora,innovator,other,15083,22451,False,False,True,True,False,someone who innovates; a creator of new ideas.,,,,True,person
+es,interno,interna,patient,other,4080,3063,False,False,True,True,False,"a person or animal that receives health care from a doctor, nurse, dentist, allied health practitioner, or other person ",3.303,,,True,drop: gloss doubtful (intern/inmate)
+es,invasor,invasora,invader,other,22721,34192,False,False,True,True,False,one who invades a region.,5.667,,,True,person
+es,invitado,invitada,guest,other,3143,6378,False,False,True,False,False,,3.613,,,False,person
+es,irlandés,irlandesa,irishman,other,5974,7893,False,False,True,False,True,a man from ireland.,,,,False,drop: rule (not a person / male-specific)
+es,islandés,islandesa,icelander,other,16913,25963,False,False,True,True,False,a person from iceland or of icelandic descent.,,,,True,identity
+es,judío,judía,jew,other,4824,4846,False,True,True,True,False,the jewfish.,,es:Birds,,True,identity
+es,jugador,jugadora,player,other,517,14604,False,False,False,True,False,one that plays. one who plays any game or sport.,5.457,,,True,occupation
+es,lego,lega,layman,other,18708,17113,False,False,True,True,True,"layperson, someone who is not an ordained cleric or member of the clergy.",,,,False,drop: rule (not a person / male-specific)
+es,letón,letona,latvian,other,27252,44884,False,False,True,False,False,the official language of latvia; lettish.,,,,False,drop: rule (not a person / male-specific)
+es,libertador,libertadora,liberator,other,6326,18755,False,False,True,False,False,,,,,False,person
+es,libertario,libertaria,libertarian,other,18499,31285,False,False,True,True,False,"one who advocates liberty, either generally or in relation to a specific issue.",,,,True,person
+es,lituano,lituana,lithuanian,other,19157,27803,False,False,True,False,False,the main language of lithuania.,,,,False,drop: rule (not a person / male-specific)
+es,llanero,llanera,plainsman,other,38037,31132,False,False,False,True,True,"a native, inhabitant or settler of a plains region, but especially of the united states prairies",,,,False,drop: regional
+es,lobo,loba,wolf,other,4403,31449,False,True,False,False,False,,5.333,es:Wolves,,False,drop: animal
+es,lolo,lola,kid,other,34487,7668,True,True,True,True,False,"a child, adolescent, or (loosely) a young adult.",,es:People,,False,drop: colloquial
+es,loro,lora,parrot,other,18695,21475,False,True,False,True,False,"a kind of bird, many species of which are colorful and able to mimic human speech, of the order psittaciformes or (narro",4.206,es:Labroid fish; es:Parrots,,True,drop: animal
+es,luchador,luchadora,fighter,other,6108,28329,False,False,True,True,False,a person who fights; a combatant.,5.971,es:Sports,,True,occupation
+es,luterano,luterana,lutheran,other,36651,23171,False,False,True,True,False,a member of any of the christian churches which identify with the theology of martin luther.,,es:Christianity,,True,identity
+es,mago,maga,farmer,other,7777,33590,False,True,True,True,False,,6.143,,,True,"drop: gloss wrong (magician, not farmer)"
+es,malayo,malaya,malay,other,18988,23520,False,False,True,True,False,"a person of malay ancestry, referring to a diverse group of austronesian peoples inhabiting the malay archipelago and ma",,,,True,identity
+es,malo,mala,devil,other,6605,2821,False,True,True,False,False,,5.548,es:Personality,,False,drop: devil sense
+es,mano,mana,buddy,other,1012,24680,False,True,False,False,False,a friend or casual acquaintance.,,,,False,drop: colloquial
+es,marciano,marciana,martian,other,18907,38690,True,False,True,True,False,a person under the astrological influence of the planet mars.,,es:Celestial inhabitants,,False,drop: fictional
+es,marinero,marinera,sailor,other,16518,28515,False,False,True,True,False,,5.686,,,True,occupation
+es,marqués,marquesa,marquess,other,1664,7002,False,True,False,False,True,a title of nobility for a man ranking beneath a duke and above an earl (count).,,es:Nobility,,False,drop: rule (not a person / male-specific)
+es,mesoamericano,mesoamericana,mesoamerican,other,38212,34958,False,False,True,True,False,a native or inhabitant of mesoamerica.,,,,True,identity
+es,millonario,millonaria,millionaire,other,16125,37424,False,False,True,True,False,somebody whose wealth is at least one million (10⁶) currency units (usually understood to exclude holders of hyperinflat,5.152,es:People,,True,person
+es,ministro,ministra,minister,other,758,10787,False,True,False,True,False,,5.647,,,True,occupation
+es,mixteco,mixteca,mixtec,other,38660,23269,False,False,True,True,False,a member of a mesoamerican people who live primarily in southern mexico.,,,,True,identity
+es,mongol,mongola,mongol,other,15332,37891,False,False,True,True,False,alternative letter-case form of mongol (“a person with down's syndrome”).,,,,True,identity
+es,mono,mona,monkey,other,7309,15695,False,True,True,False,False,,4.857,es:Astrology; es:Clothing; es:Primates,,False,drop: animal
+es,montañés,montañesa,highlander,other,16749,46406,False,False,True,True,False,a person from the highlands.,,es:Scotland,,True,identity
+es,monárquico,monárquica,monarchist,other,24074,29338,False,False,True,False,False,,,,,False,identity
+es,morisco,morisca,moor,other,40962,37689,False,False,True,False,False,"an extensive waste covered with patches of heath, and having a poor, light (and usually acidic) soil, but sometimes mars",,,,False,drop: rule (not a person / male-specific)
+es,motorizado,motorizada,biker,other,30314,33765,False,False,True,True,False,"a person whose lifestyle is centered on motorcycles, sometimes a member of a motorcycle club.",,,,True,person
+es,mudo,muda,mute,other,10081,11161,False,True,True,True,False,a stopped consonant; a stop.,,,,True,person
+es,musulmán,musulmana,muslim,other,9578,7924,False,False,True,True,False,an adherent of islam.,,es:Islam,,True,identity
+es,muñeco,muñeca,doll,other,20126,11627,False,True,False,True,False,a temporary barrier used in horse racing.,1.677,es:Appearance; es:Borage family plants,,True,drop: object
+es,míster,miss,mister,other,47332,1883,False,True,False,True,False,"someone's business or function; an occupation, employment, trade.",,,,True,drop: male title
+es,místico,mística,mystic,other,17153,14734,False,False,True,True,False,someone who practices mysticism.,2.853,,,True,person
+es,nadador,nadadora,swimmer,other,22431,34539,False,False,False,True,False,one who swims.,4.177,es:Athletes; es:Swimming,,True,occupation
+es,narrador,narradora,narrator,other,7703,37085,False,False,False,True,False,one who narrates or tells stories.,,es:Sports,,True,occupation
+es,navajo,navaja,navajo,other,29885,28356,False,True,True,True,False,"a member of the navajo people, currently the largest native american tribe in north america.",,es:Native American tribes,,True,identity
+es,nieto,nieta,grandchild,other,3571,10044,False,True,False,True,False,,,es:Family members,,True,person
+es,niño,niña,child,other,1290,3043,False,True,False,True,False,alternative letter-case form of child often used when referring to god (jesus) or another important child who is underst,3.032,es:Age; es:Children,,True,person
+es,nominado,nominada,nominee,other,4888,6206,False,False,True,True,False,"a person named, or designated, by another, to any office, duty, or position; one nominated, or proposed, by others for o",,,,True,person
+es,norteño,norteña,northerner,other,26173,25931,False,False,True,True,False,"a native or inhabitant of the north of a region (or of the world as a whole), such as one of the northern united states,",,,,True,person
+es,olímpico,olímpica,olympian,other,1682,5345,False,False,True,False,False,"any of the 12 principal gods and goddesses of the greek pantheon (zeus, hera, poseidon, ares, hermes, hephaestus, aphrod",,es:Athletes,,False,person
+es,opositor,opositora,opponent,other,14603,29903,False,False,True,False,False,,,,,False,person
+es,organizador,organizadora,organizer,other,10242,26693,False,False,False,False,False,,,,,False,drop: rule (not a person / male-specific)
+es,oriundo,oriunda,native,other,18441,30878,False,False,True,True,False,a person who is native to a place; a person who was born in a place.,,,,True,person
+es,oso,osa,bear,other,6969,21004,False,False,False,False,False,"a large, generally omnivorous mammal (a few species are purely carnivorous or herbivorous) of the family ursidae; having",5.212,,,False,drop: animal
+es,paco,paca,llama,other,6312,44074,True,True,True,False,False,archaic form of lama.,3.794,es:Law enforcement,,False,drop: animal
+es,pagano,pagana,pagan,other,21544,32240,False,False,True,True,False,a person not adhering to a main world religion; a follower of a pantheistic or nature-worshipping religion.,,es:Paganism,,True,identity
+es,parlamentario,parlamentaria,parliamentarian,other,8101,8848,False,False,True,True,False,"a member of a parliament, congress or an elected national legislative body of another name.",,,,True,occupation
+es,partidario,partidaria,supporter,other,10229,26545,False,False,True,False,False,,,es:Politics,,False,person
+es,pato,pata,duck,other,8443,14320,True,True,False,False,False,"a cave passage containing water with low, or no, airspace.",3.971,es:Ducks; es:Male animals; es:Poultry; es:Wikimedia,,False,drop: animal
+es,patricio,patricia,patrician,other,5513,5088,True,True,True,True,False,"a member of any of the families constituting the populus romanus, or body of roman citizens, before the development of t",,,,False,drop: name homograph
+es,patrono,patrona,patron,other,10995,5354,False,False,False,True,False,one who protects or supports; a defender or advocate.,4.065,es:Religion,,True,person
+es,patrón,patrona,patron,other,2986,5354,False,False,False,True,False,one who protects or supports; a defender or advocate.,4.065,,,True,person
+es,peregrino,peregrina,pilgrim,other,18816,30813,False,True,True,True,False,one who travels to visit a site of religious significance. any traveler.,,,,True,person
+es,perro,perra,dog,other,3261,33499,False,True,True,False,False,initialism of digital on-screen graphic.,4.606,es:Astrology; es:Dogs; es:Mammals,,False,drop: animal
+es,pesado,pesada,pest,other,5158,8475,False,False,True,True,False,"a pestilence, i.e. a deadly epidemic, a deadly plague.",4.727,es:People,,True,person
+es,pionero,pionera,pioneer,other,7461,14109,False,False,True,True,False,"one who goes before, as into the wilderness, preparing the way for others to follow.",5.235,,,True,person
+es,político,política,politician,other,482,305,False,True,True,True,False,"one engaged in politics, especially an elected or appointed government official.",5.719,,,True,occupation
+es,portador,portadora,carrier,other,9331,24774,False,False,False,True,False,a person or object that carries someone or something else.,,,,True,drop: carrier (thing sense)
+es,portugués,portuguesa,portuguese,other,1968,3270,False,False,True,False,False,,,es:Portugal,,False,drop: rule (not a person / male-specific)
+es,poseedor,poseedora,owner,other,15902,42349,False,False,True,False,False,,4.939,,,False,person
+es,precursor,precursora,precursor,other,9990,25665,False,False,True,False,False,"that which precurses: a forerunner, predecessor, or indicator of approaching events.",,es:Chemistry,,False,person
+es,predecesor,predecesora,predecessor,other,2792,25271,False,False,False,True,False,"one who precedes; one who has preceded another in any state, position, office, etc.; one whom another follows or comes a",,,,True,person
+es,preferido,preferida,favorite,other,14488,24422,False,False,True,False,False,us standard spelling of favourite.,,,,False,person
+es,presentador,presentadora,presenter,other,5683,7148,False,False,False,True,False,someone who presents a broadcast programme; a compere or master of ceremonies.,,,,True,occupation
+es,presidente,presidenta,president,other,215,5680,False,True,False,True,False,obsolete form of precedent.,5.849,es:Government; es:Heads of state,,True,occupation
+es,preso,presa,prisoner,other,12122,4394,False,True,True,True,False,"a person incarcerated in a prison, while on trial or serving a sentence.",5.375,es:People,,True,person
+es,primogénito,primogénita,firstborn,other,13572,42300,False,False,True,True,False,,,es:Children; es:Family members,,True,person
+es,prisionero,prisionera,prisoner,other,6677,31831,False,False,False,True,False,"a person incarcerated in a prison, while on trial or serving a sentence.",5.375,es:People; es:Prison,,True,person
+es,productor,productora,producer,other,1111,3530,False,True,True,False,False,,,,,False,occupation
+es,profano,profana,amateur,other,41321,48495,False,False,True,False,False,,4.286,,,False,person
+es,propietario,propietaria,owner,other,3083,12439,False,False,True,False,False,,4.939,,,False,person
+es,protector,protectora,protector,other,8874,15958,False,True,True,True,False,"someone who protects or guards, by assignment or on their own initiative.",,,,True,person
+es,publicitario,publicitaria,advertiser,other,15433,16186,False,False,True,True,False,one who advertises.,,,,True,occupation
+es,querido,querida,sweetheart,other,8067,17094,False,True,True,True,False,a person who is always very kind.,2.118,,,True,person
+es,ranchero,ranchera,rancher,other,44768,37151,False,True,True,True,False,a person who operates a ranch.,,,,True,occupation
+es,rapero,rapera,rapper,other,10757,48004,False,False,True,True,False,"one who, or that which, raps or knocks. the knocker of a door.",,,,True,occupation
+es,rector,rectora,rector,other,4629,39573,False,False,True,False,False,"in the anglican church, a cleric in charge of a parish and who owns the tithes of it.",,,,False,occupation
+es,regulador,reguladora,regulator,other,15503,30820,False,False,True,False,False,a device that controls or limits something.,,,,False,drop: thing sense
+es,reo,rea,defendant,other,30238,30253,False,False,True,False,False,,,es:Law,,False,drop: rule (not a person / male-specific)
+es,republicano,republicana,republican,other,3557,4607,False,False,True,True,False,someone who favors a republic as a form of government.,,es:US politics,,True,identity
+es,retrasado,retrasada,moron,other,28562,45649,False,False,True,True,False,a stupid person; an idiot; a fool.,,,,True,drop: slur
+es,revolucionario,revolucionaria,revolutionary,other,3451,7518,False,False,True,True,False,a revolutionist; a person who revolts.,,,,True,person
+es,rojo,roja,red,other,1084,2048,False,True,True,False,False,"the colour of the setting sun, blood, and strawberries; the colour which is evoked by the longest visible wavelengths (b",4.03,es:Colors of the rainbow; es:Communism; es:Money; es:Reds,,False,drop: colour sense
+es,rudo,ruda,heel,other,34997,38236,False,True,True,False,False,the act of inclining or canting from a vertical position; a cant.,2.857,es:Professional wrestling; es:Wrestling,,False,drop: wrestling jargon
+es,rústico,rústica,rustic,other,31984,25689,False,False,True,True,False,a rural person.,,es:People,,True,person
+es,salesiano,salesiana,salesian,other,26779,32206,False,False,True,True,False,a member of this society.,,,,True,identity
+es,salvadoreño,salvadoreña,salvadoran,other,17667,20823,False,False,True,True,False,a person from el salvador or of salvadoran descent.,,es:El Salvador,,True,identity
+es,senador,senadora,senator,other,3244,20974,False,False,False,True,False,"a member, normally elected, in the house or chamber of a legislature called a senate, as, for instance, the legislatures",,,,True,occupation
+es,serbio,serbia,serbian,other,8044,3353,False,False,True,True,False,a native or inhabitant of serbia.,,es:Serbia,,True,identity
+es,sereno,serena,nightwatchman,other,28287,5857,False,False,True,True,True,someone who guards a premises at night.,,,,False,drop: rare sense
+es,señor,señora,mister,other,1094,1245,False,True,True,True,False,"someone's business or function; an occupation, employment, trade.",,es:Male people,,True,drop: male title
+es,siciliano,siciliana,sicilian,other,26506,27510,False,False,True,True,False,"a native or inhabitant of sicily, italy.",,,,True,identity
+es,soberano,soberana,sovereign,other,6954,18325,False,False,True,False,False,the title of a monarch.,4.393,es:Heads of state; es:Monarchy,,False,person
+es,socio,socia,partner,other,4944,37855,False,True,False,True,False,either of a pair of people or things that belong together.,,,,True,person
+es,soltero,soltera,single,other,18493,13960,False,False,True,True,False,"a vinyl record with one song on side a and one on side b, usually 7 inches in diameter and played at 45 rpm.",,,,True,person
+es,sospechoso,sospechosa,suspect,other,15053,33810,False,False,True,True,False,"a person who is suspected of something, in particular of committing a crime.",4.849,,,True,person
+es,subordinado,subordinada,subordinate,other,21320,29724,False,False,True,True,False,one who is subordinate.,,,,True,person
+es,sucesor,sucesora,successor,other,1720,17484,False,False,True,False,False,,,,,False,person
+es,sumerio,sumeria,sumerian,other,41913,27827,False,False,True,True,False,a person of sumer.,,,,True,identity
+es,superior,superiora,boss,other,522,36334,False,True,True,True,False,"a lump, protuberance, or swelling in an animal, person or object. a lump-like mass of rock, especially one projecting th",5.686,,,True,drop: gloss wrong (mother superior)
+es,sureño,sureña,southerner,other,25331,35830,False,False,True,True,False,alternative letter-case form of southerner (native or inhabitant of the south of any region).,,,,True,person
+es,sustituto,sustituta,substitute,other,10899,45804,False,False,True,True,False,a replacement or stand-in for something that achieves a similar result or purpose.,4.152,,,True,person
+es,tibetano,tibetana,tibetan,other,17499,33164,False,False,True,True,False,a native of tibet,,,,True,identity
+es,tirano,tirana,tyrant,other,17236,23577,False,False,True,False,False,,5.938,,,False,person
+es,trepador,trepadora,climber,other,31168,40989,False,False,True,True,False,someone or something that climbs (such as a mountain climber).,5.382,es:Certhioid birds; es:People,,True,drop: colloquial
+es,táctico,táctica,tactician,other,18018,10754,False,True,True,True,False,a person skilled in the planning and execution of tactics.,,,,True,occupation
+es,tártaro,tártara,tatar,other,29360,49175,False,False,True,True,False,"a person belonging to one of several turkic ethnic groups identified or identifying as ""tatar"" in eastern europe, russia",,,,True,identity
+es,usuario,usuaria,user,other,454,24605,False,False,False,True,False,someone who uses the r programming language.,,,,True,person
+es,vago,vaga,wanderer,other,27718,30808,False,False,True,True,False,someone connected with any number of soccer clubs known as the wanderers.,,es:People; es:Personality,,True,person
+es,valenciano,valenciana,valencian,other,5993,2892,False,False,True,True,False,an inhabitant of valencia.,,es:Valencia,,True,identity
+es,vecino,vecina,neighbour,other,5360,7208,False,False,True,True,False,,3.818,es:People,,True,person
+es,vegetariano,vegetariana,vegetarian,other,49584,40599,False,False,True,True,False,"a person who does not eat animal flesh, or, in some cases, use any animal products.",,,,True,person
+es,veterano,veterana,veteran,other,10117,43385,False,False,True,True,False,a person with long experience of a particular activity.,,,,True,person
+es,vikingo,vikinga,viking,other,17426,27098,False,False,True,True,False,"scandinavian/northern european seafarers, most familiarly raiders and pirates during the viking age.",,,,True,identity
+es,villano,villana,villain,other,9357,27099,False,False,True,True,False,,,es:People; es:Stock characters,,True,person
+es,virrey,virreina,viceroy,other,4592,44829,False,True,False,True,False,"one who governs a country, province, or colony as the representative of a monarch.",,es:Heads of state,,True,drop: male title
+es,visigodo,visigoda,visigoth,other,18419,21049,False,False,True,True,False,"any member of an ancient east germanic tribe, one branch of the goths (the ostrogoths being the other), which participat",,,,True,identity
+es,vizconde,vizcondesa,viscount,other,9923,38149,False,True,False,True,False,"a member of the peerage, above a baron but below a count or earl.",,es:Nobility,,True,drop: male title
+es,voluntario,voluntaria,volunteer,other,10988,13474,False,False,True,True,False,"one who enters into, or offers themselves for, any service of their own free will, especially when done without pay.",,,,True,person
+es,zar,zarina,tsar,other,8877,39839,False,True,False,False,False,,,es:Heads of state; es:Monarchy,,False,drop: rule (not a person / male-specific)
+es,zorro,zorra,fox,other,9502,37520,False,True,True,False,False,a radiotelephony clear-code word for the letter f.,4.486,es:Foxes,,False,drop: animal
