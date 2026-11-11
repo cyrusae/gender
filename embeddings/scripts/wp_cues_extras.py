@@ -5,6 +5,8 @@ files so the PI's review of data/wp_cues_{es,fr}_candidates_v0.csv isn't overwri
    - fem_also_noun: the feminine (or invariant) form also has a noun entry in Wiktionary (lista
      'list'). Like the occupation homographs (H), this could push retrieval away from the feminine
      occupation form, so it gets a sensitivity check.
+   - name_homograph: the masculine or feminine form is also a given name in Wiktionary (MUSE
+     vectors are lowercased, so bárbara also carries Bárbara; franco also carries Franco).
    - es_match (French only): a Spanish candidate that the MUSE es-fr dictionary pairs with this
      French masculine form; empty if none. A French sanity check that doesn't go through English.
 2. data/wp_cues_es_additions_v0.csv: cues added by the PI (2026-11-11) and a disability/illness
@@ -32,6 +34,15 @@ NOT_ADDED = {"estúpido": "estúpida is outside the first 50k words",
              "sincero": "already a candidate"}  # fmt: skip
 
 
+def name_set(lang):
+    out = set()
+    with open(KK / f"kaikki.org-dictionary-{ {'es': 'Spanish', 'fr': 'French'}[lang]}.jsonl", encoding="utf-8") as f:
+        for line in f:
+            if '"pos": "name"' in line and "given name" in line:
+                out.add(json.loads(line)["word"].lower())
+    return out
+
+
 def noun_set(lang):
     out = set()
     with open(KK / f"kaikki.org-dictionary-{ {'es': 'Spanish', 'fr': 'French'}[lang]}.jsonl", encoding="utf-8") as f:
@@ -50,11 +61,12 @@ def main():
         esfr.setdefault(b, set()).add(a)
     rows = []
     for lang, d in (("es", es), ("fr", fr)):
-        N = noun_set(lang)
+        N, names = noun_set(lang), name_set(lang)
         for r in d.itertuples():
             form = r.fem if isinstance(r.fem, str) and r.fem else r.masc
             match = sorted(esfr.get(r.masc, set()) & set(es.masc)) if lang == "fr" else []
             rows.append({"lang": lang, "masc": r.masc, "fem_also_noun": form in N,
+                         "name_homograph": r.masc in names or form in names,
                          "es_match": " ".join(match)})  # fmt: skip
     flags = pd.DataFrame(rows)
     flags.to_csv(ROOT / "data/wp_cues_flags_v0.csv", index=False)
