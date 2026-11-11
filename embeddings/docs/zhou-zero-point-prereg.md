@@ -199,5 +199,8 @@ result files; corrected results are in `results/attrfix_sensitivity/`.
 **Effect here: the French verdict changes.** FR, French attributes: "feminine forms lean further"
 (A −1.91 [−3.42, −0.30]) becomes **inconclusive** (−1.53 [−3.25, 0.41]). With duplicates removed but
 the names kept it is also inconclusive (−1.74 [−3.37, 0.05]), so this doesn't depend on the name
-rule. Spanish unchanged (inconclusive; −1.99 → −1.90). **Reading now: Zhou's asymmetry is
-inconclusive in both languages.**
+rule. Spanish unchanged (inconclusive; −1.99 → −1.90). **Reading now: with native attribute
+words Zhou's asymmetry is inconclusive in both languages.** The English-attribute cells don't use the
+corrected lists and are unchanged: FR −2.03 [−3.39, −0.63], asymmetry (feminine further); ES −3.15
+[−6.35, 0.17], inconclusive, depends on *bebé, hada*. So French still shows the asymmetry when
+measured against English gender words.

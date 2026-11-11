@@ -13,8 +13,9 @@ Zhou et al. claim that in Spanish and French word embeddings, feminine occupatio
 (*médica*) lean further toward female words than masculine forms (*médico*) lean toward male
 words, and propose mitigations (Shift, Hybrid) that remove this asymmetry while keeping
 inanimate nouns' grammatical gender. **The bias is real** in the cross-lingual test, where it is stronger than the paper's own
-test could show; the monolingual asymmetry is inconclusive in both languages once a fair zero
-point is used and the paper's attribute-word errors are corrected (Z19). **The quantitative evidence for it and for the mitigations mostly
+test could show; the monolingual asymmetry is inconclusive in both languages with native attribute words
+once a fair zero point is used and the paper's attribute-word errors are corrected (Z19); with
+English attribute words French still shows it (−2.03 [−3.39, −0.63]), Spanish doesn't. **The quantitative evidence for it and for the mitigations mostly
 does not hold.** Every Table 1 p-value is guaranteed by construction; the headline Shift result
 (3.69 → 0.31) is an algebraic identity fixed before anything moves; Hybrid's Table 1 number is
 Shift's by rotation invariance; the Table 2 bias test never uses a feminine cue; and the stated
@@ -28,7 +29,7 @@ effect, which comes from Bolukbasi's English debiasing.
 |---|---|---|
 | Semantic and grammatical directions, cos 0.389 (§2.1) | Reproduces, but with a linear SVM (paper says LDA, whose cells crashed) and a centring slip `a + b/2` | Z1, Z3 |
 | Inanimate nouns sit near zero on the semantic axis (Fig. 1) | Holds: masc −0.011, fem −0.012 on 2,000 Wiktionary-labelled nouns | `results/zhou_figures/` |
-| Feminine occupation forms lean further (Fig. 1, MWEAT 3.69) | Number reproduces exactly, but depends on errors in their attribute words (Z19: correcting *tío* alone gives 2.25). Against an epicene zero point with corrected attribute words, resampled: ES −1.90 [−5.51, 1.39], FR −1.53 [−3.25, 0.41], both inconclusive. (With their uncorrected lists French had held, −1.91 [−3.42, −0.30].) | `zhou-zero-point-prereg.md` deviation, Z19 |
+| Feminine occupation forms lean further (Fig. 1, MWEAT 3.69) | Number reproduces exactly, but depends on errors in their attribute words (Z19: correcting *tío* alone gives 2.25). Against an epicene zero point with corrected attribute words, resampled: ES −1.90 [−5.51, 1.39], FR −1.53 [−3.25, 0.41], both inconclusive. With English attribute words (unaffected by the fix): FR −2.03 [−3.39, −0.63], asymmetry; ES −3.15 [−6.35, 0.17], inconclusive and dependent on two anchors (*bebé, hada*). (With their uncorrected lists French had held, −1.91 [−3.42, −0.30].) | `zhou-zero-point-prereg.md` deviation, Z19 |
 | p = 0.000 (Table 1) | Guaranteed: with opposite-sign totals the observed statistic is the permutation maximum. After Shift, most permutations tie, so the p-values reflect rounding | Z10, Z2 |
 | Shift Ori cuts MWEAT 3.69 → 0.31 | Identity: the post-shift value equals the original with the attribute axis's d_s component deleted (0.308748 = 0.308748) | Z14, `zhou-shift-identity.md` |
 | Shift preserves inanimate nouns' grammatical gender (aim) | Never evaluated in the paper; Eq. 2 is in no released cell. Our C1: grammatical gender survives every arm | Z6, Z15, `c1-prereg.md` |
