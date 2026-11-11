@@ -1,0 +1,125 @@
+lang,test,en,form,word,set,in_vocab,clean_kept,drop_reason,gram_gender,s_clean
+ru,7,math,математический,математический,T1,True,True,,unknown,0.005837355565661451
+ru,7,math,математическая,математическая,T1,True,True,,unknown,-0.00910113895052439
+ru,7,algebra,алгебра,алгебра,T1,True,True,,f,-0.007917112555590688
+ru,7,geometry,геометрия,геометрия,T1,True,True,,f,-0.0050073413904843656
+ru,7,calculus,исчисление,исчисление,T1,True,True,,n,0.0016259585230880003
+ru,7,equations,уравнения,уравнения,T1,True,True,,unknown,-0.0001065019932995348
+ru,7,computation,вычисление,вычисление,T1,True,True,,n,0.0025798270988928174
+ru,7,numbers,числа,числа,T1,True,True,,unknown,0.0010694421274883292
+ru,7,addition,сложение,сложение,T1,True,True,,n,0.00039019726368572094
+ru,7,poetry,поэзия,поэзия,T2,True,True,,f,-0.009080324151039876
+ru,7,art,искусство,искусство,T2,True,True,,n,0.0010152442149857777
+ru,7,dance,танец,танец,T2,True,True,,m,-0.001833139463904787
+ru,7,literature,литература,литература,T2,True,True,,f,-0.011755324119954669
+ru,7,novel,роман,роман,T2,True,True,,m,0.0033667465311643663
+ru,7,symphony,симфония,симфония,T2,True,True,,f,-0.006641425048839911
+ru,7,drama,драма,драма,T2,True,True,,f,-0.005487538632450106
+ru,7,sculpture,скульптура,скульптура,T2,True,True,,f,-0.008397281580099558
+ru,7,male,мужчина,мужчина,A1,True,True,,m,
+ru,7,boy,мальчик,мальчик,A1,True,True,,m,
+ru,7,brother,брат,брат,A1,True,True,,m,
+ru,7,he,он,он,A1,True,True,,unknown,
+ru,7,him,ему,ему,A1,True,True,,unknown,
+ru,7,his,его,его,A1,True,True,,unknown,
+ru,7,son,сын,сын,A1,True,True,,m,
+ru,7,female,женщина,женщина,A2,True,True,,f,
+ru,7,girl,девочка,девочка,A2,True,True,,f,
+ru,7,sister,сестра,сестра,A2,True,True,,f,
+ru,7,she,она,она,A2,True,True,,unknown,
+ru,7,her,ее,ее,A2,True,True,,unknown,
+ru,7,daughter,дочь,дочь,A2,True,True,,f,
+ru,8,science,наука,наука,T1,True,True,,f,-0.008329641075029814
+ru,8,technology,технология,технология,T1,True,True,,f,-0.008469088613177633
+ru,8,physics,физика,физика,T1,True,True,,f,5.626815165471477e-07
+ru,8,chemistry,химия,химия,T1,True,True,,f,-0.004085668146829202
+ru,8,Einstein,Einstein,einstein,T1,True,False,untranslated English name,unknown,
+ru,8,NASA,NASA,nasa,T1,True,False,untranslated English name,unknown,
+ru,8,experiment,эксперимент,эксперимент,T1,True,True,,m,0.0027651557825690287
+ru,8,astronomy,астрономия,астрономия,T1,True,True,,f,-0.005974274642349342
+ru,8,poetry,поэзия,поэзия,T2,True,True,,f,-0.007288740103120694
+ru,8,art,искусство,искусство,T2,True,True,,n,0.0005801958460509571
+ru,8,Shakespeare,Shakespeare,shakespeare,T2,True,False,untranslated English name,unknown,
+ru,8,dance,танец,танец,T2,True,True,,m,-0.004435739773915204
+ru,8,literature,литература,литература,T2,True,True,,f,-0.009941713312255018
+ru,8,novel,роман,роман,T2,True,True,,m,0.0012965520288748533
+ru,8,symphony,симфония,симфония,T2,True,True,,f,-0.004900173679638131
+ru,8,drama,драма,драма,T2,True,True,,f,-0.005489312995024309
+ru,8,brother,брат,брат,A1,True,True,,m,
+ru,8,father,отец,отец,A1,True,True,,m,
+ru,8,uncle,дядя,дядя,A1,True,True,,m,
+ru,8,grandfather,дед,дед,A1,True,True,,m,
+ru,8,son,сын,сын,A1,True,True,,m,
+ru,8,he,он,он,A1,True,True,,unknown,
+ru,8,his,его,его,A1,True,True,,unknown,
+ru,8,him,ему,ему,A1,True,True,,unknown,
+ru,8,sister,сестра,сестра,A2,True,True,,f,
+ru,8,mother,мать,мать,A2,True,True,,f,
+ru,8,aunt,тетя,тетя,A2,True,True,,unknown,
+ru,8,grandmother,бабушка,бабушка,A2,True,True,,f,
+ru,8,daughter,дочь,дочь,A2,True,True,,f,
+ru,8,she,она,она,A2,True,True,,unknown,
+ru,8,hers,ее,ее,A2,True,True,,unknown,
+tr,7,math,matematik,matematik,T1,True,True,,no lexicon,-0.003207487419024324
+tr,7,algebra,cebir,cebir,T1,True,True,,no lexicon,-0.004696450826377152
+tr,7,geometry,geometri,geometri,T1,True,True,,no lexicon,-0.005295298944960003
+tr,7,calculus,hesap,hesap,T1,True,True,,no lexicon,0.00037437158677250393
+tr,7,equations,denklemler,denklemler,T1,True,True,,no lexicon,0.00015593039427430622
+tr,7,computation,hesaplama,hesaplama,T1,True,True,,no lexicon,-0.0017461646561092725
+tr,7,numbers,sayılar,sayılar,T1,True,True,,no lexicon,0.0007636554562659437
+tr,7,addition,ilave,ilave,T1,True,True,,no lexicon,0.0022735034846426694
+tr,7,poetry,şiir,şiir,T2,True,True,,no lexicon,-9.720899715581766e-05
+tr,7,art,sanat,sanat,T2,True,True,,no lexicon,0.0026158343369757087
+tr,7,dance,dans,dans,T2,True,True,,no lexicon,-0.006112085255822131
+tr,7,literature,Edebiyat,edebiyat,T2,True,True,,no lexicon,-0.0010532877322936285
+tr,7,novel,roman,roman,T2,True,True,,no lexicon,0.002658214295530148
+tr,7,symphony,senfoni,senfoni,T2,True,True,,no lexicon,0.001662483000955839
+tr,7,drama,dram,dram,T2,True,True,,no lexicon,-0.0033391608127734673
+tr,7,sculpture,heykel,heykel,T2,True,True,,no lexicon,0.0002463235765457483
+tr,7,male,erkek,erkek,A1,True,True,,no lexicon,
+tr,7,man,adam,adam,A1,True,True,,no lexicon,
+tr,7,boy,oğlan,oğlan,A1,True,True,,no lexicon,
+tr,7,brother,erkek kardeş,erkek kardeş,A1,False,False,multi-word,no lexicon,
+tr,7,he,o,o,A1,True,False,in both sets,no lexicon,
+tr,7,him,onu,onu,A1,True,True,,no lexicon,
+tr,7,his,onun,onun,A1,True,True,,no lexicon,
+tr,7,son,oğul,oğul,A1,True,True,,no lexicon,
+tr,7,female,kadın,kadın,A2,True,True,,no lexicon,
+tr,7,girl,kız,kız,A2,True,True,,no lexicon,
+tr,7,sister,kız kardeş,kız kardeş,A2,False,False,multi-word,no lexicon,
+tr,7,she,o,o,A2,True,False,in both sets,no lexicon,
+tr,7,her,ona,ona,A2,True,True,,no lexicon,
+tr,7,hers,onunki,onunki,A2,True,True,,no lexicon,
+tr,7,daughter,kız evlat,kız evlat,A2,False,False,multi-word,no lexicon,
+tr,8,science,Bilim,bilim,T1,True,True,,no lexicon,0.004664114742042869
+tr,8,technology,teknoloji,teknoloji,T1,True,True,,no lexicon,-0.001198787769170373
+tr,8,physics,fizik,fizik,T1,True,True,,no lexicon,0.0029048095577283717
+tr,8,chemistry,kimya,kimya,T1,True,True,,no lexicon,0.0010014234972915426
+tr,8,Einstein,Einstein,einstein,T1,True,False,untranslated English name,no lexicon,
+tr,8,NASA,NASA,nasa,T1,True,False,untranslated English name,no lexicon,
+tr,8,experiment,deney,deney,T1,True,True,,no lexicon,0.0020938982434171582
+tr,8,astronomy,astronomi,astronomi,T1,True,True,,no lexicon,0.0022735985439310546
+tr,8,poetry,şiir,şiir,T2,True,True,,no lexicon,-0.0021631733983418777
+tr,8,art,sanat,sanat,T2,True,True,,no lexicon,0.0011326690838281417
+tr,8,Shakespeare,Shakespeare,shakespeare,T2,True,False,untranslated English name,no lexicon,
+tr,8,dance,dans,dans,T2,True,True,,no lexicon,-0.008937161611763389
+tr,8,literature,Edebiyat,edebiyat,T2,True,True,,no lexicon,-0.0006604016256129275
+tr,8,novel,roman,roman,T2,True,True,,no lexicon,-0.002277511119679332
+tr,8,symphony,senfoni,senfoni,T2,True,True,,no lexicon,0.003587944080225003
+tr,8,drama,dram,dram,T2,True,True,,no lexicon,-0.00733330425380746
+tr,8,brother,erkek kardeş,erkek kardeş,A1,False,False,multi-word,no lexicon,
+tr,8,father,baba,baba,A1,True,True,,no lexicon,
+tr,8,uncle,amca,amca,A1,True,True,,no lexicon,
+tr,8,grandfather,büyükbaba,büyükbaba,A1,True,True,,no lexicon,
+tr,8,son,oğul,oğul,A1,True,True,,no lexicon,
+tr,8,he,o,o,A1,True,False,in both sets,no lexicon,
+tr,8,his,onun,onun,A1,True,True,,no lexicon,
+tr,8,him,onu,onu,A1,True,True,,no lexicon,
+tr,8,sister,kız kardeş,kız kardeş,A2,False,False,multi-word,no lexicon,
+tr,8,mother,anne,anne,A2,True,True,,no lexicon,
+tr,8,aunt,teyze,teyze,A2,True,True,,no lexicon,
+tr,8,grandmother,büyükanne,büyükanne,A2,True,True,,no lexicon,
+tr,8,daughter,kız evlat,kız evlat,A2,False,False,multi-word,no lexicon,
+tr,8,she,o,o,A2,True,False,in both sets,no lexicon,
+tr,8,hers,onunki,onunki,A2,True,True,,no lexicon,
+tr,8,her,ona,ona,A2,True,True,,no lexicon,
