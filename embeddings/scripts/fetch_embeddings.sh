@@ -3,6 +3,7 @@
 # then link them where each notebook expects them.
 #   Zhou et al. 2019: MUSE aligned fastText Wikipedia vectors wiki.multi.{en,es,fr,de}.vec
 #                     + MUSE bilingual dictionaries (en-es, es-en, es-fr, en-fr, fr-en)
+#   XWEAT sensitivity (Lauscher & Glavas 2019 languages): wiki.multi.{it,hr,ru,tr}.vec as well
 #   Omrani Sabbaghi & Caliskan 2022: fastText Common Crawl cc.{es,fr,de,it,pl,en}.300.vec
 # Resumable (curl -C -). Sizes: MUSE ~0.63 GB each; cc ~1.3 GB gzipped, ~4.5 GB unzipped each.
 set -euo pipefail
@@ -11,7 +12,7 @@ EXT=$(cd "$(dirname "$0")/../external" && pwd)
 mkdir -p "$STORE/muse/dictionaries" "$STORE/fasttext_cc"
 get() { curl -sSfL --retry 5 -C - -o "$2" "$1"; echo "got $(basename "$2") $(du -h "$2" | cut -f1)"; }
 
-for l in en es fr de; do
+for l in en es fr de it hr ru tr; do
   get "https://dl.fbaipublicfiles.com/arrival/vectors/wiki.multi.$l.vec" "$STORE/muse/wiki.multi.$l.vec"
 done
 for d in en-es es-en es-fr en-fr fr-en; do
