@@ -1,7 +1,7 @@
 # Is masculine intrusion specific to occupations? (DRAFT pre-registration)
 
-*Status: DRAFT, 2026-11-11, written by Claude for the PI's review. Nothing has been scored with the
-new nouns.*
+*Status: **ADOPTED 2026-11-11** (PI reviewed the noun list; adoption record at the end). Nothing
+scored with the new nouns before adoption.*
 
 ## Why
 
@@ -87,3 +87,19 @@ is specific to occupations, not that it is stereotype. French is not included (t
    agreement with other nouns), or join the person group?
 3. Occupation comparison group: the new rule-built occupations (larger, ~120) or Zhou's 54 cleaned
    pairs (already analysed)? Suggest the new list as primary, Zhou's as a check.
+
+## Adoption record (2026-11-11, before any score)
+
+- Nouns frozen: `data/wp_persons_es_frozen_v1.csv`, sha256 75dd47c64beb9ce3b4526cb27a7d938a37e3fb984461324955a755ce4f8918ff, built by
+  `scripts/wp_persons_freeze.py` from the PI's review (`data/wp_persons_es_candidates_v0_edited.csv`;
+  blank = keep, PI), Claude's corrected group suggestions (`wp_persons_es_suggest_fix_v0.csv`), and
+  the flags (`wp_persons_es_flags_v0.csv`).
+- Groups: person 107, occupation 115, identity 102 (descriptive, PI). Group changes from the PI's
+  comments: *arqueólogo, bioquímico* → occupation; *defendido, humano* (PI kept) → person; *empírico,
+  judío* → identity. Gloss fix: *extraño* → stranger (PI).
+- Drops beyond the PI's: name homographs; identity nouns where either form is a place name (PI);
+  *germano* (historical Germanic peoples).
+- Comparison group: the new rule-built occupation list (Q3 of the draft); Zhou's 54 not rerun here.
+- Sensitivity set: drops every noun with any of `fem_also_noun`, `masc_also_noun`, `language_name`,
+  `masc_identical_en`, `place_name` (all rule-built before scoring).
+- P2 uses one cue resample per draw for both groups. Script: `scripts/wordpair_persons.py`.

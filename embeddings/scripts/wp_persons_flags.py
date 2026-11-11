@@ -7,8 +7,8 @@ merged by masc at freeze. Outcome-blind: nothing is scored here.
   or Bolukbasi's professions list, and isn't "male equivalent of ..."), e.g. a thing or field.
 - language_name: one of those senses names a language (el portugués 'Portuguese language').
 - place_name (added 2026-11-11, PI): either form is also a Spanish place name in Wiktionary (country,
-  region, city…), e.g. argentina, siria. Computed by a one-off pass recorded in the commit; rule:
-  a pos "name" entry whose glosses mention country/region/city/province/state/island/kingdom/etc.
+  region, city…), e.g. argentina, siria: a pos "name" entry whose glosses mention
+  country/region/city/province/state/island/kingdom/etc.
   PI: drop identity nouns with this flag.
 - masc_identical_en: the masculine form is spelled exactly like its English gloss (doctor, director).
   Spanish Wikipedia also contains English uses of such strings, which can pull the Spanish vector
@@ -26,6 +26,7 @@ from wp_cues_build import KK
 from wp_persons_build import PERSON
 
 ROOT = Path(__file__).resolve().parents[1]
+PLACE = re.compile(r"\b(country|region|city|province|state|island|peninsula|kingdom|republic|town|area|territory|continent|capital)\b")
 MALE_EQ = re.compile(r"^(male|masculine) (equivalent|form|version) of")
 
 
@@ -34,9 +35,16 @@ def main():
     want = set(d.masc)
     prof = {x[0] for x in json.load(open(ROOT / "external/debiaswe/data/professions.json"))}
     pwords = set(d.en.str.lower()) | prof | {w + "s" for w in prof} | {"woman", "women", "wife", "girl", "lady", "men"}
-    other, lang = {}, {}
+    other, lang, place = {}, {}, set()
+    forms = want | set(d.fem)
     with open(KK / "kaikki.org-dictionary-Spanish.jsonl", encoding="utf-8") as f:
         for line in f:
+            if '"pos": "name"' in line:
+                j = json.loads(line)
+                g = " ".join(" ".join(s.get("glosses", [])) for s in j.get("senses", [])).lower()
+                if j.get("word", "").lower() in forms and PLACE.search(g):
+                    place.add(j["word"].lower())
+                continue
             if '"pos": "noun"' not in line:
                 continue
             j = json.loads(line)
@@ -53,9 +61,11 @@ def main():
     out = pd.DataFrame({"masc": d.masc, "en": d.en,
                         "masc_also_noun": d.masc.isin(other), "language_name": d.masc.isin(lang),
                         "masc_identical_en": d.masc == d.en.str.lower(),
-                        "masc_other_senses": d.masc.map(lambda w: " | ".join(other.get(w, [])[:3]))})  # fmt: skip
+                        "masc_other_senses": d.masc.map(lambda w: " | ".join(other.get(w, [])[:3])),
+                        "place_name": d.masc.isin(place) | d.fem.isin(place),
+                        "place_form": [" ".join(w for w in (m, f) if w in place) for m, f in zip(d.masc, d.fem)]})  # fmt: skip
     out.to_csv(ROOT / "data/wp_persons_es_flags_v0.csv", index=False)
-    print({c: int(out[c].sum()) for c in ("masc_also_noun", "language_name", "masc_identical_en")})
+    print({c: int(out[c].sum()) for c in ("masc_also_noun", "language_name", "masc_identical_en", "place_name")})
     print("identical:", " ".join(out[out.masc_identical_en].masc))
     print("language:", " ".join(out[out.language_name].masc))
 

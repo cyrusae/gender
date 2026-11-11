@@ -37,3 +37,4 @@
 | 2026-11-11 | Expanded cue results: intrusion present (ES 0.291 [0.181,0.395], 87 fem cues); mitigations cut it ~1/3, not closed; adjective stereotype doesn't matter; occupation-stereotype β 0.30 now borderline (CI touches 0). | prereg 8ccf23c | done |
 | 2026-11-11 | Attribute-list correction sensitivity (Z19): French zero-point asymmetry → inconclusive; French crime probe → male-leaning; all else unchanged. Frozen results kept; both versions reported. | open blind check | exploratory |
 | 2026-11-11 | Corrected attribute lists (Z19: ES tío; FR de-duplicated, names dropped) made PRIMARY for C1, gender ValNorm, zero point, crime probe (PI). Post-hoc deviation noted in each prereg; both versions reported. Zhou's monolingual asymmetry now inconclusive in both languages; French crime borderline. | PI 2026-11-11 | adopted |
+| 2026-11-11 | Person-noun baseline prereg ADOPTED; nouns frozen (person 107, occupation 115, identity 102). | PI review | adopted |
