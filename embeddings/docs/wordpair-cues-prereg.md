@@ -85,3 +85,21 @@ confirmations.
    French?
 2. Williams & Best as the primary cue-stereotype score, Glasgow secondary: OK?
 3. Allow second-sense glosses (marked in `sense`), or first sense only (ES then 82 gendered)?
+
+## PI decisions so far (2026-11-11)
+
+- Stereotype scores: Williams & Best 1990 primary, Glasgow GEND secondary.
+- Added cues: *brillante* (brilliant). *sincero* was already a candidate. *estúpido* and
+  *discapacitado* can't be scored: their feminine forms are outside the first 50k words
+  (*discapacitada* is rank 163,349, though the plural *discapacitados* is 24,752).
+- **Name rule:** a cue is dropped if either form is a Wiktionary given name, because MUSE vectors
+  are lowercased (*bárbara* carries *Bárbara*, *franco* carries *Franco*). Spanish: drops
+  *bárbaro, franco, modesto, cándido, generoso, bonito, cuco* (and *alejo, pacho*). French needs
+  another name source (the French dump yields none under the same filter).
+- Feminine forms that are also nouns (`fem_also_noun`, ES 65 of 216): kept; the primary tests are
+  rerun without them as a sensitivity check.
+- Disability/illness subset (*sordo, mudo, ciego, enfermo, loco*; *sano* as contrast), reported
+  descriptively, not pooled.
+- French: same rule; the MUSE es-fr dictionary match (`es_match`) is reported as a sanity signal.
+- Merging at freeze is by (lang, masculine form), never by row order; the PI's candidate file is
+  only read, never rewritten.

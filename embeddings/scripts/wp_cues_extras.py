@@ -31,7 +31,8 @@ ADD = [("brillante", "", "brilliant", "PI 2026-11-11", "primary"),
        ("sano", "sana", "healthy", "disability subset (contrast)", "disability"),
        ("loco", "loca", "crazy", "disability subset", "disability")]  # fmt: skip
 NOT_ADDED = {"estúpido": "estúpida is outside the first 50k words",
-             "sincero": "already a candidate"}  # fmt: skip
+             "sincero": "already a candidate",
+             "discapacitado": "PI 2026-11-11; outside the first 50k words (rank 65,742; discapacitada 163,349)"}  # fmt: skip
 
 
 def name_set(lang):
