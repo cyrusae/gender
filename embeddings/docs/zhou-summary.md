@@ -3,7 +3,7 @@
 *Draft for the write-up, 2026-11-10, written by Claude. Every number points to a file in this
 repo; issue codes (Z1–Z18) are entries in `upstream-issues.md`. Spanish unless marked.*
 
-**Paper:** Zhou, Ma, Wang, Gonen, Wang, Chang, "Examining Gender Bias in Languages with
+**Paper:** Pei Zhou, Weijia Shi, Jieyu Zhao, Kuan-Hao Huang, Muhao Chen, Ryan Cotterell, Kai-Wei Chang, "Examining Gender Bias in Languages with
 Grammatical Gender", EMNLP 2019 (arXiv 1909.02224). Code: `Bias_in_Gendered_Languages`, notebook
 `bias_emnlp19.ipynb` at 6392702.
 
