@@ -209,3 +209,9 @@ measured against English gender words.
 occupation targets restricted to the cleaned list (French drops only *conservateur* 'tory'), French
 native reads asymmetry again (−1.91 [−3.34, −0.39]); Spanish stays inconclusive. **French native is
 therefore borderline**: it flips with single-word list choices and should be reported that way.
+
+**Epicene gap (2026-11-11, exploratory, `results/hub_csls_check/`).** Masculine strict epicenes lean
+more male than feminine ones: +0.061 [0.025, 0.094] (native), +0.046 [0.013, 0.081] (English):
+grammatical gender alone moves the lean. The zero point averages the two epicene means with equal
+weight, so this cancels by design; it is direct evidence that leans mix grammatical and semantic
+gender, about a third of the occupation forms' lean difference in size.

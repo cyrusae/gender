@@ -150,3 +150,11 @@ strongly as for occupations (0.51). A feminine cue moves both groups by a simila
 0.28 → 0.00, occupations 0.51 → 0.29), so what is specific to occupations is the stronger masculine
 default, not resistance to the cue: the cue cancels the person-noun default and only partly cancels
 the occupational one. Identity nouns: plain 0.33, feminine cue −0.14.
+
+## Hubness / CSLS check (2026-11-11, exploratory; `results/hub_csls_check/`)
+
+Masculine forms are usually the bigger retrieval hubs, and the hub ratio tracks intrusion. With
+hubness-corrected (CSLS) retrieval, occupational intrusion falls from 0.29 to 0.19 [0.12, 0.27] and
+persons go slightly negative (−0.08); the persons − occupations difference is unchanged (−0.27
+[−0.37, −0.18]). About a third of the occupational intrusion is hubness (largely frequency); the
+occupation-specific part survives.

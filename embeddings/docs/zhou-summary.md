@@ -52,7 +52,8 @@ effect, which comes from Bolukbasi's English debiasing.
   flag), so the generic masculine alone doesn't explain it. Without a cue the masculine form is the default
   translation for both groups, about twice as strongly for occupations (0.51 vs 0.28); a feminine
   cue shifts both by a similar amount, cancelling the person default but only part of the
-  occupational one (exploratory). Within nouns, both how much rarer the
+  occupational one (exploratory). Correcting for hubness (CSLS) lowers occupational
+  intrusion to 0.19 [0.12, 0.27]; the occupation-specific gap is unchanged. Within nouns, both how much rarer the
   feminine form is (β 0.35) and how male the English noun is rated (β 0.22) predict intrusion; the
   two are entangled for occupations. Not the bilingual dictionary (D null twice). Feminine forms that
   also name a field (*química*) add to it. `wordpair-mechanism-prereg.md`, `wordpair-persons-prereg.md`
