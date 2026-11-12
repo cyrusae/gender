@@ -85,3 +85,10 @@ so the direction fits the generic-masculine account for both groups, but which g
 on the vocabulary size, i.e. on which nouns are included. The verdicts aren't stable; report this as
 "same direction for persons and occupations, not established for either", not as either group
 supported.
+
+**PI decision (2026-11-11, after both were seen): 200k is primary**, because the prereg says "exactly as
+the generic-masculine study" and that study used 200k; the 50k counts in Materials were the drafting
+error. Primary: persons Δρ 0.29 [−0.08, 0.76], inconclusive; occupations 0.46 [0.05, 1.18],
+supported, masculine plural at neutral (replicates the original study on the rule-built list);
+difference −0.17 [−0.49, 0.02]. The 50k run stays reported as a sensitivity, and the reading above
+(same direction for both groups, verdicts sensitive to which nouns are included) stands.

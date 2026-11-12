@@ -45,3 +45,4 @@
 | 2026-11-11 | Corrected attribute lists are the scripts' DEFAULT (PI); ZHOU_ATTR=published reproduces frozen files. Two person-noun follow-up preregs drafted (zero point, generic masculine), Spanish. | PI | draft |
 | 2026-11-11 | Person-noun zero point and generic-masculine preregs ADOPTED (PI: Spanish only, per-pair A, plural rule accepted, floor 25; French tomorrow). | PI | adopted |
 | 2026-11-11 | Person-noun zero point: all inconclusive, groups not distinguishable (occupations' point estimate ~2× persons). Person-noun generic masculine: Δρ positive in all cells but verdicts depend on vocabulary size (prereg text 50k vs script 200k, Claude drafting error; both reported, PI to choose primary). | prereg f352a17 | done |
+| 2026-11-11 | Person-noun generic masculine: 200k vocabulary primary (PI, matches original study; 50k in prereg text was a drafting error), 50k reported as sensitivity. | PI | adopted |

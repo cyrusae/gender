@@ -53,6 +53,12 @@ effect, which comes from Bolukbasi's English debiasing.
   feminine form is (β 0.35) and how male the English noun is rated (β 0.22) predict intrusion; the
   two are entangled for occupations. Not the bilingual dictionary (D null twice). Feminine forms that
   also name a field (*química*) add to it. `wordpair-mechanism-prereg.md`, `wordpair-persons-prereg.md`
+- **Follow-ups on ordinary person nouns (Spanish).** Monolingual asymmetry: persons and occupations
+  both inconclusive and not distinguishable (occupations' point estimate about twice persons').
+  Generic masculine: masculine plurals move toward neutral for both groups (Δρ positive); occupations
+  supported (0.46 [0.05, 1.18]), persons inconclusive (0.29 [−0.08, 0.76]), but the verdicts depend on
+  which nouns are included (they swap at a 50k vocabulary). `persons-zero-point-prereg.md`,
+  `persons-genmasc-prereg.md`
 - **What Hybrid really does.** Measured against English gender words, it removes stereotype
   signal that lies off Zhou's axis, even with the original English yardstick. That is
   Bolukbasi's English debiasing carried over by alignment, not anything Table 1 can show.
