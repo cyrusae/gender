@@ -204,6 +204,20 @@ Informed by two literature reviews (`docs/feynman/outputs/thinking-gender-verdic
    agreement (kappa < 0.6) is reported as a limitation with the confusion table.
 Terminology: arms are "thinking mode on/off", not "with/without reasoning" (the off mode can leak).
 
+## 8d. Amendment 4 (2026-11-11, after batch 1, before any estimate was computed): stopping
+
+Batch 1 = writer 10 draws per arm, character plain a/an 10, modifiers 2, all four model × thinking
+cells (Luna: 244,480 completions; Qwen3-14B: 267,400 incl. the control). The width-only check
+(`character/scripts/stopping_check.py`; CI half-widths, no estimates, signs or p-values) gave:
+- **Character:** median modifier half-width 3.3–4.8 points in every cell × frame, so the §6 rule
+  (≤ 5) is met at 2 draws. Stop.
+- **Writer:** pooled half-widths Luna medium 3.00, Luna none 4.45, Qwen off 6.90, Qwen on 5.22,
+  four-cell average 3.72 points. Widths at 3 / 5 / 10 draws show a plateau (e.g. Qwen off 7.19 /
+  6.80 / 6.90), so noun-to-noun spread, not draws, sets the precision; the 30-draw cap would reach
+  about 2.7 / 4.3 / 6.9 / 4.9 (average ~3.4). The ≤ 2.5 target is unreachable within the cap.
+  **Decision (PI): stop the writer study at 10 draws.** Based on width only.
+Batch 1 is the final dataset. Coder frozen at commit `7475b9f` (`character/code_outputs.py`).
+
 ## 9. Deviations
 
 Any change after sign-off is logged in `docs/decisions.md` with date and reason, and reported in the
