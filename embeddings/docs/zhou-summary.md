@@ -13,7 +13,7 @@ Zhou et al. claim that in Spanish and French word embeddings, feminine occupatio
 (*médica*) lean further toward female words than masculine forms (*médico*) lean toward male
 words, and propose mitigations (Shift, Hybrid) that remove this asymmetry while keeping
 inanimate nouns' grammatical gender. **The bias is real** in the cross-lingual test, where it is stronger than the paper's own
-test could show; the monolingual asymmetry is inconclusive in both languages with native attribute words
+test could show; the monolingual asymmetry is inconclusive in Spanish and borderline in French with native attribute words (it flips with single-word list choices)
 once a fair zero point is used and the paper's attribute-word errors are corrected (Z19); with
 English attribute words French still shows it (−2.03 [−3.39, −0.63]), Spanish doesn't. **The quantitative evidence for it and for the mitigations mostly
 does not hold.** Every Table 1 p-value is guaranteed by construction; the headline Shift result

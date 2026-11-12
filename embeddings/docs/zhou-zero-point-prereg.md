@@ -204,3 +204,8 @@ words Zhou's asymmetry is inconclusive in both languages.** The English-attribut
 corrected lists and are unchanged: FR −2.03 [−3.39, −0.63], asymmetry (feminine further); ES −3.15
 [−6.35, 0.17], inconclusive, depends on *bebé, hada*. So French still shows the asymmetry when
 measured against English gender words.
+
+**List audit (2026-11-11, exploratory, `results/list_audit/`).** With corrected attributes and the
+occupation targets restricted to the cleaned list (French drops only *conservateur* 'tory'), French
+native reads asymmetry again (−1.91 [−3.34, −0.39]); Spanish stays inconclusive. **French native is
+therefore borderline**: it flips with single-word list choices and should be reported that way.

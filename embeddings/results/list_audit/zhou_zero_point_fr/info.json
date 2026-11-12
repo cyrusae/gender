@@ -1,0 +1,18 @@
+{
+ "n_pairs": 22,
+ "listed": 3110,
+ "dropped_not_in_50k": [
+  "automobiliste",
+  "dupe",
+  "gamer",
+  "gourmet",
+  "guette"
+ ],
+ "dropped_overlap_occupation_or_attribute": [],
+ "strict_epicenes_after_coverage": {
+  "m": 74,
+  "f": 23
+ },
+ "floor_met": true,
+ "primary_anchor": "epicene_strict"
+}

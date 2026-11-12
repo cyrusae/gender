@@ -1,0 +1,5 @@
+space,yardstick,anchors_agree,primary,verdict_primary,A,A_lo,A_hi,raw,loo_depends_on,S1-S6_depends_on,S4_broad_verdict,label
+original,english,True,epicene_strict,inconclusive,-2.0845378261582574,-4.5840697945686415,0.37132285354699707,-2.935893984224066,[],[],inconclusive,
+original,native,True,epicene_strict,inconclusive,-1.224243588254097,-4.045886043670478,1.2878535170059944,-1.4732197314790336,[],[],inconclusive,
+shift_ori,english,True,epicene_strict,inconclusive,0.6858691370961636,-1.6796687121708196,3.013368601719032,-0.16548702096964485,[],[],inconclusive,algebraically constrained (Z14)
+shift_ori,native,True,epicene_strict,inconclusive,1.6552054583024134,-1.019390819932379,4.1846210586014045,1.4062293150774767,[],[],inconclusive,algebraically constrained (Z14)
