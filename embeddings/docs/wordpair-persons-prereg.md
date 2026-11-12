@@ -130,3 +130,23 @@ both a frequency imbalance between the forms and the English noun's gender stere
 What makes occupations different is not settled here: occupations are the nouns whose feminine
 forms are rarest relative to the masculine (as P3's frequency term shows), and that rarity itself
 plausibly reflects who has held the jobs, so frequency and stereotype are entangled.
+
+## Remaining conditions (2026-11-11, script e700dff; `results/wordpair_persons/extra_conditions.csv`)
+
+Invariant cues were pre-registered as descriptive but omitted from the first script (Claude's
+omission); masculine cues and plain translation (English noun alone, no cue) are exploratory additions
+made after the main results. Gap = RR_masc − RR_fem, 95% intervals.
+
+| Condition | Persons | Occupations | Difference |
+|---|---|---|---|
+| Plain translation (no cue) | 0.28 [0.21, 0.36] | 0.51 [0.45, 0.57] | −0.23 [−0.33, −0.13] |
+| Invariant cues (descriptive) | 0.26 [0.20, 0.34] | 0.49 [0.43, 0.55] | −0.23 [−0.32, −0.13] |
+| Masculine cues | 0.41 [0.34, 0.48] | 0.60 [0.54, 0.66] | −0.19 [−0.27, −0.10] |
+| Feminine cues (primary, above) | −0.005 [−0.08, 0.07] | 0.29 [0.22, 0.36] | −0.29 [−0.39, −0.20] |
+
+Same pattern without flagged nouns. **Reading (exploratory):** the masculine form is the default
+translation for person nouns too (*neighbour* → *vecino* over *vecina*, gap 0.28), but about half as
+strongly as for occupations (0.51). A feminine cue moves both groups by a similar amount (persons
+0.28 → 0.00, occupations 0.51 → 0.29), so what is specific to occupations is the stronger masculine
+default, not resistance to the cue: the cue cancels the person-noun default and only partly cancels
+the occupational one. Identity nouns: plain 0.33, feminine cue −0.14.

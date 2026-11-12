@@ -49,7 +49,10 @@ effect, which comes from Bolukbasi's English debiasing.
 - **Why English "doctor" lands on *médico* (cross-lingual).** It is specific to occupations: for
   107 ordinary person nouns (*vecino/vecina, amigo/amiga*) there is no intrusion (−0.005 [−0.077,
   0.070]) against 0.290 [0.221, 0.357] for occupations (pre-registered, robust to every homograph
-  flag), so the generic masculine alone doesn't explain it. Within nouns, both how much rarer the
+  flag), so the generic masculine alone doesn't explain it. Without a cue the masculine form is the default
+  translation for both groups, about twice as strongly for occupations (0.51 vs 0.28); a feminine
+  cue shifts both by a similar amount, cancelling the person default but only part of the
+  occupational one (exploratory). Within nouns, both how much rarer the
   feminine form is (β 0.35) and how male the English noun is rated (β 0.22) predict intrusion; the
   two are entangled for occupations. Not the bilingual dictionary (D null twice). Feminine forms that
   also name a field (*química*) add to it. `wordpair-mechanism-prereg.md`, `wordpair-persons-prereg.md`

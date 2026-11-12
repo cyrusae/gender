@@ -1,0 +1,25 @@
+set,condition,measure,gap_m_minus_f,lo,hi,n_nouns,n_cues
+all,"invariant cues (pre-registered, descriptive)",person,0.26462187685113947,0.19554551786829524,0.33647490751870024,107,67
+all,"invariant cues (pre-registered, descriptive)",occupation,0.4922374330260941,0.4331081277213484,0.5495447852310932,115,67
+all,"invariant cues (pre-registered, descriptive)",identity,0.24485028490032656,0.16465589275633538,0.3216769159188423,102,67
+all,"invariant cues (pre-registered, descriptive)",person-occupation,-0.2276155561749546,-0.3161695460557601,-0.13354591118861875,107/115,67
+no flagged nouns,"invariant cues (pre-registered, descriptive)",person,0.26215296290080853,0.18021268145478048,0.34207405560198106,73,67
+no flagged nouns,"invariant cues (pre-registered, descriptive)",occupation,0.5474538661636705,0.47460723980302155,0.6154624539685866,63,67
+no flagged nouns,"invariant cues (pre-registered, descriptive)",identity,0.23270681853180702,0.13386509015006529,0.32386385802111295,74,67
+no flagged nouns,"invariant cues (pre-registered, descriptive)",person-occupation,-0.285300903262862,-0.3919517074322533,-0.17746501528086456,73/63,67
+all,masculine cues (exploratory),person,0.41173996603501606,0.34465240440594846,0.4794211934606275,107,87
+all,masculine cues (exploratory),occupation,0.598944795869755,0.5390183073044844,0.655570801102239,115,87
+all,masculine cues (exploratory),identity,0.4471620503498153,0.37874343780443387,0.513433683085163,102,87
+all,masculine cues (exploratory),person-occupation,-0.18720482983473896,-0.27443203314626946,-0.09916877492753538,107/115,87
+no flagged nouns,masculine cues (exploratory),person,0.4223932722486699,0.3451670410143432,0.49884865824806746,73,87
+no flagged nouns,masculine cues (exploratory),occupation,0.6574405964447676,0.5828560085834104,0.7253372503576104,63,87
+no flagged nouns,masculine cues (exploratory),identity,0.4668108850885549,0.38316905084661546,0.5429395555934885,74,87
+no flagged nouns,masculine cues (exploratory),person-occupation,-0.2350473241960977,-0.3353618035920296,-0.13009037133240567,73/63,87
+all,plain translation (exploratory),person,0.2814597386566936,0.20539271429382272,0.3571717456442242,107,1
+all,plain translation (exploratory),occupation,0.5120061034627175,0.45152931208530145,0.5696459488676828,115,1
+all,plain translation (exploratory),identity,0.32963842965355,0.24463216799985824,0.4109861121603972,102,1
+all,plain translation (exploratory),person-occupation,-0.23054636480602386,-0.32692459117129724,-0.13433189518733427,107/115,1
+no flagged nouns,plain translation (exploratory),person,0.2902438078669786,0.19805723075809506,0.3825374016725933,73,1
+no flagged nouns,plain translation (exploratory),occupation,0.5727153666796261,0.4990166389309851,0.6444715816918036,63,1
+no flagged nouns,plain translation (exploratory),identity,0.32677714764798066,0.21985815783357904,0.4279919598094952,74,1
+no flagged nouns,plain translation (exploratory),person-occupation,-0.28247155881264746,-0.39975667912020957,-0.16486565710051573,73/63,1
