@@ -59,3 +59,29 @@ from male-specific uses; this tests a prediction of the generic account.
 
 PI accepted all open points: Spanish only (French to revisit), per-pair A, the plural rule, floor 25.
 Plural list frozen as is (rule accepted, PI): `data/wp_persons_es_plurals_v0.csv`, sha256 b302a102f40b7c00…. Script `scripts/persons_genmasc.py`.
+
+## Results (2026-11-11, run at f352a17; `results/persons_genmasc/`)
+
+**Discrepancy found after the run (Claude's drafting error).** The Materials section says "all four
+forms in the first 50k MUSE words" and counts 51 persons / 43 occupations, but also says the design is
+"exactly as the generic-masculine study", which used the first **200k** words; the committed script
+loads 200k (as that study's loader does). Both are reported; which is primary is the PI's call.
+
+| Vocabulary | Group | n | Δρ [95%] | G1 | G2 |
+|---|---|---|---|---|---|
+| 200k (script) | persons | 101 | 0.29 [−0.08, 0.76] | inconclusive | not shown |
+| 200k | occupations | 91 | 0.46 [0.05, 1.18] | supported | at neutral |
+| 200k | persons − occupations | | −0.17 [−0.49, 0.02] | | |
+| 50k (text) | persons | 51 | 0.38 [0.005, 0.96] | supported | not shown |
+| 50k | occupations | 43 | 0.37 [−0.17, 1.35] | inconclusive | not shown |
+| 50k | persons − occupations | | 0.01 [−0.55, 0.37] | | |
+
+Without flagged nouns: 200k persons 0.21 [−0.15, 0.71] (71), occupations 0.50 [0.09, 1.33] (49),
+difference −0.28 [−0.75, −0.04]; 50k all inconclusive (38 / 16 pairs). 50k outputs in
+`results/persons_genmasc/vocab50k/` (same script with `nmax=50_000`, run after the 200k results).
+
+**Reading.** Δρ is positive in every cell (masculine forms move toward neutral more in the plural),
+so the direction fits the generic-masculine account for both groups, but which group clears 0 depends
+on the vocabulary size, i.e. on which nouns are included. The verdicts aren't stable; report this as
+"same direction for persons and occupations, not established for either", not as either group
+supported.

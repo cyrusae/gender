@@ -1,0 +1,26 @@
+{
+ "all|person": {
+  "n_pairs": 51,
+  "floor_met": true,
+  "G1_generic_masculine": "supported",
+  "G2_masc_plural_at_neutral": "not shown"
+ },
+ "all|occupation": {
+  "n_pairs": 43,
+  "floor_met": true,
+  "G1_generic_masculine": "inconclusive",
+  "G2_masc_plural_at_neutral": "not shown"
+ },
+ "no flagged nouns|person": {
+  "n_pairs": 38,
+  "floor_met": true,
+  "G1_generic_masculine": "inconclusive",
+  "G2_masc_plural_at_neutral": "not shown"
+ },
+ "no flagged nouns|occupation": {
+  "n_pairs": 16,
+  "floor_met": false,
+  "G1_generic_masculine": "inconclusive",
+  "G2_masc_plural_at_neutral": "not shown"
+ }
+}

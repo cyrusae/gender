@@ -68,3 +68,23 @@ abstractness). A difference shows the asymmetry isn't general to person nouns, n
 
 PI accepted all open points: Spanish only (French to revisit), per-pair A, the plural rule, floor 25.
 Script `scripts/persons_zero_point.py`.
+
+## Results (2026-11-11, run at f352a17; `results/persons_zero_point/`)
+
+A per pair (negative = feminine forms lean further), 95% intervals:
+
+| Yardstick | Persons (107) | Occupations (115) | Zhou's 58 | D = persons − occupations |
+|---|---|---|---|---|
+| Native (primary) | −0.023 [−0.073, 0.024] | −0.035 [−0.094, 0.019] | −0.033 [−0.094, 0.024] | 0.012 [−0.010, 0.034], not distinguishable |
+| English | −0.022 [−0.065, 0.020] | −0.051 [−0.105, 0.002] | −0.054 [−0.112, 0.001] | 0.029 [−0.001, 0.059], not distinguishable |
+
+Without flagged nouns (persons 73, occupations 63): native D 0.027 [−0.000, 0.055], not
+distinguishable; English: occupations −0.068 [−0.127, −0.011] (feminine further), D 0.048 [0.013,
+0.083], "occupation-specific" (sensitivity only).
+
+**Reading.** Every group is inconclusive on the primary yardstick, and the groups aren't
+distinguishable. Point estimates line up with the word-pair finding (occupations lean more feminine-
+further than ordinary person nouns, about twice as much), and the English-yardstick sensitivity without
+flagged nouns reaches "occupation-specific", but the pre-registered primary reading is "not
+distinguishable". The Spanish monolingual asymmetry is too small to separate from zero or between
+groups with 8 + 8 attribute words.
