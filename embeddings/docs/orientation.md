@@ -18,7 +18,7 @@ fair zero point their monolingual asymmetry is inconclusive in Spanish and borde
 Grammatical gender of inanimates survives the mitigations; human gender ratings of objects show up in
 the vectors. Full claim table: `docs/zhou-summary.md`; inanimates: `docs/inanimates-summary.md`.
 
-**Authors.** Emailed 2026-11-11; Ryan Cotterell replied wanting details for a marked arXiv/Anthology
+**Authors.** Emailed 2026-11-11; one of the authors replied wanting details for a marked arXiv/Anthology
 correction and asked Jieyu Zhao about unreleased code. PI replied with a summary and a technical
 attachment (`drafts/issues-for-authors-v2.md`). Appendix draft: `drafts/zhou-appendix-issues.md`
 (paper labels B1–B21 with a Repo ID column; never renumber Z IDs).
