@@ -1,0 +1,86 @@
+=== gpt-6-luna
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+11/11/2026 19:28:54 - INFO - 	 missing_keys: []
+11/11/2026 19:28:54 - INFO - 	 unexpected_keys: []
+11/11/2026 19:28:54 - INFO - 	 mismatched_keys: []
+11/11/2026 19:28:54 - INFO - 	 error_msgs: []
+11/11/2026 19:28:54 - INFO - 	 Model Parameters: 90.5M, Transformer: 82.1M, Coref head: 8.4M
+11/11/2026 19:28:54 - INFO - 	 Tokenize 300 inputs...
+Map:   0%|          | 0/300 [00:00<?, ? examples/s]Map: 100%|██████████| 300/300 [00:01<00:00, 280.05 examples/s]Map: 100%|██████████| 300/300 [00:01<00:00, 278.96 examples/s]
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/pyarrow/compute.py:231: FutureWarning: Specifying null_placement in SortOptions is deprecated as of 25.0.0. Specify null_placement per sort_key instead.
+  return options_class(*args, **kwargs)
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+11/11/2026 19:29:03 - INFO - 	 missing_keys: []
+11/11/2026 19:29:03 - INFO - 	 unexpected_keys: []
+11/11/2026 19:29:03 - INFO - 	 mismatched_keys: []
+11/11/2026 19:29:03 - INFO - 	 error_msgs: []
+11/11/2026 19:29:03 - INFO - 	 Model Parameters: 90.5M, Transformer: 82.1M, Coref head: 8.4M
+11/11/2026 19:29:03 - INFO - 	 Tokenize 300 inputs...
+Map:   0%|          | 0/300 [00:00<?, ? examples/s]Map: 100%|██████████| 300/300 [00:00<00:00, 430.92 examples/s]Map: 100%|██████████| 300/300 [00:00<00:00, 429.85 examples/s]
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/pyarrow/compute.py:231: FutureWarning: Specifying null_placement in SortOptions is deprecated as of 25.0.0. Specify null_placement per sort_key instead.
+  return options_class(*args, **kwargs)
+False agree 100.0% kappa 1.00
+coref  he  she  they
+regex               
+he     64    0     0
+she     0  231     0
+they    0    0     5
+True agree 98.7% kappa 0.95
+coref  he  mixed  she  they
+regex                      
+he     46      0    0     0
+mixed   0      0    2     0
+she     0      2  246     0
+they    0      0    0     4
+=== qwen3-14b_off
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+11/11/2026 19:29:13 - INFO - 	 missing_keys: []
+11/11/2026 19:29:13 - INFO - 	 unexpected_keys: []
+11/11/2026 19:29:13 - INFO - 	 mismatched_keys: []
+11/11/2026 19:29:13 - INFO - 	 error_msgs: []
+11/11/2026 19:29:13 - INFO - 	 Model Parameters: 90.5M, Transformer: 82.1M, Coref head: 8.4M
+11/11/2026 19:29:13 - INFO - 	 Tokenize 300 inputs...
+Map:   0%|          | 0/300 [00:00<?, ? examples/s]Map: 100%|██████████| 300/300 [00:01<00:00, 286.34 examples/s]Map: 100%|██████████| 300/300 [00:01<00:00, 285.62 examples/s]
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/pyarrow/compute.py:231: FutureWarning: Specifying null_placement in SortOptions is deprecated as of 25.0.0. Specify null_placement per sort_key instead.
+  return options_class(*args, **kwargs)
+False agree 99.7% kappa 0.99
+coref  he  it  she  they
+regex                   
+he     92   0    0     0
+it      0   1    0     0
+she     0   0  156     0
+they    0   1    0    50
+=== qwen3-14b_on
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+11/11/2026 19:29:28 - INFO - 	 missing_keys: []
+11/11/2026 19:29:28 - INFO - 	 unexpected_keys: []
+11/11/2026 19:29:28 - INFO - 	 mismatched_keys: []
+11/11/2026 19:29:28 - INFO - 	 error_msgs: []
+11/11/2026 19:29:28 - INFO - 	 Model Parameters: 90.5M, Transformer: 82.1M, Coref head: 8.4M
+11/11/2026 19:29:28 - INFO - 	 Tokenize 300 inputs...
+Map:   0%|          | 0/300 [00:00<?, ? examples/s]Map: 100%|██████████| 300/300 [00:01<00:00, 298.56 examples/s]Map: 100%|██████████| 300/300 [00:01<00:00, 297.88 examples/s]
+/private/tmp/claude-502/-Users-watcher-GitHere-gender/cd03088e-07ba-4487-8972-ddeff639d125/scratchpad/corefenv/lib/python3.11/site-packages/pyarrow/compute.py:231: FutureWarning: Specifying null_placement in SortOptions is deprecated as of 25.0.0. Specify null_placement per sort_key instead.
+  return options_class(*args, **kwargs)
+True agree 99.3% kappa 0.99
+coref  he  mixed  she  they
+regex                      
+he     76      0    0     0
+she     0      0  158     0
+they    0      2    0    64
+=== COREF DONE
