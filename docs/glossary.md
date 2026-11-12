@@ -275,6 +275,12 @@ software, and says which one. Phase explainers live in [`explainers/`](explainer
   over the four model × thinking cells); only if it passes are individual cells tested (with Holm).
   Keeps the overall false-alarm rate at 5% and gives the headline the most powerful test.
 
+- **Difference-in-differences.** Subtracting one change from another to cancel what they share:
+  here, a noun's shift under a gendered-language word minus its shift under genderless-language
+  words, leaving the part due to the word's grammatical gender. *(character study, C3)*
+- **Cohen's kappa.** Agreement between two coders corrected for agreement expected by chance
+  (1 = perfect, 0 = chance; above ~0.8 is usually called excellent). *(character study, coder check)*
+
 ## Hardware and precision
 
 - **fp16 / bf16 / fp32.** Number formats. fp32 = full precision (4 bytes/parameter); fp16 and bf16
