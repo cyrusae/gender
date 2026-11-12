@@ -31,11 +31,14 @@ OUT = Path(__file__).resolve().parents[1] / "results/zhou_shift_es"
 WEAT_M = ["hombre", "niño", "padre", "masculino", "abuelo", "esposo", "hijo", "tio"]
 WEAT_F = ["niña", "femenina", "tía", "hija", "esposa", "mujer", "madre", "abuela"]
 # Upstream Z19: Zhou's lists have *tio* (misspelling) and French duplicates + a name pair. Corrected
-# lists are PRIMARY since 2026-11-11 (deviation notes in each prereg); set ZHOU_ATTR=corrected to use
-# them. The default stays "published" so frozen result files reproduce byte for byte.
+# lists are PRIMARY since 2026-11-11 (deviation notes in each prereg) and the default (PI). Set
+# ZHOU_ATTR=published to reproduce Zhou's lists and the frozen result files committed before then
+# (results/c1_*, gvalnorm_*, zhou_zero_point_*, crime_probe_*, zhou_construct*, zhou_sec43_44); the
+# corrected outputs are in results/attrfix_sensitivity/. Rerunning with the default overwrites those
+# frozen files with corrected values.
 import os as _os  # noqa: E402
 
-CORRECTED = _os.environ.get("ZHOU_ATTR", "published") == "corrected"
+CORRECTED = _os.environ.get("ZHOU_ATTR", "corrected") != "published"
 if CORRECTED:
     WEAT_M = ["hombre", "niño", "padre", "masculino", "abuelo", "esposo", "hijo", "tío"]
 
