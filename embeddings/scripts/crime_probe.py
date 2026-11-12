@@ -21,7 +21,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from c1_run import EN_F, EN_M
-from zhou_shift import WEAT_F, WEAT_M, Z
+from zhou_shift import attributes, Z
 
 ROOT = Path(__file__).resolve().parents[1]
 FLOOR, N_BOOT = 8, 10_000
@@ -103,7 +103,7 @@ def main(lang):
     E, w2i = load(Z / f"data/wiki.multi.{lang}.vec.txt", 200_000)
     en, en_w2i = load(Z / "data/wiki.multi.en.vec.txt", 200_000)
     defs = json.load(open(Z / f"{lang.upper()}_definitional_pairs.json"))
-    am, af = (WEAT_M, WEAT_F) if lang == "es" else ([b for _, b in defs], [a for a, _ in defs])
+    am, af = attributes(lang, defs)
     occ = {w for line in open(Z / f"{lang.upper()}_occupation_words_with_EN_translations")
            for w in line.rstrip("\n").split("\t")[:2]}  # fmt: skip
     ref = pd.read_csv(ROOT / f"data/zero_ref_{lang}_frozen_v1.csv")

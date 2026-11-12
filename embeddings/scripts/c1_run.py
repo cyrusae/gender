@@ -27,7 +27,7 @@ import numpy as np
 import pandas as pd
 from sklearn.svm import LinearSVC
 from zhou_hybrid import DICT, hard_debias, procrustes
-from zhou_shift import WEAT_F, WEAT_M, Z, load_vec, nouns, pca_dir, shift
+from zhou_shift import attributes, WEAT_F, WEAT_M, Z, load_vec, nouns, pca_dir, shift
 
 ROOT = Path(__file__).resolve().parents[1]
 SHA = {"es": "2c58b883bb1ba3ebf613351c65ce00ad2a19782e03cb112a8bee76bebbc4d0c2",
@@ -85,7 +85,7 @@ def main(lang="es"):
         exc = nl["es_exception"].notna().to_numpy()
     else:  # Addendum A: French attributes = Zhou et al.'s French definitional pairs
         fdefs = json.load(open(Z / "FR_definitional_pairs.json"))
-        att_m, att_f = [b for _, b in fdefs], [a for a, _ in fdefs]
+        att_m, att_f = attributes("fr", fdefs)
         regular = nl["fr_suffix"].notna().to_numpy()
         other = ~regular
         exc = (nl["fr_suffix_regular"] == "no").to_numpy()

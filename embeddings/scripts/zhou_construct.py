@@ -13,7 +13,7 @@ import json
 
 import numpy as np
 from sklearn.svm import LinearSVC
-from zhou_shift import WEAT_F, WEAT_M, Z, load_vec, nouns, pca_dir, shift
+from zhou_shift import attributes, Z, load_vec, nouns, pca_dir, shift
 
 OUT = Z.parents[1] / "results/zhou_construct.json"
 
@@ -30,7 +30,7 @@ for lang in ("es", "fr"):
     occ = [line.rstrip("\n").split("\t") for line in open(Z / f"{lang.upper()}_occupation_words_with_EN_translations")]
     pairs = [(m, f) for f, m, _ in occ]
     defs = json.load(open(Z / f"{lang.upper()}_definitional_pairs.json"))
-    am, af = (WEAT_M, WEAT_F) if lang == "es" else ([b for _, b in defs], [a for a, _ in defs])
+    am, af = attributes(lang, defs)
     a = np.mean([E[w2i[w]] for w in am], 0) - np.mean([E[w2i[w]] for w in af], 0)
     d = pca_dir(defs, E, w2i)
     gp = list(zip(nouns(f"feminine_nouns_{lang}", w2i), nouns(f"masculine_nouns_{lang}", w2i)))[:3000]

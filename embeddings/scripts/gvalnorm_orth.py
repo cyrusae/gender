@@ -16,7 +16,7 @@ import pandas as pd
 from c1_run import EN_F, EN_M, directions, project_out, unit
 from gvalnorm_run import fit, verdict
 from zhou_hybrid import DICT, hard_debias, procrustes
-from zhou_shift import WEAT_F, WEAT_M, Z, load_vec, nouns, shift
+from zhou_shift import attributes, WEAT_F, WEAT_M, Z, load_vec, nouns, shift
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -28,7 +28,7 @@ def main(lang="es"):
         att_m, att_f = WEAT_M, WEAT_F
     else:
         fdefs = json.load(open(Z / "FR_definitional_pairs.json"))
-        att_m, att_f = [b for _, b in fdefs], [a for a, _ in fdefs]
+        att_m, att_f = attributes("fr", fdefs)
     es, w2i = load_vec(Z / f"data/wiki.multi.{lang}.vec.txt", nmax=200000)
     en, en_w2i = load_vec(Z / "data/wiki.multi.en.vec.txt", nmax=200000)
     w2i50 = {w: i for w, i in w2i.items() if i < 50000}

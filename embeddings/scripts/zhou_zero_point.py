@@ -19,7 +19,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from c1_run import EN_F, EN_M, directions
-from zhou_shift import WEAT_F, WEAT_M, Z, load_vec, shift
+from zhou_shift import attributes, Z, load_vec, shift
 
 ROOT = Path(__file__).resolve().parents[1]
 FLOOR = 15
@@ -110,7 +110,7 @@ def main(lang):
     occ = [line.rstrip("\n").split("\t") for line in open(Z / f"{lang.upper()}_occupation_words_with_EN_translations")]
     pairs = [(m, f) for f, m, _ in occ]
     defs = json.load(open(Z / f"{lang.upper()}_definitional_pairs.json"))
-    am, af = (WEAT_M, WEAT_F) if lang == "es" else ([b for _, b in defs], [a for a, _ in defs])
+    am, af = attributes(lang, defs)
     ref = pd.read_csv(ROOT / f"data/zero_ref_{lang}_frozen_v1.csv")
     taken = {w for p in pairs for w in p} | set(am) | set(af)
     info = {"n_pairs": len(pairs), "listed": len(ref),

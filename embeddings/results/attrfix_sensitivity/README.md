@@ -23,3 +23,7 @@ Omrani reruns.
 Duplicates removed but names kept (French only): zero point −1.74 [−3.37, 0.05] (inconclusive);
 crime epicene lean 0.034 [−0.001, 0.073] (inconclusive). The zero-point change doesn't depend on the
 name rule; the crime change does.
+
+Reproduce: run any of the affected scripts with `ZHOU_ATTR=corrected` (switch in
+`scripts/zhou_shift.py`, `attributes()`); the default `published` reproduces the frozen files. Checked:
+French zero point gives −1.91 (published) and −1.53 (corrected).

@@ -30,6 +30,24 @@ Z = Path(__file__).resolve().parents[1] / "external/Bias_in_Gendered_Languages"
 OUT = Path(__file__).resolve().parents[1] / "results/zhou_shift_es"
 WEAT_M = ["hombre", "niño", "padre", "masculino", "abuelo", "esposo", "hijo", "tio"]
 WEAT_F = ["niña", "femenina", "tía", "hija", "esposa", "mujer", "madre", "abuela"]
+# Upstream Z19: Zhou's lists have *tio* (misspelling) and French duplicates + a name pair. Corrected
+# lists are PRIMARY since 2026-11-11 (deviation notes in each prereg); set ZHOU_ATTR=corrected to use
+# them. The default stays "published" so frozen result files reproduce byte for byte.
+import os as _os  # noqa: E402
+
+CORRECTED = _os.environ.get("ZHOU_ATTR", "published") == "corrected"
+if CORRECTED:
+    WEAT_M = ["hombre", "niño", "padre", "masculino", "abuelo", "esposo", "hijo", "tío"]
+
+
+def attributes(lang, defs):
+    """(male, female) attribute words: Spanish WEAT lists, French = definitional pairs (cell 215)."""
+    if lang == "es":
+        return WEAT_M, WEAT_F
+    if CORRECTED:
+        return (["homme", "mari", "garçon", "fils", "il", "père", "mâle", "frère", "oncle"],
+                ["femme", "fille", "elle", "mère", "femelle", "sœur", "tante"])
+    return [b for _, b in defs], [a for a, _ in defs]
 
 
 def load_vec(path, nmax=50000):
