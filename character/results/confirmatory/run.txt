@@ -1,0 +1,494 @@
+/Users/watcher/GitHere/gender/worktrees/gender-character/character/scripts/run_confirmatory.py:97: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  w = pd.concat([am.noun_diffs(ss, f"wug_{x}", "plain_aan") for x in am.WUGS], axis=1).mean(1)
+/Users/watcher/GitHere/gender/worktrees/gender-character/character/scripts/run_confirmatory.py:97: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  w = pd.concat([am.noun_diffs(ss, f"wug_{x}", "plain_aan") for x in am.WUGS], axis=1).mean(1)
+/Users/watcher/GitHere/gender/worktrees/gender-character/character/scripts/run_confirmatory.py:97: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  w = pd.concat([am.noun_diffs(ss, f"wug_{x}", "plain_aan") for x in am.WUGS], axis=1).mean(1)
+/Users/watcher/GitHere/gender/worktrees/gender-character/character/scripts/run_confirmatory.py:97: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  w = pd.concat([am.noun_diffs(ss, f"wug_{x}", "plain_aan") for x in am.WUGS], axis=1).mean(1)
+                                                   test     est    lo95    hi95     p              decision  n_nouns  p_perm
+                               Q1 headline (4-cell avg)  26.056  22.887  29.226 0.000            effect (+)    188.0     NaN
+                                         Q1 Luna medium  17.777  14.907  20.647 0.000            effect (+)    191.0     NaN
+                                           Q1 Luna none  33.231  29.572  36.889 0.000            effect (+)    191.0     NaN
+                                            Q1 Qwen off  32.696  26.634  38.758 0.000            effect (+)    188.0     NaN
+                                             Q1 Qwen on  19.629  15.577  23.681 0.000            effect (+)    191.0     NaN
+                  Q1 robustness permutation Luna medium     NaN     NaN     NaN   NaN                   NaN      NaN     0.0
+                            Q1 frame=writer Luna medium  18.157  15.141  21.173 0.000                   NaN    191.0     NaN
+                          Q1 frame=consider Luna medium  17.397  13.942  20.853 0.000                   NaN    191.0     NaN
+                      Q1 lang=de Luna medium (estimate)  37.139  30.513  43.766 0.000                   NaN    149.0     NaN
+                      Q1 lang=ru Luna medium (estimate)  12.409   6.252  18.567 0.000                   NaN    155.0     NaN
+                      Q1 lang=es Luna medium (estimate)  19.695  14.605  24.784 0.000                   NaN    191.0     NaN
+                      Q1 lang=hi Luna medium (estimate)  10.501   5.493  15.508 0.000                   NaN    191.0     NaN
+                      Q1 lang=ar Luna medium (estimate)  12.564   8.265  16.864 0.000                   NaN    191.0     NaN
+            Q1 neuter mean shift Luna medium (estimate)  -1.303  -5.309   2.703 0.518                   NaN     69.0     NaN
+                    Q1 robustness permutation Luna none     NaN     NaN     NaN   NaN                   NaN      NaN     0.0
+                              Q1 frame=writer Luna none  33.426  28.946  37.905 0.000                   NaN    191.0     NaN
+                            Q1 frame=consider Luna none  33.068  28.915  37.221 0.000                   NaN    191.0     NaN
+                        Q1 lang=de Luna none (estimate)  58.397  50.079  66.715 0.000                   NaN    149.0     NaN
+                        Q1 lang=ru Luna none (estimate)  21.878  15.284  28.473 0.000                   NaN    155.0     NaN
+                        Q1 lang=es Luna none (estimate)  39.868  33.127  46.609 0.000                   NaN    191.0     NaN
+                        Q1 lang=hi Luna none (estimate)  18.957  12.718  25.196 0.000                   NaN    191.0     NaN
+                        Q1 lang=ar Luna none (estimate)  30.641  23.715  37.566 0.000                   NaN    191.0     NaN
+              Q1 neuter mean shift Luna none (estimate)  -4.925  -9.583  -0.267 0.039                   NaN     69.0     NaN
+                     Q1 robustness permutation Qwen off     NaN     NaN     NaN   NaN                   NaN      NaN     0.0
+                               Q1 frame=writer Qwen off  34.424  27.477  41.372 0.000                   NaN    188.0     NaN
+                             Q1 frame=consider Qwen off  31.809  24.171  39.447 0.000                   NaN    170.0     NaN
+                         Q1 lang=de Qwen off (estimate)  41.516  29.675  53.357 0.000                   NaN    145.0     NaN
+                         Q1 lang=ru Qwen off (estimate)  32.031  20.693  43.369 0.000                   NaN    152.0     NaN
+                         Q1 lang=es Qwen off (estimate)  28.366  19.276  37.456 0.000                   NaN    184.0     NaN
+                         Q1 lang=hi Qwen off (estimate)  33.269  22.803  43.735 0.000                   NaN    183.0     NaN
+                         Q1 lang=ar Qwen off (estimate)  30.379  20.751  40.006 0.000                   NaN    184.0     NaN
+               Q1 neuter mean shift Qwen off (estimate)   5.609  -2.306  13.523 0.162                   NaN     65.0     NaN
+                      Q1 robustness permutation Qwen on     NaN     NaN     NaN   NaN                   NaN      NaN     0.0
+                                Q1 frame=writer Qwen on  20.443  15.193  25.693 0.000                   NaN    191.0     NaN
+                              Q1 frame=consider Qwen on  18.667  14.027  23.306 0.000                   NaN    189.0     NaN
+                          Q1 lang=de Qwen on (estimate)  22.010  13.102  30.918 0.000                   NaN    148.0     NaN
+                          Q1 lang=ru Qwen on (estimate)  23.469  16.244  30.694 0.000                   NaN    155.0     NaN
+                          Q1 lang=es Qwen on (estimate)  17.805  11.304  24.306 0.000                   NaN    191.0     NaN
+                          Q1 lang=hi Qwen on (estimate)  18.188   9.399  26.977 0.000                   NaN    190.0     NaN
+                          Q1 lang=ar Qwen on (estimate)  17.788  10.693  24.882 0.000                   NaN    190.0     NaN
+                Q1 neuter mean shift Qwen on (estimate)  -2.072  -7.367   3.222 0.437                   NaN     69.0     NaN
+                     Q2 mod a bad vs plain_aan headline -36.044 -39.693 -32.395 0.000            effect (-)    178.0     NaN
+                  Q2 mod a bad vs plain_aan Luna medium -54.261 -58.982 -49.540 0.000            effect (-)    191.0     NaN
+                    Q2 mod a bad vs plain_aan Luna none -41.060 -46.174 -35.946 0.000            effect (-)    191.0     NaN
+                     Q2 mod a bad vs plain_aan Qwen off -26.116 -31.707 -20.526 0.000            effect (-)    184.0     NaN
+                      Q2 mod a bad vs plain_aan Qwen on -25.745 -31.123 -20.367 0.000            effect (-)    182.0     NaN
+              Q2 mod a benevolent vs plain_aan headline  10.582   7.992  13.173 0.000            effect (+)    173.0     NaN
+           Q2 mod a benevolent vs plain_aan Luna medium  14.980  11.336  18.624 0.000            effect (+)    191.0     NaN
+             Q2 mod a benevolent vs plain_aan Luna none  19.411  15.150  23.672 0.000            effect (+)    191.0     NaN
+              Q2 mod a benevolent vs plain_aan Qwen off   4.583   1.411   7.755 0.005            effect (+)    173.0     NaN
+               Q2 mod a benevolent vs plain_aan Qwen on   5.814   3.050   8.577 0.000            effect (+)    191.0     NaN
+                 Q2 mod a bizarre vs plain_aan headline  -9.280 -11.577  -6.983 0.000            effect (-)    168.0     NaN
+              Q2 mod a bizarre vs plain_aan Luna medium -34.889 -39.635 -30.143 0.000            effect (-)    191.0     NaN
+                Q2 mod a bizarre vs plain_aan Luna none -14.325 -18.806  -9.845 0.000            effect (-)    191.0     NaN
+                 Q2 mod a bizarre vs plain_aan Qwen off   3.170  -0.252   6.591 0.069          inconclusive    173.0     NaN
+                  Q2 mod a bizarre vs plain_aan Qwen on   4.152   1.254   7.050 0.005            effect (+)    183.0     NaN
+                  Q2 mod a boring vs plain_aan headline -46.747 -49.984 -43.510 0.000            effect (-)    183.0     NaN
+               Q2 mod a boring vs plain_aan Luna medium -57.926 -62.637 -53.214 0.000            effect (-)    191.0     NaN
+                 Q2 mod a boring vs plain_aan Luna none -45.118 -50.033 -40.203 0.000            effect (-)    191.0     NaN
+                  Q2 mod a boring vs plain_aan Qwen off -35.822 -42.113 -29.530 0.000            effect (-)    183.0     NaN
+                   Q2 mod a boring vs plain_aan Qwen on -48.663 -53.501 -43.826 0.000            effect (-)    191.0     NaN
+                  Q2 mod a common vs plain_aan headline  -4.381  -6.183  -2.579 0.000            effect (-)    181.0     NaN
+               Q2 mod a common vs plain_aan Luna medium  -4.523  -7.821  -1.225 0.007            effect (-)    191.0     NaN
+                 Q2 mod a common vs plain_aan Luna none  -7.422 -10.769  -4.075 0.000            effect (-)    191.0     NaN
+                  Q2 mod a common vs plain_aan Qwen off  -3.079  -5.572  -0.586 0.016            effect (-)    182.0     NaN
+                   Q2 mod a common vs plain_aan Qwen on  -4.375  -7.531  -1.219 0.007            effect (-)    189.0     NaN
+               Q2 mod a confirmed vs plain_aan headline  -1.084  -2.834   0.667 0.223 no effect of interest    179.0     NaN
+            Q2 mod a confirmed vs plain_aan Luna medium   5.425   2.353   8.497 0.001          inconclusive    191.0     NaN
+              Q2 mod a confirmed vs plain_aan Luna none   2.395  -0.513   5.303 0.106 no effect of interest    191.0     NaN
+               Q2 mod a confirmed vs plain_aan Qwen off  -5.308  -8.415  -2.201 0.001          inconclusive    180.0     NaN
+                Q2 mod a confirmed vs plain_aan Qwen on  -6.700 -10.113  -3.288 0.000          inconclusive    189.0     NaN
+               Q2 mod a dangerous vs plain_aan headline  -5.446  -7.519  -3.373 0.000            effect (-)    185.0     NaN
+            Q2 mod a dangerous vs plain_aan Luna medium -13.554 -17.675  -9.433 0.000            effect (-)    191.0     NaN
+              Q2 mod a dangerous vs plain_aan Luna none -12.788 -16.974  -8.602 0.000            effect (-)    191.0     NaN
+               Q2 mod a dangerous vs plain_aan Qwen off   2.403  -0.262   5.068 0.077 no effect of interest    185.0     NaN
+                Q2 mod a dangerous vs plain_aan Qwen on   0.934  -1.718   3.587 0.488 no effect of interest    191.0     NaN
+              Q2 mod a deliberate vs plain_aan headline   5.914   3.919   7.910 0.000            effect (+)    185.0     NaN
+           Q2 mod a deliberate vs plain_aan Luna medium   8.566   5.274  11.859 0.000            effect (+)    191.0     NaN
+             Q2 mod a deliberate vs plain_aan Luna none  11.034   7.464  14.603 0.000            effect (+)    191.0     NaN
+              Q2 mod a deliberate vs plain_aan Qwen off   3.890   1.452   6.328 0.002            effect (+)    185.0     NaN
+               Q2 mod a deliberate vs plain_aan Qwen on  -0.601  -3.623   2.422 0.695 no effect of interest    191.0     NaN
+                    Q2 mod a fake vs plain_aan headline -18.669 -21.645 -15.693 0.000            effect (-)    181.0     NaN
+                 Q2 mod a fake vs plain_aan Luna medium -38.161 -43.250 -33.073 0.000            effect (-)    191.0     NaN
+                   Q2 mod a fake vs plain_aan Luna none -24.306 -28.968 -19.645 0.000            effect (-)    191.0     NaN
+                    Q2 mod a fake vs plain_aan Qwen off  -7.722 -11.693  -3.751 0.000            effect (-)    182.0     NaN
+                     Q2 mod a fake vs plain_aan Qwen on  -8.116 -11.952  -4.280 0.000            effect (-)    190.0     NaN
+                Q2 mod a familiar vs plain_aan headline  -0.842  -2.526   0.841 0.325 no effect of interest    183.0     NaN
+             Q2 mod a familiar vs plain_aan Luna medium  -3.475  -7.244   0.294 0.071          inconclusive    191.0     NaN
+               Q2 mod a familiar vs plain_aan Luna none   2.133  -0.866   5.133 0.162 no effect of interest    191.0     NaN
+                Q2 mod a familiar vs plain_aan Qwen off  -0.685  -3.064   1.693 0.570 no effect of interest    183.0     NaN
+                 Q2 mod a familiar vs plain_aan Qwen on  -1.959  -4.633   0.715 0.150 no effect of interest    191.0     NaN
+                  Q2 mod a famous vs plain_aan headline  -8.494 -11.039  -5.949 0.000            effect (-)    183.0     NaN
+               Q2 mod a famous vs plain_aan Luna medium -19.313 -24.243 -14.384 0.000            effect (-)    191.0     NaN
+                 Q2 mod a famous vs plain_aan Luna none -10.825 -15.407  -6.242 0.000            effect (-)    191.0     NaN
+                  Q2 mod a famous vs plain_aan Qwen off  -1.204  -4.059   1.650 0.406 no effect of interest    183.0     NaN
+                   Q2 mod a famous vs plain_aan Qwen on  -2.945  -5.875  -0.016 0.049          inconclusive    191.0     NaN
+                  Q2 mod a flawed vs plain_aan headline  -7.713 -10.284  -5.141 0.000            effect (-)    185.0     NaN
+               Q2 mod a flawed vs plain_aan Luna medium -15.256 -19.975 -10.536 0.000            effect (-)    191.0     NaN
+                 Q2 mod a flawed vs plain_aan Luna none  -3.102  -7.011   0.806 0.119          inconclusive    191.0     NaN
+                  Q2 mod a flawed vs plain_aan Qwen off  -4.624  -7.691  -1.556 0.003            effect (-)    185.0     NaN
+                   Q2 mod a flawed vs plain_aan Qwen on  -8.764 -12.410  -5.118 0.000            effect (-)    191.0     NaN
+                 Q2 mod a generic vs plain_aan headline -14.485 -17.276 -11.694 0.000            effect (-)    160.0     NaN
+              Q2 mod a generic vs plain_aan Luna medium -17.629 -21.571 -13.687 0.000            effect (-)    191.0     NaN
+                Q2 mod a generic vs plain_aan Luna none -24.632 -29.489 -19.775 0.000            effect (-)    186.0     NaN
+                 Q2 mod a generic vs plain_aan Qwen off  -9.768 -14.181  -5.355 0.000            effect (-)    165.0     NaN
+                  Q2 mod a generic vs plain_aan Qwen on  -8.123 -11.595  -4.652 0.000            effect (-)    190.0     NaN
+                    Q2 mod a good vs plain_aan headline   8.284   5.807  10.761 0.000            effect (+)    182.0     NaN
+                 Q2 mod a good vs plain_aan Luna medium  14.849  11.614  18.084 0.000            effect (+)    191.0     NaN
+                   Q2 mod a good vs plain_aan Luna none  12.474   8.505  16.442 0.000            effect (+)    191.0     NaN
+                    Q2 mod a good vs plain_aan Qwen off   2.717  -0.390   5.825 0.086          inconclusive    182.0     NaN
+                     Q2 mod a good vs plain_aan Qwen on   2.272  -0.781   5.325 0.144 no effect of interest    191.0     NaN
+                   Q2 mod a great vs plain_aan headline  -2.103  -4.150  -0.055 0.044 no effect of interest    180.0     NaN
+                Q2 mod a great vs plain_aan Luna medium  -0.596  -4.079   2.887 0.736 no effect of interest    191.0     NaN
+                  Q2 mod a great vs plain_aan Luna none  -4.542  -8.327  -0.757 0.019          inconclusive    191.0     NaN
+                   Q2 mod a great vs plain_aan Qwen off  -1.336  -4.579   1.908 0.418 no effect of interest    180.0     NaN
+                    Q2 mod a great vs plain_aan Qwen on  -1.884  -4.401   0.633 0.142 no effect of interest    191.0     NaN
+            Q2 mod a hypothetical vs plain_aan headline   5.448   3.695   7.201 0.000            effect (+)    180.0     NaN
+         Q2 mod a hypothetical vs plain_aan Luna medium   7.258   4.690   9.825 0.000            effect (+)    191.0     NaN
+           Q2 mod a hypothetical vs plain_aan Luna none   7.447   4.745  10.150 0.000            effect (+)    191.0     NaN
+            Q2 mod a hypothetical vs plain_aan Qwen off   3.414   1.269   5.559 0.002            effect (+)    180.0     NaN
+             Q2 mod a hypothetical vs plain_aan Qwen on   3.875   1.331   6.419 0.003            effect (+)    191.0     NaN
+                   Q2 mod a large vs plain_aan headline -19.041 -22.135 -15.948 0.000            effect (-)    162.0     NaN
+                Q2 mod a large vs plain_aan Luna medium -16.303 -20.061 -12.545 0.000            effect (-)    191.0     NaN
+                  Q2 mod a large vs plain_aan Luna none -29.542 -34.175 -24.909 0.000            effect (-)    191.0     NaN
+                   Q2 mod a large vs plain_aan Qwen off -19.159 -24.813 -13.505 0.000            effect (-)    164.0     NaN
+                    Q2 mod a large vs plain_aan Qwen on -15.817 -20.121 -11.514 0.000            effect (-)    187.0     NaN
+              Q2 mod a malevolent vs plain_aan headline -75.771 -78.953 -72.590 0.000            effect (-)    185.0     NaN
+           Q2 mod a malevolent vs plain_aan Luna medium -65.256 -69.416 -61.095 0.000            effect (-)    191.0     NaN
+             Q2 mod a malevolent vs plain_aan Luna none -71.558 -76.301 -66.814 0.000            effect (-)    191.0     NaN
+              Q2 mod a malevolent vs plain_aan Qwen off -82.056 -86.675 -77.438 0.000            effect (-)    185.0     NaN
+               Q2 mod a malevolent vs plain_aan Qwen on -84.619 -88.236 -81.002 0.000            effect (-)    191.0     NaN
+                Q2 mod a mediocre vs plain_aan headline -46.980 -50.650 -43.309 0.000            effect (-)    185.0     NaN
+             Q2 mod a mediocre vs plain_aan Luna medium -52.690 -57.495 -47.885 0.000            effect (-)    191.0     NaN
+               Q2 mod a mediocre vs plain_aan Luna none -52.971 -57.894 -48.049 0.000            effect (-)    191.0     NaN
+                Q2 mod a mediocre vs plain_aan Qwen off -37.732 -43.607 -31.856 0.000            effect (-)    185.0     NaN
+                 Q2 mod a mediocre vs plain_aan Qwen on -46.107 -51.377 -40.836 0.000            effect (-)    191.0     NaN
+                  Q2 mod a modern vs plain_aan headline   7.313   5.383   9.243 0.000            effect (+)    180.0     NaN
+               Q2 mod a modern vs plain_aan Luna medium  10.530   7.658  13.402 0.000            effect (+)    191.0     NaN
+                 Q2 mod a modern vs plain_aan Luna none  10.250   7.172  13.327 0.000            effect (+)    190.0     NaN
+                  Q2 mod a modern vs plain_aan Qwen off   3.514   0.912   6.116 0.008            effect (+)    182.0     NaN
+                   Q2 mod a modern vs plain_aan Qwen on   4.639   2.219   7.059 0.000            effect (+)    190.0     NaN
+                 Q2 mod a natural vs plain_aan headline  10.570   7.844  13.295 0.000            effect (+)    178.0     NaN
+              Q2 mod a natural vs plain_aan Luna medium  13.148   9.599  16.696 0.000            effect (+)    191.0     NaN
+                Q2 mod a natural vs plain_aan Luna none  16.008  11.851  20.165 0.000            effect (+)    191.0     NaN
+                 Q2 mod a natural vs plain_aan Qwen off   6.795   3.172  10.419 0.000            effect (+)    178.0     NaN
+                  Q2 mod a natural vs plain_aan Qwen on   7.937   4.998  10.877 0.000            effect (+)    191.0     NaN
+                     Q2 mod a new vs plain_aan headline  11.224   8.627  13.821 0.000            effect (+)    184.0     NaN
+                  Q2 mod a new vs plain_aan Luna medium  12.886   9.428  16.343 0.000            effect (+)    191.0     NaN
+                    Q2 mod a new vs plain_aan Luna none  15.641  11.655  19.628 0.000            effect (+)    191.0     NaN
+                     Q2 mod a new vs plain_aan Qwen off   8.802   5.248  12.356 0.000            effect (+)    184.0     NaN
+                      Q2 mod a new vs plain_aan Qwen on   7.405   4.819   9.991 0.000            effect (+)    191.0     NaN
+                  Q2 mod a normal vs plain_aan headline -10.121 -12.887  -7.355 0.000            effect (-)    167.0     NaN
+               Q2 mod a normal vs plain_aan Luna medium  -5.308  -9.414  -1.202 0.012            effect (-)    191.0     NaN
+                 Q2 mod a normal vs plain_aan Luna none -12.265 -15.998  -8.531 0.000            effect (-)    191.0     NaN
+                  Q2 mod a normal vs plain_aan Qwen off -11.500 -15.915  -7.084 0.000            effect (-)    167.0     NaN
+                   Q2 mod a normal vs plain_aan Qwen on -14.565 -18.474 -10.655 0.000            effect (-)    189.0     NaN
+                 Q2 mod a perfect vs plain_aan headline   8.733   6.519  10.948 0.000            effect (+)    182.0     NaN
+              Q2 mod a perfect vs plain_aan Luna medium   9.090   6.284  11.896 0.000            effect (+)    191.0     NaN
+                Q2 mod a perfect vs plain_aan Luna none  11.165   7.876  14.454 0.000            effect (+)    191.0     NaN
+                 Q2 mod a perfect vs plain_aan Qwen off   7.333   4.258  10.408 0.000            effect (+)    182.0     NaN
+                  Q2 mod a perfect vs plain_aan Qwen on   7.488   4.713  10.264 0.000            effect (+)    191.0     NaN
+                 Q2 mod a popular vs plain_aan headline   0.522  -1.662   2.705 0.638 no effect of interest    180.0     NaN
+              Q2 mod a popular vs plain_aan Luna medium  -3.737  -8.019   0.545 0.087          inconclusive    191.0     NaN
+                Q2 mod a popular vs plain_aan Luna none   3.835   0.015   7.655 0.049          inconclusive    191.0     NaN
+                 Q2 mod a popular vs plain_aan Qwen off   0.637  -2.285   3.558 0.668 no effect of interest    180.0     NaN
+                  Q2 mod a popular vs plain_aan Qwen on  -0.813  -3.550   1.924 0.559 no effect of interest    190.0     NaN
+                  Q2 mod a random vs plain_aan headline  -1.403  -3.299   0.492 0.146 no effect of interest    177.0     NaN
+               Q2 mod a random vs plain_aan Luna medium  -5.308  -8.822  -1.794 0.003          inconclusive    191.0     NaN
+                 Q2 mod a random vs plain_aan Luna none  -4.481  -8.017  -0.945 0.013          inconclusive    191.0     NaN
+                  Q2 mod a random vs plain_aan Qwen off   1.365  -1.018   3.749 0.260 no effect of interest    177.0     NaN
+                   Q2 mod a random vs plain_aan Qwen on   1.776  -0.823   4.375 0.179 no effect of interest    191.0     NaN
+                    Q2 mod a real vs plain_aan headline  -1.403  -3.140   0.334 0.113 no effect of interest    180.0     NaN
+                 Q2 mod a real vs plain_aan Luna medium   0.975  -2.680   4.630 0.599 no effect of interest    191.0     NaN
+                   Q2 mod a real vs plain_aan Luna none   1.217  -2.070   4.504 0.466 no effect of interest    191.0     NaN
+                    Q2 mod a real vs plain_aan Qwen off  -4.752  -7.552  -1.953 0.001          inconclusive    180.0     NaN
+                     Q2 mod a real vs plain_aan Qwen on  -2.949  -5.710  -0.187 0.036          inconclusive    190.0     NaN
+                   Q2 mod a rough vs plain_aan headline -18.500 -21.324 -15.675 0.000            effect (-)    180.0     NaN
+                Q2 mod a rough vs plain_aan Luna medium  -7.795 -11.832  -3.757 0.000            effect (-)    191.0     NaN
+                  Q2 mod a rough vs plain_aan Luna none -14.882 -19.328 -10.437 0.000            effect (-)    191.0     NaN
+                   Q2 mod a rough vs plain_aan Qwen off -30.904 -36.618 -25.189 0.000            effect (-)    183.0     NaN
+                    Q2 mod a rough vs plain_aan Qwen on -24.077 -28.587 -19.566 0.000            effect (-)    188.0     NaN
+                    Q2 mod a safe vs plain_aan headline   5.242   2.698   7.785 0.000            effect (+)    181.0     NaN
+                 Q2 mod a safe vs plain_aan Luna medium  15.111  11.585  18.636 0.000            effect (+)    191.0     NaN
+                   Q2 mod a safe vs plain_aan Luna none  13.913   9.940  17.887 0.000            effect (+)    191.0     NaN
+                    Q2 mod a safe vs plain_aan Qwen off  -0.868  -4.623   2.887 0.649 no effect of interest    181.0     NaN
+                     Q2 mod a safe vs plain_aan Qwen on  -7.431 -11.273  -3.589 0.000            effect (-)    191.0     NaN
+                   Q2 mod a small vs plain_aan headline   1.581  -1.402   4.564 0.297 no effect of interest    181.0     NaN
+                Q2 mod a small vs plain_aan Luna medium  -1.119  -5.327   3.088 0.600 no effect of interest    191.0     NaN
+                  Q2 mod a small vs plain_aan Luna none   3.573  -0.931   8.077 0.119          inconclusive    191.0     NaN
+                   Q2 mod a small vs plain_aan Qwen off   1.922  -1.475   5.320 0.266 no effect of interest    181.0     NaN
+                    Q2 mod a small vs plain_aan Qwen on   1.288  -2.041   4.616 0.446 no effect of interest    190.0     NaN
+                  Q2 mod a smooth vs plain_aan headline   1.609  -0.411   3.629 0.118 no effect of interest    184.0     NaN
+               Q2 mod a smooth vs plain_aan Luna medium  -7.926 -11.629  -4.222 0.000          inconclusive    191.0     NaN
+                 Q2 mod a smooth vs plain_aan Luna none   3.311  -0.309   6.932 0.073          inconclusive    191.0     NaN
+                  Q2 mod a smooth vs plain_aan Qwen off   4.065   1.574   6.556 0.002          inconclusive    184.0     NaN
+                   Q2 mod a smooth vs plain_aan Qwen on   5.514   2.348   8.681 0.001          inconclusive    191.0     NaN
+                Q2 mod a specific vs plain_aan headline   5.020   2.688   7.351 0.000            effect (+)    184.0     NaN
+             Q2 mod a specific vs plain_aan Luna medium   0.582  -3.313   4.477 0.768 no effect of interest    191.0     NaN
+               Q2 mod a specific vs plain_aan Luna none   7.369   3.490  11.248 0.000            effect (+)    191.0     NaN
+                Q2 mod a specific vs plain_aan Qwen off   7.063   4.006  10.120 0.000            effect (+)    184.0     NaN
+                 Q2 mod a specific vs plain_aan Qwen on   5.391   2.471   8.312 0.000            effect (+)    191.0     NaN
+               Q2 mod a startling vs plain_aan headline   7.852   5.439  10.265 0.000            effect (+)    184.0     NaN
+            Q2 mod a startling vs plain_aan Luna medium   2.153  -1.047   5.353 0.186 no effect of interest    191.0     NaN
+              Q2 mod a startling vs plain_aan Luna none  12.212   8.767  15.657 0.000            effect (+)    191.0     NaN
+               Q2 mod a startling vs plain_aan Qwen off   9.025   5.584  12.466 0.000            effect (+)    185.0     NaN
+                Q2 mod a startling vs plain_aan Qwen on   8.223   5.345  11.102 0.000            effect (+)    190.0     NaN
+           Q2 mod a stereotypical vs plain_aan headline -21.629 -24.851 -18.407 0.000            effect (-)    178.0     NaN
+        Q2 mod a stereotypical vs plain_aan Luna medium -22.097 -26.649 -17.545 0.000            effect (-)    191.0     NaN
+          Q2 mod a stereotypical vs plain_aan Luna none -24.306 -28.910 -19.703 0.000            effect (-)    191.0     NaN
+           Q2 mod a stereotypical vs plain_aan Qwen off -20.255 -25.635 -14.875 0.000            effect (-)    178.0     NaN
+            Q2 mod a stereotypical vs plain_aan Qwen on -21.338 -25.719 -16.958 0.000            effect (-)    189.0     NaN
+                Q2 mod a terrible vs plain_aan headline -27.232 -30.674 -23.790 0.000            effect (-)    176.0     NaN
+             Q2 mod a terrible vs plain_aan Luna medium -45.884 -51.109 -40.659 0.000            effect (-)    191.0     NaN
+               Q2 mod a terrible vs plain_aan Luna none -35.039 -40.428 -29.651 0.000            effect (-)    191.0     NaN
+                Q2 mod a terrible vs plain_aan Qwen off -13.678 -18.155  -9.201 0.000            effect (-)    185.0     NaN
+                 Q2 mod a terrible vs plain_aan Qwen on -17.368 -22.274 -12.463 0.000            effect (-)    181.0     NaN
+                    Q2 mod a tiny vs plain_aan headline   2.663  -0.330   5.657 0.081          inconclusive    176.0     NaN
+                 Q2 mod a tiny vs plain_aan Luna medium  -7.795 -12.212  -3.378 0.001          inconclusive    191.0     NaN
+                   Q2 mod a tiny vs plain_aan Luna none   1.741  -3.170   6.651 0.485          inconclusive    191.0     NaN
+                    Q2 mod a tiny vs plain_aan Qwen off   7.145   3.524  10.765 0.000          inconclusive    177.0     NaN
+                     Q2 mod a tiny vs plain_aan Qwen on   7.932   4.958  10.906 0.000          inconclusive    187.0     NaN
+             Q2 mod a traditional vs plain_aan headline -17.335 -20.611 -14.059 0.000            effect (-)    175.0     NaN
+          Q2 mod a traditional vs plain_aan Luna medium -17.836 -22.014 -13.658 0.000            effect (-)    191.0     NaN
+            Q2 mod a traditional vs plain_aan Luna none -21.034 -25.365 -16.703 0.000            effect (-)    191.0     NaN
+             Q2 mod a traditional vs plain_aan Qwen off -18.060 -23.131 -12.988 0.000            effect (-)    175.0     NaN
+              Q2 mod a traditional vs plain_aan Qwen on -16.175 -20.604 -11.747 0.000            effect (-)    188.0     NaN
+                 Q2 mod a typical vs plain_aan headline  -9.691 -11.801  -7.581 0.000            effect (-)    173.0     NaN
+              Q2 mod a typical vs plain_aan Luna medium  -8.842 -12.358  -5.326 0.000            effect (-)    191.0     NaN
+                Q2 mod a typical vs plain_aan Luna none -22.433 -26.751 -18.114 0.000            effect (-)    191.0     NaN
+                 Q2 mod a typical vs plain_aan Qwen off  -7.129 -10.595  -3.663 0.000            effect (-)    174.0     NaN
+                  Q2 mod a typical vs plain_aan Qwen on  -4.521  -7.470  -1.572 0.003            effect (-)    189.0     NaN
+                  Q2 mod a unique vs plain_aan headline  11.132   8.420  13.843 0.000            effect (+)    183.0     NaN
+               Q2 mod a unique vs plain_aan Luna medium   9.744   6.199  13.289 0.000            effect (+)    191.0     NaN
+                 Q2 mod a unique vs plain_aan Luna none  17.840  13.900  21.780 0.000            effect (+)    191.0     NaN
+                  Q2 mod a unique vs plain_aan Qwen off   8.905   5.237  12.572 0.000            effect (+)    183.0     NaN
+                   Q2 mod a unique vs plain_aan Qwen on   9.190   6.076  12.304 0.000            effect (+)    191.0     NaN
+             Q2 mod an accidental vs plain_aan headline   4.350   1.847   6.853 0.001            effect (+)    183.0     NaN
+          Q2 mod an accidental vs plain_aan Luna medium  -2.167  -6.856   2.523 0.363          inconclusive    191.0     NaN
+            Q2 mod an accidental vs plain_aan Luna none   8.678   4.863  12.492 0.000            effect (+)    191.0     NaN
+             Q2 mod an accidental vs plain_aan Qwen off   5.052   2.336   7.769 0.000            effect (+)    183.0     NaN
+              Q2 mod an accidental vs plain_aan Qwen on   5.132   1.964   8.301 0.002            effect (+)    191.0     NaN
+                Q2 mod an alleged vs plain_aan headline  -3.239  -5.094  -1.383 0.001            effect (-)    178.0     NaN
+             Q2 mod an alleged vs plain_aan Luna medium  -0.989  -4.341   2.364 0.562 no effect of interest    191.0     NaN
+               Q2 mod an alleged vs plain_aan Luna none  -2.317  -5.445   0.811 0.146 no effect of interest    191.0     NaN
+                Q2 mod an alleged vs plain_aan Qwen off  -5.868  -8.947  -2.789 0.000            effect (-)    179.0     NaN
+                 Q2 mod an alleged vs plain_aan Qwen on  -4.779  -7.579  -1.979 0.001            effect (-)    189.0     NaN
+                Q2 mod an ancient vs plain_aan headline -16.153 -18.629 -13.677 0.000            effect (-)    164.0     NaN
+             Q2 mod an ancient vs plain_aan Luna medium -30.701 -35.384 -26.017 0.000            effect (-)    191.0     NaN
+               Q2 mod an ancient vs plain_aan Luna none -27.579 -31.944 -23.213 0.000            effect (-)    191.0     NaN
+                Q2 mod an ancient vs plain_aan Qwen off  -6.931 -10.619  -3.242 0.000            effect (-)    172.0     NaN
+                 Q2 mod an ancient vs plain_aan Qwen on  -5.144  -8.664  -1.625 0.004            effect (-)    180.0     NaN
+            Q2 mod an avant-garde vs plain_aan headline  10.949   7.972  13.926 0.000            effect (+)    143.0     NaN
+         Q2 mod an avant-garde vs plain_aan Luna medium  15.556  11.897  19.215 0.000            effect (+)    191.0     NaN
+           Q2 mod an avant-garde vs plain_aan Luna none  15.802  11.512  20.093 0.000            effect (+)    190.0     NaN
+            Q2 mod an avant-garde vs plain_aan Qwen off   7.729   3.692  11.765 0.000            effect (+)    144.0     NaN
+             Q2 mod an avant-garde vs plain_aan Qwen on   8.869   5.529  12.210 0.000            effect (+)    187.0     NaN
+                  Q2 mod an eerie vs plain_aan headline   4.238   2.024   6.453 0.000            effect (+)    185.0     NaN
+               Q2 mod an eerie vs plain_aan Luna medium  -5.177  -9.000  -1.354 0.008            effect (-)    191.0     NaN
+                 Q2 mod an eerie vs plain_aan Luna none   6.486   2.919  10.054 0.000            effect (+)    191.0     NaN
+                  Q2 mod an eerie vs plain_aan Qwen off   8.923   5.347  12.500 0.000            effect (+)    185.0     NaN
+                   Q2 mod an eerie vs plain_aan Qwen on   6.683   3.872   9.493 0.000            effect (+)    190.0     NaN
+               Q2 mod an enormous vs plain_aan headline -18.203 -21.260 -15.147 0.000            effect (-)    158.0     NaN
+            Q2 mod an enormous vs plain_aan Luna medium -22.847 -27.050 -18.644 0.000            effect (-)    191.0     NaN
+              Q2 mod an enormous vs plain_aan Luna none -28.233 -32.938 -23.529 0.000            effect (-)    191.0     NaN
+               Q2 mod an enormous vs plain_aan Qwen off -16.101 -21.635 -10.567 0.000            effect (-)    162.0     NaN
+                Q2 mod an enormous vs plain_aan Qwen on -10.504 -14.190  -6.819 0.000            effect (-)    184.0     NaN
+                  Q2 mod an ideal vs plain_aan headline   7.659   5.679   9.639 0.000            effect (+)    179.0     NaN
+               Q2 mod an ideal vs plain_aan Luna medium  10.137   7.493  12.781 0.000            effect (+)    191.0     NaN
+                 Q2 mod an ideal vs plain_aan Luna none   9.725   6.282  13.168 0.000            effect (+)    191.0     NaN
+                  Q2 mod an ideal vs plain_aan Qwen off   5.966   2.795   9.137 0.000            effect (+)    179.0     NaN
+                   Q2 mod an ideal vs plain_aan Qwen on   5.898   3.208   8.588 0.000            effect (+)    191.0     NaN
+              Q2 mod an imaginary vs plain_aan headline   6.202   4.333   8.071 0.000            effect (+)    178.0     NaN
+           Q2 mod an imaginary vs plain_aan Luna medium   5.425   2.248   8.602 0.001            effect (+)    191.0     NaN
+             Q2 mod an imaginary vs plain_aan Luna none  11.819   8.639  14.999 0.000            effect (+)    191.0     NaN
+              Q2 mod an imaginary vs plain_aan Qwen off   4.932   2.389   7.475 0.000            effect (+)    178.0     NaN
+               Q2 mod an imaginary vs plain_aan Qwen on   2.673  -0.162   5.509 0.064          inconclusive    190.0     NaN
+            Q2 mod an interesting vs plain_aan headline  10.379   7.895  12.863 0.000            effect (+)    184.0     NaN
+         Q2 mod an interesting vs plain_aan Luna medium  10.399   6.680  14.117 0.000            effect (+)    191.0     NaN
+           Q2 mod an interesting vs plain_aan Luna none  17.186  13.328  21.043 0.000            effect (+)    191.0     NaN
+            Q2 mod an interesting vs plain_aan Qwen off   8.041   4.650  11.432 0.000            effect (+)    184.0     NaN
+             Q2 mod an interesting vs plain_aan Qwen on   6.145   3.400   8.890 0.000            effect (+)    191.0     NaN
+                Q2 mod an obscure vs plain_aan headline  -0.966  -3.208   1.276 0.397 no effect of interest    180.0     NaN
+             Q2 mod an obscure vs plain_aan Luna medium  -6.748 -11.016  -2.479 0.002          inconclusive    191.0     NaN
+               Q2 mod an obscure vs plain_aan Luna none  -2.971  -6.431   0.488 0.092          inconclusive    191.0     NaN
+                Q2 mod an obscure vs plain_aan Qwen off   3.470   0.768   6.172 0.012          inconclusive    180.0     NaN
+                 Q2 mod an obscure vs plain_aan Qwen on   1.863  -0.924   4.651 0.189 no effect of interest    191.0     NaN
+                    Q2 mod an old vs plain_aan headline -33.307 -36.785 -29.830 0.000            effect (-)    178.0     NaN
+                 Q2 mod an old vs plain_aan Luna medium -33.711 -38.307 -29.115 0.000            effect (-)    191.0     NaN
+                   Q2 mod an old vs plain_aan Luna none -38.312 -43.289 -33.335 0.000            effect (-)    191.0     NaN
+                    Q2 mod an old vs plain_aan Qwen off -26.497 -32.110 -20.884 0.000            effect (-)    184.0     NaN
+                     Q2 mod an old vs plain_aan Qwen on -35.238 -40.761 -29.715 0.000            effect (-)    184.0     NaN
+               Q2 mod an ordinary vs plain_aan headline  -9.523 -12.024  -7.022 0.000            effect (-)    170.0     NaN
+            Q2 mod an ordinary vs plain_aan Luna medium  -4.915  -8.317  -1.514 0.005            effect (-)    191.0     NaN
+              Q2 mod an ordinary vs plain_aan Luna none -12.500 -16.136  -8.865 0.000            effect (-)    191.0     NaN
+               Q2 mod an ordinary vs plain_aan Qwen off -10.412 -14.666  -6.158 0.000            effect (-)    171.0     NaN
+                Q2 mod an ordinary vs plain_aan Qwen on -12.411 -16.165  -8.657 0.000            effect (-)    190.0     NaN
+                Q2 mod an uncanny vs plain_aan headline   6.726   4.704   8.748 0.000            effect (+)    182.0     NaN
+             Q2 mod an uncanny vs plain_aan Luna medium   4.116   0.655   7.577 0.020            effect (+)    191.0     NaN
+               Q2 mod an uncanny vs plain_aan Luna none  10.772   7.657  13.887 0.000            effect (+)    191.0     NaN
+                Q2 mod an uncanny vs plain_aan Qwen off   4.998   2.163   7.833 0.001            effect (+)    184.0     NaN
+                 Q2 mod an uncanny vs plain_aan Qwen on   6.768   4.052   9.484 0.000            effect (+)    189.0     NaN
+               Q2 mod an uncommon vs plain_aan headline  10.955   8.162  13.748 0.000            effect (+)    185.0     NaN
+            Q2 mod an uncommon vs plain_aan Luna medium   8.121   4.371  11.872 0.000            effect (+)    191.0     NaN
+              Q2 mod an uncommon vs plain_aan Luna none  16.531  12.593  20.469 0.000            effect (+)    191.0     NaN
+               Q2 mod an uncommon vs plain_aan Qwen off   9.565   5.783  13.348 0.000            effect (+)    185.0     NaN
+                Q2 mod an uncommon vs plain_aan Qwen on   9.556   6.577  12.535 0.000            effect (+)    191.0     NaN
+             Q2 mod an unfamiliar vs plain_aan headline   8.084   5.632  10.537 0.000            effect (+)    181.0     NaN
+          Q2 mod an unfamiliar vs plain_aan Luna medium   4.378   1.080   7.676 0.010            effect (+)    191.0     NaN
+            Q2 mod an unfamiliar vs plain_aan Luna none  10.261   6.591  13.931 0.000            effect (+)    189.0     NaN
+             Q2 mod an unfamiliar vs plain_aan Qwen off   8.899   5.265  12.532 0.000            effect (+)    182.0     NaN
+              Q2 mod an unfamiliar vs plain_aan Qwen on   9.648   6.562  12.734 0.000            effect (+)    191.0     NaN
+              Q2 mod an unnatural vs plain_aan headline   1.581  -0.559   3.721 0.147 no effect of interest    183.0     NaN
+           Q2 mod an unnatural vs plain_aan Luna medium  -9.235 -13.443  -5.026 0.000          inconclusive    191.0     NaN
+             Q2 mod an unnatural vs plain_aan Luna none   3.442   0.215   6.669 0.037          inconclusive    191.0     NaN
+              Q2 mod an unnatural vs plain_aan Qwen off   4.991   1.981   8.001 0.001          inconclusive    183.0     NaN
+               Q2 mod an unnatural vs plain_aan Qwen on   6.279   3.343   9.216 0.000          inconclusive    191.0     NaN
+              Q2 mod an unpopular vs plain_aan headline -15.114 -17.785 -12.443 0.000            effect (-)    185.0     NaN
+           Q2 mod an unpopular vs plain_aan Luna medium -33.580 -38.855 -28.306 0.000            effect (-)    191.0     NaN
+             Q2 mod an unpopular vs plain_aan Luna none -23.521 -28.550 -18.493 0.000            effect (-)    191.0     NaN
+              Q2 mod an unpopular vs plain_aan Qwen off   1.863  -0.909   4.634 0.186 no effect of interest    185.0     NaN
+               Q2 mod an unpopular vs plain_aan Qwen on  -6.942 -10.493  -3.391 0.000            effect (-)    191.0     NaN
+           Q2 mod an unremarkable vs plain_aan headline -19.842 -22.825 -16.860 0.000            effect (-)    185.0     NaN
+        Q2 mod an unremarkable vs plain_aan Luna medium -19.182 -23.780 -14.585 0.000            effect (-)    191.0     NaN
+          Q2 mod an unremarkable vs plain_aan Luna none -24.149 -28.851 -19.448 0.000            effect (-)    191.0     NaN
+           Q2 mod an unremarkable vs plain_aan Qwen off -13.137 -17.309  -8.966 0.000            effect (-)    185.0     NaN
+            Q2 mod an unremarkable vs plain_aan Qwen on -23.323 -27.775 -18.871 0.000            effect (-)    191.0     NaN
+           Q2 mod an unsurprising vs plain_aan headline -14.531 -17.224 -11.838 0.000            effect (-)    185.0     NaN
+        Q2 mod an unsurprising vs plain_aan Luna medium -16.957 -21.235 -12.679 0.000            effect (-)    191.0     NaN
+          Q2 mod an unsurprising vs plain_aan Luna none -11.217 -15.565  -6.870 0.000            effect (-)    191.0     NaN
+           Q2 mod an unsurprising vs plain_aan Qwen off -10.435 -14.335  -6.534 0.000            effect (-)    185.0     NaN
+            Q2 mod an unsurprising vs plain_aan Qwen on -20.784 -25.210 -16.358 0.000            effect (-)    191.0     NaN
+                Q2 mod an unusual vs plain_aan headline   8.331   5.696  10.966 0.000            effect (+)    182.0     NaN
+             Q2 mod an unusual vs plain_aan Luna medium   1.629  -2.285   5.543 0.413 no effect of interest    191.0     NaN
+               Q2 mod an unusual vs plain_aan Luna none  12.908   9.003  16.812 0.000            effect (+)    190.0     NaN
+                Q2 mod an unusual vs plain_aan Qwen off   9.586   5.859  13.312 0.000            effect (+)    182.0     NaN
+                 Q2 mod an unusual vs plain_aan Qwen on   9.227   6.230  12.225 0.000            effect (+)    191.0     NaN
+           Q2 mod familiar to you vs plain_aan headline   5.545   3.727   7.362 0.000            effect (+)    183.0     NaN
+        Q2 mod familiar to you vs plain_aan Luna medium   3.892   1.003   6.780 0.009            effect (+)    191.0     NaN
+          Q2 mod familiar to you vs plain_aan Luna none   9.201   5.889  12.514 0.000            effect (+)    191.0     NaN
+           Q2 mod familiar to you vs plain_aan Qwen off   5.954   3.133   8.775 0.000            effect (+)    183.0     NaN
+            Q2 mod familiar to you vs plain_aan Qwen on   3.170   0.597   5.743 0.016            effect (+)    190.0     NaN
+                  Q2 mod the best vs plain_the headline  10.393   8.155  12.632 0.000            effect (+)    178.0     NaN
+               Q2 mod the best vs plain_the Luna medium  13.874  10.025  17.724 0.000            effect (+)    191.0     NaN
+                 Q2 mod the best vs plain_the Luna none  20.157  15.842  24.472 0.000            effect (+)    191.0     NaN
+                  Q2 mod the best vs plain_the Qwen off   3.750   0.934   6.566 0.009            effect (+)    180.0     NaN
+                   Q2 mod the best vs plain_the Qwen on   4.762   1.720   7.803 0.002            effect (+)    189.0     NaN
+            Q2 mod the best-known vs plain_the headline  -8.192 -10.621  -5.763 0.000            effect (-)    177.0     NaN
+         Q2 mod the best-known vs plain_the Luna medium -14.660 -19.505  -9.815 0.000            effect (-)    191.0     NaN
+           Q2 mod the best-known vs plain_the Luna none  -8.770 -13.035  -4.504 0.000            effect (-)    191.0     NaN
+            Q2 mod the best-known vs plain_the Qwen off  -1.944  -5.113   1.224 0.227 no effect of interest    180.0     NaN
+             Q2 mod the best-known vs plain_the Qwen on  -7.979 -11.669  -4.288 0.000            effect (-)    188.0     NaN
+                 Q2 mod the ideal vs plain_the headline   7.345   5.317   9.372 0.000            effect (+)    177.0     NaN
+              Q2 mod the ideal vs plain_the Luna medium   7.199   3.367  11.031 0.000            effect (+)    191.0     NaN
+                Q2 mod the ideal vs plain_the Luna none  11.649   8.067  15.232 0.000            effect (+)    191.0     NaN
+                 Q2 mod the ideal vs plain_the Qwen off   5.726   2.755   8.698 0.000            effect (+)    179.0     NaN
+                  Q2 mod the ideal vs plain_the Qwen on   5.952   2.854   9.051 0.000            effect (+)    189.0     NaN
+         Q2 mod the least popular vs plain_the headline  -6.956  -9.748  -4.165 0.000            effect (-)    177.0     NaN
+      Q2 mod the least popular vs plain_the Luna medium -20.419 -26.117 -14.720 0.000            effect (-)    191.0     NaN
+        Q2 mod the least popular vs plain_the Luna none -10.000 -15.886  -4.114 0.001            effect (-)    190.0     NaN
+         Q2 mod the least popular vs plain_the Qwen off   4.696   1.732   7.660 0.002            effect (+)    181.0     NaN
+          Q2 mod the least popular vs plain_the Qwen on  -2.261  -5.624   1.102 0.186          inconclusive    188.0     NaN
+          Q2 mod the most popular vs plain_the headline  -2.586  -5.174   0.001 0.050 no effect of interest    174.0     NaN
+       Q2 mod the most popular vs plain_the Luna medium  -7.592 -12.640  -2.543 0.003          inconclusive    191.0     NaN
+         Q2 mod the most popular vs plain_the Luna none   2.618  -2.084   7.320 0.273          inconclusive    191.0     NaN
+          Q2 mod the most popular vs plain_the Qwen off  -0.568  -3.964   2.828 0.742 no effect of interest    176.0     NaN
+           Q2 mod the most popular vs plain_the Qwen on  -4.412  -7.971  -0.852 0.015          inconclusive    187.0     NaN
+               Q2 mod the perfect vs plain_the headline   9.567   7.248  11.886 0.000            effect (+)    179.0     NaN
+            Q2 mod the perfect vs plain_the Luna medium   9.948   6.075  13.820 0.000            effect (+)    191.0     NaN
+              Q2 mod the perfect vs plain_the Luna none  16.099  12.091  20.108 0.000            effect (+)    191.0     NaN
+               Q2 mod the perfect vs plain_the Qwen off   6.492   3.319   9.665 0.000            effect (+)    181.0     NaN
+                Q2 mod the perfect vs plain_the Qwen on   7.143   4.176  10.109 0.000            effect (+)    189.0     NaN
+                 Q2 mod the worst vs plain_the headline -41.352 -45.202 -37.502 0.000            effect (-)    172.0     NaN
+              Q2 mod the worst vs plain_the Luna medium -56.806 -62.072 -51.540 0.000            effect (-)    191.0     NaN
+                Q2 mod the worst vs plain_the Luna none -50.000 -55.292 -44.708 0.000            effect (-)    191.0     NaN
+                 Q2 mod the worst vs plain_the Qwen off -28.750 -34.714 -22.786 0.000            effect (-)    180.0     NaN
+                  Q2 mod the worst vs plain_the Qwen on -32.735 -38.287 -27.183 0.000            effect (-)    181.0     NaN
+         Q2 mod unfamiliar to you vs plain_aan headline  10.534   7.879  13.190 0.000            effect (+)    185.0     NaN
+      Q2 mod unfamiliar to you vs plain_aan Luna medium   8.697   5.034  12.361 0.000            effect (+)    191.0     NaN
+        Q2 mod unfamiliar to you vs plain_aan Luna none  16.112  12.234  19.990 0.000            effect (+)    191.0     NaN
+         Q2 mod unfamiliar to you vs plain_aan Qwen off   8.782   5.204  12.359 0.000            effect (+)    185.0     NaN
+          Q2 mod unfamiliar to you vs plain_aan Qwen on   8.660   5.904  11.416 0.000            effect (+)    191.0     NaN
+            Q2 mod your favorite vs plain_your headline   1.195  -0.331   2.722 0.124 no effect of interest    183.0     NaN
+         Q2 mod your favorite vs plain_your Luna medium   0.785  -2.187   3.757 0.603 no effect of interest    191.0     NaN
+           Q2 mod your favorite vs plain_your Luna none   3.877   0.676   7.078 0.018          inconclusive    187.0     NaN
+            Q2 mod your favorite vs plain_your Qwen off   0.134  -1.475   1.742 0.870 no effect of interest    187.0     NaN
+             Q2 mod your favorite vs plain_your Qwen on   0.262  -2.327   2.850 0.842 no effect of interest    191.0     NaN
+      Q2 mod your least favorite vs plain_your headline -23.851 -27.078 -20.623 0.000            effect (-)    174.0     NaN
+   Q2 mod your least favorite vs plain_your Luna medium -42.277 -48.012 -36.543 0.000            effect (-)    191.0     NaN
+     Q2 mod your least favorite vs plain_your Luna none -31.551 -36.721 -26.381 0.000            effect (-)    187.0     NaN
+      Q2 mod your least favorite vs plain_your Qwen off  -5.571  -8.727  -2.414 0.001            effect (-)    184.0     NaN
+       Q2 mod your least favorite vs plain_your Qwen on -17.838 -22.866 -12.809 0.000            effect (-)    185.0     NaN
+             Q2 pair an interesting - a boring headline  57.386  53.983  60.790 0.000            effect (+)    187.0     NaN
+          Q2 pair an interesting - a boring Luna medium  68.325  63.641  73.008 0.000            effect (+)    191.0     NaN
+            Q2 pair an interesting - a boring Luna none  62.304  57.675  66.932 0.000            effect (+)    191.0     NaN
+             Q2 pair an interesting - a boring Qwen off  44.251  37.661  50.842 0.000            effect (+)    187.0     NaN
+              Q2 pair an interesting - a boring Qwen on  54.581  49.598  59.564 0.000            effect (+)    191.0     NaN
+                  Q2 pair the best - the worst headline  51.721  47.997  55.444 0.000            effect (+)    178.0     NaN
+               Q2 pair the best - the worst Luna medium  70.681  66.158  75.204 0.000            effect (+)    191.0     NaN
+                 Q2 pair the best - the worst Luna none  69.895  65.618  74.173 0.000            effect (+)    191.0     NaN
+                  Q2 pair the best - the worst Qwen off  31.929  26.096  37.762 0.000            effect (+)    184.0     NaN
+                   Q2 pair the best - the worst Qwen on  37.978  32.171  43.786 0.000            effect (+)    183.0     NaN
+   Q2 pair your favorite - your least favorite headline  24.896  22.159  27.633 0.000            effect (+)    180.0     NaN
+Q2 pair your favorite - your least favorite Luna medium  43.194  37.992  48.396 0.000            effect (+)    191.0     NaN
+  Q2 pair your favorite - your least favorite Luna none  35.995  31.594  40.396 0.000            effect (+)    191.0     NaN
+   Q2 pair your favorite - your least favorite Qwen off   5.299   2.470   8.128 0.000            effect (+)    184.0     NaN
+    Q2 pair your favorite - your least favorite Qwen on  17.473  12.708  22.238 0.000            effect (+)    186.0     NaN
+                  Q2 pair an ideal - the ideal headline   1.030  -0.357   2.418 0.145 no effect of interest    182.0     NaN
+               Q2 pair an ideal - the ideal Luna medium   2.749  -0.188   5.685 0.066          inconclusive    191.0     NaN
+                 Q2 pair an ideal - the ideal Luna none   2.880   0.221   5.538 0.034          inconclusive    191.0     NaN
+                  Q2 pair an ideal - the ideal Qwen off  -0.275  -1.859   1.310 0.733 no effect of interest    182.0     NaN
+                   Q2 pair an ideal - the ideal Qwen on  -1.440  -3.672   0.793 0.205 no effect of interest    191.0     NaN
+              Q2 pair a traditional - a modern headline -24.007 -28.045 -19.970 0.000            effect (-)    170.0     NaN
+           Q2 pair a traditional - a modern Luna medium -28.403 -33.479 -23.327 0.000            effect (-)    191.0     NaN
+             Q2 pair a traditional - a modern Luna none -31.316 -36.597 -26.034 0.000            effect (-)    190.0     NaN
+              Q2 pair a traditional - a modern Qwen off -21.076 -26.907 -15.244 0.000            effect (-)    172.0     NaN
+               Q2 pair a traditional - a modern Qwen on -19.892 -24.710 -15.075 0.000            effect (-)    186.0     NaN
+                     Q2 pair a large - a small headline -21.172 -25.406 -16.937 0.000            effect (-)    160.0     NaN
+                  Q2 pair a large - a small Luna medium -15.183 -20.733  -9.634 0.000            effect (-)    191.0     NaN
+                    Q2 pair a large - a small Luna none -33.115 -39.074 -27.156 0.000            effect (-)    191.0     NaN
+                     Q2 pair a large - a small Qwen off -21.759 -27.936 -15.582 0.000            effect (-)    162.0     NaN
+                      Q2 pair a large - a small Qwen on -16.667 -21.763 -11.571 0.000            effect (-)    186.0     NaN
+                        Q2 pair a new - an old headline  44.728  40.317  49.139 0.000            effect (+)    179.0     NaN
+                     Q2 pair a new - an old Luna medium  46.597  41.139  52.054 0.000            effect (+)    191.0     NaN
+                       Q2 pair a new - an old Luna none  54.058  48.518  59.597 0.000            effect (+)    191.0     NaN
+                        Q2 pair a new - an old Qwen off  35.000  28.705  41.295 0.000            effect (+)    185.0     NaN
+                         Q2 pair a new - an old Qwen on  43.579  37.494  49.665 0.000            effect (+)    183.0     NaN
+          Q2 pair a deliberate - an accidental headline   1.210  -0.935   3.354 0.267 no effect of interest    186.0     NaN
+       Q2 pair a deliberate - an accidental Luna medium  10.733   6.011  15.455 0.000          inconclusive    191.0     NaN
+         Q2 pair a deliberate - an accidental Luna none   2.356  -0.860   5.572 0.150          inconclusive    191.0     NaN
+          Q2 pair a deliberate - an accidental Qwen off  -2.016  -4.507   0.475 0.112 no effect of interest    186.0     NaN
+           Q2 pair a deliberate - an accidental Qwen on  -5.890  -8.846  -2.934 0.000          inconclusive    191.0     NaN
+              Q2 pair a popular - an unpopular headline  15.521  12.562  18.480 0.000            effect (+)    180.0     NaN
+           Q2 pair a popular - an unpopular Luna medium  29.843  23.918  35.768 0.000            effect (+)    191.0     NaN
+             Q2 pair a popular - an unpopular Luna none  27.487  22.162  32.812 0.000            effect (+)    191.0     NaN
+              Q2 pair a popular - an unpopular Qwen off  -1.519  -4.757   1.718 0.356 no effect of interest    181.0     NaN
+               Q2 pair a popular - an unpopular Qwen on   6.085   2.008  10.161 0.004            effect (+)    189.0     NaN
+                 Q2 pair a famous - an obscure headline  -7.206 -10.155  -4.258 0.000            effect (-)    183.0     NaN
+              Q2 pair a famous - an obscure Luna medium -12.565 -18.646  -6.485 0.000            effect (-)    191.0     NaN
+                Q2 pair a famous - an obscure Luna none  -7.853 -12.800  -2.907 0.002            effect (-)    191.0     NaN
+                 Q2 pair a famous - an obscure Qwen off  -4.508  -7.695  -1.321 0.006            effect (-)    183.0     NaN
+                  Q2 pair a famous - an obscure Qwen on  -5.497  -9.220  -1.775 0.004            effect (-)    191.0     NaN
+                 Q2 pair a random - a specific headline  -6.568  -8.736  -4.400 0.000            effect (-)    177.0     NaN
+              Q2 pair a random - a specific Luna medium  -5.890  -9.785  -1.995 0.003            effect (-)    191.0     NaN
+                Q2 pair a random - a specific Luna none -12.173 -16.113  -8.232 0.000            effect (-)    191.0     NaN
+                 Q2 pair a random - a specific Qwen off  -4.944  -7.850  -2.037 0.001            effect (-)    177.0     NaN
+                  Q2 pair a random - a specific Qwen on  -3.534  -6.800  -0.268 0.034            effect (-)    191.0     NaN
+                 Q2 pair a real - an imaginary headline  -7.328  -9.404  -5.251 0.000            effect (-)    174.0     NaN
+              Q2 pair a real - an imaginary Luna medium  -4.450  -8.608  -0.293 0.036            effect (-)    191.0     NaN
+                Q2 pair a real - an imaginary Luna none -10.602 -14.195  -7.009 0.000            effect (-)    191.0     NaN
+                 Q2 pair a real - an imaginary Qwen off  -8.908 -12.848  -4.968 0.000            effect (-)    174.0     NaN
+                  Q2 pair a real - an imaginary Qwen on  -6.383  -9.356  -3.410 0.000            effect (-)    188.0     NaN
+            Q2 pair a familiar - an unfamiliar headline  -8.771 -11.361  -6.180 0.000            effect (-)    181.0     NaN
+         Q2 pair a familiar - an unfamiliar Luna medium  -7.592 -12.423  -2.760 0.002            effect (-)    191.0     NaN
+           Q2 pair a familiar - an unfamiliar Luna none  -7.804 -11.583  -4.026 0.000            effect (-)    189.0     NaN
+            Q2 pair a familiar - an unfamiliar Qwen off  -9.478 -13.233  -5.723 0.000            effect (-)    182.0     NaN
+             Q2 pair a familiar - an unfamiliar Qwen on -10.995 -14.554  -7.435 0.000            effect (-)    191.0     NaN
+                    Q2 pair a rough - a smooth headline -20.330 -23.403 -17.256 0.000            effect (-)    182.0     NaN
+                 Q2 pair a rough - a smooth Luna medium   0.131  -5.001   5.263 0.960 no effect of interest    191.0     NaN
+                   Q2 pair a rough - a smooth Luna none -18.194 -22.823 -13.564 0.000            effect (-)    191.0     NaN
+                    Q2 pair a rough - a smooth Qwen off -35.135 -41.020 -29.250 0.000            effect (-)    185.0     NaN
+                     Q2 pair a rough - a smooth Qwen on -29.388 -34.722 -24.054 0.000            effect (-)    188.0     NaN
+   Q2 pair familiar to you - unfamiliar to you headline  -4.805  -6.522  -3.088 0.000            effect (-)    186.0     NaN
+Q2 pair familiar to you - unfamiliar to you Luna medium  -4.843  -8.502  -1.184 0.010            effect (-)    191.0     NaN
+  Q2 pair familiar to you - unfamiliar to you Luna none  -6.806  -9.779  -3.834 0.000            effect (-)    191.0     NaN
+   Q2 pair familiar to you - unfamiliar to you Qwen off  -2.554  -4.378  -0.730 0.006            effect (-)    186.0     NaN
+    Q2 pair familiar to you - unfamiliar to you Qwen on  -5.000  -7.474  -2.526 0.000            effect (-)    190.0     NaN
+                       Q2 wugs (6) vs plain Luna medium   2.681  -0.072   5.434 0.056                   NaN    191.0     NaN
+              Q2 miryal - sputul Luna medium (estimate)  17.147  12.595  21.698 0.000                   NaN    191.0     NaN
+                         Q2 wugs (6) vs plain Luna none  10.543   7.256  13.830 0.000                   NaN    191.0     NaN
+                Q2 miryal - sputul Luna none (estimate)   7.237   3.893  10.580 0.000                   NaN    190.0     NaN
+                          Q2 wugs (6) vs plain Qwen off   3.094   0.850   5.337 0.007                   NaN    185.0     NaN
+                 Q2 miryal - sputul Qwen off (estimate)  11.538   7.001  16.076 0.000                   NaN    169.0     NaN
+                           Q2 wugs (6) vs plain Qwen on   4.116   1.637   6.594 0.001                   NaN    191.0     NaN
+                  Q2 miryal - sputul Qwen on (estimate)   9.249   5.344  13.153 0.000                   NaN    173.0     NaN
+                    Q5 frame writer experiment headline  -9.431 -10.655  -8.208 0.000            effect (-)    189.0     NaN
+                 Q5 frame writer experiment Luna medium  -2.013  -3.039  -0.986 0.000            effect (-)    191.0     NaN
+                   Q5 frame writer experiment Luna none  -2.936  -4.111  -1.760 0.000            effect (-)    191.0     NaN
+                    Q5 frame writer experiment Qwen off -16.365 -19.134 -13.596 0.000            effect (-)    189.0     NaN
+                     Q5 frame writer experiment Qwen on -16.252 -18.184 -14.321 0.000            effect (-)    191.0     NaN
+                 Q5 frame character experiment headline   1.832   1.313   2.351 0.000            effect (+)    191.0     NaN
+              Q5 frame character experiment Luna medium   0.647  -0.030   1.324 0.061 no effect of interest    191.0     NaN
+                Q5 frame character experiment Luna none   2.942   2.082   3.801 0.000            effect (+)    191.0     NaN
+                 Q5 frame character experiment Qwen off  -0.299  -1.081   0.484 0.453 no effect of interest    191.0     NaN
+                  Q5 frame character experiment Qwen on   4.037   3.057   5.017 0.000            effect (+)    191.0     NaN
+=== CONFIRMATORY DONE
