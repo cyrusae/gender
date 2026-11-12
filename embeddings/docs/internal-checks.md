@@ -29,3 +29,10 @@ to ddof 0, which leaves its correlation with ratings unchanged. Across scripts t
 but no number is compared across scripts in a way the factor would affect. Decision: leave the frozen
 scripts as they are (changing them would alter frozen outputs in the last digits for no gain); new
 scripts should state the convention.
+
+## 2026-11-12: is a lean grammatical or semantic gender? (`results/common_gender_check/`)
+
+Masculine vs feminine person-noun forms differ in lean by 2.5–3× the gap between masculine and feminine
+epicenes (pure grammar); the excess (≈0.09–0.11, intervals above 0) is semantic. Common-gender nouns
+(one vector, no grammatical gender) still track Glasgow ratings (r 0.69 ES, 0.53 FR with English
+attribute words; native words' intervals touch 0). So leans mix both; about a third grammatical.
