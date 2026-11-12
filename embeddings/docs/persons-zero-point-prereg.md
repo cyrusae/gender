@@ -1,6 +1,6 @@
 # Is Zhou's monolingual asymmetry specific to occupations? (DRAFT pre-registration)
 
-*Status: DRAFT, 2026-11-11, written by Claude for the PI's review. Nothing scored.*
+*Status: **ADOPTED 2026-11-11** (PI). Nothing scored before adoption.*
 
 ## Why
 
@@ -63,3 +63,8 @@ abstractness). A difference shows the asymmetry isn't general to person nouns, n
 1. Spanish only is acceptable? (A French person list would need building by rule and couldn't be
    reviewed by you; it could be run as descriptive.)
 2. Per-pair A (so group sizes don't matter) instead of the original study's sum: agreed?
+
+## Adoption record (2026-11-11, before any score)
+
+PI accepted all open points: Spanish only (French to revisit), per-pair A, the plural rule, floor 25.
+Script `scripts/persons_zero_point.py`.

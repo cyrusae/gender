@@ -1,6 +1,6 @@
 # Do masculine plurals of ordinary person nouns act generic? (DRAFT pre-registration)
 
-*Status: DRAFT, 2026-11-11, written by Claude for the PI's review. Nothing scored.*
+*Status: **ADOPTED 2026-11-11** (PI). Nothing scored before adoption.*
 
 ## Why
 
@@ -54,3 +54,8 @@ from male-specific uses; this tests a prediction of the generic account.
 
 1. Review the plural list (94 rows) or accept the rule?
 2. Floor of 25 person pairs (51 available): fine?
+
+## Adoption record (2026-11-11, before any score)
+
+PI accepted all open points: Spanish only (French to revisit), per-pair A, the plural rule, floor 25.
+Plural list frozen as is (rule accepted, PI): `data/wp_persons_es_plurals_v0.csv`, sha256 b302a102f40b7c00…. Script `scripts/persons_genmasc.py`.
