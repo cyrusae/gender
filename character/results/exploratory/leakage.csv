@@ -1,0 +1,9 @@
+family,thinking,experiment,n,leak_flags,leak_rate_%
+Luna,True,writer,57300,0,0.0
+Luna,True,character,64940,0,0.0
+Luna,False,writer,57300,0,0.0
+Luna,False,character,64940,0,0.0
+Qwen,False,writer,57300,0,0.0
+Qwen,False,character,64940,0,0.0
+Qwen,True,writer,57277,0,0.0
+Qwen,True,character,64931,0,0.0

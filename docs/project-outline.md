@@ -316,6 +316,18 @@ second Claude session that read along and flagged problems.*
   Qwen3-14B. Explainer `C1-character-design-and-measures.md`; draft pre-registration
   `character/docs/prereg_DRAFT.md` (awaiting PI sign-off).
 
+- **Oct 28 – Nov 11 (character study main run).** Pre-registration v1 signed off, plus four
+  amendments before any estimate (de/es citation-form arms; gatekeeping across four model ×
+  thinking cells; thinking-mode details incl. a settings control; stop after batch 1). Batch 1
+  (final): GPT-6-Luna via OpenRouter, reasoning medium + none (244,480 completions, $14.54) and
+  Qwen3-14B on one RunPod pod, thinking off/on + control (267,400, ~$16.50). Confirmatory results
+  (explainer C2): **the foreign word's grammatical gender moves the character's pronoun** (headline
+  +26 points, all four cells); 57/70 modifiers and 13/15 antonym pairs change it (negative words
+  pull toward *he*); writer persona lowers *she* for Qwen. Exploratory (C3): Qwen's effect survives
+  a noun-baseline control (−2–3 points); reasoning halves the effect in both families; Qwen's
+  sampling settings don't matter, its mode does; sentences get longer with thinking; no leakage;
+  FastCoref agrees with the regex coder (kappa ≥ 0.95).
+
 ## Where things stand (Oct 17)
 
 - **Done:** Phases 0–4 confirmed on the target sizes; Phase 5 confirmatory for Spanish (8B:
