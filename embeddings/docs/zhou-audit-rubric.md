@@ -20,8 +20,11 @@ Weights: High ×3, Medium ×2, Low ×1. Issue score = Σ(score × weight) / Σ(2
 percentage. Report High-only coverage separately; it's the number that matters for "would this audit
 have caught what changes the paper's conclusions".
 
-**False claims (part B).** −2 (× its weight, default 2) for each listed false claim the run states as
-established; −1 if hedged ("may", "possibly"). Also count, without scoring, any *new* claim not in
+**False claims (part B).** −2 for each listed false claim the run states as established fact; 0 if
+hedged ("may", "possibly", "worth checking"): raising a possibility is part of an auditor's job.
+Tier B-materials (refutable from the paper and code alone) always applies; tier B-compute (refutable
+only by computing with the vectors) applies only if the run had the vectors *and* presents the claim
+as computed. An unverified assertion presented as fact without the vectors is scored under D2 instead. Also count, without scoring, any *new* claim not in
 this rubric: check each by hand and mark it **true-new** (add to the rubric and to the issue log),
 **false**, or **unverifiable**. True-new findings are the most interesting output of a run.
 
@@ -42,41 +45,41 @@ Location shorthand: §/Table = paper; "cell N" = 0-based cell of `bias_emnlp19.i
 
 | ID | Full credit (2) needs | Partial (1) |
 |---|---|---|
-| A1 = Z10 | Table 1 p-values carry no information: the statistic ‖Σx\| − \|Σy‖ ≤ \|Σx+Σy\| makes the observed split the maximum of its permutation distribution when the sums have opposite signs (p = 0 guaranteed before mitigation), and/or after Shift most permutations tie exactly with the observed value (≈76% ES / 95% FR) so `>` is decided by rounding (cell 230) | notes the same statistic gets different p-values (Shift 0.113 vs Hybrid 0.733 for 0.3090), or that p = 0.0000 can't be resolved with 1,000 permutations |
-| A2 = Z14 | the post-Shift MWEAT value is fixed before the shift (algebraic: the shift cancels the d_s part of the attribute axis, leaving \|Σ w·a⊥\|), *or* demonstrates circularity empirically (shift half the pairs, the statistic on the other half is unchanged) | says the mitigation is evaluated on the same words it edits / the drop is "by construction", without derivation or demonstration |
-| A3 = Z11 | Hybrid Ori must equal Shift Ori on Table 1 because an orthogonal alignment preserves Spanish-internal dot products; De-Align should equal Original (3.6918) but is printed 3.5748 | notices Shift Ori and Hybrid Ori have identical statistics, without the reason |
-| A4 = Z13 | the French Table 1 values don't come from the released attribute list: the released 10-pair list gives 2.3958 (and Shift 0.0649, p 0.019 in the saved output); removing the two duplicate-feminine pairs (*femme/mari*, *fille/fils*) gives the printed 2.3437 / 0.2446 | reports the FR mismatch (2.3958 vs 2.3437, or the saved-output disagreement) without the cause |
-| A5 = Z17 | the word-pair test (Table 2) uses only masculine or invariant adjective cues (cell 345: *trabajador, bueno, malo…, amable, feliz…*), so with a masculine cue the masculine form is the grammatically correct answer and the gap partly measures agreement; the paper's own example uses feminine *buena* | flags only the MRR denominator (forms outside the top 999 dropped, so F/M MRR average over different queries) or calls the cue list "small/unbalanced" without the agreement point |
-| A6 = Z6 | the inanimate-noun bias score b_w (§2.1, Eq. 4) is defined but never reported or computed; the stated aim (mitigation keeps grammatical gender of inanimates) is never evaluated | mentions inanimates are "not evaluated in detail" without pointing to the missing evaluation |
+| A1 = Z10 [V] | Table 1 p-values carry no information: the statistic ‖Σx\| − \|Σy‖ ≤ \|Σx+Σy\| makes the observed split the maximum of its permutation distribution when the sums have opposite signs (p = 0 guaranteed before mitigation), and/or after Shift most permutations tie exactly with the observed value (≈76% ES / 95% FR) so `>` is decided by rounding (cell 230) | notes the same statistic gets different p-values (Shift 0.113 vs Hybrid 0.733 for 0.3090), or that p = 0.0000 can't be resolved with 1,000 permutations |
+| A2 = Z14 [V] | the post-Shift MWEAT value is fixed before the shift (algebraic: the shift cancels the d_s part of the attribute axis, leaving \|Σ w·a⊥\|), *or* demonstrates circularity empirically (shift half the pairs, the statistic on the other half is unchanged) | says the mitigation is evaluated on the same words it edits / the drop is "by construction", without derivation or demonstration |
+| A3 = Z11 [R+V] | Hybrid Ori must equal Shift Ori on Table 1 because an orthogonal alignment preserves Spanish-internal dot products; De-Align should equal Original (3.6918) but is printed 3.5748 | notices Shift Ori and Hybrid Ori have identical statistics, without the reason |
+| A4 = Z13 [R] | the French Table 1 values don't come from the released attribute list: the released 10-pair list gives 2.3958 (and Shift 0.0649, p 0.019 in the saved output); removing the two duplicate-feminine pairs (*femme/mari*, *fille/fils*) gives the printed 2.3437 / 0.2446 | reports the FR mismatch (2.3958 vs 2.3437, or the saved-output disagreement) without the cause |
+| A5 = Z17 [R+V] | the word-pair test (Table 2) uses only masculine or invariant adjective cues (cell 345: *trabajador, bueno, malo…, amable, feliz…*), so with a masculine cue the masculine form is the grammatically correct answer and the gap partly measures agreement; the paper's own example uses feminine *buena* | flags only the MRR denominator (forms outside the top 999 dropped, so F/M MRR average over different queries) or calls the cue list "small/unbalanced" without the agreement point |
+| A6 = Z6 [R] | the inanimate-noun bias score b_w (§2.1, Eq. 4) is defined but never reported or computed; the stated aim (mitigation keeps grammatical gender of inanimates) is never evaluated | mentions inanimates are "not evaluated in detail" without pointing to the missing evaluation |
 
 ### Medium (×2)
 
 | ID | Full credit (2) needs | Partial (1) |
 |---|---|---|
-| A7 = Z1 | the grammatical direction is a LinearSVC (cells 73, 78), not LDA as the paper says; LDA cells raise errors; the published cos 0.389 needs the SVC (LDA ≈ 0.377) | notes SVC is used, without the consequence |
-| A8 = Z4 | the mitigated embeddings and hard-debiased English vectors aren't released, so Shift-EN, De-Align, Hybrid and Table 2's mitigated columns can't be rerun | says "some files missing" without which results this blocks |
-| A9 = Z5+Z9 | noun lists have quality problems: words listed under both genders, many non-nouns (adjectives, determiners…), animate nouns (*mujer*), mislabelled *el agua*-type nouns | gives one example only |
-| A10 = Z12 | 12 of 16 Spanish attribute words are in the "inanimate" noun lists, so Eq. 2 as described would move the yardstick | — |
-| A11 = Z15 | Eq. 2 (project d_s out of inanimate nouns) is in no released cell; the Spanish Shift Ori embedding is loaded from an unreleased file | says the inanimate step is "unclear" |
-| A12 = Z16 | the definitional pairs are also shifted (cells 279, 292; FR 293, 296–297), and most Spanish attribute words are definitional, so the yardstick moves with the mitigation; and/or the cell 274 / 296 slips | names one of the slips only |
-| A13 = Z18 | Table 2 word translation: Original scored against 200k candidates, mitigated columns against 50k (cells 311, 315); with 50k the unmitigated space gives the Shift column exactly (EN→ES 80.7/90.3), so the "gain" is the candidate set | flags the mitigated translation numbers as implausible (English unchanged yet EN→ES improves) without the cause |
-| A14 = Z19 | attribute-list errors: Spanish *tio* for *tío* (correcting it moves Original ES 3.69 → 2.25); French list has *femme*, *fille* twice and the name pair *louise/gabriel* | finds one of these without the effect on Table 1 |
-| A15 = Z25 | no released code for word similarity (Table 1), translation P@1/P@5 (Table 2) or the §4.4 Spearman | names one of the three |
+| A7 = Z1 [R] | the grammatical direction is a LinearSVC (cells 73, 78), not LDA as the paper says; LDA cells raise errors; the published cos 0.389 needs the SVC (LDA ≈ 0.377) | notes SVC is used, without the consequence |
+| A8 = Z4 [R] | the mitigated embeddings and hard-debiased English vectors aren't released, so Shift-EN, De-Align, Hybrid and Table 2's mitigated columns can't be rerun | says "some files missing" without which results this blocks |
+| A9 = Z5+Z9 [V] | noun lists have quality problems: words listed under both genders, many non-nouns (adjectives, determiners…), animate nouns (*mujer*), mislabelled *el agua*-type nouns | gives one example only |
+| A10 = Z12 [V] | 12 of 16 Spanish attribute words are in the "inanimate" noun lists, so Eq. 2 as described would move the yardstick | — |
+| A11 = Z15 [R] | Eq. 2 (project d_s out of inanimate nouns) is in no released cell; the Spanish Shift Ori embedding is loaded from an unreleased file | says the inanimate step is "unclear" |
+| A12 = Z16 [R] | the definitional pairs are also shifted (cells 279, 292; FR 293, 296–297), and most Spanish attribute words are definitional, so the yardstick moves with the mitigation; and/or the cell 274 / 296 slips | names one of the slips only |
+| A13 = Z18 [R+V] | Table 2 word translation: Original scored against 200k candidates, mitigated columns against 50k (cells 311, 315); with 50k the unmitigated space gives the Shift column exactly (EN→ES 80.7/90.3), so the "gain" is the candidate set | flags the mitigated translation numbers as implausible (English unchanged yet EN→ES improves) without the cause |
+| A14 = Z19 [V] | attribute-list errors: Spanish *tio* for *tío* (correcting it moves Original ES 3.69 → 2.25); French list has *femme*, *fille* twice and the name pair *louise/gabriel* | finds one of these without the effect on Table 1 |
+| A15 = Z25 [R] | no released code for word similarity (Table 1), translation P@1/P@5 (Table 2) or the §4.4 Spearman | names one of the three |
 
 ### Low (×1)
 
 | ID | Full credit (2) needs |
 |---|---|
-| A16 = Z3 | `doPCA` centres at `a + b/2` (cell 36), not the midpoint; direction barely changes (cos ≈ 0.995) but PC1 variance falls (≈44% → 24%) — 1 if the bug is named without the effect |
-| A17 = Z7 | SemEval-2017 Task 2 has no French data, so the French similarity row has no stated source |
-| A18 = Z8 | no licence in the release |
-| A19 = Z20 | cell 307 allocates `hybrid_ori_ES_defs_embeddings` but fills `hybrid_ori_FR_embeddings` |
-| A20 = Z21 | occupation glosses not in the occupation sense (*secretario* → registrar, *conservador* → tory, *encargado* → commissioned) |
-| A21 = Z22 | `ES_neutral_words` (cell 30): three English function words come back untranslated (*over, than, most*) |
-| A22 = Z23 | Spanish attribute markers are the grammatical-gender terms and mismatched in form (*masculino* vs *femenina*) |
-| A23 = Z24 | the attribute lists aren't the translated Caliskan lists the paper describes (Spanish mixes WEAT 7 and 8, adds *esposo/esposa*, no pronouns; French uses the definitional pairs) |
-| A24 = Z10 notes | 1,000 permutations (not stated); shuffle ignores the m/f pairing; 12 uncorrected tests |
-| A25 = Z2+dot | MWEAT uses raw dot products while the paper says cosine (equivalent only for unit vectors, broken after Shift, which doesn't renormalise) |
+| A16 = Z3 [R] | `doPCA` centres at `a + b/2` (cell 36), not the midpoint; direction barely changes (cos ≈ 0.995) but PC1 variance falls (≈44% → 24%) — 1 if the bug is named without the effect |
+| A17 = Z7 [R] | SemEval-2017 Task 2 has no French data, so the French similarity row has no stated source |
+| A18 = Z8 [R] | no licence in the release |
+| A19 = Z20 [R] | cell 307 allocates `hybrid_ori_ES_defs_embeddings` but fills `hybrid_ori_FR_embeddings` |
+| A20 = Z21 [V] | occupation glosses not in the occupation sense (*secretario* → registrar, *conservador* → tory, *encargado* → commissioned) |
+| A21 = Z22 [V] | `ES_neutral_words` (cell 30): three English function words come back untranslated (*over, than, most*) |
+| A22 = Z23 [V] | Spanish attribute markers are the grammatical-gender terms and mismatched in form (*masculino* vs *femenina*) |
+| A23 = Z24 [R] | the attribute lists aren't the translated Caliskan lists the paper describes (Spanish mixes WEAT 7 and 8, adds *esposo/esposa*, no pronouns; French uses the definitional pairs) |
+| A24 = Z10 notes [R+V] | 1,000 permutations (not stated); shuffle ignores the m/f pairing; 12 uncorrected tests |
+| A25 = Z2+dot [R] | MWEAT uses raw dot products while the paper says cosine (equivalent only for unit vectors, broken after Shift, which doesn't renormalise) |
 
 ### Bonus (not expected of an audit; our extensions; +1 each, reported separately, not in the %)
 
@@ -92,16 +95,16 @@ Location shorthand: §/Table = paper; "cell N" = 0-based cell of `bias_emnlp19.i
 
 ## B. Known false claims (penalised)
 
-| ID | False claim | Why it's false |
-|---|---|---|
-| B1 | "Table 1's statistic contradicts the paper's MWEAT formula" | §4.2 and footnote 3 define the nested-absolute-value statistic the code computes |
-| B2 | "The Shift/Hybrid translation numbers are CSLS scores" | they reproduce exactly with plain nearest neighbour over 50k candidates (Z18) |
-| B3 | "The p-values are reported as 1 − p" (as an established fact) | fits Hybrid (0.733 ≈ 1 − 0.269) but not Shift (0.113); the tie mechanism explains all values |
-| B4 | "Figure 4 / §4.4 can't be reproduced: needs unreleased English lists" | rebuildable from footnote 3; Spearman 0.450 (paper 0.45) |
-| B5 | "There is no gender bias / the paper's main finding is false" | the cross-lingual masculine intrusion is real; the *mitigation* evidence and the statistics fail |
-| B6 | "The vectors aren't unit length, so dot ≠ cosine" (for the original MUSE vectors) | all within 1e-6 of length 1; only shifted vectors aren't |
-| B7 | "Hybrid removes the bias" / "the mitigations work" accepted at face value | Z10, Z11, Z14 |
-| B8 | Any number reported as "reproduced exactly" that doesn't match the paper or our rebuild (check part C) | — |
+| ID | Tier | False claim | Why it's false |
+|---|---|---|---|
+| B1 | materials | "Table 1's statistic contradicts the paper's MWEAT formula" | §4.2 and footnote 3 define the nested-absolute-value statistic the code computes |
+| B2 | compute | "The Shift/Hybrid translation numbers are CSLS scores" | they reproduce exactly with plain nearest neighbour over 50k candidates (Z18) |
+| B3 | materials | "The p-values are reported as 1 − p" (as an established fact) | fits Hybrid (0.733 ≈ 1 − 0.269) but not Shift (0.113); the tie mechanism explains all values |
+| B4 | compute | "Figure 4 / §4.4 can't be reproduced: needs unreleased English lists" | rebuildable from footnote 3; Spearman 0.450 (paper 0.45) |
+| B5 | materials | "There is no gender bias / the paper's main finding is false" | the cross-lingual masculine intrusion is real; the *mitigation* evidence and the statistics fail |
+| B6 | compute | "The vectors aren't unit length, so dot ≠ cosine" (for the original MUSE vectors) | all within 1e-6 of length 1; only shifted vectors aren't |
+| B7 | materials | "Hybrid removes the bias" / "the mitigations work" accepted at face value | Z10, Z11, Z14 |
+| B8 | materials | Any number reported as "reproduced exactly" that doesn't match the paper or our rebuild (check part C) | — |
 
 ## C. Reproduction targets (released code + MUSE vectors)
 
@@ -118,6 +121,10 @@ Location shorthand: §/Table = paper; "cell N" = 0-based cell of `bias_emnlp19.i
 | C9 | Table 1 ES word similarity | 0.7392 / not reproducible (Pearson ≈0.71 on SemEval-2017 ES) | 1 for an honest "doesn't reproduce" |
 | C10 | mitigated rows (Shift-EN, De-Align, Hybrid, Table 2 mitigated) | — | 2 for "can't be rerun from the release" with the reason; Hybrid Ori = Shift Ori by argument also earns 2 |
 
+**Without the vectors:** C1–C9 can't be run; score each 2 if the run correctly says it can't be
+reproduced without the embeddings (and names what's needed), 0 if it doesn't address it, −1 if it
+claims a number it couldn't have computed.
+
 ## D. Calibration and process (0–2 each)
 
 - D1 **Verdicts calibrated:** reproduces / partly / doesn't / can't tell, used correctly per result.
@@ -126,6 +133,44 @@ Location shorthand: §/Table = paper; "cell N" = 0-based cell of `bias_emnlp19.i
 - D4 **Severity sensible:** High items above cosmetic ones; conclusions-changing issues identified as such.
 - D5 **Scripts runnable and outputs saved.**
 - D6 **Stayed in scope:** didn't use outside material or modify the upstream repo in place.
+
+## Conditions (PI's sprint: audit only / audit then replicate / replicate only)
+
+**The two skills have different briefs, so items carry a lens:**
+- **[R] reproduction / implementation:** what blocks or misleads someone trying to rerun the paper
+  from its code: missing files or code, paper–code mismatches (method, statistic, word lists, stated
+  data), numbers that don't come from the released code. This is the `audit` skill's brief, and what
+  `replicate` should surface as discrepancies.
+- **[V] validity:** the analysis runs as described but doesn't support the claim (invalid p-values,
+  circular evaluation, test design). Outside both briefs: **credited, never required.**
+- **[R+V]:** counts in both.
+
+**Score sheet per condition** (same sheet; the judge fills only the columns that apply):
+
+| Part | (a) audit only | (b) audit → replicate | (c) replicate only |
+|---|---|---|---|
+| A [R] items | **primary** (% of [R] weight) | stage 1 = the (a) score; stage 2: new [R] items surfaced while replicating | **primary**: [R] items surfaced as discrepancies or blockers while replicating |
+| A [V] items | bonus, reported separately | bonus, both stages | bonus |
+| B false claims | materials tier; compute tier only if it ran code | both stages; also: was an audit false claim corrected by the replication? (+1 each) | as written |
+| C reproduction | not scored (unless the audit ran code: report, don't score) | **primary** for stage 2 | **primary** |
+| D process | D1–D4, D6 (D5 if it wrote code) | both stages | all |
+| Uptake (b only) | — | per stage-1 [R] finding: 2 = replication acted on it (used SVC, handled missing files, used the 8-pair FR list, reported which numbers it couldn't rerun), 1 = mentioned but not acted on, 0 = ignored | — |
+
+**Comparisons that answer the sprint's questions:**
+- *Does auditing first help replication?* C (and stage-2 [R]) in (b) vs (c).
+- *Does replication catch what audit alone misses?* [R] found in (b) stage 2 but not stage 1, and in (c).
+- *Is the audit accurate?* B count in (a); in (b), how many audit false claims the replication corrected.
+- (a) and (b) share stage 1 (the same session continues), so (a) = (b)-stage-1 by design; report them
+  once, not as independent samples.
+
+**Fairness notes for the judge:**
+- Score each stage from its own report (stage 2 may cite stage 1 but gets credit only for what it adds
+  or acts on).
+- Give every condition the same materials. If replication gets the MUSE vectors, give them to the
+  audit too (an audit may choose not to run code; it shouldn't be denied the option).
+- Judge without knowing the condition where possible (strip skill names and stage labels from
+  reports before scoring); score uptake afterwards, since it needs both stages.
+- New findings (true-new) count for every condition and go into the issue log.
 
 ## Reference points from earlier runs
 
