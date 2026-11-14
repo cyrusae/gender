@@ -121,9 +121,18 @@ Location shorthand: §/Table = paper; "cell N" = 0-based cell of `bias_emnlp19.i
 | C9 | Table 1 ES word similarity | 0.7392 / not reproducible (Pearson ≈0.71 on SemEval-2017 ES) | 1 for an honest "doesn't reproduce" |
 | C10 | mitigated rows (Shift-EN, De-Align, Hybrid, Table 2 mitigated) | — | 2 for "can't be rerun from the release" with the reason; Hybrid Ori = Shift Ori by argument also earns 2 |
 
-**Without the vectors:** C1–C9 can't be run; score each 2 if the run correctly says it can't be
-reproduced without the embeddings (and names what's needed), 0 if it doesn't address it, −1 if it
-claims a number it couldn't have computed.
+**Materials in the sprint (PI, 2026-11-14):** runs start with the paper and the repo only, and may
+download the MUSE vectors themselves (public; the release names them). The mitigated embeddings and
+hard-debiased English vectors are *not* obtainable (Z4), so C10 stays as written.
+- **Replicate (b stage 2, c):** downloading the vectors is part of the job. C1–C9 score as written;
+  a run that didn't download them scores 1 per target only if it says plainly that it didn't and
+  what the targets would need, 0 otherwise, −1 for a number it couldn't have computed.
+- **Audit (a, b stage 1):** C isn't scored. Downloading is allowed but not expected; an audit that
+  identifies *which* external files are needed and which are missing is doing its job (credit under
+  A8/A11/A15). If it did download and compute, report its numbers next to the targets, and B-compute
+  applies to anything it presents as computed.
+- Record per run whether the vectors were downloaded (and how long it took / cost): a replication that
+  stalls on a 600 MB download is itself a finding about the skill.
 
 ## D. Calibration and process (0–2 each)
 
@@ -166,8 +175,8 @@ claims a number it couldn't have computed.
 **Fairness notes for the judge:**
 - Score each stage from its own report (stage 2 may cite stage 1 but gets credit only for what it adds
   or acts on).
-- Give every condition the same materials. If replication gets the MUSE vectors, give them to the
-  audit too (an audit may choose not to run code; it shouldn't be denied the option).
+- Every condition starts from the same materials (paper + repo) with the same network access, so each
+  can fetch the MUSE vectors; whether it does is part of what's measured.
 - Judge without knowing the condition where possible (strip skill names and stage labels from
   reports before scoring); score uptake afterwards, since it needs both stages.
 - New findings (true-new) count for every condition and go into the issue log.
