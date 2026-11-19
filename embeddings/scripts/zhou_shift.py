@@ -66,10 +66,15 @@ def load_vec(path, nmax=50000):
     return np.vstack(vecs), w2i
 
 
+# ZHOU_CENTRE=midpoint uses the correct pair midpoint (a + b) / 2 instead of the notebook's
+# a + b / 2 (upstream Z3/Z33); default "notebook" keeps every frozen result byte-identical.
+CENTRE_MIDPOINT = _os.environ.get("ZHOU_CENTRE", "notebook") == "midpoint"
+
+
 def pca_dir(pairs, E, w2i):
     rows = []
     for a, b in pairs:
-        centre = E[w2i[a]] + E[w2i[b]] / 2  # sic, as in the notebook
+        centre = (E[w2i[a]] + E[w2i[b]]) / 2 if CENTRE_MIDPOINT else E[w2i[a]] + E[w2i[b]] / 2  # sic default, as in the notebook
         rows += [E[w2i[a]] - centre, E[w2i[b]] - centre]
     return PCA(n_components=10).fit(np.array(rows)).components_[0]
 

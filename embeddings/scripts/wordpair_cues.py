@@ -16,6 +16,7 @@ standardised slope; bootstrap over pairs and occupations). Q4 per-occupation int
     uv run --no-project --python 3.12 --with numpy,pandas,scikit-learn python embeddings/scripts/wordpair_cues.py
 """
 
+import os
 from pathlib import Path
 
 import numpy as np
@@ -25,7 +26,7 @@ from zhou_shift import Z, load_vec
 from zhou_wordpair import spaces
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/wordpair_cues"
+OUT = Path(os.environ.get("WP_CUES_OUT", ROOT / "results/wordpair_cues"))  # override for sensitivity runs
 N_BOOT, SEED = 10_000, 0
 
 
