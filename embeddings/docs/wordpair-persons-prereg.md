@@ -1,4 +1,4 @@
-# Is masculine intrusion specific to occupations? (DRAFT pre-registration)
+# Is masculine intrusion specific to occupations? (pre-registration)
 
 *Status: **ADOPTED 2026-11-11** (PI reviewed the noun list; adoption record at the end). Nothing
 scored with the new nouns before adoption.*
@@ -80,7 +80,7 @@ Occupations and non-occupations differ in more than stereotype (frequency, regis
 feminine form occurs at all). P3 addresses frequency directly. A difference in P2 would show something
 is specific to occupations, not that it is stereotype. French is not included (the PI can't vet it).
 
-## Open for the PI
+## Open questions at drafting (answered in the adoption record)
 
 1. Review the list (`pi_keep`; correct `group` where wrong).
 2. Should identity nouns stay descriptive (their forms are also adjectives, so frequency is driven by

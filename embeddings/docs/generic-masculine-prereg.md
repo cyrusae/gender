@@ -1,4 +1,4 @@
-# Generic masculine and Zhou's skew (DRAFT pre-registration)
+# Generic masculine and Zhou's skew (pre-registration)
 
 *Status: **ADOPTED 2026-11-10** (PI checked the plural list; adoption record at the end). **Spanish has already been
 looked at** (exploratory check, 2026-11-10, 46 pairs, numbers below), so Spanish is reported as a

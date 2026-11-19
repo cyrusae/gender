@@ -1,4 +1,4 @@
-# Do masculine plurals of ordinary person nouns act generic? (DRAFT pre-registration)
+# Do masculine plurals of ordinary person nouns act generic? (pre-registration)
 
 *Status: **ADOPTED 2026-11-11** (PI). Nothing scored before adoption.*
 
@@ -50,7 +50,7 @@ Requiring both plurals in the 50k vocabulary keeps the more frequent nouns (whos
 common enough), which may favour nouns used for mixed groups. A static vector can't separate generic
 from male-specific uses; this tests a prediction of the generic account.
 
-## Open for the PI
+## Open questions at drafting (answered in the adoption record)
 
 1. Review the plural list (94 rows) or accept the rule?
 2. Floor of 25 person pairs (51 available): fine?

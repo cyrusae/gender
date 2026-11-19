@@ -1,4 +1,4 @@
-# Word-pair intrusion: intervals and mechanism (DRAFT pre-registration)
+# Word-pair intrusion: intervals and mechanism (pre-registration)
 
 *Status: **ADOPTED 2026-11-10** (PI settled the last open item; adoption record at the end). Nothing in Part B has been
 scored. Part A puts intervals on numbers already seen (exploratory run, commit cd7693c), so its

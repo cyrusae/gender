@@ -1,4 +1,4 @@
-# Word-pair test with a full adjective list (DRAFT pre-registration)
+# Word-pair test with a full adjective list (pre-registration)
 
 *Status: **ADOPTED 2026-11-11** (PI reviewed the cue lists; adoption record at the end). Nothing
 scored with the new cues before adoption.*
@@ -79,7 +79,7 @@ The cues are new data, so Q1 and Q3 are confirmatory for Spanish. The occupation
 the ones already analysed, so Q2 and Q4 are replications with a better cue sample, not new
 confirmations.
 
-## Open for the PI
+## Open questions at drafting (answered in the adoption record)
 
 1. Review the Spanish list (`pi_keep`). French: accept the rule plus my suggestions as is, or skip
    French?

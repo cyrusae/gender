@@ -1,4 +1,4 @@
-# Crime nouns as a single-stereotype probe (DRAFT pre-registration)
+# Crime nouns as a single-stereotype probe (pre-registration)
 
 *Status: **ADOPTED by the PI 2026-11-10**. Nothing scored at adoption. Follow-up named
 in `docs/zhou-zero-point-prereg.md` (adopted 2026-11-10).*

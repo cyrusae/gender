@@ -1,4 +1,4 @@
-# Where is "zero lean"? An offset-corrected asymmetry test for Zhou et al.'s occupation pairs (DRAFT pre-registration)
+# Where is "zero lean"? An offset-corrected asymmetry test for Zhou et al.'s occupation pairs (pre-registration)
 
 *Status: **ADOPTED by the PI 2026-11-10** (drafted 2026-11-08). No score in this design had been
 computed at adoption. Candidate reference lists are built

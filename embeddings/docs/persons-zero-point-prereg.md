@@ -1,4 +1,4 @@
-# Is Zhou's monolingual asymmetry specific to occupations? (DRAFT pre-registration)
+# Is Zhou's monolingual asymmetry specific to occupations? (pre-registration)
 
 *Status: **ADOPTED 2026-11-11** (PI). Nothing scored before adoption.*
 
@@ -58,7 +58,7 @@ the two groups in each draw, so Q2's difference has the shared parts cancelled.
 Person nouns and occupations differ in more than occupation-ness (frequency of the feminine form,
 abstractness). A difference shows the asymmetry isn't general to person nouns, not why.
 
-## Open for the PI
+## Open questions at drafting (answered in the adoption record)
 
 1. Spanish only is acceptable? (A French person list would need building by rule and couldn't be
    reviewed by you; it could be run as descriptive.)
