@@ -87,13 +87,11 @@ def main() -> None:
     print(f"SOURCE {src}  (Glasgow: lower = more feminine; embedders: higher = more feminine)")
     for cell in CELLS:
         d = merged("writer", cell, src)
-        t = (
-            d[d.pron.isin(["she", "he"])]
-            .groupby(["noun", "modifier", "pron"])
-            .score.mean()
-            .unstack()
-        )
-        v = (t["she"] - t["he"]).dropna().groupby(level=0).mean()
+        # within noun, arms pooled (the embedder sample has one draw per noun x arm, so a
+        # noun x arm cell never holds both a she and a he paragraph)
+        t = d[d.pron.isin(["she", "he"])].groupby(["noun", "pron"]).score.mean().unstack()
+        v = (t["she"] - t["he"]).dropna()
+        print(f"{cell:12s} paragraph SD {d.score.std():.4f}")
         print(
             f"{cell:12s} V she-he {cl_mean(v)} | Q1c all {q1c(d, gend)} | she-only {q1c(d, gend, ['she'])} | he-only {q1c(d, gend, ['he'])}"
         )

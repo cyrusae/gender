@@ -20,13 +20,13 @@ for e in bge-m3 e5-instruct labse qwen3-emb-0.6b embeddinggemma; do
       in=results/main_v1/${kind}_$f.jsonl
       for pass in all kept; do
         flags=(); [ "$pass" = kept ] && flags=(--keep-they --they-only)
-        n=$("${PY[@]}" "$in" --only "$e" "${flags[@]}" --count --out /dev/null 2>/dev/null | tail -1)
+        n=$("${PY[@]}" "$in" --only "$e" ${flags[@]+"${flags[@]}"} --count --out /dev/null 2>/dev/null | tail -1)
         [[ "$n" =~ ^[0-9]+$ ]] || { echo "=== FAILED count $e $kind $f $pass"; FAIL=1; continue; }
         for ((k = 0; k * CH < n; k++)); do
           out="$O/${e}_${kind}_${f}_${pass}_$(printf %03d $k).csv"
           [ -s "$out" ] && continue
           while ! on_ac; do sleep 300; done
-          if "${PY[@]}" "$in" --only "$e" "${flags[@]}" --skip $((k * CH)) --take "$CH" \
+          if "${PY[@]}" "$in" --only "$e" ${flags[@]+"${flags[@]}"} --skip $((k * CH)) --take "$CH" \
                --out "$out.tmp" > "$O/last.log" 2>&1; then
             mv "$out.tmp" "$out"; echo "chunk $(date '+%F %T') $e $kind $f $pass $((k + 1))/$(((n + CH - 1) / CH))"
           else
