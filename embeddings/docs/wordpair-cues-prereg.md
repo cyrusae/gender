@@ -161,3 +161,10 @@ touching 0).
 invariant adjectives (for an invariant adjective the "feminine form" is the word itself). The
 sensitivity run drops the 18 pairs; intrusion uses only gendered pairs, so Q1 is fully covered; the
 invariant gap in that run still includes the 21.
+
+## Sensitivity: corrected PCA centring (2026-11-19, `results/wordpair_cues_midpoint/`)
+
+The Shift/Hybrid spaces were rebuilt with the notebook's centring bug (Z3) to match the paper. With the
+correct midpoint centring every Spanish verdict holds (Shift −0.103, Hybrid −0.086, both reduce, about
+a third); French Shift still reduces, French Hybrid's borderline reduction becomes "no clear change"
+(−0.047 [−0.100, 0.002]).
