@@ -108,3 +108,4 @@ embeddings/drafts/
 character/results/content/glasgow_*.csv
 character/results/content/sample_*.jsonl
 character/results/content/emb_*.csv
+character/results/content/full/
