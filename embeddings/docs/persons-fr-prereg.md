@@ -93,3 +93,31 @@ the one result the cross-language claim rests on.
   identity 7**; without flagged nouns person 25, occupation 25 (below the zero-point floor of 30, so
   that sensitivity cell is descriptive); plurals in the 200k vocabulary: person 37, occupation 29.
 - Scripts as committed in 1ab7f6e, run with `PERSONS_LANG=fr`.
+
+## Results (2026-11-19, run at 9f3f784; `results/wordpair_persons_fr/`, `persons_zero_point_fr/`, `persons_genmasc_fr/`)
+
+**1. Word-pair baseline: replicates.** P2 persons − occupations **−0.232 [−0.418, −0.040]**, "occupations
+carry extra intrusion" (Spanish −0.294). Persons 0.088 [−0.055, 0.230] inconclusive; occupations
+0.320 [0.183, 0.451] present. Without flagged nouns: −0.238 [−0.461, −0.013]. P3 (42 nouns with a
+Glasgow rating): log frequency ratio β 0.52 [0.27, 0.79] tracks; Glasgow GEND 0.30 [−0.02, 0.57] not
+shown. Identity (7): reversed, −0.49.
+
+Extra conditions (descriptive / exploratory): plain translation persons 0.447, occupations 0.517
+(difference −0.07, not distinguishable); invariant cues 0.39 vs 0.48; masculine cues 0.52 vs 0.56.
+**Unlike Spanish, French person nouns have nearly as strong a masculine default as occupations**
+(Spanish 0.28 vs 0.51); the feminine cue then removes more of it for persons (0.45 → 0.09) than for
+occupations (0.52 → 0.32). So the occupation-specific gap appears in both languages, but in French it
+comes from occupations resisting the feminine cue rather than from a stronger default (exploratory
+reading).
+
+**2. Zero point.** Native (primary): persons −0.052 [−0.104, 0.006] inconclusive; occupations −0.085
+[−0.153, −0.004] feminine further; Zhou's 23 −0.073 inconclusive; D 0.033 [−0.014, 0.079] **not
+distinguishable**. English: all three groups feminine further; D 0.042 [0.002, 0.084]
+"occupation-specific" (borderline). No-flag cells below the floor (25 per group): descriptive.
+
+**3. Generic masculine (200k).** Δρ positive in both groups but inconclusive: persons 0.30 [−0.23, 0.80]
+(37 pairs), occupations 0.41 [−0.24, 1.01] (29); G2 not shown for either; difference −0.10 [−0.61, 0.44].
+
+**Reading.** The primary cross-language claim holds: in French as in Spanish, feminine cues leave more
+masculine intrusion for occupations than for ordinary person nouns. The monolingual asymmetry and the
+plural pattern are again too noisy to separate the groups, as in Spanish.
