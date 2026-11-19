@@ -103,3 +103,9 @@ character/results/main_v1/*.jsonl
 
 # paper drafts, plans and unsent author notes stay local
 embeddings/drafts/
+
+# content scores per output (regenerable, large)
+character/results/content/glasgow_*.csv
+character/results/content/sample_*.jsonl
+character/results/content/emb_*.csv
+character/results/content/full/

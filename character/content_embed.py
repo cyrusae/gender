@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from pathlib import Path
 
@@ -160,6 +161,12 @@ def main() -> None:
     ap.add_argument("--anchors", choices=["properties", "people"], default="properties")
     ap.add_argument("--keep-they", action="store_true",
                     help="check: score he/she paragraphs with plural they/them/their unmasked")  # fmt: skip
+    ap.add_argument("--skip", type=int, default=0, help="chunking: skip the first N kept rows")
+    ap.add_argument("--count", action="store_true", help="print the number of rows to score, exit")
+    ap.add_argument("--take", type=int, help="chunking: score at most N rows after --skip")
+    ap.add_argument("--they-only", action="store_true",
+                    help="with --keep-they: only paragraphs containing they/them/their/theirs/"
+                    "themselves (others score the same either way)")  # fmt: skip
     args = ap.parse_args()
     import pandas as pd
 
@@ -169,6 +176,16 @@ def main() -> None:
     if args.keep_they:  # they-masking check: he/she paragraphs only, plural they left intact
         rows = [r for r, p in zip(rows, prons) if p in ("she", "he")]
         prons = [p for p in prons if p in ("she", "he")]
+        if args.they_only:
+            keep = [bool(re.search(r"\b(they|them|their|theirs|themselves)\b", r["answer"], re.IGNORECASE))
+                    for r in rows]  # fmt: skip
+            rows = [r for r, k in zip(rows, keep) if k]
+            prons = [p for p, k in zip(prons, keep) if k]
+    if args.count:
+        print(len(rows))
+        return
+    end = None if args.take is None else args.skip + args.take
+    rows, prons = rows[args.skip : end], prons[args.skip : end]
     texts = [mask(r["answer"], r["noun"], r.get("given_name"), p == "it", not args.keep_they)
              for r, p in zip(rows, prons)]  # fmt: skip
     fem, masc = anchors(args.anchors)
@@ -195,7 +212,9 @@ def main() -> None:
 
             # fp32 for every embedder (one precision); e5's config defaults to fp16, which
             # gave NaNs on CPU in the first check
-            m = SentenceTransformer(hf, device="cpu", model_kwargs={"torch_dtype": torch.float32})
+            # one device per run (CONTENT_DEVICE, default cpu); fp32 always
+            dev = os.environ.get("CONTENT_DEVICE", "cpu")
+            m = SentenceTransformer(hf, device=dev, model_kwargs={"torch_dtype": torch.float32})
             P = m.encode([qp + t for t in texts], batch_size=16, normalize_embeddings=True)
             A = m.encode([ap_ + w for w in fem + masc], normalize_embeddings=True)
             del m
