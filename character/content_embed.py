@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from pathlib import Path
 
@@ -195,7 +196,9 @@ def main() -> None:
 
             # fp32 for every embedder (one precision); e5's config defaults to fp16, which
             # gave NaNs on CPU in the first check
-            m = SentenceTransformer(hf, device="cpu", model_kwargs={"torch_dtype": torch.float32})
+            # one device per run (CONTENT_DEVICE, default cpu); fp32 always
+            dev = os.environ.get("CONTENT_DEVICE", "cpu")
+            m = SentenceTransformer(hf, device=dev, model_kwargs={"torch_dtype": torch.float32})
             P = m.encode([qp + t for t in texts], batch_size=16, normalize_embeddings=True)
             A = m.encode([ap_ + w for w in fem + masc], normalize_embeddings=True)
             del m
