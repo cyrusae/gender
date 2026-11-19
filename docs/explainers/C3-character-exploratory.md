@@ -77,3 +77,47 @@ Disagreements (8 of 1,200) are edge cases: a *she* paragraph where FastCoref's b
 an *it*, and a few *mixed* / *they* boundary cases. Well above the 0.6 limitation threshold. FastCoref
 ran in its own environment (`transformers==4.36.2`, spaCy `en_core_web_sm`); it fails with current
 transformers.
+
+## Content: does the description change, not just the pronoun? (2026-11-19)
+
+**Exploratory.** The pre-registration froze content measures for the Casey/Riley study (deferred),
+not for these studies. Scripts `character/scripts/content_main.py`, `content_analysis.py`;
+results `character/results/content/analysis_all.txt`.
+
+- **Glasgow word average** (human ratings, no model): every valid output of both studies.
+  Pronouns, names, gendered person words, the noun and (character study) the modifier's own words
+  masked. Paragraphs with at least 10 rated words.
+- **Six embedders** (feminine-minus-masculine anchor similarity; pronouns and names masked): a
+  fixed sample, the first draw of every writer-study prompt used by Q1 (≈3,050 per cell). The full
+  run over every output is running in the background on the Mac (≈10 days, pauses on battery).
+
+Numbers below are in **paragraph standard deviations** (how many "typical paragraph differences"),
+signed so that positive = more feminine for every scorer. `*` = 95% CI excludes 0.
+
+| scorer | she minus he paragraphs | Q1 content effect (f − m nouns) | same, *she* paragraphs only |
+|---|---|---|---|
+| Glasgow | 0.08 to 0.32 | 0.06 to 0.10 (3 of 4 *) | 0.05 to 0.11 (2 of 4 *) |
+| bge-m3 | 0.10 to 0.21 | 0.10 to 0.12 (4 of 4 *) | 0.01 to 0.14 (2 of 4 *) |
+| e5-instruct | 0.11 to 0.18 | 0.06 to 0.12 (2 of 4 *) | 0.03 to 0.11 (1 of 4 *) |
+| LaBSE | 0.01 to 0.14 | 0.03 to 0.06 (0 of 4) | −0.06 to 0.05 (0 of 4) |
+| Qwen3-Embedding | 0.06 to 0.13 | 0.06 to 0.10 (2 of 4 *) | 0.03 to 0.10 (1 of 4 *) |
+| EmbeddingGemma | 0.09 to 0.17 | 0.11 to 0.14 (4 of 4 *) | 0.03 to 0.14 (3 of 4 *) |
+| fastText | 0.07 to 0.20 | 0.08 to 0.14 (2 of 4 *) | 0.05 to 0.11 (1 of 4 *) |
+
+How to read it:
+- **Every scorer is a weak gender detector**: even a she-paragraph and a he-paragraph about the same
+  noun differ by only 0.1–0.3 of a typical paragraph difference.
+- **Direction agrees everywhere**: in all 28 scorer × cell combinations, feminine foreign words give
+  more feminine-reading descriptions; 17 of 28 exclude 0. LaBSE (built for translation matching,
+  not meaning) is the one scorer that sees nothing.
+- **Beyond the pronoun:** among paragraphs that already use *she*, the shift is mostly still there
+  (all positive except one LaBSE cell; clearest for Luna without reasoning and with EmbeddingGemma).
+  So the foreign word's gender seems to colour the description as well as the pronoun, weakly.
+- **Character study (Glasgow, all outputs):** across the 70 modifiers, a modifier's pronoun effect
+  and its content effect correlate −0.36 to −0.46 (Glasgow is 1 = feminine, so negative = they
+  move together): modifiers that pull toward *he* also pull the description toward masculine-rated
+  words.
+
+Limits: weak instruments; the embedder anchors are word lists (properties primary), fixed before
+the main run; sample is one draw per prompt. Report as "content moves with the pronoun, weakly",
+not as an effect size.
