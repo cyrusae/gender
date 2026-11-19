@@ -1,0 +1,239 @@
+lang,masc,fem,en,group,rank_m,rank_f,name_homograph,fem_also_noun,fem_nonperson_sense,masc_also_noun,language_name,masc_identical_en,place_name,masc_pl,fem_pl,pl_in_200k,masc_other_senses
+fr,acteur,actrice,actor,occupation,517,780,False,True,False,False,False,False,False,acteurs,actrices,True,
+fr,adhérent,adhérente,adherent,,30699,34410,False,False,False,False,False,False,False,adhérents,adhérentes,True,
+fr,administrateur,administratrice,administrator,occupation,2196,35966,False,False,False,False,False,False,False,administrateurs,administratrices,False,
+fr,administré,administrée,citizen,person,16486,17606,False,False,False,False,False,False,False,administrés,administrées,True,
+fr,adolescent,adolescente,adolescent,,9805,16283,False,False,False,False,False,True,False,adolescents,adolescentes,True,
+fr,ailier,ailière,winger,,5231,36897,False,False,False,True,False,False,False,ailiers,ailières,False,small forward | wingman
+fr,amant,amante,lover,person,7461,27527,False,False,False,False,False,False,False,amants,amantes,True,
+fr,ambassadeur,ambassadrice,ambassador,occupation,3565,30555,False,True,False,False,False,False,False,ambassadeurs,ambassadrices,True,
+fr,ami,amie,friend,person,1215,3757,False,True,False,False,False,False,False,amis,amies,True,
+fr,amoureux,amoureuse,lover,person,4022,6480,False,False,False,False,False,False,False,,amoureuses,False,
+fr,amputé,amputée,amputee,,28817,42663,False,False,False,False,False,False,False,amputés,amputées,True,
+fr,amérindien,amérindienne,amerindian,,19079,16541,False,False,False,False,False,False,False,amérindiens,amérindiennes,True,
+fr,anglican,anglicane,anglican,identity,23469,18955,False,False,False,False,False,True,False,anglicans,anglicanes,True,
+fr,animateur,animatrice,presenter,occupation,3987,10370,False,False,False,False,False,False,False,animateurs,animatrices,True,
+fr,apprenti,apprentie,apprentice,,11715,34298,False,False,False,False,False,False,False,apprentis,apprenties,True,
+fr,archer,archère,archer,,12248,49759,False,True,True,False,False,True,False,archers,archères,True,
+fr,assistant,assistante,assistant,,3006,12105,False,False,False,False,False,True,False,assistants,assistantes,True,
+fr,attaché,attachée,attaché,,4133,11738,False,False,False,False,False,True,False,attachés,attachées,True,
+fr,attaquant,attaquante,attacker,,2377,16760,False,False,False,True,False,False,False,attaquants,attaquantes,True,forward
+fr,aventurier,aventurière,adventurer,,15067,46597,False,False,False,False,False,False,False,aventuriers,aventurières,False,
+fr,aviateur,aviatrice,aviator,,12206,49928,False,False,False,False,False,False,False,aviateurs,aviatrices,False,
+fr,avocat,avocate,lawyer,occupation,1963,17749,False,False,False,False,False,False,False,avocats,avocates,False,
+fr,baron,baronne,baron,,1841,14737,False,True,True,False,False,True,False,barons,baronnes,False,
+fr,berger,bergère,shepherd,occupation,5056,23355,False,True,True,False,False,False,False,bergers,bergères,True,
+fr,blessé,blessée,injured,,3137,19464,False,False,False,False,False,False,False,blessés,blessées,True,
+fr,blond,blonde,blond,,18824,8987,False,True,True,False,False,True,False,blonds,blondes,True,
+fr,boursier,boursière,grantee,,17414,10566,False,False,False,True,False,False,False,boursiers,boursières,True,pursemaker
+fr,brun,brune,brown,,1833,9264,False,True,False,False,False,False,False,bruns,brunes,True,
+fr,bénédictin,bénédictine,benedictine,identity,14405,14395,False,False,False,False,False,False,False,bénédictins,bénédictines,True,
+fr,cadet,cadette,cadet,,5267,11924,False,False,False,True,False,True,False,cadets,cadettes,True,a younger sibling
+fr,canard,cane,duck,,8035,26463,False,True,False,True,False,False,False,canards,canes,True,"canard, hoax | newspaper | a man who complies with every desire of his partner in order"
+fr,candidat,candidate,candidate,person,2025,10428,False,False,False,False,False,False,False,candidats,candidates,True,
+fr,captif,captive,captive,person,31319,29364,False,True,False,False,False,False,False,captifs,captives,True,
+fr,cavalier,cavalière,horseman,,6089,33310,False,False,False,True,False,False,False,cavaliers,cavalières,True,"knight | knight (in tarot) | u-nail, fence staple, construction staple"
+fr,champion,championne,champion,person,402,2429,False,False,False,False,False,True,False,champions,championnes,True,
+fr,chanteur,chanteuse,singer,,1275,1717,False,True,False,False,False,False,False,chanteurs,chanteuses,True,
+fr,chargé,chargée,boss,,1341,3730,False,False,False,False,False,False,False,chargés,chargées,True,
+fr,chat,chatte,cat,,3359,26555,False,True,True,True,False,False,False,chats,chattes,True,"tag, tig (children’s game)"
+fr,cher,chère,dear,,2833,12819,False,True,True,False,False,False,False,chers,chères,True,
+fr,chercheur,chercheuse,searcher,,6123,31654,False,False,False,False,False,False,False,chercheurs,chercheuses,True,
+fr,cheval,jument,horse,,1549,22521,False,True,False,True,False,False,False,chevaux,juments,True,ellipsis of cheval-vapeur (“horsepower”) | ellipsis of cheval fiscal (“tax horsepower”)
+fr,chien,chienne,dog,,2624,34570,False,True,True,True,False,False,False,chiens,chiennes,True,"cock, hammer (of a firearm)"
+fr,chroniqueur,chroniqueuse,chronicler,,8731,31637,False,False,False,False,False,False,False,chroniqueurs,chroniqueuses,False,
+fr,chrétien,chrétienne,christian,identity,3401,3114,False,False,False,False,False,False,False,chrétiens,chrétiennes,True,
+fr,chéri,chérie,dear,,30881,20271,False,False,False,False,False,False,False,chéris,chéries,True,
+fr,citoyen,citoyenne,citizen,person,6054,18444,False,False,False,False,False,False,False,citoyens,citoyennes,True,
+fr,civil,civile,civilian,,2309,1667,False,False,False,False,False,False,False,civils,civiles,True,
+fr,client,cliente,client,,4693,27217,False,False,False,False,False,True,False,clients,clientes,True,
+fr,cofondateur,cofondatrice,cofounder,,10893,45154,False,False,False,False,False,False,False,cofondateurs,cofondatrices,False,
+fr,collaborateur,collaboratrice,collaborator,person,5354,35426,False,False,False,False,False,False,False,collaborateurs,collaboratrices,True,
+fr,combattant,combattante,combatant,,7358,31962,False,False,False,False,False,False,False,combattants,combattantes,True,
+fr,commerçant,commerçante,trader,,13905,32729,False,False,False,False,False,False,False,commerçants,commerçantes,True,
+fr,commis,commise,clerk,,5282,28959,False,False,False,False,False,False,False,,commises,False,
+fr,compositeur,compositrice,composer,occupation,845,12990,False,False,False,True,False,False,False,compositeurs,compositrices,True,typesetter
+fr,comte,comtesse,count,,670,4590,False,True,True,False,False,False,False,comtes,comtesses,True,
+fr,comédien,comédienne,actor,occupation,5879,8360,False,False,False,False,False,False,False,comédiens,comédiennes,True,
+fr,concurrent,concurrente,competitor,person,10147,22270,False,False,False,False,False,False,False,concurrents,concurrentes,True,
+fr,conseiller,conseillère,counsellor,,1077,10326,False,False,False,False,False,False,False,conseillers,conseillères,True,
+fr,conservateur,conservatrice,keeper,,2777,12824,False,True,True,True,False,False,False,conservateurs,conservatrices,True,conservative | conservative | preservative
+fr,constituant,constituante,constituent,,7020,8718,False,False,False,False,False,False,False,constituants,constituantes,True,
+fr,contributeur,contributrice,contributor,,2410,32660,False,False,False,False,False,False,False,contributeurs,contributrices,True,
+fr,converti,convertie,convert,person,11562,20358,False,False,False,False,False,False,False,convertis,converties,True,
+fr,copain,copine,friend,person,21842,28354,False,True,False,True,False,False,False,copains,copines,True,ellipsis of petit copain: boyfriend (boy/man to whom one has
+fr,coureur,coureuse,runner,,1901,10857,False,False,False,True,False,False,False,coureurs,coureuses,True,racer | rider
+fr,courtisan,courtisane,courtier,,40287,33064,False,True,True,True,False,False,False,courtisans,courtisanes,True,sycophant
+fr,cousin,cousine,cousin,,3680,9414,False,False,False,False,False,True,False,cousins,cousines,True,
+fr,couturier,couturière,couturier,,17555,34838,False,True,True,False,False,True,False,couturiers,couturières,True,
+fr,criminel,criminelle,criminal,,9280,9271,False,False,False,False,False,False,False,criminels,criminelles,True,
+fr,créateur,créatrice,creator,person,3335,16263,False,False,False,False,False,False,False,créateurs,créatrices,True,
+fr,cuisinier,cuisinière,cook,occupation,13430,30637,False,True,True,False,False,False,False,cuisiniers,cuisinières,True,
+fr,danseur,danseuse,dancer,occupation,8963,7404,False,False,False,False,False,False,False,danseurs,danseuses,True,
+fr,dauphin,dauphine,successor,person,5869,12645,False,False,False,True,False,False,True,dauphins,dauphines,True,dolphin | dolphin; the animal used as a charge
+fr,dessinateur,dessinatrice,designer,occupation,3537,30294,False,False,False,False,False,False,False,dessinateurs,dessinatrices,False,
+fr,destructeur,destructrice,destroyer,,28557,39199,False,False,False,True,False,False,False,destructeurs,destructrices,True,destructor
+fr,directeur,directrice,director,occupation,526,6112,False,True,True,False,False,False,False,directeurs,directrices,True,
+fr,dissident,dissidente,dissenter,,23559,39985,False,False,False,True,False,False,False,dissidents,dissidentes,True,"dissident, an opponent to a political regime"
+fr,doyen,doyenne,dean,,7050,41002,False,True,False,False,False,False,False,doyens,doyennes,False,
+fr,débutant,débutante,debutant,,5647,45314,False,True,True,False,False,False,False,débutants,débutantes,True,
+fr,défunt,défunte,deceased,person,9769,24549,False,False,False,False,False,False,False,défunts,défuntes,True,
+fr,délégué,déléguée,delegate,person,4772,12380,False,False,False,False,False,False,False,délégués,déléguées,True,
+fr,dépendant,dépendante,dependent,,6258,17445,False,False,False,False,False,False,False,dépendants,dépendantes,True,
+fr,député,députée,deputy,occupation,591,9416,False,False,False,False,False,False,False,députés,députées,True,
+fr,détenteur,détentrice,holder,,10264,25139,False,False,False,False,False,False,False,détenteurs,détentrices,True,
+fr,détenu,détenue,detainee,person,6903,13921,False,False,False,False,False,False,False,détenus,détenues,True,
+fr,dévastateur,dévastatrice,devastator,,45667,48598,False,False,False,False,False,False,False,dévastateurs,dévastatrices,True,
+fr,empereur,impératrice,emperor,,1027,6360,False,True,True,False,False,False,False,empereurs,impératrices,True,
+fr,employé,employée,employee,occupation,3072,8261,False,True,False,False,False,False,False,employés,employées,True,
+fr,ennemi,ennemie,enemy,,2720,14839,False,False,False,False,False,False,False,ennemis,ennemies,True,
+fr,enseignant,enseignante,teacher,,3939,17544,False,False,False,False,False,False,False,enseignants,enseignantes,True,
+fr,envoyé,envoyée,envoy,,2405,9027,False,False,False,True,False,False,False,envoyés,envoyées,True,messenger
+fr,espion,espionne,spy,,10375,28697,False,False,False,False,False,False,False,espions,espionnes,True,
+fr,exilé,exilée,exile,,11964,42951,False,False,False,False,False,False,False,exilés,exilées,True,
+fr,expert,experte,expert,person,6399,39269,False,False,False,False,False,True,False,experts,expertes,True,
+fr,favori,favorite,favorite,person,10060,12933,False,False,False,True,False,False,False,favoris,favorites,True,favo(u)rite
+fr,fiancé,fiancée,fiancé,,15370,9976,False,True,True,True,False,True,False,fiancés,fiancées,True,fiancé
+fr,financier,financière,financier,,4470,3851,False,False,False,False,False,True,False,financiers,financières,True,
+fr,fondateur,fondatrice,founder,person,1488,11362,False,False,False,False,False,False,False,fondateurs,fondatrices,True,
+fr,footballeur,footballeuse,footballer,,795,20650,False,False,False,False,False,False,False,footballeurs,footballeuses,True,
+fr,fou,folle,madman,,4837,9726,False,True,True,True,False,False,False,fous,folles,True,nut (extreme enthusiast)
+fr,fugitif,fugitive,fugitive,,30801,36581,False,False,False,False,False,False,False,fugitifs,fugitives,True,
+fr,gagnant,gagnante,winner,person,5712,15757,False,False,False,False,False,False,False,gagnants,gagnantes,True,
+fr,gardien,gardienne,guard,,1610,20764,False,False,False,True,False,False,False,gardiens,gardiennes,True,guardian | babysitter
+fr,gentil,gentille,pagan,identity,11821,32445,False,False,False,True,False,False,False,gentils,gentilles,True,gentile
+fr,guerrier,guerrière,warrior,person,8203,18893,False,False,False,False,False,False,False,guerriers,guerrières,True,
+fr,géant,géante,giant,,4627,13128,False,False,False,False,False,False,False,géants,géantes,True,
+fr,général,générale,general,,182,861,False,False,False,False,False,False,False,généraux,générales,True,
+fr,hindou,hindoue,hindu,,25297,26224,False,False,False,False,False,False,False,hindous,hindoues,True,
+fr,historien,historienne,historian,occupation,1579,16664,False,True,False,False,False,False,False,historiens,historiennes,True,
+fr,homosexuel,homosexuelle,homosexual,,12818,28934,False,False,False,False,False,False,False,homosexuels,homosexuelles,True,
+fr,horloger,horlogère,watchmaker,,23578,44857,False,False,False,False,False,False,False,horlogers,horlogères,True,
+fr,héritier,héritière,heir,,4015,8702,False,True,True,False,False,False,False,héritiers,héritières,True,
+fr,héros,héroïne,hero,person,1673,8486,False,True,True,False,False,False,False,,héroïnes,False,
+fr,hôtelier,hôtelière,hotelier,occupation,25459,36307,False,False,False,False,False,False,False,hôteliers,hôtelières,True,
+fr,idiot,idiote,idiot,,16969,46855,False,False,False,False,False,True,False,idiots,idiotes,True,
+fr,illustrateur,illustratrice,illustrator,occupation,6257,33677,False,False,False,False,False,False,False,illustrateurs,illustratrices,False,
+fr,immigré,immigrée,immigrant,,28760,48257,False,False,False,False,False,False,False,immigrés,immigrées,True,
+fr,immortel,immortelle,immortal,,20016,36153,False,True,True,False,False,False,False,immortels,immortelles,True,
+fr,indien,indienne,indian,,2725,5206,False,True,True,False,False,False,False,indiens,indiennes,True,
+fr,industriel,industrielle,industrialist,,2742,3084,False,False,False,False,False,False,False,industriels,industrielles,True,
+fr,infant,infante,infant,,22651,19911,False,True,True,False,False,True,False,infants,infantes,True,
+fr,infirmier,infirmière,nurse,occupation,20766,9062,False,True,False,False,False,False,False,infirmiers,infirmières,True,
+fr,instituteur,institutrice,teacher,,11451,20028,False,True,False,False,False,False,False,instituteurs,institutrices,True,
+fr,invité,invitée,guest,person,3312,10642,False,False,False,False,False,False,False,invités,invitées,True,
+fr,joueur,joueuse,player,occupation,157,2727,False,False,False,False,False,False,False,joueurs,joueuses,True,
+fr,judoka,judokate,judoka,,20041,34513,False,False,False,False,False,True,False,judokas,judokates,False,
+fr,juif,juive,jew,identity,3835,3143,False,False,False,False,False,False,False,juifs,juives,True,
+fr,jumeau,jumelle,twin,person,14889,22707,False,True,True,False,False,False,False,jumeaux,jumelles,True,
+fr,laitier,laitière,milkman,,28644,20971,False,False,False,False,False,False,False,laitiers,laitières,True,
+fr,lanceur,lanceuse,thrower,,3638,49558,False,False,False,True,False,False,False,lanceurs,lanceuses,False,pitcher | bowler | booster rocket
+fr,laïc,laïque,layman,,19420,13290,False,True,False,False,False,False,False,laïcs,laïques,True,
+fr,libéral,libérale,libertarian,person,2714,7608,False,False,False,False,False,False,False,libéraux,libérales,True,
+fr,licencié,licenciée,licentiate,,9513,31139,False,False,False,False,False,False,False,licenciés,licenciées,True,
+fr,lion,lionne,lion,,3104,44265,False,False,False,True,False,True,False,lions,lionnes,True,a style of elegant young man that came after the dandy
+fr,loup,louve,wolf,,3153,30668,True,True,True,True,False,False,False,loups,louves,True,"bass (fish) | mask, eyemask | flaw"
+fr,luthérien,luthérienne,lutheran,identity,23842,15361,False,False,False,False,False,False,False,luthériens,luthériennes,True,
+fr,magicien,magicienne,magician,occupation,11004,40138,False,False,False,True,False,False,False,magiciens,magiciennes,True,synonym of illusionniste (“illusionist”)
+fr,marchand,marchande,seller,,4044,12035,False,False,False,False,False,False,False,marchands,marchandes,True,
+fr,marié,mariée,groom,,3008,3796,False,True,True,False,False,False,False,mariés,mariées,True,
+fr,marquis,marquise,marquess,,2361,10118,False,True,True,False,False,False,True,,marquises,False,
+fr,martyr,martyre,martyr,,7977,10846,False,True,True,False,False,True,False,martyrs,martyres,True,
+fr,mathématicien,mathématicienne,mathematician,occupation,3989,42613,False,False,False,False,False,False,False,mathématiciens,mathématiciennes,False,
+fr,maître,maîtresse,master,occupation,821,6337,False,True,True,False,False,False,False,maîtres,maîtresses,True,
+fr,meilleur,meilleure,best,,332,818,False,False,False,False,False,False,False,meilleurs,meilleures,True,
+fr,meneur,meneuse,leader,,9760,49354,False,False,False,False,False,False,False,meneurs,meneuses,False,
+fr,meurtrier,meurtrière,murderer,person,12112,22528,False,True,True,False,False,False,False,meurtriers,meurtrières,True,
+fr,mineur,mineure,minor,,4182,7223,False,False,False,False,False,False,False,mineurs,mineures,True,
+fr,monteur,monteuse,editor,occupation,12424,40142,False,False,False,False,False,False,False,monteurs,monteuses,False,
+fr,mortel,mortelle,human,person,12163,16093,False,False,False,False,False,False,False,mortels,mortelles,True,
+fr,muet,muette,mute,person,3692,22253,False,False,False,False,False,False,False,muets,muettes,True,
+fr,musicien,musicienne,musician,,2262,19463,False,False,False,False,False,False,False,musiciens,musiciennes,True,
+fr,musulman,musulmane,muslim,identity,6807,6893,False,False,False,False,False,False,False,musulmans,musulmanes,True,
+fr,méchant,méchante,jerk,,11164,32614,False,False,False,False,False,False,False,méchants,méchantes,True,
+fr,nageur,nageuse,swimmer,occupation,8498,10785,False,False,False,False,False,False,False,nageurs,nageuses,True,
+fr,nain,naine,dwarf,person,13069,13740,False,True,False,True,False,False,False,nains,naines,True,"gnome (decorative, in a garden)"
+fr,narrateur,narratrice,narrator,occupation,6957,36263,False,False,False,False,False,False,False,narrateurs,narratrices,False,
+fr,nazi,nazie,nazi,,6952,8465,False,False,False,False,False,True,False,nazis,nazies,True,
+fr,neveu,nièce,nephew,,3720,9010,False,True,True,False,False,False,False,neveux,nièces,True,
+fr,nominé,nominée,nominee,person,25487,26921,False,False,False,False,False,False,False,nominés,nominées,True,
+fr,organisateur,organisatrice,organizer,occupation,7338,25627,False,False,False,False,False,False,False,organisateurs,organisatrices,True,
+fr,ours,ourse,bear,,4507,29205,False,True,False,True,False,False,False,,ourses,False,"masthead, imprint (list of a publication's main staff) | rough cut | prison, jail"
+fr,ouvrier,ouvrière,worker,occupation,4961,7297,False,True,False,True,False,False,False,ouvriers,ouvrières,True,operator
+fr,parent,parente,relative,,6932,32829,False,False,False,True,False,False,False,parents,parentes,True,parent | ancestors | parents
+fr,parrain,marraine,godfather,,6930,18568,False,False,False,True,False,False,False,parrains,marraines,True,"namer, christener (of a ship) | synonym of patron sponsor, proposer"
+fr,participant,participante,participant,,4521,36821,False,False,False,False,False,True,False,participants,participantes,True,
+fr,partisan,partisane,supporter,person,7576,33750,False,True,False,True,False,False,False,partisans,partisanes,True,fan
+fr,passager,passagère,passenger,,13478,36145,False,False,False,True,False,False,False,passagers,passagères,True,traveller
+fr,passeur,passeuse,passer,,10304,34231,False,False,False,True,False,False,False,passeurs,passeuses,False,ferryman | smuggler; (drugs) courier
+fr,patient,patiente,patient,,5803,26202,False,False,False,False,False,True,False,patients,patientes,True,
+fr,patineur,patineuse,skater,,14024,16618,False,False,False,False,False,False,False,patineurs,patineuses,True,
+fr,païen,païenne,pagan,identity,24179,31575,False,False,False,False,False,False,False,païens,païennes,True,
+fr,pionnier,pionnière,pioneer,person,7856,22764,False,False,False,True,False,False,False,pionniers,pionnières,True,precursor
+fr,piéton,piétonne,pedestrian,,29731,27318,False,False,False,False,False,False,False,piétons,piétonnes,True,
+fr,policier,policière,policeman,,2595,7100,False,False,False,True,False,False,False,policiers,policières,True,police movie
+fr,porteur,porteuse,carrier,,8241,19343,False,True,False,True,False,False,False,porteurs,porteuses,True,bringer; bearer
+fr,poète,poétesse,poet,,1372,12967,False,False,False,True,False,False,False,poètes,poétesses,True,daydreamer | wordsmith
+fr,premier,première,first,,105,100,False,True,True,True,False,False,False,premiers,premières,True,premier
+fr,prieur,prieure,prior,,8058,41283,False,True,True,False,False,False,False,prieurs,prieures,False,
+fr,prisonnier,prisonnière,prisoner,person,4370,21178,False,False,False,False,False,False,False,prisonniers,prisonnières,True,
+fr,producteur,productrice,producer,occupation,1010,8905,False,False,False,False,False,False,False,producteurs,productrices,True,
+fr,professeur,professeure,teacher,,654,24526,False,False,False,False,False,False,False,professeurs,professeures,False,
+fr,professionnel,professionnelle,professional,,1264,2080,False,True,True,False,False,False,False,professionnels,professionnelles,True,
+fr,protecteur,protectrice,protector,person,9058,20613,False,False,False,True,False,False,False,protecteurs,protectrices,True,ombudsman
+fr,protestant,protestante,protestant,,7390,6609,False,False,False,False,False,True,False,protestants,protestantes,True,
+fr,protégé,protégée,protégé,,4966,4094,False,False,False,False,False,True,False,protégés,protégées,True,
+fr,précédent,précédente,precedent,,738,1437,False,False,False,False,False,False,False,précédents,précédentes,True,
+fr,présentateur,présentatrice,announcer,occupation,9184,16908,False,False,False,False,False,False,False,présentateurs,présentatrices,True,
+fr,président,présidente,president,occupation,247,4231,False,False,False,True,False,False,False,présidents,présidentes,True,chairperson | speaker
+fr,prêtre,prêtresse,priest,occupation,2057,32282,False,True,True,False,False,False,False,prêtres,prêtresses,True,
+fr,rameur,rameuse,rower,,12853,26606,False,False,False,False,False,False,False,rameurs,rameuses,False,
+fr,rappeur,rappeuse,rapper,occupation,7162,48967,False,False,False,False,False,False,False,rappeurs,rappeuses,False,
+fr,rat,rate,rat,,8274,14170,False,True,True,True,False,True,False,rats,rates,True,sweetheart | scrooge
+fr,remplaçant,remplaçante,substitute,person,5439,37465,False,False,False,False,False,False,False,remplaçants,remplaçantes,True,
+fr,représentant,représentante,representative,,1237,21000,False,False,False,False,False,False,False,représentants,représentantes,True,
+fr,rival,rivale,rival,,7017,16299,False,False,False,False,False,True,False,rivaux,rivales,True,
+fr,roi,reine,king,,257,1305,True,True,True,False,False,False,False,rois,reines,True,
+fr,romancier,romancière,novelist,,4671,11820,False,True,False,False,False,False,False,romanciers,romancières,True,
+fr,roux,rousse,redhead,,4718,10393,False,True,True,True,False,False,False,,rousses,False,roux (a mixture of fat and flour)
+fr,réalisateur,réalisatrice,director,occupation,706,7924,False,False,False,False,False,False,False,réalisateurs,réalisatrices,True,
+fr,rédacteur,rédactrice,editor,occupation,3690,23682,False,False,False,False,False,False,False,rédacteurs,rédactrices,True,
+fr,réfugié,réfugiée,refugee,,14196,36929,False,False,False,False,False,False,False,réfugiés,réfugiées,True,
+fr,résident,résidente,resident,,9076,38189,False,False,False,False,False,False,False,résidents,résidentes,True,
+fr,résistant,résistante,resistant,,5032,17945,False,False,False,False,False,False,False,résistants,résistantes,True,
+fr,sauteur,sauteuse,jumper,,12928,35491,False,True,True,True,False,False,False,sauteurs,sauteuses,True,"libertine, fornicator"
+fr,savant,savante,scholar,,9017,15479,False,False,False,False,False,False,False,savants,savantes,True,
+fr,sculpteur,sculptrice,sculptor,occupation,2498,33290,False,False,False,False,False,False,False,sculpteurs,sculptrices,False,
+fr,serpent,serpente,snake,,5077,46872,False,False,False,False,False,False,False,serpents,serpentes,True,
+fr,servant,servante,servant,occupation,4105,16321,False,False,False,False,False,True,False,servants,servantes,True,
+fr,serveur,serveuse,waiter,occupation,2614,20155,False,True,True,True,False,False,False,serveurs,serveuses,True,server
+fr,skieur,skieuse,skier,,10952,15188,False,False,False,False,False,False,False,skieurs,skieuses,True,
+fr,sorcier,sorcière,sorcerer,,11850,8425,False,True,True,False,False,False,False,sorciers,sorcières,True,
+fr,soumis,soumise,submitter,,4253,8986,False,False,False,True,False,False,False,,soumises,False,"masochist, bottom, submissive, sub"
+fr,sportif,sportive,sportsman,,1408,1925,False,True,True,False,False,False,False,sportifs,sportives,True,
+fr,suivant,suivante,follower,,459,671,False,True,False,False,False,False,False,suivants,suivantes,True,
+fr,suppléant,suppléante,substitute,person,12151,41242,False,False,False,False,False,False,False,suppléants,suppléantes,False,
+fr,survivant,survivante,survivor,,11585,38355,False,False,False,False,False,False,False,survivants,survivantes,True,
+fr,sénateur,sénatrice,senator,occupation,2456,23992,False,False,False,False,False,False,False,sénateurs,sénatrices,False,
+fr,séparateur,séparatrice,separator,,36673,13195,False,False,False,False,False,False,False,séparateurs,séparatrices,False,
+fr,terrien,terrienne,earthling,,20879,37357,False,False,False,True,False,False,False,terriens,terriennes,True,landlubber
+fr,traducteur,traductrice,translator,occupation,4341,25448,False,False,False,False,False,False,False,traducteurs,traductrices,False,
+fr,tueur,tueuse,killer,,6424,30862,False,False,False,True,False,False,False,tueurs,tueuses,True,slaughterer (in a slaughterhouse)
+fr,utilisateur,utilisatrice,user,person,1405,44285,False,False,False,False,False,False,False,utilisateurs,utilisatrices,True,
+fr,vaincu,vaincue,loser,person,8440,25429,False,False,False,False,False,False,False,vaincus,vaincues,True,
+fr,vassal,vassale,vassal,,12546,42838,False,False,False,False,False,True,False,vassaux,vassales,True,
+fr,vendeur,vendeuse,salesman,,11448,32134,False,True,True,False,False,False,False,vendeurs,vendeuses,True,
+fr,verrier,verrière,glassmaker,,16442,16471,False,True,True,False,False,False,False,verriers,verrières,True,
+fr,veuf,veuve,widower,,17495,4006,False,True,True,False,False,False,False,veufs,veuves,True,
+fr,vilain,vilaine,villain,person,17595,5973,False,False,False,True,False,False,False,vilains,vilaines,True,peasant | country dweller
+fr,villageois,villageoise,villager,,10414,35509,False,False,False,False,False,False,False,,villageoises,False,
+fr,voisin,voisine,neighbour,person,4225,4501,False,False,False,False,False,False,False,voisins,voisines,True,
+fr,voleur,voleuse,robber,,11026,38892,False,False,False,False,False,False,False,voleurs,voleuses,False,
+fr,voyant,voyante,seer,,6813,38675,False,False,False,True,False,False,False,voyants,voyantes,True,light (e.g. on a car dashboard) | dayboard
+fr,végétarien,végétarienne,vegetarian,person,41165,43787,False,False,False,False,False,False,False,végétariens,végétariennes,True,
+fr,échappé,échappée,escapee,,12696,15055,False,True,True,False,False,False,False,échappés,échappées,True,
+fr,écrivain,écrivaine,writer,occupation,572,10477,False,False,False,False,False,False,False,écrivains,écrivaines,True,
+fr,éditeur,éditrice,editor,occupation,992,24504,False,False,False,False,False,False,False,éditeurs,éditrices,False,
+fr,époux,épouse,spouse,,4166,766,False,True,False,False,False,False,False,,épouses,False,
+fr,étranger,étrangère,foreigner,person,1877,3472,False,False,False,True,False,False,False,étrangers,étrangères,True,stranger | foreign place
+fr,étudiant,étudiante,student,,1207,8341,False,True,True,False,False,False,False,étudiants,étudiantes,True,

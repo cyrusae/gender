@@ -8,6 +8,7 @@ epicene references, common nouns) for the persons − occupations difference; pa
 """
 
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -17,27 +18,39 @@ from sklearn.svm import LinearSVC
 from zhou_shift import Z
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/persons_genmasc"
+LANG = os.environ.get("PERSONS_LANG", "es")  # "fr" for the French replication (docs/persons-fr-prereg.md)
+OUT = ROOT / ("results/persons_genmasc" + ("" if LANG == "es" else f"_{LANG}"))
 N_BOOT, SEED, FLOOR = 10_000, 0, 25
 FLAGS = ["fem_also_noun", "masc_also_noun", "language_name", "masc_identical_en", "place_name"]
 
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    U, w2i = load(Z / "data/wiki.multi.es.vec.txt")
-    pl = pd.read_csv(ROOT / "data/wp_persons_es_plurals_v0.csv", keep_default_na=False, dtype=str)
-    fz = pd.read_csv(ROOT / "data/wp_persons_es_frozen_v1.csv", keep_default_na=False, dtype=str)
-    pl = pl.merge(fz[["masc"] + FLAGS], on="masc", validate="one_to_one")
+    U, w2i = load(Z / f"data/wiki.multi.{LANG}.vec.txt")
+    fz = pd.read_csv(ROOT / f"data/wp_persons_{LANG}_frozen_v1.csv", keep_default_na=False, dtype=str)
+    if LANG == "es":
+        pl = pd.read_csv(ROOT / "data/wp_persons_es_plurals_v0.csv", keep_default_na=False, dtype=str)
+        pl = pl.merge(fz[["masc"] + FLAGS], on="masc", validate="one_to_one")
+    else:  # plurals are columns of the French list
+        pl = fz
     cols = ["masc", "fem", "masc_pl", "fem_pl"]
     pl = pl[pl[cols].apply(lambda r: all(w in w2i for w in r), axis=1)]
-    defs = [p for p in json.load(open(Z / "ES_definitional_pairs.json")) if p != ["maría", "juan"] and all(w in w2i for w in p)]
+    if LANG == "es":
+        defs = [p for p in json.load(open(Z / "ES_definitional_pairs.json")) if p != ["maría", "juan"] and all(w in w2i for w in p)]
+    else:  # French: drop the name pair and any pair reusing a word already used (Z19 rule)
+        defs, seen = [], set()
+        for p in json.load(open(Z / f"{LANG.upper()}_definitional_pairs.json")):
+            if p == ["louise", "gabriel"] or seen & set(p) or not all(w in w2i for w in p):
+                continue
+            defs.append(p)
+            seen |= set(p)
     Ddef = np.array([[U[w2i[f]], U[w2i[m]]] for f, m in defs])
-    c1 = pd.read_csv(ROOT / "data/c1_nouns_es_v1.csv")
+    c1 = pd.read_csv(ROOT / f"data/c1_nouns_{LANG}_v1.csv")
     c1 = c1[c1["in_50k"] & c1["lemma"].isin(w2i)]
     g = LinearSVC().fit(U[c1["lemma"].map(w2i)], (c1["gender"] == "m").astype(int)).coef_.reshape(-1)
     g /= np.linalg.norm(g)
     sign_pair = (U[w2i[defs[0][0]]], U[w2i[defs[0][1]]])
-    ref = pd.read_csv(ROOT / "data/zero_ref_es_frozen_v1.csv")
+    ref = pd.read_csv(ROOT / f"data/zero_ref_{LANG}_frozen_v1.csv")
     ref = ref[ref["lemma"].isin(w2i)]
     epi = ref[(ref["set"] == "epicene") & (ref["tier"] == "strict")]
     Rm, Rf = U[epi.loc[epi.gender == "m", "lemma"].map(w2i)], U[epi.loc[epi.gender == "f", "lemma"].map(w2i)]

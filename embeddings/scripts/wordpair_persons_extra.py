@@ -10,6 +10,7 @@ over nouns within group and cues (shared across groups).
     uv run --no-project --python 3.12 --with numpy,pandas,scikit-learn python embeddings/scripts/wordpair_persons_extra.py
 """
 
+import os
 from pathlib import Path
 
 import numpy as np
@@ -18,7 +19,8 @@ from wordpair_mechanism import K, rr_table
 from zhou_shift import Z, load_vec
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/wordpair_persons"
+LANG = os.environ.get("PERSONS_LANG", "es")  # "fr" for the French replication (docs/persons-fr-prereg.md)
+OUT = ROOT / ("results/wordpair_persons" + ("" if LANG == "es" else f"_{LANG}"))
 N_BOOT, SEED = 10_000, 0
 FLAGS = ["fem_also_noun", "masc_also_noun", "language_name", "masc_identical_en", "place_name"]
 
@@ -54,12 +56,12 @@ def summarise(G, grp, cond, sel, rng):
 
 
 def main():
-    nouns = pd.read_csv(ROOT / "data/wp_persons_es_frozen_v1.csv", keep_default_na=False, dtype=str)
+    nouns = pd.read_csv(ROOT / f"data/wp_persons_{LANG}_frozen_v1.csv", keep_default_na=False, dtype=str)
     cues = pd.read_csv(ROOT / "data/wp_cues_frozen_v1.csv", keep_default_na=False, dtype=str)
-    es = cues[(cues.lang == "es") & (cues.subset == "primary")]
+    es = cues[(cues.lang == LANG) & (cues.subset == "primary")]
     G, I = es[es.type == "gendered"], es[es.type == "invariant"]
     en, en_w2i = load_vec(Z / "data/wiki.multi.en.vec.txt", nmax=200000)
-    T, w2i = load_vec(Z / "data/wiki.multi.es.vec.txt")
+    T, w2i = load_vec(Z / f"data/wiki.multi.{LANG}.vec.txt")
     i2w = {i: w for w, i in w2i.items()}
     nouns = nouns[nouns.en.isin(en_w2i) & nouns.masc.isin(w2i) & nouns.fem.isin(w2i)].reset_index(drop=True)
     occ = list(zip(nouns.fem, nouns.masc, nouns.en))

@@ -14,6 +14,7 @@ masc_identical_en, place_name.
     uv run --no-project --python 3.12 --with numpy,pandas,scikit-learn python embeddings/scripts/wordpair_persons.py
 """
 
+import os
 from pathlib import Path
 
 import numpy as np
@@ -22,7 +23,8 @@ from wordpair_mechanism import glasgow, rr_table
 from zhou_shift import Z, load_vec
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/wordpair_persons"
+LANG = os.environ.get("PERSONS_LANG", "es")  # "fr" for the French replication (docs/persons-fr-prereg.md)
+OUT = ROOT / ("results/wordpair_persons" + ("" if LANG == "es" else f"_{LANG}"))
 N_BOOT, SEED = 10_000, 0
 FLAGS = ["fem_also_noun", "masc_also_noun", "language_name", "masc_identical_en", "place_name"]
 
@@ -59,11 +61,11 @@ def p12(I, grp, rng, tag):
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    nouns = pd.read_csv(ROOT / "data/wp_persons_es_frozen_v1.csv", keep_default_na=False, dtype=str)
+    nouns = pd.read_csv(ROOT / f"data/wp_persons_{LANG}_frozen_v1.csv", keep_default_na=False, dtype=str)
     cues = pd.read_csv(ROOT / "data/wp_cues_frozen_v1.csv", keep_default_na=False, dtype=str)
-    G = cues[(cues.lang == "es") & (cues.subset == "primary") & (cues.type == "gendered")].reset_index(drop=True)
+    G = cues[(cues.lang == LANG) & (cues.subset == "primary") & (cues.type == "gendered")].reset_index(drop=True)
     en, en_w2i = load_vec(Z / "data/wiki.multi.en.vec.txt", nmax=200000)
-    T, w2i = load_vec(Z / "data/wiki.multi.es.vec.txt")
+    T, w2i = load_vec(Z / f"data/wiki.multi.{LANG}.vec.txt")
     i2w = {i: w for w, i in w2i.items()}
     ok = nouns.en.isin(en_w2i) & nouns.masc.isin(w2i) & nouns.fem.isin(w2i)
     nouns = nouns[ok].reset_index(drop=True)
