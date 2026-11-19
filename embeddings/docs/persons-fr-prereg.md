@@ -1,7 +1,7 @@
 # French replication of the person-noun studies (pre-registration)
 
-*Status: DRAFT, 2026-11-19, written by Claude for the PI's review. Nothing scored with French person
-nouns.*
+*Status: **ADOPTED 2026-11-19** (PI; adoption record at the end). Nothing scored with French person
+nouns before adoption.*
 
 ## Why
 
@@ -82,3 +82,14 @@ the one result the cross-language claim rests on.
 1. Adopt as written (inherited labels, no hand review)?
 2. Any French words you'd like dropped from `data/wp_persons_fr_v0.csv` (the English glosses are in
    the file)?
+
+## Adoption record (2026-11-19, before any score)
+
+- PI: drop the four doubtful words rather than adjudicate them (*gentil* 'pagan', *administré*
+  'citizen', *dauphin* 'successor', *mortel* 'human'); otherwise as written (labels inherited through
+  English, no hand review of French words).
+- Frozen list: `data/wp_persons_fr_frozen_v1.csv`, sha256
+  3493ae7f02cdff8038482ede4a04fe88925ee76e424d62465568e89d9b4730c0: **person 40, occupation 41,
+  identity 7**; without flagged nouns person 25, occupation 25 (below the zero-point floor of 30, so
+  that sensitivity cell is descriptive); plurals in the 200k vocabulary: person 37, occupation 29.
+- Scripts as committed in 1ab7f6e, run with `PERSONS_LANG=fr`.

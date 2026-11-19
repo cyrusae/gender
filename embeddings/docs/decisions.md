@@ -56,3 +56,4 @@
 | 2026-11-19 | Sprint new-claim review: Z26–Z33 logged (Spearman label, unassigned FR direction, run-order hazards, 9-occupation list, Figure 1 axis, trabajador overlap, data-file details, Shift Ori depends on the centring bug: 0.309 → 0.037 with midpoint); De-Align rotation evidence added to Z11. | PI sprint | done |
 | 2026-11-19 | Z33 sensitivity: expanded-cue test with corrected centring; Spanish mitigation effect (~⅓) robust; FR Hybrid borderline → no clear change. | 28e81a4 | exploratory |
 | 2026-11-19 | Z30 RETRACTED: the paper's Figure 1 y-coordinates match the 3,000-noun SVC direction exactly; the 48-pair direction feeds only an exploratory notebook plot. Item 20 of the sent addendum was wrong; PI to send a correction. | check against figure | retracted |
+| 2026-11-19 | French person-noun replication prereg ADOPTED (PI; four doubtful words dropped: gentil, administré, dauphin, mortel). Frozen list person 40 / occupation 41 / identity 7. | PI | adopted |
