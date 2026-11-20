@@ -1,6 +1,6 @@
 # Is the masculine default in Spanish and French inherited from English? (pre-registration)
 
-*Status: DRAFT, 2026-11-20, written by Claude for the PI's review. Nothing scored.*
+*Status: **ADOPTED 2026-11-20** (PI; adoption record at the end). Nothing scored before adoption.*
 
 ## Why
 
@@ -111,3 +111,17 @@ nouns under plain translation (Spanish 0.28, French 0.45) that we had attributed
    *youth* leans young/formal.)
 2. Primary reading at the top 1,000 (matches Caliskan et al.'s headline 77%)?
 3. Adopt Q2/Q3 as specified?
+
+## Adoption record (2026-11-20, before any score)
+
+- PI: adopt as written; the PI concurs with Claude's predictions (stated in conversation; the PI's own
+  note to this effect wasn't found in this file when the record was written).
+- Anchors frozen in `data/en_zero_frozen_v1.csv`, sha256 5ed999c9c9abf1bee59c7fc553ddfbce00e559060b51b80a3b8e87ddf0ffce3f:
+  **primary 22** (the 17 reviewed + life-stage words added by the PI: *adolescent, adolescents, teen,
+  teens, youths*; *teenager(s)* dropped by the rule because Bolukbasi et al.'s lists contain
+  *teenager*; *citizens* dropped with *citizen*, a listed profession), all kept by the PI;
+  **epicene_gloss 56** (sensitivity); **glosses_in** = primary + *adult(s), human(s), friend(s),
+  neighbour(s)* (PI's backup plan: anchors that are glosses of tested nouns, with those nouns dropped
+  from Q2/Q3; sensitivity, replacing the friend-only variant).
+- Rule changes before adoption: list filters apply to a word's singular/plural family.
+- Script `scripts/english_default.py`, committed with this record.

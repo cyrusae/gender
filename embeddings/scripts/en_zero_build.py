@@ -24,10 +24,12 @@ from wp_cues_build import glasgow, vocab
 ROOT = Path(__file__).resolve().parents[1]
 PAIR = {"persons": "person", "people": "person", "individuals": "individual", "humans": "human", "members": "member",
         "residents": "resident", "strangers": "stranger", "children": "child", "kids": "kid", "babies": "baby",
-        "adults": "adult", "citizens": "citizen", "friends": "friend", "neighbours": "neighbour"}  # plural -> singular
+        "adults": "adult", "citizens": "citizen", "friends": "friend", "neighbours": "neighbour",
+        "youths": "youth", "adolescents": "adolescent", "teens": "teen", "teenagers": "teenager"}  # plural -> singular
 SEED = """person people persons individual individuals human humans someone somebody anyone anybody everyone
 everybody child children kid kids adult adults baby babies infant citizen citizens member members folks
-resident residents youth stranger strangers""".split()
+resident residents youth stranger strangers
+youths adolescent adolescents teen teens teenager teenagers""".split()  # last line added 2026-11-20 (PI)
 
 
 def main():
@@ -61,8 +63,8 @@ def main():
         rows.setdefault(w, {"word": w, "source": "seed (claude_suggest_unverified)", "from": []})
     out = []
     for e, r in rows.items():
-        why = ("multiword" if " " in e else "not in 200k" if e not in en else "gender-specific" if e in spec
-               else "profession" if e in prof else "occupation-group gloss" if e in occ
+        why = ("multiword" if " " in e else "not in 200k" if e not in en else "gender-specific" if family(e) & spec
+               else "profession" if family(e) & prof else "occupation-group gloss" if e in occ
                else "gloss of a tested noun" if family(e) & tested
                else "Glasgow-gendered" if gendered(e) else "")  # fmt: skip
         out.append({**r, "from": " ".join(r["from"]), "primary_set": e in SEED, "rank": en.get(e, ""), "glasgow_gend": gl.get(e, ""),
