@@ -16,6 +16,6 @@ are unaffected by construction and identical.
 **Reading.** The word-pair result doesn't depend on the bug: in Spanish both mitigations still cut
 intrusion by about a third (Shift −35%, Hybrid −30%), and every verdict holds. Effects shrink slightly
 with the corrected direction everywhere; the one change is French Hybrid, whose already borderline
-reduction (interval −0.123 to −0.005 before) now touches zero. Contrast MWEAT (Z33): the same 6°
+reduction (interval −0.116 to −0.013 before) now touches zero. Contrast MWEAT (Z33): the same 6°
 change in direction moves Shift Ori's Table 1 value tenfold, because MWEAT after a shift is a small
 residual; the retrieval measure isn't.
