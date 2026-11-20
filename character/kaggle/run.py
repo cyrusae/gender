@@ -13,9 +13,9 @@ import time
 import zipfile
 from pathlib import Path
 
-MODE = "test"
-SCORERS = ["bge-m3"]
-BUDGET_H = 11.0
+MODE = "full"
+SCORERS = ["bge-m3", "e5-instruct", "labse", "qwen3-emb-0.6b", "embeddinggemma"]
+BUDGET_H = 11.25
 CH = 10000
 
 T0 = time.time()
@@ -54,8 +54,11 @@ if MODE == "check":
     print("=== CHECK DONE")
     sys.exit(0)
 
+eg = glob.glob("/kaggle/input/**/embeddinggemma-300m/**/modules.json", recursive=True)
+print("embeddinggemma local copy:", eg[0] if eg else "MISSING", flush=True)
 env = os.environ | {"ANCHORS_JSON": str(D / "anchors.json"), "CONTENT_DEVICE": "cuda",
-                    "CUDA_VISIBLE_DEVICES": "0", "PYTHONPATH": str(code)}  # fmt: skip
+                    "CUDA_VISIBLE_DEVICES": "0", "PYTHONPATH": str(code),
+                    "EMB_LOCAL": f"embeddinggemma={Path(eg[0]).parent}" if eg else ""}  # fmt: skip
 
 
 def inp(stem: str) -> Path:
@@ -67,14 +70,14 @@ OUT = W / "full"
 OUT.mkdir(exist_ok=True)
 
 
-def emb(args: list[str]) -> subprocess.CompletedProcess:
-    return subprocess.run([sys.executable, str(code / "content_embed.py"), *args], env=env,
-                          capture_output=True, text=True)  # fmt: skip
+def emb(args: list[str], gpu: int = 0) -> subprocess.CompletedProcess:
+    return subprocess.run([sys.executable, str(code / "content_embed.py"), *args],
+                          env=env | {"CUDA_VISIBLE_DEVICES": str(gpu)}, capture_output=True, text=True, check=False)  # fmt: skip
 
 
 if MODE == "test":
     f = inp("writer_gpt-6-luna")
-    for e in ("bge-m3", "embeddinggemma"):
+    for e in ("embeddinggemma",):
         t = time.time()
         p = emb([str(f), "--only", e, "--take", "2000", "--out", str(OUT / f"test_{e}.csv")])
         print(
@@ -89,40 +92,61 @@ if MODE == "test":
     print("=== TEST DONE")
     sys.exit(0)
 
-log = []
-for e in SCORERS:
-    for kind in ("writer", "character"):
-        for fn in ("gpt-6-luna", "qwen3-14b_off", "qwen3-14b_on"):
-            f = str(inp(f"{kind}_{fn}"))
-            for ps, flags in (("all", []), ("kept", ["--keep-they", "--they-only"])):
-                n = int(
-                    emb([f, "--only", e, *flags, "--count", "--out", "/dev/null"]).stdout.split()[
-                        -1
-                    ]
-                )
-                for k in range((n + CH - 1) // CH):
-                    out = OUT / f"{e}_{kind}_{fn}_{ps}_{k:03d}.csv"
-                    if out.exists():
-                        continue
-                    if time.time() - T0 > BUDGET_H * 3600:
-                        print("=== BUDGET REACHED (resume in a new version)", flush=True)
-                        sys.exit(0)
-                    p = emb(
-                        [
-                            f,
-                            "--only",
-                            e,
-                            *flags,
-                            "--skip",
-                            str(k * CH),
-                            "--take",
-                            str(CH),
-                            "--out",
-                            str(out),
-                        ]
+import threading
+
+ngpu = torch.cuda.device_count()
+print("GPUs:", ngpu, flush=True)
+log, lock = [], threading.Lock()
+stop = threading.Event()
+
+
+def worker(gpu: int, scorers: list[str]) -> None:
+    for e in scorers:
+        for kind in ("writer", "character"):
+            for fn in ("gpt-6-luna", "qwen3-14b_off", "qwen3-14b_on"):
+                f = str(inp(f"{kind}_{fn}"))
+                for ps, flags in (("all", []), ("kept", ["--keep-they", "--they-only"])):
+                    n = int(
+                        emb(
+                            [f, "--only", e, *flags, "--count", "--out", "/dev/null"], gpu
+                        ).stdout.split()[-1]
                     )
-                    msg = f"{time.strftime('%H:%M:%S')} {out.name} rc={p.returncode}"
-                    print(msg, p.stderr[-500:] if p.returncode else "", flush=True)
-                    log.append(msg)
+                    for k in range((n + CH - 1) // CH):
+                        out = OUT / f"{e}_{kind}_{fn}_{ps}_{k:03d}.csv"
+                        if out.exists():
+                            continue
+                        if time.time() - T0 > BUDGET_H * 3600 or stop.is_set():
+                            stop.set()
+                            return
+                        tmp = out.with_suffix(".tmp")
+                        p = emb(
+                            [
+                                f,
+                                "--only",
+                                e,
+                                *flags,
+                                "--skip",
+                                str(k * CH),
+                                "--take",
+                                str(CH),
+                                "--out",
+                                str(tmp),
+                            ],
+                            gpu,
+                        )
+                        if p.returncode == 0:
+                            tmp.rename(out)
+                        msg = f"{time.strftime('%H:%M:%S')} gpu{gpu} {out.name} rc={p.returncode}"
+                        with lock:
+                            print(msg, p.stderr[-500:] if p.returncode else "", flush=True)
+                            log.append(msg)
+
+
+groups = [SCORERS[i::ngpu] for i in range(max(ngpu, 1))]
+ts = [threading.Thread(target=worker, args=(g, sc)) for g, sc in enumerate(groups) if sc]
+for t in ts:
+    t.start()
+for t in ts:
+    t.join()
 (W / "chunks.json").write_text(json.dumps(log))
-print("=== FULL DONE")
+print("=== BUDGET REACHED (resume in a new version)" if stop.is_set() else "=== FULL DONE")

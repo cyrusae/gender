@@ -218,6 +218,12 @@ def main() -> None:
             from sentence_transformers import SentenceTransformer
 
             hf, qp, ap_ = EMBEDDERS[nm]
+            # EMB_LOCAL="name=/path,..." loads a local copy (e.g. Kaggle Models; files checked
+            # byte-identical to the HF snapshot before use)
+            loc = dict(
+                kv.split("=", 1) for kv in filter(None, os.environ.get("EMB_LOCAL", "").split(","))
+            )
+            hf = loc.get(nm, hf)
             import torch
 
             # fp32 for every embedder (one precision); e5's config defaults to fp16, which
