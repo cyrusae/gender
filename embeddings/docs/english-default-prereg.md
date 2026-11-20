@@ -167,3 +167,39 @@ more male-coded than English person words, and the occupation excess survives th
 the occupation excess is no longer separable once English lean and the frequency ratio are both in the
 model (81 nouns); the frequency ratio and occupation overlap there. Claude's predictions: Q1 wrong in form
 (not decidable rather than "robust"), Q2 right for Spanish, Q3 right for Spanish, not French.
+
+## Addendum A: expanded attribute words (DRAFT, 2026-11-20; nothing scored)
+
+**Why.** Q1 couldn't be decided: resampling Caliskan et al.'s eight male and eight female attribute words
+alone moved the male share from ~29% to ~80%. Q2/Q3 used the same sixteen words. This addendum asks
+whether a larger list of *sex-referring* words narrows the intervals and changes any answer.
+
+**Attribute pairs** (`data/en_attr_candidates_v0.csv`, built by `scripts/en_attr_build.py`): Bolukbasi
+et al.'s equalize and definitional pairs plus Caliskan et al.'s sixteen, as (male, female) pairs; rule
+filters: one word each, no proper names, both in the 200k vocabulary, neither an English zero-point
+anchor nor the gloss of a tested noun, and where Glasgow rates a word it must be clearly gendered
+(male ≥ 5.5, female ≤ 2.5). **46 pairs pass the rules**; Claude marks 8 as doubtful
+(`claude_suggest_unverified`: places *monastery/convent*, hormones, animals *colt/filly, gelding/mare*,
+the mismatched *fella/granny*, informal *dudes/gals*, and the pronoun overlaps *him/her*, *his/hers*).
+The PI keeps or drops each. Glasgow is used only as a check (13 pairs are rated), never as the source:
+its extremes include stereotypes (*lipstick, beard, handbag*), which would make the lean partly a
+stereotype measure.
+
+**Contrast list (not attributes)** (`data/en_attr_contrast_glasgow_v0.csv`): the 40 most masculine and
+40 most feminine Glasgow words in the vocabulary, stereotypes included, run as a deliberate contrast to
+show how much a lean measure depends on choosing sex words vs stereotype words.
+
+**What is rerun.** Q1 (shares at Caliskan's zero and the fair zero, all three anchor sets), Q2 and Q3,
+with s(w) = mean cos with the male words − mean cos with the female words over the kept pairs; the
+bootstrap resamples *pairs* (keeping each pair together), anchors, and nouns as before. Same for the
+contrast list (resampling words within side). The original sixteen-word results stay as reported.
+
+**Readings.** As in the main prereg, applied to the expanded list (primary for this addendum). Added:
+**"attribute choice matters"** if the expanded and contrast lists' top-1,000 fair-zero shares differ by
+more than the expanded list's 95% interval half-width.
+
+**Prediction (Claude's, before any score):** the Q1 interval narrows a lot (resampling ~46 pairs instead
+of 8 per side); the expanded list's fair-zero share lands within ±10 points of 50%; the contrast list
+gives a clearly higher male share; Q2/Q3 Spanish conclusions unchanged.
+
+**Open for the PI:** keep/drop the 46 pairs (especially the 8 marked); adopt.
