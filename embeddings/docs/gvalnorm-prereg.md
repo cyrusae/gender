@@ -275,3 +275,9 @@ result files; corrected results are in `results/attrfix_sensitivity/`.
 **Effect here:** main verdicts unchanged. Addendum B/C, French attributes: the off-axis stereotype
 part in the original space becomes detectable (β_H 0.038 [−0.010, 0.089] → 0.064 [0.007, 0.123]);
 all mitigation verdicts unchanged.
+
+## Sensitivity: corrected PCA centring (2026-11-19, `results/centring_sensitivity/`)
+
+With the midpoint centring (Z3/Z33): no verdict changes in the main analysis or the French orthogonal arms;
+in the Spanish orthogonal arms, Hybrid's off-axis β_H with English attributes moves −0.035 → −0.040
+(interval includes 0 both times), relabelled "removed" → "reduced" by the 25% threshold.

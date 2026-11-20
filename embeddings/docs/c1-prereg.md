@@ -153,3 +153,8 @@ result files; corrected results are in `results/attrfix_sensitivity/`.
 
 **Effect here:** none on any verdict; all 16 still "survives". Spanish retention with Spanish
 attributes 84–86% → 84%; French 1.11–1.16× → 1.09–1.13×.
+
+## Sensitivity: corrected PCA centring (2026-11-19, `results/centring_sensitivity/`)
+
+With the midpoint centring the paper describes (instead of the released code's `a + b/2`, Z3/Z33), every C1
+verdict is unchanged in both languages (ratio changes ≤ 0.08).

@@ -11,7 +11,8 @@ F3  "Same choices, two measures" (Z14, Z19, Z33): Shift Ori MWEAT under the four
     intrusion under Shift for the two centrings (from results/wordpair_cues/ and
     results/wordpair_cues_midpoint/; intrusion uses no attribute words).
 F4  Mitigation measured with feminine cues: intrusion in the original, Shift Ori and Hybrid Ori spaces,
-    ES and FR, with 95% intervals (from results/wordpair_cues/gaps.csv).
+    ES and FR, with 95% intervals, for the released code's centring (results/wordpair_cues/) and the
+    centring the paper describes (results/wordpair_cues_midpoint/).
 
     uv run --no-project --python 3.12 --with numpy,pandas,scikit-learn,matplotlib python embeddings/scripts/paperA_figures.py
 """
@@ -135,23 +136,28 @@ def main():
     ax3[1].set_title("Change in intrusion under Shift Ori\n(feminine cues; uses no attribute words)")
     fig3.tight_layout()
     fig3.savefig(OUT / "F3_same_choices_two_measures.png", dpi=150)
-    # F4
-    g = G["notebook"]
-    fig4, ax4 = plt.subplots(figsize=(6, 4))
+    # F4: both centrings side by side (released code = notebook a + b/2; as described = midpoint)
+    fig4, ax4 = plt.subplots(figsize=(8, 4))
+    rows4 = []
     for li, lang in enumerate(("es", "fr")):
         for si, sp in enumerate(("original", "shift_ori", "hybrid_ori")):
-            r = g.loc[(lang, sp)]
-            x = si + 4 * li
-            ax4.errorbar(x, r.value, yerr=[[r.value - r.lo], [r.hi - r.value]], fmt="o", color=["0.2", "steelblue", "seagreen"][si])
-            ax4.text(x, -0.12, f"{lang.upper()}\n{sp.replace('_ori', '')}", ha="center", fontsize=7)
+            for ci, (c, mk) in enumerate((("notebook", "o"), ("midpoint", "s"))):
+                if sp == "original" and c == "midpoint":
+                    continue  # the original space doesn't depend on the centring
+                r = G[c].loc[(lang, sp)]
+                x = si * 1.0 + (0.18 * (ci * 2 - 1) if sp != "original" else 0) + 4 * li
+                ax4.errorbar(x, r.value, yerr=[[r.value - r.lo], [r.hi - r.value]], fmt=mk,
+                             color=["0.2", "steelblue", "seagreen"][si], mfc="white" if c == "midpoint" else None)  # fmt: skip
+                rows4.append({"lang": lang, "space": sp, "centring": c, "value": r.value, "lo": r.lo, "hi": r.hi, "verdict": r.verdict})
+            ax4.text(si + 4 * li, -0.15, f"{lang.upper()}\n{sp.replace('_ori', '')}", ha="center", fontsize=7)
     ax4.axhline(0, color="k", lw=0.5)
     ax4.set_xticks([])
-    ax4.set_ylim(-0.2, 0.5)
+    ax4.set_ylim(-0.22, 0.5)
     ax4.set_ylabel("intrusion (RR masc − RR fem, feminine cues)")
-    ax4.set_title("Masculine intrusion before and after mitigation")
+    ax4.set_title("Masculine intrusion before and after mitigation\nfilled: released code (a + b/2 centring); open: as described (midpoint centring)")
     fig4.tight_layout()
     fig4.savefig(OUT / "F4_mitigation_intrusion.png", dpi=150)
-    g.reset_index().to_csv(OUT / "F4_mitigation_intrusion.csv", index=False)
+    pd.DataFrame(rows4).to_csv(OUT / "F4_mitigation_intrusion.csv", index=False)
     with pd.option_context("display.width", 200):
         print(pd.DataFrame(rows2).round(4).to_string(index=False))
         print(d3.round(4).to_string(index=False))

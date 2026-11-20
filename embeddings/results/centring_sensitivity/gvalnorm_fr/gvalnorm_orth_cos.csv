@@ -1,0 +1,11 @@
+arm,attributes,cos_a_ds
+1_original,fr,0.8291452852180071
+1_original,en,0.6670062010366072
+2_shift_ori_as_implemented,fr,0.6173633655353482
+2_shift_ori_as_implemented,en,0.6670062010366072
+3_shift_ori_as_specified,fr,0.6173633655353482
+3_shift_ori_as_specified,en,0.6670062010366072
+4a_hybrid_ori_as_implemented,fr,0.6173633655366687
+4a_hybrid_ori_as_implemented,en,0.5069141505405388
+4b_hybrid_ori_as_specified,fr,0.6173633655366687
+4b_hybrid_ori_as_specified,en,0.5069141505405388
