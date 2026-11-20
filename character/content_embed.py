@@ -70,9 +70,13 @@ def study_nouns() -> set[str]:
 
 
 def anchors(kind: str = "properties") -> tuple[list[str], list[str]]:
-    """'properties' (primary, PI 2026-10-26): person, body and animal words excluded (WordNet), so
+    """ANCHORS_JSON (env) = frozen lists written by scripts/kaggle_prep.py (runs without WordNet).
+    'properties' (primary, PI 2026-10-26): person, body and animal words excluded (WordNet), so
     the anchors are gender-stereotyped things and qualities. 'people' (secondary): all words.
     Study nouns are never anchors."""
+    if os.environ.get("ANCHORS_JSON"):
+        fm = json.loads(Path(os.environ["ANCHORS_JSON"]).read_text())[kind]
+        return fm[0], fm[1]
     g = sorted(gend_table().items(), key=lambda kv: kv[1])
     nouns = study_nouns()
     g = [(w, v) for w, v in g if re.fullmatch(r"[a-z]+", w) and w not in nouns]
@@ -168,11 +172,17 @@ def main() -> None:
                     help="with --keep-they: only paragraphs containing they/them/their/theirs/"
                     "themselves (others score the same either way)")  # fmt: skip
     args = ap.parse_args()
+    import gzip
+
     import pandas as pd
 
-    rows = [json.loads(ln) for f in args.files for ln in f.read_text().splitlines()]
+    def lines(f: Path):
+        return (gzip.open(f, "rt") if f.suffix == ".gz" else f.open()).read().splitlines()
+
+    rows = [json.loads(ln) for f in args.files for ln in lines(f)]
     rows = [r for r in rows if r.get("finish_reason") != "error" and r.get("answer")]
-    prons = [code(split_name(r["answer"])[0])["pron"] for r in rows]
+    # rows may carry a precomputed "pron" (kaggle_prep.py, same coder) to skip the coder's data deps
+    prons = [r["pron"] if "pron" in r else code(split_name(r["answer"])[0])["pron"] for r in rows]
     if args.keep_they:  # they-masking check: he/she paragraphs only, plural they left intact
         rows = [r for r, p in zip(rows, prons) if p in ("she", "he")]
         prons = [p for p in prons if p in ("she", "he")]
