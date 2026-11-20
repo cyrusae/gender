@@ -168,7 +168,7 @@ the occupation excess is no longer separable once English lean and the frequency
 model (81 nouns); the frequency ratio and occupation overlap there. Claude's predictions: Q1 wrong in form
 (not decidable rather than "robust"), Q2 right for Spanish, Q3 right for Spanish, not French.
 
-## Addendum A: expanded attribute words (DRAFT, 2026-11-20; nothing scored)
+## Addendum A: expanded attribute words (ADOPTED 2026-11-20; adoption record below)
 
 **Why.** Q1 couldn't be decided: resampling Caliskan et al.'s eight male and eight female attribute words
 alone moved the male share from ~29% to ~80%. Q2/Q3 used the same sixteen words. This addendum asks
@@ -203,3 +203,11 @@ of 8 per side); the expanded list's fair-zero share lands within ±10 points of 
 gives a clearly higher male share; Q2/Q3 Spanish conclusions unchanged.
 
 **Open for the PI:** keep/drop the 46 pairs (especially the 8 marked); adopt.
+
+### Addendum A adoption record (2026-11-20, before any score)
+
+- PI: drop all 8 marked pairs; adopt as written.
+- Frozen: `data/en_attr_frozen_v1.csv` (38 pairs), sha256
+  6fbb63c443f980b564101726d85200d5e74498484a608b87663d17e667fcb76f; contrast list
+  `data/en_attr_contrast_glasgow_v0.csv`, sha256 c6b0da0b2fff677358f592aa79d15ccf04b607a4f33358c8bf9ef6e13454b83f.
+- Script `scripts/english_default_attr.py`, committed with this record.
