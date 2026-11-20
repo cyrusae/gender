@@ -1,0 +1,37 @@
+lang,set,question,term,beta_std,lo,hi,n,verdict
+es,all,Q2 plain-translation gap,en_lean_fair,0.2736020089470037,0.1514512166117797,0.39017933508272257,222,English lean contributes
+es,all,Q2 plain-translation gap,log_rank_ratio,0.2419498728523356,0.1230843314937182,0.35278318929750935,222,
+es,all,Q2 plain-translation gap,occupation,0.5300745749792023,0.30156057780128237,0.7526524337356828,222,
+es,all,Q3 feminine-cue intrusion,occupation,0.6817176564229042,0.48098082967779937,0.8817874547825857,222,occupation-specific beyond English lean
+es,all,Q3 feminine-cue intrusion,en_lean_fair,0.3041574609189592,0.19683733534961284,0.40557817727456974,222,
+es,all,Q3 feminine-cue intrusion,log_rank_ratio,0.2866469748640633,0.1754959593340028,0.3904114328589884,222,
+es,no flagged nouns,Q2 plain-translation gap,en_lean_fair,0.3373515253293279,0.17378552384964968,0.49393314840971253,136,English lean contributes
+es,no flagged nouns,Q2 plain-translation gap,log_rank_ratio,0.1839211971043824,0.02448614643141108,0.3317770075909235,136,
+es,no flagged nouns,Q2 plain-translation gap,occupation,0.6855057844429786,0.4308741006495213,0.9546224064703044,136,
+es,no flagged nouns,Q3 feminine-cue intrusion,occupation,0.7989585988566811,0.5643443053188831,1.031022036791255,136,occupation-specific beyond English lean
+es,no flagged nouns,Q3 feminine-cue intrusion,en_lean_fair,0.3072648410864322,0.1792512605251986,0.4300718517280975,136,
+es,no flagged nouns,Q3 feminine-cue intrusion,log_rank_ratio,0.298552112296231,0.16050694115679487,0.42262817002991626,136,
+es,glosses_in (nouns dropped),Q2 plain-translation gap,en_lean_fair,0.27744503770045076,0.1541146952700953,0.39522306792138373,218,English lean contributes
+es,glosses_in (nouns dropped),Q2 plain-translation gap,log_rank_ratio,0.24256514722300196,0.1235310605637598,0.35121010170644923,218,
+es,glosses_in (nouns dropped),Q2 plain-translation gap,occupation,0.5525558882914563,0.32945379067853164,0.7773974548914222,218,
+es,glosses_in (nouns dropped),Q3 feminine-cue intrusion,occupation,0.6911995824026191,0.49196909377848175,0.8951665441029621,218,occupation-specific beyond English lean
+es,glosses_in (nouns dropped),Q3 feminine-cue intrusion,en_lean_fair,0.29933778881912787,0.18813831827111419,0.4029946429462762,218,
+es,glosses_in (nouns dropped),Q3 feminine-cue intrusion,log_rank_ratio,0.2863011995036439,0.1698141227937892,0.39393249205369346,218,
+fr,all,Q2 plain-translation gap,en_lean_fair,0.24286593281733498,-0.008120242907174191,0.4709081333743867,81,not shown
+fr,all,Q2 plain-translation gap,log_rank_ratio,0.34919326863927885,0.11814573686190875,0.5503871418676078,81,
+fr,all,Q2 plain-translation gap,occupation,-0.0706236792915858,-0.49901825441473247,0.3628492566921467,81,
+fr,all,Q3 feminine-cue intrusion,occupation,0.25330515390655595,-0.10997350386365112,0.6075996720722082,81,not shown
+fr,all,Q3 feminine-cue intrusion,en_lean_fair,0.4140979157610858,0.24062416764087896,0.5689567023259824,81,
+fr,all,Q3 feminine-cue intrusion,log_rank_ratio,0.37390937737962154,0.21287663233742207,0.5293558891897009,81,
+fr,no flagged nouns,Q2 plain-translation gap,en_lean_fair,0.15099535601434588,-0.1439822676999121,0.45121972031145346,50,not shown
+fr,no flagged nouns,Q2 plain-translation gap,log_rank_ratio,0.1929143961894786,-0.12182168846526963,0.48828542676451697,50,
+fr,no flagged nouns,Q2 plain-translation gap,occupation,-0.08274446222277884,-0.6862415636690367,0.5441704683678376,50,
+fr,no flagged nouns,Q3 feminine-cue intrusion,occupation,0.2754320279032572,-0.16861584490231332,0.7626651531485011,50,not shown
+fr,no flagged nouns,Q3 feminine-cue intrusion,en_lean_fair,0.3846954079108843,0.18678594793031386,0.5652348043634243,50,
+fr,no flagged nouns,Q3 feminine-cue intrusion,log_rank_ratio,0.39198503971927534,0.15831640221100896,0.5910721451106787,50,
+fr,glosses_in (nouns dropped),Q2 plain-translation gap,en_lean_fair,0.2532082633830779,-0.001955061110286481,0.47489025554723446,78,not shown
+fr,glosses_in (nouns dropped),Q2 plain-translation gap,log_rank_ratio,0.3425310558729527,0.11422664710859916,0.5430092469000111,78,
+fr,glosses_in (nouns dropped),Q2 plain-translation gap,occupation,-0.06538760130064897,-0.5000230141075931,0.3773474947302716,78,
+fr,glosses_in (nouns dropped),Q3 feminine-cue intrusion,occupation,0.2484362137467207,-0.11336876235680433,0.6109150052922029,78,not shown
+fr,glosses_in (nouns dropped),Q3 feminine-cue intrusion,en_lean_fair,0.4139448615488012,0.23836230687561238,0.5685973835751825,78,
+fr,glosses_in (nouns dropped),Q3 feminine-cue intrusion,log_rank_ratio,0.36572672299398573,0.20655597534569492,0.5224420265214393,78,

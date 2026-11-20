@@ -125,3 +125,45 @@ nouns under plain translation (Spanish 0.28, French 0.45) that we had attributed
   from Q2/Q3; sensitivity, replacing the friend-only variant).
 - Rule changes before adoption: list filters apply to a word's singular/plural family.
 - Script `scripts/english_default.py`, committed with this record.
+
+## Results (2026-11-20, run at 944ffd2; `results/english_default/`)
+
+**Q1, masculine default in English: not determinable with these attribute words.** Share of words leaning
+male (MUSE English, top 1,000):
+
+| Zero point | Share male [95% CI] | Pre-registered verdict |
+|---|---|---|
+| Caliskan et al.'s (attribute midpoint) | 60.1% [28.7, 80.3] | — |
+| Primary anchors (22 generic person words) | 70.7% [16.6, 94.4] | "explained by the zero point" |
+| Epicene-gloss anchors (sensitivity) | 35.6% [16.4, 68.9] | same |
+| Glosses-in anchors (sensitivity) | 80.0% [29.6, 94.0] | same |
+
+Same pattern at 100 / 10,000 / 100,000 (Caliskan's zero 71 / 57 / 52%). **Reading:** the pre-registered
+label is "explained by the zero point", but it overstates what the data show: the interval spans 50%
+*even at Caliskan et al.'s own zero*, because resampling the eight male and eight female attribute words
+alone moves the share from ~29% to ~80%. With these sixteen words the share of male-leaning words isn't
+pinned down in this embedding, and the point estimate swings from 36% to 80% with the choice of
+sex-neutral anchors. (The primary anchors lean slightly female, z = −0.006, so the fair zero raises the
+male share.) This doesn't refute Caliskan et al. (different vectors; they report counts without attribute
+resampling) but shows the headline share is fragile to both the attribute words and the zero point.
+Fair lean is uncorrelated with log rank (ρ −0.05): no frequency gradient in this embedding.
+
+**Q2, does an English word's lean predict the plain-translation default?** Spanish: **English lean
+contributes**, β 0.27 [0.15, 0.39] (222 nouns), beside the frequency ratio β 0.24 [0.12, 0.35] and
+occupation 0.53 [0.30, 0.75]; robust without flagged nouns (0.34) and in the glosses-in set (0.28).
+French: **not shown**, 0.24 [−0.01, 0.47] (81 nouns), frequency ratio 0.35 [0.12, 0.55].
+
+**Q3, occupation-specific beyond English lean?** Spanish: **yes**, occupation β 0.68 [0.48, 0.88] with
+English lean (0.30 [0.20, 0.41]) and frequency ratio (0.29 [0.18, 0.39]) in the model; robust in every
+set. French: **not shown**, occupation 0.25 [−0.11, 0.61] (English lean 0.41 [0.24, 0.57], frequency
+ratio 0.37 [0.21, 0.53]). English occupation glosses don't lean more male than person glosses (fair lean
+difference ES 0.005 [−0.004, 0.015], FR −0.002 [−0.019, 0.015]).
+
+**Reading.** (1) The English word's own male lean is part of where the masculine default and the
+intrusion come from: a noun whose English gloss leans male lands more on the masculine form, in both
+languages for intrusion and in Spanish for the plain default; so the PI's hypothesis holds in part,
+noun by noun. (2) It doesn't explain the occupation effect in Spanish: English occupation words are not
+more male-coded than English person words, and the occupation excess survives the control. (3) In French
+the occupation excess is no longer separable once English lean and the frequency ratio are both in the
+model (81 nouns); the frequency ratio and occupation overlap there. Claude's predictions: Q1 wrong in form
+(not decidable rather than "robust"), Q2 right for Spanish, Q3 right for Spanish, not French.
