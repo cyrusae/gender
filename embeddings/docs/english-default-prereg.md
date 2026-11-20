@@ -211,3 +211,42 @@ gives a clearly higher male share; Q2/Q3 Spanish conclusions unchanged.
   6fbb63c443f980b564101726d85200d5e74498484a608b87663d17e667fcb76f; contrast list
   `data/en_attr_contrast_glasgow_v0.csv`, sha256 c6b0da0b2fff677358f592aa79d15ccf04b607a4f33358c8bf9ef6e13454b83f.
 - Script `scripts/english_default_attr.py`, committed with this record.
+
+### Addendum A results (2026-11-20, run at d2293e1; `results/english_default_attr/`)
+
+**Q1 with 38 sex-referring pairs.** At Caliskan et al.'s zero the interval now excludes 50%: top 1,000
+**64.6% [55.8, 71.2]** male (16 words: 60.1% [28.7, 80.3]); top 100: 77% [63, 85]; top 100,000: 54.6%
+[49.9, 58.9]. With a sex-neutral zero it still depends on the anchors:
+
+| Anchors | Top-1,000 share male [95% CI] | Verdict |
+|---|---|---|
+| Primary (22 generic person words) | 76.2% [44.6, 92.2] | explained by the zero point |
+| Epicene glosses | 27.6% [12.4, 51.7] | explained by the zero point (reversed at 10k, 100k) |
+| Glosses-in | 80.9% [51.8, 93.1] | robust to the zero point |
+
+Contrast list (Glasgow extremes): Caliskan zero 50.8% [41.4, 61.0]; primary anchors 57.4% [20.6, 89.2].
+"Attribute choice matters": **not shown** (contrast − expanded = −0.19, within the expanded list's
+half-width 0.24).
+
+**Q2/Q3 with the expanded list:** unchanged. Spanish: English lean contributes to the plain-translation
+default, β 0.29 [0.17, 0.41]; occupation-specific beyond English lean, β 0.64 [0.44, 0.84]; both robust
+without flagged nouns and in the glosses-in set. French: both not shown, as before. With the contrast list
+Spanish conclusions also hold (occupation 0.49 [0.26, 0.71]). English occupation glosses lean slightly more
+male than person glosses with the expanded list (ES +0.009 [0.000, 0.017]) and clearly with the contrast
+list (+0.025 [0.016, 0.034]): the stereotype-laden list sees occupations as male-coded, the sex-word list
+barely does.
+
+**Reading.**
+1. With enough attribute words, the masculine default *relative to the attribute midpoint* is real in this
+   embedding too (65% of the top 1,000, falling with rarer words, the same gradient Caliskan et al.
+   report), so the attribute-word noise was what made the 16-word result undecidable.
+2. Whether that is a masculine default *relative to sex-neutral people-words* depends on which
+   people-words set the zero: generic person words (*person, someone, people*) put it at 76%, glosses of
+   Spanish/French epicenes (many stereotyped: *monster, genius, mermaid*) at 28%. The interval for the
+   primary anchors still spans 50%. So "most frequent English words lean male" holds against the
+   attribute words' midpoint; against a people-based zero, it isn't established here.
+3. Q2/Q3 don't depend on the attribute list: the English word's own lean feeds into the Spanish default and
+   intrusion, and Spanish occupations carry extra intrusion beyond it.
+Claude's predictions: Q1 interval narrows (right at Caliskan's zero; only partly at the fair zero), fair
+share within ±10 of 50% (wrong: 76%), contrast clearly higher (wrong: lower), Q2/Q3 Spanish unchanged
+(right).
