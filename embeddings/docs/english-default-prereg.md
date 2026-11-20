@@ -33,19 +33,23 @@ nouns under plain translation (Spanish 0.28, French 0.45) that we had attributed
 - **Attribute words:** Caliskan et al.'s sixteen, as listed above (all in the 200k vocabulary).
 - **English zero point (new; PI review needed):** `data/en_zero_candidates_v0.csv`, built by
   `scripts/en_zero_build.py`. Two sets:
-  - **Primary, generic person words** (31 after rule filters, `primary_set` = True): *person, persons,
-    people, individual, individuals, human, humans, someone, somebody, anyone, anybody, everyone,
-    everybody, member, members, resident, residents, stranger, strangers, citizens, folks, adult,
-    adults, youth, child, children, kid, kids, baby, babies, infant* (seed list by Claude,
-    `claude_suggest_unverified`; the PI keeps or drops each; *citizen* singular is dropped by the rule
-    because it is in Bolukbasi et al.'s professions list). These are the English counterparts of the
-    epicene and common-gender idea: words for people that name no sex.
-  - **Sensitivity, the other glosses of our frozen Spanish/French strict epicenes** (86 single words after
+  - **Primary, generic person words** (17 after rule filters, `primary_set` = True): *person, persons,
+    people, individual, individuals, someone, somebody, anyone, anybody, everyone, everybody, member,
+    members, resident, residents, youth, folks* (seed list by Claude, `claude_suggest_unverified`; the
+    PI keeps or drops each). Words for people that name no sex. Of the 6 with a Glasgow GEND rating,
+    the mean is 4.06 (neutral = 4).
+  - **Sensitivity, the other glosses of our frozen Spanish/French strict epicenes** (56 single words after
     dropping professions, gender-specific words and occupation glosses). Not primary because many are
     stereotyped concepts (*mermaid, monarch, archangel, sheriff, watchman*) or occupations Wiktionary
     doesn't mark (*tailor, locksmith, pilot*).
   - Rule filters (both sets): one word, in the 200k vocabulary, not in Bolukbasi et al.'s
     gender-specific list or professions list, not the gloss of a noun in our occupation groups.
+    Two more (2026-11-20): **anchors and test nouns kept apart** (no anchor is the gloss of a noun
+    tested in Q2/Q3, so *friend, adult, human, stranger, child, neighbour* aren't anchors); **no
+    clearly gendered anchors** (PI: Glasgow GEND, of the word or its singular/plural partner, outside
+    3.5–4.5 drops it: *child, kid, baby, infant, stranger* and their plurals). A friend-based zero
+    point (*friend, friends, neighbour, neighbours*) is reported as a further sensitivity, with Q2/Q3
+    rerun without the nouns glossed by those words.
   - Reported with the list: the anchors' mean Glasgow GEND rating where available (a check that the
     zero point isn't itself gender-rated).
 - **Person nouns (Q2, Q3):** the frozen Spanish (`data/wp_persons_es_frozen_v1.csv`: person 107,
@@ -81,6 +85,7 @@ nouns under plain translation (Spanish 0.28, French 0.45) that we had attributed
 - **Prediction (Claude's, before any score):** Q1 share falls toward 50% but stays above it at 1,000;
   Q2 English lean contributes in both languages; Q3 occupation excess survives. None of these is
   required for the study to be informative.
+  - **Prediction (PI):** Agreed on all, see conversation leading to this prereg.
 
 ## Sensitivity
 
@@ -101,8 +106,8 @@ nouns under plain translation (Spanish 0.28, French 0.45) that we had attributed
 
 ## Open questions at drafting
 
-1. Review the 31 primary anchors (`data/en_zero_candidates_v0.csv`, `primary_set` = True): keep or drop each.
-   (Claude's own doubts: *babies*, *kids*, *children* skew toward family contexts; *folks* is
-   informal; *member(s)* and *resident(s)* are institutional; *youth* and *infant* lean formal.)
+1. Review the 17 primary anchors (`data/en_zero_candidates_v0.csv`, `primary_set` = True): keep or drop each.
+   (Claude's own doubts: *folks* is informal; *member(s)* and *resident(s)* are institutional;
+   *youth* leans young/formal.)
 2. Primary reading at the top 1,000 (matches Caliskan et al.'s headline 77%)?
 3. Adopt Q2/Q3 as specified?
