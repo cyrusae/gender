@@ -116,24 +116,37 @@ def main():
         return g[(g["set"] == "primary") & (g.measure == "intrusion")].set_index(["lang", "space"])
 
     G = {"notebook": gaps(ROOT / "results/wordpair_cues/gaps.csv"), "midpoint": gaps(ROOT / "results/wordpair_cues_midpoint/gaps.csv")}
-    fig3, ax3 = plt.subplots(1, 2, figsize=(10, 4))
+    fig3, ax3 = plt.subplots(1, 2, figsize=(11, 4.8), gridspec_kw={"width_ratios": [3, 2]})
+    xt, xl = [], []
     for li, lang in enumerate(("es", "fr")):
+        col = "steelblue" if lang == "es" else "darkorange"
         sub = d3[d3.lang == lang]
-        lab = [f"{r.centring}\n{r.attributes}" for r in sub.itertuples()]
-        ax3[0].bar(np.arange(4) + 5 * li, sub.shift_ori_mweat, color="steelblue" if lang == "es" else "darkorange", label=lang.upper())
-        for i, t in enumerate(lab):
-            ax3[0].text(i + 5 * li, -0.02, t, ha="center", va="top", fontsize=6, rotation=90)
+        xs = np.arange(4) + 5 * li
+        ax3[0].bar(xs, sub.shift_ori_mweat, color=col, label=lang.upper())
+        for x, v in zip(xs, sub.shift_ori_mweat):
+            ax3[0].text(x, v + 0.02, f"{v:.2f}", ha="center", fontsize=7)
+        xt += list(xs)
+        xl += [f"{'a+b/2' if r.centring == 'notebook' else 'midpoint'}\n{r.attributes}" for r in sub.itertuples()]
+    ax3[0].set_xticks(xt, xl, fontsize=7)
+    ax3[0].set_ylim(0, d3.shift_ori_mweat.max() * 1.12)
+    ax3[0].set_ylabel("Shift Ori MWEAT")
+    ax3[0].set_title("Table 1 statistic after Shift Ori,\nby centring × attribute list")
+    ax3[0].legend(loc="upper right")
+    xt, xl = [], []
+    for li, lang in enumerate(("es", "fr")):
+        col = "steelblue" if lang == "es" else "darkorange"
         for ci, c in enumerate(("notebook", "midpoint")):
             r = G[c].loc[(lang, "shift_ori-original")]
-            ax3[1].errorbar(ci + 3 * li, r.value, yerr=[[r.value - r.lo], [r.hi - r.value]], fmt="o",
-                            color="steelblue" if lang == "es" else "darkorange")  # fmt: skip
-            ax3[1].text(ci + 3 * li, 0.005, f"{lang.upper()}\n{c}", ha="center", fontsize=7)
-    ax3[0].set_title("Shift Ori MWEAT (Table 1 statistic)\nby centring × attribute list")
-    ax3[0].set_xticks([])
-    ax3[0].legend()
+            x = ci + 3 * li
+            ax3[1].errorbar(x, r.value, yerr=[[r.value - r.lo], [r.hi - r.value]], fmt="o", color=col, capsize=3)
+            xt.append(x)
+            xl.append(f"{lang.upper()}\n{'a+b/2' if c == 'notebook' else 'midpoint'}")
     ax3[1].axhline(0, color="k", lw=0.5)
-    ax3[1].set_xticks([])
-    ax3[1].set_title("Change in intrusion under Shift Ori\n(feminine cues; uses no attribute words)")
+    ax3[1].set_xticks(xt, xl, fontsize=7)
+    ax3[1].set_xlim(-0.6, 4.6)
+    ax3[1].set_ylim(-0.2, 0.03)
+    ax3[1].set_ylabel("change in intrusion (95% CI)")
+    ax3[1].set_title("Retrieval measure: change in intrusion\nunder Shift Ori (no attribute words)")
     fig3.tight_layout()
     fig3.savefig(OUT / "F3_same_choices_two_measures.png", dpi=150)
     # F4: both centrings side by side (released code = notebook a + b/2; as described = midpoint)
