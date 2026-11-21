@@ -55,10 +55,14 @@ if MODE == "check":
     sys.exit(0)
 
 eg = glob.glob("/kaggle/input/**/embeddinggemma-300m/**/modules.json", recursive=True)
+src = (code / "content_embed.py").read_text()
+assert "EMB_MAXLEN" in src, "stale code dataset version mounted"
 print("embeddinggemma local copy:", eg[0] if eg else "MISSING", flush=True)
 # session 3: one block hit CUDA OOM at batch 16 (qwen3-emb, long paragraphs); batch 4 for the rerun.
 # Batch size changes only float rounding (attention masks), not the embedding.
-env = os.environ | {"EMB_BATCH": "4", "ANCHORS_JSON": str(D / "anchors.json"), "CONTENT_DEVICE": "cuda",
+# block 004 holds one runaway invalid output (128,813 chars, finish=length, never analysed) that
+# needs ~30k tokens; cap at 2048 tokens (valid paragraphs <= ~300 tokens; scores identical, checked)
+env = os.environ | {"EMB_BATCH": "4", "EMB_MAXLEN": "2048", "ANCHORS_JSON": str(D / "anchors.json"), "CONTENT_DEVICE": "cuda",
                     "CUDA_VISIBLE_DEVICES": "0", "PYTHONPATH": str(code),
                     "EMB_LOCAL": f"embeddinggemma={Path(eg[0]).parent}" if eg else ""}  # fmt: skip
 
