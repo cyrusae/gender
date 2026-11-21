@@ -81,7 +81,11 @@ for p in prior:
     if not (OUT / p.name).exists():
         shutil.copy(p, OUT / p.name)
 print("prior blocks copied:", len(prior), flush=True)
-PRIOR_MIN = 373  # blocks finished in sessions 1-2; abort rather than silently redo them
+# ONLY: score just these blocks (names without .csv); empty = everything not yet done.
+# Session 3: Kaggle mounted a stale version of the prior dataset, so the one missing block is
+# named explicitly instead of relying on it.
+ONLY = {"qwen3-emb-0.6b_character_qwen3-14b_on_all_004"}
+PRIOR_MIN = 0 if ONLY else 373
 assert len(prior) >= PRIOR_MIN, f"prior dataset not mounted ({len(prior)} < {PRIOR_MIN} blocks)"
 
 
@@ -128,7 +132,7 @@ def worker(gpu: int, scorers: list[str]) -> None:
                     )
                     for k in range((n + CH - 1) // CH):
                         out = OUT / f"{e}_{kind}_{fn}_{ps}_{k:03d}.csv"
-                        if out.exists():
+                        if out.exists() or (ONLY and out.stem not in ONLY):
                             continue
                         if time.time() - T0 > BUDGET_H * 3600 or stop.is_set():
                             stop.set()
