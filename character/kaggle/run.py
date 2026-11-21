@@ -72,7 +72,9 @@ OUT.mkdir(exist_ok=True)
 # recomputed, so each block is scored exactly once
 import shutil
 
-prior = [Path(p) for p in glob.glob("/kaggle/input/**/prior/*.csv", recursive=True)]
+# Kaggle may flatten or keep the uploaded folder: match by dataset name + block-file pattern
+prior = [Path(p) for p in glob.glob("/kaggle/input/**/*_[0-9][0-9][0-9].csv", recursive=True)
+         if "gbleed-content-prior" in p]  # fmt: skip
 for p in prior:
     if not (OUT / p.name).exists():
         shutil.copy(p, OUT / p.name)
