@@ -56,7 +56,9 @@ if MODE == "check":
 
 eg = glob.glob("/kaggle/input/**/embeddinggemma-300m/**/modules.json", recursive=True)
 print("embeddinggemma local copy:", eg[0] if eg else "MISSING", flush=True)
-env = os.environ | {"ANCHORS_JSON": str(D / "anchors.json"), "CONTENT_DEVICE": "cuda",
+# session 3: one block hit CUDA OOM at batch 16 (qwen3-emb, long paragraphs); batch 4 for the rerun.
+# Batch size changes only float rounding (attention masks), not the embedding.
+env = os.environ | {"EMB_BATCH": "4", "ANCHORS_JSON": str(D / "anchors.json"), "CONTENT_DEVICE": "cuda",
                     "CUDA_VISIBLE_DEVICES": "0", "PYTHONPATH": str(code),
                     "EMB_LOCAL": f"embeddinggemma={Path(eg[0]).parent}" if eg else ""}  # fmt: skip
 
@@ -79,7 +81,7 @@ for p in prior:
     if not (OUT / p.name).exists():
         shutil.copy(p, OUT / p.name)
 print("prior blocks copied:", len(prior), flush=True)
-PRIOR_MIN = 268  # session 1 finished 268 blocks; abort rather than silently redo them
+PRIOR_MIN = 373  # blocks finished in sessions 1-2; abort rather than silently redo them
 assert len(prior) >= PRIOR_MIN, f"prior dataset not mounted ({len(prior)} < {PRIOR_MIN} blocks)"
 
 
