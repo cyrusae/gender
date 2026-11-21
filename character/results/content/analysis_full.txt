@@ -1,0 +1,78 @@
+SOURCE glasgow  (Glasgow: lower = more feminine; embedders: higher = more feminine)
+Luna medium  paragraph SD 0.1800
+Luna medium  V she-he -0.0142 [-0.0235, -0.0049] | Q1c all -0.0169 [-0.0269, -0.0069] (nouns 191) | she-only -0.0203 [-0.0320, -0.0086] (nouns 191) | he-only +0.0011 [-0.0423, +0.0445] (nouns 109)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = -0.46
+Luna none    paragraph SD 0.1782
+Luna none    V she-he -0.0227 [-0.0322, -0.0132] | Q1c all -0.0159 [-0.0271, -0.0046] (nouns 191) | she-only -0.0147 [-0.0268, -0.0025] (nouns 188) | he-only +0.0075 [-0.0278, +0.0428] (nouns 126)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = -0.43
+Qwen off     paragraph SD 0.2008
+Qwen off     V she-he -0.0606 [-0.0722, -0.0491] | Q1c all -0.0194 [-0.0335, -0.0052] (nouns 190) | she-only -0.0108 [-0.0303, +0.0088] (nouns 166) | he-only +0.0053 [-0.0192, +0.0299] (nouns 133)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = -0.36
+Qwen on      paragraph SD 0.1989
+Qwen on      V she-he -0.0635 [-0.0746, -0.0525] | Q1c all -0.0121 [-0.0246, +0.0004] (nouns 191) | she-only -0.0110 [-0.0255, +0.0035] (nouns 189) | he-only -0.0047 [-0.0280, +0.0186] (nouns 150)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = -0.42
+SOURCE bge-m3  (Glasgow: lower = more feminine; embedders: higher = more feminine)
+Luna medium  paragraph SD 0.0169
+Luna medium  V she-he +0.0020 [+0.0011, +0.0030] | Q1c all +0.0018 [+0.0007, +0.0028] (nouns 191) | she-only +0.0017 [+0.0006, +0.0028] (nouns 191) | he-only -0.0016 [-0.0056, +0.0024] (nouns 109)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.58
+Luna none    paragraph SD 0.0173
+Luna none    V she-he +0.0025 [+0.0016, +0.0034] | Q1c all +0.0022 [+0.0011, +0.0033] (nouns 191) | she-only +0.0018 [+0.0006, +0.0030] (nouns 188) | he-only +0.0012 [-0.0022, +0.0045] (nouns 126)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.61
+Qwen off     paragraph SD 0.0181
+Qwen off     V she-he +0.0056 [+0.0046, +0.0067] | Q1c all +0.0023 [+0.0010, +0.0037] (nouns 190) | she-only +0.0011 [-0.0007, +0.0029] (nouns 166) | he-only +0.0008 [-0.0014, +0.0030] (nouns 133)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.54
+Qwen on      paragraph SD 0.0193
+Qwen on      V she-he +0.0065 [+0.0054, +0.0076] | Q1c all +0.0023 [+0.0010, +0.0035] (nouns 191) | she-only +0.0015 [+0.0000, +0.0030] (nouns 189) | he-only +0.0033 [+0.0011, +0.0055] (nouns 150)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.56
+SOURCE e5-instruct  (Glasgow: lower = more feminine; embedders: higher = more feminine)
+Luna medium  paragraph SD 0.0105
+Luna medium  V she-he +0.0017 [+0.0011, +0.0022] | Q1c all +0.0010 [+0.0003, +0.0016] (nouns 191) | she-only +0.0009 [+0.0002, +0.0015] (nouns 191) | he-only +0.0000 [-0.0023, +0.0023] (nouns 109)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.68
+Luna none    paragraph SD 0.0104
+Luna none    V she-he +0.0022 [+0.0016, +0.0027] | Q1c all +0.0011 [+0.0005, +0.0018] (nouns 191) | she-only +0.0007 [-0.0001, +0.0014] (nouns 188) | he-only -0.0001 [-0.0018, +0.0017] (nouns 126)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.68
+Qwen off     paragraph SD 0.0131
+Qwen off     V she-he +0.0044 [+0.0037, +0.0052] | Q1c all +0.0017 [+0.0006, +0.0028] (nouns 190) | she-only +0.0007 [-0.0008, +0.0021] (nouns 166) | he-only +0.0007 [-0.0010, +0.0024] (nouns 133)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.58
+Qwen on      paragraph SD 0.0133
+Qwen on      V she-he +0.0046 [+0.0038, +0.0053] | Q1c all +0.0012 [+0.0002, +0.0022] (nouns 191) | she-only +0.0005 [-0.0006, +0.0017] (nouns 189) | he-only +0.0014 [+0.0000, +0.0029] (nouns 150)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.61
+SOURCE labse  (Glasgow: lower = more feminine; embedders: higher = more feminine)
+Luna medium  paragraph SD 0.0189
+Luna medium  V she-he +0.0007 [-0.0004, +0.0018] | Q1c all +0.0017 [+0.0007, +0.0028] (nouns 191) | she-only +0.0019 [+0.0007, +0.0030] (nouns 191) | he-only +0.0015 [-0.0024, +0.0053] (nouns 109)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.09
+Luna none    paragraph SD 0.0185
+Luna none    V she-he +0.0021 [+0.0012, +0.0031] | Q1c all +0.0012 [+0.0002, +0.0023] (nouns 191) | she-only +0.0011 [-0.0001, +0.0024] (nouns 188) | he-only -0.0024 [-0.0057, +0.0010] (nouns 126)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.29
+Qwen off     paragraph SD 0.0184
+Qwen off     V she-he +0.0041 [+0.0029, +0.0052] | Q1c all +0.0011 [-0.0002, +0.0024] (nouns 190) | she-only +0.0001 [-0.0016, +0.0017] (nouns 166) | he-only -0.0004 [-0.0030, +0.0023] (nouns 133)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.37
+Qwen on      paragraph SD 0.0187
+Qwen on      V she-he +0.0046 [+0.0036, +0.0056] | Q1c all +0.0007 [-0.0004, +0.0018] (nouns 191) | she-only +0.0002 [-0.0012, +0.0017] (nouns 189) | he-only +0.0007 [-0.0015, +0.0029] (nouns 150)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.28
+SOURCE qwen3-emb-0.6b  (Glasgow: lower = more feminine; embedders: higher = more feminine)
+Luna medium  paragraph SD 0.0256
+Luna medium  V she-he +0.0028 [+0.0015, +0.0040] | Q1c all +0.0025 [+0.0008, +0.0041] (nouns 191) | she-only +0.0023 [+0.0006, +0.0039] (nouns 191) | he-only +0.0014 [-0.0040, +0.0068] (nouns 109)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.54
+Luna none    paragraph SD 0.0256
+Luna none    V she-he +0.0044 [+0.0029, +0.0058] | Q1c all +0.0018 [+0.0001, +0.0035] (nouns 191) | she-only +0.0014 [-0.0006, +0.0033] (nouns 188) | he-only +0.0006 [-0.0040, +0.0052] (nouns 126)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.66
+Qwen off     paragraph SD 0.0313
+Qwen off     V she-he +0.0090 [+0.0071, +0.0109] | Q1c all +0.0033 [+0.0009, +0.0057] (nouns 190) | she-only +0.0009 [-0.0021, +0.0038] (nouns 166) | he-only +0.0002 [-0.0042, +0.0045] (nouns 133)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.61
+Qwen on      paragraph SD 0.0330
+Qwen on      V she-he +0.0098 [+0.0080, +0.0116] | Q1c all +0.0027 [+0.0004, +0.0050] (nouns 191) | she-only +0.0002 [-0.0025, +0.0028] (nouns 189) | he-only +0.0040 [+0.0003, +0.0076] (nouns 150)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.64
+SOURCE embeddinggemma  (Glasgow: lower = more feminine; embedders: higher = more feminine)
+Luna medium  paragraph SD 0.0150
+Luna medium  V she-he +0.0022 [+0.0013, +0.0030] | Q1c all +0.0014 [+0.0004, +0.0024] (nouns 191) | she-only +0.0012 [+0.0002, +0.0022] (nouns 191) | he-only +0.0002 [-0.0031, +0.0035] (nouns 109)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.71
+Luna none    paragraph SD 0.0153
+Luna none    V she-he +0.0026 [+0.0017, +0.0034] | Q1c all +0.0012 [+0.0003, +0.0022] (nouns 191) | she-only +0.0007 [-0.0003, +0.0018] (nouns 188) | he-only +0.0004 [-0.0022, +0.0030] (nouns 126)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.71
+Qwen off     paragraph SD 0.0207
+Qwen off     V she-he +0.0070 [+0.0058, +0.0082] | Q1c all +0.0038 [+0.0020, +0.0056] (nouns 190) | she-only +0.0016 [-0.0009, +0.0041] (nouns 166) | he-only +0.0020 [-0.0011, +0.0050] (nouns 133)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.59
+Qwen on      paragraph SD 0.0207
+Qwen on      V she-he +0.0075 [+0.0064, +0.0086] | Q1c all +0.0033 [+0.0016, +0.0049] (nouns 191) | she-only +0.0020 [+0.0002, +0.0038] (nouns 189) | he-only +0.0023 [-0.0002, +0.0047] (nouns 150)
+             Q2c: modifiers 70, corr(pronoun effect, content shift) = +0.63

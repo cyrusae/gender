@@ -55,8 +55,14 @@ if MODE == "check":
     sys.exit(0)
 
 eg = glob.glob("/kaggle/input/**/embeddinggemma-300m/**/modules.json", recursive=True)
+src = (code / "content_embed.py").read_text()
+assert "EMB_MAXLEN" in src, "stale code dataset version mounted"
 print("embeddinggemma local copy:", eg[0] if eg else "MISSING", flush=True)
-env = os.environ | {"ANCHORS_JSON": str(D / "anchors.json"), "CONTENT_DEVICE": "cuda",
+# session 3: one block hit CUDA OOM at batch 16 (qwen3-emb, long paragraphs); batch 4 for the rerun.
+# Batch size changes only float rounding (attention masks), not the embedding.
+# block 004 holds one runaway invalid output (128,813 chars, finish=length, never analysed) that
+# needs ~30k tokens; cap at 2048 tokens (valid paragraphs <= ~300 tokens; scores identical, checked)
+env = os.environ | {"EMB_BATCH": "4", "EMB_MAXLEN": "2048", "ANCHORS_JSON": str(D / "anchors.json"), "CONTENT_DEVICE": "cuda",
                     "CUDA_VISIBLE_DEVICES": "0", "PYTHONPATH": str(code),
                     "EMB_LOCAL": f"embeddinggemma={Path(eg[0]).parent}" if eg else ""}  # fmt: skip
 
@@ -68,6 +74,23 @@ def inp(stem: str) -> Path:
 
 OUT = W / "full"
 OUT.mkdir(exist_ok=True)
+# resume: blocks finished in earlier sessions (private dataset gbleed-content-prior); copied, not
+# recomputed, so each block is scored exactly once
+import shutil
+
+# Kaggle may flatten or keep the uploaded folder: match by dataset name + block-file pattern
+prior = [Path(p) for p in glob.glob("/kaggle/input/**/*_[0-9][0-9][0-9].csv", recursive=True)
+         if "gbleed-content-prior" in p]  # fmt: skip
+for p in prior:
+    if not (OUT / p.name).exists():
+        shutil.copy(p, OUT / p.name)
+print("prior blocks copied:", len(prior), flush=True)
+# ONLY: score just these blocks (names without .csv); empty = everything not yet done.
+# Session 3: Kaggle mounted a stale version of the prior dataset, so the one missing block is
+# named explicitly instead of relying on it.
+ONLY = {"qwen3-emb-0.6b_character_qwen3-14b_on_all_004"}
+PRIOR_MIN = 0 if ONLY else 373
+assert len(prior) >= PRIOR_MIN, f"prior dataset not mounted ({len(prior)} < {PRIOR_MIN} blocks)"
 
 
 def emb(args: list[str], gpu: int = 0) -> subprocess.CompletedProcess:
@@ -113,7 +136,7 @@ def worker(gpu: int, scorers: list[str]) -> None:
                     )
                     for k in range((n + CH - 1) // CH):
                         out = OUT / f"{e}_{kind}_{fn}_{ps}_{k:03d}.csv"
-                        if out.exists():
+                        if out.exists() or (ONLY and out.stem not in ONLY):
                             continue
                         if time.time() - T0 > BUDGET_H * 3600 or stop.is_set():
                             stop.set()

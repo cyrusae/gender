@@ -231,7 +231,13 @@ def main() -> None:
             # one device per run (CONTENT_DEVICE, default cpu); fp32 always
             dev = os.environ.get("CONTENT_DEVICE", "cpu")
             m = SentenceTransformer(hf, device=dev, model_kwargs={"torch_dtype": torch.float32})
-            P = m.encode([qp + t for t in texts], batch_size=16, normalize_embeddings=True)
+            if os.environ.get("EMB_MAXLEN"):  # cap tokens read (runaway invalid outputs only)
+                m.max_seq_length = min(m.max_seq_length, int(os.environ["EMB_MAXLEN"]))
+            P = m.encode(
+                [qp + t for t in texts],
+                batch_size=int(os.environ.get("EMB_BATCH", "16")),
+                normalize_embeddings=True,
+            )
             A = m.encode([ap_ + w for w in fem + masc], normalize_embeddings=True)
             del m
         nf = len(fem_ft) if nm == "fasttext" else len(fem)
