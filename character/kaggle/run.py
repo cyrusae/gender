@@ -68,6 +68,17 @@ def inp(stem: str) -> Path:
 
 OUT = W / "full"
 OUT.mkdir(exist_ok=True)
+# resume: blocks finished in earlier sessions (private dataset gbleed-content-prior); copied, not
+# recomputed, so each block is scored exactly once
+import shutil
+
+prior = [Path(p) for p in glob.glob("/kaggle/input/**/prior/*.csv", recursive=True)]
+for p in prior:
+    if not (OUT / p.name).exists():
+        shutil.copy(p, OUT / p.name)
+print("prior blocks copied:", len(prior), flush=True)
+PRIOR_MIN = 268  # session 1 finished 268 blocks; abort rather than silently redo them
+assert len(prior) >= PRIOR_MIN, f"prior dataset not mounted ({len(prior)} < {PRIOR_MIN} blocks)"
 
 
 def emb(args: list[str], gpu: int = 0) -> subprocess.CompletedProcess:
