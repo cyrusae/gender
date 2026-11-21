@@ -10,6 +10,7 @@ Q2c character (Glasgow only, modifier words masked): each modifier's content shi
 Usage: content_analysis.py SCORE_SOURCE   (glasgow | emb_<name>)
 """
 
+import os
 import sys
 from pathlib import Path
 
@@ -21,6 +22,8 @@ sys.path.insert(0, str(HERE))
 import analysis_main as am
 
 R, C = HERE / "results/main_v1", HERE / "results/content"
+MODEL = {"gpt-6-luna": "openai/gpt-6-luna", "qwen3-14b_off": "Qwen/Qwen3-14B",
+         "qwen3-14b_on": "Qwen/Qwen3-14B"}  # fmt: skip
 CELLS = {"Luna medium": ("gpt-6-luna", True), "Luna none": ("gpt-6-luna", False),
          "Qwen off": ("qwen3-14b_off", False), "Qwen on": ("qwen3-14b_on", True)}  # fmt: skip
 EMB_CELL = {
@@ -42,9 +45,18 @@ def merged(kind: str, cell: str, src: str) -> pd.DataFrame:
         g = pd.read_csv(C / f"glasgow_{kind}_{f}.csv")
         g = g[(g.thinking.astype(str) == str(th)) & (g.glasgow_n_rated >= 10)]
         s = g.assign(score=g.glasgow_gend_mean)[K + ["score"]]
-    else:  # embedder on the writer sample: primary = character-only masking (kept for he/she)
-        a = pd.read_csv(C / f"emb_{src}.csv")
-        b = pd.read_csv(C / f"emb_{src}_kept.csv")
+    else:  # embedder: primary = character-only masking (kept for he/she)
+        # CONTENT_EMB_DIR set = full run (results/content/full_emb, per experiment); else the sample
+        full = os.environ.get("CONTENT_EMB_DIR")
+        E = Path(full) if full else C
+        tag = f"emb_{src}_{kind}" if full else f"emb_{src}"
+        if not (E / f"{tag}.csv").exists():
+            return pd.DataFrame()
+        a = pd.read_csv(E / f"{tag}.csv")
+        b = pd.read_csv(E / f"{tag}_kept.csv")
+        # filter by MODEL too: Luna medium / Qwen on (and Luna none / Qwen off) share the thinking
+        # flag; the first sample analysis (2026-11-19) merged them together (bug, fixed 2026-11-21)
+        a, b = a[a.model == MODEL[f]], b[b.model == MODEL[f]]
         col = f"emb_{src}"
         m = a.merge(b[K + [col]], on=K, how="left", suffixes=("", "_k"))
         m["score"] = np.where(
@@ -95,8 +107,8 @@ def main() -> None:
         print(
             f"{cell:12s} V she-he {cl_mean(v)} | Q1c all {q1c(d, gend)} | she-only {q1c(d, gend, ['she'])} | he-only {q1c(d, gend, ['he'])}"
         )
-        if src == "glasgow":
-            c = merged("character", cell, src)
+        c = merged("character", cell, src)
+        if len(c):
             ss = c.groupby(["noun", "modifier"]).score.mean()
             pts = []
             for k in conf.test[
@@ -109,7 +121,7 @@ def main() -> None:
                 pts.append((pron, diff.mean()))
             a = np.array(pts)
             print(
-                f"{'':12s} Q2c: modifiers {len(a)}, corr(pronoun effect, Glasgow shift) = {np.corrcoef(a[:, 0], a[:, 1])[0, 1]:+.2f}"
+                f"{'':12s} Q2c: modifiers {len(a)}, corr(pronoun effect, content shift) = {np.corrcoef(a[:, 0], a[:, 1])[0, 1]:+.2f}"
             )
     print("=== CONTENT ANALYSIS DONE")
 

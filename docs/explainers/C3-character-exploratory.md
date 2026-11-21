@@ -78,46 +78,53 @@ an *it*, and a few *mixed* / *they* boundary cases. Well above the 0.6 limitatio
 ran in its own environment (`transformers==4.36.2`, spaCy `en_core_web_sm`); it fails with current
 transformers.
 
-## Content: does the description change, not just the pronoun? (2026-11-19)
+## Content: does the description change, not just the pronoun? (2026-11-19, full run 2026-11-21)
 
 **Exploratory.** The pre-registration froze content measures for the Casey/Riley study (deferred),
-not for these studies. Scripts `character/scripts/content_main.py`, `content_analysis.py`;
-results `character/results/content/analysis_all.txt`.
+not for these studies. Scripts `character/scripts/content_main.py`, `content_analysis.py`,
+`character/kaggle/run.py`; results `character/results/content/analysis_full.txt`.
 
-- **Glasgow word average** (human ratings, no model): every valid output of both studies.
-  Pronouns, names, gendered person words, the noun and (character study) the modifier's own words
-  masked. Paragraphs with at least 10 rated words.
-- **Six embedders** (feminine-minus-masculine anchor similarity; pronouns and names masked): a
-  fixed sample, the first draw of every writer-study prompt used by Q1 (≈3,050 per cell). The full
-  run over every output is running in the background on the Mac (≈10 days, pauses on battery).
+- **Glasgow word average** (human ratings, no model) and **five embedders** (bge-m3, e5-instruct,
+  LaBSE, Qwen3-Embedding-0.6B, EmbeddingGemma; feminine-minus-masculine anchor similarity), on
+  **every valid output of both studies** (~489,000). Pronouns, names, gendered person words, the
+  noun and (character study) the modifier's own words are masked; plural *they* is left intact in
+  he/she paragraphs (pre-set rule). Glasgow: paragraphs with at least 10 rated words.
+- Embedders ran on Kaggle (two T4 GPUs, fp32, one scorer per card; three sessions, ~17 GPU-hours,
+  free). Checks: T4 vs Mac CPU on 300 paragraphs, max difference 0.00001; Kaggle's EmbeddingGemma
+  copy byte-identical to the Hugging Face one; batch size and a 2,048-token cap (needed for one
+  runaway 128,813-character invalid output) leave scores unchanged. fastText ran on the sample only.
+- **Correction:** the first (sample-only) embedder numbers reported on 2026-11-19 were wrong: the
+  merge matched outputs without the model, so Luna-medium was mixed with Qwen-on and Luna-none with
+  Qwen-off (they share the thinking flag). Glasgow was unaffected. Fixed; the corrected sample
+  agrees with the full run below.
 
-Numbers below are in **paragraph standard deviations** (how many "typical paragraph differences"),
-signed so that positive = more feminine for every scorer. `*` = 95% CI excludes 0.
+Numbers are in **paragraph standard deviations**, signed so that **positive = more feminine** for
+every scorer (Glasgow is flipped, since its scale runs 1 = feminine). `*` = 95% CI excludes 0.
 
 | scorer | she minus he paragraphs | Q1 content effect (f − m nouns) | same, *she* paragraphs only |
 |---|---|---|---|
 | Glasgow | 0.08 to 0.32 | 0.06 to 0.10 (3 of 4 *) | 0.05 to 0.11 (2 of 4 *) |
-| bge-m3 | 0.10 to 0.21 | 0.10 to 0.12 (4 of 4 *) | 0.01 to 0.14 (2 of 4 *) |
-| e5-instruct | 0.11 to 0.18 | 0.06 to 0.12 (2 of 4 *) | 0.03 to 0.11 (1 of 4 *) |
-| LaBSE | 0.01 to 0.14 | 0.03 to 0.06 (0 of 4) | −0.06 to 0.05 (0 of 4) |
-| Qwen3-Embedding | 0.06 to 0.13 | 0.06 to 0.10 (2 of 4 *) | 0.03 to 0.10 (1 of 4 *) |
-| EmbeddingGemma | 0.09 to 0.17 | 0.11 to 0.14 (4 of 4 *) | 0.03 to 0.14 (3 of 4 *) |
-| fastText | 0.07 to 0.20 | 0.08 to 0.14 (2 of 4 *) | 0.05 to 0.11 (1 of 4 *) |
+| bge-m3 | 0.12 to 0.34 | 0.11 to 0.13 (4 of 4 *) | 0.06 to 0.10 (2 of 4 *) |
+| e5-instruct | 0.16 to 0.35 | 0.09 to 0.13 (4 of 4 *) | 0.04 to 0.09 (1 of 4 *) |
+| LaBSE | 0.04 to 0.25 | 0.04 to 0.09 (2 of 4 *) | 0.01 to 0.10 (1 of 4 *) |
+| Qwen3-Embedding | 0.11 to 0.30 | 0.07 to 0.11 (4 of 4 *) | 0.01 to 0.09 (1 of 4 *) |
+| EmbeddingGemma | 0.15 to 0.36 | 0.08 to 0.18 (4 of 4 *) | 0.05 to 0.10 (2 of 4 *) |
 
 How to read it:
-- **Every scorer is a weak gender detector**: even a she-paragraph and a he-paragraph about the same
-  noun differ by only 0.1–0.3 of a typical paragraph difference.
-- **Direction agrees everywhere**: in all 28 scorer × cell combinations, feminine foreign words give
-  more feminine-reading descriptions; 17 of 28 exclude 0. LaBSE (built for translation matching,
-  not meaning) is the one scorer that sees nothing.
-- **Beyond the pronoun:** among paragraphs that already use *she*, the shift is mostly still there
-  (all positive except one LaBSE cell; clearest for Luna without reasoning and with EmbeddingGemma).
-  So the foreign word's gender seems to colour the description as well as the pronoun, weakly.
-- **Character study (Glasgow, all outputs):** across the 70 modifiers, a modifier's pronoun effect
-  and its content effect correlate −0.36 to −0.46 (Glasgow is 1 = feminine, so negative = they
-  move together): modifiers that pull toward *he* also pull the description toward masculine-rated
-  words.
+- **Every scorer is a weak gender detector**: a she-paragraph and a he-paragraph about the same
+  noun differ by only 0.04–0.36 of a typical paragraph difference.
+- **Q1: the description follows the foreign word's gender.** All 24 scorer × cell combinations are
+  positive and 21 exclude 0 (the exceptions: LaBSE for both Qwen cells, Glasgow for Qwen on). The
+  shift is about as large as the whole she/he gap for Luna and about a third of it for Qwen.
+- **Beyond the pronoun:** among paragraphs that already use *she*, the shift is still positive in
+  all 24 combinations; it excludes 0 for **Luna medium with every scorer** and in 2 of 12 Qwen
+  combinations. So for Luna the foreign word's gender colours the description itself, weakly; for
+  Qwen the content shift is mostly carried by the pronoun change.
+- **Character study (all scorers now):** across the 70 modifiers, a modifier's pronoun effect and
+  its content effect move together in every cell: embedders r = +0.54 to +0.71 (LaBSE +0.09 to
+  +0.37), Glasgow −0.36 to −0.46 (same direction, flipped scale). Modifiers that pull toward *he*
+  also pull the description toward masculine-reading content.
 
-Limits: weak instruments; the embedder anchors are word lists (properties primary), fixed before
-the main run; sample is one draw per prompt. Report as "content moves with the pronoun, weakly",
-not as an effect size.
+Limits: weak instruments; anchors are word lists (properties primary) fixed before the main run;
+effects are a direction, not a size. Report as "content moves with the pronoun, weakly; beyond the
+pronoun for Luna".
