@@ -1,0 +1,14 @@
+{
+ "n_pairs": 58,
+ "A_max_abs_change": 2.3592239273284576e-16,
+ "B_mean_abs_before": 0.0682423652010461,
+ "B_mean_abs_after": 2.0243924341172203e-08,
+ "C_mf_gap_original": 0.13688304629430081,
+ "C_mf_gap_control": 0.13087968726951638,
+ "C_mf_gap_dealign": 0.13352206034309932,
+ "C_mean_abs_change_control": 0.016119507361117294,
+ "C_mean_abs_change_dealign": 0.02072108025512158,
+ "C_pairs_masc_closer_original": 54,
+ "C_pairs_masc_closer_dealign": 54,
+ "C_pairs_masc_closer_control": 53
+}
