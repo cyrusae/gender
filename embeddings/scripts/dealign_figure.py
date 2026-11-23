@@ -26,6 +26,7 @@ import numpy as np
 from sklearn.decomposition import PCA
 from zhou_hybrid import DICT, DW, hard_debias, procrustes
 from zhou_shift import Z, attributes, load_vec
+from figpanels import save_panels  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results/dealign_figure"
@@ -124,6 +125,7 @@ def main():
     fig.text(0.5, 0.005, "58 Spanish occupation pairs. A: blue = masculine, pink = feminine form. C: one point per occupation; above 0 = English word closer to the masculine form.", ha="center", fontsize=9)
     fig.tight_layout(rect=(0, 0.03, 1, 1))
     fig.savefig(OUT / "dealign_inherits.png", dpi=150)
+    save_panels(fig, OUT, "dealign_inherits")
     print(json.dumps(summ, indent=1))
 
 

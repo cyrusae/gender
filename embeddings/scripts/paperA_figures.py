@@ -29,6 +29,7 @@ import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 import zhou_shift  # noqa: E402
 from zhou_shift import Z, load_vec, mweat, shift  # noqa: E402
+from figpanels import save_panels  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results/paperA_figures"
@@ -107,6 +108,7 @@ def main():
                               "original_mweat": mweat(E, w2i, pairs, am=am, af=af)})  # fmt: skip
     fig2.tight_layout()
     fig2.savefig(OUT / "F2_permutation_null.png", dpi=150)
+    save_panels(fig2, OUT, "F2_permutation_null")
     pd.DataFrame(rows2).to_csv(OUT / "F2_permutation_null.csv", index=False)
     d3 = pd.DataFrame(rows3)
     d3.to_csv(OUT / "F3_shift_mweat_by_choice.csv", index=False)
@@ -149,6 +151,7 @@ def main():
     ax3[1].set_title("Retrieval measure: change in intrusion\nunder Shift Ori (no attribute words)")
     fig3.tight_layout()
     fig3.savefig(OUT / "F3_same_choices_two_measures.png", dpi=150)
+    save_panels(fig3, OUT, "F3_same_choices_two_measures")
     # F4: both centrings side by side (released code = notebook a + b/2; as described = midpoint)
     fig4, ax4 = plt.subplots(figsize=(8, 4))
     rows4 = []

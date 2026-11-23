@@ -29,6 +29,7 @@ import pandas as pd  # noqa: E402
 from sklearn.svm import LinearSVC  # noqa: E402
 from zhou_hybrid import DICT, hard_debias, procrustes  # noqa: E402
 from zhou_shift import Z, load_vec, nouns, pca_dir, shift  # noqa: E402
+from figpanels import save_panels  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results/paperA_zhou_figs"
@@ -147,6 +148,7 @@ def main():
                  fontsize=8)  # fmt: skip
         fig.tight_layout(rect=(0, 0.04, 1, 1))
         fig.savefig(OUT / f"zhou_{tag}_redrawn.png", dpi=150)
+        save_panels(fig, OUT, f"zhou_{tag}_redrawn")
 
     # ---- Fig. 4: replicated + all points
     per = pd.read_csv(ROOT / "results/zhou_sec43_44/per_occupation.csv")
@@ -170,6 +172,7 @@ def main():
         a.set(title=title, xlabel="WEAT, English (← female)", ylabel="MWEAT, Spanish (← female)")
     fig.tight_layout()
     fig.savefig(OUT / "zhou_fig4_redrawn.png", dpi=150)
+    save_panels(fig, OUT, "zhou_fig4_redrawn")
     stats["fig4_spearman"] = {f"{i[0]}|{i[1]}": float(v) for i, v in rho.items()}
     json.dump(stats, open(OUT / "stats.json", "w"), indent=1)
     print(json.dumps(stats, indent=1))

@@ -23,6 +23,7 @@ import pandas as pd  # noqa: E402
 from sklearn.decomposition import PCA  # noqa: E402
 from sklearn.svm import LinearSVC  # noqa: E402
 from zhou_shift import Z, load_vec, nouns, pca_dir  # noqa: E402
+from figpanels import save_panels  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results/zhou_figures"
@@ -119,6 +120,7 @@ def main():
           xlabel="projection − epicene zero point (male →)", ylabel="occupation forms")
     fig.tight_layout()
     fig.savefig(OUT / "zhou_fig1_redrawn.png", dpi=150)
+    save_panels(fig, OUT, "zhou_fig1_redrawn")
 
     # Fig. 2: five pairs on the semantic axis, as published vs corrected, with zero point
     fig2, ax2 = plt.subplots(1, 2, figsize=(12, 3.6), sharey=True)
@@ -137,6 +139,7 @@ def main():
         a.set(title=title, xlabel="semantic gender direction (male →)")
     fig2.tight_layout()
     fig2.savefig(OUT / "zhou_fig2_redrawn.png", dpi=150)
+    save_panels(fig2, OUT, "zhou_fig2_redrawn")
 
     stats = {"cos_dpca_dg_published": float(abs(unit(pca_dir(defs, E, w2i)) @ g_pub)),
              "cos_dpca_dg_corrected": float(abs(d_cor @ g_cor)),
