@@ -1,0 +1,87 @@
+[
+ {
+  "lang": "fr",
+  "list": "primary",
+  "n_listed": 36,
+  "n_usable": 30,
+  "floor_met": true,
+  "dropped_missing_form": [
+   "administrateur/administratrice",
+   "professeur/professeure",
+   "avocat/avocate",
+   "dessinateur/dessinatrice",
+   "éditeur/éditrice",
+   "mathématicien/mathématicienne"
+  ],
+  "reading_1_generic_masculine": "inconclusive",
+  "reading_2_masc_plural_at_neutral": "not shown",
+  "G_minus_margin_97.5": 0.058468992232347285,
+  "G_plus_margin_2.5": 0.026437591319263095
+ },
+ {
+  "lang": "fr",
+  "list": "no_homographs (descriptive)",
+  "n_listed": 35,
+  "n_usable": 29,
+  "floor_met": true,
+  "dropped_missing_form": [
+   "administrateur/administratrice",
+   "professeur/professeure",
+   "avocat/avocate",
+   "dessinateur/dessinatrice",
+   "éditeur/éditrice",
+   "mathématicien/mathématicienne"
+  ],
+  "reading_1_generic_masculine": "inconclusive",
+  "reading_2_masc_plural_at_neutral": "not shown",
+  "G_minus_margin_97.5": 0.05736180425177046,
+  "G_plus_margin_2.5": 0.02376328773549933
+ },
+ {
+  "lang": "es",
+  "list": "primary",
+  "n_listed": 54,
+  "n_usable": 43,
+  "floor_met": true,
+  "dropped_missing_form": [
+   "ingeniero/ingeniera",
+   "entrenador/entrenadora",
+   "locutor/locutora",
+   "barbero/barbera",
+   "capitán/capitana",
+   "coreógrafo/coreógrafa",
+   "consejero/consejera",
+   "juez/jueza",
+   "psicólogo/psicóloga",
+   "herrero/herrera",
+   "redactor/redactora"
+  ],
+  "reading_1_generic_masculine": "supported",
+  "reading_2_masc_plural_at_neutral": "at neutral",
+  "G_minus_margin_97.5": -0.006719526020779368,
+  "G_plus_margin_2.5": 0.017097757695458845
+ },
+ {
+  "lang": "es",
+  "list": "no_homographs (descriptive)",
+  "n_listed": 40,
+  "n_usable": 30,
+  "floor_met": true,
+  "dropped_missing_form": [
+   "ingeniero/ingeniera",
+   "entrenador/entrenadora",
+   "locutor/locutora",
+   "barbero/barbera",
+   "coreógrafo/coreógrafa",
+   "consejero/consejera",
+   "juez/jueza",
+   "psicólogo/psicóloga",
+   "herrero/herrera",
+   "redactor/redactora"
+  ],
+  "reading_1_generic_masculine": "supported",
+  "reading_2_masc_plural_at_neutral": "at neutral",
+  "G_minus_margin_97.5": -0.012043214387258288,
+  "G_plus_margin_2.5": 0.0009042022879693848
+ }
+]
