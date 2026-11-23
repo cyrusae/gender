@@ -1,0 +1,19 @@
+{
+ "epicene_zero_point": -0.0309942665246642,
+ "n_pairs": 58,
+ "n_with_english": 58,
+ "fig2_pairs_fem_further_from_origin": 52,
+ "fig2_pairs_fem_further_from_epicene_zero": 46,
+ "fig3_max_abs_pair_sum_on_ds": 9.992007221626409e-16,
+ "english_closer_to_masc_full_space": {
+  "full_orig": 54,
+  "full_dealign": 54,
+  "full_hybrid": 54
+ },
+ "fig4_spearman": {
+  "as_published (58)|mweat_es_i": 0.449827734924287,
+  "as_published (58)|mweat_es_ii": 0.4405377140019637,
+  "clean (54)|mweat_es_i": 0.4190363653269235,
+  "clean (54)|mweat_es_ii": 0.4088206147667838
+ }
+}
