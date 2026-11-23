@@ -1,0 +1,7 @@
+lang,occupation_en,masc,fem,cue_type,cue_en,cue,rank_masc,rank_fem,top5
+es,developer,desarrollador,desarrolladora,masculine,gorgeous,hermoso,1,4,desarrollador administrador desarrolladores desarrolladora propietario
+es,developer,desarrollador,desarrolladora,feminine,gorgeous,hermosa,1,2,desarrollador desarrolladora administrador desarrolladores propietaria
+es,developer,desarrollador,desarrolladora,invariant,worrying,inquietante,1,2,desarrollador desarrolladora visionario futurista diseñador
+fr,worker,ouvrier,ouvrière,masculine,thoughtful,réfléchi,3,27,travailleur travailleurs ouvrier contremaître électricien
+fr,worker,ouvrier,ouvrière,feminine,thoughtful,réfléchie,4,9,travailleurs travailleur ouvrières ouvrier ouvriers
+fr,worker,ouvrier,ouvrière,invariant,stupid,bête,2,6,travailleur ouvrier bûcheron ouvrières ouvriers
