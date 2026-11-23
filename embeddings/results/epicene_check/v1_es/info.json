@@ -1,0 +1,20 @@
+{
+ "n_pairs": 58,
+ "listed": 2143,
+ "dropped_not_in_50k": [
+  "garante",
+  "inversionista",
+  "nutricionista",
+  "oligarca",
+  "prestamista",
+  "prole",
+  "yihadista"
+ ],
+ "dropped_overlap_occupation_or_attribute": [],
+ "strict_epicenes_after_coverage": {
+  "m": 17,
+  "f": 15
+ },
+ "floor_met": true,
+ "primary_anchor": "epicene_strict"
+}

@@ -1,0 +1,5 @@
+space,yardstick,anchors_agree,primary,verdict_primary,A,A_lo,A_hi,raw,loo_depends_on,S1-S6_depends_on,S4_broad_verdict,label
+original,english,True,epicene_strict,asymmetry: feminine further,-2.3719788595889137,-3.7598507878145777,-0.9508968411940713,-2.436758964744048,[],[],asymmetry: feminine further,
+original,native,True,epicene_strict,inconclusive,-1.8286499521862523,-3.7069183598747593,0.27892301394329816,-1.6729341447142005,[],[],inconclusive,
+shift_ori,english,True,epicene_strict,inconclusive,-0.5715031775825454,-1.7368454510580629,0.5624769981095821,-0.6362832827376796,[],[],inconclusive,algebraically constrained (Z14)
+shift_ori,native,True,epicene_strict,inconclusive,0.2972953298150043,-1.17053955007628,1.8465332737212607,0.453011137287056,[],[],inconclusive,algebraically constrained (Z14)
