@@ -1,6 +1,6 @@
 # Word-pair test with number: singular and plural occupation forms (pre-registration, paper B)
 
-*Status: **DRAFT 2026-11-24**, for PI review. Nothing has been scored. Builds on the adopted
+*Status: **ADOPTED 2026-11-24** (adoption record at the end). Nothing has been scored. Builds on the adopted
 expanded-cue study (`wordpair-cues-prereg.md`); everything not stated here is as there.*
 
 ## Why
@@ -30,6 +30,19 @@ cue may reflect that reading rather than a failure of agreement.
    (RR masc pl − RR fem pl). Reported alongside, paired and descriptive: plural intrusion − singular
    intrusion (does the generic reading make intrusion stronger in the plural?), and the four forms'
    RRs under each plural cue type.
+
+5. **Q5 (grammatical competence, descriptive; added 2026-11-24 at the PI's request, before scoring).**
+   How often does the space get agreement wrong in general, so that intrusion can be read against
+   a baseline for "the space is just bad at grammar"? From the four forms' RRs, as shares of the
+   total RR mass of the four forms (ratio of means, as in paper A's masculine share):
+   - *number error*: under singular cues (Q1–Q3), the plural forms' share; under plural cues (Q4),
+     the singular forms' share;
+   - *gender error*: under masculine cues, the feminine forms' share (both numbers); under feminine
+     cues, the masculine forms' share (both numbers; the share version of intrusion).
+   Reported per cue type and number, with intervals, no verdict. The comparison of interest:
+   if the gender error under feminine cues is much larger than both the number error and the gender
+   error under masculine cues, intrusion is specific to the feminine side rather than general
+   grammatical noise.
 
 ## Design
 
@@ -83,3 +96,16 @@ generic form.
 2. max (primary) vs sum (sensitivity) for combining the two numbers?
 3. Is the 200k vocabulary acceptable, given that paper A's numbers are at 50k? (Q2 recomputes
    singular intrusion at 200k, so the comparison is internal.)
+
+## Adoption record (2026-11-24)
+
+- PI accepted the three open points as proposed (Spanish primary, French descriptive; max primary,
+  sum sensitivity; 200k vocabulary), suggested the plural-cue arm (Q4) and requested the
+  grammatical-competence measures (Q5); adopted with Q4 and Q5 as written above.
+- Input lists: `data/gm_pairs_frozen_v1.csv` (sha256 1dfc6c399d9f9746…), `data/wp_plural_cues_v0.csv`
+  (da03bffa5009ef4e…), `data/wp_plural_occ_en_v0.csv` (60e4100b5b4f4c24…), cues `data/wp_cues_frozen_v1.csv`.
+- Scoring script `scripts/wordpair_plurals.py`, committed with this record before any score. Its
+  only run before adoption was the pre-stated check: singular intrusion at 50k on the full clean
+  list reproduces the cue study exactly (ES 0.2912, FR 0.1914).
+- Sensitivity (b) is run as `PLURALS_VOCAB=50000` (occupations with all four forms in the first 50k
+  words); sensitivity (a), the sum version, is reported in the same output as `S_sum_intrusion`.
