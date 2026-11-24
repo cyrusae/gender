@@ -17,6 +17,7 @@ for l in en es fr de it hr ru tr; do
 done
 for d in en-es es-en es-fr en-fr fr-en; do
   get "https://dl.fbaipublicfiles.com/arrival/dictionaries/$d.txt" "$STORE/muse/dictionaries/$d.txt"
+  get "https://dl.fbaipublicfiles.com/arrival/dictionaries/$d.5000-6500.txt" "$STORE/muse/dictionaries/$d.5000-6500.txt"
 done
 for l in es fr de it pl en; do
   f="$STORE/fasttext_cc/cc.$l.300.vec"
