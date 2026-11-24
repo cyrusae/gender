@@ -42,3 +42,18 @@ occupations; outputs in `fr_flagged/`, released centring as frozen):
 | Generic masculine, French | Δρ 0.13, inconclusive | Δρ 0.10, inconclusive | unchanged |
 
 Feminine-side homographs (*cuisinière* 'stove') are not part of this set in either language; see Z21.
+
+## Addendum 2026-11-24: expanded-cue test with the described (midpoint) centring, flagged occupations removed
+
+The paper presents the midpoint centring as primary, so the robustness check was rerun with it
+(`ZHOU_CENTRE=midpoint`; Spanish 42 occupations, French 20; outputs in `midpoint_flagged/`).
+
+| | Primary, midpoint (54 / 22) | Flagged removed, midpoint (42 / 20) |
+|---|---|---|
+| ES intrusion, original | 0.291 [0.186, 0.396] present | 0.326 [0.202, 0.444] present |
+| ES change after Shift / Hybrid | −0.103 / −0.086, both reduce | −0.113 [−0.161, −0.069] / −0.107 [−0.175, −0.049], both reduce |
+| FR intrusion, original | 0.191 [0.002, 0.370] present | 0.233 [0.040, 0.419] present |
+| FR change after Shift / Hybrid | −0.096 reduces / −0.047 [−0.100, 0.002] no clear change | −0.098 [−0.134, −0.065] reduces / −0.043 [−0.095, 0.002] no clear change |
+| FR level after Shift / Hybrid (descriptive) | 0.096 / 0.144, inconclusive | 0.135 inconclusive / 0.189 [0.014, 0.364] present |
+
+Verdicts unchanged in both languages.
