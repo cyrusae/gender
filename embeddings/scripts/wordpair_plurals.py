@@ -78,7 +78,7 @@ def measures(R, pi, ii, oi):
             m["Q3_mpl_minus_msg_under_fem"] = (F[..., 1] - F[..., 0]).mean()
         else:
             m["Q4_plural_intrusion"] = (F[..., 1] - F[..., 3]).mean()
-    if "pl" in R:
+    if "pl" in R and "sg" in R:
         m["Q4_plural_minus_singular_intrusion"] = m["Q4_plural_intrusion"] - m["singular_intrusion"]
     return m
 
