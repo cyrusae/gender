@@ -109,3 +109,13 @@ generic form.
   list reproduces the cue study exactly (ES 0.2912, FR 0.1914).
 - Sensitivity (b) is run as `PLURALS_VOCAB=50000` (occupations with all four forms in the first 50k
   words); sensitivity (a), the sum version, is reported in the same output as `S_sum_intrusion`.
+
+## Results (2026-11-24; `results/wordpair_plurals/`)
+
+Spanish (primary, 43 occupations): **Q1 present**, gender-level intrusion 0.284 [0.160, 0.404]
+(singular, same run, 0.278); **Q2 no clear difference**, 0.006 [−0.000, 0.014]; **Q4 present**,
+plural intrusion 0.365 [0.244, 0.482] (plural − singular 0.086 [−0.055, 0.220], descriptive).
+French (descriptive, 16): all inconclusive, same direction. Q5: under feminine cues 65% (ES) of the
+four forms' retrieval goes to the masculine forms, against 17% feminine under masculine cues and
+6–14% wrong-number; intrusion is concentrated on the feminine side, not general grammatical noise.
+Sensitivities (50k, 18 occupations; sum instead of max) give the same verdicts.

@@ -1,0 +1,38 @@
+{
+ "vocab": 200000,
+ "es": {
+  "n_occupations": 43,
+  "occupations_dropped": [
+   "barbero",
+   "capitán",
+   "consejero",
+   "coreógrafo",
+   "entrenador",
+   "herrero",
+   "ingeniero",
+   "juez",
+   "locutor",
+   "psicólogo",
+   "redactor"
+  ],
+  "n_gendered": 87,
+  "n_invariant": 67,
+  "n_gendered_plural": 87,
+  "n_invariant_plural": 67
+ },
+ "fr": {
+  "n_occupations": 16,
+  "occupations_dropped": [
+   "administrateur",
+   "avocat",
+   "dessinateur",
+   "mathématicien",
+   "professeur",
+   "éditeur"
+  ],
+  "n_gendered": 86,
+  "n_invariant": 60,
+  "n_gendered_plural": 86,
+  "n_invariant_plural": 58
+ }
+}
