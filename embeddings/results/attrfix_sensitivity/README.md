@@ -28,3 +28,7 @@ Reproduce: the corrected lists are the scripts' default (switch in `scripts/zhou
 `attributes()`; PI 2026-11-11). `ZHOU_ATTR=published` reproduces the frozen files in the per-study
 result folders, which were made with Zhou's lists. Checked:
 French zero point gives −1.91 (published) and −1.53 (corrected).
+
+**2026-11-24:** `zhou_zero_point_{es,fr}/` now hold the full output of the corrected-list run (summary,
+sensitivity, leave-one-out, info), not only `reading.csv` (unchanged). This is the source for the paper's
+anchor comparison (epicene, inanimate, common-gender zero points with corrected attribute lists).
