@@ -23,6 +23,13 @@ cue may reflect that reading rather than a failure of agreement.
 3. **Q3 (descriptive).** Where does retrieval go? For each cue type (masculine, invariant,
    feminine), the mean RR of each of the four forms, and under feminine cues RR masc pl − RR fem pl
    (does the masculine plural, the generic form, intrude more than the masculine singular?).
+4. **Q4 (plural cues; added 2026-11-24 at the PI's suggestion, before scoring).** The same test with
+   everything plural: *gorgeous : developers = hermosas : ?*. Under a feminine plural cue only the
+   feminine plural agrees; under a masculine plural cue the masculine plural agrees and is also the
+   generic form for a mixed group. *Plural intrusion* = mean over feminine plural cues of
+   (RR masc pl − RR fem pl). Reported alongside, paired and descriptive: plural intrusion − singular
+   intrusion (does the generic reading make intrusion stronger in the plural?), and the four forms'
+   RRs under each plural cue type.
 
 ## Design
 
@@ -38,6 +45,13 @@ cue may reflect that reading rather than a failure of agreement.
   invariant; FR 86 + 60. Cues stay singular.
 - **Query and ranks:** as the cue study (EN[occupation] − EN[cue] + T[cue form]; cue form removed;
   rank 0 outside the top 999), with the four occupation forms looked up in the same ranked list.
+- **Plural cues (Q4):** plural forms of the frozen cues and English plurals of the occupation glosses,
+  built by rule from Wiktionary (`scripts/wp_plural_cues_build.py` → `data/wp_plural_cues_v0.csv`,
+  `data/wp_plural_occ_en_v0.csv`): every Spanish cue has its plural forms in the 200k vocabulary
+  (87 + 67); French 86 + 58 (two invariant plurals missing, those cues dropped from Q4); every English
+  gloss has a plural in the first 200k English words. Query EN[occupation pl] − EN[cue] +
+  T[cue plural form] (English adjectives do not inflect, so the English cue is unchanged); the cue's
+  plural form is removed from the ranking. Same occupations as Q1.
 - **Intervals:** 10,000 bootstrap draws (seed 0), occupations and cues resampled independently
   (cues within cue type; gendered pairs keep their two cues together), as the cue study. Q2 is
   paired within each draw.
@@ -48,6 +62,8 @@ cue may reflect that reading rather than a failure of agreement.
 - Q2: **singular-only overstates** if the upper bound of (gender-level − singular) < 0;
   **understates** if the lower bound > 0; else **no clear difference**.
 - Q3: descriptive; no verdict.
+- Q4: plural intrusion **present / absent / inconclusive** as Q1; the paired plural − singular
+  difference is descriptive.
 - Sensitivity (reported, not used for verdicts): (a) sum instead of max of the two forms' RRs;
   (b) the 18 Spanish occupations with all four forms in the first 50k words, target vocabulary 50k
   (paper A's setting).
@@ -57,7 +73,9 @@ cue may reflect that reading rather than a failure of agreement.
 Q1 present: the masculine lead is large under every cue type in paper A, and adding plurals gives
 each gender a second chance. Q2 no clear difference or a small overstatement: plurals should help
 feminine retrieval most when the feminine singular is rare. Q3: masculine plurals rank lower than
-masculine singulars under all cues, since the query is built from singular words.
+masculine singulars under all cues, since the query is built from singular words. Q4: plural
+intrusion present and larger than singular intrusion, because the masculine plural is also the
+generic form.
 
 ## Open for the PI
 
