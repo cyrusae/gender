@@ -105,7 +105,7 @@ def main():
         if CHECK:
             occ = m[m.masc.isin(w2i) & m.fem.isin(w2i)]
         else:
-            occ = m[m[["masc", "fem", "masc_pl", "fem_pl"]].isin(w2i).all(axis=1)]
+            occ = m[m[["masc", "fem", "masc_pl", "fem_pl"]].isin(list(w2i)).all(axis=1)]  # DataFrame.isin(dict) would map columns
         occ = occ.reset_index(drop=True)
         cs = cues[(cues.lang == lang) & (cues.subset == "primary")]
         G = cs[cs.type == "gendered"].reset_index(drop=True)
